@@ -1,0 +1,37 @@
+name: Build animatic artifact
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Confirm FFmpeg is available
+        run: ffmpeg -version
+
+      - name: Render animatic from text payload
+        run: scripts/render_animatic_from_payload.sh "$RUNNER_TEMP/black_lady_animatic_cloud_smoke_test_02.mp4"
+
+      - name: Verify rendered file
+        run: test -s "$RUNNER_TEMP/black_lady_animatic_cloud_smoke_test_02.mp4"
+
+      - name: Upload animatic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: black-lady-animatic-cloud-smoke-test-02
+          path: ${{ runner.temp }}/black_lady_animatic_cloud_smoke_test_02.mp4
+          retention-days: 7
+          if-no-files-found: error
