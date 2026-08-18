@@ -28,8 +28,8 @@ restore_image sh01 "$WORK_DIR/sh01.png"
 restore_image sh02 "$WORK_DIR/sh02.png"
 
 ffmpeg -hide_banner -loglevel warning -y \
-  -loop 1 -framerate 24 -i "$WORK_DIR/sh01.png" \
-  -loop 1 -framerate 24 -i "$WORK_DIR/sh02.png" \
+  -framerate 24 -i "$WORK_DIR/sh01.png" \
+  -framerate 24 -i "$WORK_DIR/sh02.png" \
   -filter_complex "\
 [0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,\
 zoompan=z='if(lte(on,16),1,1+0.035*(on-16)/67)':\
