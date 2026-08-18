@@ -27,6 +27,7 @@ restore_image() {
 restore_image sh01 "$WORK_DIR/sh01.png"
 restore_image sh02 "$WORK_DIR/sh02.png"
 
+# Read each still once; zoompan supplies the shot frames and then lets concat advance.
 ffmpeg -hide_banner -loglevel warning -y \
   -framerate 24 -i "$WORK_DIR/sh01.png" \
   -framerate 24 -i "$WORK_DIR/sh02.png" \
