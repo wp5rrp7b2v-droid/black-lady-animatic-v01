@@ -1,0 +1,59 @@
+name: Render SH05 Remotion artifact
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Prepare media inputs
+        run: |
+          mkdir -p remotion-sh05/public production/renders
+          base="https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/releases/download/sh05-cloud-test-v001"
+          curl -fL --retry 3 -o remotion-sh05/public/SH05B_MICRO_MOTION_V002.mp4 "$base/SH05B_MICRO_MOTION_V002.mp4"
+          curl -fL --retry 3 -o remotion-sh05/public/SH05C_VIDU_BASE_V001.mp4 "$base/SH05C_VIDU_BASE_V001.mp4"
+          ffmpeg -y \
+            -f lavfi \
+            -i "anoisesrc=color=pink:amplitude=0.045:sample_rate=48000:duration=10.033333" \
+            -af "lowpass=f=420,highpass=f=35,aecho=0.8:0.18:48:0.06" \
+            -ac 2 \
+            remotion-sh05/public/castle-room-tone.wav \
+            -loglevel error
+
+      - name: Install Remotion dependencies
+        working-directory: remotion-sh05
+        run: npm install
+
+      - name: Render SH05 V001
+        working-directory: remotion-sh05
+        run: npm run render
+
+      - name: Verify rendered file
+        run: |
+          test -s production/renders/SH05_BC_REMOTION_AUTOEDIT_V001.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 production/renders/SH05_BC_REMOTION_AUTOEDIT_V001.mp4
+
+      - name: Upload SH05 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SH05_BC_REMOTION_AUTOEDIT_V001
+          path: production/renders/SH05_BC_REMOTION_AUTOEDIT_V001.mp4
+          retention-days: 7
+          if-no-files-found: error
