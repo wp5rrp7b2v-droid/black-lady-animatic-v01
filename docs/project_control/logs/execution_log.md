@@ -110,11 +110,24 @@
 5. 对小样进行真实音频逐段校验；
 6. 再判断 P0.1 是否达到 PASS 条件。
 
-## PM Scope Lock｜2026-09-12｜MVP1 = S2 Chapter 134
+## PM Scope Lock｜2026-09-12｜MVP1 Start = S2 Chapter 134
 
-- Product Owner 明确：第一个 MVP 的正式故事范围从 S2 第134章《【黑衣夫人】参观》开始。
+- Product Owner 明确：第一个 MVP 的正式故事起点从 S2 第134章《【黑衣夫人】参观》开始。
 - 第133章不进入 MVP1 正式成片，只保留为前置语境。
-- 因此 P0.1-05 不再以“准备完整《黑衣夫人》全部有声书”为前提，而改为先建立服务 MVP1 第134章的原音获取、准备、登记、转写与校验能力。
+- 因此 P0.1-05 不再以“准备完整《黑衣夫人》全部有声书”为前提，而改为先建立服务 MVP1 的原音获取、准备、登记、转写与校验能力。
 - 历史 `ScreenRecording_09-08-2026_21-33-06_audio.m4a` 经核验为 2,636,183 bytes、195.844989 sec、AAC 2ch 44.1kHz，SHA-256=`abaaab1c0c8362e6d61268ba09b0f0ce6cb915cf49c046fd3b32c49405746551`；Product Owner 确认其仅为测试片段。
 - 上述音频正式降级为 `NON-CANONICAL TEST AUDIO`，不得作为 MVP1 canonical audio baseline。
-- P0.1 当前下一步改为：先准备并锁定第134章真正的 MVP1 canonical 原音频，再建立 S3 小样和验证流程。
+
+## PM Audio Capture Verification｜2026-09-12｜MVP1 crosses into Chapter 135
+
+- Product Owner 提供新的正式候选录屏：`ScreenRecording_09-12-2026 13-40-39_1.MP4`。
+- RAW_CAPTURE 规格：235,987,834 bytes；381.958333 sec；视频 H.264 1284×2778 / 60fps；音频 AAC 2ch / 44.1kHz；SHA-256=`9bab514775f0771987b094cdd9394b81d6a49a7bace995ef9ad4dbcce448abd1`。
+- 录屏画面确认对应有声小说 `097【黑衣夫人】主人`。
+- 录屏开头显示“欢迎各位来到艾伦古堡”等内容，与 S2 第134章开头一致。
+- 对照录屏画面与 S2：约在有声小说播放器 05:05–05:10 左右，内容已由第134章进入第135章开头；后续出现黑裙、黑色高跟鞋、红色指甲油、莫妮卡夫人入座等第135章早段内容。
+- 录屏末段约播放器 06:20，已经到莫妮卡夫人入座、众人开始跟随入座附近。因此 MVP1 的实际内容跨度不是“第134章 only”。
+- 已从 RAW_CAPTURE 中以 stream copy 方式无重编码提取原 AAC 音轨：`AUDIO_MVP1_CAPTURE_EXTRACT_V001.m4a`。
+- RAW_AUDIO_EXTRACT 规格：5,244,616 bytes；381.941995 sec；AAC 2ch / 44.1kHz；SHA-256=`d9a297b275a2fc42b85fa7b26407c4824c17efc63d1b9d148470f224d96be7f2`。
+- 当前状态：`RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE`。由于录屏本身可能含极短的起止操作冗余，尚未直接晋级为 `CANONICAL_AUDIO`。
+- 正式范围规则修正：MVP1 从 S2 第134章开头起，终点按真实有声小说连续音频边界锁定；原文章节只作为映射锚点。当前映射终点在 S2 第135章开头。
+- 下一步：锁定 canonical audio 的精确起止内容与时间码，再建立覆盖该完整音频跨度的 S3。
