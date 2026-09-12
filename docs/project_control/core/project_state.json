@@ -13,24 +13,9 @@
   "project_control_root": "docs/project_control/",
   "project_control_layout": "1.1",
   "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
-  "phase": {
-    "id": "P0",
-    "name": "项目重启与基础能力再验证",
-    "status": "ACTIVE"
-  },
-  "overall_gate_progress": {
-    "phase": "P0",
-    "passed": 1,
-    "total": 3,
-    "percent": 33,
-    "status": "1 / 3 PASS"
-  },
-  "current_gate": {
-    "id": "P0.2",
-    "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / AUDIT NEXT",
-    "note": "P0.1 已 PASS。下一阶段审计现有 Character / Scene / A-Series 视觉资产，锁定权威版本、分类、Reference 优先级、命名、生命周期和复用规则。"
-  },
+  "phase": {"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},
+  "overall_gate_progress": {"phase":"P0","passed":1,"total":3,"percent":33,"status":"1 / 3 PASS"},
+  "current_gate": {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / AUDIT NEXT","note":"P0.1 已 PASS。下一阶段审计现有 Character / Scene / A-Series 视觉资产，锁定权威版本、分类、Reference 优先级、命名、生命周期和复用规则。"},
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"PASS"},
     {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / AUDIT NEXT"},
@@ -53,100 +38,43 @@
       "正式音频生产模型锁定为 shot-driven automatic audio retrieval / extraction",
       "完整 MVP1 S3 searchable index 已建立：41 segments；9 VERIFIED，其余 REVIEWED searchable entries",
       "S3 检索抽查通过：开头、中段、后段关键词均唯一命中正确候选 segment",
-      "P0.1 Acceptance Matrix = PASS"
+      "P0.1 Acceptance Matrix = PASS",
+      "Dashboard 已刷新为 1 / 3 PASS，Current Gate = P0.2"
     ],
     "resume_from": "P0.2-01｜Visual Asset Authority Audit",
     "blockers": []
   },
   "mvp1_scope": {
-    "status": "LOCKED / CANONICAL AUDIO LOCKED",
-    "start_anchor": "欢迎各位来到艾伦古堡",
-    "end_anchor": "而后又匆匆离去备餐",
-    "chapter_mapping": "S2 Chapter 134 opening → early Chapter 135",
-    "chapter_133_role": "CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM",
-    "scope_rule": "MVP1 按真实有声小说连续叙事与 canonical audio 边界锁定；原文章节只作为内容映射锚点。"
+    "status":"LOCKED / CANONICAL AUDIO LOCKED",
+    "start_anchor":"欢迎各位来到艾伦古堡",
+    "end_anchor":"而后又匆匆离去备餐",
+    "chapter_mapping":"S2 Chapter 134 opening → early Chapter 135",
+    "chapter_133_role":"CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM",
+    "scope_rule":"MVP1 按真实有声小说连续叙事与 canonical audio 边界锁定；原文章节只作为内容映射锚点。"
   },
   "source_baseline": {
-    "S1": {
-      "id": "S1_SOURCE_NOVEL_FULL_V001.txt",
-      "status": "CANONICAL / LOCKED / REMOTE VERIFIED",
-      "path": "source_material/S1_novel/S1_SOURCE_NOVEL_FULL_V001.txt",
-      "sha256": "f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e",
-      "source_native_numbering_anomaly": "missing literal heading 第461章 between 第460章 and 第462章; preserve source unchanged"
-    },
-    "S2": {
-      "id": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
-      "status": "CANONICAL / LOCKED",
-      "path": "source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
-      "chapter_range": "133-164",
-      "sha256": "159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6"
-    },
-    "AUDIO_MVP1": {
-      "id": "AUDIO_MVP1_CANONICAL_V001",
-      "status": "CANONICAL / LOCKED / PRODUCT OWNER QC PASSED",
-      "canonical_filename": "AUDIO_MVP1_CANONICAL_V001.m4a",
-      "duration_sec": 359.141995,
-      "codec": "AAC",
-      "sample_rate_hz": 44100,
-      "channels": 2,
-      "sha256": "8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0",
-      "timeline_rule": "SOURCE AUDIO TC ≠ FINAL EDIT TC"
-    },
-    "S3": {
-      "id": "S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001",
-      "status": "MVP1 SEARCHABLE INDEX COMPLETE / P0.1 BASELINE LOCKED",
-      "path": "source_material/S3_audio_transcript/S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv",
-      "segment_count": 41,
-      "verified_segment_count": 9,
-      "reviewed_searchable_segment_count": 32,
-      "coverage": "full AUDIO_MVP1_CANONICAL_V001 narrative span",
-      "role": "machine-searchable source-audio material index and verification layer; not final animation timeline and not a pre-sliced clip library",
-      "minimum_fields_for_search": ["text","speaker","speaker_type","approx source TC","source_text_ref"],
-      "retrieval_spot_check": "PASSED"
-    }
+    "S1": {"id":"S1_SOURCE_NOVEL_FULL_V001.txt","status":"CANONICAL / LOCKED / REMOTE VERIFIED","path":"source_material/S1_novel/S1_SOURCE_NOVEL_FULL_V001.txt","sha256":"f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e","source_native_numbering_anomaly":"missing literal heading 第461章 between 第460章 and 第462章; preserve source unchanged"},
+    "S2": {"id":"S2_SOURCE_BLACK_LADY_TEXT_V001.txt","status":"CANONICAL / LOCKED","path":"source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt","chapter_range":"133-164","sha256":"159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6"},
+    "AUDIO_MVP1": {"id":"AUDIO_MVP1_CANONICAL_V001","status":"CANONICAL / LOCKED / PRODUCT OWNER QC PASSED","canonical_filename":"AUDIO_MVP1_CANONICAL_V001.m4a","duration_sec":359.141995,"codec":"AAC","sample_rate_hz":44100,"channels":2,"sha256":"8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0","timeline_rule":"SOURCE AUDIO TC ≠ FINAL EDIT TC"},
+    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"MVP1 SEARCHABLE INDEX COMPLETE / P0.1 BASELINE LOCKED","path":"source_material/S3_audio_transcript/S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv","segment_count":41,"verified_segment_count":9,"reviewed_searchable_segment_count":32,"coverage":"full AUDIO_MVP1_CANONICAL_V001 narrative span","role":"machine-searchable source-audio material index and verification layer; not final animation timeline and not a pre-sliced clip library","minimum_fields_for_search":["text","speaker","speaker_type","approx source TC","source_text_ref"],"retrieval_spot_check":"PASSED"}
   },
   "production_audio_model": {
-    "rule": "SHOT-DRIVEN AUTOMATIC AUDIO RETRIEVAL",
-    "trigger": "A1 / story beat / storyboard / shot visual content locked enough for audio alignment",
-    "user_role": "approve narrative and final QC; no routine manual text search or source TC hunting",
-    "resolver_inputs": ["A1 ADAPTATION_SCRIPT","Shot Plan / storyboard beat metadata","S3 source-audio index","AUDIO_MVP1_CANONICAL_V001.m4a"],
-    "resolver_outputs": ["matched source segment(s)","automatic source TC","extracted Audio Clip with handles","confidence / exception flags","placement candidate for Animatic / Edit Timeline"],
-    "exception_rule": "human intervention only for low-confidence match, ambiguity, extraction boundary failure, continuity problem, or final QC",
-    "validation_gate": "P0.3"
+    "rule":"SHOT-DRIVEN AUTOMATIC AUDIO RETRIEVAL",
+    "trigger":"A1 / story beat / storyboard / shot visual content locked enough for audio alignment",
+    "user_role":"approve narrative and final QC; no routine manual text search or source TC hunting",
+    "resolver_inputs":["A1 ADAPTATION_SCRIPT","Shot Plan / storyboard beat metadata","S3 source-audio index","AUDIO_MVP1_CANONICAL_V001.m4a"],
+    "resolver_outputs":["matched source segment(s)","automatic source TC","extracted Audio Clip with handles","confidence / exception flags","placement candidate for Animatic / Edit Timeline"],
+    "exception_rule":"human intervention only for low-confidence match, ambiguity, extraction boundary failure, continuity problem, or final QC",
+    "validation_gate":"P0.3"
   },
   "baseline_audit_preliminary": {
-    "confirmed_existing": [
-      "P0.1 story/text/audio baseline PASS",
-      "Character masters and approved auxiliary references exist but authority inventory still needs P0.2 audit",
-      "Scene Master and A01-A07 approved static visual assets exist; final production authority/reuse status still needs P0.2 audit",
-      "Remotion engineering capability exists; production video pipeline still requires P0.3 validation"
-    ],
-    "not_yet_trusted_as_production_pipeline": [
-      "visual asset governance after P0.2 audit",
-      "shot-driven Audio Alignment / Resolver automatic precise retrieval/extraction",
-      "Animatic director method",
-      "character animation method",
-      "complete video production/editing pipeline"
-    ],
-    "hold": ["A08_REBOOT"]
+    "confirmed_existing":["P0.1 story/text/audio baseline PASS","Character masters and approved auxiliary references exist but authority inventory still needs P0.2 audit","Scene Master and A01-A07 approved static visual assets exist; final production authority/reuse status still needs P0.2 audit","Remotion engineering capability exists; production video pipeline still requires P0.3 validation"],
+    "not_yet_trusted_as_production_pipeline":["visual asset governance after P0.2 audit","shot-driven Audio Alignment / Resolver automatic precise retrieval/extraction","Animatic director method","character animation method","complete video production/editing pipeline"],
+    "hold":["A08_REBOOT"]
   },
-  "task_numbering": {
-    "project_restart_gates": "P0.x",
-    "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-056",
-    "next_codex_task_when_needed": "D-057"
-  },
-  "dashboard": {
-    "path": "docs/project_control/dashboard/dashboard.html",
-    "role": "DERIVED_VISUALIZATION",
-    "authoritative": false,
-    "status": "REFRESH REQUIRED FOR P0.1 PASS / P0.2 CURRENT GATE"
-  },
-  "gate_paths": {
-    "P0.1": "docs/project_control/gates/P0_1_story_text/",
-    "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
-    "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
-  },
+  "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"REFRESHED / 1 OF 3 PASS / P0.2 CURRENT GATE"},
+  "gate_paths": {"P0.1":"docs/project_control/gates/P0_1_story_text/","P0.2":"docs/project_control/gates/P0_2_visual_assets/","P0.3":"docs/project_control/gates/P0_3_video_pipeline/"},
   "stage_goal": "完成 P0.2 视觉资产治理审计：明确已有角色锚定图、辅助参考、Scene Master 与正式镜头资产的权威层级、状态与复用边界，为后续镜头生产与 P0.3 视频 Pipeline 验证提供可信视觉输入。",
   "blockers": []
 }
