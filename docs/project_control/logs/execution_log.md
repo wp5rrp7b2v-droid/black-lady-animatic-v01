@@ -109,3 +109,12 @@
 4. 建立 S3 数据结构；
 5. 对小样进行真实音频逐段校验；
 6. 再判断 P0.1 是否达到 PASS 条件。
+
+## PM Scope Lock｜2026-09-12｜MVP1 = S2 Chapter 134
+
+- Product Owner 明确：第一个 MVP 的正式故事范围从 S2 第134章《【黑衣夫人】参观》开始。
+- 第133章不进入 MVP1 正式成片，只保留为前置语境。
+- 因此 P0.1-05 不再以“准备完整《黑衣夫人》全部有声书”为前提，而改为先建立服务 MVP1 第134章的原音获取、准备、登记、转写与校验能力。
+- 历史 `ScreenRecording_09-08-2026_21-33-06_audio.m4a` 经核验为 2,636,183 bytes、195.844989 sec、AAC 2ch 44.1kHz，SHA-256=`abaaab1c0c8362e6d61268ba09b0f0ce6cb915cf49c046fd3b32c49405746551`；Product Owner 确认其仅为测试片段。
+- 上述音频正式降级为 `NON-CANONICAL TEST AUDIO`，不得作为 MVP1 canonical audio baseline。
+- P0.1 当前下一步改为：先准备并锁定第134章真正的 MVP1 canonical 原音频，再建立 S3 小样和验证流程。
