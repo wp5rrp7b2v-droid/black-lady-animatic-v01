@@ -4,7 +4,8 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
-| BL-D-011 | 2026-09-12 | Product Owner 正式锁定第一个 MVP 的故事范围：从 S2 第134章开始，MVP1 对应第134章《【黑衣夫人】参观》；第133章不属于 MVP1 正式成片范围，仅保留为前置语境。MVP1 所需原音频的获取、准备、登记、转写与校验本身属于项目能力建设的一部分，不要求先准备完整《黑衣夫人》全部有声书。现有 `ScreenRecording_09-08-2026_21-33-06_audio.m4a` 仅为历史测试片段，降级为 NON-CANONICAL TEST AUDIO，不得作为 MVP1 canonical audio baseline。 | ACTIVE / MVP1 SCOPE LOCKED / P0.1-05 REFRAMED |
+| BL-D-012 | 2026-09-12 | Product Owner 进一步明确 MVP1 的边界规则：MVP1 从 S2 第134章《【黑衣夫人】参观》开头开始，但不以原文章节结尾作为硬边界。由于有声小说的分集/进度与原文章节划分存在差异，本次实际录制内容跨入 S2 第135章开头。MVP1 应定义为“按真实有声小说连续叙事与音频边界锁定的片段”，原文章节仅用于内容映射；正式音频起止时间以 canonical audio 为最终事实依据。 | ACTIVE / CLARIFIES BL-D-011 / MVP1 AUDIO-SPAN MODEL |
+| BL-D-011 | 2026-09-12 | Product Owner 正式锁定第一个 MVP 的故事起点：从 S2 第134章《【黑衣夫人】参观》开始；第133章不属于 MVP1 正式成片范围，仅保留为前置语境。MVP1 所需原音频的获取、准备、登记、转写与校验本身属于项目能力建设的一部分，不要求先准备完整《黑衣夫人》全部有声书。现有 `ScreenRecording_09-08-2026_21-33-06_audio.m4a` 仅为历史测试片段，降级为 NON-CANONICAL TEST AUDIO，不得作为 MVP1 canonical audio baseline。BL-D-012 对“第134章”进一步澄清为起始锚点而非唯一内容范围。 | ACTIVE / MVP1 START LOCKED / P0.1-05 REFRAMED |
 | BL-D-010 | 2026-09-12 | Product Owner 指定当前上传的完整《诡舍》原文为 S1 唯一 canonical source；正式文件名锁定为 `S1_SOURCE_NOVEL_FULL_V001.txt`，格式 UTF-8 plain text，SHA-256=`f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e`。结构检查发现源文件从第460章直接跳至第462章，该现象登记为 `SOURCE-NATIVE NUMBERING ANOMALY`，不得自行补章或重编号。 | ACTIVE / P0.1-04 COMPLETE / S1 LOCKED |
 | BL-D-009 | 2026-09-12 | Product Owner 批准将 `docs/project_control/` 从平铺结构重构为 `core/`、`logs/`、`gates/`、`dashboard/`、`archive/`；生产源数据与 Project Control 分离，统一进入仓库根目录 `source_material/`。 | ACTIVE / PROJECT CONTROL STRUCTURE 1.1 |
 | BL-D-008 | 2026-09-12 | Product Owner 指定 2026-09-12 当前 Chat 上传的《黑衣夫人》文本为 S2 唯一 canonical source；正式文件名锁定为 `S2_SOURCE_BLACK_LADY_TEXT_V001.txt`，格式为 UTF-8 plain text，正文保持原始字节不改；范围第133–164章，SHA-256=`159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6`。其他同名/近似文本降级为 non-canonical reference。 | ACTIVE / P0.1-03 COMPLETE / S2 LOCKED |
@@ -19,6 +20,7 @@
 ## 当前边界
 
 - P0.1–P0.3 是项目 Gate / 重启专项，不自动占用 Codex D-###。
-- MVP1 正式故事范围锁定为 S2 第134章；第133章只作为前置语境，不进入 MVP1 正式成片。
+- MVP1 正式故事起点锁定为 S2 第134章开头；实际终点按有声小说叙事/音频边界锁定，当前录制范围已跨入第135章开头。
+- 第133章只作为前置语境，不进入 MVP1 正式成片。
 - 旧资产不因重启自动废弃，也不因曾被 APPROVED 自动视为最终生产资产；以专项审计结果重新分类。
 - 当前不在本文件预判 P0.2 / P0.3 的最终制度或技术方案，必须经过专项讨论与验证后再形成新决策。
