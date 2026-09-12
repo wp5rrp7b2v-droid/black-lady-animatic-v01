@@ -37,3 +37,13 @@
 - `source_material/` 从 Project Control 中独立出来，用于正式源数据。
 - 仓库已确认处于 Private 状态。
 - 本次属于项目控制结构维护，不占用 Codex D-###。
+
+## P0.1-04｜S1 Full Novel Lock｜COMPLETE / 2026-09-12
+
+- Product Owner 指定当前上传的完整《诡舍》原文为唯一 S1 canonical source。
+- 正式文件名：`S1_SOURCE_NOVEL_FULL_V001.txt`。
+- 文件规格：UTF-8 plain text、BOM none、LF、6,480,028 bytes、2,289,031 characters。
+- 章节标题范围：第1章至第1002章《新世界（结局）》；检测到 1001 个章节标题。
+- SHA-256：`f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e`。
+- 源文件未检测到 `第461章` 标题；登记为 `SOURCE-NATIVE NUMBERING ANOMALY`，保持正文原样，不补写、不重编号。
+- P0.1 当前推进至 P0.1-05：原始有声小说音频实体登记与 S3 转写/校验体系建立。
