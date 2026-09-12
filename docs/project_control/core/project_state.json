@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R012",
+  "state_revision": "R013",
   "last_updated": "2026-09-12",
-  "session_status": "ACTIVE_AFTER_NETWORK_RECOVERY",
+  "session_status": "ACTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -24,17 +24,17 @@
     "audio_rule": "首个 MVP 原音频覆盖第134章开头并进入第135章开头；正式 source audio 起止边界以 AUDIO_MVP1_CANONICAL_V001.m4a 为最终事实依据。SOURCE AUDIO TC 不等于 FINAL EDIT TC。"
   },
   "phase": {"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},
-  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2、MVP1 canonical audio 与 S3 正式结构已锁定；当前进入 S3 真实小样验证。"},
+  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2、MVP1 canonical audio、S3 正式结构与双向小样验证均已完成；当前需要锁定 S3 规模化生产策略，再决定是否扩展至完整 MVP1。"},
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING"},
     {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"QUEUED"},
     {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED"}
   ],
-  "current_task": "P0.1-05C：选取 AUDIO_MVP1_CANONICAL_V001.m4a 的 20–40 秒真实小样，验证 S3 RAW → REVIEWED → VERIFIED 与 source TC 回切原音的方法。",
+  "current_task": "P0.1-05D：基于已通过的小样验证，确定 S3 正式生产中的自动定位、人工复核与 VERIFIED 升级策略，避免无必要的逐段手工微调。",
   "blocker": null,
-  "next_action": "选择至少包含一次旁白/对白切换的 20–40 秒 canonical audio 小样；建立对应 S3 segments，并逐段验证 speaker、speaker_type、实际听到的 text 与 source_start_tc/source_end_tc，随后按 VERIFIED source TC 回切原音确认无截字、无串句。",
+  "next_action": "锁定可规模化的 S3 生产规则：哪些步骤自动完成，哪些 segment 必须人工听审，哪些情况才需要手工微调边界；随后决定完整 MVP1 的 S3 填充方式。",
   "latest_checkpoint": {
-    "id": "2026-09-12-PM-S3-STRUCTURE-LOCK",
+    "id": "2026-09-12-PM-S3-SAMPLE-VALIDATION-COMPLETE",
     "status": "ACTIVE",
     "completed": [
       "Project Control Structure 1.1 已完成并作为当前 SSOT 布局",
@@ -43,12 +43,13 @@
       "MVP1 起点锁定为 S2 第134章开头，实际有声小说跨度进入第135章开头",
       "RAW_CAPTURE 与 RAW_AUDIO_EXTRACT 已登记并核验",
       "AUDIO_MVP1_CANONICAL_V001.m4a 已锁定；P0.1-05A COMPLETE",
-      "本地 GitHub 网络已恢复并完成同步",
       "Product Owner 锁定硬规则 SOURCE AUDIO TC ≠ FINAL EDIT TC",
-      "S3 正式字段、segment 规则、RAW/REVIEWED/VERIFIED 验证等级已锁定",
-      "S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv schema 已建立；P0.1-05B COMPLETE"
+      "S3 正式字段、segment 规则、RAW/REVIEWED/VERIFIED 验证等级已锁定；P0.1-05B COMPLETE",
+      "Pilot A 已完成 DIALOGUE→NARRATION 边界验证，S3-MVP1-0001–0005 全部 VERIFIED",
+      "Pilot B 已完成 NARRATION→DIALOGUE 边界验证，S3-MVP1-0006–0009 全部 VERIFIED",
+      "两轮均证明字幕/ASR 时间点只适合粗定位，最终 source TC 需要真实音频 QC；P0.1-05C COMPLETE"
     ],
-    "resume_from": "P0.1-05C｜S3 真实小样验证",
+    "resume_from": "P0.1-05D｜S3 规模化生产与人工复核策略",
     "blockers": []
   },
   "source_baseline": {
@@ -117,12 +118,13 @@
     },
     "S3": {
       "id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001",
-      "status":"STRUCTURE LOCKED / SAMPLE VALIDATION NEXT",
+      "status":"STRUCTURE LOCKED / SAMPLE METHOD VERIFIED / FULL MVP1 NOT YET POPULATED",
       "initial_scope":"MVP1 canonical audio / S2 Chapter 134 opening into early Chapter 135",
       "audio_source":"AUDIO_MVP1_CANONICAL_V001.m4a",
       "path":"source_material/S3_audio_transcript/S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv",
       "fields":["segment_id","audio_source_id","source_start_tc","source_end_tc","speaker_type","speaker","text","source_text_ref","verification_status","notes"],
       "verification_levels":["RAW_TRANSCRIPT","REVIEWED_TRANSCRIPT","VERIFIED_TRANSCRIPT"],
+      "verified_pilot_segments":"S3-MVP1-0001 through S3-MVP1-0009",
       "role":"source-audio material index and verification layer; not final animation timeline"
     }
   },
@@ -134,13 +136,14 @@
       "MVP1 RAW_CAPTURE + RAW_AUDIO_EXTRACT",
       "AUDIO_MVP1_CANONICAL_V001.m4a（canonical / locked / Product Owner QC passed）",
       "S3 正式 schema、segment 规则与验证等级（P0.1-05B complete）",
+      "S3 双向边界小样验证方法（P0.1-05C complete；0001–0009 VERIFIED）",
       "D-056 SOURCE_AUDIO_INDEX_V001（可作为历史导航索引，不作为精确 source extraction 边界）",
       "人物锚定图与辅助参考资产（数量与权威层级待审计）",
       "Scene Master 与 A01-A07 已批准静态视觉资产（最终剪辑用途未锁定）",
       "Remotion 工程与静态图+音频+时间线→MP4 的技术能力"
     ],
     "not_yet_trusted_as_production_pipeline": [
-      "S3 VERIFIED 小样校验方法的实际验证",
+      "S3 全量 MVP1 的规模化生成与人工复核策略",
       "人物锚定资产的生成与管理制度",
       "Scene Master 的生成、版本与引用制度",
       "原音精准提取与最终剪辑编排方法",
@@ -151,7 +154,7 @@
     "hold": ["A08_REBOOT"]
   },
   "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
-  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"APPROVED_V002 / REFRESH PENDING AFTER P0.1-05C"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"APPROVED_V002 / REFRESH PENDING AFTER P0.1"},
   "gate_paths": {
     "P0.1":"docs/project_control/gates/P0_1_story_text/",
     "P0.2":"docs/project_control/gates/P0_2_visual_assets/",
