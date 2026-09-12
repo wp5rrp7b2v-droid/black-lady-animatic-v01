@@ -2,6 +2,7 @@
 
 | ID | 日期 | 规则变化 | 状态 |
 |---|---|---|---|
+| RC-009 | 2026-09-12 | 视觉资产管理规则升级：只有 Product Owner 明确批准的视觉结果可进入正式 Asset Registry；人物/场景/服装/道具统一采用 Entity → Asset 模型；Approval 与 Lifecycle 分离，正式生命周期为 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED`；Atomic Master 与 Derived Reference Sheet 分离并记录依赖；正常生产目标改为 `Shot / Task Spec → Reference Resolver → Reference Package`，取消 Product Owner 的例行手工挑图、下载、命名、存储与登记；所有正式资产必须具备来源、审批、版本、替代、依赖和生产调用 Audit Trail。 | ACTIVE / P0.2 SYSTEM RULE LOCKED |
 | RC-008 | 2026-09-12 | 正式审批权锁定为 Product Owner：任何 Gate / Phase 即使已满足验收条件，ChatGPT / Codex 也只能标记 `READY_FOR_APPROVAL`；只有 Product Owner 明确批准后，才能更新为 `PASS / APPROVED / CLOSED`。P0.1 的 PASS 由 Product Owner 在 2026-09-12 当前 Chat 明确确认。 | ACTIVE |
 | RC-007 | 2026-09-12 | Project Control 目录升级为 1.1：`core/`、`logs/`、`gates/`、`dashboard/`、`archive/`；生产源数据移出 Project Control，统一进入 `source_material/`。 | ACTIVE |
 | RC-005 | 2026-09-11 | Dashboard V002 获批：必须可视化总体 Gate 完成度、当前 Gate 状态、阶段目标和真实 Blocker；项目控制规则区明确命名为 `Project Control Rules`。 | ACTIVE |
