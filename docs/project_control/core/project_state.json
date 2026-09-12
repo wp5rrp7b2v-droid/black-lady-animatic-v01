@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R021",
+  "state_revision": "R022",
   "last_updated": "2026-09-12",
   "session_status": "ACTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -37,6 +37,12 @@
     "effective_from":"2026-09-12",
     "p0_1_approval":"EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12"
   },
+  "local_sync_reminder": {
+    "status":"LOCKED",
+    "rule":"After every actual ChatGPT write/update to the canonical GitHub repo, the user-facing reply must remind Product Owner to sync the local working copy.",
+    "default_command":"cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
+    "conflict_rule":"If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
+  },
   "latest_checkpoint": {
     "id":"2026-09-12-PM-P0.2-02-ASSET-NAMING-LOCK",
     "status":"ACTIVE",
@@ -63,7 +69,8 @@
       "Entity ID prefixes locked: CHAR / SCENE / PROP / COSTUME",
       "Human-readable filename baseline locked: <ENTITY_ID>_<ROLE>_<VARIANT>_V###.<ext>",
       "Asset ID is immutable and independent of filename/path/storage",
-      "Asset ID and formal filename are assigned automatically by Automatic Ingest"
+      "Asset ID and formal filename are assigned automatically by Automatic Ingest",
+      "Local sync reminder governance locked: after every GitHub write, remind Product Owner to pull local working copy"
     ],
     "resume_from":"P0.2-02｜Entity / Asset Registry Schema",
     "blockers":[]
