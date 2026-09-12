@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "project_control_baseline": "1.1-draft",
+  "project_id": "BLACK-LADY-001",
+  "project_name": "诡舍·黑衣夫人",
+  "state_revision": "R005",
+  "last_updated": "2026-09-12",
+  "session_status": "RESTART_BASELINE_BUILDING",
+  "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
+  "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
+  "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
+  "repo_visibility": "private",
+  "project_control_root": "docs/project_control/",
+  "project_control_layout": "1.1",
+  "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
+  "phase": {"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},
+  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S2 已锁定；继续补齐 S1 完整原著与 S3 有声小说转写/音频校验体系。"},
+  "restart_tasks": [
+    {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING"},
+    {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"QUEUED"},
+    {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED"}
+  ],
+  "current_task": "P0.1-04：定位并登记 S1_SOURCE_NOVEL_FULL_V001；S2 已于 P0.1-03 锁定。",
+  "blocker": null,
+  "next_action": "定位完整《诡舍》原著源文件并登记为 S1_SOURCE_NOVEL_FULL_V001；随后进入 P0.1-05，登记原始有声小说音频并建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 的验证结构。",
+  "source_baseline": {
+    "S1": {"id":"S1_SOURCE_NOVEL_FULL_V001","status":"MISSING / UNCONFIRMED","path":"source_material/S1_novel/"},
+    "S2": {"id":"S2_SOURCE_BLACK_LADY_TEXT_V001.txt","status":"CANONICAL / LOCKED","chapter_range":"133-164","format":"UTF-8 plain text","sha256":"159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6","locked_on":"2026-09-12","path":"source_material/S2_black_lady/"},
+    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"NOT ESTABLISHED","path":"source_material/S3_audio_transcript/"}
+  },
+  "baseline_audit_preliminary": {
+    "confirmed_existing": [
+      "S2_SOURCE_BLACK_LADY_TEXT_V001.txt（canonical / locked）",
+      "原始有声小说音频源文件",
+      "D-056 SOURCE_AUDIO_INDEX_V001（可作为导航索引，不作为精确剪辑边界）",
+      "人物锚定图与辅助参考资产（数量与权威层级待审计）",
+      "Scene Master 与 A01-A07 已批准静态视觉资产（最终剪辑用途未锁定）",
+      "Remotion 工程与静态图+音频+时间线→MP4 的技术能力"
+    ],
+    "not_yet_trusted_as_production_pipeline": [
+      "人物锚定资产的生成与管理制度",
+      "Scene Master 的生成、版本与引用制度",
+      "原音精准剪辑方法",
+      "Animatic 导演方法",
+      "角色动画化方法",
+      "完整视频制作与剪辑 Pipeline"
+    ],
+    "hold": ["A08_REBOOT"]
+  },
+  "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"APPROVED_V002"},
+  "gate_paths": {
+    "P0.1":"docs/project_control/gates/P0_1_story_text/",
+    "P0.2":"docs/project_control/gates/P0_2_visual_assets/",
+    "P0.3":"docs/project_control/gates/P0_3_video_pipeline/"
+  },
+  "stage_goal": "完成《黑衣夫人》项目重启的基础能力审计与制度重建：分别锁定故事/文本数据基线、人物与场景视觉资产治理方法、以及经实际验证的视频制作与剪辑 Pipeline，从而为后续正式生产 Roadmap 提供可信基线。",
+  "overall_gate_progress": {"phase":"P0","passed":0,"total":3,"percent":0,"status":"0 / 3 PASS"},
+  "blockers": []
+}
