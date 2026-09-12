@@ -34,7 +34,7 @@
 
 ## 4. 同步模型
 
-1. **ChatGPT**：负责项目判断、方案、Gate Review、验收与 Project Control 维护。
+1. **ChatGPT**：负责项目判断、方案、Gate Review、验收建议与 Project Control 维护。
 2. 每完成明确阶段 / Gate / 正式任务并形成结论后，由 ChatGPT 更新 canonical repo。
 3. **Local sync**：本地工程开始前执行 `git pull --ff-only origin main`。
 4. **Codex**：负责本地工程、脚本、Remotion、音视频处理、文件与 Git 操作；只有 Task Contract 明确授权时才修改 Project Control。
@@ -64,11 +64,21 @@ P0 不继续生产 A08 或后续正式镜头；先重建：
 
 ## 8. 角色
 
-- **Product Owner**：用户；负责目标、重大决策、Gate Approval。
-- **ChatGPT**：项目控制、方案、验证设计、审核、Project Control 维护。
-- **Codex**：本地工程执行；按明确 Task Contract 工作。
+- **Product Owner**：用户；负责目标、重大决策，以及所有 Gate / Phase 的最终批准。
+- **ChatGPT**：项目控制、方案、验证设计、审核、Gate / Phase Review、Project Control 维护；无权自行完成最终批准。
+- **Codex**：本地工程执行；按明确 Task Contract 工作；无权自行完成 Gate / Phase 最终批准。
 - **GitHub canonical repo**：正式提交状态、版本历史、备份和跨环境访问层。
 
 ## 9. Source Material Storage Boundary
 
 当前 canonical repo 已为 **Private**。文本型源数据可按 `source_material/` 的分类规则提交并版本化；大型原始音频、视频和高容量二进制资产不得无规则直接进入普通 Git，应在 P0.1 / P0.3 中决定 Git LFS、Release/Artifact 或其他私有存储方案。
+
+## 10. Gate / Phase Approval Rule
+
+正式审批权只属于 **Product Owner**。
+
+- 当 Gate 或 Phase 的验收条件在执行层面已经满足时，ChatGPT / Codex 只能将其建议状态标记为 `READY_FOR_APPROVAL`，不得自行写成 `PASS`、`APPROVED`、`CLOSED` 或进入下一 Phase 的正式关闭状态。
+- 只有 Product Owner 在 Chat 中给出明确批准（例如“批准”“PASS”“正式通过”“可以关闭该 Phase / Gate”）后，Project Control 才能把对应 Gate / Phase 更新为正式 `PASS / APPROVED / CLOSED`。
+- 若验收条件满足但尚未获得 Product Owner 批准，状态必须保持 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，不得因技术完成自动晋级。
+- Product Owner 批准后，ChatGPT 负责把批准事实、日期和后续 Current Gate / Phase 写入 canonical Project Control。
+- 本规则同样适用于重启 Gate（如 P0.1 / P0.2 / P0.3）和后续正式 Phase；不得因层级命名不同绕过审批。
