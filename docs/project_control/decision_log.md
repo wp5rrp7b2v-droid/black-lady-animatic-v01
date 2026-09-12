@@ -4,6 +4,7 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
+| BL-D-008 | 2026-09-12 | Product Owner 指定 2026-09-12 当前 Chat 上传的《黑衣夫人》文本为 S2 唯一 canonical source；正式文件名锁定为 `S2_SOURCE_BLACK_LADY_TEXT_V001.txt`，格式为 UTF-8 plain text，正文保持原始字节不改；范围第133–164章，SHA-256=`159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6`。其他同名/近似文本降级为 non-canonical reference。 | ACTIVE / P0.1-03 COMPLETE / S2 LOCKED |
 | BL-D-006 | 2026-09-11 | Product Owner 批准 Dashboard V002：必须显示 Overall Gate Progress、Current Blockers、Current Gates 及其状态、Current Stage Goal；`Control Rule` 正式更名为 `Project Control Rules`。 | ACTIVE / DASHBOARD V002 APPROVED |
 | BL-D-007 | 2026-09-11 | `wp5rrp7b2v-droid/black-lady-animatic-v01` 被指定为当前 Project Control canonical repo；`docs/project_control/` 写入 `main` 后成为跨 Chat 正式读取入口。 | ACTIVE / CANONICAL REPO LOCKED |
 | BL-D-001 | 2026-09-11 | `docs/project_control/` 作为《黑衣夫人》项目正式事实源；Dashboard 只作为派生可视化窗口。 | ACTIVE |
