@@ -1,6 +1,6 @@
 # Visual Asset Management System V1｜P0.2 Design Baseline
 
-Status: `ACTIVE / CHARACTER RULE LOCKED / REGISTRY SCHEMA NEXT`
+Status: `ACTIVE / CHARACTER RULE + ASSET NAMING LOCKED / REGISTRY SCHEMA NEXT`
 
 本文件记录《诡舍·黑衣夫人》P0.2 已由 Product Owner 确认的视觉资产管理方向。它不是 P0.2 Gate PASS，也不代表自动化已实现；P0.2 后续仍需完成 schema、场景/服装/道具规范、存储、Resolver、Audit Trail 和现有资产迁移验证，并最终提交 Product Owner 审批。
 
@@ -85,6 +85,22 @@ P0.2 必须建立：
 
 历史 Approval 不因后续 Supersede / Deprecate / Archive 被删除。
 
+### 5.3 Asset ID / Naming Standard
+
+P0.2-02 已锁定资产 ID 与文件命名规则，详见：
+
+`docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md`
+
+正式原则：
+
+- Asset ID 使用 `AST_<MEDIA_CODE>_<6-digit sequence>`，例如 `AST_IMG_000128`、`AST_VID_000037`、`AST_AUD_000012`；
+- `asset_id` 只负责永久唯一识别，不把人物、角度、版本、审批或生命周期语义塞入 ID；
+- Entity ID 使用稳定业务前缀，例如 `CHAR_* / SCENE_* / PROP_* / COSTUME_*`；
+- 人类可读文件名默认使用 `<ENTITY_ID>_<ROLE>_<VARIANT>_V###.<ext>`；
+- Reference Sheet 若文件实体为图片，仍使用 `AST_IMG_*`，其职责由 Registry 的 `asset_class` 表达；
+- 文件改名、移动目录或切换 Storage 不得改变 Asset ID；
+- Asset ID、正式文件名、hash 与 Registry 写入由 Automatic Ingest 自动完成，Product Owner 不手工编号、命名或登记。
+
 ## 6. Atomic Master 与 Reference Sheet
 
 底层 Atomic Master 是权威输入；Reference Sheet 是生产便利层。
@@ -162,7 +178,7 @@ P0.2 必须进一步决定实际存储方案，例如 Git LFS / 私有对象存�
 1. Entity / Asset Registry schema；
 2. Character Core Set 精确定义：**COMPLETE / LOCKED，见 `character_asset_rules_v1.md`**；
 3. Scene / Costume / Prop / State / Variant 规范；
-4. Naming / Version / Authority rules；
+4. Naming rules：**COMPLETE / LOCKED，见 `asset_naming_rules_v1.md`**；Version / Authority rules 仍待锁定；
 5. Storage strategy；
 6. Reference Sheet template；
 7. Reference Resolver selection rules；
