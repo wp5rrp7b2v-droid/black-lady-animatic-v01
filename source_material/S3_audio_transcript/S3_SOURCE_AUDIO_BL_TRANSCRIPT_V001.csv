@@ -1,1 +1,6 @@
 segment_id,audio_source_id,source_start_tc,source_end_tc,speaker_type,speaker,text,source_text_ref,verification_status,notes
+S3-MVP1-0001,AUDIO_MVP1_CANONICAL_V001,00:00:00.000,00:00:03.250,DIALOGUE,尼尔,欢迎各位来到艾伦古堡,S2-CH134,VERIFIED_TRANSCRIPT,P0.1-05C pilot V002；Product Owner audio QC passed
+S3-MVP1-0002,AUDIO_MVP1_CANONICAL_V001,00:00:03.250,00:00:06.550,DIALOGUE,尼尔,我是这里的管家，尼尔,S2-CH134,VERIFIED_TRANSCRIPT,P0.1-05C pilot V002；Product Owner audio QC passed
+S3-MVP1-0003,AUDIO_MVP1_CANONICAL_V001,00:00:06.550,00:00:19.700,DIALOGUE,尼尔,莫妮卡夫人正在教堂祈祷，请各位稍作休整，等夫人祈祷结束后，她会来和大家共进晚餐，希望各位能对今晚的安排满意,S2-CH134,VERIFIED_TRANSCRIPT,P0.1-05C pilot V002；Product Owner audio QC passed
+S3-MVP1-0004,AUDIO_MVP1_CANONICAL_V001,00:00:19.700,00:00:30.030,NARRATION,NARRATOR,巨大的褐色古堡前，一名西装笔挺的管家对着面前的众人微微一笑，旋身迈进了古堡大门,S2-CH134,VERIFIED_TRANSCRIPT,P0.1-05C pilot V002；Product Owner audio QC passed
+S3-MVP1-0005,AUDIO_MVP1_CANONICAL_V001,00:00:30.030,00:00:33.020,NARRATION,NARRATOR,静静等待着众人进入,S2-CH134,VERIFIED_TRANSCRIPT,P0.1-05C pilot V002；Product Owner audio QC passed
