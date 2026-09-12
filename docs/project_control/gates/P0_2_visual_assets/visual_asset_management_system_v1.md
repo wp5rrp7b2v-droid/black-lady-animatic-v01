@@ -1,8 +1,8 @@
 # Visual Asset Management System V1｜P0.2 Design Baseline
 
-Status: `ACTIVE / RULE BASELINE LOCKED / DETAILED SCHEMA NEXT`
+Status: `ACTIVE / CHARACTER RULE LOCKED / REGISTRY SCHEMA NEXT`
 
-本文件记录《诡舍·黑衣夫人》P0.2 已由 Product Owner 确认的视觉资产管理方向。它不是 P0.2 Gate PASS，也不代表自动化已实现；P0.2 后续仍需完成 schema、标准视图、存储、Resolver、Audit Trail 和现有资产迁移验证，并最终提交 Product Owner 审批。
+本文件记录《诡舍·黑衣夫人》P0.2 已由 Product Owner 确认的视觉资产管理方向。它不是 P0.2 Gate PASS，也不代表自动化已实现；P0.2 后续仍需完成 schema、场景/服装/道具规范、存储、Resolver、Audit Trail 和现有资产迁移验证，并最终提交 Product Owner 审批。
 
 ## 1. 目标
 
@@ -26,15 +26,24 @@ Status: `ACTIVE / RULE BASELINE LOCKED / DETAILED SCHEMA NEXT`
 
 ## 3. 人物资产标准化要求
 
-主要人物必须遵循统一的 Character Asset Specification，避免角色之间 Reference 角度、构图、比例和职责不一致。
+P0.2-02 已正式锁定 Tier-based Character Asset 规则，详见：
 
-已锁定原则：
+`docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md`
 
-- 所有主要人物必须使用同一套 Mandatory Core View 定义；
-- `Front / 3/4 / Profile / Rear or Back / Full Body` 等角色视图的角度含义必须统一；
-- 同类型 Reference 应尽可能统一背景、光线、摄影距离和人物比例；
-- 额外表情、受伤、湿身、换装、特殊姿势等作为 Variant / Conditional Asset，不强制所有角色预制；
-- Exact Core Set 的数量、左右侧要求、角度参数和画幅标准在 P0.2 下一步专项锁定。
+正式原则：
+
+- 人物资产不采用所有角色一刀切的固定数量，而采用 `Tier A / B / C / D` 分级；
+- Tier A 核心角色采用 9-view canonical turnaround；
+- Tier B 重要配角采用 6-view Core Set，并固定 primary side；
+- Tier C 普通角色采用 3-view Minimum Set；
+- Tier D 群演 / 一次性角色不建立完整 Character Core Set；
+- Tier 由叙事重要性、出场频率、视角复杂度、连续性敏感度和动画需求共同决定；
+- Production Need 可以触发 Tier 升级；不为了形式完整制造无实际用途资产；
+- Character Core Set 的 Atomic Masters 与 Derived Character Reference Sheet 分离；
+- 正常生产由 Resolver 自动使用 Character Reference Sheet，并按镜头需要追加对应 Atomic View；
+- 所需视角不存在且不能安全覆盖时应返回 `REFERENCE_GAP`，不得静默使用废弃资产或把镜像推断当作新的权威事实。
+
+同类型 Character Reference 必须尽可能统一背景、光线、摄影距离、人物比例、机位和角度定义，避免角色之间的 Reference 标准不一致。
 
 ## 4. 场景、服装、道具资产完整性
 
@@ -80,7 +89,7 @@ P0.2 必须建立：
 
 底层 Atomic Master 是权威输入；Reference Sheet 是生产便利层。
 
-例如人物可由若干 Atomic Character References 生成一张或两张生产总图；日常生图优先使用 Reference Sheet，只有特殊视角或异常情况才额外调用 Atomic Reference。
+例如人物可由若干 Atomic Character References 生成一张或少量生产总图；日常生图优先使用 Reference Sheet，只有特殊视角或异常情况才额外调用 Atomic Reference。
 
 Reference Sheet 必须保存依赖关系，例如：
 
@@ -151,7 +160,7 @@ P0.2 必须进一步决定实际存储方案，例如 Git LFS / 私有对象存�
 在 Gate Review 前至少需要完成：
 
 1. Entity / Asset Registry schema；
-2. 主要人物 Character Core Set 的精确定义；
+2. Character Core Set 精确定义：**COMPLETE / LOCKED，见 `character_asset_rules_v1.md`**；
 3. Scene / Costume / Prop / State / Variant 规范；
 4. Naming / Version / Authority rules；
 5. Storage strategy；
