@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R008",
+  "state_revision": "R009",
   "last_updated": "2026-09-12",
   "session_status": "ACTIVE_AFTERNOON",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -14,36 +14,39 @@
   "project_control_layout": "1.1",
   "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
   "mvp1_scope": {
-    "status": "LOCKED",
-    "source": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
-    "chapter": 134,
-    "chapter_title": "【黑衣夫人】参观",
-    "start_rule": "MVP1 正式故事范围从第134章开始",
+    "status": "LOCKED / AUDIO BOUNDARY MAPPING IN PROGRESS",
+    "source": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt + verified audiobook capture",
+    "start_anchor": "S2 Chapter 134 opening / 第134章【黑衣夫人】参观",
+    "start_rule": "MVP1 正式故事范围从第134章开头开始",
+    "end_anchor": "S2 Chapter 135 early section / 莫妮卡夫人入座、众人开始跟随入座附近；精确音频剪辑边界待锁定",
     "chapter_133_role": "CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM",
-    "audio_rule": "只需先建立第134章 MVP1 所需原音频的获取、准备、登记、转写与校验能力；不要求预先准备完整《黑衣夫人》全部有声书。"
+    "scope_rule": "MVP1 是按有声小说叙事与音频边界锁定的连续片段，不等同于单一原文章节。原文章节只作为映射锚点。",
+    "audio_rule": "首个 MVP 原音频覆盖第134章开头至第135章开头的一段连续有声小说内容；后续以真实音频为最终时间边界，不以原文章节边界强行截断。"
   },
   "phase": {"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},
-  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2 与 MVP1 第134章范围已锁定；当前建立 MVP1 原音频准备与 S3 转写/校验能力。"},
+  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2 与 MVP1 起始范围已锁定；当前已取得 MVP1 原始录屏并完成音轨无重编码提取，下一步锁定精确音频边界并建立 S3。"},
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING"},
     {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"QUEUED"},
     {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED"}
   ],
-  "current_task": "P0.1-05：围绕 MVP1 第134章，建立原始有声小说音频的获取/准备/登记方法，并建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 的结构、验证等级与小样校验方法。",
+  "current_task": "P0.1-05：围绕 MVP1 实际有声小说片段（第134章开头→第135章开头），锁定 canonical 音频边界，并建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 的结构、验证等级与小样校验方法。",
   "blocker": null,
-  "next_action": "先确定第134章 MVP1 原音频如何获取与准备成 canonical source；锁定文件实体后，再建立与该音频绑定的 S3 小样并逐段验证。",
+  "next_action": "以新上传录屏和无重编码提取音轨为依据，锁定 MVP1 canonical audio 的准确起止边界；随后为该实际音频跨度建立 S3 转写结构与 VERIFIED 小样。",
   "latest_checkpoint": {
-    "id": "2026-09-12-PM-SCOPE-LOCK",
+    "id": "2026-09-12-PM-AUDIO-CAPTURE-VERIFIED",
     "status": "ACTIVE",
     "completed": [
       "Project Control Structure 1.1 已完成并作为当前 SSOT 布局",
       "S1_SOURCE_NOVEL_FULL_V001.txt 已锁定并远程核验",
       "S2_SOURCE_BLACK_LADY_TEXT_V001.txt 已锁定",
-      "MVP1 正式范围已锁定为 S2 第134章《【黑衣夫人】参观》",
-      "第133章明确为前置语境，不进入 MVP1 正式成片",
-      "历史 195.845 秒 ScreenRecording 音频确认仅为测试片段，不作为 MVP1 canonical audio"
+      "MVP1 起点锁定为 S2 第134章开头",
+      "确认有声小说章节进度与原文章节边界不完全一致；MVP1 实际录音跨入 S2 第135章开头",
+      "已接收 RAW_CAPTURE：ScreenRecording_09-12-2026 13-40-39_1.MP4",
+      "已验证录屏对应有声小说第097集【黑衣夫人】主人，画面进度约00:00至06:20",
+      "已从录屏无重编码提取 AAC 音轨作为 RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE"
     ],
-    "resume_from": "P0.1-05｜MVP1 第134章原音频获取/准备 + S3 结构与小样验证",
+    "resume_from": "P0.1-05A｜锁定 MVP1 canonical audio 精确起止边界；P0.1-05B｜建立覆盖实际音频跨度的 S3",
     "blockers": []
   },
   "source_baseline": {
@@ -70,34 +73,50 @@
       "id":"S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
       "status":"CANONICAL / LOCKED",
       "chapter_range":"133-164",
-      "mvp1_chapter":134,
+      "mvp1_start_chapter":134,
+      "mvp1_end_mapping":"early Chapter 135",
       "format":"UTF-8 plain text",
       "sha256":"159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6",
       "locked_on":"2026-09-12",
       "path":"source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt"
     },
     "AUDIO_MVP1": {
-      "scope":"S2 Chapter 134 only",
-      "status":"NOT PREPARED / METHOD TO ESTABLISH",
+      "scope":"Audiobook narrative span mapped from S2 Chapter 134 opening into early Chapter 135",
+      "status":"RAW CAPTURE VERIFIED / CANONICAL TRIM PENDING",
+      "episode":"097【黑衣夫人】主人",
+      "raw_capture_filename":"ScreenRecording_09-12-2026 13-40-39_1.MP4",
+      "raw_capture_size_bytes":235987834,
+      "raw_capture_duration_sec":381.958333,
+      "raw_capture_sha256":"9bab514775f0771987b094cdd9394b81d6a49a7bace995ef9ad4dbcce448abd1",
+      "raw_audio_extract_filename":"AUDIO_MVP1_CAPTURE_EXTRACT_V001.m4a",
+      "raw_audio_extract_codec":"AAC",
+      "raw_audio_extract_sample_rate_hz":44100,
+      "raw_audio_extract_channels":2,
+      "raw_audio_extract_duration_sec":381.941995,
+      "raw_audio_extract_size_bytes":5244616,
+      "raw_audio_extract_sha256":"d9a297b275a2fc42b85fa7b26407c4824c17efc63d1b9d148470f224d96be7f2",
+      "raw_audio_extract_status":"RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE / STREAM COPY",
+      "approx_source_player_range":"00:00-06:20",
       "test_excerpt":"ScreenRecording_09-08-2026_21-33-06_audio.m4a",
       "test_excerpt_status":"NON-CANONICAL TEST AUDIO",
       "test_excerpt_sha256":"abaaab1c0c8362e6d61268ba09b0f0ce6cb915cf49c046fd3b32c49405746551",
       "test_excerpt_duration_sec":195.844989
     },
-    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"NOT ESTABLISHED","initial_scope":"MVP1 / S2 Chapter 134","path":"source_material/S3_audio_transcript/"}
+    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"NOT ESTABLISHED","initial_scope":"MVP1 actual audio span / S2 Chapter 134 opening into early Chapter 135","path":"source_material/S3_audio_transcript/"}
   },
   "baseline_audit_preliminary": {
     "confirmed_existing": [
       "S1_SOURCE_NOVEL_FULL_V001.txt（canonical / locked / remote verified）",
       "S2_SOURCE_BLACK_LADY_TEXT_V001.txt（canonical / locked）",
-      "MVP1 scope = S2 Chapter 134（locked）",
+      "MVP1 start = S2 Chapter 134 opening; actual audio span crosses into early Chapter 135",
+      "MVP1 RAW_CAPTURE + lossless audio stream extraction",
       "D-056 SOURCE_AUDIO_INDEX_V001（可作为历史导航索引，不作为精确剪辑边界）",
       "人物锚定图与辅助参考资产（数量与权威层级待审计）",
       "Scene Master 与 A01-A07 已批准静态视觉资产（最终剪辑用途未锁定）",
       "Remotion 工程与静态图+音频+时间线→MP4 的技术能力"
     ],
     "not_yet_trusted_as_production_pipeline": [
-      "MVP1 第134章原音频获取与准备方法",
+      "MVP1 canonical audio 精确起止边界",
       "人物锚定资产的生成与管理制度",
       "Scene Master 的生成、版本与引用制度",
       "原音精准剪辑方法",
@@ -114,7 +133,7 @@
     "P0.2":"docs/project_control/gates/P0_2_visual_assets/",
     "P0.3":"docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "围绕已锁定的 MVP1（S2 第134章）完成项目重启的基础能力审计与制度重建：先锁定故事/文本与原音频数据基线，再验证视觉资产治理方法和视频制作/剪辑 Pipeline，为正式生产提供可信基线。",
+  "stage_goal": "围绕已锁定的 MVP1 实际有声小说片段完成项目重启的基础能力审计与制度重建：先锁定故事/文本与原音频数据基线，再验证视觉资产治理方法和视频制作/剪辑 Pipeline，为正式生产提供可信基线。",
   "overall_gate_progress": {"phase":"P0","passed":0,"total":3,"percent":0,"status":"0 / 3 PASS"},
   "blockers": []
 }
