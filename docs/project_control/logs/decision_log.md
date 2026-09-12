@@ -4,6 +4,7 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
+| BL-D-018 | 2026-09-12 | Product Owner 批准 P0.2 的视觉资产管理方向：正式体系不再以人工 Library 挑图和手工命名/存储/登记为标准流程。人物、场景、服装、道具统一采用 `Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package` 模型；只有 Product Owner 明确批准的视觉结果进入正式 Asset Registry；Approval 与 Lifecycle 分离，正式生命周期为 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED`；Atomic Master 与 Derived Reference 分离并保留 dependency；正常生产目标为 `Shot / Task Spec → Reference Resolver → Reference Package`，随后生成、PO 审批、Automatic Ingest；所有正式资产必须记录来源、审批、版本、替代、依赖和生产调用 Audit Trail。P0.2 必须用现有《黑衣夫人》资产做真实迁移与自动选图验证后，才可进入 `READY_FOR_APPROVAL`。 | LOCKED / P0.2 VISUAL ASSET MANAGEMENT SYSTEM V1 DIRECTION |
 | BL-D-017 | 2026-09-12 | Product Owner 明确：以后所有 Gate / Phase 的正式通过、批准或关闭都必须由 Product Owner 本人审批。即使执行层面的验收条件已经满足，ChatGPT / Codex 也只能标记为 `READY_FOR_APPROVAL`，不得自行写成 `PASS / APPROVED / CLOSED`。只有 Product Owner 在 Chat 中给出明确批准后，Project Control 才能正式更新状态并进入下一 Gate / Phase。 | LOCKED / GOVERNANCE APPROVAL RULE |
 | BL-D-016 | 2026-09-12 | P0.1 对 S3 的最低完备标准正式锁定：S3 必须覆盖完整 MVP1，并至少具备可机器检索的 `text / speaker / speaker_type / approx source TC / source_text_ref`；P0.1 不要求全量毫秒级精切或全部 VERIFIED。`S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv` 已扩展至 41 个 segment，9 个 VERIFIED、其余 REVIEWED searchable entries；开头 / 中段 / 后段检索抽查均可唯一命中正确候选原音区域。Product Owner 在 2026-09-12 当前 Chat 明确确认 `P0.1 正式 PASS`。精确的 shot-driven 自动检索、提取、handles 与成片边界 QC 转入 P0.3。 | LOCKED / PRODUCT OWNER APPROVED / P0.1 PASS / P0.3 AUDIO INPUT |
 | BL-D-015 | 2026-09-12 | Product Owner 明确：正式生产中不由用户人工搜索“需要哪句话”。应在情节、分镜与镜头画面内容确定后，由后续 Audio Alignment 阶段根据 A1 / Shot Plan 自动识别该镜头或叙事 beat 需要的对白/旁白，自动到 S3 + canonical source audio 中检索对应原音，自动定位 source TC、提取带 handles 的 Audio Clip，并写入 Animatic / Edit Timeline。人工只处理低置信度、匹配冲突、边界异常与最终听审，不承担常规查找时间码。S3 的职责因此是可机器检索的 source-audio index，不要求在前置阶段把整条 canonical audio 全量切成成片级精确小段。 | ACTIVE / DOWNSTREAM AUDIO RESOLVER MODEL LOCKED / P0.3 INPUT |
@@ -26,6 +27,7 @@
 
 - P0.1 已由 Product Owner 明确批准 PASS；S1 / S2 / canonical audio / 完整 MVP1 S3 searchable index 构成正式故事与声音事实基线。
 - 所有后续 Gate / Phase 必须经过 Product Owner 明确审批；技术完成只能进入 `READY_FOR_APPROVAL`，不得自动 PASS / CLOSED。
+- P0.2 的正式方向已锁定为 Visual Asset Management System V1，而不是单纯图库整理；必须实现/验证 Entity/Asset、Reference Resolver、Automatic Ingest 与 Audit Trail 的可执行路径。
 - P0.1–P0.3 是项目 Gate / 重启专项，不自动占用 Codex D-###。
 - MVP1 正式故事起点锁定为 S2 第134章开头；实际终点按有声小说叙事/音频边界锁定，当前录制范围已跨入第135章开头。
 - MVP1 canonical audio 已锁定为 `AUDIO_MVP1_CANONICAL_V001.m4a`；它是原音内容与 source extraction 边界的最高音频事实源，但不是动画节奏母版。
@@ -33,5 +35,5 @@
 - S3 = 可机器检索的原音素材定位/验证层；A1 = 改编取舍；Shot Plan = 镜头叙事与画面需求；Audio Alignment / Resolver = 根据已确定镜头自动检索、定位、提取原音；Animatic / Edit Timeline = 最终画面与声音节奏编排。
 - 用户不承担常规“搜索某句话 / 找 source TC”的操作；正式流程必须自动从镜头需求派生音频需求。
 - 第133章只作为前置语境，不进入 MVP1 正式成片。
-- 旧资产不因重启自动废弃，也不因曾被 APPROVED 自动视为最终生产资产；以专项审计结果重新分类。
-- P0.2 / P0.3 的最终制度或技术方案仍必须经过专项讨论与验证后再形成新决策。
+- 旧资产不因重启自动废弃，也不因曾被 APPROVED 自动视为当前 `CURRENT`；以 P0.2 authority audit 和新生命周期规则重新分类。
+- P0.2 / P0.3 的最终制度或技术方案仍必须经过专项讨论与验证后再形成 Gate Review。
