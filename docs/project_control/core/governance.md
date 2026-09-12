@@ -40,6 +40,14 @@
 4. **Codex**：负责本地工程、脚本、Remotion、音视频处理、文件与 Git 操作；只有 Task Contract 明确授权时才修改 Project Control。
 5. ChatGPT 与 Codex 不并行修改同一 Project Control 文件。
 6. 遇到 non-fast-forward、未知 tracked changes 或状态冲突时停止，不 force、不覆盖。
+7. **GitHub write reminder**：每次 ChatGPT 对 canonical GitHub repo 完成实际写入 / 更新后，用户可见回复必须明确提醒 Product Owner 同步本地 working copy；默认命令为：
+
+```bash
+cd "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01"
+git pull --ff-only origin main
+```
+
+8. 若当次存在本地 tracked changes、二进制资产、Codex 并行工作或潜在冲突风险，提醒同步时应先要求检查 `git status`，不得机械执行覆盖。
 
 ## 5. Dashboard 规则
 
