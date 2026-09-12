@@ -4,6 +4,7 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
+| BL-D-015 | 2026-09-12 | Product Owner 明确：正式生产中不由用户人工搜索“需要哪句话”。应在情节、分镜与镜头画面内容确定后，由后续 Audio Alignment 阶段根据 A1 / Shot Plan 自动识别该镜头或叙事 beat 需要的对白/旁白，自动到 S3 + canonical source audio 中检索对应原音，自动定位 source TC、提取带 handles 的 Audio Clip，并写入 Animatic / Edit Timeline。人工只处理低置信度、匹配冲突、边界异常与最终听审，不承担常规查找时间码。S3 的职责因此是可机器检索的 source-audio index，不要求在前置阶段把整条 canonical audio 全量切成成片级精确小段。 | ACTIVE / DOWNSTREAM AUDIO RESOLVER MODEL LOCKED / P0.3 INPUT |
 | BL-D-014 | 2026-09-12 | Product Owner 明确：`AUDIO_MVP1_CANONICAL_V001.m4a` 及 S3 仅作为后续动画的原始配音 / 旁白素材来源与可验证定位层，不作为动画节奏母版。正式硬规则锁定为 `SOURCE AUDIO TC ≠ FINAL EDIT TC`。S3 记录 source audio 中实际说了什么、谁说、旁白/对白类型与 source TC；A1 `ADAPTATION_SCRIPT` 决定成片保留/删除/重组内容；`Animatic / Edit Timeline` 决定镜头节奏、镜头时长、停顿、转场及选中原音在成片中的最终摆放位置。不得为了迁就镜头时长改变原音语速。 | ACTIVE / P0.1-05B RULE LOCKED / SOURCE-AUDIO AND EDIT-TIMELINE SEPARATED |
 | BL-D-013 | 2026-09-12 | Product Owner 审核并批准 `AUDIO_MVP1_CANONICAL_CANDIDATE_V002.m4a` 的首尾边界：起点完整保留“欢迎各位来到艾伦古堡”，终点完整保留“而后又匆匆离去备餐”。该文件正式晋级并命名为 `AUDIO_MVP1_CANONICAL_V001.m4a`。其来源为 `AUDIO_MVP1_CAPTURE_EXTRACT_V001.m4a`，以 stream copy 方式裁切，不重新编码；源音频起点约 22.800 sec，终点为当前 RAW_AUDIO_EXTRACT 末尾；正式文件 4,957,338 bytes，359.141995 sec，AAC / 44.1kHz / 2ch，SHA-256=`8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0`。P0.1-05A 完成；后续 S3 与剪辑定位以该 canonical audio 为 MVP1 最高音频事实源。 | ACTIVE / P0.1-05A COMPLETE / CANONICAL AUDIO LOCKED |
 | BL-D-012 | 2026-09-12 | Product Owner 进一步明确 MVP1 的边界规则：MVP1 从 S2 第134章《【黑衣夫人】参观》开头开始，但不以原文章节结尾作为硬边界。由于有声小说的分集/进度与原文章节划分存在差异，本次实际录制内容跨入 S2 第135章开头。MVP1 应定义为“按真实有声小说连续叙事与音频边界锁定的片段”，原文章节仅用于内容映射；正式音频起止时间以 canonical audio 为最终事实依据。 | ACTIVE / CLARIFIES BL-D-011 / MVP1 AUDIO-SPAN MODEL |
@@ -25,7 +26,8 @@
 - MVP1 正式故事起点锁定为 S2 第134章开头；实际终点按有声小说叙事/音频边界锁定，当前录制范围已跨入第135章开头。
 - MVP1 canonical audio 已锁定为 `AUDIO_MVP1_CANONICAL_V001.m4a`；它是原音内容与 source extraction 边界的最高音频事实源，但不是动画节奏母版。
 - 正式硬规则：`SOURCE AUDIO TC ≠ FINAL EDIT TC`。
-- S3 = 原音素材定位与验证；A1 = 改编取舍；Animatic / Edit Timeline = 最终画面与声音节奏编排。
+- S3 = 可机器检索的原音素材定位/验证层；A1 = 改编取舍；Shot Plan = 镜头叙事与画面需求；Audio Alignment / Resolver = 根据已确定镜头自动检索、定位、提取原音；Animatic / Edit Timeline = 最终画面与声音节奏编排。
+- 用户不承担常规“搜索某句话 / 找 source TC”的操作；正式流程必须自动从镜头需求派生音频需求。
 - 第133章只作为前置语境，不进入 MVP1 正式成片。
 - 旧资产不因重启自动废弃，也不因曾被 APPROVED 自动视为最终生产资产；以专项审计结果重新分类。
 - 当前不在本文件预判 P0.2 / P0.3 的最终制度或技术方案，必须经过专项讨论与验证后再形成新决策。
