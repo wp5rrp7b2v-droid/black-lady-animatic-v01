@@ -2,6 +2,7 @@
 
 | ID | 日期 | 规则变化 | 状态 |
 |---|---|---|---|
+| RC-010 | 2026-09-12 | Character Asset 规则锁定为 Tier 分级：Tier A 核心角色 9-view；Tier B 重要配角 6-view 并固定 primary side；Tier C 普通角色 3-view minimum；Tier D 群演/一次性角色不建完整 Core Set。Tier 由叙事重要性、出场频率、视角复杂度、连续性敏感度与动画需求共同决定；Production Need 可触发升级。同类视图必须统一角度、背景、光线、机位和人物比例；Atomic Character Asset 与 Derived Character Reference Sheet 分离；正常生产由 Resolver 自动选图，缺失关键视角时返回 `REFERENCE_GAP`。 | ACTIVE / P0.2-02 CHARACTER RULE LOCKED |
 | RC-009 | 2026-09-12 | 视觉资产管理规则升级：只有 Product Owner 明确批准的视觉结果可进入正式 Asset Registry；人物/场景/服装/道具统一采用 Entity → Asset 模型；Approval 与 Lifecycle 分离，正式生命周期为 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED`；Atomic Master 与 Derived Reference Sheet 分离并记录依赖；正常生产目标改为 `Shot / Task Spec → Reference Resolver → Reference Package`，取消 Product Owner 的例行手工挑图、下载、命名、存储与登记；所有正式资产必须具备来源、审批、版本、替代、依赖和生产调用 Audit Trail。 | ACTIVE / P0.2 SYSTEM RULE LOCKED |
 | RC-008 | 2026-09-12 | 正式审批权锁定为 Product Owner：任何 Gate / Phase 即使已满足验收条件，ChatGPT / Codex 也只能标记 `READY_FOR_APPROVAL`；只有 Product Owner 明确批准后，才能更新为 `PASS / APPROVED / CLOSED`。P0.1 的 PASS 由 Product Owner 在 2026-09-12 当前 Chat 明确确认。 | ACTIVE |
 | RC-007 | 2026-09-12 | Project Control 目录升级为 1.1：`core/`、`logs/`、`gates/`、`dashboard/`、`archive/`；生产源数据移出 Project Control，统一进入 `source_material/`。 | ACTIVE |
