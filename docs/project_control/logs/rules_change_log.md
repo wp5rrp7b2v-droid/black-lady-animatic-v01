@@ -2,6 +2,7 @@
 
 | ID | 日期 | 规则变化 | 状态 |
 |---|---|---|---|
+| RC-008 | 2026-09-12 | 正式审批权锁定为 Product Owner：任何 Gate / Phase 即使已满足验收条件，ChatGPT / Codex 也只能标记 `READY_FOR_APPROVAL`；只有 Product Owner 明确批准后，才能更新为 `PASS / APPROVED / CLOSED`。P0.1 的 PASS 由 Product Owner 在 2026-09-12 当前 Chat 明确确认。 | ACTIVE |
 | RC-007 | 2026-09-12 | Project Control 目录升级为 1.1：`core/`、`logs/`、`gates/`、`dashboard/`、`archive/`；生产源数据移出 Project Control，统一进入 `source_material/`。 | ACTIVE |
 | RC-005 | 2026-09-11 | Dashboard V002 获批：必须可视化总体 Gate 完成度、当前 Gate 状态、阶段目标和真实 Blocker；项目控制规则区明确命名为 `Project Control Rules`。 | ACTIVE |
 | RC-006 | 2026-09-11 | canonical repo 锁定为 `wp5rrp7b2v-droid/black-lady-animatic-v01`；新的项目 Chat 以其 `main/docs/project_control/` 为正式读取入口。 | ACTIVE |
