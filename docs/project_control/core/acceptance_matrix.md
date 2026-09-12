@@ -9,7 +9,7 @@
 | Gate | 核心问题 | 验收标准 | 当前状态 |
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.2｜人物锚定与 Scene Master 资产治理 | 已有视觉资产到底有哪些、谁是权威版本、以后怎么生成和管理？ | 完成现有资产审计；建立 Character / Scene 分类、Reference 优先级、命名、状态生命周期、存储、索引、替代 / 废弃规则；再验证最小够用的生成标准 | **NEXT / ACTIVE AUDIT** |
+| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / SYSTEM DESIGN + AUDIT** |
 | P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **QUEUED** |
 
 ## P0.1 PASS Evidence｜2026-09-12
@@ -22,6 +22,21 @@
 - S3 明确只承担 source-audio index / transcript / verification；`SOURCE AUDIO TC ≠ FINAL EDIT TC`。
 - 精确的 shot-driven 自动音频检索 / 提取能力移交 P0.3 验证。
 - **Product Owner 于 2026-09-12 明确批准 P0.1 正式 PASS。**
+
+## P0.2 Required Evidence Before Approval
+
+P0.2 不能仅凭文档设计进入 PASS。至少需要：
+
+1. Asset Authority Audit 完成；
+2. `Visual Asset Management System V1` schema 与规则锁定；
+3. 主要人物统一 Reference 规范可执行；
+4. 场景 / 服装 / 道具 / Variant 规则可执行；
+5. 正式 Asset Registry 能区分 Entity、Asset、Role、Version、Approval、Lifecycle、Dependency；
+6. Product Owner 批准后，至少验证一条 Automatic Ingest 路径，不要求 Product Owner 手工命名或登记；
+7. 至少选择一个包含人物 + 场景 + 关键道具/服装的真实 Shot Spec，验证 Reference Resolver 能自动生成可追踪 Reference Package；
+8. Audit Trail 能从生成镜头反查当次实际使用的 Asset IDs / versions，并能从资产反查批准、替代、依赖和生产使用关系。
+
+满足以上技术条件后，状态只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
 
 ## P0 Gate Boundary
 
