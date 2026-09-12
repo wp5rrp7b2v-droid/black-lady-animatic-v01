@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R009",
+  "state_revision": "R010",
   "last_updated": "2026-09-12",
   "session_status": "ACTIVE_AFTERNOON",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -14,39 +14,38 @@
   "project_control_layout": "1.1",
   "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
   "mvp1_scope": {
-    "status": "LOCKED / AUDIO BOUNDARY MAPPING IN PROGRESS",
-    "source": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt + verified audiobook capture",
-    "start_anchor": "S2 Chapter 134 opening / 第134章【黑衣夫人】参观",
-    "start_rule": "MVP1 正式故事范围从第134章开头开始",
-    "end_anchor": "S2 Chapter 135 early section / 莫妮卡夫人入座、众人开始跟随入座附近；精确音频剪辑边界待锁定",
+    "status": "LOCKED / CANONICAL AUDIO LOCKED",
+    "source": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt + verified audiobook canonical audio",
+    "start_anchor": "欢迎各位来到艾伦古堡",
+    "start_rule": "MVP1 正式故事范围从 S2 第134章开头开始",
+    "end_anchor": "而后又匆匆离去备餐",
     "chapter_133_role": "CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM",
     "scope_rule": "MVP1 是按有声小说叙事与音频边界锁定的连续片段，不等同于单一原文章节。原文章节只作为映射锚点。",
-    "audio_rule": "首个 MVP 原音频覆盖第134章开头至第135章开头的一段连续有声小说内容；后续以真实音频为最终时间边界，不以原文章节边界强行截断。"
+    "audio_rule": "首个 MVP 原音频覆盖第134章开头并进入第135章开头；正式起止边界以 AUDIO_MVP1_CANONICAL_V001.m4a 为最终事实依据。"
   },
   "phase": {"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},
-  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2 与 MVP1 起始范围已锁定；当前已取得 MVP1 原始录屏并完成音轨无重编码提取，下一步锁定精确音频边界并建立 S3。"},
+  "current_gate": {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING","note":"S1、S2 与 MVP1 canonical audio 已锁定；当前进入 S3 转写结构与验证等级建立。"},
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"ACTIVE / BUILDING"},
     {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"QUEUED"},
     {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED"}
   ],
-  "current_task": "P0.1-05：围绕 MVP1 实际有声小说片段（第134章开头→第135章开头），锁定 canonical 音频边界，并建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 的结构、验证等级与小样校验方法。",
+  "current_task": "P0.1-05B：基于 AUDIO_MVP1_CANONICAL_V001.m4a 建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 的正式结构与 RAW / REVIEWED / VERIFIED 验证等级。",
   "blocker": null,
-  "next_action": "以新上传录屏和无重编码提取音轨为依据，锁定 MVP1 canonical audio 的准确起止边界；随后为该实际音频跨度建立 S3 转写结构与 VERIFIED 小样。",
+  "next_action": "锁定 S3 字段、segment 规则与验证状态；随后选取 canonical audio 小样建立 VERIFIED transcript，验证从原音到可剪辑定位文本的方法。",
   "latest_checkpoint": {
-    "id": "2026-09-12-PM-AUDIO-CAPTURE-VERIFIED",
+    "id": "2026-09-12-PM-AUDIO-CANONICAL-LOCK",
     "status": "ACTIVE",
     "completed": [
       "Project Control Structure 1.1 已完成并作为当前 SSOT 布局",
       "S1_SOURCE_NOVEL_FULL_V001.txt 已锁定并远程核验",
       "S2_SOURCE_BLACK_LADY_TEXT_V001.txt 已锁定",
-      "MVP1 起点锁定为 S2 第134章开头",
-      "确认有声小说章节进度与原文章节边界不完全一致；MVP1 实际录音跨入 S2 第135章开头",
-      "已接收 RAW_CAPTURE：ScreenRecording_09-12-2026 13-40-39_1.MP4",
-      "已验证录屏对应有声小说第097集【黑衣夫人】主人，画面进度约00:00至06:20",
-      "已从录屏无重编码提取 AAC 音轨作为 RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE"
+      "MVP1 起点锁定为 S2 第134章开头，实际有声小说跨度进入第135章开头",
+      "RAW_CAPTURE 与 RAW_AUDIO_EXTRACT 已登记并核验",
+      "Product Owner 已人工确认 canonical audio 起点完整保留‘欢迎各位来到艾伦古堡’，终点完整保留‘而后又匆匆离去备餐’",
+      "AUDIO_MVP1_CANONICAL_V001.m4a 已锁定；P0.1-05A COMPLETE"
     ],
-    "resume_from": "P0.1-05A｜锁定 MVP1 canonical audio 精确起止边界；P0.1-05B｜建立覆盖实际音频跨度的 S3",
+    "resume_from": "P0.1-05B｜建立 S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001 正式结构与验证等级",
     "blockers": []
   },
   "source_baseline": {
@@ -82,7 +81,7 @@
     },
     "AUDIO_MVP1": {
       "scope":"Audiobook narrative span mapped from S2 Chapter 134 opening into early Chapter 135",
-      "status":"RAW CAPTURE VERIFIED / CANONICAL TRIM PENDING",
+      "status":"CANONICAL / LOCKED",
       "episode":"097【黑衣夫人】主人",
       "raw_capture_filename":"ScreenRecording_09-12-2026 13-40-39_1.MP4",
       "raw_capture_size_bytes":235987834,
@@ -95,28 +94,39 @@
       "raw_audio_extract_duration_sec":381.941995,
       "raw_audio_extract_size_bytes":5244616,
       "raw_audio_extract_sha256":"d9a297b275a2fc42b85fa7b26407c4824c17efc63d1b9d148470f224d96be7f2",
-      "raw_audio_extract_status":"RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE / STREAM COPY",
-      "approx_source_player_range":"00:00-06:20",
+      "canonical_filename":"AUDIO_MVP1_CANONICAL_V001.m4a",
+      "canonical_codec":"AAC",
+      "canonical_sample_rate_hz":44100,
+      "canonical_channels":2,
+      "canonical_source_start_sec":22.800,
+      "canonical_source_end_sec":381.941995,
+      "canonical_duration_sec":359.141995,
+      "canonical_size_bytes":4957338,
+      "canonical_sha256":"8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0",
+      "canonical_start_anchor":"欢迎各位来到艾伦古堡",
+      "canonical_end_anchor":"而后又匆匆离去备餐",
+      "canonical_status":"CANONICAL / LOCKED / PRODUCT OWNER QC PASSED",
       "test_excerpt":"ScreenRecording_09-08-2026_21-33-06_audio.m4a",
       "test_excerpt_status":"NON-CANONICAL TEST AUDIO",
       "test_excerpt_sha256":"abaaab1c0c8362e6d61268ba09b0f0ce6cb915cf49c046fd3b32c49405746551",
       "test_excerpt_duration_sec":195.844989
     },
-    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"NOT ESTABLISHED","initial_scope":"MVP1 actual audio span / S2 Chapter 134 opening into early Chapter 135","path":"source_material/S3_audio_transcript/"}
+    "S3": {"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"NOT ESTABLISHED / NEXT","initial_scope":"MVP1 canonical audio / S2 Chapter 134 opening into early Chapter 135","audio_source":"AUDIO_MVP1_CANONICAL_V001.m4a","path":"source_material/S3_audio_transcript/"}
   },
   "baseline_audit_preliminary": {
     "confirmed_existing": [
       "S1_SOURCE_NOVEL_FULL_V001.txt（canonical / locked / remote verified）",
       "S2_SOURCE_BLACK_LADY_TEXT_V001.txt（canonical / locked）",
-      "MVP1 start = S2 Chapter 134 opening; actual audio span crosses into early Chapter 135",
-      "MVP1 RAW_CAPTURE + lossless audio stream extraction",
+      "MVP1 scope = S2 Chapter 134 opening into early Chapter 135",
+      "MVP1 RAW_CAPTURE + RAW_AUDIO_EXTRACT",
+      "AUDIO_MVP1_CANONICAL_V001.m4a（canonical / locked / Product Owner QC passed）",
       "D-056 SOURCE_AUDIO_INDEX_V001（可作为历史导航索引，不作为精确剪辑边界）",
       "人物锚定图与辅助参考资产（数量与权威层级待审计）",
       "Scene Master 与 A01-A07 已批准静态视觉资产（最终剪辑用途未锁定）",
       "Remotion 工程与静态图+音频+时间线→MP4 的技术能力"
     ],
     "not_yet_trusted_as_production_pipeline": [
-      "MVP1 canonical audio 精确起止边界",
+      "S3 正式结构、分段与 VERIFIED 校验方法",
       "人物锚定资产的生成与管理制度",
       "Scene Master 的生成、版本与引用制度",
       "原音精准剪辑方法",
