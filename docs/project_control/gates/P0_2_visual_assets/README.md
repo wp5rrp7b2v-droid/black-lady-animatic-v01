@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / CHARACTER MIGRATION V1 PUBLISHED / P1 CHARACTER GAP PRODUCTION`
+Status: `ACTIVE / P1 CHARACTER GAP PRODUCTION / NING WAVE 1 COMPLETE`
 
 ## 当前目标
 
@@ -27,8 +27,13 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定；
 - Character Asset Gap Mapping V1 已完成实图核对并落档；
 - Gap Priority Classification / P1 Execution V1 已落档；
+- Character Atomic / Auxiliary production reference 目标画幅锁定为 9:16 竖版；Fixed Standard Review 以 Format Compliance 作为第一道硬检查；
+- 图片生成后由 Product Owner 发送 `【审核】` 触发固定标准审核，不再把普通 Chat 流程描述为“自动审核”；
 - D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布到 GitHub；
-- D-060 Reference Package Exporter V0.1 已由 Product Owner 批准测试：自动选图 + 本地 Reference Package 生成链路已验证成立。
+- D-060 Reference Package Exporter V0.1 已由 Product Owner 批准测试：自动选图 + 本地 Reference Package 生成链路已验证成立；
+- D-061～D-063 已将一键 Character ingest、P1 role 泛化、Migration + Runtime asset resolution 接通；
+- D-064 已验证受控 Current supersession；
+- D-065 已修复 macOS Bash 3.2 普通新增路径兼容问题。
 
 详细规则与当前基线见：
 
@@ -36,12 +41,14 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `character_asset_rules_v1.md`
 - `character_tier_assignment_v1.md`
 - `character_asset_gap_mapping_v1.md`
+- `character_gap_live_progress_v1.md`
 - `character_gap_priority_v1.md`
 - `asset_naming_rules_v1.md`
 - `asset_authority_audit.md`
 - `entity_asset_registry_schema_v0_3.md`
 - `d059_character_asset_migration_v1_completion.md`
 - `d060_reference_package_exporter_v0_1_test.md`
+- `automatic_ingest_controller_v0_1_first_live_ingest.md`
 
 ## 当前任务
 
@@ -52,11 +59,11 @@ Authority Mini-Close 已锁定。D-059 已将 48 张 approved Character referenc
 P0.2 Gate Review 前仍需：
 
 1. 旧 4 份 canonical register 与实际图库实体完成最终工程对账；
-2. 将已发布 Migration Manifest 接入正式长期 Asset Registry / Audit Event 实现；
-3. 两张 Scene Master 的事实字段结构化；
-4. 用已发布 Character assets 验证 Reference Resolver 的自动选图行为与制图交付链路。
+2. 两张 Scene Master 的事实字段结构化；
+3. 将 Scene / Costume / Prop / Variant 规则落实到可执行 Registry / Spec；
+4. 用真实 Shot Spec（至少人物 + 场景 + 关键服装/道具）验证 Reference Resolver 与 Audit reverse-trace。
 
-这些核对不阻塞当前 P1 Character Gap Production。
+原先“将 Migration Manifest 接入长期 Asset Registry / Audit Event 实现”和“验证 Character 自动选图”的主要 Character-level 链路已由 D-060～D-065 与真实 ingest 部分完成，不再作为未开始事项描述。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
@@ -72,7 +79,10 @@ P0.2 Gate Review 前仍需：
 - Resolver Eligibility 计算原则；
 - Append-only Audit Event Log 结构；
 - Legacy Migration Mapping Manifest；
-- Shot-bound / Entity-bound 归属与命名边界。
+- Shot-bound / Entity-bound 归属与命名边界；
+- Controlled Current Supersession；
+- Character image 9:16 Format Compliance；
+- Fixed Standard Review 触发与审核顺序。
 
 ### P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
@@ -83,13 +93,28 @@ Tier Assignment 已锁定：
 - Tier C：光勇；
 - Tier D：当前 9 名正式角色中无。
 
-Character Asset Gap Mapping V1 实图核对后的正式基线：
+Character Asset Gap Mapping V1 实图核对后的正式历史基线：
 
 - Mandatory Core Slots = `63`
-- Confirmed Coverage = `40`
-- Core View Gap = `23`
-- Core Coverage = `63.5%`
+- Confirmed Coverage baseline = `40`
+- Core View Gap baseline = `23`
+- Core Coverage baseline = `63.5%`
 - Reference Sheet Gap = `9`（Derived Asset Gap，单独统计）
+
+当前 live production progress：
+
+- Confirmed Core Coverage = `42 / 63`
+- Core View Gap = `21`
+- Core Coverage = `66.7%`
+- P1 completed = `2 / 10`
+- P1 remaining = `8 / 10`
+
+宁秋水：
+
+- `PROFILE_LEFT` = COMPLETE / APPROVED / INGESTED / CURRENT `V002 / AST_IMG_000050`
+- `REAR_3Q_LEFT` = COMPLETE / APPROVED / INGESTED / CURRENT `V001 / AST_IMG_000051`
+- Tier A current Core Coverage = `8 / 9`
+- Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
 Tier B 四人均锁定 `primary_side = LEFT`。
 
@@ -114,8 +139,6 @@ Status: `COMPLETE / REMOTE VERIFIED`
 - Migration evidence root: `docs/project_control/gates/P0_2_visual_assets/migration_evidence/`
 - Neil `CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png`: `MAPPING_REQUIRED / NOT MIGRATED`
 
-注意：D-059 完成的是 canonical file storage + Migration Mapping Manifest publication；长期 Asset Registry / Audit Event 数据层与 Automatic Ingest 仍需后续实现和验证。
-
 ## D-060｜Reference Package Exporter V0.1
 
 Status: `TEST APPROVED / PRODUCT OWNER APPROVED`
@@ -138,40 +161,63 @@ Status: `TEST APPROVED / PRODUCT OWNER APPROVED`
 
 已经通过真实测试验证。
 
-当前尚未验证：
+## D-061～D-065｜Character Production Automation / Ingest Hardening
 
-`Reference Package → image-production Chat / image-generation environment`
+Status: `COMPLETE / REMOTE VERIFIED`
 
-因此后续若继续工程验证，应优先做 Delivery Bridge，而不是扩大 V0.1 的选图复杂度。
+- D-061｜one-click Character ingest + reference cleanup；commit `200cb06ce366c650b4f1389108765996b8f15332`
+- D-062｜P1 target role generalized reference package exporter；commit `a480dc0a64b2e63221122dce238d5c35634a77b1`
+- D-063｜Migration Manifest + Runtime Registry unified Character asset resolution；commit `e85f749ef72fb722c631472eb0af8bb2b0b7bc7e`
+- D-064｜Controlled Current Supersession；commit `6735c44374713d7470888dfb4d20e52af804cb42`
+- D-065｜macOS Bash launcher normal-ingest compatibility fix；commit `57495a7b0a9e189098e2b8310e76d98f7b0beb2d`
+
+真实生产验证：
+
+- `PROFILE_LEFT V001 / AST_IMG_000049` 首次 Automatic Ingest 成功；
+- 发现该版本画幅不符合项目 9:16 标准后，使用受控 supersession 将 `PROFILE_LEFT V002 / AST_IMG_000050` 设为 CURRENT，V001 保留为 SUPERSEDED；
+- `REAR_3Q_LEFT V001 / AST_IMG_000051` 通过 NORMAL_INGEST 成功入库；
+- Registry / Audit Event 均产生真实记录；
+- supersession relation 使用 `NEW SUPERSEDES OLD`；
+- 旧版本文件保留，不做静默覆盖或删除。
+
+当前仍有一项非阻塞测试技术债：一个既有 Resolver regression assertion 写死 `AST_IMG_000049`，而合法 supersession 后 CURRENT 已为 `AST_IMG_000050`。该测试应后续改为断言当前有效版本语义，不应固定旧 Asset ID。
 
 ## 当前执行基线
 
 P1 按人物整组推进：
 
-1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT`
-2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT`
+1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT` = **COMPLETE**
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **NEXT WAVE**
 3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
 
-制图与主流程分离：图片制作对话框负责生成 + 内部审核 + 迭代收敛；只有内部审核通过的最终候选返回主流程，由主流程执行 canonical registration / GitHub publication / Project Control 更新。
+制图与主流程分离：图片制作对话框负责生成 + 固定标准审核 + 迭代收敛；只有内部审核通过且 Product Owner 明确批准的最终候选进入 Automatic Ingest / canonical registration / GitHub publication。
+
+当前日常 Character 生产链已经验证到：
+
+`Reference Resolver / Package → Generation → 【审核】→ PO Approval → local final PNG → Black_Lady_Ingest.command → Registry / Audit / Git commit / push`
+
+其中 Product Owner 仍需将最终 PNG 下载到 Mac 后触发本地 launcher；真正的 Chat / generation environment → local / GitHub 文件自动桥接尚未实现，因此“零手工下载”的长期目标尚未完全达到。
 
 ## 下一步
 
-P1 生产目标仍为：
+下一正式 P1 target：
 
-`P0.2-03｜P1 Wave 1｜宁秋水 PROFILE_LEFT + REAR_3Q_LEFT`
+`P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
 
-在正式依赖自动 Reference Package 工作流前，建议先验证 Delivery Bridge：如何将 V0.1 自动生成的 Reference Package 稳定送入制图环境，减少 Product Owner 手工上传和搬运。
+通过后继续：
+
+`君鹭远 REAR_3Q_LEFT`
 
 原则：
 
 - 新图属于 production auxiliary reference，不是剧情 Shot；
+- 目标画幅为 9:16 竖版；
 - LEFT / RIGHT 按 screen-facing convention；
-- 制图对话框内部完成审图与返修；
-- 只有内部审核通过的最终候选返回主流程；
+- 每次生成后等待 Product Owner 发送 `【审核】`，再执行 Fixed Standard Review；
 - 只有 Product Owner 明确批准的结果才能进入正式 canonical storage / Registry；
-- 不因 P1 制图跳过旧 Register 对账、Reference Sheet / Resolver / Automatic Ingest 后续验证。
+- 不因 P1 制图跳过旧 Register 对账、Reference Sheet、Scene / Costume / Prop / Variant 与真实 Shot-level Resolver / Audit 验证。
 
 ## Gate Approval
 
