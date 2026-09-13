@@ -4,6 +4,8 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
+| BL-D-025 | 2026-09-13 | Product Owner 明确要求：每天工作收尾时必须核对 `docs/project_control/` 各相关文件的一致性，不能只更新单一 progress 文件。Daily Closeout 至少核对 `project_state.json`、当前 Gate README / live progress、decision / execution / rules logs、acceptance matrix 与 Dashboard；检查 Current Task、Blocker、Next Action、Asset ID / version、D-### 编号及已完成却仍标记 NEXT 的过期信息。发现不一致必须在当天收尾纠正或明确标记为 historical baseline。该一致性检查不得越过 Product Owner-only Gate / Phase approval rule。 | LOCKED / MANDATORY DAILY PROJECT CONTROL CONSISTENCY CHECK |
+| BL-D-024 | 2026-09-13 | Product Owner 明确修正 P1 Character production image workflow：Character Atomic / Auxiliary production reference 目标画幅为 9:16 竖版，非目标画幅不得通过固定标准审核；普通 Chat 的图片生成后不会自动继续下一轮文本审核，因此流程名称改为 `Fixed Standard Review`，由用户发送最短触发词 `【审核】` 后执行。固定审核顺序为 Format Compliance → Identity → Role Accuracy → Continuity → Production Utility → Reference Type Purity → Problem Check。宁秋水 `PROFILE_LEFT` 首版因画幅不符合标准而以 9:16 V002 受控替换，不允许覆盖历史 V001。 | LOCKED / P1 CHARACTER FORMAT + FIXED REVIEW BASELINE |
 | BL-D-023 | 2026-09-13 | Product Owner 批准 D-060 `REFERENCE_PACKAGE_EXPORTER_V0.1` 真实测试结果。以 `CHAR_NING_QIUSHUI → PROFILE_LEFT` 为测试对象，Exporter 从 canonical Character assets 与 Migration Manifest 自动选出 `FACE_FRONT / PROFILE_RIGHT / FACE_3Q_RIGHT / BODY_FRONT` 四张参考图并生成本地 Reference Package；4/4 SHA 与 Manifest 一致，全部满足 APPROVED / CONFIRMED / CURRENT，正确识别 `PROFILE_LEFT = REFERENCE_GAP`，无 Duplicate CURRENT 冲突且未修改正式源图。正式验证结论为 `Canonical Character Assets → automatic selection → local Reference Package` 链路成立。该批准不代表“制图 Chat 已可直接从 GitHub 自动读取图片”；下一验证方向应聚焦 Reference Package 到 image-production environment 的 Delivery Bridge，成功标准以减少 Product Owner 手工挑图、上传和搬运为核心。 | LOCKED / D-060 V0.1 TEST APPROVED / DELIVERY BRIDGE NEXT VALIDATION |
 | BL-D-022 | 2026-09-13 | Product Owner 批准将 9 Character Asset Gap Mapping V1 与 Gap Priority Classification / P1 Execution V1 正式落档。实图逐项核对后的正确 Character Core 基线为：Mandatory Core Slots=63、Confirmed Coverage=40、Core View Gap=23、Coverage=63.5%；此前 `66/43/23` 与 `63/41/22` 均为初算并废止。Tier A：宁秋水6/9缺 LEFT trio；君鹭远6/9缺 LEFT trio；尼尔6/9缺 RIGHT trio；黑衣夫人3/9缺全部6个侧向 Core View。Tier B 四人均 `primary_side=LEFT`，各4/6，分别缺 `PROFILE_LEFT + REAR_3Q_LEFT`。Tier C 光勇3/3，无 Core Gap；其额外侧向资产不反向改变 Tier。黑衣夫人旧 `three_quarter_half_body_angle_reference_v001` 因 likeness 不足迁移为 `DEPRECATED / resolver NEVER`，历史 approval 事实保留。23个 Core Gap 按当前生产优先级锁定为 P1=10、P2=7、P3=6；P1 按宁秋水→君鹭远→尼尔→苏小小→廖健顺序，每人先补缺失侧 Profile + Rear 3Q。P1/P2/P3 是 Gap Production Priority，不是项目 Phase/Gate 编号。9名角色另有 `REFERENCE_SHEET_GAP=9`，属于 Derived Asset Gap，不与23个 Core View Gap相加为人物锚定图数量。 | LOCKED / P0.2-03 GAP MAPPING V1 + P1 EXECUTION BASELINE |
 | BL-D-021 | 2026-09-13 | Product Owner 批准并锁定 P0.2-03 的 9 Character Tier Assignment V1：Tier A = 宁秋水、君鹭远、尼尔、黑衣夫人；Tier B = 温倾雅、苏小小、廖健、古堡小主人；Tier C = 光勇；Tier D = 当前 9 名正式角色中无。Tier 仍由 Production Need 决定，不按“现有图片数量”反推。下一步进入角色级 Asset Gap Mapping：Tier B 确认 primary_side，Tier A 核对真实 LEFT / RIGHT Current Coverage，并将历史 Master / Auxiliary 映射到 Schema V0.3 canonical Role；缺口分为 CORE_VIEW_GAP / REFERENCE_SHEET_GAP / STATE_VARIANT_GAP / NO_ACTION_REQUIRED。Gap Mapping 完成前不批量补图。 | LOCKED / P0.2-03 CHARACTER TIER ASSIGNMENT V1 |
@@ -34,21 +36,9 @@
 - 所有后续 Gate / Phase 必须经过 Product Owner 明确审批；技术完成只能进入 `READY_FOR_APPROVAL`，不得自动 PASS / CLOSED。
 - P0.2 的正式方向已锁定为 Visual Asset Management System V1，而不是单纯图库整理；必须实现/验证 Entity/Asset、Reference Resolver、Automatic Ingest 与 Audit Trail 的可执行路径。
 - P0.2-02 Character Asset 采用 Tier A/B/C/D 分级；P0.2-03 Tier Assignment V1 已锁定：A=宁秋水/君鹭远/尼尔/黑衣夫人，B=温倾雅/苏小小/廖健/古堡小主人，C=光勇，当前正式角色无 D。
-- P0.2-03 Character Asset Gap Mapping V1 已锁定：63 Mandatory / 40 Covered / 23 Core View Gap；Tier B 四人 primary_side=LEFT；光勇 Tier C 3/3；黑衣夫人旧 3/4 Angle Reference = DEPRECATED / NEVER。
+- P0.2-03 Character Asset Gap Mapping V1 历史基线已锁定：63 Mandatory / 40 Covered / 23 Core View Gap；当前 live coverage 为 42/63，P1 已完成 2/10，下一 target 为君鹭远 PROFILE_LEFT。
 - Gap Priority Classification V1 已锁定：P1=10、P2=7、P3=6；P1 执行顺序为宁秋水→君鹭远→尼尔→苏小小→廖健，每人先补缺失侧 Profile + Rear 3Q。
 - 9 名正式角色另有 `REFERENCE_SHEET_GAP=9`；它是 Derived Asset Gap，不与 Core View Gap 直接相加为需补人物图数量。
 - P0.2-02 Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；Schema 锁定不等于 P0.2 Gate PASS。
-- 正式 Registry 长期模型固定为 Entity Registry / Asset Registry / Asset Relations / Append-only Audit Event Log；Migration Mapping Manifest 仅服务旧资产迁移。
-- canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物/场景组成由 Shot Register / Shot Spec 表达。
-- D-059 已将 48 张 approved Character references 与 CSV/JSON Migration Manifest 发布到 canonical GitHub；Neil `rear_turn_45` 仍为 MAPPING_REQUIRED / NOT MIGRATED。
-- D-060 V0.1 已由 Product Owner 批准：canonical Character assets 的自动选图与本地 Reference Package 生成已通过真实测试；尚未验证 Reference Package 到制图环境的自动交付。
-- 当前 P1 Character Gap Production Wave 1 仍为宁秋水 `PROFILE_LEFT + REAR_3Q_LEFT`；任何新图仍须 Product Owner 明确审批后才可进入正式 Asset Registry。
-- P0.1–P0.3 是项目 Gate / 重启专项，不自动占用 Codex D-###。
-- MVP1 正式故事起点锁定为 S2 第134章开头；实际终点按有声小说叙事/音频边界锁定，当前录制范围已跨入第135章开头。
-- MVP1 canonical audio 已锁定为 `AUDIO_MVP1_CANONICAL_V001.m4a`；它是原音内容与 source extraction 边界的最高音频事实源，但不是动画节奏母版。
-- 正式硬规则：`SOURCE AUDIO TC ≠ FINAL EDIT TC`。
-- S3 = 可机器检索的原音素材定位/验证层；A1 = 改编取舍；Shot Plan = 镜头叙事与画面需求；Audio Alignment / Resolver = 根据已确定镜头自动检索、定位、提取原音；Animatic / Edit Timeline = 最终画面与声音节奏编排。
-- 用户不承担常规“搜索某句话 / 找 source TC”的操作；正式流程必须自动从镜头需求派生音频需求。
-- 第133章只作为前置语境，不进入 MVP1 正式成片。
-- 旧资产不因重启自动废弃，也不因曾被 APPROVED 自动视为当前 `CURRENT`；以 P0.2 authority audit 和新生命周期规则重新分类。
-- P0.2 / P0.3 的最终制度或技术方案仍必须经过专项讨论与验证后再形成 Gate Review。
+- Character P1 production reference 目标画幅为 9:16；固定标准审核由 `【审核】` 触发。
+- 每日收尾必须执行 Project Control cross-file consistency check；单一 progress 文件更新不构成完整 Step Closeout。
