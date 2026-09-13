@@ -47,24 +47,27 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 | 5 | Asset Registry / Dependency model | **PARTIAL / CHARACTER RUNTIME VERIFIED**：Runtime Asset Registry、Audit Event、Single Current、Supersession 已真实运行；48 legacy Character assets 尚未正式进入长期 Registry / Audit identity，Derived dependency 与 broader Scene/Prop/Costume 数据仍需验证。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
 | 7 | Real Shot Spec Resolver | **PENDING**：尚未用至少一个“人物 + 场景 + 关键服装/道具”的真实 Shot Spec 完成完整 Reference Package 验证。 |
-| 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING SHOT VALIDATION**：Asset-level approval / ingest / supersession audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation 尚未完整验证。 |
+| 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING SHOT VALIDATION**：Asset-level approval / ingest / supersession audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation尚未完整验证。 |
 
 当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。**
 
-### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026
+### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
 
-Product Owner 已把以下 6 项从“容易被后续生产绕过的剩余证据”提升为下一次工作必须完成的正式前置任务：
+Product Owner 已把以下 7 项提升为下一次工作必须完成的正式前置任务：
 
 1. AO-01｜4 Canonical Registers Final Reconciliation；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit；
 3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec；
 4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness；
 5. AO-05｜Delivery Bridge：Reference Package → image-production environment；
-6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace。
+6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
+7. AO-07｜GitHub Network Resilience / Recovery Method，对应 `RISK-001｜GitHub Connectivity Instability`。
 
-详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`。
+AO-07 是运营稳定性前置条件，不新增 Gate 本身，但其目标直接保护 Project Control、Automatic Ingest、Registry/Audit 与正式资产发布的一致性。其完成标准包括 connectivity preflight、标准诊断、HTTP/proxy/VPN fallback、幂等 retry、`PENDING_REMOTE_PUBLICATION`、恢复续传、受控 failure→recovery 验证与 Runbook。
 
-**在 AO-01～AO-06 全部 `COMPLETE / VERIFIED` 前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。**
+详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`；正式风险见 `logs/risk_register.md`。
+
+**在 AO-01～AO-07 全部 `COMPLETE / VERIFIED` 前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。**
 
 满足以上技术条件后，P0.2 状态仍只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
 
