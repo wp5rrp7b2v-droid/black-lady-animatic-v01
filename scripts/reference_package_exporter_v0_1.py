@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Export a small, manifest-verified Character reference package (v0.1)."""
+"""Export a manifest-verified P1 Character reference package (v0.2)."""
 
 import argparse
 import hashlib
 import json
 import re
 import shutil
-import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,13 +18,33 @@ MANIFEST = Path(
 )
 ASSET_ROOT = Path("production/image_library/character_references")
 OUTPUT_ROOT = Path("tmp/reference_packages")
-TARGET_ROLE = "PROFILE_LEFT"
-ANCHORS = (
-    ("FACE_FRONT", "人物身份与正面五官主锚点"),
-    ("PROFILE_RIGHT", "现有相反方向侧脸，用于侧脸轮廓与结构"),
-    ("FACE_3Q_RIGHT", "右前方三分之四视角，辅助理解头脸立体结构"),
-    ("BODY_FRONT", "正面体型、服装及整体人物结构"),
-)
+ANCHORS_BY_TARGET = {
+    "PROFILE_LEFT": (
+        ("FACE_FRONT", "人物身份与正面五官主锚点"),
+        ("PROFILE_RIGHT", "现有相反方向侧脸，用于侧脸轮廓与结构"),
+        ("FACE_3Q_RIGHT", "右前方三分之四视角，辅助理解头脸立体结构"),
+        ("BODY_FRONT", "正面体型、服装及整体人物结构"),
+    ),
+    "PROFILE_RIGHT": (
+        ("FACE_FRONT", "人物身份与正面五官主锚点"),
+        ("PROFILE_LEFT", "现有相反方向侧脸，用于侧脸轮廓与结构"),
+        ("FACE_3Q_LEFT", "左前方三分之四视角，辅助理解头脸立体结构"),
+        ("BODY_FRONT", "正面体型、服装及整体人物结构"),
+    ),
+    "REAR_3Q_LEFT": (
+        ("FACE_FRONT", "人物身份与正面五官主锚点"),
+        ("REAR_3Q_RIGHT", "现有相反方向后侧视角，用于背面轮廓与结构"),
+        ("FACE_3Q_RIGHT", "右前方三分之四视角，辅助理解头脸立体结构"),
+        ("BODY_BACK", "背面体型、服装及整体人物结构"),
+    ),
+    "REAR_3Q_RIGHT": (
+        ("FACE_FRONT", "人物身份与正面五官主锚点"),
+        ("REAR_3Q_LEFT", "现有相反方向后侧视角，用于背面轮廓与结构"),
+        ("FACE_3Q_LEFT", "左前方三分之四视角，辅助理解头脸立体结构"),
+        ("BODY_BACK", "背面体型、服装及整体人物结构"),
+    ),
+}
+STAMP_RE = re.compile(r"_\d{8}T\d{12}Z$")
 
 
 def sha256(path):
@@ -34,6 +53,23 @@ def sha256(path):
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def package_root():
+    root = ROOT.resolve() / OUTPUT_ROOT
+    if root.is_symlink() or root.resolve() != root:
+        raise ValueError("Reference package root is redirected; operation blocked")
+    return root
+
+
+def package_name(wave_id, entity, target_role):
+    if not re.fullmatch(r"[A-Z][A-Z0-9_]*", wave_id):
+        raise ValueError("Wave ID must contain only uppercase letters, digits, and underscores")
+    if not re.fullmatch(r"CHAR_[A-Z0-9_]+", entity):
+        raise ValueError("Entity must be a canonical CHAR_ identifier")
+    if target_role not in ANCHORS_BY_TARGET:
+        raise ValueError(f"Unsupported target role: {target_role}")
+    return f"{wave_id}_{entity.removeprefix('CHAR_')}_{target_role}"
 
 
 def source_path(row):
@@ -56,44 +92,35 @@ def eligible(row):
     )
 
 
-def cleanup_old_reference_packages(current_package_path):
-    """Delete only verified packages produced by this exporter, inside its tmp root."""
-    root = ROOT.resolve() / OUTPUT_ROOT
-    if root.is_symlink() or root.resolve() != root:
-        raise ValueError("Reference package root is redirected; cleanup blocked")
-    current_path = Path(current_package_path)
-    if current_path.is_symlink() or current_path.resolve().parent != root or not current_path.is_dir():
-        raise ValueError("Current package is outside tmp/reference_packages/")
-    current = current_path.resolve()
-    cleaned = 0
-    for old in root.iterdir():
-        if old == current or old.is_symlink() or not old.is_dir():
-            continue
-        if old.resolve().parent != root or not re.fullmatch(
-            r"P1_WAVE1_[A-Z0-9_]+_PROFILE_LEFT(?:_\d{8}T\d{12}Z)?", old.name
-        ):
-            continue
-        if not is_verified_old_package(old):
-            continue
-        shutil.rmtree(old)
-        cleaned += 1
-    return cleaned
-
-
-def current_package_path_entity(name):
-    base = re.sub(r"_\d{8}T\d{12}Z$", "", name)
-    return "CHAR_" + base.removeprefix("P1_WAVE1_").removesuffix("_PROFILE_LEFT")
+def package_identity_matches(path, metadata):
+    """Accept the v0.1 marker and v0.2 marker, only at their named location."""
+    entity = metadata.get("entity_id")
+    role = metadata.get("target_role")
+    if not isinstance(entity, str) or not re.fullmatch(r"CHAR_[A-Z0-9_]+", entity):
+        return False
+    if role not in ANCHORS_BY_TARGET:
+        return False
+    base = STAMP_RE.sub("", path.name)
+    suffix = f"_{entity.removeprefix('CHAR_')}_{role}"
+    if not base.endswith(suffix):
+        return False
+    wave = base[:-len(suffix)]
+    if not re.fullmatch(r"[A-Z][A-Z0-9_]*", wave):
+        return False
+    return metadata.get("wave_id", wave) == wave
 
 
 def is_verified_old_package(path):
+    """Verify marker, identity, exact contents, and every copied PNG before deletion."""
+    if path.is_symlink() or not path.is_dir() or path.resolve().parent != package_root():
+        return False
     marker = path / "package.json"
     if marker.is_symlink() or not marker.is_file():
         return False
     try:
         metadata = json.loads(marker.read_text(encoding="utf-8"))
         if (metadata.get("source_manifest") != MANIFEST.as_posix()
-                or metadata.get("target_role") != TARGET_ROLE
-                or metadata.get("entity_id") != current_package_path_entity(path.name)):
+                or not package_identity_matches(path, metadata)):
             return False
         assets = metadata.get("selected_assets")
         if not isinstance(assets, list) or not assets:
@@ -102,9 +129,11 @@ def is_verified_old_package(path):
         for item in assets:
             name = item["canonical_filename"]
             reference = path / name
-            if (Path(name).name != name or not name.endswith(".png")
-                    or name in expected or reference.is_symlink()
-                    or not reference.is_file() or sha256(reference) != item["sha256"]):
+            if (not isinstance(name, str) or Path(name).name != name
+                    or not name.endswith(".png") or name in expected
+                    or reference.is_symlink() or not reference.is_file()
+                    or not re.fullmatch(r"[a-f0-9]{64}", item["sha256"])
+                    or sha256(reference) != item["sha256"]):
                 return False
             expected.add(name)
         return {p.name for p in path.iterdir()} == expected
@@ -113,19 +142,42 @@ def is_verified_old_package(path):
 
 
 def verify_package(output, package):
-    if json.loads((output / "package.json").read_text(encoding="utf-8")) != package:
+    marker = output / "package.json"
+    if marker.is_symlink() or json.loads(marker.read_text(encoding="utf-8")) != package:
         raise ValueError("Generated package.json failed verification")
-    for item in package["selected_assets"]:
-        reference = output / item["canonical_filename"]
-        if not reference.is_file() or sha256(reference) != item["sha256"]:
-            raise ValueError(f"Generated PNG failed verification: {reference.name}")
+    if not is_verified_old_package(output):
+        raise ValueError("Generated reference PNG SHA or package identity failed verification")
 
 
-def export(entity, target_role, output):
-    if not re.fullmatch(r"CHAR_[A-Z0-9_]+", entity):
-        raise ValueError("Entity must be a canonical CHAR_ identifier")
-    if target_role != TARGET_ROLE:
-        raise ValueError("v0.1 only supports target role PROFILE_LEFT")
+def cleanup_old_reference_packages(current_package_path):
+    """Keep the verified current package; delete only other verified packages."""
+    root = package_root()
+    current = Path(current_package_path)
+    if current.is_symlink() or current.resolve().parent != root or not current.is_dir():
+        raise ValueError("Current package is outside tmp/reference_packages/")
+    if not is_verified_old_package(current):
+        raise ValueError("Current package failed exporter verification; cleanup blocked")
+    current = current.resolve()
+    verified_old = []
+    for old in root.iterdir():
+        if old == current:
+            continue
+        if old.is_symlink():
+            raise ValueError(f"Symlink in reference package root; cleanup blocked: {old.name}")
+        if not old.is_dir():
+            continue
+        if old.resolve().parent != root:
+            raise ValueError(f"Package path escapes reference package root: {old.name}")
+        if not is_verified_old_package(old):
+            continue
+        verified_old.append(old)
+    for old in verified_old:
+        shutil.rmtree(old)
+    return len(verified_old)
+
+
+def export(entity, target_role, output, wave_id="P1_WAVE1"):
+    package_name(wave_id, entity, target_role)
     rows = json.loads((ROOT / MANIFEST).read_text(encoding="utf-8"))
     entity_rows = [r for r in rows if r.get("canonical_entity_id") == entity]
     if not entity_rows:
@@ -139,19 +191,17 @@ def export(entity, target_role, output):
             raise ValueError(f"Duplicate eligible CURRENT asset for {key}: "
                              f"{by_key[key]['canonical_filename']} and {row['canonical_filename']}")
         by_key[key] = row
-
-    if any(r.get("new_role") == target_role for r in current):
-        raise ValueError(f"Target role {target_role} already has an eligible CURRENT asset")
+    if any(r.get("new_role") == target_role and r.get("lifecycle") == "CURRENT"
+           for r in entity_rows):
+        raise ValueError(f"Target role {target_role} already has a CURRENT asset")
 
     warnings = [f"{target_role} is a REFERENCE_GAP; this package supplies production anchors."]
     selected = []
-    for role, reason in ANCHORS:
-        candidates = [r for r in current if r.get("new_role") == role
-                      and r.get("variant") == "DEFAULT" and r.get("state") == "DEFAULT"]
-        if not candidates:
+    for role, reason in ANCHORS_BY_TARGET[target_role]:
+        row = by_key.get((role, "DEFAULT", "DEFAULT"))
+        if row is None:
             warnings.append(f"{role}: no eligible CURRENT / APPROVED / CONFIRMED DEFAULT asset")
             continue
-        row = candidates[0]
         path = source_path(row)
         if not path.is_file():
             warnings.append(f"{role}: canonical PNG missing: {row['target_storage_path']}")
@@ -160,15 +210,22 @@ def export(entity, target_role, output):
         if actual_sha != row.get("sha256"):
             raise ValueError(f"SHA-256 mismatch for {row['canonical_filename']}")
         selected.append((row, path, reason, actual_sha))
-
     if not selected:
         raise ValueError("No eligible, existing, SHA-verified anchors were found")
+
+    output = Path(output)
+    root = package_root()
+    if output.is_symlink() or output.resolve().parent != root or not re.fullmatch(
+            re.escape(package_name(wave_id, entity, target_role)) + r"(?:_\d{8}T\d{12}Z)?", output.name):
+        raise ValueError("Output must be a safely named direct child of tmp/reference_packages/")
     if output.exists():
         raise ValueError(f"Output already exists; refusing to overwrite: {output}")
 
     package = {
         "entity_id": entity,
         "target_role": target_role,
+        "wave_id": wave_id,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "package_status": "TEST COMPLETE / WAITING PRODUCT OWNER REVIEW",
         "target_role_status": "REFERENCE_GAP",
         "source_manifest": MANIFEST.as_posix(),
@@ -185,11 +242,8 @@ def export(entity, target_role, output):
         "reference_gap": True,
         "warnings": warnings,
     }
-    output.parent.mkdir(parents=True, exist_ok=True)
-    root = ROOT.resolve() / OUTPUT_ROOT
-    if root.is_symlink() or root.resolve() != root or output.resolve().parent != root:
-        raise ValueError("Output must be a direct child of tmp/reference_packages/")
-    staging = Path(tempfile.mkdtemp(prefix=".reference_package_", dir=output.parent))
+    root.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix=".reference_package_", dir=root))
     try:
         for row, path, _, actual_sha in selected:
             destination = staging / row["canonical_filename"]
@@ -211,18 +265,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--entity", required=True)
     parser.add_argument("--target-role", required=True)
-    parser.add_argument("--output", type=Path, help="Optional output directory")
+    parser.add_argument("--wave-id", default="P1_WAVE1")
+    parser.add_argument("--output", type=Path, help="Optional safely named output directory")
     args = parser.parse_args()
-    output = args.output or (
-        ROOT / OUTPUT_ROOT / f"P1_WAVE1_{args.entity.removeprefix('CHAR_')}_{args.target_role}"
-    )
-    if not output.is_absolute():
-        output = ROOT / output
-    if args.output is None and output.exists():
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-        output = output.with_name(f"{output.name}_{stamp}")
     try:
-        package = export(args.entity, args.target_role, output)
+        name = package_name(args.wave_id, args.entity, args.target_role)
+        output = args.output or ROOT / OUTPUT_ROOT / name
+        if not output.is_absolute():
+            output = ROOT / output
+        if args.output is None and output.exists():
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            output = output.with_name(f"{name}_{stamp}")
+        package = export(args.entity, args.target_role, output, args.wave_id)
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
         parser.exit(1, f"Export failed: {exc}\n")
     print(f"CURRENT_PACKAGE: {output}")
