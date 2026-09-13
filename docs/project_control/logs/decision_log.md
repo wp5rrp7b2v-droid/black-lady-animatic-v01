@@ -4,6 +4,7 @@
 
 | ID | 日期 | 决策 | 状态 / 影响 |
 |---|---|---|---|
+| BL-D-021 | 2026-09-13 | Product Owner 批准并锁定 P0.2-03 的 9 Character Tier Assignment V1：Tier A = 宁秋水、君鹭远、尼尔、黑衣夫人；Tier B = 温倾雅、苏小小、廖健、古堡小主人；Tier C = 光勇；Tier D = 当前 9 名正式角色中无。Tier 仍由 Production Need 决定，不按“现有图片数量”反推。下一步进入角色级 Asset Gap Mapping：Tier B 确认 primary_side，Tier A 核对真实 LEFT / RIGHT Current Coverage，并将历史 Master / Auxiliary 映射到 Schema V0.3 canonical Role；缺口分为 CORE_VIEW_GAP / REFERENCE_SHEET_GAP / STATE_VARIANT_GAP / NO_ACTION_REQUIRED。Gap Mapping 完成前不批量补图。 | LOCKED / P0.2-03 CHARACTER TIER ASSIGNMENT V1 |
 | BL-D-020 | 2026-09-13 | Product Owner 批准并锁定 P0.2-02 Entity / Asset Registry Schema V0.3。长期模型固定为 Entity Registry、Asset Registry、Asset Relations、Append-only Audit Event Log 四层；另设只服务旧资产迁移的 Migration Mapping Manifest。正式 `asset_class = ATOMIC / DERIVED_REFERENCE / SHOT`；Entity-bound 与 Shot-bound 分离，正式剧情 Shot 无论包含多少 Character 都以 canonical `shot_id` 归属，人物/场景组成由 Shot Register / Shot Spec 表达。Single Current 按 entity/shot + role + variant + state 唯一；Role 按 asset_class 管理并新增 `SHOT_MASTER`；Asset Registry 增加 `provenance_status = COMPLETE / PARTIAL / UNKNOWN`；Resolver eligibility 动态计算，不维护手工 eligibility 布尔值；Derived Reference 上游失效时计算 `DEPENDENCY_STALE`。命名规则升级为 `<ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###` 与 `<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###`；历史 `REBOOT / approved / final / current / lock` 不进入 canonical filename，`A01_REBOOT…A08_REBOOT` 迁移为 `A01…A08`。LEFT / RIGHT 统一采用 screen-facing convention。V0.3 已通过宁秋水、A04 与 Reference Sheet 逻辑真实 Walkthrough；Schema 锁定不等于 P0.2 Gate PASS。 | LOCKED / P0.2-02 REGISTRY SCHEMA V0.3 |
 | BL-D-019 | 2026-09-12 | Product Owner 批准 P0.2-02 Character Asset 采用 Tier 分级标准，而不是所有人物统一固定数量：Tier A 核心角色采用 9-view canonical turnaround；Tier B 重要配角采用 6-view Core Set 并固定 primary side；Tier C 普通角色采用 3-view Minimum Set；Tier D 群演/一次性角色不建立完整 Core Set。Tier 由叙事重要性、出场频率、视角复杂度、连续性敏感度与动画需求共同决定；Production Need 可触发升级。所有同类视图必须统一角度定义、背景、光线、机位和人物比例。Atomic Character Assets 与 Derived Character Reference Sheet 分离；正常生产由 Reference Resolver 自动调用 Sheet，并在需要时追加匹配 Atomic View；缺失关键视角时返回 `REFERENCE_GAP`，不得静默使用废弃资产或将镜像推断当成权威事实。 | LOCKED / P0.2-02 CHARACTER ASSET RULE |
 | BL-D-018 | 2026-09-12 | Product Owner 批准 P0.2 的视觉资产管理方向：正式体系不再以人工 Library 挑图和手工命名/存储/登记为标准流程。人物、场景、服装、道具统一采用 `Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package` 模型；只有 Product Owner 明确批准的视觉结果进入正式 Asset Registry；Approval 与 Lifecycle 分离，正式生命周期为 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED`；Atomic Master 与 Derived Reference 分离并保留 dependency；正常生产目标为 `Shot / Task Spec → Reference Resolver → Reference Package`，随后生成、PO 审批、Automatic Ingest；所有正式资产必须记录来源、审批、版本、替代、依赖和生产调用 Audit Trail。P0.2 必须用现有《黑衣夫人》资产做真实迁移与自动选图验证后，才可进入 `READY_FOR_APPROVAL`。 | LOCKED / P0.2 VISUAL ASSET MANAGEMENT SYSTEM V1 DIRECTION |
@@ -30,10 +31,11 @@
 - P0.1 已由 Product Owner 明确批准 PASS；S1 / S2 / canonical audio / 完整 MVP1 S3 searchable index 构成正式故事与声音事实基线。
 - 所有后续 Gate / Phase 必须经过 Product Owner 明确审批；技术完成只能进入 `READY_FOR_APPROVAL`，不得自动 PASS / CLOSED。
 - P0.2 的正式方向已锁定为 Visual Asset Management System V1，而不是单纯图库整理；必须实现/验证 Entity/Asset、Reference Resolver、Automatic Ingest 与 Audit Trail 的可执行路径。
-- P0.2-02 Character Asset 采用 Tier A/B/C/D 分级；具体角色归属尚未自动认定，下一步进行 9 Character Tier Assignment + Gap Analysis。
+- P0.2-02 Character Asset 采用 Tier A/B/C/D 分级；P0.2-03 Tier Assignment V1 已锁定：A=宁秋水/君鹭远/尼尔/黑衣夫人，B=温倾雅/苏小小/廖健/古堡小主人，C=光勇，当前正式角色无 D。
 - P0.2-02 Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；Schema 锁定不等于 P0.2 Gate PASS。
 - 正式 Registry 长期模型固定为 Entity Registry / Asset Registry / Asset Relations / Append-only Audit Event Log；Migration Mapping Manifest 仅服务旧资产迁移。
 - canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物/场景组成由 Shot Register / Shot Spec 表达。
+- 当前下一步为角色级 Asset Gap Mapping；Tier B 需确认 primary_side，Tier A 需核对真实左右 Current Coverage；Gap Mapping 完成前不批量补图。
 - P0.1–P0.3 是项目 Gate / 重启专项，不自动占用 Codex D-###。
 - MVP1 正式故事起点锁定为 S2 第134章开头；实际终点按有声小说叙事/音频边界锁定，当前录制范围已跨入第135章开头。
 - MVP1 canonical audio 已锁定为 `AUDIO_MVP1_CANONICAL_V001.m4a`；它是原音内容与 source extraction 边界的最高音频事实源，但不是动画节奏母版。
