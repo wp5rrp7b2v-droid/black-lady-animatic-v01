@@ -21,6 +21,42 @@ APPLESCRIPT
     exit 1
 fi
 
+if ! inspection=$(python3 -B scripts/automatic_ingest_controller_v0_1.py \
+    --source "$selected_png" --from-filename --inspect-current); then
+    echo "INGEST BLOCKED: Could not inspect the selected asset."
+    exit 1
+fi
+
+if ! inspect_fields=$(printf '%s' "$inspection" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["status"]); print(d.get("old_filename") or ""); print(d["new_filename"]); print("YES" if d.get("migration_only") else "NO")'); then
+    echo "INGEST BLOCKED: Invalid controller inspection result."
+    exit 1
+fi
+current_status=$(printf '%s\n' "$inspect_fields" | sed -n '1p')
+old_filename=$(printf '%s\n' "$inspect_fields" | sed -n '2p')
+new_filename=$(printf '%s\n' "$inspect_fields" | sed -n '3p')
+migration_only=$(printf '%s\n' "$inspect_fields" | sed -n '4p')
+
+supersede_args=()
+if [ "$current_status" = "CURRENT_FOUND" ]; then
+    if ! /usr/bin/osascript - "$old_filename" "$new_filename" <<'APPLESCRIPT'
+on run argv
+    set oldName to item 1 of argv
+    set newName to item 2 of argv
+    set promptText to "检测到当前已有正式 CURRENT 资产：" & return & return & oldName & return & return & "本次将以：" & return & return & newName & return & return & "替换当前版本。" & return & return & "旧版本不会删除，将标记为 SUPERSEDED。" & return & return & "是否继续？"
+    set answer to display dialog promptText buttons {"取消", "替换 Current"} default button "取消" with icon caution
+    if button returned of answer is not "替换 Current" then error number -128
+end run
+APPLESCRIPT
+    then
+        echo "INGEST BLOCKED: Current replacement was cancelled."
+        exit 1
+    fi
+    supersede_args=(--supersede-current)
+elif [ "$current_status" != "NO_CURRENT" ] || [ "$migration_only" = "YES" ]; then
+    echo "INGEST BLOCKED: Unsupported Current state."
+    exit 1
+fi
+
 if python3 -B scripts/automatic_ingest_controller_v0_1.py \
     --source "$selected_png" \
     --from-filename \
@@ -28,7 +64,7 @@ if python3 -B scripts/automatic_ingest_controller_v0_1.py \
     --resolver-usage DEFAULT \
     --task-id P0.2-03 \
     --source-reference "P1 Character Gap Production / PO approved via main Chat / one-click ingest" \
-    --po-approved; then
+    --po-approved "${supersede_args[@]}"; then
     echo "INGEST COMPLETE"
 else
     echo "INGEST BLOCKED: See the reason above."

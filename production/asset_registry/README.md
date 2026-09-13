@@ -6,6 +6,7 @@
 
 - `asset_registry.jsonl`：正式 Asset Registry 的 V0.1 运行时记录；仅写入 Product Owner 明确批准并完成正式入库的新生产资产。
 - `audit_event_log.jsonl`：append-only Audit Event Log；V0.1 对每次正式入库至少写入 `ASSET_APPROVED` 与 `ASSET_INGESTED`。
+- `asset_relations.jsonl`：受控替换时创建，记录 `NEW_ASSET SUPERSEDES OLD_ASSET`；无替换时无需空文件。
 
 ## 与 D-059 Migration Manifest 的关系
 
@@ -23,7 +24,9 @@ V0.1 在执行冲突检查、版本计算和 Asset ID 顺序预留时会同时�
 
 - 仅支持 Character PNG；
 - 仅处理已由 Product Owner 明确批准的结果；
-- 不自动 supersede 已存在的 CURRENT；如检测到 Single Current 冲突则停止；
+- 默认遇到 Single Current 冲突仍停止。只有 Product Owner 明确选择替换、同时传入 `--po-approved --supersede-current`，才允许将唯一的 Runtime Registry CURRENT 标记为 `SUPERSEDED`，并把连续下一版本登记为 `CURRENT`。Migration Manifest-only CURRENT 不支持替换；
+- 受控替换保留旧 PNG、旧文件名、SHA 和版本号，并在 Asset Relations 与 append-only Audit Event Log 中记录关系和 `ASSET_SUPERSEDED` 事件；正式写入失败会恢复执行前的 Registry、Relations、Audit 和 Git 暂存状态；
+- `--supersede-current --dry-run --po-approved` 只预览，不拉取、推送或写正式文件；`--inspect-current` 供一键入口只读判断是否需要二次确认；
 - 不自动修改 Dashboard / Project State / Character Gap Mapping 文档；这些仍由主流程 Chat 在远端核验后更新；
 - `tmp/ingest_receipts/` 为本地执行回执，不进入正式 Registry。
 

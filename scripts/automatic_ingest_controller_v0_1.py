@@ -21,10 +21,12 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -36,6 +38,7 @@ MANIFEST = Path(
 )
 REGISTRY = Path("production/asset_registry/asset_registry.jsonl")
 AUDIT = Path("production/asset_registry/audit_event_log.jsonl")
+RELATIONS = Path("production/asset_registry/asset_relations.jsonl")
 RECEIPTS = Path("tmp/ingest_receipts")
 
 CORE_ROLES = {
@@ -133,6 +136,43 @@ def append_jsonl(path: Path, rows: list[dict]) -> None:
             f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
 
 
+def jsonl_bytes(rows: list[dict]) -> bytes:
+    return b"".join((json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8") for row in rows)
+
+
+def fsync_dir(path: Path) -> None:
+    directory_fd = os.open(path, os.O_RDONLY)
+    try:
+        os.fsync(directory_fd)
+    finally:
+        os.close(directory_fd)
+
+
+def atomic_bytes(path: Path, data: bytes) -> None:
+    """Replace one file durably. The caller owns cross-file rollback."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    try:
+        with os.fdopen(fd, "wb") as out:
+            out.write(data)
+            out.flush()
+            os.fsync(out.fileno())
+        os.replace(name, path)
+        fsync_dir(path.parent)
+    finally:
+        Path(name).unlink(missing_ok=True)
+
+
+def safe_registered_path(repo: Path, uri: str) -> Path:
+    rel = Path(uri)
+    if rel.is_absolute() or ".." in rel.parts or not uri.startswith("production/image_library/character_references/"):
+        raise IngestError("Registered storage path escape")
+    path = repo / rel
+    if path.is_symlink() or not path.resolve().is_relative_to(repo.resolve()):
+        raise IngestError("Registered storage path escape or symlink")
+    return path
+
+
 def entity_dir(entity: str) -> Path:
     if not entity.startswith("CHAR_"):
         raise IngestError("V0.1 supports Character entities only.")
@@ -204,6 +244,8 @@ def parse_args():
     p.add_argument("--task-id", default="P0.2-03")
     p.add_argument("--source-reference", default="PO approval in main Chat")
     p.add_argument("--po-approved", action="store_true")
+    p.add_argument("--supersede-current", action="store_true")
+    p.add_argument("--inspect-current", action="store_true", help="Read-only launcher preflight")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--no-pull", action="store_true")
     p.add_argument("--no-push", action="store_true")
@@ -212,8 +254,10 @@ def parse_args():
 
 def main() -> int:
     a = parse_args()
-    if not a.po_approved:
+    if not a.po_approved and not a.inspect_current:
         raise IngestError("Blocked: --po-approved is required after explicit Product Owner approval.")
+    if a.inspect_current and a.supersede_current:
+        raise IngestError("--inspect-current cannot be combined with --supersede-current")
 
     source = Path(a.source).expanduser().resolve()
     validate_png(source)
@@ -221,12 +265,13 @@ def main() -> int:
     repo = repo_root()
     registry_path = repo / REGISTRY
     audit_path = repo / AUDIT
+    relations_path = repo / RELATIONS
 
     pre_staged = git(repo, "diff", "--cached", "--name-only").stdout.strip()
     if pre_staged:
         raise IngestError("Pre-existing staged changes detected:\n" + pre_staged)
 
-    if not a.dry_run and not a.no_pull:
+    if not a.dry_run and not a.inspect_current and not a.no_pull:
         git(repo, "pull", "--ff-only", "origin", "main")
 
     manifest = load_manifest(repo)
@@ -250,15 +295,6 @@ def main() -> int:
     if not any(r.get("canonical_entity_id") == entity for r in manifest):
         raise IngestError(f"Unknown entity: {entity}")
 
-    digest = sha256(source)
-
-    for r in manifest:
-        if r.get("mapping_status") == "CONFIRMED" and r.get("sha256") == digest:
-            raise IngestError(f"Same binary already exists: {r.get('canonical_filename')}")
-    for r in registry:
-        if r.get("sha256") == digest:
-            raise IngestError(f"Same binary already registered: {r.get('asset_id')}")
-
     migrated = migration_rows(manifest, entity, role, variant, state)
     migrated_current = [r for r in migrated if r.get("lifecycle") == "CURRENT"]
     runtime_current = [
@@ -269,10 +305,47 @@ def main() -> int:
         and r.get("state") == state
         and r.get("lifecycle") == "CURRENT"
     ]
-    if migrated_current or runtime_current:
+    if a.inspect_current:
+        if len(runtime_current) > 1:
+            raise IngestError("Multiple runtime CURRENT assets")
+        old = runtime_current[0] if runtime_current else None
+        print(json.dumps({
+            "status": "CURRENT_FOUND" if old else "NO_CURRENT",
+            "old_asset_id": old.get("asset_id") if old else None,
+            "old_filename": old.get("filename") if old else None,
+            "new_filename": source.name,
+            "migration_only": bool(migrated_current and not old),
+        }, ensure_ascii=False))
+        return 0
+
+    digest = sha256(source)
+    for r in manifest:
+        if r.get("mapping_status") == "CONFIRMED" and r.get("sha256") == digest:
+            raise IngestError(f"DUPLICATE_BINARY: {r.get('canonical_filename')}")
+    for r in registry:
+        if r.get("sha256") == digest:
+            raise IngestError(f"DUPLICATE_BINARY: {r.get('asset_id')}")
+
+    old = None
+    if a.supersede_current:
+        if len(runtime_current) == 0 and migrated_current:
+            raise IngestError("LEGACY_CURRENT_NOT_RUNTIME_MANAGED")
+        if len(runtime_current) != 1:
+            raise IngestError(f"Controlled supersession requires exactly one runtime CURRENT; found {len(runtime_current)}")
+        old = runtime_current[0]
+        if old.get("approval_status") != "APPROVED" or old.get("lifecycle") != "CURRENT":
+            raise IngestError("Old CURRENT must be APPROVED and CURRENT")
+        old_path = safe_registered_path(repo, str(old.get("storage_uri", "")))
+        if old_path.name != old.get("filename") or not old_path.is_file():
+            raise IngestError("Old CURRENT file missing or filename mismatch")
+        if sha256(old_path) != old.get("sha256"):
+            raise IngestError("SHA mismatch for old CURRENT")
+        if digest == old.get("sha256"):
+            raise IngestError("DUPLICATE_BINARY")
+    elif migrated_current or runtime_current:
         raise IngestError(
             f"Single Current conflict for {entity}/{role}/{variant}/{state}. "
-            "V0.1 intentionally does not supersede automatically."
+            "Use explicit --supersede-current with --po-approved for controlled replacement."
         )
 
     versions = []
@@ -291,6 +364,8 @@ def main() -> int:
             versions.append(int(r.get("version_no") or 0))
 
     version_no = max(versions, default=0) + 1
+    if old is not None and version_no != int(old.get("version_no") or 0) + 1:
+        raise IngestError("Version safety: new version must equal old version + 1")
     if filename_version is not None and filename_version != version_no:
         raise IngestError(
             f"Filename version V{filename_version:03d} does not match next version V{version_no:03d}"
@@ -299,7 +374,17 @@ def main() -> int:
     filename = f"{entity}_{role}_{variant}_{state}_{vtag}.png"
     rel_target = entity_dir(entity) / filename
     target = repo / rel_target
+    if target.exists() or target.is_symlink():
+        raise IngestError(f"Target already exists: {rel_target}")
     asset_id = next_asset_id(manifest, registry)
+    relations = load_jsonl(relations_path) if old is not None else []
+    if old is not None:
+        if any(r.get("source_asset_id") == asset_id or
+               (r.get("relation_type") == "SUPERSEDES" and r.get("target_asset_id") == old.get("asset_id"))
+               for r in relations):
+            raise IngestError("Contradictory or duplicate SUPERSEDES relation")
+        if asset_id == old.get("asset_id"):
+            raise IngestError("SUPERSEDES source and target must differ")
     timestamp = now_utc()
 
     asset = {
@@ -364,9 +449,35 @@ def main() -> int:
             "source_reference": a.source_reference,
         },
     ]
+    relation = None
+    if old is not None:
+        superseded_event = {
+            "event_id": event_id(),
+            "event_time": timestamp,
+            "event_type": "ASSET_SUPERSEDED",
+            "entity_id": entity,
+            "asset_id": old["asset_id"],
+            "actor_type": "PRODUCT_OWNER",
+            "actor_id": "PRODUCT_OWNER",
+            "previous_value": {"lifecycle": "CURRENT"},
+            "new_value": {"lifecycle": "SUPERSEDED", "superseded_by": asset_id},
+            "reason": "Product Owner approved controlled replacement of CURRENT asset.",
+            "task_id": a.task_id,
+            "source_reference": a.source_reference,
+        }
+        events.append(superseded_event)
+        events[1]["new_value"]["supersedes_asset_id"] = old["asset_id"]
+        relation = {
+            "source_asset_id": asset_id,
+            "relation_type": "SUPERSEDES",
+            "target_asset_id": old["asset_id"],
+            "created_at": timestamp,
+            "created_by_event_id": superseded_event["event_id"],
+        }
 
     result = {
         "status": "DRY_RUN" if a.dry_run else "READY",
+        "mode": "SUPERSEDE_CURRENT" if old is not None else "NORMAL_INGEST",
         "asset_id": asset_id,
         "entity_id": entity,
         "role": role,
@@ -377,35 +488,75 @@ def main() -> int:
         "sha256": digest,
         "byte_size": source.stat().st_size,
     }
+    if old is not None:
+        result.update({
+            "old_asset_id": old["asset_id"], "old_filename": old["filename"],
+            "old_version": int(old["version_no"]), "new_asset_id": asset_id,
+            "new_filename": filename, "new_version": version_no,
+            "relation": "NEW SUPERSEDES OLD",
+        })
 
     if a.dry_run:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
 
-    if target.exists():
-        raise IngestError(f"Target already exists: {rel_target}")
+    touched = [rel_target.as_posix(), REGISTRY.as_posix(), AUDIT.as_posix()]
+    if old is not None:
+        touched.append(RELATIONS.as_posix())
+    dirty = git(repo, "status", "--porcelain", "--", *touched).stdout.strip()
+    if dirty:
+        raise IngestError("Pre-existing changes in ingest targets:\n" + dirty)
+
+    file_paths = [registry_path, audit_path] + ([relations_path] if old is not None else [])
+    before = {path: path.read_bytes() if path.exists() else None for path in file_paths}
+    updated_registry = [({**r, "lifecycle": "SUPERSEDED"} if r is old else r) for r in registry] + [asset]
+    registry_data = jsonl_bytes(updated_registry) if old is not None else (before[registry_path] or b"") + jsonl_bytes([asset])
+    audit_data = (before[audit_path] or b"") + jsonl_bytes(events)
+    relation_data = (before.get(relations_path) or b"") + jsonl_bytes([relation]) if relation else None
 
     target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, target)
-    if sha256(target) != digest:
-        target.unlink(missing_ok=True)
-        raise IngestError("SHA mismatch after copy; ingest aborted.")
+    fd, copied_name = tempfile.mkstemp(prefix=f".{filename}.", dir=target.parent)
+    try:
+        with os.fdopen(fd, "wb") as out, source.open("rb") as incoming:
+            shutil.copyfileobj(incoming, out)
+            out.flush()
+            os.fsync(out.fileno())
+        if sha256(Path(copied_name)) != digest:
+            raise IngestError("SHA mismatch after copy; ingest aborted.")
+        # All pre-write checks are complete; roll back every formal file on any write/stage/commit failure.
+        try:
+            os.replace(copied_name, target)
+            fsync_dir(target.parent)
+            atomic_bytes(registry_path, registry_data)
+            if relation_data is not None:
+                atomic_bytes(relations_path, relation_data)
+            atomic_bytes(audit_path, audit_data)
+            git(repo, "add", "--", *touched)
+            actual_staged = set(git(repo, "diff", "--cached", "--name-only").stdout.splitlines())
+            if actual_staged != set(touched):
+                raise IngestError(
+                    "Safety stop: staged set differs from expected.\n"
+                    f"Expected: {sorted(touched)}\nActual: {sorted(actual_staged)}"
+                )
+            git(repo, "commit", "-m", f"P0.2 {'supersede' if old else 'ingest'} {entity} {role} {vtag}")
+        except Exception as write_error:
+            git(repo, "reset", "HEAD", "--", *touched, check=False)
+            rollback_errors = []
+            for path, data in before.items():
+                try:
+                    if data is None:
+                        path.unlink(missing_ok=True)
+                    else:
+                        atomic_bytes(path, data)
+                except OSError as e:
+                    rollback_errors.append(f"{path}: {e}")
+            target.unlink(missing_ok=True)
+            if rollback_errors:
+                raise IngestError("Rollback failed: " + "; ".join(rollback_errors)) from write_error
+            raise
+    finally:
+        Path(copied_name).unlink(missing_ok=True)
 
-    append_jsonl(registry_path, [asset])
-    append_jsonl(audit_path, events)
-
-    touched = [rel_target.as_posix(), REGISTRY.as_posix(), AUDIT.as_posix()]
-    git(repo, "add", "--", *touched)
-
-    actual_staged = set(git(repo, "diff", "--cached", "--name-only").stdout.splitlines())
-    if actual_staged != set(touched):
-        git(repo, "reset", "HEAD", "--", *touched, check=False)
-        raise IngestError(
-            "Safety stop: staged set differs from expected.\n"
-            f"Expected: {sorted(touched)}\nActual: {sorted(actual_staged)}"
-        )
-
-    git(repo, "commit", "-m", f"P0.2 ingest {entity} {role} {vtag}")
     commit_sha = git(repo, "rev-parse", "HEAD").stdout.strip()
 
     push_status = "SKIPPED"
