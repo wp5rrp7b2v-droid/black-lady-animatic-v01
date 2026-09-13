@@ -27,7 +27,8 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定；
 - Character Asset Gap Mapping V1 已完成实图核对并落档；
 - Gap Priority Classification / P1 Execution V1 已落档；
-- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布到 GitHub。
+- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布到 GitHub；
+- D-060 Reference Package Exporter V0.1 已由 Product Owner 批准测试：自动选图 + 本地 Reference Package 生成链路已验证成立。
 
 详细规则与当前基线见：
 
@@ -40,6 +41,7 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `asset_authority_audit.md`
 - `entity_asset_registry_schema_v0_3.md`
 - `d059_character_asset_migration_v1_completion.md`
+- `d060_reference_package_exporter_v0_1_test.md`
 
 ## 当前任务
 
@@ -52,7 +54,7 @@ P0.2 Gate Review 前仍需：
 1. 旧 4 份 canonical register 与实际图库实体完成最终工程对账；
 2. 将已发布 Migration Manifest 接入正式长期 Asset Registry / Audit Event 实现；
 3. 两张 Scene Master 的事实字段结构化；
-4. 用已发布 Character assets 验证 Reference Resolver 的自动选图行为。
+4. 用已发布 Character assets 验证 Reference Resolver 的自动选图行为与制图交付链路。
 
 这些核对不阻塞当前 P1 Character Gap Production。
 
@@ -114,6 +116,34 @@ Status: `COMPLETE / REMOTE VERIFIED`
 
 注意：D-059 完成的是 canonical file storage + Migration Mapping Manifest publication；长期 Asset Registry / Audit Event 数据层与 Automatic Ingest 仍需后续实现和验证。
 
+## D-060｜Reference Package Exporter V0.1
+
+Status: `TEST APPROVED / PRODUCT OWNER APPROVED`
+
+测试对象：`CHAR_NING_QIUSHUI → PROFILE_LEFT`
+
+验证结果：
+
+- 自动从正式 Character assets 选出 4 张参考图；
+- 选择为 `FACE_FRONT / PROFILE_RIGHT / FACE_3Q_RIGHT / BODY_FRONT`；
+- canonical source / APPROVED / CONFIRMED / CURRENT 条件全部满足；
+- SHA source / copy / manifest = `4/4 PASS`；
+- 正确识别目标 `PROFILE_LEFT = REFERENCE_GAP`；
+- 无 Duplicate CURRENT 冲突；
+- 未修改任何正式源图。
+
+正式结论：
+
+`Canonical Character Assets → automatic selection → local Reference Package`
+
+已经通过真实测试验证。
+
+当前尚未验证：
+
+`Reference Package → image-production Chat / image-generation environment`
+
+因此后续若继续工程验证，应优先做 Delivery Bridge，而不是扩大 V0.1 的选图复杂度。
+
 ## 当前执行基线
 
 P1 按人物整组推进：
@@ -128,9 +158,11 @@ P1 按人物整组推进：
 
 ## 下一步
 
-进入：
+P1 生产目标仍为：
 
 `P0.2-03｜P1 Wave 1｜宁秋水 PROFILE_LEFT + REAR_3Q_LEFT`
+
+在正式依赖自动 Reference Package 工作流前，建议先验证 Delivery Bridge：如何将 V0.1 自动生成的 Reference Package 稳定送入制图环境，减少 Product Owner 手工上传和搬运。
 
 原则：
 
