@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R023",
+  "state_revision": "R024",
   "last_updated": "2026-09-13",
   "session_status": "ACTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -77,7 +77,8 @@
       "Auxiliary default layer removed: resolver default is derived from unique CURRENT per entity + role + variant + state",
       "Scene Master inheritance boundary locked: scene facts are inherited; shot-level photographic expression may vary; scene fact changes require controlled Variant / State",
       "Authority / Lifecycle / Resolver Usage formally separated",
-      "Registry Schema V0.2 design completed in Chat; not yet locked pending real-data walkthrough"
+      "Registry Schema V0.2 design completed in Chat; not yet locked pending real-data walkthrough",
+      "Dashboard V003 refreshed to reflect Authority Mini-Close and Schema V0.3 Walkthrough"
     ],
     "resume_from":"P0.2-02｜Schema V0.3｜宁秋水 + A04 + Reference Sheet Walkthrough",
     "blockers":[]
@@ -171,7 +172,7 @@
     "validation_gate":"P0.3"
   },
   "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
-  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"1 OF 3 PASS / P0.2 SCHEMA V0.3 WALKTHROUGH NEXT / DASHBOARD REFRESH OPTIONAL"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","version":"V003","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"REFRESHED 2026-09-13 / 1 OF 3 PASS / P0.2 SCHEMA V0.3 WALKTHROUGH NEXT"},
   "gate_paths": {"P0.1":"docs/project_control/gates/P0_1_story_text/","P0.2":"docs/project_control/gates/P0_2_visual_assets/","P0.3":"docs/project_control/gates/P0_3_video_pipeline/"},
   "stage_goal":"建立并验证 Visual Asset Management System V1：统一人物/场景/服装/道具标准，取消正常生产中的人工挑图和手工资产登记，通过 Resolver + Automatic Ingest + Audit Trail 形成可规模化视觉资产生产入口。",
   "blockers": []
