@@ -1,1 +1,367 @@
-{"schema_version":"1.0","project_control_baseline":"1.1-draft","project_id":"BLACK-LADY-001","project_name":"诡舍·黑衣夫人","state_revision":"R030","last_updated":"2026-09-13","session_status":"PAUSED / EOD CLOSED","north_star":"在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。","definition_of_done":"完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。","canonical_repo":"wp5rrp7b2v-droid/black-lady-animatic-v01","repo_visibility":"private","project_control_root":"docs/project_control/","project_control_layout":"1.1","local_working_copy":"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/","phase":{"id":"P0","name":"项目重启与基础能力再验证","status":"ACTIVE"},"overall_gate_progress":{"phase":"P0","passed":1,"total":3,"percent":33,"status":"1 / 3 PASS"},"current_gate":{"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2","note":"宁秋水P1 Wave 1已完成，live Core Coverage=42/63（66.7%），P1=2/10。Product Owner 已锁定 6 项 Approved-but-Open 系统任务为强制前置 Closeout；AO-01～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。"},"restart_tasks":[{"id":"P0.1","name":"故事与文本数据基线","status":"PASS / PRODUCT OWNER APPROVED"},{"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / APPROVED-OPEN CLOSEOUT"},{"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"}],"current_task":"P0.2-04｜Approved-but-Open System Closeout。完成 6 项已批准/锁定但尚未执行完毕的系统任务：4 Registers最终对账；48 legacy Character assets进入长期 Registry/Audit；Scene Master事实字段+Scene/Costume/Prop/State/Variant可执行Spec；9个Derived Character Reference Sheets；Delivery Bridge；真实Shot Spec Resolver + Shot-level Audit reverse-trace。全部完成后才恢复P0.2-03 P1 Wave 2。","blocker":null,"next_action":"下一工作日从 AO-01｜4 Canonical Registers Final Reconciliation 开始；按依赖顺序完成 AO-01→AO-02→AO-03→AO-04→AO-05→AO-06。六项全部 COMPLETE / VERIFIED 后，才允许恢复 P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT。","approval_governance":{"authority":"PRODUCT_OWNER_ONLY","scope":"ALL_GATES_AND_PHASES","pre_approval_status":"READY_FOR_APPROVAL / WAITING_PO_APPROVAL","rule":"ChatGPT / Codex may review and recommend approval but may not mark PASS / APPROVED / CLOSED without explicit Product Owner approval in Chat.","effective_from":"2026-09-12","p0_1_approval":"EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12"},"local_sync_reminder":{"status":"LOCKED","rule":"After every actual ChatGPT write/update to the canonical GitHub repo, the user-facing reply must remind Product Owner to sync the local working copy.","default_command":"cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main","conflict_rule":"If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."},"latest_checkpoint":{"id":"2026-09-13-P0.2-APPROVED-OPEN-CLOSEOUT-LOCKED","status":"ACTIVE / EOD CHECKPOINT","completed":["P0.1 PASS / Product Owner approved","P0.2 gate activated","Visual Asset Management System V1 direction approved by Product Owner","Only Product Owner-approved visual results may enter formal Asset Registry","Entity and Asset identities formally separated","Approval and Lifecycle separated; lifecycle = CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED","Atomic Asset and Derived Reference Sheet separated with dependency tracking","Normal production target locked as Shot/Task Spec → Reference Resolver → Reference Package","Automatic Ingest required to remove routine manual naming/storage/registration","Formal asset Audit Trail mandatory","Character Asset Tier model locked: Tier A/B/C/D","Tier A = 9-view canonical turnaround","Tier B = 6-view Core Set with fixed primary side","Tier C = 3-view Minimum Set","Tier D = no complete Core Set unless promoted","Registry Schema V0.3 approved and locked by Product Owner on 2026-09-13","Long-term Registry model locked: Entity Registry / Asset Registry / Asset Relations / Append-only Audit Event Log","Migration Mapping Manifest locked as migration-only evidence layer, not a fifth runtime Registry","Asset classes locked: ATOMIC / DERIVED_REFERENCE / SHOT","Role vocabulary validated by asset_class; SHOT_MASTER added","provenance_status locked: COMPLETE / PARTIAL / UNKNOWN","Resolver eligibility computed dynamically; no manual resolver_eligible boolean","Derived Reference dependency staleness locked as computed DEPENDENCY_STALE, not Lifecycle","Entity-bound naming locked: <ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>","Shot-bound naming locked: <SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>","Canonical Shot IDs remove legacy REBOOT labels: A01_REBOOT…A08_REBOOT → A01…A08","Multi-character Shot membership belongs to Shot Register / Shot Spec, not filename or single Character Entity","LEFT / RIGHT convention locked as screen-facing orientation","Authority Mini-Close approved: A-Series ARCHIVED semantics, SH authority boundary, unique CURRENT, Scene Master inheritance boundary","Character Tier Assignment V1 approved by Product Owner on 2026-09-13","Tier A locked: 宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人","Tier B locked: 温倾雅 / 苏小小 / 廖健 / 古堡小主人","Tier C locked: 光勇","Tier D among current 9 formal characters: none","Character Asset Gap Mapping V1 locked after per-image visual validation","Correct Character Core baseline locked: 63 Mandatory / 40 Covered / 23 Core View Gap / 63.5% coverage","Tier B primary_side locked LEFT for 温倾雅 / 苏小小 / 廖健 / 古堡小主人","Jun Luyuan current Tier A Core coverage = 6/9; gap = FACE_3Q_LEFT / PROFILE_LEFT / REAR_3Q_LEFT","Neil current Tier A Core coverage = 6/9; gap = FACE_3Q_RIGHT / PROFILE_RIGHT / REAR_3Q_RIGHT","Black Lady current Tier A Core coverage = 3/9; all six side views are gaps","Black Lady legacy three_quarter_half_body_angle_reference_v001 locked as DEPRECATED / resolver NEVER due to likeness issue","Guang Yong Tier C Core coverage = 3/3; no Core Gap","Reference Sheet Gap recorded separately: 9 Derived Character Reference Sheets","Gap Priority Classification V1 locked: P1=10 / P2=7 / P3=6","P1 execution order locked: 宁秋水 → 君鹭远 → 尼尔 → 苏小小 → 廖健; each Profile + Rear 3Q on missing side","D-059 Character Asset Migration V1 COMPLETE / REMOTE VERIFIED","48 canonical approved Character PNG published under production/image_library/character_references/","CSV + JSON Character Migration Mapping Manifest published under docs/project_control/gates/P0_2_visual_assets/migration_evidence/","D-059 remote asset commit = d9fb763fb63e57023aa2cf11119c9be1bef037d6","Neil rear_turn_45 legacy asset remains MAPPING_REQUIRED / NOT MIGRATED","Image-production workflow separated: image chat handles generation + internal review; main chat handles final registration + GitHub publication","Ning Qiushui current Tier A Core coverage = 8/9; remaining gap = FACE_3Q_LEFT","D-060 Reference Package Exporter V0.1 TEST APPROVED / automatic Character reference selection validated","D-061 one-click Character ingest + reference cleanup COMPLETE / REMOTE VERIFIED","D-062 P1 Character Reference Package role generalization COMPLETE / REMOTE VERIFIED","D-063 Migration Manifest + Runtime Registry unified Character resolution COMPLETE / REMOTE VERIFIED","D-064 Controlled Current Supersession COMPLETE / REMOTE VERIFIED","D-065 macOS Bash launcher normal-ingest compatibility fix COMPLETE / REMOTE VERIFIED","Character production format locked: 9:16 target; Fixed Standard Review triggered by 【审核】","AST_IMG_000049 PROFILE_LEFT V001 retained as SUPERSEDED","AST_IMG_000050 PROFILE_LEFT V002 = CURRENT / APPROVED","AST_IMG_000051 REAR_3Q_LEFT V001 = CURRENT / APPROVED","P1 live progress = 2/10 complete; current Core Coverage = 42/63 = 66.7%","Mandatory Project Control Step Closeout + Daily Consistency Check locked","BL-D-026 locked: six Approved-but-Open tasks must be completed before P1 Wave 2","approved_open_tasks_v1.md created as mandatory pre-Wave2 checklist"],"resume_from":"P0.2-04｜AO-01｜4 Canonical Registers Final Reconciliation","blockers":[]},"visual_asset_management_system":{"status":"CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD","spec_path":"docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md","character_rule_path":"docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md","character_tier_assignment_path":"docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md","character_gap_mapping_path":"docs/project_control/gates/P0_2_visual_assets/character_asset_gap_mapping_v1.md","character_gap_priority_path":"docs/project_control/gates/P0_2_visual_assets/character_gap_priority_v1.md","asset_naming_rule_path":"docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md","authority_audit_path":"docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md","registry_schema_path":"docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md","migration_completion_path":"docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md","approved_open_tasks_path":"docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md","character_storage_root":"production/image_library/character_references/","character_migration_manifest_csv":"docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.csv","character_migration_manifest_json":"docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.json","character_migration_remote_commit":"d9fb763fb63e57023aa2cf11119c9be1bef037d6","character_migration_published_png_count":48,"model":"Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail","formal_asset_admission":"PRODUCT_OWNER_APPROVED_ONLY","asset_id_pattern":"AST_<MEDIA_CODE>_<6-digit sequence>","media_codes":["IMG","VID","AUD","MDL","TEX"],"entity_id_prefixes":["CHAR","SCENE","PROP","COSTUME"],"asset_classes":["ATOMIC","DERIVED_REFERENCE","SHOT"],"entity_filename_pattern":"<ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>","shot_filename_pattern":"<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>","canonical_shot_id_rule":"legacy REBOOT marker is migration history only; A01_REBOOT…A08_REBOOT map to A01…A08","lifecycle":["CURRENT","SUPERSEDED","DEPRECATED","ARCHIVED"],"resolver_usage":["DEFAULT","CONDITIONAL","NEVER"],"authority_classes":["MASTER","AUXILIARY","DERIVED","CONTINUITY","SUPPLEMENTARY","LEGACY_SUPPLEMENTARY"],"provenance_status":["COMPLETE","PARTIAL","UNKNOWN"],"relation_types":["DERIVED_FROM","SUPERSEDES","USES_REFERENCE"],"character_tiers":{"A":"9-view canonical turnaround","B":"6-view core set / fixed primary side","C":"3-view minimum set","D":"background or one-off / no full core set"},"character_tier_assignment":{"A":["CHAR_NING_QIUSHUI","CHAR_JUN_LUYUAN","CHAR_NEIL","CHAR_BLACK_LADY"],"B":["CHAR_WEN_QINGYA","CHAR_SU_XIAOXIAO","CHAR_LIAO_JIAN","CHAR_CASTLE_YOUNG_MASTER"],"C":["CHAR_GUANG_YONG"],"D":[]},"orientation_rule":"LEFT / RIGHT use screen-facing convention: face/nose toward screen-right = RIGHT; toward screen-left = LEFT","authority_lifecycle_resolver_rule":"Authority defines what an asset can prove; Lifecycle defines version state; Resolver Usage defines whether/when production may call it.","single_current_rule":"For the same entity_id + role + variant + state, or shot_id + role + variant + state, at most one formal Asset may have lifecycle=CURRENT. No separate default/latest/current_master fact layer is maintained.","archived_shot_rule":"APPROVED locked A-Series shot assets may remain lifecycle=ARCHIVED and resolver_usage=CONDITIONAL for continuity / previous-shot / explicit-shot reference use.","scene_master_rule":"Scene Master locks scene facts, not shot photography. Changes to locked scene facts require controlled Scene Variant / State.","derived_dependency_rule":"If a DERIVED_REFERENCE upstream dependency becomes superseded/deprecated/invalid, compute DEPENDENCY_STALE; do not add it to Lifecycle and do not allow DEFAULT Resolver use until regenerated and approved.","normal_user_role":"creative judgment, exception handling, formal approval; no routine manual reference picking/naming/storage/registration","required_capabilities":["tiered standardized Character Core Set","Scene / Costume / Prop / State / Variant specification","Entity / Asset Registry","Migration Mapping Manifest","Reference Sheet dependency tracking","Reference Resolver","Shot Reference Package","Automatic Ingest","Audit Trail","Production Readiness / Completeness calculation"],"gate_validation":"must migrate real existing Black Lady assets and validate automatic reference selection before READY_FOR_APPROVAL","character_format_rule":"9:16 vertical target; generator-native minor pixel rounding allowed; non-target aspect ratio fails Fixed Standard Review","character_review_rule":"Generation → user sends 【审核】 → Fixed Standard Review → PASS / Targeted Revision","automatic_ingest_status":"REAL CHARACTER INGEST VERIFIED","controlled_supersession_status":"REAL V001→V002 CURRENT REPLACEMENT VERIFIED","current_live_core_coverage":{"confirmed":42,"mandatory":63,"gap":21,"coverage_percent":66.7,"p1_completed":2,"p1_total":10},"current_character_target":"CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-01..AO-06 COMPLETE"},"visual_asset_audit_preliminary":{"characters":9,"formal_master_roles_per_character":4,"formal_master_role_count":36,"formal_master_documented_state":"approved / unique current_master / frozen_for_production","auxiliary_reference_count_documented":12,"scene_masters":["CASTLE_ENTRANCE_OPEN_DOOR_DAY","FIRST_HALL_FIREPLACE"],"a_series_locked_shots":"A01-A07","a_series_legacy_id_mapping":"A01_REBOOT…A07_REBOOT map to canonical A01…A07 during migration","a_series_archived_semantics":"APPROVED / LOCKED / ARCHIVED; conditionally resolver-eligible for continuity / previous-shot / explicit-shot reference; not a replacement for Character Master or Scene Master","a08_status":"NOT APPROVED / HOLD_FOR_ANIMATIC_REVIEW","a08_legacy_id_mapping":"A08_REBOOT maps to canonical A08 only if/when a formal canonical asset is approved; current approved formal asset count remains zero","single_character_test_assets":15,"double_character_test_assets":11,"test_asset_permission":"evidence_only","sh_default_policy":"SH01-SH08 => LEGACY_SUPPLEMENTARY / NEVER; SH02 Neil and SH08 V2 Black Lady => explicit CONDITIONAL exceptions","working_authority_order":["MASTER","AUXILIARY","DERIVED","CONTINUITY","SUPPLEMENTARY","LEGACY_SUPPLEMENTARY","Evidence-only / Candidate / Rejected / Not-adopted / Invalid-test = no normal positive production reference"],"character_gap_baseline":{"mandatory_core_slots":63,"confirmed_core_coverage":40,"core_view_gap":23,"coverage_percent":63.5,"reference_sheet_gap":9,"priority":{"P1":10,"P2":7,"P3":6},"status":"LOCKED / PER-IMAGE MAPPING VALIDATED"},"character_storage_migration":{"status":"COMPLETE / REMOTE VERIFIED","canonical_png_count":48,"manifest_files":2,"remote_commit":"d9fb763fb63e57023aa2cf11119c9be1bef037d6","storage_root":"production/image_library/character_references/","pending_assets":["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]},"remaining_checks":["AO-01 Reconcile SHOT_REGISTER / ASSET_REGISTER / IMAGE_REGISTER / IMAGE_RENAME_MANIFEST with actual canonical assets","AO-02 Move 48 approved legacy Character assets from migration-readable state into long-term Registry / Audit identity without duplicate Current","AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs","AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior","AO-05 Complete Reference Package → image-production environment Delivery Bridge","AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"],"audit_record":"docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"},"approved_open_tasks":{"status":"LOCKED / MANDATORY PRE-WAVE2","decision_id":"BL-D-026","path":"docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md","count":6,"execution_order":["AO-01","AO-02","AO-03","AO-04","AO-05","AO-06"],"resume_lock":"P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after all six are COMPLETE / VERIFIED"},"mvp1_scope":{"status":"LOCKED / CANONICAL AUDIO LOCKED","start_anchor":"欢迎各位来到艾伦古堡","end_anchor":"而后又匆匆离去备餐","chapter_mapping":"S2 Chapter 134 opening → early Chapter 135","chapter_133_role":"CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM","scope_rule":"MVP1 按真实有声小说连续叙事与 canonical audio 边界锁定；原文章节只作为内容映射锚点。"},"source_baseline":{"S1":{"id":"S1_SOURCE_NOVEL_FULL_V001.txt","status":"CANONICAL / LOCKED / REMOTE VERIFIED","path":"source_material/S1_novel/S1_SOURCE_NOVEL_FULL_V001.txt","sha256":"f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e"},"S2":{"id":"S2_SOURCE_BLACK_LADY_TEXT_V001.txt","status":"CANONICAL / LOCKED","path":"source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt","chapter_range":"133-164","sha256":"159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6"},"AUDIO_MVP1":{"id":"AUDIO_MVP1_CANONICAL_V001","status":"CANONICAL / LOCKED / PRODUCT OWNER QC PASSED","canonical_filename":"AUDIO_MVP1_CANONICAL_V001.m4a","duration_sec":359.141995,"sha256":"8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0","timeline_rule":"SOURCE AUDIO TC ≠ FINAL EDIT TC"},"S3":{"id":"S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001","status":"MVP1 SEARCHABLE INDEX COMPLETE / P0.1 BASELINE LOCKED","path":"source_material/S3_audio_transcript/S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv","segment_count":41,"verified_segment_count":9,"reviewed_searchable_segment_count":32,"retrieval_spot_check":"PASSED"}},"production_audio_model":{"rule":"SHOT-DRIVEN AUTOMATIC AUDIO RETRIEVAL","user_role":"approve narrative and final QC; no routine manual text search or source TC hunting","validation_gate":"P0.3"},"task_numbering":{"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-065","next_codex_task_when_needed":"D-066"},"dashboard":{"path":"docs/project_control/dashboard/dashboard.html","version":"V009","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"APPROVED-OPEN CLOSEOUT NEXT / P1 WAVE 2 HOLD"},"gate_paths":{"P0.1":"docs/project_control/gates/P0_1_story_text/","P0.2":"docs/project_control/gates/P0_2_visual_assets/","P0.3":"docs/project_control/gates/P0_3_video_pipeline/"},"stage_goal":"完成 Approved-but-Open System Closeout：补齐已经批准但尚未执行完成的 Registry、Scene/Variant、Reference Sheet、Delivery Bridge 与真实 Shot-level Resolver/Audit 能力，再恢复 P1 Character Gap Production。","blockers":[],"project_control_closeout":{"status":"LOCKED / MANDATORY","important_step_rule":"After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.","daily_closeout_rule":"At end of each workday, cross-check project_state, current Gate README/progress, decision/execution/rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset IDs/versions, D-### numbering and completion state.","approval_boundary":"Consistency closeout does not change Product Owner-only Gate/Phase approval authority.","effective_from":"2026-09-13"}}
+{
+  "schema_version": "1.0",
+  "project_control_baseline": "1.1-draft",
+  "project_id": "BLACK-LADY-001",
+  "project_name": "诡舍·黑衣夫人",
+  "state_revision": "R031",
+  "last_updated": "2026-09-13",
+  "session_status": "PAUSED / EOD CLOSED",
+  "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
+  "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
+  "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
+  "repo_visibility": "private",
+  "project_control_root": "docs/project_control/",
+  "project_control_layout": "1.1",
+  "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
+  "phase": {
+    "id": "P0",
+    "name": "项目重启与基础能力再验证",
+    "status": "ACTIVE"
+  },
+  "overall_gate_progress": {
+    "phase": "P0",
+    "passed": 1,
+    "total": 3,
+    "percent": 33,
+    "status": "1 / 3 PASS"
+  },
+  "current_gate": {
+    "id": "P0.2",
+    "name": "人物锚定与 Scene Master 资产治理",
+    "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
+    "note": "宁秋水P1 Wave 1已完成，live Core Coverage=42/63（66.7%），P1=2/10。Product Owner 已锁定 7 项 Approved-but-Open 系统任务为强制前置 Closeout；AO-01～AO-07 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 GitHub Connectivity Instability 当前为 OPEN / HIGH OPERATIONAL RISK，由 AO-07 负责建立并验证恢复方法。"
+  },
+  "restart_tasks": [
+    {
+      "id": "P0.1",
+      "name": "故事与文本数据基线",
+      "status": "PASS / PRODUCT OWNER APPROVED"
+    },
+    {
+      "id": "P0.2",
+      "name": "人物锚定与 Scene Master 资产治理",
+      "status": "ACTIVE / APPROVED-OPEN CLOSEOUT"
+    },
+    {
+      "id": "P0.3",
+      "name": "视频制作与剪辑 Pipeline 再验证",
+      "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
+    }
+  ],
+  "current_task": "P0.2-04｜Approved-but-Open System Closeout。完成 7 项已批准/锁定但尚未执行完毕的系统任务：4 Registers最终对账；48 legacy Character assets进入长期 Registry/Audit；Scene Master事实字段+Scene/Costume/Prop/State/Variant可执行Spec；9个Derived Character Reference Sheets；Delivery Bridge；真实Shot Spec Resolver + Shot-level Audit reverse-trace；GitHub Network Resilience / Recovery Method。全部完成后才恢复P0.2-03 P1 Wave 2。",
+  "blocker": null,
+  "next_action": "下一工作日从 AO-01｜4 Canonical Registers Final Reconciliation 开始；按依赖顺序完成 AO-01→AO-02→AO-03→AO-04→AO-05→AO-06→AO-07。七项全部 COMPLETE / VERIFIED，且 RISK-001 已具备验证通过的恢复方案后，才允许恢复 P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT。",
+  "approval_governance": {
+    "authority": "PRODUCT_OWNER_ONLY",
+    "scope": "ALL_GATES_AND_PHASES",
+    "pre_approval_status": "READY_FOR_APPROVAL / WAITING_PO_APPROVAL",
+    "rule": "ChatGPT / Codex may review and recommend approval but may not mark PASS / APPROVED / CLOSED without explicit Product Owner approval in Chat.",
+    "effective_from": "2026-09-12",
+    "p0_1_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12"
+  },
+  "local_sync_reminder": {
+    "status": "LOCKED",
+    "rule": "After every actual ChatGPT write/update to the canonical GitHub repo, the user-facing reply must remind Product Owner to sync the local working copy.",
+    "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
+    "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
+  },
+  "latest_checkpoint": {
+    "id": "2026-09-13-P0.2-AO07-GITHUB-RISK-LOCKED",
+    "status": "ACTIVE / EOD CHECKPOINT",
+    "completed": [
+      "P0.1 PASS / Product Owner approved",
+      "P0.2 gate activated",
+      "Visual Asset Management System V1 direction approved by Product Owner",
+      "Only Product Owner-approved visual results may enter formal Asset Registry",
+      "Entity and Asset identities formally separated",
+      "Approval and Lifecycle separated; lifecycle = CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED",
+      "Atomic Asset and Derived Reference Sheet separated with dependency tracking",
+      "Normal production target locked as Shot/Task Spec → Reference Resolver → Reference Package",
+      "Automatic Ingest required to remove routine manual naming/storage/registration",
+      "Formal asset Audit Trail mandatory",
+      "Character Asset Tier model locked: Tier A/B/C/D",
+      "Tier A = 9-view canonical turnaround",
+      "Tier B = 6-view Core Set with fixed primary side",
+      "Tier C = 3-view Minimum Set",
+      "Tier D = no complete Core Set unless promoted",
+      "Registry Schema V0.3 approved and locked by Product Owner on 2026-09-13",
+      "Long-term Registry model locked: Entity Registry / Asset Registry / Asset Relations / Append-only Audit Event Log",
+      "Migration Mapping Manifest locked as migration-only evidence layer, not a fifth runtime Registry",
+      "Asset classes locked: ATOMIC / DERIVED_REFERENCE / SHOT",
+      "Role vocabulary validated by asset_class; SHOT_MASTER added",
+      "provenance_status locked: COMPLETE / PARTIAL / UNKNOWN",
+      "Resolver eligibility computed dynamically; no manual resolver_eligible boolean",
+      "Derived Reference dependency staleness locked as computed DEPENDENCY_STALE, not Lifecycle",
+      "Entity-bound naming locked: <ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
+      "Shot-bound naming locked: <SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
+      "Canonical Shot IDs remove legacy REBOOT labels: A01_REBOOT…A08_REBOOT → A01…A08",
+      "Multi-character Shot membership belongs to Shot Register / Shot Spec, not filename or single Character Entity",
+      "LEFT / RIGHT convention locked as screen-facing orientation",
+      "Authority Mini-Close approved: A-Series ARCHIVED semantics, SH authority boundary, unique CURRENT, Scene Master inheritance boundary",
+      "Character Tier Assignment V1 approved by Product Owner on 2026-09-13",
+      "Tier A locked: 宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人",
+      "Tier B locked: 温倾雅 / 苏小小 / 廖健 / 古堡小主人",
+      "Tier C locked: 光勇",
+      "Tier D among current 9 formal characters: none",
+      "Character Asset Gap Mapping V1 locked after per-image visual validation",
+      "Correct Character Core baseline locked: 63 Mandatory / 40 Covered / 23 Core View Gap / 63.5% coverage",
+      "Tier B primary_side locked LEFT for 温倾雅 / 苏小小 / 廖健 / 古堡小主人",
+      "Jun Luyuan current Tier A Core coverage = 6/9; gap = FACE_3Q_LEFT / PROFILE_LEFT / REAR_3Q_LEFT",
+      "Neil current Tier A Core coverage = 6/9; gap = FACE_3Q_RIGHT / PROFILE_RIGHT / REAR_3Q_RIGHT",
+      "Black Lady current Tier A Core coverage = 3/9; all six side views are gaps",
+      "Black Lady legacy three_quarter_half_body_angle_reference_v001 locked as DEPRECATED / resolver NEVER due to likeness issue",
+      "Guang Yong Tier C Core coverage = 3/3; no Core Gap",
+      "Reference Sheet Gap recorded separately: 9 Derived Character Reference Sheets",
+      "Gap Priority Classification V1 locked: P1=10 / P2=7 / P3=6",
+      "P1 execution order locked: 宁秋水 → 君鹭远 → 尼尔 → 苏小小 → 廖健; each Profile + Rear 3Q on missing side",
+      "D-059 Character Asset Migration V1 COMPLETE / REMOTE VERIFIED",
+      "48 canonical approved Character PNG published under production/image_library/character_references/",
+      "CSV + JSON Character Migration Mapping Manifest published under docs/project_control/gates/P0_2_visual_assets/migration_evidence/",
+      "D-059 remote asset commit = d9fb763fb63e57023aa2cf11119c9be1bef037d6",
+      "Neil rear_turn_45 legacy asset remains MAPPING_REQUIRED / NOT MIGRATED",
+      "Image-production workflow separated: image chat handles generation + internal review; main chat handles final registration + GitHub publication",
+      "Ning Qiushui current Tier A Core coverage = 8/9; remaining gap = FACE_3Q_LEFT",
+      "D-060 Reference Package Exporter V0.1 TEST APPROVED / automatic Character reference selection validated",
+      "D-061 one-click Character ingest + reference cleanup COMPLETE / REMOTE VERIFIED",
+      "D-062 P1 Character Reference Package role generalization COMPLETE / REMOTE VERIFIED",
+      "D-063 Migration Manifest + Runtime Registry unified Character resolution COMPLETE / REMOTE VERIFIED",
+      "D-064 Controlled Current Supersession COMPLETE / REMOTE VERIFIED",
+      "D-065 macOS Bash launcher normal-ingest compatibility fix COMPLETE / REMOTE VERIFIED",
+      "Character production format locked: 9:16 target; Fixed Standard Review triggered by 【审核】",
+      "AST_IMG_000049 PROFILE_LEFT V001 retained as SUPERSEDED",
+      "AST_IMG_000050 PROFILE_LEFT V002 = CURRENT / APPROVED",
+      "AST_IMG_000051 REAR_3Q_LEFT V001 = CURRENT / APPROVED",
+      "P1 live progress = 2/10 complete; current Core Coverage = 42/63 = 66.7%",
+      "Mandatory Project Control Step Closeout + Daily Consistency Check locked",
+      "BL-D-026 locked: Approved-but-Open closeout required before P1 Wave 2",
+      "approved_open_tasks_v1.md created as mandatory pre-Wave2 checklist",
+      "BL-D-027 locked: AO-07 GitHub Network Resilience / Recovery Method added to mandatory pre-Wave2 closeout",
+      "RISK-001 GitHub Connectivity Instability registered as OPEN / HIGH OPERATIONAL RISK"
+    ],
+    "resume_from": "P0.2-04｜AO-01｜4 Canonical Registers Final Reconciliation",
+    "blockers": []
+  },
+  "visual_asset_management_system": {
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
+    "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
+    "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
+    "character_gap_mapping_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_gap_mapping_v1.md",
+    "character_gap_priority_path": "docs/project_control/gates/P0_2_visual_assets/character_gap_priority_v1.md",
+    "asset_naming_rule_path": "docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md",
+    "authority_audit_path": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md",
+    "registry_schema_path": "docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
+    "migration_completion_path": "docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md",
+    "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
+    "character_storage_root": "production/image_library/character_references/",
+    "character_migration_manifest_csv": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.csv",
+    "character_migration_manifest_json": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.json",
+    "character_migration_remote_commit": "d9fb763fb63e57023aa2cf11119c9be1bef037d6",
+    "character_migration_published_png_count": 48,
+    "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
+    "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
+    "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
+    "media_codes": ["IMG", "VID", "AUD", "MDL", "TEX"],
+    "entity_id_prefixes": ["CHAR", "SCENE", "PROP", "COSTUME"],
+    "asset_classes": ["ATOMIC", "DERIVED_REFERENCE", "SHOT"],
+    "entity_filename_pattern": "<ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
+    "shot_filename_pattern": "<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
+    "canonical_shot_id_rule": "legacy REBOOT marker is migration history only; A01_REBOOT…A08_REBOOT map to A01…A08",
+    "lifecycle": ["CURRENT", "SUPERSEDED", "DEPRECATED", "ARCHIVED"],
+    "resolver_usage": ["DEFAULT", "CONDITIONAL", "NEVER"],
+    "authority_classes": ["MASTER", "AUXILIARY", "DERIVED", "CONTINUITY", "SUPPLEMENTARY", "LEGACY_SUPPLEMENTARY"],
+    "provenance_status": ["COMPLETE", "PARTIAL", "UNKNOWN"],
+    "relation_types": ["DERIVED_FROM", "SUPERSEDES", "USES_REFERENCE"],
+    "character_tiers": {
+      "A": "9-view canonical turnaround",
+      "B": "6-view core set / fixed primary side",
+      "C": "3-view minimum set",
+      "D": "background or one-off / no full core set"
+    },
+    "character_tier_assignment": {
+      "A": ["CHAR_NING_QIUSHUI", "CHAR_JUN_LUYUAN", "CHAR_NEIL", "CHAR_BLACK_LADY"],
+      "B": ["CHAR_WEN_QINGYA", "CHAR_SU_XIAOXIAO", "CHAR_LIAO_JIAN", "CHAR_CASTLE_YOUNG_MASTER"],
+      "C": ["CHAR_GUANG_YONG"],
+      "D": []
+    },
+    "orientation_rule": "LEFT / RIGHT use screen-facing convention: face/nose toward screen-right = RIGHT; toward screen-left = LEFT",
+    "authority_lifecycle_resolver_rule": "Authority defines what an asset can prove; Lifecycle defines version state; Resolver Usage defines whether/when production may call it.",
+    "single_current_rule": "For the same entity_id + role + variant + state, or shot_id + role + variant + state, at most one formal Asset may have lifecycle=CURRENT. No separate default/latest/current_master fact layer is maintained.",
+    "archived_shot_rule": "APPROVED locked A-Series shot assets may remain lifecycle=ARCHIVED and resolver_usage=CONDITIONAL for continuity / previous-shot / explicit-shot reference use.",
+    "scene_master_rule": "Scene Master locks scene facts, not shot photography. Changes to locked scene facts require controlled Scene Variant / State.",
+    "derived_dependency_rule": "If a DERIVED_REFERENCE upstream dependency becomes superseded/deprecated/invalid, compute DEPENDENCY_STALE; do not add it to Lifecycle and do not allow DEFAULT Resolver use until regenerated and approved.",
+    "normal_user_role": "creative judgment, exception handling, formal approval; no routine manual reference picking/naming/storage/registration",
+    "required_capabilities": [
+      "tiered standardized Character Core Set",
+      "Scene / Costume / Prop / State / Variant specification",
+      "Entity / Asset Registry",
+      "Migration Mapping Manifest",
+      "Reference Sheet dependency tracking",
+      "Reference Resolver",
+      "Shot Reference Package",
+      "Automatic Ingest",
+      "Audit Trail",
+      "Production Readiness / Completeness calculation"
+    ],
+    "gate_validation": "must migrate real existing Black Lady assets and validate automatic reference selection before READY_FOR_APPROVAL",
+    "character_format_rule": "9:16 vertical target; generator-native minor pixel rounding allowed; non-target aspect ratio fails Fixed Standard Review",
+    "character_review_rule": "Generation → user sends 【审核】 → Fixed Standard Review → PASS / Targeted Revision",
+    "automatic_ingest_status": "REAL CHARACTER INGEST VERIFIED",
+    "controlled_supersession_status": "REAL V001→V002 CURRENT REPLACEMENT VERIFIED",
+    "current_live_core_coverage": {
+      "confirmed": 42,
+      "mandatory": 63,
+      "gap": 21,
+      "coverage_percent": 66.7,
+      "p1_completed": 2,
+      "p1_total": 10
+    },
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-01..AO-07 COMPLETE"
+  },
+  "visual_asset_audit_preliminary": {
+    "characters": 9,
+    "formal_master_roles_per_character": 4,
+    "formal_master_role_count": 36,
+    "formal_master_documented_state": "approved / unique current_master / frozen_for_production",
+    "auxiliary_reference_count_documented": 12,
+    "scene_masters": ["CASTLE_ENTRANCE_OPEN_DOOR_DAY", "FIRST_HALL_FIREPLACE"],
+    "a_series_locked_shots": "A01-A07",
+    "a_series_legacy_id_mapping": "A01_REBOOT…A07_REBOOT map to canonical A01…A07 during migration",
+    "a_series_archived_semantics": "APPROVED / LOCKED / ARCHIVED; conditionally resolver-eligible for continuity / previous-shot / explicit-shot reference; not a replacement for Character Master or Scene Master",
+    "a08_status": "NOT APPROVED / HOLD_FOR_ANIMATIC_REVIEW",
+    "a08_legacy_id_mapping": "A08_REBOOT maps to canonical A08 only if/when a formal canonical asset is approved; current approved formal asset count remains zero",
+    "single_character_test_assets": 15,
+    "double_character_test_assets": 11,
+    "test_asset_permission": "evidence_only",
+    "sh_default_policy": "SH01-SH08 => LEGACY_SUPPLEMENTARY / NEVER; SH02 Neil and SH08 V2 Black Lady => explicit CONDITIONAL exceptions",
+    "working_authority_order": [
+      "MASTER",
+      "AUXILIARY",
+      "DERIVED",
+      "CONTINUITY",
+      "SUPPLEMENTARY",
+      "LEGACY_SUPPLEMENTARY",
+      "Evidence-only / Candidate / Rejected / Not-adopted / Invalid-test = no normal positive production reference"
+    ],
+    "character_gap_baseline": {
+      "mandatory_core_slots": 63,
+      "confirmed_core_coverage": 40,
+      "core_view_gap": 23,
+      "coverage_percent": 63.5,
+      "reference_sheet_gap": 9,
+      "priority": {"P1": 10, "P2": 7, "P3": 6},
+      "status": "LOCKED / PER-IMAGE MAPPING VALIDATED"
+    },
+    "character_storage_migration": {
+      "status": "COMPLETE / REMOTE VERIFIED",
+      "canonical_png_count": 48,
+      "manifest_files": 2,
+      "remote_commit": "d9fb763fb63e57023aa2cf11119c9be1bef037d6",
+      "storage_root": "production/image_library/character_references/",
+      "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
+    },
+    "remaining_checks": [
+      "AO-01 Reconcile SHOT_REGISTER / ASSET_REGISTER / IMAGE_REGISTER / IMAGE_RENAME_MANIFEST with actual canonical assets",
+      "AO-02 Move 48 approved legacy Character assets from migration-readable state into long-term Registry / Audit identity without duplicate Current",
+      "AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs",
+      "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
+      "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
+      "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace",
+      "AO-07 Establish and verify GitHub Network Resilience / Recovery Method for transient connectivity failures"
+    ],
+    "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
+  },
+  "approved_open_tasks": {
+    "status": "LOCKED / MANDATORY PRE-WAVE2",
+    "decision_id": "BL-D-027",
+    "path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
+    "count": 7,
+    "execution_order": ["AO-01", "AO-02", "AO-03", "AO-04", "AO-05", "AO-06", "AO-07"],
+    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after all seven are COMPLETE / VERIFIED"
+  },
+  "risk_register": {
+    "path": "docs/project_control/logs/risk_register.md",
+    "active_risks": [
+      {
+        "id": "RISK-001",
+        "name": "GitHub Connectivity Instability",
+        "status": "OPEN / HIGH OPERATIONAL RISK",
+        "linked_task": "AO-07",
+        "hard_blocker": false,
+        "exit_condition": "AO-07 COMPLETE / VERIFIED with tested recovery runbook"
+      }
+    ]
+  },
+  "mvp1_scope": {
+    "status": "LOCKED / CANONICAL AUDIO LOCKED",
+    "start_anchor": "欢迎各位来到艾伦古堡",
+    "end_anchor": "而后又匆匆离去备餐",
+    "chapter_mapping": "S2 Chapter 134 opening → early Chapter 135",
+    "chapter_133_role": "CONTEXT_ONLY / OUT_OF_MVP1_FINAL_FILM",
+    "scope_rule": "MVP1 按真实有声小说连续叙事与 canonical audio 边界锁定；原文章节只作为内容映射锚点。"
+  },
+  "source_baseline": {
+    "S1": {
+      "id": "S1_SOURCE_NOVEL_FULL_V001.txt",
+      "status": "CANONICAL / LOCKED / REMOTE VERIFIED",
+      "path": "source_material/S1_novel/S1_SOURCE_NOVEL_FULL_V001.txt",
+      "sha256": "f9ec03ed71a9302b8811c0038a708f3323c1bfeadf1afdcbab498dd1df3b0e2e"
+    },
+    "S2": {
+      "id": "S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
+      "status": "CANONICAL / LOCKED",
+      "path": "source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
+      "chapter_range": "133-164",
+      "sha256": "159fbba18c8a9be5fee2c47d5a4e244b72d375c5f19bd2e285fc1fbe688ed5e6"
+    },
+    "AUDIO_MVP1": {
+      "id": "AUDIO_MVP1_CANONICAL_V001",
+      "status": "CANONICAL / LOCKED / PRODUCT OWNER QC PASSED",
+      "canonical_filename": "AUDIO_MVP1_CANONICAL_V001.m4a",
+      "duration_sec": 359.141995,
+      "sha256": "8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0",
+      "timeline_rule": "SOURCE AUDIO TC ≠ FINAL EDIT TC"
+    },
+    "S3": {
+      "id": "S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001",
+      "status": "MVP1 SEARCHABLE INDEX COMPLETE / P0.1 BASELINE LOCKED",
+      "path": "source_material/S3_audio_transcript/S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv",
+      "segment_count": 41,
+      "verified_segment_count": 9,
+      "reviewed_searchable_segment_count": 32,
+      "retrieval_spot_check": "PASSED"
+    }
+  },
+  "production_audio_model": {
+    "rule": "SHOT-DRIVEN AUTOMATIC AUDIO RETRIEVAL",
+    "user_role": "approve narrative and final QC; no routine manual text search or source TC hunting",
+    "validation_gate": "P0.3"
+  },
+  "task_numbering": {
+    "project_restart_gates": "P0.x",
+    "codex_engineering_tasks": "D-###",
+    "last_known_codex_task": "D-065",
+    "next_codex_task_when_needed": "D-066"
+  },
+  "dashboard": {
+    "path": "docs/project_control/dashboard/dashboard.html",
+    "version": "V010",
+    "role": "DERIVED_VISUALIZATION",
+    "authoritative": false,
+    "status": "APPROVED-OPEN CLOSEOUT + RISK-001 / P1 WAVE 2 HOLD"
+  },
+  "gate_paths": {
+    "P0.1": "docs/project_control/gates/P0_1_story_text/",
+    "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
+    "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
+  },
+  "stage_goal": "完成 Approved-but-Open System Closeout：补齐已经批准但尚未执行完成的 Registry、Scene/Variant、Reference Sheet、Delivery Bridge、真实 Shot-level Resolver/Audit 与 GitHub Network Resilience / Recovery 能力，再恢复 P1 Character Gap Production。",
+  "blockers": [],
+  "project_control_closeout": {
+    "status": "LOCKED / MANDATORY",
+    "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
+    "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision/execution/rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset IDs/versions, D-### numbering and completion state.",
+    "approval_boundary": "Consistency closeout does not change Product Owner-only Gate/Phase approval authority.",
+    "effective_from": "2026-09-13"
+  }
+}
