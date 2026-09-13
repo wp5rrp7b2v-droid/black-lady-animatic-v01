@@ -151,6 +151,29 @@ def migration_rows(manifest, entity, role, variant, state):
     ]
 
 
+def parse_canonical_filename(filename: str, manifest: list[dict], registry: list[dict]):
+    """Match complete known tokens, never infer underscore boundaries by position."""
+    if not re.fullmatch(r"CHAR_[A-Z0-9_]+_V\d{3}\.png", filename):
+        raise IngestError("Filename must be a canonical Character PNG ending in _V###.png")
+    entities = {r.get("canonical_entity_id") for r in manifest} | {
+        r.get("entity_id") for r in registry
+    }
+    variants = {"DEFAULT"} | {r.get("variant") for r in manifest + registry}
+    states = {"DEFAULT"} | {r.get("state") for r in manifest + registry}
+    version = int(filename[-7:-4])
+    matches = [
+        (entity, role, variant, state, version)
+        for entity in entities if entity and re.fullmatch(r"CHAR_[A-Z0-9_]+", entity)
+        for role in CORE_ROLES | EXTRA_ROLES
+        for variant in variants if variant and re.fullmatch(r"[A-Z0-9_]+", variant)
+        for state in states if state and re.fullmatch(r"[A-Z0-9_]+", state)
+        if filename == f"{entity}_{role}_{variant}_{state}_V{version:03d}.png"
+    ]
+    if len(matches) != 1:
+        raise IngestError("Canonical filename cannot be parsed unambiguously")
+    return matches[0]
+
+
 def next_asset_id(manifest: list[dict[str, str]], registry: list[dict]) -> str:
     confirmed = sum(
         1 for r in manifest
@@ -171,10 +194,11 @@ def event_id() -> str:
 def parse_args():
     p = argparse.ArgumentParser(description="Automatic Ingest Controller V0.1")
     p.add_argument("--source", required=True)
-    p.add_argument("--entity", required=True)
-    p.add_argument("--role", required=True)
-    p.add_argument("--variant", default="DEFAULT")
-    p.add_argument("--state", default="DEFAULT")
+    p.add_argument("--entity")
+    p.add_argument("--role")
+    p.add_argument("--variant")
+    p.add_argument("--state")
+    p.add_argument("--from-filename", action="store_true")
     p.add_argument("--authority", default="AUXILIARY", choices=sorted(AUTHORITIES))
     p.add_argument("--resolver-usage", default="DEFAULT", choices=sorted(RESOLVER_USAGE))
     p.add_argument("--task-id", default="P0.2-03")
@@ -194,28 +218,37 @@ def main() -> int:
     source = Path(a.source).expanduser().resolve()
     validate_png(source)
 
-    entity = token(a.entity, "entity")
-    role = token(a.role, "role")
-    variant = token(a.variant, "variant")
-    state = token(a.state, "state")
-    if role not in CORE_ROLES | EXTRA_ROLES:
-        raise IngestError(f"Role not allowed by V0.1: {role}")
-
     repo = repo_root()
-    manifest = load_manifest(repo)
-    if not any(r.get("canonical_entity_id") == entity for r in manifest):
-        raise IngestError(f"Unknown entity: {entity}")
-
     registry_path = repo / REGISTRY
     audit_path = repo / AUDIT
-    registry = load_jsonl(registry_path)
 
     pre_staged = git(repo, "diff", "--cached", "--name-only").stdout.strip()
     if pre_staged:
         raise IngestError("Pre-existing staged changes detected:\n" + pre_staged)
 
-    if not a.no_pull:
+    if not a.dry_run and not a.no_pull:
         git(repo, "pull", "--ff-only", "origin", "main")
+
+    manifest = load_manifest(repo)
+    registry = load_jsonl(registry_path)
+    if a.from_filename:
+        if any((a.entity, a.role, a.variant, a.state)):
+            raise IngestError("--from-filename cannot be combined with explicit identity fields")
+        entity, role, variant, state, filename_version = parse_canonical_filename(
+            source.name, manifest, registry
+        )
+    else:
+        if not a.entity or not a.role:
+            raise IngestError("--entity and --role are required unless --from-filename is used")
+        entity = token(a.entity, "entity")
+        role = token(a.role, "role")
+        variant = token(a.variant or "DEFAULT", "variant")
+        state = token(a.state or "DEFAULT", "state")
+        filename_version = None
+    if role not in CORE_ROLES | EXTRA_ROLES:
+        raise IngestError(f"Role not allowed by V0.1: {role}")
+    if not any(r.get("canonical_entity_id") == entity for r in manifest):
+        raise IngestError(f"Unknown entity: {entity}")
 
     digest = sha256(source)
 
@@ -258,6 +291,10 @@ def main() -> int:
             versions.append(int(r.get("version_no") or 0))
 
     version_no = max(versions, default=0) + 1
+    if filename_version is not None and filename_version != version_no:
+        raise IngestError(
+            f"Filename version V{filename_version:03d} does not match next version V{version_no:03d}"
+        )
     vtag = f"V{version_no:03d}"
     filename = f"{entity}_{role}_{variant}_{state}_{vtag}.png"
     rel_target = entity_dir(entity) / filename
@@ -335,6 +372,7 @@ def main() -> int:
         "role": role,
         "version_no": version_no,
         "filename": filename,
+        "canonical_filename": filename,
         "storage_uri": rel_target.as_posix(),
         "sha256": digest,
         "byte_size": source.stat().st_size,
