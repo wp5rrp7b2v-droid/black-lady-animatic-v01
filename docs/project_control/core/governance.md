@@ -60,7 +60,7 @@ git pull --ff-only origin main
 - **P0.x**：重启阶段的项目 Gate / 专项，不等同于 Codex 工程任务。
 - **D-###**：只用于实际交给 Codex 执行的工程任务。
 - ChatGPT 的讨论、审核、项目控制、Prompt 设计、Gate Review 不占 D 编号。
-- 当前历史工程编号已到 D-056；只有出现新的实际 Codex 工程任务时再继续编号。
+- 当前实际 Codex 工程编号已到 D-065；下一项新的 Codex 工程任务从 D-066 继续。
 
 ## 7. 当前重启边界
 
@@ -162,3 +162,37 @@ P0 不继续生产 A08 或后续正式镜头；先重建：
 - 完整性：重要字段变更必须留下历史，不允许静默覆盖。
 
 P0.2 的详细字段、人物标准视图、场景/服装/道具模板、存储方案、Reference Resolver 规则和 Production Readiness 计算方式在专项规范中定义；本节只锁定项目级硬规则。
+
+## 12. Project Control Step Closeout / Daily Consistency Check
+
+Project Control 维护必须跟随实际项目推进，不允许只更新单一进度文件而让核心状态、Gate 记录和日志长期互相矛盾。
+
+### 12.1 Important Step Closeout
+
+每完成一个会改变正式项目事实的重要 Step、正式任务、工程任务、Product Owner 决策或规则变更后，ChatGPT 必须先判断本次变化影响哪些 Project Control 文件，并在进入下一重要 Step 前同步所有受影响的 canonical 文件。
+
+至少逐项检查：
+
+- `core/project_state.json`：Current Phase / Gate / Task / Blocker / Next Action / checkpoint；
+- 当前 `gates/` README、专项 progress / evidence 文件；
+- `logs/decision_log.md`：新的 Product Owner 正式决策；
+- `logs/execution_log.md`：实际工程完成、失败、修复与验证结果；
+- `logs/rules_change_log.md`：治理或生产规则变化；
+- `core/acceptance_matrix.md`：新增 Gate evidence 是否改变验收进度；
+- `dashboard/dashboard.html`：若当前状态、进度、下一动作发生变化，应从 Project Control 同步派生显示。
+
+更新一个 progress 文件不能视为完整 Step Closeout。
+
+### 12.2 Mandatory Daily Closeout Consistency Check
+
+每天结束工作前必须执行一次 Project Control 一致性核对。至少确认：
+
+1. `project_state.json` 与当前 Gate README / live progress 对 Phase、Gate、Current Task、Blocker、Next Action 的描述一致；
+2. 当天已完成的 Codex / 工程任务均已进入 `execution_log.md`；
+3. 当天由 Product Owner 明确形成的重大决策均已进入 `decision_log.md`；
+4. 当天新增或修改的治理 / 生产规则均已进入 `rules_change_log.md`，并在对应规范文件中体现；
+5. `acceptance_matrix.md` 已反映当天新增的真实 Gate evidence，但不得越权把 Gate 自动标记为 PASS；
+6. Dashboard 与 canonical Project Control 的当前状态一致；如不一致，以 Project Control 为准并在收尾时更新 Dashboard；
+7. 检查是否存在过期的 Current Task、Next Action、旧 Asset ID、旧版本号、旧 D-### 编号或已经完成却仍标记 NEXT 的内容；发现后必须在当天收尾中纠正或明确标记为 historical baseline。
+
+Daily Closeout 只负责事实一致性与记录完整性，不改变 Product Owner-only 的 Gate / Phase 审批权。
