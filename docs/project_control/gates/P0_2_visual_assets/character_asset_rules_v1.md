@@ -1,10 +1,10 @@
 # P0.2-02｜Character Asset Rules V1
 
-Status: `LOCKED DESIGN RULE / IMPLEMENTATION NOT YET VALIDATED`
+Status: `LOCKED DESIGN RULE / PARTIALLY VALIDATED IN P1 PRODUCTION`
 
-本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的人物资产标准。该规则已由 Product Owner 在 2026-09-12 当前 Chat 明确确认。
+本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的人物资产标准。该规则已由 Product Owner 在 2026-09-12 当前 Chat 明确确认，并于 2026-09-13 通过 P1 Character Gap Production 的真实生产进一步验证。
 
-本规则不代表 P0.2 Gate 已通过。后续仍需完成 Asset Registry schema、现有角色 Tier 归类、资产 Gap Analysis、Reference Sheet / Resolver / Automatic Ingest 实际验证，并最终提交 Product Owner 审批。
+本规则不代表 P0.2 Gate 已通过。后续仍需继续完成 Scene / Costume / Prop / Variant 结构化、真实 Shot Spec Resolver 验证、完整 Audit reverse-trace 等 Gate evidence，并最终提交 Product Owner 审批。
 
 ## 1. 核心原则
 
@@ -93,6 +93,31 @@ Tier 可以随生产需求升级。升级后，新 Tier 所要求的 Mandatory C
 ## 4. 统一摄影 / 生成标准
 
 同一 Tier 内相同 Role 的人物资产必须尽可能使用统一制作条件，避免角色 A 与角色 B 的 Reference 标准不一致。
+
+### Format Compliance｜硬性前置检查
+
+- Character Atomic / Auxiliary production reference 的目标画幅统一为 **9:16 竖版**；
+- generator-native 的极小像素取整误差可以接受，但视觉与几何上必须等效为 9:16，不得改成 3:4、2:3 或其他版式；
+- 画幅不符合时，固定标准审核直接判定 FAIL，不进入 Identity / Role Accuracy 等后续质量判断；
+- 不得为了把旧构图强行塞入 9:16 而造成明显拉伸、裁断人物关键结构或破坏角色比例。
+
+### Fixed Standard Review｜P1 生产审核顺序
+
+P1 人物补图统一采用：
+
+`Generation → 用户发送【审核】→ Fixed Standard Review → PASS / Targeted Revision`
+
+固定审核顺序：
+
+1. `Format Compliance`
+2. `Identity`
+3. `Role Accuracy`
+4. `Continuity`
+5. `Production Utility`
+6. `Reference Type Purity`
+7. `Problem Check`
+
+普通 Chat 中图片生成完成后不会自动触发下一轮文本审核，因此“自动审核”不作为流程名称；生成完成后等待 Product Owner 发送最短触发词 `【审核】`。
 
 ### Face / Head Views
 
@@ -207,15 +232,15 @@ Tier D 不按 Core Coverage 计算 Production Readiness。
 - 被哪些 Reference Package / Shot 使用；
 - Tier 升级原因及缺失资产补齐记录。
 
-## 12. P0.2-02 当前边界
+## 12. 当前验证状态
 
-本次只锁定 Character Asset 规则，不提前判断现有 9 名角色分别属于哪个 Tier，也不自动认定现有历史锚定图已经满足新标准。
+截至 2026-09-13：
 
-下一步应：
-
-1. 锁定 Entity / Asset Registry Schema；
-2. 对现有角色做 Tier Assignment；
-3. 将历史 `Face Master / Body Master / Angle Reference / Back Reference / Auxiliary Reference` 映射到新 Role；
-4. 生成 Character Gap Analysis；
-5. 只补真正缺失且对当前生产有价值的资产；
-6. 用至少一个真实角色验证 Reference Sheet + Resolver + Automatic Ingest。
+- Tier Assignment V1 已锁定；
+- Gap Mapping V1 已锁定；
+- D-059 已完成 48 张 canonical Character references 的迁移；
+- D-060～D-063 已验证 Character Reference Package 自动选图、P1 role 泛化、Migration + Runtime Current 统一解析；
+- Automatic Ingest 已通过真实 `PROFILE_LEFT` / `REAR_3Q_LEFT` 资产验证；
+- Controlled Current Supersession 已通过 `PROFILE_LEFT V001 → V002` 真实替换验证；
+- 宁秋水 P1 Wave 1 已完成，当前 Tier A Core Coverage = `8 / 9`；
+- 尚未完成全部角色 Core Gap、Derived Character Reference Sheet、完整 Shot-level Reference Resolver / Audit reverse-trace，因此 P0.2 Gate 仍为 ACTIVE。
