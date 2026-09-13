@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / REGISTRY SCHEMA V0.3 LOCKED / TIER ASSIGNMENT NEXT`
+Status: `ACTIVE / TIER ASSIGNMENT LOCKED / CHARACTER GAP MAPPING`
 
 ## 当前目标
 
@@ -23,12 +23,14 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - 正式资产的来源、审批、版本、替代、依赖与生产调用必须有 Audit Trail；
 - Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；
 - canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物组成由 Shot Register / Shot Spec 表达；
-- Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version，状态词不进入 filename。
+- Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version，状态词不进入 filename；
+- 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定。
 
 详细规则见：
 
 - `visual_asset_management_system_v1.md`
 - `character_asset_rules_v1.md`
+- `character_tier_assignment_v1.md`
 - `asset_naming_rules_v1.md`
 - `asset_authority_audit.md`
 - `entity_asset_registry_schema_v0_3.md`
@@ -43,7 +45,7 @@ Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
 2. 12 张 Auxiliary 在新 Role / Variant / State / Lifecycle 下的唯一映射验证；
 3. 两张 Scene Master 的事实字段结构化。
 
-这些核对不再阻塞 Schema 设计，但必须在真实迁移与 Gate Review 前完成。
+这些核对不再阻塞 Schema / Tier 设计，但必须在真实迁移与 Gate Review 前完成。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
@@ -61,20 +63,30 @@ Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
 - Legacy Migration Mapping Manifest；
 - Shot-bound / Entity-bound 归属与命名边界。
 
+### P0.2-03｜Character Tier Assignment + Gap Analysis
+
+已锁定 Tier Assignment：
+
+- Tier A：宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人；
+- Tier B：温倾雅 / 苏小小 / 廖健 / 古堡小主人；
+- Tier C：光勇；
+- Tier D：当前 9 名正式角色中无。
+
+正式记录见：`character_tier_assignment_v1.md`。
+
 ## 下一步
 
-进入：
+进入角色级 **Asset Gap Mapping**：
 
-`9 Character Tier Assignment → Gap Analysis`
+1. 对 Tier B 四人确认 `primary_side`；
+2. 对 Tier A 四人逐项确认 LEFT / RIGHT 的真实 Current Coverage；
+3. 把旧 `Face Master / Body Master / Angle Reference / Back Reference / Auxiliary Reference` 映射到 Schema V0.3 canonical Role；
+4. 将缺口区分为 `CORE_VIEW_GAP / REFERENCE_SHEET_GAP / STATE_VARIANT_GAP / NO_ACTION_REQUIRED`；
+5. Gap Mapping 完成前不批量补图。
 
-原则：
+已确认的宁秋水 Tier A 当前标准 Coverage = 6/9，缺 `FACE_3Q_LEFT / PROFILE_LEFT / REAR_3Q_LEFT`。
 
-- 先判 Tier，再判断缺口；
-- 不为了形式完整提前补图；
-- Tier / Gap 只基于真实生产需求与当前 approved/current 资产；
-- 宁秋水 Walkthrough 仅证明：如果最终定为 Tier A，当前标准 Coverage 为 6/9，不等于已正式指定 Tier A。
-
-完成 Tier Assignment 后，再推进 Scene / Costume / Prop / State / Variant 规范、Storage、Reference Sheet、Resolver、Automatic Ingest 与真实迁移验证。
+完成角色 Gap Mapping 后，再推进 Scene / Costume / Prop / State / Variant 规范、Storage、Reference Sheet、Resolver、Automatic Ingest 与真实迁移验证。
 
 ## Gate Approval
 
