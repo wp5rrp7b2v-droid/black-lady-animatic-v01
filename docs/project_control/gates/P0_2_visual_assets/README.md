@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / GAP MAPPING V1 LOCKED / P1 CHARACTER GAP PRODUCTION BASELINE`
+Status: `ACTIVE / CHARACTER MIGRATION V1 PUBLISHED / P1 CHARACTER GAP PRODUCTION`
 
 ## 当前目标
 
@@ -26,7 +26,8 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version，状态词不进入 filename；
 - 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定；
 - Character Asset Gap Mapping V1 已完成实图核对并落档；
-- Gap Priority Classification / P1 Execution V1 已落档。
+- Gap Priority Classification / P1 Execution V1 已落档；
+- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布到 GitHub。
 
 详细规则与当前基线见：
 
@@ -38,18 +39,22 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `asset_naming_rules_v1.md`
 - `asset_authority_audit.md`
 - `entity_asset_registry_schema_v0_3.md`
+- `d059_character_asset_migration_v1_completion.md`
 
 ## 当前任务
 
 ### P0.2-01｜Visual Asset Authority Audit
 
-Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
+Authority Mini-Close 已锁定。D-059 已将 48 张 approved Character references 迁入 canonical GitHub storage，并发布 Migration Mapping Manifest。
 
-1. 旧 4 份 canonical register 与实际图库实体工程对账；
-2. 12 张 Auxiliary 在新 Role / Variant / State / Lifecycle 下的唯一映射验证；
-3. 两张 Scene Master 的事实字段结构化。
+P0.2 Gate Review 前仍需：
 
-这些核对不阻塞当前 P1 Character Gap Production，但必须在正式迁移与 Gate Review 前完成。
+1. 旧 4 份 canonical register 与实际图库实体完成最终工程对账；
+2. 将已发布 Migration Manifest 接入正式长期 Asset Registry / Audit Event 实现；
+3. 两张 Scene Master 的事实字段结构化；
+4. 用已发布 Character assets 验证 Reference Resolver 的自动选图行为。
+
+这些核对不阻塞当前 P1 Character Gap Production。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
@@ -67,7 +72,7 @@ Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
 - Legacy Migration Mapping Manifest；
 - Shot-bound / Entity-bound 归属与命名边界。
 
-### P0.2-03｜Character Tier Assignment + Gap Analysis
+### P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
 Tier Assignment 已锁定：
 
@@ -86,7 +91,7 @@ Character Asset Gap Mapping V1 实图核对后的正式基线：
 
 Tier B 四人均锁定 `primary_side = LEFT`。
 
-黑衣夫人旧 `three_quarter_half_body_angle_reference_v001` 因人物 likeness 不足，迁移目标为：`DEPRECATED / resolver NEVER`；历史 approval 事实保留。
+黑衣夫人旧 `three_quarter_half_body_angle_reference_v001` 因人物 likeness 不足，迁移目标为：`DEPRECATED / resolver NEVER`；历史 approval 事实保留，未作为 Current canonical Character asset 发布。
 
 Gap Priority Classification V1：
 
@@ -95,6 +100,19 @@ Gap Priority Classification V1：
 - P3 = 6
 
 P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase 编号。
+
+## D-059｜Character Asset Migration V1
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- Remote commit: `d9fb763fb63e57023aa2cf11119c9be1bef037d6`
+- Canonical PNG: `48`
+- Migration Manifest: `CSV + JSON`
+- Character storage root: `production/image_library/character_references/`
+- Migration evidence root: `docs/project_control/gates/P0_2_visual_assets/migration_evidence/`
+- Neil `CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png`: `MAPPING_REQUIRED / NOT MIGRATED`
+
+注意：D-059 完成的是 canonical file storage + Migration Mapping Manifest publication；长期 Asset Registry / Audit Event 数据层与 Automatic Ingest 仍需后续实现和验证。
 
 ## 当前执行基线
 
@@ -106,7 +124,7 @@ P1 按人物整组推进：
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
 
-不跨角色无差别批量补图；一人完成并通过 Product Owner 审批后再推进下一 Wave。
+制图与主流程分离：图片制作对话框负责生成 + 内部审核 + 迭代收敛；只有内部审核通过的最终候选返回主流程，由主流程执行 canonical registration / GitHub publication / Project Control 更新。
 
 ## 下一步
 
@@ -118,9 +136,10 @@ P1 按人物整组推进：
 
 - 新图属于 production auxiliary reference，不是剧情 Shot；
 - LEFT / RIGHT 按 screen-facing convention；
-- 先检查人物身份和角度，再判断是否批准；
-- 只有 Product Owner 明确批准的结果才能进入正式 Asset Registry / Automatic Ingest；
-- 不因 P1 制图跳过旧 Register 对账、Migration Mapping、Reference Sheet / Resolver / Automatic Ingest 后续验证。
+- 制图对话框内部完成审图与返修；
+- 只有内部审核通过的最终候选返回主流程；
+- 只有 Product Owner 明确批准的结果才能进入正式 canonical storage / Registry；
+- 不因 P1 制图跳过旧 Register 对账、Reference Sheet / Resolver / Automatic Ingest 后续验证。
 
 ## Gate Approval
 
