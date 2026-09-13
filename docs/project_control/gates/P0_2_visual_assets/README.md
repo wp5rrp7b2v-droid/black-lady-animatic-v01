@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / TIER ASSIGNMENT LOCKED / CHARACTER GAP MAPPING`
+Status: `ACTIVE / GAP MAPPING V1 LOCKED / P1 CHARACTER GAP PRODUCTION BASELINE`
 
 ## 当前目标
 
@@ -24,13 +24,17 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；
 - canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物组成由 Shot Register / Shot Spec 表达；
 - Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version，状态词不进入 filename；
-- 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定。
+- 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定；
+- Character Asset Gap Mapping V1 已完成实图核对并落档；
+- Gap Priority Classification / P1 Execution V1 已落档。
 
-详细规则见：
+详细规则与当前基线见：
 
 - `visual_asset_management_system_v1.md`
 - `character_asset_rules_v1.md`
 - `character_tier_assignment_v1.md`
+- `character_asset_gap_mapping_v1.md`
+- `character_gap_priority_v1.md`
 - `asset_naming_rules_v1.md`
 - `asset_authority_audit.md`
 - `entity_asset_registry_schema_v0_3.md`
@@ -45,7 +49,7 @@ Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
 2. 12 张 Auxiliary 在新 Role / Variant / State / Lifecycle 下的唯一映射验证；
 3. 两张 Scene Master 的事实字段结构化。
 
-这些核对不再阻塞 Schema / Tier 设计，但必须在真实迁移与 Gate Review 前完成。
+这些核对不阻塞当前 P1 Character Gap Production，但必须在正式迁移与 Gate Review 前完成。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
@@ -65,28 +69,58 @@ Authority Mini-Close 已锁定；仍需在 P0.2 Gate Review 前完成：
 
 ### P0.2-03｜Character Tier Assignment + Gap Analysis
 
-已锁定 Tier Assignment：
+Tier Assignment 已锁定：
 
 - Tier A：宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人；
 - Tier B：温倾雅 / 苏小小 / 廖健 / 古堡小主人；
 - Tier C：光勇；
 - Tier D：当前 9 名正式角色中无。
 
-正式记录见：`character_tier_assignment_v1.md`。
+Character Asset Gap Mapping V1 实图核对后的正式基线：
+
+- Mandatory Core Slots = `63`
+- Confirmed Coverage = `40`
+- Core View Gap = `23`
+- Core Coverage = `63.5%`
+- Reference Sheet Gap = `9`（Derived Asset Gap，单独统计）
+
+Tier B 四人均锁定 `primary_side = LEFT`。
+
+黑衣夫人旧 `three_quarter_half_body_angle_reference_v001` 因人物 likeness 不足，迁移目标为：`DEPRECATED / resolver NEVER`；历史 approval 事实保留。
+
+Gap Priority Classification V1：
+
+- P1 = 10
+- P2 = 7
+- P3 = 6
+
+P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase 编号。
+
+## 当前执行基线
+
+P1 按人物整组推进：
+
+1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT`
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT`
+3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
+4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
+5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
+
+不跨角色无差别批量补图；一人完成并通过 Product Owner 审批后再推进下一 Wave。
 
 ## 下一步
 
-进入角色级 **Asset Gap Mapping**：
+进入：
 
-1. 对 Tier B 四人确认 `primary_side`；
-2. 对 Tier A 四人逐项确认 LEFT / RIGHT 的真实 Current Coverage；
-3. 把旧 `Face Master / Body Master / Angle Reference / Back Reference / Auxiliary Reference` 映射到 Schema V0.3 canonical Role；
-4. 将缺口区分为 `CORE_VIEW_GAP / REFERENCE_SHEET_GAP / STATE_VARIANT_GAP / NO_ACTION_REQUIRED`；
-5. Gap Mapping 完成前不批量补图。
+`P0.2-03｜P1 Wave 1｜宁秋水 PROFILE_LEFT + REAR_3Q_LEFT`
 
-已确认的宁秋水 Tier A 当前标准 Coverage = 6/9，缺 `FACE_3Q_LEFT / PROFILE_LEFT / REAR_3Q_LEFT`。
+原则：
 
-完成角色 Gap Mapping 后，再推进 Scene / Costume / Prop / State / Variant 规范、Storage、Reference Sheet、Resolver、Automatic Ingest 与真实迁移验证。
+- 新图属于 production auxiliary reference，不是剧情 Shot；
+- LEFT / RIGHT 按 screen-facing convention；
+- 先检查人物身份和角度，再判断是否批准；
+- 只有 Product Owner 明确批准的结果才能进入正式 Asset Registry / Automatic Ingest；
+- 不因 P1 制图跳过旧 Register 对账、Migration Mapping、Reference Sheet / Resolver / Automatic Ingest 后续验证。
 
 ## Gate Approval
 
