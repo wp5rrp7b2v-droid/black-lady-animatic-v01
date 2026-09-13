@@ -131,3 +131,120 @@
 - 当前状态：`RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE`。由于录屏本身可能含极短的起止操作冗余，尚未直接晋级为 `CANONICAL_AUDIO`。
 - 正式范围规则修正：MVP1 从 S2 第134章开头起，终点按真实有声小说连续音频边界锁定；原文章节只作为映射锚点。当前映射终点在 S2 第135章开头。
 - 下一步：锁定 canonical audio 的精确起止内容与时间码，再建立覆盖该完整音频跨度的 S3。
+
+## P0.1 Final Closeout｜2026-09-12｜PASS / PRODUCT OWNER APPROVED
+
+- `AUDIO_MVP1_CANONICAL_V001.m4a` 完成正式边界锁定；起点完整保留“欢迎各位来到艾伦古堡”，终点完整保留“而后又匆匆离去备餐”。
+- S3 `S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv` 建立完整 MVP1 searchable index：41 segments，其中 9 VERIFIED、32 REVIEWED searchable entries。
+- 开头 / 中段 / 后段检索抽查均可唯一命中正确候选原音区域。
+- Product Owner 明确批准 P0.1 正式 PASS；精确 shot-driven audio retrieval / extraction 转入 P0.3。
+
+## P0.2 Character Asset System Build｜2026-09-13
+
+### D-059｜Character Asset Migration V1
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- 48 张 approved Character PNG 迁入 `production/image_library/character_references/`。
+- CSV + JSON Migration Manifest 发布到 `docs/project_control/gates/P0_2_visual_assets/migration_evidence/`。
+- Remote commit: `d9fb763fb63e57023aa2cf11119c9be1bef037d6`。
+- Neil `rear_turn_45` legacy asset 保持 `MAPPING_REQUIRED / NOT MIGRATED`。
+
+### D-060｜Reference Package Exporter V0.1
+
+Status: `TEST APPROVED / PRODUCT OWNER APPROVED`
+
+- 测试对象：`CHAR_NING_QIUSHUI → PROFILE_LEFT`。
+- 自动选出 `FACE_FRONT / PROFILE_RIGHT / FACE_3Q_RIGHT / BODY_FRONT`。
+- 4/4 SHA source/copy/manifest PASS；正确识别目标 `PROFILE_LEFT = REFERENCE_GAP`。
+- 验证结论：`Canonical Character Assets → automatic selection → local Reference Package` 成立。
+- Approval record commit: `7142ddf9c82c63f0a479f56d57de9e2996b540de`。
+
+### Automatic Ingest Controller V0.1｜First Live Ingest
+
+- Automatic Ingest Controller 与 Runtime Registry 建立并投入真实 Character asset ingest。
+- 首个真实资产：`CHAR_NING_QIUSHUI_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`。
+- Asset ID：`AST_IMG_000049`；首次 ingest commit：`65e7fbec9acbe970797479ae523abf9f9e4f55df`。
+- Registry 写入 `APPROVED / CURRENT / AUXILIARY / DEFAULT`；Audit 写入 `ASSET_APPROVED + ASSET_INGESTED`。
+- 后续发现该 V001 画幅不符合项目 9:16 Character reference 标准，因此保留历史记录但不作为最终现行版本。
+
+### D-061｜One-click Character Ingest + Cleanup
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- 提供 `Black_Lady_Ingest.command` 一键入口；Product Owner 确认后选择 canonical PNG，即可调用 controller 完成正式 ingest。
+- 加入 Reference Package cleanup、staging safety、dry-run/network boundary 等保护。
+- Commit: `200cb06ce366c650b4f1389108765996b8f15332`。
+
+### D-062｜P1 Character Reference Package Generalization
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- Exporter 泛化至 P1 `PROFILE_LEFT / PROFILE_RIGHT / REAR_3Q_LEFT / REAR_3Q_RIGHT`。
+- opposite-side 仅作为 reference selection，不允许 silent mirror inference。
+- Commit: `a480dc0a64b2e63221122dce238d5c35634a77b1`。
+
+### D-063｜Unified Migration + Runtime Character Asset Resolution
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- Migration Manifest 与 Runtime Registry 统一进入 Character current/reference resolution。
+- Runtime 新资产可立即参与 Current detection / reference selection。
+- Exact duplicate 跨源时仅同 filename/version/SHA 允许 runtime wins；不同 Current 仍视为冲突。
+- Commit: `e85f749ef72fb722c631472eb0af8bb2b0b7bc7e`。
+
+### D-064｜Controlled Current Supersession
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- 新增受控 CURRENT 替换能力；必须同时显式满足 `--supersede-current` 与 `--po-approved`。
+- 正常 ingest 发现已有 CURRENT 仍默认 BLOCK。
+- Supersession 写入 Registry lifecycle 更新、`NEW SUPERSEDES OLD` Relation、Audit `ASSET_SUPERSEDED`，旧文件保留。
+- Commit: `6735c44374713d7470888dfb4d20e52af804cb42`。
+
+### Ning PROFILE_LEFT V002｜Real Controlled Supersession
+
+- GitHub HTTPS 初次运行出现 `Empty reply from server`；进一步测试发现默认 HTTP/2 链路报 `curl: (16) Error in the HTTP2 framing layer`。
+- 对该仓库切换 Git HTTP/1.1 后链路恢复；网络问题不再作为 blocker。
+- `CHAR_NING_QIUSHUI_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png` 正式 ingest：`AST_IMG_000050`。
+- V002 设为 CURRENT；V001 `AST_IMG_000049` 转为 SUPERSEDED。
+- Supersession commit: `eba06283cccd10a22addd02307c9012cc06d3ac0`。
+
+### D-065｜macOS Bash Launcher Fix
+
+Status: `COMPLETE / REMOTE VERIFIED`
+
+- 真实普通新增路径暴露 macOS Bash 3.2 + `set -u` + empty array expansion：`supersede_args[@]: unbound variable`。
+- 修复方式：保留 `set -u`，拆分 CURRENT_FOUND supersede 与 NO_CURRENT normal ingest 两条明确 controller 调用路径。
+- macOS `/bin/bash` NO_CURRENT / SUPERSEDE runtime 均 PASS；controller regression 10 项 PASS。
+- Commit: `57495a7b0a9e189098e2b8310e76d98f7b0beb2d`。
+- 全量 39 项测试存在 1 项既有 Resolver assertion failure：测试仍期待旧 `AST_IMG_000049`，而合法 supersession 后 CURRENT 已为 `AST_IMG_000050`；该问题登记为 non-blocking stale test expectation。
+
+### Ning REAR_3Q_LEFT V001｜Real Normal Ingest
+
+- `CHAR_NING_QIUSHUI_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` 正式 ingest 成功。
+- Asset ID：`AST_IMG_000051`。
+- 状态：`APPROVED / CURRENT / AUXILIARY / DEFAULT`。
+- Audit：`ASSET_APPROVED + ASSET_INGESTED`。
+- Commit: `a90854dee5f2cef736b622650a2120b22bc8279e`。
+
+## P0.2-03｜P1 Wave 1 Closeout｜2026-09-13
+
+Status: `COMPLETE / CONTINUE P1`
+
+- 宁秋水 `PROFILE_LEFT`：COMPLETE；CURRENT = `AST_IMG_000050 / V002`。
+- 宁秋水 `REAR_3Q_LEFT`：COMPLETE；CURRENT = `AST_IMG_000051 / V001`。
+- Live Core Coverage：`42 / 63 = 66.7%`。
+- Remaining Core View Gap：`21`。
+- P1 progress：`2 / 10 complete`，`8 / 10 remaining`。
+- 宁秋水 Tier A current coverage：`8 / 9`；剩余 `FACE_3Q_LEFT` 属于非当前 P1 target。
+- 下一正式 P1 target：`CHAR_JUN_LUYUAN PROFILE_LEFT`，随后 `REAR_3Q_LEFT`。
+
+## End-of-Day Engineering State｜2026-09-13
+
+- P0.1：PASS / PRODUCT OWNER APPROVED。
+- P0.2：ACTIVE / P1 CHARACTER GAP PRODUCTION。
+- P0.3：QUEUED。
+- 当前 Codex 工程编号已到 D-065；下一新的工程任务编号从 D-066 继续。
+- Current blocker：NONE。
+- 非阻塞技术债：Resolver regression test 仍写死旧 Asset ID；后续应改为断言当前有效版本语义。
