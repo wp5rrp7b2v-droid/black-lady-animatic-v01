@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R025",
+  "state_revision": "R026",
   "last_updated": "2026-09-13",
   "session_status": "ACTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -18,17 +18,17 @@
   "current_gate": {
     "id":"P0.2",
     "name":"人物锚定与 Scene Master 资产治理",
-    "status":"ACTIVE / REGISTRY SCHEMA V0.3 LOCKED / TIER ASSIGNMENT + GAP ANALYSIS",
-    "note":"Character Tier Rule、Asset Naming、Authority Mini-Close 与 Entity / Asset Registry Schema V0.3 已由 Product Owner 锁定。下一步为 9 Character Tier Assignment + Gap Analysis；先判 Tier，再基于当前 approved/current 资产计算缺口，不提前补图。"
+    "status":"ACTIVE / TIER ASSIGNMENT LOCKED / CHARACTER GAP MAPPING",
+    "note":"Character Tier Rule、Asset Naming、Authority Mini-Close、Registry Schema V0.3 与 9 Character Tier Assignment V1 已由 Product Owner 锁定。当前进入角色级 Asset Gap Mapping，不提前批量补图。"
   },
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"PASS / PRODUCT OWNER APPROVED"},
-    {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / TIER ASSIGNMENT + GAP ANALYSIS"},
+    {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / CHARACTER GAP MAPPING"},
     {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"}
   ],
-  "current_task": "P0.2-03：9 Character Tier Assignment + Gap Analysis。按叙事重要性、出场频率、视角复杂度、连续性敏感度与动画需求，为 9 名正式角色分配 Tier A/B/C/D；随后仅基于当前 APPROVED/CURRENT 资产计算 Core Set 缺口。",
+  "current_task": "P0.2-03：Character Asset Gap Mapping。基于已锁定 Tier Assignment，将 9 名正式角色的历史 Face Master / Body Master / Angle Reference / Back Reference / Auxiliary Reference 映射到 Schema V0.3 canonical Role；Tier B 确认 primary_side，Tier A 核对真实 LEFT / RIGHT Current Coverage，并分类 Core View / Reference Sheet / State Variant Gap。",
   "blocker": null,
-  "next_action": "完成 9 Character Tier Assignment，再执行角色级 Gap Analysis。宁秋水 Walkthrough 只证明：若最终分配为 Tier A，当前标准 Coverage 为 6/9；不等于已正式指定 Tier A。Tier / Gap 明确前不生成缺失视图。之后继续 Scene / Costume / Prop / State / Variant 规范、Storage、Resolver、Automatic Ingest 与真实迁移验证。",
+  "next_action": "完成 9 Character Asset Gap Mapping：先确认 Tier B primary_side 与 Tier A 左右视角实际覆盖，再逐角色输出 canonical Role Mapping 和 Gap 分类。宁秋水 Tier A 当前已确认 6/9，缺 FACE_3Q_LEFT / PROFILE_LEFT / REAR_3Q_LEFT。Gap Mapping 完成前不批量补图。",
   "approval_governance": {
     "authority":"PRODUCT_OWNER_ONLY",
     "scope":"ALL_GATES_AND_PHASES",
@@ -44,7 +44,7 @@
     "conflict_rule":"If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
   },
   "latest_checkpoint": {
-    "id":"2026-09-13-P0.2-SCHEMA-V0.3-LOCKED",
+    "id":"2026-09-13-P0.2-CHARACTER-TIER-ASSIGNMENT-V1-LOCKED",
     "status":"ACTIVE",
     "completed":[
       "P0.1 PASS / Product Owner approved",
@@ -62,43 +62,36 @@
       "Tier B = 6-view Core Set with fixed primary side",
       "Tier C = 3-view Minimum Set",
       "Tier D = no complete Core Set unless promoted",
-      "Uniform capture/generation standards locked for same-role Character References",
-      "Resolver must return REFERENCE_GAP when required view is not safely covered",
-      "Asset ID naming locked: AST_<MEDIA_CODE>_<6-digit sequence>",
-      "Media codes locked: IMG / VID / AUD; MDL / TEX reserved",
-      "Entity ID prefixes locked: CHAR / SCENE / PROP / COSTUME",
-      "Asset ID is immutable and independent of filename/path/storage",
-      "Asset ID and formal filename assigned automatically by Automatic Ingest",
-      "Authority Mini-Close approved by Product Owner on 2026-09-13",
-      "A01-A07 ARCHIVED semantics locked: formal frozen shot assets remain conditionally usable for continuity and explicit shot reference",
-      "SH01-SH08 default to LEGACY_SUPPLEMENTARY / resolver NEVER; SH02 and SH08 V2 remain CONDITIONAL exceptions",
-      "Auxiliary default layer removed: Resolver default is derived from unique CURRENT per entity + role + variant + state",
-      "Scene Master inheritance boundary locked: scene facts inherited; shot-level photographic expression may vary; scene fact changes require controlled Variant / State",
-      "Authority / Lifecycle / Resolver Usage formally separated",
       "Registry Schema V0.3 approved and locked by Product Owner on 2026-09-13",
       "Long-term Registry model locked: Entity Registry / Asset Registry / Asset Relations / Append-only Audit Event Log",
       "Migration Mapping Manifest locked as migration-only evidence layer, not a fifth runtime Registry",
       "Asset classes locked: ATOMIC / DERIVED_REFERENCE / SHOT",
-      "Role vocabulary is validated by asset_class; SHOT_MASTER added",
+      "Role vocabulary validated by asset_class; SHOT_MASTER added",
       "provenance_status locked: COMPLETE / PARTIAL / UNKNOWN",
-      "Resolver eligibility is computed dynamically; no manual resolver_eligible boolean",
+      "Resolver eligibility computed dynamically; no manual resolver_eligible boolean",
       "Derived Reference dependency staleness locked as computed DEPENDENCY_STALE, not Lifecycle",
       "Entity-bound naming locked: <ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
       "Shot-bound naming locked: <SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
       "Canonical Shot IDs remove legacy REBOOT labels: A01_REBOOT…A08_REBOOT → A01…A08",
       "Multi-character Shot membership belongs to Shot Register / Shot Spec, not filename or single Character Entity",
       "LEFT / RIGHT convention locked as screen-facing orientation",
-      "Ning Qiushui real-asset walkthrough validated migration semantics; if later Tier A, current Core coverage = 6/9",
-      "A04 walkthrough validated Shot-bound Asset model and provenance PARTIAL for incomplete historical reference lineage",
-      "Dashboard V004 refreshed to show Schema V0.3 lock and Tier Assignment next"
+      "Authority Mini-Close approved: A-Series ARCHIVED semantics, SH authority boundary, unique CURRENT, Scene Master inheritance boundary",
+      "Character Tier Assignment V1 approved by Product Owner on 2026-09-13",
+      "Tier A locked: 宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人",
+      "Tier B locked: 温倾雅 / 苏小小 / 廖健 / 古堡小主人",
+      "Tier C locked: 光勇",
+      "Tier D among current 9 formal characters: none",
+      "Ning Qiushui Tier A current Core coverage confirmed 6/9",
+      "Initial 9-character gap baseline recorded as approximately 43/66 mappable slots and approximately 23 Core View gaps, pending per-asset mapping validation"
     ],
-    "resume_from":"P0.2-03｜9 Character Tier Assignment + Gap Analysis",
+    "resume_from":"P0.2-03｜Character Asset Gap Mapping",
     "blockers":[]
   },
   "visual_asset_management_system": {
-    "status":"CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 LOCKED / TIER ASSIGNMENT NEXT",
+    "status":"CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + TIER ASSIGNMENT V1 LOCKED / CHARACTER GAP MAPPING ACTIVE",
     "spec_path":"docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path":"docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
+    "character_tier_assignment_path":"docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
     "asset_naming_rule_path":"docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md",
     "authority_audit_path":"docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md",
     "registry_schema_path":"docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
@@ -121,6 +114,12 @@
       "B":"6-view core set / fixed primary side",
       "C":"3-view minimum set",
       "D":"background or one-off / no full core set"
+    },
+    "character_tier_assignment": {
+      "A":["CHAR_NING_QIUSHUI","CHAR_JUN_LUYUAN","CHAR_NEIL","CHAR_BLACK_LADY"],
+      "B":["CHAR_WEN_QINGYA","CHAR_SU_XIAOXIAO","CHAR_LIAO_JIAN","CHAR_CASTLE_YOUNG_MASTER"],
+      "C":["CHAR_GUANG_YONG"],
+      "D":[]
     },
     "orientation_rule":"LEFT / RIGHT use screen-facing convention: face/nose toward screen-right = RIGHT; toward screen-left = LEFT",
     "authority_lifecycle_resolver_rule":"Authority defines what an asset can prove; Lifecycle defines version state; Resolver Usage defines whether/when production may call it.",
@@ -168,9 +167,16 @@
       "LEGACY_SUPPLEMENTARY",
       "Evidence-only / Candidate / Rejected / Not-adopted / Invalid-test = no normal positive production reference"
     ],
+    "character_gap_baseline": {
+      "mandatory_core_slots":66,
+      "initial_mappable_coverage":43,
+      "initial_core_view_gap":23,
+      "status":"INITIAL ESTIMATE / PER-ASSET MAPPING VALIDATION REQUIRED"
+    },
     "remaining_checks":[
       "Reconcile four local canonical registers with actual image-library entities",
       "Validate all 12 auxiliary references map uniquely into Role / Variant / State / Lifecycle without multiple CURRENT",
+      "Confirm Tier B primary_side and Tier A exact left/right Current coverage",
       "Structure the two approved Scene Masters' inheritable fact fields during Scene Registry / Scene Spec design"
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
@@ -195,7 +201,7 @@
     "validation_gate":"P0.3"
   },
   "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
-  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","version":"V004","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"REFRESHED 2026-09-13 / 1 OF 3 PASS / P0.2 SCHEMA V0.3 LOCKED / TIER ASSIGNMENT NEXT"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","version":"V005","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"TIER ASSIGNMENT V1 LOCKED / CHARACTER GAP MAPPING ACTIVE"},
   "gate_paths": {"P0.1":"docs/project_control/gates/P0_1_story_text/","P0.2":"docs/project_control/gates/P0_2_visual_assets/","P0.3":"docs/project_control/gates/P0_3_video_pipeline/"},
   "stage_goal":"建立并验证 Visual Asset Management System V1：统一人物/场景/服装/道具标准，取消正常生产中的人工挑图和手工资产登记，通过 Resolver + Automatic Ingest + Audit Trail 形成可规模化视觉资产生产入口。",
   "blockers": []
