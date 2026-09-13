@@ -10,6 +10,8 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+import resolver_asset_source_v0_1 as resolver
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = Path(
@@ -70,26 +72,6 @@ def package_name(wave_id, entity, target_role):
     if target_role not in ANCHORS_BY_TARGET:
         raise ValueError(f"Unsupported target role: {target_role}")
     return f"{wave_id}_{entity.removeprefix('CHAR_')}_{target_role}"
-
-
-def source_path(row):
-    relative = Path(row["target_storage_path"])
-    resolved = (ROOT / relative).resolve()
-    asset_root = (ROOT / ASSET_ROOT).resolve()
-    if relative.is_absolute() or not resolved.is_relative_to(asset_root):
-        raise ValueError(f"Asset path escapes canonical Character directory: {relative}")
-    if resolved.name != row["canonical_filename"] or resolved.suffix.lower() != ".png":
-        raise ValueError(f"Canonical filename/path mismatch: {relative}")
-    return resolved
-
-
-def eligible(row):
-    return (
-        row.get("approval_status") == "APPROVED"
-        and row.get("mapping_status") == "CONFIRMED"
-        and row.get("lifecycle") == "CURRENT"
-        and row.get("resolver_usage") not in (None, "NEVER")
-    )
 
 
 def package_identity_matches(path, metadata):
@@ -178,21 +160,15 @@ def cleanup_old_reference_packages(current_package_path):
 
 def export(entity, target_role, output, wave_id="P1_WAVE1"):
     package_name(wave_id, entity, target_role)
-    rows = json.loads((ROOT / MANIFEST).read_text(encoding="utf-8"))
-    entity_rows = [r for r in rows if r.get("canonical_entity_id") == entity]
-    if not entity_rows:
-        raise ValueError(f"Entity not found in migration manifest: {entity}")
+    all_assets = resolver.load_assets(ROOT)
+    entity_assets = [a for a in all_assets if a["entity_id"] == entity]
+    if not entity_assets:
+        raise ValueError(f"Entity not found in unified asset source: {entity}")
 
-    current = [r for r in entity_rows if eligible(r)]
-    by_key = {}
-    for row in current:
-        key = (row.get("new_role"), row.get("variant"), row.get("state"))
-        if key in by_key:
-            raise ValueError(f"Duplicate eligible CURRENT asset for {key}: "
-                             f"{by_key[key]['canonical_filename']} and {row['canonical_filename']}")
-        by_key[key] = row
-    if any(r.get("new_role") == target_role and r.get("lifecycle") == "CURRENT"
-           for r in entity_rows):
+    current = resolver.eligible_current_assets(ROOT, entity)
+    by_key = {(a["role"], a["variant"], a["state"]): a for a in current}
+    if any(a["role"] == target_role and a["lifecycle"] == "CURRENT"
+           for a in entity_assets):
         raise ValueError(f"Target role {target_role} already has a CURRENT asset")
 
     warnings = [f"{target_role} is a REFERENCE_GAP; this package supplies production anchors."]
@@ -202,13 +178,13 @@ def export(entity, target_role, output, wave_id="P1_WAVE1"):
         if row is None:
             warnings.append(f"{role}: no eligible CURRENT / APPROVED / CONFIRMED DEFAULT asset")
             continue
-        path = source_path(row)
+        path = resolver.source_path(row, ROOT)
         if not path.is_file():
-            warnings.append(f"{role}: canonical PNG missing: {row['target_storage_path']}")
+            warnings.append(f"{role}: canonical PNG missing: {row['storage_uri']}")
             continue
         actual_sha = sha256(path)
         if actual_sha != row.get("sha256"):
-            raise ValueError(f"SHA-256 mismatch for {row['canonical_filename']}")
+            raise ValueError(f"SHA-256 mismatch for {row['filename']}")
         selected.append((row, path, reason, actual_sha))
     if not selected:
         raise ValueError("No eligible, existing, SHA-verified anchors were found")
@@ -229,11 +205,14 @@ def export(entity, target_role, output, wave_id="P1_WAVE1"):
         "package_status": "TEST COMPLETE / WAITING PRODUCT OWNER REVIEW",
         "target_role_status": "REFERENCE_GAP",
         "source_manifest": MANIFEST.as_posix(),
+        "source_registry": resolver.REGISTRY.as_posix(),
         "selected_assets": [
             {
-                "role": row["new_role"],
-                "canonical_filename": row["canonical_filename"],
-                "source_path": row["target_storage_path"],
+                "role": row["role"],
+                "canonical_filename": row["filename"],
+                "source_path": row["storage_uri"],
+                "source_layer": row["source_layer"],
+                "asset_id": row["asset_id"],
                 "sha256": actual_sha,
                 "selection_reason": reason,
             }
@@ -246,7 +225,7 @@ def export(entity, target_role, output, wave_id="P1_WAVE1"):
     staging = Path(tempfile.mkdtemp(prefix=".reference_package_", dir=root))
     try:
         for row, path, _, actual_sha in selected:
-            destination = staging / row["canonical_filename"]
+            destination = staging / row["filename"]
             shutil.copyfile(path, destination)
             if sha256(destination) != actual_sha:
                 raise ValueError(f"Copied PNG failed SHA-256 check: {destination.name}")
