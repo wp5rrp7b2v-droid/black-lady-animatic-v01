@@ -50,6 +50,7 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `d060_reference_package_exporter_v0_1_test.md`
 - `automatic_ingest_controller_v0_1_first_live_ingest.md`
 - `approved_open_tasks_v1.md`
+- `../../logs/risk_register.md`
 
 ## 当前任务
 
@@ -133,16 +134,31 @@ P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase
 
 Status: `NEXT / MANDATORY BEFORE P1 WAVE 2`
 
-Product Owner 于 2026-09-13 明确要求：以下 6 项已经批准/锁定但尚未执行完成的任务必须先补齐；在全部形成 `COMPLETE / VERIFIED` 证据前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。
+Product Owner 于 2026-09-13 明确要求：以下 7 项已经批准/锁定但尚未执行完成的任务必须先补齐；在全部形成 `COMPLETE / VERIFIED` 证据前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。
 
 1. AO-01｜旧 4 份 canonical register 与实际图库最终对账；
 2. AO-02｜D-059 的 48 张 legacy Character assets 进入长期 Registry / Audit 模型；
 3. AO-03｜两张 Scene Master 事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
 4. AO-04｜完成 9 个 Derived Character Reference Sheets 与 dependency / staleness 验证；
 5. AO-05｜完成 D-060 后已批准的 Delivery Bridge：Reference Package → 实际制图环境；
-6. AO-06｜完成真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
+6. AO-06｜完成真实 Shot Spec Resolver + Shot-level Audit reverse-trace；
+7. AO-07｜建立并验证 GitHub Network Resilience / Recovery Method，解决频繁 GitHub 连接失败时的诊断、fallback、幂等重试、离线安全与恢复发布问题。
 
 详细完成标准与依赖顺序见：`approved_open_tasks_v1.md`。
+
+## Risk Alert｜RISK-001 GitHub Connectivity Instability
+
+Status: `OPEN / HIGH OPERATIONAL RISK / AO-07 MANDATORY`
+
+近期项目已多次出现 GitHub 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等连接异常。由于 Project Control、Automatic Ingest、Codex Git 操作与正式资产发布都依赖 GitHub，该问题如果只靠临时手工处理，会带来本地已完成但远端未发布、重复 ingest、Asset ID / Registry 重复写入、版本分叉与状态误判风险。
+
+当前已知 HTTP/1.1 能缓解部分问题，但尚不足以视为正式解决方案。
+
+AO-07 必须建立一套可验证恢复方法，使：
+
+`GitHub transient failure ≠ asset corruption / duplicate ingest / project-state divergence`
+
+详细风险登记：`docs/project_control/logs/risk_register.md`。
 
 ## D-059｜Character Asset Migration V1
 
@@ -218,15 +234,15 @@ P1 按人物整组推进：
 
 ## 下一步
 
-下一正式任务改为：
+下一正式任务保持：
 
 `P0.2-04｜Approved-but-Open System Closeout`
 
-必须完成 AO-01～AO-06 并形成验证证据后，才恢复：
+必须完成 AO-01～AO-07 并形成验证证据后，才恢复：
 
 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
 
-原则：不得因为 P1 补图容易继续推进，就再次绕过已经批准但尚未完成的系统建设任务。
+原则：不得因为 P1 补图容易继续推进，就再次绕过已经批准但尚未完成的系统建设任务；同时不得把 GitHub 临时可连接误判为网络风险已经解决。
 
 ## Gate Approval
 
