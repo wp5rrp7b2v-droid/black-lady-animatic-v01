@@ -82,11 +82,13 @@ Next locked production target remains:
 
 - 君鹭远 `PROFILE_LEFT`
 
-However, Product Owner decision `BL-D-026` places P1 Wave 2 on HOLD until the six Approved-but-Open tasks in `approved_open_tasks_v1.md` are all `COMPLETE / VERIFIED`.
+However, Product Owner decisions `BL-D-026` + `BL-D-027` place P1 Wave 2 on HOLD until the seven Approved-but-Open tasks in `approved_open_tasks_v1.md` are all `COMPLETE / VERIFIED`.
 
 Current pre-Wave2 task:
 
 `P0.2-04｜Approved-but-Open System Closeout`
+
+The seventh closeout item is `AO-07｜GitHub Network Resilience / Recovery Method`, linked to `RISK-001｜GitHub Connectivity Instability`.
 
 Subsequent locked P1 order remains unchanged:
 
