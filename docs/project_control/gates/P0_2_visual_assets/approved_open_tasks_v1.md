@@ -10,7 +10,7 @@ Date: `2026-09-13`
 
 本文件专门记录已经由 Product Owner 批准/锁定、但尚未执行完成，且存在被后续生产绕过风险的 P0.2 任务。
 
-Product Owner 于 2026-09-13 明确要求：以下 6 项必须作为下一次正式任务完成；在 6 项全部形成可验证完成证据前，不开启：
+Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为下一次正式任务完成；在 7 项全部形成可验证完成证据前，不开启：
 
 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
 
@@ -107,6 +107,30 @@ Product Owner 于 2026-09-13 明确要求：以下 6 项必须作为下一次正
 - 验证 `USES_REFERENCE` 等 production-use relation；
 - 无人工凭记忆挑图作为正式标准路径。
 
+### AO-07｜GitHub Network Resilience / Recovery Method
+
+对应 Project Risk：`RISK-001｜GitHub Connectivity Instability`。
+
+近期项目多次出现 GitHub 连接异常，包括 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等。该问题目前虽然可通过 HTTP/1.1 等临时方式缓解，但尚没有稳定、标准、可重复的处理方法。
+
+AO-07 目标不是保证公网永不掉线，而是建立一套**不会因为短暂网络故障而导致资产损坏、重复 ingest、版本分叉或 Project Control 状态误判**的执行方法。
+
+完成标准：
+
+- 建立 GitHub connectivity preflight；
+- 锁定标准诊断顺序：DNS / HTTPS / Git remote / HTTP version / proxy / VPN / credential / repo reachability；
+- 对已知 HTTP/2 异常提供安全 fallback 到 HTTP/1.1；
+- 如代理/VPN端口变化会影响 Git，提供可识别、可恢复的方法；
+- pull / push 失败后的 retry 必须 idempotent，不重复写 Registry、不重复分配 Asset ID、不重复 ingest；
+- GitHub 暂时不可用时，允许本地结果进入明确的 `PENDING_REMOTE_PUBLICATION`，但不得标记 `REMOTE VERIFIED`；
+- 网络恢复后可从已有 commit / ingest receipt 继续发布，不重新执行正式 ingest；
+- 至少完成一次受控 failure → recovery 验证；
+- 输出轻量 GitHub Network Recovery Runbook，供 Product Owner / Chat / Codex 后续统一使用。
+
+详细风险记录：
+
+`docs/project_control/logs/risk_register.md`
+
 ## Execution order
 
 建议按依赖顺序执行：
@@ -117,6 +141,9 @@ Product Owner 于 2026-09-13 明确要求：以下 6 项必须作为下一次正
 4. AO-04｜9 Character Derived Reference Sheets
 5. AO-05｜Delivery Bridge
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
+7. AO-07｜GitHub Network Resilience / Recovery Method
+
+AO-07 可在 AO-01～AO-06 的工程执行过程中同步收集真实网络故障证据，但必须在解除 Wave 2 HOLD 前独立完成验证与 Runbook。
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -128,10 +155,11 @@ Product Owner 于 2026-09-13 明确要求：以下 6 项必须作为下一次正
 
 条件：
 
-- AO-01～AO-06 全部 `COMPLETE / VERIFIED`；
+- AO-01～AO-07 全部 `COMPLETE / VERIFIED`；
+- `RISK-001` 已至少从 `OPEN / HIGH OPERATIONAL RISK` 降级为具备已验证恢复方案的受控风险；
 - 对应 Execution / Decision / Gate evidence 已写入 Project Control；
 - Daily / Step Closeout consistency check 无未解决状态冲突。
 
 ## Non-blocking technical debt
 
-Resolver regression test 当前仍有一项旧断言写死 `AST_IMG_000049`。该技术债应在本轮工程 Closeout 中顺手修正为“断言当前有效版本语义”，但它不替代 AO-01～AO-06 中任何一项。
+Resolver regression test 当前仍有一项旧断言写死 `AST_IMG_000049`。该技术债应在本轮工程 Closeout 中顺手修正为“断言当前有效版本语义”，但它不替代 AO-01～AO-07 中任何一项。
