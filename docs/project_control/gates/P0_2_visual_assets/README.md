@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / P1 CHARACTER GAP PRODUCTION / NING WAVE 1 COMPLETE`
+Status: `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`
 
 ## 当前目标
 
@@ -49,6 +49,7 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `d059_character_asset_migration_v1_completion.md`
 - `d060_reference_package_exporter_v0_1_test.md`
 - `automatic_ingest_controller_v0_1_first_live_ingest.md`
+- `approved_open_tasks_v1.md`
 
 ## 当前任务
 
@@ -128,6 +129,21 @@ Gap Priority Classification V1：
 
 P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase 编号。
 
+### P0.2-04｜Approved-but-Open System Closeout
+
+Status: `NEXT / MANDATORY BEFORE P1 WAVE 2`
+
+Product Owner 于 2026-09-13 明确要求：以下 6 项已经批准/锁定但尚未执行完成的任务必须先补齐；在全部形成 `COMPLETE / VERIFIED` 证据前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。
+
+1. AO-01｜旧 4 份 canonical register 与实际图库最终对账；
+2. AO-02｜D-059 的 48 张 legacy Character assets 进入长期 Registry / Audit 模型；
+3. AO-03｜两张 Scene Master 事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
+4. AO-04｜完成 9 个 Derived Character Reference Sheets 与 dependency / staleness 验证；
+5. AO-05｜完成 D-060 后已批准的 Delivery Bridge：Reference Package → 实际制图环境；
+6. AO-06｜完成真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
+
+详细完成标准与依赖顺序见：`approved_open_tasks_v1.md`。
+
 ## D-059｜Character Asset Migration V1
 
 Status: `COMPLETE / REMOTE VERIFIED`
@@ -187,7 +203,7 @@ Status: `COMPLETE / REMOTE VERIFIED`
 P1 按人物整组推进：
 
 1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT` = **COMPLETE**
-2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **NEXT WAVE**
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **LOCKED NEXT WAVE / BLOCKED BY P0.2-04 CLOSEOUT**
 3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
@@ -202,22 +218,15 @@ P1 按人物整组推进：
 
 ## 下一步
 
-下一正式 P1 target：
+下一正式任务改为：
+
+`P0.2-04｜Approved-but-Open System Closeout`
+
+必须完成 AO-01～AO-06 并形成验证证据后，才恢复：
 
 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
 
-通过后继续：
-
-`君鹭远 REAR_3Q_LEFT`
-
-原则：
-
-- 新图属于 production auxiliary reference，不是剧情 Shot；
-- 目标画幅为 9:16 竖版；
-- LEFT / RIGHT 按 screen-facing convention；
-- 每次生成后等待 Product Owner 发送 `【审核】`，再执行 Fixed Standard Review；
-- 只有 Product Owner 明确批准的结果才能进入正式 canonical storage / Registry；
-- 不因 P1 制图跳过旧 Register 对账、Reference Sheet、Scene / Costume / Prop / Variant 与真实 Shot-level Resolver / Audit 验证。
+原则：不得因为 P1 补图容易继续推进，就再次绕过已经批准但尚未完成的系统建设任务。
 
 ## Gate Approval
 
