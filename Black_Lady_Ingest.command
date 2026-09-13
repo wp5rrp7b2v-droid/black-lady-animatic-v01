@@ -36,7 +36,6 @@ old_filename=$(printf '%s\n' "$inspect_fields" | sed -n '2p')
 new_filename=$(printf '%s\n' "$inspect_fields" | sed -n '3p')
 migration_only=$(printf '%s\n' "$inspect_fields" | sed -n '4p')
 
-supersede_args=()
 if [ "$current_status" = "CURRENT_FOUND" ]; then
     if ! /usr/bin/osascript - "$old_filename" "$new_filename" <<'APPLESCRIPT'
 on run argv
@@ -51,20 +50,35 @@ APPLESCRIPT
         echo "INGEST BLOCKED: Current replacement was cancelled."
         exit 1
     fi
-    supersede_args=(--supersede-current)
 elif [ "$current_status" != "NO_CURRENT" ] || [ "$migration_only" = "YES" ]; then
     echo "INGEST BLOCKED: Unsupported Current state."
     exit 1
 fi
 
-if python3 -B scripts/automatic_ingest_controller_v0_1.py \
-    --source "$selected_png" \
-    --from-filename \
-    --authority AUXILIARY \
-    --resolver-usage DEFAULT \
-    --task-id P0.2-03 \
-    --source-reference "P1 Character Gap Production / PO approved via main Chat / one-click ingest" \
-    --po-approved "${supersede_args[@]}"; then
+run_ingest() {
+    if [ "$current_status" = "CURRENT_FOUND" ]; then
+        python3 -B scripts/automatic_ingest_controller_v0_1.py \
+            --source "$selected_png" \
+            --from-filename \
+            --authority AUXILIARY \
+            --resolver-usage DEFAULT \
+            --task-id P0.2-03 \
+            --source-reference "P1 Character Gap Production / PO approved via main Chat / one-click ingest" \
+            --po-approved \
+            --supersede-current
+    else
+        python3 -B scripts/automatic_ingest_controller_v0_1.py \
+            --source "$selected_png" \
+            --from-filename \
+            --authority AUXILIARY \
+            --resolver-usage DEFAULT \
+            --task-id P0.2-03 \
+            --source-reference "P1 Character Gap Production / PO approved via main Chat / one-click ingest" \
+            --po-approved
+    fi
+}
+
+if run_ingest; then
     echo "INGEST COMPLETE"
 else
     echo "INGEST BLOCKED: See the reason above."
