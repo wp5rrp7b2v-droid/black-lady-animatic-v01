@@ -1,18 +1,19 @@
 # P0.2-02｜Asset Naming Rules V1
 
-Status: `LOCKED DESIGN RULE / IMPLEMENTATION NOT YET VALIDATED`
+Status: `LOCKED / UPDATED FOR REGISTRY SCHEMA V0.3 / IMPLEMENTATION NOT YET VALIDATED`
 
-本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的正式资产命名与永久 ID 规则。该命名规则已由 Product Owner 在 2026-09-12 当前 Chat 明确确认。
+本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的正式资产命名与永久 ID 规则。基础规则由 Product Owner 于 2026-09-12 批准；2026-09-13 随 Entity / Asset Registry Schema V0.3 正式修订并再次纳入锁定基线。
 
-本规则不代表 P0.2 Gate 已通过；后续仍需完成 Entity / Asset Registry Schema、Automatic Ingest、Storage 与真实资产迁移验证。
+本规则不代表 P0.2 Gate 已通过；后续仍需完成 Automatic Ingest、Storage 与真实资产迁移验证。
 
 ## 1. 核心原则
 
-资产永久 ID、Entity ID 与文件名承担不同职责，三者不得混用：
+资产永久 ID、Entity / Shot ID 与文件名承担不同职责，不得混用：
 
-- `asset_id`：只负责永久唯一识别，不承担人物、角色、角度、版本等业务语义；
-- `entity_id`：负责说明资产属于哪个稳定叙事对象；
-- `filename`：负责提供人类可读的业务含义，并由系统根据 Registry metadata 自动生成。
+- `asset_id`：永久唯一识别，不承担人物、角度、版本、审批或生命周期业务语义；
+- `entity_id`：说明 Entity-bound Asset 属于哪个稳定叙事对象；
+- `shot_id`：说明 Shot-bound Asset 属于哪个 canonical Shot；
+- `filename`：提供人类可读业务含义，由系统根据 Registry metadata 自动生成。
 
 文件改名、移动位置或切换 Storage 不得改变 `asset_id`。
 
@@ -22,13 +23,13 @@ Status: `LOCKED DESIGN RULE / IMPLEMENTATION NOT YET VALIDATED`
 
 `AST_<MEDIA_CODE>_<6-digit sequence>`
 
-当前媒体代码：
+媒体代码：
 
 - `IMG`｜Image / 静态图片
 - `VID`｜Video / 视频
 - `AUD`｜Audio / 音频
-- `MDL`｜3D Model / 三维模型（未来如启用）
-- `TEX`｜Texture / 材质纹理（未来如启用）
+- `MDL`｜3D Model / 三维模型（保留）
+- `TEX`｜Texture / 材质纹理（保留）
 
 示例：
 
@@ -36,13 +37,13 @@ Status: `LOCKED DESIGN RULE / IMPLEMENTATION NOT YET VALIDATED`
 - `AST_VID_000037`
 - `AST_AUD_000012`
 
-Reference Sheet 如果文件实体本身是图片，仍使用 `AST_IMG_*`；其业务职责由 `asset_class = REFERENCE_SHEET` 等 Registry 字段表达，不在 Asset ID 中重复编码。
+Derived Reference Sheet 如果文件实体本身是图片，仍使用 `AST_IMG_*`；其职责由 `asset_class = DERIVED_REFERENCE` 与 `role` 表达。
 
 Asset ID 由 Automatic Ingest 分配；Product Owner 不手工编号。
 
-## 3. Entity ID
+## 3. Entity ID 与 Shot ID
 
-Entity ID 使用稳定、可读的业务前缀：
+Entity ID 使用稳定业务前缀：
 
 - `CHAR_*`｜Character
 - `SCENE_*`｜Scene
@@ -57,48 +58,87 @@ Entity ID 使用稳定、可读的业务前缀：
 - `PROP_NEIL_CROSS`
 - `COSTUME_NEIL_DEFAULT`
 
-Entity ID 代表对象本身，不代表某张图片或某个版本。
+Entity ID 代表对象本身，不代表某张文件或某个版本。
+
+Shot-bound Asset 使用 canonical `shot_id`，例如 `A01 / A04 / A07`。历史 `A01_REBOOT / A04_REBOOT` 等仅保留在 Migration Mapping Manifest，不进入新的 canonical Shot ID。
 
 ## 4. Human-readable Filename
 
-默认格式：
+### 4.1 Entity-bound Asset
 
-`<ENTITY_ID>_<ROLE>_<VARIANT>_V###.<ext>`
+格式：
+
+`<ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>`
 
 示例：
 
-`CHAR_NING_QIUSHUI_PROFILE_RIGHT_DEFAULT_V003.png`
+`CHAR_NING_QIUSHUI_PROFILE_RIGHT_DEFAULT_DEFAULT_V003.png`
+
+### 4.2 Shot-bound Asset
+
+格式：
+
+`<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>`
+
+示例：
+
+`A04_SHOT_MASTER_DEFAULT_DEFAULT_V001.png`
 
 文件名中的：
 
-- `ENTITY_ID` 来自 Entity Registry；
-- `ROLE` 来自标准 Role vocabulary；
+- `ENTITY_ID / SHOT_ID` 来自正式 Registry / Shot Register；
+- `ROLE` 来自按 `asset_class` 分组的受控 Role vocabulary；
 - `VARIANT` 来自受控 Variant vocabulary；
-- `V###` 来自该 Entity + Role + Variant 下的版本序列。
+- `STATE` 来自受控 State vocabulary；
+- `V###` 来自同一 Entity/Shot + Role + Variant + State 下的版本序列。
 
-文件名不得承担 Asset ID、审批状态、Lifecycle 状态或 Storage 地址的唯一事实源职责。
+把 `STATE` 纳入文件名是 Schema V0.3 的正式修订，用于避免不同 State 下同版本资产产生人类可读文件名冲突。
 
-## 5. 禁止事项
+## 5. 多人物 Shot
+
+Shot 文件名不写人物名称。
+
+即使一个 Shot 中存在多个 Character，文件名仍只使用 canonical Shot ID，例如：
+
+`A04_SHOT_MASTER_DEFAULT_DEFAULT_V001.png`
+
+人物、Scene、Prop 等组成由 Shot Register / Shot Spec 表达；具体生成时实际使用的 Reference Asset IDs 通过 `USES_REFERENCE` 关系和 Audit Trail 记录。
+
+## 6. 禁止事项
 
 正式资产不得：
 
 - 使用 UUID、下载名、模型默认输出名作为正式生产文件名；
-- 在文件名中依赖 `final`、`new`、`latest`、`good` 等非确定性词语；
-- 把 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED` 写死进文件名；
+- 在文件名中依赖 `final / new / latest / good / approved / current / lock / reboot` 等状态或历史流程词；
+- 把 `CURRENT / SUPERSEDED / DEPRECATED / ARCHIVED` 写进文件名；
+- 把多人物名单写进 Shot filename；
 - 因移动目录或改变 Storage 而重新生成 Asset ID；
 - 让 Product Owner 手工决定流水号、改文件名或登记 Asset ID。
 
-## 6. Automatic Ingest 要求
+## 7. Legacy Migration
+
+旧文件名与旧 Shot ID 不直接覆盖新 canonical identity。
+
+例如：
+
+- legacy shot id：`A04_REBOOT`
+- legacy filename：`A04_REBOOT_approved_v001.png`
+- canonical shot id：`A04`
+- canonical filename：`A04_SHOT_MASTER_DEFAULT_DEFAULT_V001.png`
+
+Legacy identifier、legacy filename 与映射依据保留在 Migration Mapping Manifest，用于追溯。
+
+## 8. Automatic Ingest 要求
 
 Product Owner 批准资产后，系统应自动：
 
 1. 判断 media type；
 2. 分配 `AST_<MEDIA_CODE>_<sequence>`；
-3. 读取 Entity / Role / Variant / Version metadata；
+3. 读取 Entity / Shot / Role / Variant / State / Version metadata；
 4. 生成标准文件名；
 5. 写入正式 Storage；
 6. 计算 hash；
 7. 写入 Asset Registry；
-8. 写入 Audit Trail。
+8. 写入 Relations / Audit Trail。
 
 命名错误应作为 Ingest 异常处理，而不是交给 Product Owner 手工修复。
