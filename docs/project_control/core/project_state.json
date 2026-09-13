@@ -3,8 +3,8 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R022",
-  "last_updated": "2026-09-12",
+  "state_revision": "R023",
+  "last_updated": "2026-09-13",
   "session_status": "ACTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
@@ -18,17 +18,17 @@
   "current_gate": {
     "id":"P0.2",
     "name":"人物锚定与 Scene Master 资产治理",
-    "status":"ACTIVE / ASSET SYSTEM DESIGN + AUTHORITY AUDIT",
-    "note":"Visual Asset Management System V1 继续设计。P0.2-02 Character Tier 与 Asset Naming 规则已锁定；当前继续完成 Entity / Asset Registry Schema，再进行现有角色 Tier Assignment 与 Gap Analysis。"
+    "status":"ACTIVE / REGISTRY SCHEMA WALKTHROUGH + AUTHORITY MINI-CLOSE LOCKED",
+    "note":"Character Tier、Asset Naming 与 Authority Mini-Close 已锁定。Entity / Asset Registry Schema V0.2 已完成设计，下一步用宁秋水 + A04 + 宁秋水 Reference Sheet 做 V0.3 真实数据 Walkthrough，验证 Schema 后再决定是否锁定。"
   },
   "restart_tasks": [
     {"id":"P0.1","name":"故事与文本数据基线","status":"PASS / PRODUCT OWNER APPROVED"},
-    {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / ASSET SYSTEM DESIGN + AUTHORITY AUDIT"},
+    {"id":"P0.2","name":"人物锚定与 Scene Master 资产治理","status":"ACTIVE / REGISTRY SCHEMA WALKTHROUGH"},
     {"id":"P0.3","name":"视频制作与剪辑 Pipeline 再验证","status":"QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"}
   ],
-  "current_task": "P0.2-02：Entity / Asset Registry Schema。Character Asset Tier 与 Asset Naming 规则已锁定；当前继续定义 Registry 最小字段、Single Current、Relations、Audit linkage 与 Resolver eligibility。",
+  "current_task": "P0.2-02：Entity / Asset Registry Schema V0.3 Walkthrough。使用宁秋水 Entity、A04 Shot Asset、宁秋水 Derived Reference Sheet 三类真实对象验证 Entity Registry、Asset Registry、Asset Relations、Single Current、Resolver Eligibility、Dependency Stale 与 Audit linkage。",
   "blocker": null,
-  "next_action": "完成最小且可自动化的 Entity / Asset Registry Schema：Entity Registry、Asset Registry、Asset Relations、Append-only Audit Event Log；锁定 Single Current 与 Resolver Eligibility 规则。Schema 获批后再把现有 9 名角色映射到 Tier A/B/C/D，不提前补图。",
+  "next_action": "执行 Schema V0.3 真实数据 Walkthrough：宁秋水 + A04 + 宁秋水 Reference Sheet。只在真实样例暴露结构性问题时修改 Schema；通过后提交 Product Owner 决定是否锁定 Schema。Schema 锁定后再进行现有 9 名角色 Tier Assignment 与 Gap Analysis，不提前补图。",
   "approval_governance": {
     "authority":"PRODUCT_OWNER_ONLY",
     "scope":"ALL_GATES_AND_PHASES",
@@ -44,7 +44,7 @@
     "conflict_rule":"If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
   },
   "latest_checkpoint": {
-    "id":"2026-09-12-PM-P0.2-02-ASSET-NAMING-LOCK",
+    "id":"2026-09-13-P0.2-AUTHORITY-MINI-CLOSE-APPROVED",
     "status":"ACTIVE",
     "completed":[
       "P0.1 PASS / Product Owner approved",
@@ -70,16 +70,24 @@
       "Human-readable filename baseline locked: <ENTITY_ID>_<ROLE>_<VARIANT>_V###.<ext>",
       "Asset ID is immutable and independent of filename/path/storage",
       "Asset ID and formal filename are assigned automatically by Automatic Ingest",
-      "Local sync reminder governance locked: after every GitHub write, remind Product Owner to pull local working copy"
+      "Local sync reminder governance locked: after every GitHub write, remind Product Owner to pull local working copy",
+      "Authority Mini-Close approved by Product Owner on 2026-09-13",
+      "A01-A07 ARCHIVED semantics locked: formal frozen shot assets remain conditionally usable for continuity and explicit shot reference",
+      "SH01-SH08 default to LEGACY_SUPPLEMENTARY / resolver NEVER; SH02 and SH08 V2 remain CONDITIONAL exceptions for explicitly scoped uses",
+      "Auxiliary default layer removed: resolver default is derived from unique CURRENT per entity + role + variant + state",
+      "Scene Master inheritance boundary locked: scene facts are inherited; shot-level photographic expression may vary; scene fact changes require controlled Variant / State",
+      "Authority / Lifecycle / Resolver Usage formally separated",
+      "Registry Schema V0.2 design completed in Chat; not yet locked pending real-data walkthrough"
     ],
-    "resume_from":"P0.2-02｜Entity / Asset Registry Schema",
+    "resume_from":"P0.2-02｜Schema V0.3｜宁秋水 + A04 + Reference Sheet Walkthrough",
     "blockers":[]
   },
   "visual_asset_management_system": {
-    "status":"CHARACTER RULE + ASSET NAMING LOCKED / REGISTRY SCHEMA IN DESIGN",
+    "status":"CHARACTER RULE + ASSET NAMING + AUTHORITY MINI-CLOSE LOCKED / REGISTRY SCHEMA V0.3 WALKTHROUGH NEXT",
     "spec_path":"docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path":"docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "asset_naming_rule_path":"docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md",
+    "authority_audit_path":"docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md",
     "model":"Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
     "formal_asset_admission":"PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern":"AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -87,12 +95,18 @@
     "entity_id_prefixes":["CHAR","SCENE","PROP","COSTUME"],
     "filename_pattern":"<ENTITY_ID>_<ROLE>_<VARIANT>_V###.<ext>",
     "lifecycle":["CURRENT","SUPERSEDED","DEPRECATED","ARCHIVED"],
+    "resolver_usage":["DEFAULT","CONDITIONAL","NEVER"],
+    "authority_classes":["MASTER","AUXILIARY","DERIVED","CONTINUITY","SUPPLEMENTARY","LEGACY_SUPPLEMENTARY"],
     "character_tiers": {
       "A":"9-view canonical turnaround",
       "B":"6-view core set / fixed primary side",
       "C":"3-view minimum set",
       "D":"background or one-off / no full core set"
     },
+    "authority_lifecycle_resolver_rule":"Authority defines what an asset can prove; Lifecycle defines version state; Resolver Usage defines whether/when production may call it.",
+    "single_current_rule":"For the same entity_id + role + variant + state, at most one formal Asset may have lifecycle=CURRENT. No separate default=true layer is maintained.",
+    "archived_shot_rule":"APPROVED locked A-Series shot assets may remain lifecycle=ARCHIVED and resolver_usage=CONDITIONAL for continuity / previous-shot / explicit-shot use.",
+    "scene_master_rule":"Scene Master locks scene facts, not shot photography. Changes to locked scene facts require controlled Scene Variant / State.",
     "normal_user_role":"creative judgment, exception handling, formal approval; no routine manual reference picking/naming/storage/registration",
     "required_capabilities":[
       "tiered standardized Character Core Set",
@@ -115,18 +129,25 @@
     "auxiliary_reference_count_documented": 12,
     "scene_masters": ["CASTLE_ENTRANCE_OPEN_DOOR_DAY","FIRST_HALL_FIREPLACE"],
     "a_series_locked_shots": "A01-A07",
+    "a_series_archived_semantics":"APPROVED / LOCKED / ARCHIVED; conditionally resolver-eligible for continuity / previous-shot / explicit-shot reference; not a replacement for Character Master or Scene Master",
     "a08_status": "NOT APPROVED / HOLD_FOR_ANIMATIC_REVIEW",
     "single_character_test_assets": 15,
     "double_character_test_assets": 11,
     "test_asset_permission": "evidence_only",
+    "sh_default_policy":"SH01-SH08 => LEGACY_SUPPLEMENTARY / NEVER; SH02 Neil and SH08 V2 Black Lady => explicit CONDITIONAL exceptions",
     "working_authority_order": [
-      "Character Master",
-      "Approved Auxiliary Reference",
-      "Scene Master",
-      "Locked A-Series Shot Asset",
-      "Explicit Legacy/Supplementary Shot Reference",
-      "Evidence-only Test Asset",
-      "Candidate/Rejected/Not-adopted/Invalid-test"
+      "MASTER",
+      "AUXILIARY",
+      "DERIVED",
+      "CONTINUITY",
+      "SUPPLEMENTARY",
+      "LEGACY_SUPPLEMENTARY",
+      "Evidence-only / Candidate / Rejected / Not-adopted / Invalid-test = no normal positive production reference"
+    ],
+    "remaining_checks":[
+      "Reconcile four local canonical registers with actual 107 image-library entities",
+      "Validate 12 auxiliary references map uniquely into Role / Variant / State / Lifecycle without multiple CURRENT",
+      "Structure the two approved Scene Masters' inheritable fact fields during Scene Registry / Scene Spec design"
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
   },
@@ -150,7 +171,7 @@
     "validation_gate":"P0.3"
   },
   "task_numbering": {"project_restart_gates":"P0.x","codex_engineering_tasks":"D-###","last_known_codex_task":"D-056","next_codex_task_when_needed":"D-057"},
-  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"1 OF 3 PASS / P0.2 REGISTRY SCHEMA IN DESIGN / DASHBOARD REFRESH OPTIONAL"},
+  "dashboard": {"path":"docs/project_control/dashboard/dashboard.html","role":"DERIVED_VISUALIZATION","authoritative":false,"status":"1 OF 3 PASS / P0.2 SCHEMA V0.3 WALKTHROUGH NEXT / DASHBOARD REFRESH OPTIONAL"},
   "gate_paths": {"P0.1":"docs/project_control/gates/P0_1_story_text/","P0.2":"docs/project_control/gates/P0_2_visual_assets/","P0.3":"docs/project_control/gates/P0_3_video_pipeline/"},
   "stage_goal":"建立并验证 Visual Asset Management System V1：统一人物/场景/服装/道具标准，取消正常生产中的人工挑图和手工资产登记，通过 Resolver + Automatic Ingest + Audit Trail 形成可规模化视觉资产生产入口。",
   "blockers": []
