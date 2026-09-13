@@ -15,17 +15,19 @@ The locked baseline remains unchanged for historical traceability:
 
 ## Current live coverage
 
-After Product Owner approval and formal Automatic Ingest of Ning Qiushui `PROFILE_LEFT`:
+After Product Owner approval and formal Automatic Ingest of Ning Qiushui `PROFILE_LEFT` and `REAR_3Q_LEFT`:
 
-- Current Confirmed Core Coverage = `41 / 63`
-- Current Core View Gap = `22`
-- Current Core Coverage = `65.1%`
+- Current Confirmed Core Coverage = `42 / 63`
+- Current Core View Gap = `21`
+- Current Core Coverage = `66.7%`
+
+`PROFILE_LEFT` remains one filled Core slot; its approved 9:16 replacement changed the Current version from V001 to V002 without changing coverage count. `REAR_3Q_LEFT` added one new confirmed Core slot.
 
 ## Ning Qiushui
 
 Tier: `A`
 
-Current Core Coverage: `7 / 9`
+Current Core Coverage: `8 / 9`
 
 Current Core:
 
@@ -33,6 +35,7 @@ Current Core:
 - `FACE_3Q_RIGHT`
 - `PROFILE_LEFT`
 - `PROFILE_RIGHT`
+- `REAR_3Q_LEFT`
 - `REAR_3Q_RIGHT`
 - `BODY_FRONT`
 - `BODY_BACK`
@@ -40,42 +43,55 @@ Current Core:
 Remaining Core Gap:
 
 - `FACE_3Q_LEFT`
-- `REAR_3Q_LEFT`
 
-Newly filled slot:
+### Current PROFILE_LEFT
 
 - Role: `PROFILE_LEFT`
-- Asset ID: `AST_IMG_000049`
-- Filename: `CHAR_NING_QIUSHUI_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`
+- Asset ID: `AST_IMG_000050`
+- Filename: `CHAR_NING_QIUSHUI_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png`
 - Lifecycle: `CURRENT`
 - Resolver Usage: `DEFAULT`
-- SHA-256: `bbb4fbbb055af001307019b92665fad14e35694da0bcde206af0d419c9d42c0e`
-- Remote ingest commit: `65e7fbec9acbe970797479ae523abf9f9e4f55df`
+- SHA-256: `c53549b0b70de7fdc9da123b351aa37dcf433801b431479750287c73b84440fd`
+- Supersedes: `AST_IMG_000049 / V001`
+- Remote ingest commit: `eba06283cccd10a22addd02307c9012cc06d3ac0`
+
+### Newly filled REAR_3Q_LEFT
+
+- Role: `REAR_3Q_LEFT`
+- Asset ID: `AST_IMG_000051`
+- Filename: `CHAR_NING_QIUSHUI_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png`
+- Lifecycle: `CURRENT`
+- Resolver Usage: `DEFAULT`
+- SHA-256: `e3cbe5ca8be8584e1b3c48d3da6bb2555a619bf36f761ebeefa78734efcbfaf8`
+- Remote ingest commit: `a90854dee5f2cef736b622650a2120b22bc8279e`
 
 ## P1 live progress
 
 Locked P1 baseline = `10` Core View Gaps.
 
-Current completed = `1 / 10`.
+Current completed = `2 / 10`.
 
-Current remaining = `9 / 10`.
+Current remaining = `8 / 10`.
 
 Wave 1｜宁秋水:
 
-- `PROFILE_LEFT` = `COMPLETE / APPROVED / INGESTED`
-- `REAR_3Q_LEFT` = `NEXT`
+- `PROFILE_LEFT` = `COMPLETE / APPROVED / INGESTED / CURRENT=V002`
+- `REAR_3Q_LEFT` = `COMPLETE / APPROVED / INGESTED`
+
+Next locked target:
+
+- 君鹭远 `PROFILE_LEFT`
 
 Subsequent locked order remains unchanged:
 
-1. 宁秋水 `REAR_3Q_LEFT`
-2. 君鹭远 `PROFILE_LEFT`
-3. 君鹭远 `REAR_3Q_LEFT`
-4. 尼尔 `PROFILE_RIGHT`
-5. 尼尔 `REAR_3Q_RIGHT`
-6. 苏小小 `PROFILE_LEFT`
-7. 苏小小 `REAR_3Q_LEFT`
-8. 廖健 `PROFILE_LEFT`
-9. 廖健 `REAR_3Q_LEFT`
+1. 君鹭远 `PROFILE_LEFT`
+2. 君鹭远 `REAR_3Q_LEFT`
+3. 尼尔 `PROFILE_RIGHT`
+4. 尼尔 `REAR_3Q_RIGHT`
+5. 苏小小 `PROFILE_LEFT`
+6. 苏小小 `REAR_3Q_LEFT`
+7. 廖健 `PROFILE_LEFT`
+8. 廖健 `REAR_3Q_LEFT`
 
 ## Governance note
 
