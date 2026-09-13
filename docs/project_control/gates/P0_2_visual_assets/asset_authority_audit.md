@@ -1,8 +1,8 @@
 # P0.2｜Visual Asset Authority Audit
 
-Status: `IN_PROGRESS / DOCUMENTARY BASELINE ESTABLISHED`
+Status: `IN_PROGRESS / AUTHORITY MINI-CLOSE LOCKED`
 
-Date: 2026-09-12
+Date: 2026-09-13
 
 ## 1. Audit goal
 
@@ -22,7 +22,7 @@ P0.2 不重做已有图片。先确认现有视觉资产的类别、权威层级
 - D-055：8 张 `production_auxiliary_reference` + 1 张尼尔 `supplementary_auxiliary_reference`。
 - D-056：宁秋水新增 3 张 `production_auxiliary_reference`。
 - 共计 12 张侧向/辅助类资产；全部不得成为第五类 master，`current_master=false`。
-- 宁秋水 Rear Three-quarter v002 为该辅助方向默认版本；v001 保留历史 approved，但不是默认。
+- 宁秋水 Rear Three-quarter v002 为该辅助方向当前有效版本；v001 保留历史 approved，但后续迁移时应映射为 `SUPERSEDED`，不得与 v002 同时成为 Current。
 
 ### Scene Masters and current A-Series
 
@@ -37,28 +37,112 @@ P0.2 不重做已有图片。先确认现有视觉资产的类别、权威层级
 - 宁秋水单人物一致性测试 15 张：`evidence_only`。
 - 宁秋水＋君鹭远双人物测试 11 张：`evidence_only`；常规双人物/相邻镜头有试行价值，复杂受力交互仍 FAIL。
 - SH01–SH08：保留各自历史批准与 QA 事实，但与当前 A-Series 严格隔离；不得因为历史 approved 自动成为 A-Series 的人物身份或连续性权威来源。
-- 例外补充参考：SH02 继续作为尼尔电影镜头形象的优先补充参考；SH08 第二版继续作为黑衣夫人批准补充镜头参考，但均不替代正式 master。
+- 例外补充参考：SH02 继续作为尼尔电影镜头形象的指定补充参考；SH08 第二版继续作为黑衣夫人指定补充镜头参考，但均不替代正式 master。
 
-## 3. Preliminary authority hierarchy
+## 3. Authority Mini-Close｜Product Owner Approved 2026-09-13
 
-当前先采用以下审计工作顺序，待 P0.2 结束前由 Product Owner 审批锁定：
+以下四项业务规则已经 Product Owner 明确批准，作为后续 Registry Schema、Resolver 与资产迁移的正式前提。
 
-1. `Character Master`：人物身份最高视觉权威。
-2. `Approved Auxiliary Reference`：只补充特定角度/结构，不得覆盖 master。
-3. `Scene Master`：场景空间、光线、固定环境元素的最高场景参考。
-4. `Locked A-Series Shot Asset`：具体镜头的画面事实，可用于镜头连续性；不得反向替代 Character Master / Scene Master。
-5. `Legacy approved SH asset / supplementary shot reference`：仅在明确指定用途时作为历史或补充参考。
-6. `evidence_only test asset`：只证明能力边界，不进入正式生成 reference set。
-7. `candidate / rejected / not_adopted / invalid_test`：不得作为正向生产参考。
+### 3.1 A01–A07 `ARCHIVED` semantics
 
-## 4. P0.2-01 unresolved checks
+`ARCHIVED` 表示已完成、已冻结、不再作为可迭代 Master 维护的正式镜头资产；不等于失效、Rejected 或禁止调用。
 
-1. 核对当前本地 4 份 canonical register：`SHOT_REGISTER.csv / ASSET_REGISTER.csv / IMAGE_REGISTER.csv / IMAGE_RENAME_MANIFEST.csv` 与实际 107 张图库实体是否仍一致。
-2. 为 A01–A07 明确 `ARCHIVED` 的语义：它是“已锁定镜头资产的文件管理状态”，不是 `rejected`；确认后续 Animatic / Shot Plan 是否仍允许调用。
-3. 明确 SH 系列除 SH02 / SH08 指定补充职责外，是否统一降为 `legacy_reference_only`，防止与 A-Series 产生双权威。
-4. 核对 12 张辅助人物资产的默认/非默认关系，确保同一目标角度不会出现两个 default reference。
-5. 确认两张 Scene Master 的具体连续性字段与后续可继承边界。
+A01–A07 后续迁移目标：
 
-## 5. Gate rule
+- `approval_status = APPROVED`
+- `lifecycle = ARCHIVED`
+- `authority_class = CONTINUITY`
+- `resolver_usage = CONDITIONAL`
 
-P0.2 技术与治理条件满足后，只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`；必须由 Product Owner 明确批准后才可 `PASS`。
+允许在 continuity reference、previous-shot reference、explicit shot reference 等明确场景下由 Resolver 调用；不得反向替代 Character Master / Scene Master。
+
+### 3.2 SH series authority boundary
+
+SH01–SH08 默认统一降为受限历史补充层：
+
+- `authority_class = LEGACY_SUPPLEMENTARY`
+- `resolver_usage = NEVER`
+
+保留两个明确例外：
+
+- SH02：尼尔指定补充参考，`resolver_usage = CONDITIONAL`；
+- SH08 V2：黑衣夫人指定补充参考，`resolver_usage = CONDITIONAL`。
+
+仅当 Shot / Task Spec 明确满足指定用途时，例外资产才可进入 Reference Package。历史 approved 不自动形成当前 A-Series / Character Master 的双权威。
+
+### 3.3 Auxiliary Current rule
+
+取消独立的 `default=true / false` 事实层，不再同时维护 `current / default / latest` 三套概念。
+
+对相同：
+
+`entity_id + role + variant + state`
+
+正式 Registry 最多只允许一个 `lifecycle = CURRENT` 的资产。Resolver 的默认选择由 Current 状态推导。
+
+因此同方向历史 approved 辅助图可以保留，但旧版本必须为 `SUPERSEDED` 等非 Current 生命周期；不得与新版本同时作为 Current。
+
+### 3.4 Scene Master inheritance boundary
+
+Scene Master 锁定的是场景事实，不锁死单个 Shot 的摄影表现。
+
+必须继承的场景事实包括：
+
+- 空间拓扑 / 房间结构；
+- 固定建筑元素；
+- 固定关键物件及其位置关系；
+- 已锁定连续性状态；
+- 核心材质与建筑身份。
+
+Shot 可变化的表现层包括：
+
+- 机位；
+- 景别；
+- 焦段；
+- 人物站位；
+- 遮挡；
+- 景深；
+- 局部曝光；
+- 构图。
+
+若要改变 `DAY / NIGHT`、门开闭、壁炉熄灭 / 点燃等场景事实，不得在 Shot 中静默改变；必须通过受控 Scene `Variant / State` 建立对应状态，再由 Resolver 调用正确资产。
+
+## 4. Locked authority model for Registry / Resolver design
+
+Authority、Lifecycle、Resolver Usage 三个维度必须分离：
+
+- `Authority`：资产能够证明什么；
+- `Lifecycle`：资产当前处于什么版本状态；
+- `Resolver Usage`：生产时是否以及在何种条件下允许调用。
+
+当前 Authority 层级：
+
+1. `MASTER`：Character / Scene / Costume / Prop 的最高事实基线；
+2. `AUXILIARY`：特定角度或结构补充；
+3. `DERIVED`：Reference Sheet 等派生资产；
+4. `CONTINUITY`：A01–A07 等正式 Shot Asset 的镜头连续性事实；
+5. `SUPPLEMENTARY`：当前明确允许的补充参考；
+6. `LEGACY_SUPPLEMENTARY`：SH 等历史资产；
+7. evidence-only / candidate / rejected / not-adopted / invalid-test：不得作为正常正向生产参考。
+
+该层级不意味着低层资产可以覆盖高层资产；Resolver 必须结合 `authority_class + lifecycle + resolver_usage + Shot/Task Spec` 决定实际调用。
+
+## 5. Remaining P0.2-01 checks
+
+Authority Mini-Close 已解决此前关于 A01–A07 ARCHIVED 语义、SH 权威边界、Auxiliary default/current 逻辑与 Scene Master 继承边界的设计决策。
+
+仍需完成的工程核对：
+
+1. 核对当前本地 4 份 canonical register：`SHOT_REGISTER.csv / ASSET_REGISTER.csv / IMAGE_REGISTER.csv / IMAGE_RENAME_MANIFEST.csv` 与实际 107 张图库实体是否仍一致；
+2. 在真实资产迁移时验证 12 张辅助人物资产均能唯一映射到新 Registry Role / Variant / State / Lifecycle，不产生多个 Current；
+3. 在 Scene Registry / Scene Spec 阶段把两张 Scene Master 的具体事实字段结构化登记。
+
+上述工程核对不阻塞当前 Entity / Asset Registry Schema 的 V0.3 Walkthrough，但必须在 P0.2 Gate Review 前完成。
+
+## 6. Gate rule
+
+P0.2 技术与治理条件满足后，只能进入：
+
+`READY_FOR_APPROVAL / WAITING_PO_APPROVAL`
+
+必须由 Product Owner 明确批准后才可标记 `PASS`。
