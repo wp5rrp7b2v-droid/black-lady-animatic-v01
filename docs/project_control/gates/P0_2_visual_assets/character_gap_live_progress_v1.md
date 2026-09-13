@@ -1,6 +1,6 @@
 # P0.2-03｜Character Gap Live Progress V1
 
-Status: `ACTIVE / POST-BASELINE LIVE PROGRESS`
+Status: `ACTIVE / POST-BASELINE LIVE PROGRESS / WAVE 2 HOLD`
 
 Date: `2026-09-13`
 
@@ -78,11 +78,17 @@ Wave 1｜宁秋水:
 - `PROFILE_LEFT` = `COMPLETE / APPROVED / INGESTED / CURRENT=V002`
 - `REAR_3Q_LEFT` = `COMPLETE / APPROVED / INGESTED`
 
-Next locked target:
+Next locked production target remains:
 
 - 君鹭远 `PROFILE_LEFT`
 
-Subsequent locked order remains unchanged:
+However, Product Owner decision `BL-D-026` places P1 Wave 2 on HOLD until the six Approved-but-Open tasks in `approved_open_tasks_v1.md` are all `COMPLETE / VERIFIED`.
+
+Current pre-Wave2 task:
+
+`P0.2-04｜Approved-but-Open System Closeout`
+
+Subsequent locked P1 order remains unchanged:
 
 1. 君鹭远 `PROFILE_LEFT`
 2. 君鹭远 `REAR_3Q_LEFT`
@@ -98,3 +104,5 @@ Subsequent locked order remains unchanged:
 This live-progress overlay does not rewrite the Product Owner-approved original 40/63 baseline. It records approved production changes after that baseline.
 
 Only Product Owner-approved and formally ingested assets count toward live coverage.
+
+The Wave 2 HOLD changes execution sequencing only; it does not change the locked P1 priority baseline or current coverage counts.
