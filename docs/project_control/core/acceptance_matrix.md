@@ -36,34 +36,43 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 7. 至少选择一个包含人物 + 场景 + 关键道具/服装的真实 Shot Spec，验证 Reference Resolver 能自动生成可追踪 Reference Package；
 8. Audit Trail 能从生成镜头反查当次实际使用的 Asset IDs / versions，并能从资产反查批准、替代、依赖和生产使用关系。
 
-### P0.2 Evidence Status｜2026-09-14 AO-01 verified
+### P0.2 Evidence Status｜2026-09-14 AO-02 verified
 
 | # | Evidence | 当前证据状态 |
 |---|---|---|
-| 1 | Asset Authority Audit | **PARTIAL / MAJOR BASELINE LOCKED**：Authority Mini-Close、A-Series / SH 边界、Character migration authority 已锁定；AO-01 按 BL-D-028 完成可取得证据的对账；原表内部项 UNKNOWN / SOURCE UNAVAILABLE，BL-D-028 decision/evidence 已远端验证；AO-01 COMPLETE / VERIFIED。 |
+| 1 | Asset Authority Audit | **PARTIAL / MAJOR BASELINE LOCKED**：Authority Mini-Close、A-Series / SH 边界、Character migration authority 已锁定；AO-01 按 BL-D-028 完成可取得证据的对账；原表内部项 UNKNOWN / SOURCE UNAVAILABLE；AO-01 COMPLETE / VERIFIED。 |
 | 2 | System schema / rules | **VERIFIED DESIGN BASELINE**：Visual Asset Management System V1、Schema V0.3、Naming、Single Current、Lifecycle、Relations、Character Tier/Gap 规则已锁定。 |
 | 3 | Character Reference 规范可执行 | **VERIFIED IN REAL P1 PRODUCTION**：9:16 Format Compliance、Fixed Standard Review、P1 role definitions 已用于宁秋水真实补图。 |
-| 4 | Scene / Costume / Prop / Variant 规则可执行 | **PARTIAL / PENDING IMPLEMENTATION**：项目级边界已定义，但两张 Scene Master 事实字段与 Scene / Costume / Prop / Variant 可执行 Spec 尚未完成。 |
-| 5 | Asset Registry / Dependency model | **PARTIAL / CHARACTER RUNTIME VERIFIED**：Runtime Asset Registry、Audit Event、Single Current、Supersession 已真实运行；48 legacy Character assets 尚未正式进入长期 Registry / Audit identity，Derived dependency 与 broader Scene/Prop/Costume 数据仍需验证。 |
+| 4 | Scene / Costume / Prop / Variant 规则可执行 | **PARTIAL / PENDING AO-03**：项目级边界已定义，但两张 Scene Master 事实字段与 Scene / Costume / Prop / Variant 可执行 Spec 尚未完成。 |
+| 5 | Asset Registry / Dependency model | **CHARACTER REGISTRY VERIFIED / DERIVED DEPENDENCY PENDING**：AO-02 已将 48 legacy Character assets 以 `AST_IMG_000001–000048` 正式迁入长期 Registry / Audit；现有 Runtime `AST_IMG_000049–000051` 保持不变；总 Registry 51 条，无 duplicate Current。Derived dependency 与 broader Scene/Prop/Costume 数据仍需 AO-03/AO-04 验证。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
-| 7 | Real Shot Spec Resolver | **PENDING**：尚未用至少一个“人物 + 场景 + 关键服装/道具”的真实 Shot Spec 完成完整 Reference Package 验证。 |
-| 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING SHOT VALIDATION**：Asset-level approval / ingest / supersession audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation尚未完整验证。 |
+| 7 | Real Shot Spec Resolver | **PENDING AO-06**：尚未用至少一个“人物 + 场景 + 关键服装/道具”的真实 Shot Spec 完成完整 Reference Package 验证。 |
+| 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING AO-06**：Asset-level approval / ingest / supersession / legacy migration audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation尚未完整验证。 |
 
-当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。**
+AO-02 completion evidence：
+
+- `gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md`
+- 48 / 48 eligible legacy Character assets migrated；
+- `AST_IMG_000001–000048` deterministic backfill；
+- Runtime `AST_IMG_000049–000051` preserved；
+- Registry 51 / Relations 2 / Audit 56；
+- idempotency + rollback tests `5/5 PASS`；
+- migration commit `4803b928baaa38d875e9c6edd46f4a458e627b61` remote verified；
+- Product Owner 于 2026-09-14 明确批准 AO-02。
+
+当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。下一正式 Closeout 任务为 AO-03。**
 
 ### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
 
-Product Owner 已把以下 7 项提升为下一次工作必须完成的正式前置任务：
+Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前置任务：
 
-1. AO-01｜4 Canonical Registers Final Reconciliation；
-2. AO-02｜48 legacy Character assets → Long-term Registry / Audit；
-3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec；
+1. AO-01｜4 Canonical Registers Final Reconciliation — **COMPLETE / VERIFIED**；
+2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — **COMPLETE / VERIFIED / PO APPROVED**；
+3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec — **NEXT**；
 4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness；
 5. AO-05｜Delivery Bridge：Reference Package → image-production environment；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
 7. AO-07｜GitHub Network Resilience / Recovery Method，对应 `RISK-001｜GitHub Connectivity Instability`。
-
-AO-07 是运营稳定性前置条件，不新增 Gate 本身，但其目标直接保护 Project Control、Automatic Ingest、Registry/Audit 与正式资产发布的一致性。其完成标准包括 connectivity preflight、标准诊断、HTTP/proxy/VPN fallback、幂等 retry、`PENDING_REMOTE_PUBLICATION`、恢复续传、受控 failure→recovery 验证与 Runbook。
 
 详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`；正式风险见 `logs/risk_register.md`。
 
