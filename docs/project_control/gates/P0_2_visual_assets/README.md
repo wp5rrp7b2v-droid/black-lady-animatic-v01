@@ -23,17 +23,17 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - 正式资产的来源、审批、版本、替代、依赖与生产调用必须有 Audit Trail；
 - Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；
 - canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物组成由 Shot Register / Shot Spec 表达；
-- Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version，状态词不进入 filename；
-- 9 名正式角色 Tier Assignment V1 已由 Product Owner 于 2026-09-13 批准锁定；
+- Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version；
+- 9 名正式角色 Tier Assignment V1 已锁定；
 - Character Asset Gap Mapping V1 已完成实图核对并落档；
-- Gap Priority Classification / P1 Execution V1 已落档；
-- Character Atomic / Auxiliary production reference 目标画幅锁定为 9:16 竖版；Fixed Standard Review 以 Format Compliance 作为第一道硬检查；
-- 图片生成后由 Product Owner 发送 `【审核】` 触发固定标准审核，不再把普通 Chat 流程描述为“自动审核”；
-- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布到 GitHub；
-- D-060 Reference Package Exporter V0.1 已由 Product Owner 批准测试：自动选图 + 本地 Reference Package 生成链路已验证成立；
-- D-061～D-063 已将一键 Character ingest、P1 role 泛化、Migration + Runtime asset resolution 接通；
-- D-064 已验证受控 Current supersession；
-- D-065 已修复 macOS Bash 3.2 普通新增路径兼容问题。
+- Character Atomic / Auxiliary production reference 目标画幅锁定为 9:16；
+- 图片生成后由 Product Owner 发送 `【审核】` 触发 Fixed Standard Review；
+- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布；
+- D-060 Reference Package Exporter V0.1 已验证自动选图 + 本地 Reference Package；
+- D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime asset resolution、受控 Current supersession 与 macOS launcher；
+- AO-01 已 COMPLETE / VERIFIED；
+- AO-02 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED：48 个 legacy Character assets 已正式进入长期 Registry / Audit；
+- RC-015 已锁定项目级 Execution Routing：Chat 优先，Terminal 负责轻量本地执行，只有真正需要本地工程环境时才交给 Codex。
 
 详细规则与当前基线见：
 
@@ -52,6 +52,7 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `approved_open_tasks_v1.md`
 - `ao01_4_registers_reconciliation_v1.md`
 - `ao01_register_disposition_v1.csv`
+- `ao02_legacy_asset_registry_migration_v1.md`
 - `../../logs/risk_register.md`
 
 ## 当前任务
@@ -60,50 +61,51 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 
 Authority Mini-Close 已锁定。D-059 已将 48 张 approved Character references 迁入 canonical GitHub storage，并发布 Migration Mapping Manifest。
 
+AO-01 已按 BL-D-028 完成可取得证据的旧表对账，四份旧表退出 Current authority。AO-02 已把 48 个 confirmed legacy Character assets 纳入长期 Asset Registry / Audit identity。
+
 P0.2 Gate Review 前仍需：
 
-1. AO-01 已按 BL-D-028 完成可取得证据的对账，四份旧表退出 Current authority；状态为 `COMPLETE / VERIFIED`（远端 decision/evidence commit `43d8fa4` 已验证）；
-2. 两张 Scene Master 的事实字段结构化；
-3. 将 Scene / Costume / Prop / Variant 规则落实到可执行 Registry / Spec；
-4. 用真实 Shot Spec（至少人物 + 场景 + 关键服装/道具）验证 Reference Resolver 与 Audit reverse-trace。
-
-原先“将 Migration Manifest 接入长期 Asset Registry / Audit Event 实现”和“验证 Character 自动选图”的主要 Character-level 链路已由 D-060～D-065 与真实 ingest 部分完成，不再作为未开始事项描述。
+1. AO-03：两张 Scene Master 的事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
+2. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
+3. AO-05：Delivery Bridge；
+4. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace；
+5. AO-07：GitHub Network Resilience / Recovery Method 正式完成与验证。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
 已完成并锁定：
 
-- Character Tier A/B/C/D 规则；
-- Asset ID / Naming 基线；
+- Character Tier A/B/C/D；
+- Asset ID / Naming；
 - Authority Mini-Close；
 - Entity / Asset Registry Schema V0.3；
 - Single Current；
 - Asset Relations；
 - Provenance Status；
-- Resolver Eligibility 计算原则；
-- Append-only Audit Event Log 结构；
+- Resolver Eligibility；
+- Append-only Audit Event Log；
 - Legacy Migration Mapping Manifest；
 - Shot-bound / Entity-bound 归属与命名边界；
 - Controlled Current Supersession；
 - Character image 9:16 Format Compliance；
-- Fixed Standard Review 触发与审核顺序。
+- Fixed Standard Review。
 
 ### P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
-Tier Assignment 已锁定：
+Tier Assignment：
 
 - Tier A：宁秋水 / 君鹭远 / 尼尔 / 黑衣夫人；
 - Tier B：温倾雅 / 苏小小 / 廖健 / 古堡小主人；
 - Tier C：光勇；
 - Tier D：当前 9 名正式角色中无。
 
-Character Asset Gap Mapping V1 实图核对后的正式历史基线：
+Character Asset Gap Mapping V1 历史基线：
 
 - Mandatory Core Slots = `63`
 - Confirmed Coverage baseline = `40`
 - Core View Gap baseline = `23`
 - Core Coverage baseline = `63.5%`
-- Reference Sheet Gap = `9`（Derived Asset Gap，单独统计）
+- Reference Sheet Gap = `9`
 
 当前 live production progress：
 
@@ -115,136 +117,86 @@ Character Asset Gap Mapping V1 实图核对后的正式历史基线：
 
 宁秋水：
 
-- `PROFILE_LEFT` = COMPLETE / APPROVED / INGESTED / CURRENT `V002 / AST_IMG_000050`
-- `REAR_3Q_LEFT` = COMPLETE / APPROVED / INGESTED / CURRENT `V001 / AST_IMG_000051`
+- `PROFILE_LEFT` = COMPLETE / APPROVED / CURRENT `V002 / AST_IMG_000050`
+- `REAR_3Q_LEFT` = COMPLETE / APPROVED / CURRENT `V001 / AST_IMG_000051`
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-Tier B 四人均锁定 `primary_side = LEFT`。
-
-黑衣夫人旧 `three_quarter_half_body_angle_reference_v001` 因人物 likeness 不足，迁移目标为：`DEPRECATED / resolver NEVER`；历史 approval 事实保留，未作为 Current canonical Character asset 发布。
-
-Gap Priority Classification V1：
-
-- P1 = 10
-- P2 = 7
-- P3 = 6
-
-P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase 编号。
+P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 Approved-but-Open Resume Lock 解除。
 
 ### P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 COMPLETE / VERIFIED / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 + AO-02 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE 2`
 
-Product Owner 于 2026-09-13 明确要求：以下 7 项已经批准/锁定但尚未执行完成的任务必须先补齐；在全部形成 `COMPLETE / VERIFIED` 证据前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。
+1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
+2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
+3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `NEXT / NOT STARTED`；
+4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness；
+5. AO-05｜Delivery Bridge；
+6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
+7. AO-07｜GitHub Network Resilience / Recovery Method。
 
-1. AO-01｜按 BL-D-028 完成可取得证据的旧表对账，`COMPLETE / VERIFIED`；
-2. AO-02｜D-059 的 48 张 legacy Character assets 进入长期 Registry / Audit 模型；
-3. AO-03｜两张 Scene Master 事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
-4. AO-04｜完成 9 个 Derived Character Reference Sheets 与 dependency / staleness 验证；
-5. AO-05｜完成 D-060 后已批准的 Delivery Bridge：Reference Package → 实际制图环境；
-6. AO-06｜完成真实 Shot Spec Resolver + Shot-level Audit reverse-trace；
-7. AO-07｜建立并验证 GitHub Network Resilience / Recovery Method，解决频繁 GitHub 连接失败时的诊断、fallback、幂等重试、离线安全与恢复发布问题。
+AO-02 completion evidence：`ao02_legacy_asset_registry_migration_v1.md`。
 
-详细完成标准与依赖顺序见：`approved_open_tasks_v1.md`。
+## AO-02｜Legacy Registry Migration
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
+
+- 48 / 48 eligible D-059 legacy Character assets migrated；
+- deterministic Asset ID range = `AST_IMG_000001–000048`；
+- Runtime `AST_IMG_000049–000051` preserved；
+- Asset Registry = `51` records；
+- Asset Relations = `2` records；
+- Audit Event Log = `56` records；
+- Single Current / SHA / storage validation PASS；
+- D-059 Manifest and Character PNGs unchanged；
+- idempotency / rollback tests = `5/5 PASS`；
+- migration commit = `4803b928baaa38d875e9c6edd46f4a458e627b61` / REMOTE VERIFIED；
+- Product Owner explicitly approved AO-02 on 2026-09-14；
+- AO-02 used Chat + Terminal and therefore consumed no new Codex D-### number。
 
 ## Risk Alert｜RISK-001 GitHub Connectivity Instability
 
-Status: `OPEN / HIGH OPERATIONAL RISK / AO-07 MANDATORY`
+Status: `OPEN / AO-07 NOT YET FORMALLY CLOSED`
 
-近期项目已多次出现 GitHub 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等连接异常。由于 Project Control、Automatic Ingest、Codex Git 操作与正式资产发布都依赖 GitHub，该问题如果只靠临时手工处理，会带来本地已完成但远端未发布、重复 ingest、Asset ID / Registry 重复写入、版本分叉与状态误判风险。
+动态 `git-proxy-auto` 已在本仓库完成 `ls-remote / pull / push / SHA truth check` 成功验证，说明网络恢复方向有效；但 AO-07 的正式 Runbook、受控 failure→recovery evidence 与 Product Owner closeout 尚未完成，因此不得把风险写成 CLOSED。
 
-当前已知 HTTP/1.1 能缓解部分问题，但尚不足以视为正式解决方案。
+## D-059～D-065｜Character Automation Baseline
 
-AO-07 必须建立一套可验证恢复方法，使：
+- D-059｜Character Asset Migration V1 — COMPLETE / REMOTE VERIFIED
+- D-060｜Reference Package Exporter V0.1 — TEST APPROVED / PO APPROVED
+- D-061｜One-click Character Ingest + Cleanup — COMPLETE / REMOTE VERIFIED
+- D-062｜P1 Character Reference Package Generalization — COMPLETE / REMOTE VERIFIED
+- D-063｜Unified Migration + Runtime Character Asset Resolution — COMPLETE / REMOTE VERIFIED
+- D-064｜Controlled Current Supersession — COMPLETE / REMOTE VERIFIED
+- D-065｜macOS Bash Launcher Fix — COMPLETE / REMOTE VERIFIED
+- D-066｜AO-01 Four Registers Final Reconciliation — COMPLETE / VERIFIED
 
-`GitHub transient failure ≠ asset corruption / duplicate ingest / project-state divergence`
-
-详细风险登记：`docs/project_control/logs/risk_register.md`。
-
-## D-059｜Character Asset Migration V1
-
-Status: `COMPLETE / REMOTE VERIFIED`
-
-- Remote commit: `d9fb763fb63e57023aa2cf11119c9be1bef037d6`
-- Canonical PNG: `48`
-- Migration Manifest: `CSV + JSON`
-- Character storage root: `production/image_library/character_references/`
-- Migration evidence root: `docs/project_control/gates/P0_2_visual_assets/migration_evidence/`
-- Neil `CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png`: `MAPPING_REQUIRED / NOT MIGRATED`
-
-## D-060｜Reference Package Exporter V0.1
-
-Status: `TEST APPROVED / PRODUCT OWNER APPROVED`
-
-测试对象：`CHAR_NING_QIUSHUI → PROFILE_LEFT`
-
-验证结果：
-
-- 自动从正式 Character assets 选出 4 张参考图；
-- 选择为 `FACE_FRONT / PROFILE_RIGHT / FACE_3Q_RIGHT / BODY_FRONT`；
-- canonical source / APPROVED / CONFIRMED / CURRENT 条件全部满足；
-- SHA source / copy / manifest = `4/4 PASS`；
-- 正确识别目标 `PROFILE_LEFT = REFERENCE_GAP`；
-- 无 Duplicate CURRENT 冲突；
-- 未修改任何正式源图。
-
-正式结论：
-
-`Canonical Character Assets → automatic selection → local Reference Package`
-
-已经通过真实测试验证。
-
-## D-061～D-065｜Character Production Automation / Ingest Hardening
-
-Status: `COMPLETE / REMOTE VERIFIED`
-
-- D-061｜one-click Character ingest + reference cleanup；commit `200cb06ce366c650b4f1389108765996b8f15332`
-- D-062｜P1 target role generalized reference package exporter；commit `a480dc0a64b2e63221122dce238d5c35634a77b1`
-- D-063｜Migration Manifest + Runtime Registry unified Character asset resolution；commit `e85f749ef72fb722c631472eb0af8bb2b0b7bc7e`
-- D-064｜Controlled Current Supersession；commit `6735c44374713d7470888dfb4d20e52af804cb42`
-- D-065｜macOS Bash launcher normal-ingest compatibility fix；commit `57495a7b0a9e189098e2b8310e76d98f7b0beb2d`
-
-真实生产验证：
-
-- `PROFILE_LEFT V001 / AST_IMG_000049` 首次 Automatic Ingest 成功；
-- 发现该版本画幅不符合项目 9:16 标准后，使用受控 supersession 将 `PROFILE_LEFT V002 / AST_IMG_000050` 设为 CURRENT，V001 保留为 SUPERSEDED；
-- `REAR_3Q_LEFT V001 / AST_IMG_000051` 通过 NORMAL_INGEST 成功入库；
-- Registry / Audit Event 均产生真实记录；
-- supersession relation 使用 `NEW SUPERSEDES OLD`；
-- 旧版本文件保留，不做静默覆盖或删除。
-
-当前仍有一项非阻塞测试技术债：一个既有 Resolver regression assertion 写死 `AST_IMG_000049`，而合法 supersession 后 CURRENT 已为 `AST_IMG_000050`。该测试应后续改为断言当前有效版本语义，不应固定旧 Asset ID。
+下一 Codex 工程编号仅在确实需要 Codex 执行时使用：`D-067`。
 
 ## 当前执行基线
 
 P1 按人物整组推进：
 
 1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT` = **COMPLETE**
-2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **LOCKED NEXT WAVE / BLOCKED BY P0.2-04 CLOSEOUT**
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **HOLD UNTIL AO-01～AO-07 COMPLETE**
 3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
 
-制图与主流程分离：图片制作对话框负责生成 + 固定标准审核 + 迭代收敛；只有内部审核通过且 Product Owner 明确批准的最终候选进入 Automatic Ingest / canonical registration / GitHub publication。
+当前日常 Character 生产链：
 
-当前日常 Character 生产链已经验证到：
+`Reference Resolver / Package → Generation → 【审核】→ PO Approval → local final PNG → Black_Lady_Ingest.command → Registry / Audit / Git publication`
 
-`Reference Resolver / Package → Generation → 【审核】→ PO Approval → local final PNG → Black_Lady_Ingest.command → Registry / Audit / Git commit / push`
-
-其中 Product Owner 仍需将最终 PNG 下载到 Mac 后触发本地 launcher；真正的 Chat / generation environment → local / GitHub 文件自动桥接尚未实现，因此“零手工下载”的长期目标尚未完全达到。
+真正的 generation environment → local/GitHub Delivery Bridge 尚未完成，由 AO-05 负责。
 
 ## 下一步
 
-下一正式任务保持：
+下一正式任务：
 
-`P0.2-04｜Approved-but-Open System Closeout`
+`P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec`
 
-必须完成 AO-01～AO-07 并形成验证证据后，才恢复：
-
-`P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
-
-原则：不得因为 P1 补图容易继续推进，就再次绕过已经批准但尚未完成的系统建设任务；同时不得把 GitHub 临时可连接误判为网络风险已经解决。
+首先在 Chat 内完成事实边界、数据模型、Definition of Done 与实现需求判断；只有确实需要本地多文件工程实现时才交给 Codex。
 
 ## Gate Approval
 
