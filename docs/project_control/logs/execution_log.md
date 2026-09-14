@@ -20,10 +20,12 @@
 
 ## Current Execution State
 
-- P0.1：ACTIVE / BUILDING
-- P0.2：QUEUED
+- P0.1：PASS / PRODUCT OWNER APPROVED
+- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 COMPLETE / AO-03 NEXT
 - P0.3：QUEUED
-- 新 Codex D-###：NONE
+- 当前实际 Codex 工程编号：D-066；下一次确实需要 Codex 执行时使用 D-067
+- AO-02 使用 Chat + Terminal 完成，不占新的 D-###
+- P1 Wave 2：HOLD UNTIL AO-01～AO-07 COMPLETE / VERIFIED
 
 ## Project Control Baseline Commit｜APPROVED / 2026-09-11
 
@@ -129,7 +131,7 @@
 - 已从 RAW_CAPTURE 中以 stream copy 方式无重编码提取原 AAC 音轨：`AUDIO_MVP1_CAPTURE_EXTRACT_V001.m4a`。
 - RAW_AUDIO_EXTRACT 规格：5,244,616 bytes；381.941995 sec；AAC 2ch / 44.1kHz；SHA-256=`d9a297b275a2fc42b85fa7b26407c4824c17efc63d1b9d148470f224d96be7f2`。
 - 当前状态：`RAW_AUDIO_EXTRACT / CANONICAL CANDIDATE`。由于录屏本身可能含极短的起止操作冗余，尚未直接晋级为 `CANONICAL_AUDIO`。
-- 正式范围规则修正：MVP1 从 S2 第134章开头起，终点按真实有声小说连续音频边界锁定；原文章节只作为映射锚点。当前映射终点在 S2 第135章开头。
+- 正式范围规则修正：MVP1 从 S2 第134章开头起，终点按真实有声小说连续音频边界锁定；原文章节只作为内容映射锚点。当前映射终点在 S2 第135章开头。
 - 下一步：锁定 canonical audio 的精确起止内容与时间码，再建立覆盖该完整音频跨度的 S3。
 
 ## P0.1 Final Closeout｜2026-09-12｜PASS / PRODUCT OWNER APPROVED
@@ -262,3 +264,28 @@ Status: `COMPLETE / PENDING_REMOTE_PUBLICATION`
 
 - Product Owner decision and pending closeout commit `43d8fa4f8e4068298058f1aad0bc410193b6c0d3` pushed; fresh fetch confirmed `HEAD == origin/main`.
 - AO-01 updated to `COMPLETE / VERIFIED` in Project Control revision R032. AO-02 remains NEXT / NOT STARTED; P1 Wave 2 HOLD.
+
+## AO-02｜Legacy Character Assets → Long-term Registry / Audit｜2026-09-14
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+Execution route: `CHAT + TERMINAL / NO CODEX D-NUMBER`
+
+- AO-02 Design V1 was completed and locked in Chat before implementation.
+- Dedicated migration controller: `scripts/legacy_registry_migration_controller_v1.py`.
+- Automated tests: `tests/test_ao02_legacy_registry_migration.py`.
+- Pre-apply dry-run: 48 eligible / 48 migrated planned; Single Current PASS; SHA/storage PASS; one provable SUPERSEDES relation.
+- Formal migration backfilled `AST_IMG_000001–000048` for 48 D-059 `CONFIRMED + APPROVED` legacy Character assets.
+- Existing Runtime `AST_IMG_000049–000051` preserved unchanged.
+- Neil `CHAR_NEIL_REAR_TURN_45_SUPPLEMENTARY` remained `MAPPING_REQUIRED / NOT MIGRATED`.
+- Post-migration counts: Asset Registry `51`; Asset Relations `2`; Audit Event Log `56`; migration map `48` rows + header.
+- Character PNGs and D-059 CSV/JSON Manifest remained unchanged.
+- Automated migration tests: `5/5 PASS` including deterministic mapping, rollback, partial-migration block, idempotency, and eligible-count guard.
+- Real second run returned `ALREADY_APPLIED / NO CHANGE`.
+- Migration commit: `4803b928baaa38d875e9c6edd46f4a458e627b61`.
+- Terminal publication check: `FINAL_STATUS=REMOTE_VERIFIED`; GitHub main independently confirmed the same commit.
+- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md`.
+- Product Owner explicitly approved AO-02 on 2026-09-14.
+- Project Control advanced to revision `R033`; AO-03 is NEXT; P1 Wave 2 remains HOLD.
+
+AO-02 does not consume D-067. Per RC-015, only work actually executed by Codex consumes a D-### number.
