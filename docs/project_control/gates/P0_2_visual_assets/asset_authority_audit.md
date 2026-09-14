@@ -133,7 +133,7 @@ Authority Mini-Close 已解决此前关于 A01–A07 ARCHIVED 语义、SH 权威
 
 仍需完成的工程核对：
 
-1. AO-01：四份旧 Register 在当前可取得范围内均缺失；BL-D-028 已接受不重建、退出 Current authority。可取得 Manifest / Runtime / canonical storage 已核对；旧表内部项 `UNKNOWN / SOURCE UNAVAILABLE`。AO-01 远端验证前为 `COMPLETE / PENDING_REMOTE_PUBLICATION`；
+1. AO-01：四份旧 Register 在当前可取得范围内均缺失；BL-D-028 已接受不重建、退出 Current authority。可取得 Manifest / Runtime / canonical storage 已核对；旧表内部项 `UNKNOWN / SOURCE UNAVAILABLE`。AO-01 已远端验证为 `COMPLETE / VERIFIED`；
 2. 在真实资产迁移时验证 12 张辅助人物资产均能唯一映射到新 Registry Role / Variant / State / Lifecycle，不产生多个 Current；
 3. 在 Scene Registry / Scene Spec 阶段把两张 Scene Master 的具体事实字段结构化登记。
 

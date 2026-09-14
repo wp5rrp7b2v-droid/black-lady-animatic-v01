@@ -36,11 +36,11 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 7. 至少选择一个包含人物 + 场景 + 关键道具/服装的真实 Shot Spec，验证 Reference Resolver 能自动生成可追踪 Reference Package；
 8. Audit Trail 能从生成镜头反查当次实际使用的 Asset IDs / versions，并能从资产反查批准、替代、依赖和生产使用关系。
 
-### P0.2 Evidence Status｜2026-09-14 AO-01 closeout pending publication
+### P0.2 Evidence Status｜2026-09-14 AO-01 verified
 
 | # | Evidence | 当前证据状态 |
 |---|---|---|
-| 1 | Asset Authority Audit | **PARTIAL / MAJOR BASELINE LOCKED**：Authority Mini-Close、A-Series / SH 边界、Character migration authority 已锁定；AO-01 按 BL-D-028 完成可取得证据的对账；原表内部项 UNKNOWN / SOURCE UNAVAILABLE，远端验证待完成。 |
+| 1 | Asset Authority Audit | **PARTIAL / MAJOR BASELINE LOCKED**：Authority Mini-Close、A-Series / SH 边界、Character migration authority 已锁定；AO-01 按 BL-D-028 完成可取得证据的对账；原表内部项 UNKNOWN / SOURCE UNAVAILABLE，BL-D-028 decision/evidence 已远端验证；AO-01 COMPLETE / VERIFIED。 |
 | 2 | System schema / rules | **VERIFIED DESIGN BASELINE**：Visual Asset Management System V1、Schema V0.3、Naming、Single Current、Lifecycle、Relations、Character Tier/Gap 规则已锁定。 |
 | 3 | Character Reference 规范可执行 | **VERIFIED IN REAL P1 PRODUCTION**：9:16 Format Compliance、Fixed Standard Review、P1 role definitions 已用于宁秋水真实补图。 |
 | 4 | Scene / Costume / Prop / Variant 规则可执行 | **PARTIAL / PENDING IMPLEMENTATION**：项目级边界已定义，但两张 Scene Master 事实字段与 Scene / Costume / Prop / Variant 可执行 Spec 尚未完成。 |

@@ -1,6 +1,6 @@
 # AO-01｜Four legacy registers reconciliation V1
 
-Status: `COMPLETE / PENDING_REMOTE_PUBLICATION`
+Status: `COMPLETE / VERIFIED`
 
 Evidence date: 2026-09-14
 
@@ -60,4 +60,4 @@ Product Owner decision BL-D-028 removes all four unavailable CSVs from current p
 
 BL-D-028 (2026-09-14) accepts the verified absence of all four legacy CSVs in the current worktree, untracked files, and currently obtainable Git history. It explicitly waives reconstruction and legacy-row inspection as AO-01 completion requirements. Their internal orphan rows, duplicate rows, stale paths/names, row counts, headers, and hashes remain **UNKNOWN / SOURCE UNAVAILABLE**, never zero. All four leave current production authority. Current Character migration facts come from the D-059 Manifest and canonical storage; formal Runtime facts come from the long-term Registry. Current Shot composition will be rebuilt in formal Shot Specs from approved Shots and current facts, then validated in AO-06. No missing old Shot Register blocks AO-01. This decision does not authorize AO-02.
 
-The available-source reconciliation, dispositions, tests, and Project Control consistency checks are complete. **AO-01 is `COMPLETE / PENDING_REMOTE_PUBLICATION` until this updated completion evidence is published and HEAD is verified equal to `origin/main`.** Only then may it be marked `COMPLETE / VERIFIED` and AO-02 become executable. P0.2 remains ACTIVE; P1 Wave 2 remains on HOLD.
+The available-source reconciliation, dispositions, 39 tests, and Project Control consistency checks are complete. The BL-D-028 decision and pending closeout commit `43d8fa4f8e4068298058f1aad0bc410193b6c0d3` was pushed and independently verified by fetch (`HEAD == origin/main`). **AO-01 is `COMPLETE / VERIFIED`.** AO-02 is the next named task but has not been authorized or started by this decision. P0.2 remains ACTIVE; P1 Wave 2 remains on HOLD.

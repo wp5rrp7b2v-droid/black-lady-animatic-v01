@@ -5,7 +5,7 @@
   "project_name": "诡舍·黑衣夫人",
   "state_revision": "R032",
   "last_updated": "2026-09-14",
-  "session_status": "ACTIVE / AO-01 REMOTE PUBLICATION PENDING",
+  "session_status": "ACTIVE / AO-01 VERIFIED; AO-02 NOT STARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-01｜4 Canonical Registers Final Reconciliation：Product Owner 已批准旧表不可取得的 evidence-only 处置；当前 COMPLETE / PENDING_REMOTE_PUBLICATION，等待 Project Control 远端发布验证。",
-  "blocker": "AO-01 remote publication / verification pending; AO-02 not authorized until verified",
-  "next_action": "AO-02｜Legacy Character Assets → Long-term Registry / Audit；仅在 AO-01 updated evidence 成功发布并验证 HEAD == origin/main 后进入。P1 Wave 2 继续 HOLD，直到 AO-01～AO-07 全部 COMPLETE / VERIFIED。",
+  "current_task": "P0.2-04｜AO-01｜4 Canonical Registers Final Reconciliation COMPLETE / VERIFIED；AO-02 是下一任务，本次决定未授权开始。",
+  "blocker": null,
+  "next_action": "AO-02｜Legacy Character Assets → Long-term Registry / Audit（NEXT / NOT STARTED；本次 Product Owner 决定不授权执行）。P1 Wave 2 继续 HOLD，直到 AO-01～AO-07 全部 COMPLETE / VERIFIED。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -139,7 +139,7 @@
       "RISK-001 GitHub Connectivity Instability registered as OPEN / HIGH OPERATIONAL RISK",
       "BL-D-028 PO accepted four unavailable legacy registers as non-authoritative; AO-01 evidence-only reconciliation completed pending remote publication"
     ],
-    "resume_from": "P0.2-04｜AO-01｜REMOTE PUBLICATION / VERIFICATION",
+    "resume_from": "P0.2-04｜AO-02｜NEXT / NOT STARTED",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -262,7 +262,7 @@
       "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
     },
     "remaining_checks": [
-      "AO-01 substantive reconciliation complete under BL-D-028; remote publication / verification pending",
+      "AO-01 COMPLETE / VERIFIED under BL-D-028; source-internal checks UNKNOWN / SOURCE UNAVAILABLE",
       "AO-02 Move 48 approved legacy Character assets from migration-readable state into long-term Registry / Audit identity without duplicate Current",
       "AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
@@ -278,7 +278,7 @@
     "path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "count": 7,
     "execution_order": ["AO-01", "AO-02", "AO-03", "AO-04", "AO-05", "AO-06", "AO-07"],
-    "ao01_status": "COMPLETE / PENDING_REMOTE_PUBLICATION",
+    "ao01_status": "COMPLETE / VERIFIED",
     "ao01_decision_id": "BL-D-028",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after all seven are COMPLETE / VERIFIED"
   },

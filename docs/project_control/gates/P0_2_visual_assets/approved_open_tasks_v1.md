@@ -20,9 +20,9 @@ Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为下一次正
 
 ### AO-01｜4 Canonical Registers Final Reconciliation
 
-Status: `COMPLETE / PENDING_REMOTE_PUBLICATION` (BL-D-028; verification requires updated evidence on origin/main).
+Status: `COMPLETE / VERIFIED` (BL-D-028; remote decision/evidence commit `43d8fa4` verified by fetch).
 
-四份旧 CSV 当前均不可取得，Product Owner 决定其退出 Current authority。旧表内部孤儿行、重复行、旧路径/命名一律 `UNKNOWN / SOURCE UNAVAILABLE`；不重建旧表。Current Shot composition 由正式 Shot Spec 重建并在 AO-06 验证。AO-02 在 AO-01 远端验证前不得开始。
+四份旧 CSV 当前均不可取得，Product Owner 决定其退出 Current authority。旧表内部孤儿行、重复行、旧路径/命名一律 `UNKNOWN / SOURCE UNAVAILABLE`；不重建旧表。Current Shot composition 由正式 Shot Spec 重建并在 AO-06 验证。AO-02 是下一任务；本次 Product Owner 决定未授权执行 AO-02。
 
 
 核对：

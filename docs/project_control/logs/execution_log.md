@@ -257,3 +257,8 @@ Status: `COMPLETE / PENDING_REMOTE_PUBLICATION`
 - BL-D-028 locks all four out of Current authority; old-row orphan/duplicate/path/naming checks remain `UNKNOWN / SOURCE UNAVAILABLE`.
 - Available 48 D-059 canonical PNGs and 3 Runtime PNGs verified; 39 tests pass; no duplicate Current. Current Shot Spec validation remains AO-06.
 - Project Control cross-file closeout recorded; updated evidence publication and HEAD/origin-main verification still required. AO-02 not started; P1 Wave 2 HOLD.
+
+### D-066｜AO-01 remote verification
+
+- Product Owner decision and pending closeout commit `43d8fa4f8e4068298058f1aad0bc410193b6c0d3` pushed; fresh fetch confirmed `HEAD == origin/main`.
+- AO-01 updated to `COMPLETE / VERIFIED` in Project Control revision R032. AO-02 remains NEXT / NOT STARTED; P1 Wave 2 HOLD.
