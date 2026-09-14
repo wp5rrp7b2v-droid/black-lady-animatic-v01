@@ -1,8 +1,10 @@
 # P0.2-04｜AO-02｜Legacy Character Assets → Long-term Registry / Audit
 
-Status: `READY_FOR_APPROVAL / WAITING_PRODUCT_OWNER_APPROVAL`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 
 Date: `2026-09-14`
+
+Product Owner approval: `EXPLICITLY APPROVED IN CHAT 2026-09-14`
 
 ## 1. Scope
 
@@ -101,7 +103,7 @@ Remote verification:
 
 ## 8. Definition of Done Review
 
-AO-02 technical Definition of Done is satisfied:
+AO-02 Definition of Done is satisfied:
 
 - 48 eligible legacy assets represented as `AST_IMG_000001–000048`
 - `AST_IMG_000049–000051` preserved
@@ -119,14 +121,16 @@ AO-02 technical Definition of Done is satisfied:
 - automated tests passed
 - GitHub publication remotely verified
 
-## 9. Approval Boundary
+## 9. Approval / Closeout
 
-Per project governance, technical completion does not itself authorize AO-02 `COMPLETE / VERIFIED` status.
+Product Owner explicitly approved AO-02 in Chat on `2026-09-14`.
 
-Current recommendation:
+Final status:
 
-`READY_FOR_APPROVAL / WAITING_PRODUCT_OWNER_APPROVAL`
+`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 
-Only after explicit Product Owner approval in Chat may AO-02 be marked `COMPLETE / VERIFIED` and AO-03 become the next formal task.
+AO-03 is the next formal Approved-but-Open closeout task.
 
-P1 Wave 2 remains HOLD.
+P1 Wave 2 remains HOLD until AO-01～AO-07 are all `COMPLETE / VERIFIED` and the remaining resume-lock conditions are satisfied.
+
+Execution routing note: AO-02 was completed through Chat-led design/GitHub updates plus Terminal execution/verification. No Codex engineering task was required, so AO-02 does not consume a new D-### number.
