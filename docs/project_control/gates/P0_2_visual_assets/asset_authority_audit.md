@@ -1,8 +1,8 @@
 # P0.2｜Visual Asset Authority Audit
 
-Status: `IN_PROGRESS / AUTHORITY MINI-CLOSE LOCKED`
+Status: `IN_PROGRESS / AUTHORITY MINI-CLOSE LOCKED / CHARACTER REGISTRY MIGRATION VERIFIED`
 
-Date: 2026-09-13
+Date: 2026-09-14
 
 ## 1. Audit goal
 
@@ -22,7 +22,7 @@ P0.2 不重做已有图片。先确认现有视觉资产的类别、权威层级
 - D-055：8 张 `production_auxiliary_reference` + 1 张尼尔 `supplementary_auxiliary_reference`。
 - D-056：宁秋水新增 3 张 `production_auxiliary_reference`。
 - 共计 12 张侧向/辅助类资产；全部不得成为第五类 master，`current_master=false`。
-- 宁秋水 Rear Three-quarter v002 为该辅助方向当前有效版本；v001 保留历史 approved，但后续迁移时应映射为 `SUPERSEDED`，不得与 v002 同时成为 Current。
+- 宁秋水 Rear Three-quarter v002 为该辅助方向当前有效版本；v001 保留历史 approved，但在长期 Registry 中必须映射为 `SUPERSEDED`，不得与 v002 同时成为 Current。
 
 ### Scene Masters and current A-Series
 
@@ -131,13 +131,17 @@ Authority、Lifecycle、Resolver Usage 三个维度必须分离：
 
 Authority Mini-Close 已解决此前关于 A01–A07 ARCHIVED 语义、SH 权威边界、Auxiliary default/current 逻辑与 Scene Master 继承边界的设计决策。
 
-仍需完成的工程核对：
+已完成：
 
-1. AO-01：四份旧 Register 在当前可取得范围内均缺失；BL-D-028 已接受不重建、退出 Current authority。可取得 Manifest / Runtime / canonical storage 已核对；旧表内部项 `UNKNOWN / SOURCE UNAVAILABLE`。AO-01 已远端验证为 `COMPLETE / VERIFIED`；
-2. 在真实资产迁移时验证 12 张辅助人物资产均能唯一映射到新 Registry Role / Variant / State / Lifecycle，不产生多个 Current；
-3. 在 Scene Registry / Scene Spec 阶段把两张 Scene Master 的具体事实字段结构化登记。
+1. **AO-01｜4 Canonical Registers Final Reconciliation = COMPLETE / VERIFIED**：四份旧 Register 当前及可取得历史均不可取得；BL-D-028 已接受不重建并退出 Current authority。可取得 Manifest / Runtime / canonical storage 已核对，旧表内部项统一 `UNKNOWN / SOURCE UNAVAILABLE`。
+2. **AO-02｜Legacy Character Assets → Long-term Registry / Audit = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED**：D-059 的 48 张 `CONFIRMED + APPROVED` legacy Character assets 已进入长期 Asset Registry / Audit identity，覆盖原 36 项身份职责及 12 项侧向/辅助职责；Single Current / SHA / storage validation PASS，Runtime `AST_IMG_000049–000051` 保持不变，无 duplicate Current。由此原“12 张辅助人物资产唯一映射且不产生多个 Current”的工程核对已完成。
 
-上述工程核对不阻塞当前 Entity / Asset Registry Schema 的 V0.3 Walkthrough，但必须在 P0.2 Gate Review 前完成。
+仍需完成：
+
+3. **AO-03**：在 Scene Registry / Scene Spec 阶段把两张 Scene Master 的具体事实字段结构化登记，并落实 Scene / Costume / Prop / State / Variant executable Spec。
+4. **AO-06**：以真实 Shot Spec 验证场景/人物/关键 Costume/Prop 的 resolver use 与 shot-level audit reverse-trace。
+
+上述剩余工程核对必须在 P0.2 Gate Review 前完成。
 
 ## 6. Gate rule
 
