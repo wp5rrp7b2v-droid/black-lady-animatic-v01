@@ -2,7 +2,7 @@
 
 Status: `ACTIVE / POST-BASELINE LIVE PROGRESS / WAVE 2 HOLD`
 
-Date: `2026-09-13`
+Date: `2026-09-14`
 
 This file tracks live production progress after the locked baseline in `character_asset_gap_mapping_v1.md`.
 
@@ -82,13 +82,25 @@ Next locked production target remains:
 
 - 君鹭远 `PROFILE_LEFT`
 
-However, Product Owner decisions `BL-D-026` + `BL-D-027` place P1 Wave 2 on HOLD until the seven Approved-but-Open tasks in `approved_open_tasks_v1.md` are all `COMPLETE / VERIFIED`.
+P1 Wave 2 is currently held by the remaining Approved-but-Open closeout tasks.
+
+Completed closeout items:
+
+- `AO-01` = `COMPLETE / VERIFIED`
+- `AO-02` = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- `AO-07` = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- `RISK-001` = `CONTROLLED / MITIGATION VERIFIED`
+
+Remaining pre-Wave2 blockers:
+
+- `AO-03`｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec
+- `AO-04`｜9 Character Derived Reference Sheets + dependency / staleness
+- `AO-05`｜Delivery Bridge
+- `AO-06`｜Real Shot Spec Resolver + Shot-level Audit reverse-trace
 
 Current pre-Wave2 task:
 
-`P0.2-04｜Approved-but-Open System Closeout`
-
-The seventh closeout item is `AO-07｜GitHub Network Resilience / Recovery Method`, linked to `RISK-001｜GitHub Connectivity Instability`.
+`P0.2-04｜AO-03｜NEXT / NOT STARTED`
 
 Subsequent locked P1 order remains unchanged:
 
