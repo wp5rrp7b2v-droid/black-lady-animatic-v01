@@ -21,11 +21,12 @@
 ## Current Execution State
 
 - P0.1：PASS / PRODUCT OWNER APPROVED
-- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 COMPLETE / AO-03 NEXT
+- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT
 - P0.3：QUEUED
 - 当前实际 Codex 工程编号：D-066；下一次确实需要 Codex 执行时使用 D-067
-- AO-02 使用 Chat + Terminal 完成，不占新的 D-###
-- P1 Wave 2：HOLD UNTIL AO-01～AO-07 COMPLETE / VERIFIED
+- AO-02 与 AO-07 使用 Chat + Terminal / GitHub closeout 完成，不占新的 D-###
+- RISK-001：CONTROLLED / MITIGATION VERIFIED
+- P1 Wave 2：HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED
 
 ## Project Control Baseline Commit｜APPROVED / 2026-09-11
 
@@ -289,3 +290,26 @@ Execution route: `CHAT + TERMINAL / NO CODEX D-NUMBER`
 - Project Control advanced to revision `R033`; AO-03 is NEXT; P1 Wave 2 remains HOLD.
 
 AO-02 does not consume D-067. Per RC-015, only work actually executed by Codex consumes a D-### number.
+
+## AO-07｜GitHub Network Resilience / Recovery Method｜2026-09-14
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+Execution route: `CHAT + TERMINAL EVIDENCE + GITHUB CLOSEOUT / NO CODEX D-NUMBER`
+
+- Existing dynamic helper `$HOME/.local/bin/git-proxy-auto` validated on the Black Lady repo.
+- Real verification chain completed: `ls-remote` PASS → `pull --ff-only` PASS → `push` PASS → local HEAD / remote main SHA MATCH.
+- HTTP/1.1 retained as safe fallback; dynamic proxy port is discovered at runtime and not persisted.
+- AO-02 migration publication used the same connectivity path and reached `REMOTE_VERIFIED`.
+- Real second migration run returned `ALREADY_APPLIED / NO CHANGE`, proving publication retry must not trigger re-ingest or duplicate Asset IDs.
+- Formal lightweight Recovery Runbook completed with connectivity preflight and diagnosis order: DNS → HTTPS → remote → HTTP version → proxy/VPN → credential → repo reachability.
+- `PENDING_REMOTE_PUBLICATION` entry/exit/recovery rules locked.
+- Push ACK loss and remote mismatch handling locked; force push is prohibited for recovery.
+- Controlled failure→recovery requirement satisfied by real transient incidents (`443 timeout`, `Empty reply from server`, HTTP/2 framing error, unexpected disconnect) followed by verified recovery/publication.
+- Product Owner explicitly approved AO-07 on 2026-09-14.
+- Decision: `BL-D-030`.
+- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md`.
+- `RISK-001` downgraded from OPEN to `CONTROLLED / MITIGATION VERIFIED`.
+- Project Control advanced to revision `R034`; AO-03 remains NEXT; P1 Wave 2 is now blocked only by AO-03～AO-06.
+
+AO-07 does not consume D-067. Per RC-015, only work actually executed by Codex consumes a D-### number.
