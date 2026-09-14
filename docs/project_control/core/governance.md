@@ -34,10 +34,10 @@
 
 ## 4. 同步模型
 
-1. **ChatGPT**：负责项目判断、方案、Gate Review、验收建议与 Project Control 维护。
+1. **ChatGPT**：负责项目判断、方案、Gate Review、验收建议、Project Control 维护，以及可通过当前 GitHub 能力直接完成的文本 / 轻量代码写入。
 2. 每完成明确阶段 / Gate / 正式任务并形成结论后，由 ChatGPT 更新 canonical repo。
-3. **Local sync**：本地工程开始前执行 `git pull --ff-only origin main`。
-4. **Codex**：负责本地工程、脚本、Remotion、音视频处理、文件与 Git 操作；只有 Task Contract 明确授权时才修改 Project Control。
+3. **Local sync**：本地工程开始前执行 `git pull --ff-only origin main`；若 GitHub 网络需要动态代理，则按当前已验证的网络规则使用 `git-proxy-auto`。
+4. **Codex**：只负责确实需要访问或修改本地项目文件、代码库、脚本、Remotion 工程、音视频处理、测试 / 调试或其他本地工程环境的执行工作；只有 Task Contract 明确授权时才修改 Project Control。
 5. ChatGPT 与 Codex 不并行修改同一 Project Control 文件。
 6. 遇到 non-fast-forward、未知 tracked changes 或状态冲突时停止，不 force、不覆盖。
 7. **GitHub write reminder**：每次 ChatGPT 对 canonical GitHub repo 完成实际写入 / 更新后，用户可见回复必须明确提醒 Product Owner 同步本地 working copy；默认命令为：
@@ -49,6 +49,68 @@ git pull --ff-only origin main
 
 8. 若当次存在本地 tracked changes、二进制资产、Codex 并行工作或潜在冲突风险，提醒同步时应先要求检查 `git status`，不得机械执行覆盖。
 
+### 4.1 Execution Routing Rule｜Chat / Terminal / Codex 分工
+
+本规则适用于《诡舍·黑衣夫人》整个项目，不限于任何单一 Gate、AO 任务或当前阶段。
+
+执行工具选择以**最小必要执行面**为原则，不因为任务带有“工程”“脚本”“Git”字样就默认交给 Codex。
+
+#### Chat 优先
+
+以下工作默认由 Chat 完成：
+
+- 讨论、分析、方案设计、架构与流程设计；
+- 导演判断、Gate Review、风险判断、验收与决策支持；
+- Task Contract / Prompt / DoD / Rule 的设计与锁定；
+- Project Control、Governance、Decision / Rules Log 等可直接维护的 canonical 文档；
+- 当前 GitHub 能力可以直接安全完成的文本文件或轻量代码新增 / 修改；
+- 对终端输出、测试结果、Git 状态、脚本 dry-run 的判断与复核。
+
+如果 Chat 已能可靠完成设计、写入或 GitHub 同步，不得为了“使用 Codex”而把同一工作重复交给 Codex。
+
+#### Terminal 优先
+
+以下本地动作优先由 Product Owner 在 Chat 给出的明确命令下，通过 Terminal 执行，不单独创建 Codex 工程任务：
+
+- `git status / diff / rev-parse / ls-remote` 等状态检查；
+- `git-proxy-auto pull / fetch / push` 等已经验证的 Git 网络操作；
+- local working copy 同步；
+- 运行已有脚本、dry-run、validator、unit tests；
+- 已经在 Chat 完成设计、无需本地代码修改的确定性一次性执行；
+- 在变更范围明确且无复杂冲突时的 `git add / commit / push`。
+
+Terminal 只承担明确执行，不替代 Chat 的方案判断与结果审核。
+
+#### Codex 仅在确有本地工程必要时使用
+
+只有以下情况才默认进入 Codex：
+
+- 必须读取、创建、修改多个本地工程文件；
+- 需要理解本地代码库后进行实质代码实现或重构；
+- 需要 Remotion、媒体处理、Blender、本地脚本链或其他工程环境执行；
+- 需要多轮本地测试、调试、修复；
+- 需要 Git / 文件系统 / 本机应用环境的连续工程操作，且用 Chat + Terminal 会明显增加错误风险或人工操作成本。
+
+即使必须使用 Codex，也必须遵循：
+
+`Chat 完成思考 / 设计 / 边界 / 验收标准 → Codex 只执行明确工程任务 → Chat 审核结果并作项目判断`
+
+不得把开放式方案设计、产品判断或 Gate 决策外包给 Codex。
+
+#### 编号规则
+
+- 只有**实际交给 Codex 执行**的工程任务才占用 `D-###` 编号。
+- Chat 完成的代码设计 / GitHub 写入、Terminal 执行、审核、决策、Gate Review 均不占 `D-###`。
+- 已起草但最终未交给 Codex 执行的任务，不因为曾出现过候选编号而视为正式已消耗的 Codex 工程编号。
+
+#### GitHub / Local Sync 特别规则
+
+- Chat 能直接更新 canonical GitHub 的内容，优先由 Chat 写入。
+- 写入后需要本地同步时，优先由 Terminal 使用 `git-proxy-auto pull --ff-only origin main`。
+- 仅为 pull / push / SHA 核验 / 网络诊断而调用 Codex，原则上属于过度升级；除非出现必须依赖本地工程自动化或复杂故障定位的情况。
+
+Product Owner 可随时基于效率、风险或实际体验调整当次执行方式；本规则目标是减少不必要的 Codex 介入，同时保留其在真正本地工程任务中的价值。
+
 ## 5. Dashboard 规则
 
 - Dashboard 只展示当前管理和决策需要的信息。
@@ -59,8 +121,8 @@ git pull --ff-only origin main
 
 - **P0.x**：重启阶段的项目 Gate / 专项，不等同于 Codex 工程任务。
 - **D-###**：只用于实际交给 Codex 执行的工程任务。
-- ChatGPT 的讨论、审核、项目控制、Prompt 设计、Gate Review 不占 D 编号。
-- 当前实际 Codex 工程编号已到 D-065；下一项新的 Codex 工程任务从 D-066 继续。
+- ChatGPT 的讨论、审核、项目控制、Prompt 设计、Gate Review、GitHub 直接写入和 Terminal 指导执行不占 D 编号。
+- 当前实际 Codex 工程编号已到 D-065；下一项新的实际 Codex 工程任务从 D-066 继续。
 
 ## 7. 当前重启边界
 
