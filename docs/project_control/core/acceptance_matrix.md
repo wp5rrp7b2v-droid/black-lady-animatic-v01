@@ -18,7 +18,7 @@
 - `S2_SOURCE_BLACK_LADY_TEXT_V001.txt`：CANONICAL / LOCKED。
 - `AUDIO_MVP1_CANONICAL_V001.m4a`：CANONICAL / LOCKED / Product Owner QC PASSED。
 - `S3_SOURCE_AUDIO_BL_TRANSCRIPT_V001.csv`：完整覆盖 MVP1 searchable content，41 个 segment；9 个 VERIFIED，其他为 REVIEWED searchable entries。
-- 检索抽查覆盖开头 / 中段 / 后段，均唯一命中正确候选 segment。
+- 开头 / 中段 / 后段检索抽查均可唯一命中正确候选 segment。
 - S3 明确只承担 source-audio index / transcript / verification；`SOURCE AUDIO TC ≠ FINAL EDIT TC`。
 - 精确的 shot-driven 自动音频检索 / 提取能力移交 P0.3 验证。
 - **Product Owner 于 2026-09-12 明确批准 P0.1 正式 PASS。**
@@ -36,7 +36,7 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 7. 至少选择一个包含人物 + 场景 + 关键道具/服装的真实 Shot Spec，验证 Reference Resolver 能自动生成可追踪 Reference Package；
 8. Audit Trail 能从生成镜头反查当次实际使用的 Asset IDs / versions，并能从资产反查批准、替代、依赖和生产使用关系。
 
-### P0.2 Evidence Status｜2026-09-14 AO-02 verified
+### P0.2 Evidence Status｜2026-09-14 AO-07 approved
 
 | # | Evidence | 当前证据状态 |
 |---|---|---|
@@ -60,6 +60,17 @@ AO-02 completion evidence：
 - migration commit `4803b928baaa38d875e9c6edd46f4a458e627b61` remote verified；
 - Product Owner 于 2026-09-14 明确批准 AO-02。
 
+AO-07 completion evidence：
+
+- `gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md`
+- connectivity preflight / standard diagnosis order documented；
+- dynamic proxy + HTTP/1.1 fallback verified；
+- `ls-remote / pull / push / SHA truth check` verified；
+- `PENDING_REMOTE_PUBLICATION` / ACK loss / remote mismatch recovery rules documented；
+- transient failure → recovery satisfied by real incident evidence；
+- Product Owner 于 2026-09-14 明确批准 AO-07；
+- `RISK-001` 已降级为 `CONTROLLED / MITIGATION VERIFIED`。
+
 当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。下一正式 Closeout 任务为 AO-03。**
 
 ### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
@@ -72,13 +83,13 @@ Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前�
 4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness；
 5. AO-05｜Delivery Bridge：Reference Package → image-production environment；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
-7. AO-07｜GitHub Network Resilience / Recovery Method，对应 `RISK-001｜GitHub Connectivity Instability`。
+7. AO-07｜GitHub Network Resilience / Recovery Method — **COMPLETE / VERIFIED / PO APPROVED**。
 
 详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`；正式风险见 `logs/risk_register.md`。
 
-**在 AO-01～AO-07 全部 `COMPLETE / VERIFIED` 前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。**
+**当前 AO-01、AO-02、AO-07 已完成；AO-03～AO-06 仍未完成，因此 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT` 继续 HOLD。**
 
-满足以上技术条件后，P0.2 状态仍只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
+满足全部技术条件后，P0.2 状态仍只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
 
 ## P0 Gate Boundary
 
