@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R034",
+  "state_revision": "R035",
   "last_updated": "2026-09-14",
-  "session_status": "ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE VERIFIED; AO-03 NEXT",
+  "session_status": "ACTIVE / TEMP_CLOUD_ONLY_MODE_V1 APPROVED / AO-03 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。2026-09-16～2026-09-20 采用 TEMP_CLOUD_ONLY_MODE_V1 继续推进 AO-03～AO-06。"
   },
   "restart_tasks": [
     {
@@ -50,7 +50,7 @@
   ],
   "current_task": "P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec｜NEXT / NOT STARTED",
   "blocker": null,
-  "next_action": "在 Chat 中先完成 AO-03 的事实边界、数据结构与 Definition of Done 设计；只有确实需要本地多文件工程实现时才交给 Codex。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
+  "next_action": "AO-03 先在 Chat 中完成事实边界、数据结构与 Definition of Done；2026-09-16～2026-09-20 如需 repo 多文件工程实现，按 TEMP_CLOUD_ONLY_MODE_V1 交由 Codex Cloud。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -63,11 +63,41 @@
     "status": "LOCKED",
     "rule": "After every actual ChatGPT write/update to the canonical GitHub repo, the user-facing reply must remind Product Owner to sync the local working copy.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
-    "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
+    "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
+    "temporary_exception": {
+      "mode": "TEMP_CLOUD_ONLY_MODE_V1",
+      "status": "APPROVED / TIME-BOXED",
+      "effective_from": "2026-09-16",
+      "effective_until": "2026-09-20",
+      "override": "LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL",
+      "resume_rule": "Before any local formal production resumes, run git status, connectivity preflight, git pull --ff-only origin main, then local-vs-remote truth check."
+    }
+  },
+  "temporary_execution_mode": {
+    "id": "TEMP_CLOUD_ONLY_MODE_V1",
+    "status": "ACTIVE / TIME-BOXED",
+    "approved_by": "PRODUCT OWNER",
+    "approved_on": "2026-09-14",
+    "effective_from": "2026-09-16",
+    "effective_until": "2026-09-20",
+    "scope": "P0.2 Approved-but-Open closeout only: AO-03 → AO-04 → AO-05 → AO-06",
+    "ssot": "GitHub main/docs/project_control/",
+    "chatgpt_app_role": "analysis / design / Task Contract / review / prompt / Product Owner decision",
+    "codex_cloud_role": "repo multi-file engineering / registry / resolver / scripts / tests / reference-package work / commit + push",
+    "github_web_app_role": "SSOT reading / diff / commit / remote publication review",
+    "local_mac_status": "TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS",
+    "local_asset_block_status": "BLOCKED_LOCAL_ASSET",
+    "validation_rule": "AO-03..AO-06 DoD is not lowered; no reconstruction, guessing, duplicate asset/version, or simulated-result-as-real-validation",
+    "p0_3_rule": "DO NOT START EARLY",
+    "p1_wave2_rule": "HOLD UNTIL AO-03..AO-06 COMPLETE / VERIFIED",
+    "long_term_routing_rule": "RC-015 RETAINED / NOT SUPERSEDED",
+    "rule_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
+    "decision_id": "BL-D-031",
+    "rules_change_id": "RC-018"
   },
   "latest_checkpoint": {
-    "id": "2026-09-14-P0.2-AO07-PO-APPROVED",
-    "status": "ACTIVE / AO-03 NEXT",
+    "id": "2026-09-14-TEMP-CLOUD-ONLY-MODE-V1-APPROVED",
+    "status": "TEMP_CLOUD_ONLY_MODE_V1 / ACTIVE / AO-03 NEXT",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -147,7 +177,10 @@
       "AO-02 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED",
       "AO-07 Recovery Runbook completed and technically verified",
       "AO-07 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED",
-      "RISK-001 downgraded from OPEN to CONTROLLED / MITIGATION VERIFIED under BL-D-030"
+      "RISK-001 downgraded from OPEN to CONTROLLED / MITIGATION VERIFIED under BL-D-030",
+      "TEMP_CLOUD_ONLY_MODE_V1 approved by Product Owner on 2026-09-14 for 2026-09-16 through 2026-09-20",
+      "BL-D-031 and RC-018 lock the time-boxed cloud-only execution mode without superseding RC-015",
+      "Local sync temporarily deferred during 2026-09-16 through 2026-09-20; GitHub main remains canonical"
     ],
     "resume_from": "P0.2-04｜AO-03｜NEXT / NOT STARTED",
     "blockers": []
@@ -166,6 +199,7 @@
     "ao02_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md",
     "ao07_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md",
     "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
+    "temporary_cloud_only_mode_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
     "character_storage_root": "production/image_library/character_references/",
     "character_migration_manifest_csv": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.csv",
     "character_migration_manifest_json": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.json",
@@ -363,21 +397,21 @@
     "codex_engineering_tasks": "D-###",
     "last_known_codex_task": "D-066",
     "next_codex_task_when_needed": "D-067",
-    "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not."
+    "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V014",
+    "version": "V015",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / P1 WAVE 2 HOLD"
+    "status": "TEMP_CLOUD_ONLY_MODE_V1 / AO-03 NEXT / AO-03..AO-06 REMAIN / P1 WAVE 2 HOLD"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；AO-07 Network Resilience 已完成。完成后恢复 P1 Character Gap Production。",
+  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud + GitHub 推进，DoD 不降级。完成后恢复 P1 Character Gap Production。",
   "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
