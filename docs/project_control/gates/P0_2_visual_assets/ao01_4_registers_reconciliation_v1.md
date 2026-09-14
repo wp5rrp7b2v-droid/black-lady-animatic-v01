@@ -1,6 +1,6 @@
 # AO-01｜Four legacy registers reconciliation V1
 
-Status: `INCOMPLETE / PO DECISION REQUIRED`
+Status: `COMPLETE / PENDING_REMOTE_PUBLICATION`
 
 Evidence date: 2026-09-14
 
@@ -27,12 +27,12 @@ The `107` image-library figure in `asset_authority_audit.md` is an older audit s
 
 | Register | Current role / disposition | Authority and successor |
 |---|---|---|
-| `SHOT_REGISTER.csv` | **HISTORICAL EVIDENCE / CURRENT OPERATIONAL ROLE UNVERIFIED**. It may contain Shot membership/composition facts. Retain if recovered; do not archive or replace its production role without inspection. | Canonical Shot ID and schema rules are locked; operational Shot Register/Shot Spec is not supplied by this CSV in the current worktree. |
-| `ASSET_REGISTER.csv` | **SUPERSEDED BY RUNTIME REGISTRY / HISTORICAL EVIDENCE**, provisional pending source inspection. | Runtime `asset_registry.jsonl`, `asset_relations.jsonl`, `audit_event_log.jsonl` for formal long-term assets. It cannot override those records. |
-| `IMAGE_REGISTER.csv` | **MIGRATION / APPROVAL PROVENANCE EVIDENCE ONLY**, provisional pending source inspection. | D-059 Manifest records selected legacy-to-canonical Character mappings. Runtime Registry is the long-term successor; AO-02 handles the 48 approved legacy records. |
-| `IMAGE_RENAME_MANIFEST.csv` | **RENAME EVIDENCE ONLY / HISTORICAL EVIDENCE**, provisional pending source inspection. | D-059 Manifest currently provides legacy/uploaded/canonical names and paths for Character migration. Actual old rename rows and completion flags cannot be confirmed. |
+| `SHOT_REGISTER.csv` | **HISTORICAL EVIDENCE / NO LONGER CURRENT SHOT AUTHORITY**. Original rows are unavailable. | Current Shot composition will be established from PO-approved formal Shots, canonical assets, Project Control, and current Scene/Character/Costume/Prop/State facts in formal Shot Specs; AO-06 validates that workflow. |
+| `ASSET_REGISTER.csv` | **SUPERSEDED BY LONG-TERM / RUNTIME REGISTRY / HISTORICAL EVIDENCE**. | Runtime `asset_registry.jsonl`, `asset_relations.jsonl`, `audit_event_log.jsonl` for formal long-term assets. It cannot override those records. |
+| `IMAGE_REGISTER.csv` | **HISTORICAL APPROVAL / MIGRATION SOURCE EVIDENCE ONLY; NO LONGER RUNTIME REGISTRY**. | D-059 Manifest records selected legacy-to-canonical Character mappings. Runtime Registry is the long-term successor; AO-02 handles the 48 approved legacy records. |
+| `IMAGE_RENAME_MANIFEST.csv` | **HISTORICAL RENAME EVIDENCE ONLY**. | D-059 Manifest currently provides legacy/uploaded/canonical names and paths for Character migration. Actual old rename rows and completion flags cannot be confirmed. |
 
-No absent legacy CSV is declared current authority. These dispositions preserve potentially unique Shot facts while avoiding a silent promotion of missing sources.
+Product Owner decision BL-D-028 removes all four unavailable CSVs from current production authority. Original CSVs are not reconstructed or inferred. If recovered later, their historical rows can be reviewed without automatically restoring authority.
 
 ## Reconciliation performed against available sources
 
@@ -49,15 +49,15 @@ No absent legacy CSV is declared current authority. These dispositions preserve 
 | Finding | Observed result | Disposition |
 |---|---|---|
 | Authority conflict in available formal sources | 0 observed | Runtime and schema remain authoritative. Missing old CSVs prevent an all-source conflict exclusion. |
-| Orphan old-register rows / duplicate old-register rows | **UNKNOWN** | Requires original rows; no zero finding asserted. |
+| Orphan old-register rows / duplicate old-register rows | **UNKNOWN / SOURCE UNAVAILABLE** | PO accepts this durable evidence limit; no zero finding asserted. |
 | Orphan canonical Character PNGs | 0 of 51 | All referenced by Manifest or Runtime. |
 | Duplicate Current in available sources | 0 | Ning V001 is `SUPERSEDED`; V002 alone is Current. Missing CSV contents still cannot be checked. |
-| Stale paths / stale filenames in available canonical references | 0 confirmed | Legacy names in Manifest are intentional history; status of missing rename register is unknown. |
-| Unresolved mappings | Neil `REAR_TURN_45` one `MAPPING_REQUIRED`; plus four unavailable CSV source inventories | Neil stays excluded from canonical storage; old-row mapping checks await source or explicit PO scope decision. |
+| Stale paths / stale filenames in available canonical references | 0 confirmed | Original register rows: **UNKNOWN / SOURCE UNAVAILABLE**. Legacy names in Manifest are intentional history. |
+| Unresolved mappings | Neil `REAR_TURN_45` one `MAPPING_REQUIRED`; four original CSVs unavailable | Neil stays excluded from canonical storage; legacy-row details remain **UNKNOWN / SOURCE UNAVAILABLE**, accepted by BL-D-028. |
 | Manifest / Runtime coverage | 48 Manifest-only D-059 assets | AO-02, explicitly out of scope here. |
 
-## Unresolved items and completion assessment
+## Product Owner decision and completion assessment
 
-Four source files are unavailable, and reachable Git history contains no copies. Consequently their exact paths, row counts, headers, hashes, row-to-file links, Shot composition facts, rename completion, orphan rows, and duplicate rows cannot be verified. The four source dispositions above are limited to roles supported by Project Control evidence; they are not a claim of row-level final reconciliation. This prevents AO-01 completion conditions 1, 3–4, and 7–8 from being fully evidenced.
+BL-D-028 (2026-09-14) accepts the verified absence of all four legacy CSVs in the current worktree, untracked files, and currently obtainable Git history. It explicitly waives reconstruction and legacy-row inspection as AO-01 completion requirements. Their internal orphan rows, duplicate rows, stale paths/names, row counts, headers, and hashes remain **UNKNOWN / SOURCE UNAVAILABLE**, never zero. All four leave current production authority. Current Character migration facts come from the D-059 Manifest and canonical storage; formal Runtime facts come from the long-term Registry. Current Shot composition will be rebuilt in formal Shot Specs from approved Shots and current facts, then validated in AO-06. No missing old Shot Register blocks AO-01. This decision does not authorize AO-02.
 
-**AO-01 remains `INCOMPLETE / PO DECISION REQUIRED`.** The Product Owner must either provide the four original CSVs or explicitly decide that an evidence-only reconciliation with unavailable legacy sources is sufficient, including how unique Shot composition information will be recovered or represented. Until then, AO-01 stays open, AO-02 is the named next action but is **not started**, and P1 Wave 2 stays on HOLD. No Project Control completion state/revision is advanced by this incomplete assessment.
+The available-source reconciliation, dispositions, tests, and Project Control consistency checks are complete. **AO-01 is `COMPLETE / PENDING_REMOTE_PUBLICATION` until this updated completion evidence is published and HEAD is verified equal to `origin/main`.** Only then may it be marked `COMPLETE / VERIFIED` and AO-02 become executable. P0.2 remains ACTIVE; P1 Wave 2 remains on HOLD.

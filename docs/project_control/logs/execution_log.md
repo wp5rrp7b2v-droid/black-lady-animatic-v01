@@ -248,3 +248,12 @@ Status: `COMPLETE / CONTINUE P1`
 - 当前 Codex 工程编号已到 D-065；下一新的工程任务编号从 D-066 继续。
 - Current blocker：NONE。
 - 非阻塞技术债：Resolver regression test 仍写死旧 Asset ID；后续应改为断言当前有效版本语义。
+
+## D-066｜AO-01 Four Registers Final Reconciliation｜2026-09-14
+
+Status: `COMPLETE / PENDING_REMOTE_PUBLICATION`
+
+- Four named legacy CSVs unavailable in current worktree, untracked files, and reachable Git history; no reconstruction. Baseline evidence commit `0bdb5798f4cd8c9ce82d4c9d9ae65d5a9503d67c` published to origin/main after an initial network failure.
+- BL-D-028 locks all four out of Current authority; old-row orphan/duplicate/path/naming checks remain `UNKNOWN / SOURCE UNAVAILABLE`.
+- Available 48 D-059 canonical PNGs and 3 Runtime PNGs verified; 39 tests pass; no duplicate Current. Current Shot Spec validation remains AO-06.
+- Project Control cross-file closeout recorded; updated evidence publication and HEAD/origin-main verification still required. AO-02 not started; P1 Wave 2 HOLD.

@@ -50,6 +50,8 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `d060_reference_package_exporter_v0_1_test.md`
 - `automatic_ingest_controller_v0_1_first_live_ingest.md`
 - `approved_open_tasks_v1.md`
+- `ao01_4_registers_reconciliation_v1.md`
+- `ao01_register_disposition_v1.csv`
 - `../../logs/risk_register.md`
 
 ## 当前任务
@@ -60,7 +62,7 @@ Authority Mini-Close 已锁定。D-059 已将 48 张 approved Character referenc
 
 P0.2 Gate Review 前仍需：
 
-1. 旧 4 份 canonical register 与实际图库实体完成最终工程对账；
+1. AO-01 已按 BL-D-028 完成可取得证据的对账，四份旧表退出 Current authority；远端发布验证前状态为 `COMPLETE / PENDING_REMOTE_PUBLICATION`；
 2. 两张 Scene Master 的事实字段结构化；
 3. 将 Scene / Costume / Prop / Variant 规则落实到可执行 Registry / Spec；
 4. 用真实 Shot Spec（至少人物 + 场景 + 关键服装/道具）验证 Reference Resolver 与 Audit reverse-trace。
@@ -132,11 +134,11 @@ P1/P2/P3 仅表示 Character Gap Production Priority，不是项目 Gate / Phase
 
 ### P0.2-04｜Approved-but-Open System Closeout
 
-Status: `NEXT / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 PENDING_REMOTE_PUBLICATION / MANDATORY BEFORE P1 WAVE 2`
 
 Product Owner 于 2026-09-13 明确要求：以下 7 项已经批准/锁定但尚未执行完成的任务必须先补齐；在全部形成 `COMPLETE / VERIFIED` 证据前，不开启 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`。
 
-1. AO-01｜旧 4 份 canonical register 与实际图库最终对账；
+1. AO-01｜按 BL-D-028 完成可取得证据的旧表对账；远端发布验证待完成；
 2. AO-02｜D-059 的 48 张 legacy Character assets 进入长期 Registry / Audit 模型；
 3. AO-03｜两张 Scene Master 事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
 4. AO-04｜完成 9 个 Derived Character Reference Sheets 与 dependency / staleness 验证；

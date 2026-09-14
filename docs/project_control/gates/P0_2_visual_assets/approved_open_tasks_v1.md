@@ -20,6 +20,11 @@ Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为下一次正
 
 ### AO-01｜4 Canonical Registers Final Reconciliation
 
+Status: `COMPLETE / PENDING_REMOTE_PUBLICATION` (BL-D-028; verification requires updated evidence on origin/main).
+
+四份旧 CSV 当前均不可取得，Product Owner 决定其退出 Current authority。旧表内部孤儿行、重复行、旧路径/命名一律 `UNKNOWN / SOURCE UNAVAILABLE`；不重建旧表。Current Shot composition 由正式 Shot Spec 重建并在 AO-06 验证。AO-02 在 AO-01 远端验证前不得开始。
+
+
 核对：
 
 - `SHOT_REGISTER.csv`
@@ -162,4 +167,4 @@ AO-07 可在 AO-01～AO-06 的工程执行过程中同步收集真实网络故�
 
 ## Non-blocking technical debt
 
-Resolver regression test 当前仍有一项旧断言写死 `AST_IMG_000049`。该技术债应在本轮工程 Closeout 中顺手修正为“断言当前有效版本语义”，但它不替代 AO-01～AO-07 中任何一项。
+Resolver regression test 已在 AO-01 改为断言 `AST_IMG_000050` 为 CURRENT V002、`AST_IMG_000049` 为 SUPERSEDED，但它不替代 AO-01～AO-07 中任何一项。
