@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R032",
+  "state_revision": "R033",
   "last_updated": "2026-09-14",
-  "session_status": "ACTIVE / AO-01 VERIFIED; AO-02 NOT STARTED",
+  "session_status": "ACTIVE / AO-01 + AO-02 COMPLETE VERIFIED; AO-03 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水P1 Wave 1已完成，live Core Coverage=42/63（66.7%），P1=2/10。Product Owner 已锁定 7 项 Approved-but-Open 系统任务为强制前置 Closeout；AO-01～AO-07 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 GitHub Connectivity Instability 当前为 OPEN / HIGH OPERATIONAL RISK，由 AO-07 负责建立并验证恢复方法。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01 与 AO-02 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-01～AO-07 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 GitHub Connectivity Instability 仍需 AO-07 正式完成与审批。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-01｜4 Canonical Registers Final Reconciliation COMPLETE / VERIFIED；AO-02 是下一任务，本次决定未授权开始。",
+  "current_task": "P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec｜NEXT / NOT STARTED",
   "blocker": null,
-  "next_action": "AO-02｜Legacy Character Assets → Long-term Registry / Audit（NEXT / NOT STARTED；本次 Product Owner 决定不授权执行）。P1 Wave 2 继续 HOLD，直到 AO-01～AO-07 全部 COMPLETE / VERIFIED。",
+  "next_action": "在 Chat 中先完成 AO-03 的事实边界、数据结构与 Definition of Done 设计；只有确实需要本地多文件工程实现时才交给 Codex。P1 Wave 2 继续 HOLD，直到 AO-01～AO-07 全部 COMPLETE / VERIFIED。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -66,8 +66,8 @@
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
   },
   "latest_checkpoint": {
-    "id": "2026-09-13-P0.2-AO07-GITHUB-RISK-LOCKED",
-    "status": "ACTIVE / EOD CHECKPOINT",
+    "id": "2026-09-14-P0.2-AO02-PO-APPROVED",
+    "status": "ACTIVE / AO-03 NEXT",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -137,13 +137,20 @@
       "approved_open_tasks_v1.md created as mandatory pre-Wave2 checklist",
       "BL-D-027 locked: AO-07 GitHub Network Resilience / Recovery Method added to mandatory pre-Wave2 closeout",
       "RISK-001 GitHub Connectivity Instability registered as OPEN / HIGH OPERATIONAL RISK",
-      "BL-D-028 PO accepted four unavailable legacy registers as non-authoritative; AO-01 evidence-only reconciliation completed pending remote publication"
+      "BL-D-028 PO accepted four unavailable legacy registers as non-authoritative; AO-01 COMPLETE / VERIFIED",
+      "RC-015 project-wide execution routing locked: Chat first, Terminal for lightweight local execution, Codex only when local engineering environment is materially required",
+      "AO-02 Design V1 locked and implemented without Codex",
+      "AO-02 migrated 48 D-059 CONFIRMED + APPROVED legacy Character assets to AST_IMG_000001..AST_IMG_000048",
+      "AO-02 preserved runtime AST_IMG_000049..000051 and validated Single Current / SHA / storage",
+      "AO-02 migration commit 4803b928baaa38d875e9c6edd46f4a458e627b61 REMOTE VERIFIED",
+      "AO-02 idempotency + rollback tests 5/5 PASS",
+      "AO-02 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED"
     ],
-    "resume_from": "P0.2-04｜AO-02｜NEXT / NOT STARTED",
+    "resume_from": "P0.2-04｜AO-03｜NEXT / NOT STARTED",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -153,12 +160,17 @@
     "authority_audit_path": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md",
     "registry_schema_path": "docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
     "migration_completion_path": "docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md",
+    "ao02_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md",
     "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "character_storage_root": "production/image_library/character_references/",
     "character_migration_manifest_csv": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.csv",
     "character_migration_manifest_json": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.json",
     "character_migration_remote_commit": "d9fb763fb63e57023aa2cf11119c9be1bef037d6",
     "character_migration_published_png_count": 48,
+    "legacy_registry_migration_status": "AO-02 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "legacy_registry_asset_id_range": "AST_IMG_000001..AST_IMG_000048",
+    "runtime_asset_ids_preserved": ["AST_IMG_000049", "AST_IMG_000050", "AST_IMG_000051"],
+    "asset_registry_record_count": 51,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -262,8 +274,6 @@
       "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
     },
     "remaining_checks": [
-      "AO-01 COMPLETE / VERIFIED under BL-D-028; source-internal checks UNKNOWN / SOURCE UNAVAILABLE",
-      "AO-02 Move 48 approved legacy Character assets from migration-readable state into long-term Registry / Audit identity without duplicate Current",
       "AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
@@ -280,6 +290,9 @@
     "execution_order": ["AO-01", "AO-02", "AO-03", "AO-04", "AO-05", "AO-06", "AO-07"],
     "ao01_status": "COMPLETE / VERIFIED",
     "ao01_decision_id": "BL-D-028",
+    "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
+    "next_task": "AO-03",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after all seven are COMPLETE / VERIFIED"
   },
   "risk_register": {
@@ -343,22 +356,23 @@
   "task_numbering": {
     "project_restart_gates": "P0.x",
     "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-065",
-    "next_codex_task_when_needed": "D-066"
+    "last_known_codex_task": "D-066",
+    "next_codex_task_when_needed": "D-067",
+    "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V010",
+    "version": "V013",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "APPROVED-OPEN CLOSEOUT + RISK-001 / P1 WAVE 2 HOLD"
+    "status": "AO-01 + AO-02 COMPLETE / AO-03 NEXT / P1 WAVE 2 HOLD"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成 Approved-but-Open System Closeout：补齐已经批准但尚未执行完成的 Registry、Scene/Variant、Reference Sheet、Delivery Bridge、真实 Shot-level Resolver/Audit 与 GitHub Network Resilience / Recovery 能力，再恢复 P1 Character Gap Production。",
+  "stage_goal": "完成剩余 Approved-but-Open System Closeout：从 AO-03 开始补齐 Scene/Variant、Reference Sheet、Delivery Bridge、真实 Shot-level Resolver/Audit 与 GitHub Network Resilience / Recovery 能力，再恢复 P1 Character Gap Production。",
   "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
