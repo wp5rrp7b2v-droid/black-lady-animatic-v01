@@ -4,13 +4,92 @@ Status: `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`
 
 ## 当前目标
 
-P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset Management System V1**，并把现有《黑衣夫人》视觉资产迁移到统一治理模型中。
+P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有《黑衣夫人》视觉资产迁移到统一治理模型中。
 
 当前锁定的系统方向：
 
 `Entity → Atomic Master Assets → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail`
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
+
+## 当前正式状态｜2026-09-14
+
+- AO-01：`COMPLETE / VERIFIED`
+- AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- AO-03：`NEXT / NOT STARTED`
+- AO-04：PENDING
+- AO-05：PENDING
+- AO-06：PENDING
+- AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- RISK-001：`CONTROLLED / MITIGATION VERIFIED`
+- P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED`
+
+下一正式任务：
+
+`P0.2-04｜AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant Executable Spec`
+
+## TEMP_CLOUD_ONLY_MODE_V1
+
+Status: `ACTIVE / TIME-BOXED / 2026-09-16—2026-09-20`
+
+Product Owner 于 2026-09-14 批准临时纯云端执行模式。
+
+正式规则文件：
+
+`temp_cloud_only_mode_v1.md`
+
+Decision：`BL-D-031`
+
+Rules Change：`RC-018`
+
+### 临时模式目标
+
+16～20 日只推进剩余 P0.2 主依赖链：
+
+`AO-03 → AO-04 → AO-05 → AO-06`
+
+不得因为本地 Mac 暂不可稳定使用而：
+
+- 提前进入 P0.3；
+- 提前解除 P1 Wave 2 HOLD；
+- 降低 AO-03～AO-06 Definition of Done；
+- 重建、猜测或伪造当前无法取得的 local-only 正式资产。
+
+### 临时工具分工
+
+**ChatGPT App**
+
+- 分析、方案、Schema、Task Contract、DoD；
+- 审核、Prompt、Product Owner 决策；
+- Project Control 轻量文本维护。
+
+**Codex Cloud**
+
+- 确有必要的 repo 多文件工程修改；
+- Registry / Resolver / scripts / tests / JSON / Markdown；
+- Reference Package / Derived Reference Sheet 工程产物；
+- commit + push。
+
+**GitHub Web / App**
+
+- SSOT 阅读；
+- diff / commit / remote publication 核验。
+
+**Local Mac / Terminal**
+
+`TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS`
+
+### RC-015 与本地同步
+
+`RC-015` 保持 `ACTIVE / PROJECT-WIDE EXECUTION ROUTING LOCKED`，本临时模式不替代 RC-015。
+
+`RC-012` 亦不被删除或 supersede，但 2026-09-16～2026-09-20 临时执行：
+
+`LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL`
+
+恢复本地 Mac 后，在任何正式本地生产前必须先完成：
+
+`git status → connectivity preflight → git pull --ff-only origin main → local/remote truth check`
 
 ## 已锁定项目级规则
 
@@ -22,45 +101,16 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - 正常生产目标为 `Shot / Task Spec → Reference Resolver → Reference Package`；
 - 正式资产的来源、审批、版本、替代、依赖与生产调用必须有 Audit Trail；
 - Entity / Asset Registry Schema V0.3 已由 Product Owner 于 2026-09-13 批准锁定；
-- canonical Shot ID 不继承历史 `REBOOT` 标签；多人物 Shot 仍为 Shot-bound Asset，人物组成由 Shot Register / Shot Spec 表达；
-- Entity-bound / Shot-bound filename 均包含 Role + Variant + State + Version；
-- 9 名正式角色 Tier Assignment V1 已锁定；
-- Character Asset Gap Mapping V1 已完成实图核对并落档；
-- Character Atomic / Auxiliary production reference 目标画幅锁定为 9:16；
+- canonical Shot ID 不继承历史 `REBOOT` 标签；
+- Character Atomic / Auxiliary production reference 目标画幅为 9:16；
 - 图片生成后由 Product Owner 发送 `【审核】` 触发 Fixed Standard Review；
-- D-059 Character Asset Migration V1 已完成并远端验证：48 张 canonical PNG + CSV/JSON Migration Mapping Manifest 已发布；
+- D-059 Character Asset Migration V1 已完成并远端验证；
 - D-060 Reference Package Exporter V0.1 已验证自动选图 + 本地 Reference Package；
-- D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime asset resolution、受控 Current supersession 与 macOS launcher；
-- AO-01 已 COMPLETE / VERIFIED；
-- AO-02 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED：48 个 legacy Character assets 已正式进入长期 Registry / Audit；
-- AO-07 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED：GitHub connectivity recovery runbook、动态 proxy / HTTP/1.1 fallback、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch 与 failure→recovery 已验证；
-- RISK-001 已从 OPEN 降级为 `CONTROLLED / MITIGATION VERIFIED`；
-- RC-015 已锁定项目级 Execution Routing：Chat 优先，Terminal 负责轻量本地执行，只有真正需要本地工程环境时才交给 Codex。
+- D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime resolution、Controlled Current Supersession 与 macOS launcher；
+- RC-015 长期 Execution Routing 保持锁定；
+- RC-017 GitHub Network Recovery Runbook 已锁定并经 AO-07 验证。
 
-详细规则与当前基线见：
-
-- `visual_asset_management_system_v1.md`
-- `character_asset_rules_v1.md`
-- `character_tier_assignment_v1.md`
-- `character_asset_gap_mapping_v1.md`
-- `character_gap_live_progress_v1.md`
-- `character_gap_priority_v1.md`
-- `asset_naming_rules_v1.md`
-- `asset_authority_audit.md`
-- `entity_asset_registry_schema_v0_3.md`
-- `d059_character_asset_migration_v1_completion.md`
-- `d060_reference_package_exporter_v0_1_test.md`
-- `automatic_ingest_controller_v0_1_first_live_ingest.md`
-- `approved_open_tasks_v1.md`
-- `ao01_4_registers_reconciliation_v1.md`
-- `ao01_register_disposition_v1.csv`
-- `ao02_legacy_asset_registry_migration_v1.md`
-- `ao07_github_network_resilience_progress_v1.md`
-- `../../logs/risk_register.md`
-
-## 当前任务
-
-### P0.2-01｜Visual Asset Authority Audit
+## P0.2-01｜Visual Asset Authority Audit
 
 Authority Mini-Close 已锁定。D-059 已将 48 张 approved Character references 迁入 canonical GitHub storage，并发布 Migration Mapping Manifest。
 
@@ -75,7 +125,7 @@ P0.2 Gate Review 前仍需：
 
 AO-07 已提前完成，不再属于 remaining checks。
 
-### P0.2-02｜Visual Asset Management System V1 Design
+## P0.2-02｜Visual Asset Management System V1 Design
 
 已完成并锁定：
 
@@ -94,7 +144,7 @@ AO-07 已提前完成，不再属于 remaining checks。
 - Character image 9:16 Format Compliance；
 - Fixed Standard Review。
 
-### P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
+## P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
 Tier Assignment：
 
@@ -126,9 +176,9 @@ Character Asset Gap Mapping V1 历史基线：
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-03～AO-06 全部完成且 Approved-but-Open Resume Lock 解除。
+P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-03～AO-06 全部完成且 Resume Lock 解除。
 
-### P0.2-04｜Approved-but-Open System Closeout
+## P0.2-04｜Approved-but-Open System Closeout
 
 Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE 2`
 
@@ -140,41 +190,48 @@ Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / MANDATORY BEFORE
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
 7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
 
-AO-02 completion evidence：`ao02_legacy_asset_registry_migration_v1.md`。
-AO-07 completion evidence：`ao07_github_network_resilience_progress_v1.md`。
+## AO-03 Temporary-mode boundary
 
-## AO-02｜Legacy Registry Migration
+正式对象至少包括：
 
-Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
+- `CASTLE_ENTRANCE_OPEN_DOOR_DAY`
+- `FIRST_HALL_FIREPLACE`
 
-- 48 / 48 eligible D-059 legacy Character assets migrated；
-- deterministic Asset ID range = `AST_IMG_000001–000048`；
-- Runtime `AST_IMG_000049–000051` preserved；
-- Asset Registry = `51` records；
-- Asset Relations = `2` records；
-- Audit Event Log = `56` records；
-- Single Current / SHA / storage validation PASS；
-- D-059 Manifest and Character PNGs unchanged；
-- idempotency / rollback tests = `5/5 PASS`；
-- migration commit = `4803b928baaa38d875e9c6edd46f4a458e627b61` / REMOTE VERIFIED；
-- Product Owner explicitly approved AO-02 on 2026-09-14；
-- AO-02 used Chat + Terminal and therefore consumed no new Codex D-### number。
+只允许结构化已有正式批准事实。如 Scene Master 原图无法从云端取得，未核验字段必须写：
 
-## AO-07｜GitHub Network Resilience / Recovery Method
+`SOURCE_ASSET_VALIDATION_PENDING`
 
-Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
+不得凭 Chat 记忆重新推断视觉细节或重新生成替代 Scene Master。
 
-- dynamic `git-proxy-auto` real connectivity path verified；
-- HTTP/1.1 fallback verified；
-- `ls-remote / pull / push / SHA truth check` verified；
-- `PENDING_REMOTE_PUBLICATION` workflow documented；
-- ACK loss / remote mismatch handling documented；
-- real transient failure → recovery evidence accepted；
-- lightweight Recovery Runbook completed；
-- Product Owner explicitly approved AO-07 on 2026-09-14；
-- RISK-001 downgraded to `CONTROLLED / MITIGATION VERIFIED`。
+## AO-04 Temporary-mode boundary
 
-## D-059～D-065｜Character Automation Baseline
+9 名 Character Derived Reference Sheet 必须基于 GitHub 当前 `CURRENT` Atomic Assets 自动生成，并记录明确 `derived_from Asset IDs / versions`，验证 `DEPENDENCY_STALE`。
+
+## AO-05 Temporary-mode boundary
+
+只有真实 `Reference Package → actual image-production environment` 验证通过后才能 `COMPLETE / VERIFIED`。
+
+仅工程实现完成时必须保留：
+
+`ENGINEERING COMPLETE / VALIDATION PENDING`
+
+## AO-06 Temporary-mode boundary
+
+必须真实完成：
+
+`Shot Spec → Resolver → traceable Reference Package → Actual Production Use → USES_REFERENCE → Audit Trail`
+
+缺少真实 generation/use 时必须保持：
+
+`ENGINEERING COMPLETE / END-TO-END VALIDATION PENDING`
+
+## Risk Alert｜RISK-001 GitHub Connectivity Instability
+
+Status: `CONTROLLED / MITIGATION VERIFIED`
+
+AO-07 已完成并经 Product Owner 批准。动态 `git-proxy-auto`、HTTP/1.1 fallback、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch 与真实 failure→recovery 均已有正式 Runbook 与验证证据。
+
+## D-059～D-066｜Engineering Baseline
 
 - D-059｜Character Asset Migration V1 — COMPLETE / REMOTE VERIFIED
 - D-060｜Reference Package Exporter V0.1 — TEST APPROVED / PO APPROVED
@@ -185,7 +242,7 @@ Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
 - D-065｜macOS Bash Launcher Fix — COMPLETE / REMOTE VERIFIED
 - D-066｜AO-01 Four Registers Final Reconciliation — COMPLETE / VERIFIED
 
-下一 Codex 工程编号仅在确实需要 Codex 执行时使用：`D-067`。
+下一 Codex 工程编号仅在确实交给 Codex 执行时使用：`D-067`。
 
 ## 当前执行基线
 
@@ -197,19 +254,13 @@ P1 按人物整组推进：
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
 
-当前日常 Character 生产链：
-
-`Reference Resolver / Package → Generation → 【审核】→ PO Approval → local final PNG → Black_Lady_Ingest.command → Registry / Audit / Git publication`
-
-真正的 generation environment → local/GitHub Delivery Bridge 尚未完成，由 AO-05 负责。
-
 ## 下一步
 
 下一正式任务：
 
 `P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec`
 
-首先在 Chat 内完成事实边界、数据模型、Definition of Done 与实现需求判断；只有确实需要本地多文件工程实现时才交给 Codex。
+先在 Chat 完成事实边界、数据模型与 Definition of Done；在 TEMP_CLOUD_ONLY_MODE_V1 有效期内，如需要 repo 多文件工程实现则交给 Codex Cloud。
 
 ## Gate Approval
 
