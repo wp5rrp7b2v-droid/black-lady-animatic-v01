@@ -33,6 +33,8 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime asset resolution、受控 Current supersession 与 macOS launcher；
 - AO-01 已 COMPLETE / VERIFIED；
 - AO-02 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED：48 个 legacy Character assets 已正式进入长期 Registry / Audit；
+- AO-07 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED：GitHub connectivity recovery runbook、动态 proxy / HTTP/1.1 fallback、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch 与 failure→recovery 已验证；
+- RISK-001 已从 OPEN 降级为 `CONTROLLED / MITIGATION VERIFIED`；
 - RC-015 已锁定项目级 Execution Routing：Chat 优先，Terminal 负责轻量本地执行，只有真正需要本地工程环境时才交给 Codex。
 
 详细规则与当前基线见：
@@ -53,6 +55,7 @@ P0.2 不再只做“图库整理”，而是建立可规模化的 **Visual Asset
 - `ao01_4_registers_reconciliation_v1.md`
 - `ao01_register_disposition_v1.csv`
 - `ao02_legacy_asset_registry_migration_v1.md`
+- `ao07_github_network_resilience_progress_v1.md`
 - `../../logs/risk_register.md`
 
 ## 当前任务
@@ -68,8 +71,9 @@ P0.2 Gate Review 前仍需：
 1. AO-03：两张 Scene Master 的事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
 2. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
 3. AO-05：Delivery Bridge；
-4. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace；
-5. AO-07：GitHub Network Resilience / Recovery Method 正式完成与验证。
+4. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
+
+AO-07 已提前完成，不再属于 remaining checks。
 
 ### P0.2-02｜Visual Asset Management System V1 Design
 
@@ -122,11 +126,11 @@ Character Asset Gap Mapping V1 历史基线：
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 Approved-but-Open Resume Lock 解除。
+P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-03～AO-06 全部完成且 Approved-but-Open Resume Lock 解除。
 
 ### P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 + AO-02 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE 2`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
@@ -134,9 +138,10 @@ Status: `ACTIVE / AO-01 + AO-02 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE
 4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness；
 5. AO-05｜Delivery Bridge；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
-7. AO-07｜GitHub Network Resilience / Recovery Method。
+7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
 
 AO-02 completion evidence：`ao02_legacy_asset_registry_migration_v1.md`。
+AO-07 completion evidence：`ao07_github_network_resilience_progress_v1.md`。
 
 ## AO-02｜Legacy Registry Migration
 
@@ -155,11 +160,19 @@ Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
 - Product Owner explicitly approved AO-02 on 2026-09-14；
 - AO-02 used Chat + Terminal and therefore consumed no new Codex D-### number。
 
-## Risk Alert｜RISK-001 GitHub Connectivity Instability
+## AO-07｜GitHub Network Resilience / Recovery Method
 
-Status: `OPEN / AO-07 NOT YET FORMALLY CLOSED`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
 
-动态 `git-proxy-auto` 已在本仓库完成 `ls-remote / pull / push / SHA truth check` 成功验证，说明网络恢复方向有效；但 AO-07 的正式 Runbook、受控 failure→recovery evidence 与 Product Owner closeout 尚未完成，因此不得把风险写成 CLOSED。
+- dynamic `git-proxy-auto` real connectivity path verified；
+- HTTP/1.1 fallback verified；
+- `ls-remote / pull / push / SHA truth check` verified；
+- `PENDING_REMOTE_PUBLICATION` workflow documented；
+- ACK loss / remote mismatch handling documented；
+- real transient failure → recovery evidence accepted；
+- lightweight Recovery Runbook completed；
+- Product Owner explicitly approved AO-07 on 2026-09-14；
+- RISK-001 downgraded to `CONTROLLED / MITIGATION VERIFIED`。
 
 ## D-059～D-065｜Character Automation Baseline
 
@@ -179,7 +192,7 @@ Status: `OPEN / AO-07 NOT YET FORMALLY CLOSED`
 P1 按人物整组推进：
 
 1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT` = **COMPLETE**
-2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **HOLD UNTIL AO-01～AO-07 COMPLETE**
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **HOLD UNTIL AO-03～AO-06 COMPLETE**
 3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
