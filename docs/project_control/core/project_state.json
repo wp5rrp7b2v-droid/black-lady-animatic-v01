@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R033",
+  "state_revision": "R034",
   "last_updated": "2026-09-14",
-  "session_status": "ACTIVE / AO-01 + AO-02 COMPLETE VERIFIED; AO-03 NEXT",
+  "session_status": "ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE VERIFIED; AO-03 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01 与 AO-02 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-01～AO-07 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 GitHub Connectivity Instability 仍需 AO-07 正式完成与审批。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。"
   },
   "restart_tasks": [
     {
@@ -50,7 +50,7 @@
   ],
   "current_task": "P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec｜NEXT / NOT STARTED",
   "blocker": null,
-  "next_action": "在 Chat 中先完成 AO-03 的事实边界、数据结构与 Definition of Done 设计；只有确实需要本地多文件工程实现时才交给 Codex。P1 Wave 2 继续 HOLD，直到 AO-01～AO-07 全部 COMPLETE / VERIFIED。",
+  "next_action": "在 Chat 中先完成 AO-03 的事实边界、数据结构与 Definition of Done 设计；只有确实需要本地多文件工程实现时才交给 Codex。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -66,7 +66,7 @@
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically."
   },
   "latest_checkpoint": {
-    "id": "2026-09-14-P0.2-AO02-PO-APPROVED",
+    "id": "2026-09-14-P0.2-AO07-PO-APPROVED",
     "status": "ACTIVE / AO-03 NEXT",
     "completed": [
       "P0.1 PASS / Product Owner approved",
@@ -144,7 +144,10 @@
       "AO-02 preserved runtime AST_IMG_000049..000051 and validated Single Current / SHA / storage",
       "AO-02 migration commit 4803b928baaa38d875e9c6edd46f4a458e627b61 REMOTE VERIFIED",
       "AO-02 idempotency + rollback tests 5/5 PASS",
-      "AO-02 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED"
+      "AO-02 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED",
+      "AO-07 Recovery Runbook completed and technically verified",
+      "AO-07 Product Owner approved on 2026-09-14; final status COMPLETE / VERIFIED",
+      "RISK-001 downgraded from OPEN to CONTROLLED / MITIGATION VERIFIED under BL-D-030"
     ],
     "resume_from": "P0.2-04｜AO-03｜NEXT / NOT STARTED",
     "blockers": []
@@ -161,6 +164,7 @@
     "registry_schema_path": "docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
     "migration_completion_path": "docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md",
     "ao02_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md",
+    "ao07_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md",
     "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "character_storage_root": "production/image_library/character_references/",
     "character_migration_manifest_csv": "docs/project_control/gates/P0_2_visual_assets/migration_evidence/character_asset_migration_manifest_v1.csv",
@@ -229,7 +233,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-01..AO-07 COMPLETE"
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-03..AO-06 COMPLETE"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -277,8 +281,7 @@
       "AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
-      "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace",
-      "AO-07 Establish and verify GitHub Network Resilience / Recovery Method for transient connectivity failures"
+      "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
   },
@@ -292,8 +295,10 @@
     "ao01_decision_id": "BL-D-028",
     "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
+    "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "ao07_decision_id": "BL-D-030",
     "next_task": "AO-03",
-    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after all seven are COMPLETE / VERIFIED"
+    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-03..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02 and AO-07 are already complete"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -301,10 +306,10 @@
       {
         "id": "RISK-001",
         "name": "GitHub Connectivity Instability",
-        "status": "OPEN / HIGH OPERATIONAL RISK",
-        "linked_task": "AO-07",
+        "status": "CONTROLLED / MITIGATION VERIFIED",
+        "linked_task": "AO-07 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
         "hard_blocker": false,
-        "exit_condition": "AO-07 COMPLETE / VERIFIED with tested recovery runbook"
+        "exit_condition": "SATISFIED 2026-09-14; retain recovery runbook for recurrence"
       }
     ]
   },
@@ -362,17 +367,17 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V013",
+    "version": "V014",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "AO-01 + AO-02 COMPLETE / AO-03 NEXT / P1 WAVE 2 HOLD"
+    "status": "AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / P1 WAVE 2 HOLD"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成剩余 Approved-but-Open System Closeout：从 AO-03 开始补齐 Scene/Variant、Reference Sheet、Delivery Bridge、真实 Shot-level Resolver/Audit 与 GitHub Network Resilience / Recovery 能力，再恢复 P1 Character Gap Production。",
+  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；AO-07 Network Resilience 已完成。完成后恢复 P1 Character Gap Production。",
   "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
