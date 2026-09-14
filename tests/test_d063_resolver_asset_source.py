@@ -155,9 +155,16 @@ class LiveReadOnlyTests(unittest.TestCase):
         profile = [a for a in view if a["role"] == "PROFILE_LEFT"]
         self.assertEqual(len(profile), 1)
         self.assertEqual(profile[0]["source_layer"], "RUNTIME_REGISTRY")
-        self.assertEqual(profile[0]["asset_id"], "AST_IMG_000049")
+        self.assertEqual(profile[0]["asset_id"], "AST_IMG_000050")
+        self.assertEqual(profile[0]["version_no"], 2)
+        self.assertEqual(profile[0]["lifecycle"], "CURRENT")
         self.assertEqual(profile[0]["sha256"],
-                         "bbb4fbbb055af001307019b92665fad14e35694da0bcde206af0d419c9d42c0e")
+                         "c53549b0b70de7fdc9da123b351aa37dcf433801b431479750287c73b84440fd")
+        registry = [json.loads(line) for line in
+                    (root / source.REGISTRY).read_text().splitlines() if line.strip()]
+        older = [a for a in registry if a["asset_id"] == "AST_IMG_000049"]
+        self.assertEqual(len(older), 1)
+        self.assertEqual(older[0]["lifecycle"], "SUPERSEDED")
         with self.assertRaisesRegex(ValueError, "already has a CURRENT asset"):
             exporter.export("CHAR_NING_QIUSHUI", "PROFILE_LEFT",
                             root / exporter.OUTPUT_ROOT / "P1_WAVE1_NING_QIUSHUI_PROFILE_LEFT")
