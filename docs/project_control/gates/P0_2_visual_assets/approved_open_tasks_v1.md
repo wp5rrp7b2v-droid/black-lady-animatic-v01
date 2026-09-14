@@ -6,6 +6,8 @@ Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
 
+Latest closeout update: `2026-09-14`
+
 ## Purpose
 
 本文件专门记录已经由 Product Owner 批准/锁定、但尚未执行完成，且存在被后续生产绕过风险的 P0.2 任务。
@@ -22,8 +24,7 @@ Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为下一次正
 
 Status: `COMPLETE / VERIFIED` (BL-D-028; remote decision/evidence commit `43d8fa4` verified by fetch).
 
-四份旧 CSV 当前均不可取得，Product Owner 决定其退出 Current authority。旧表内部孤儿行、重复行、旧路径/命名一律 `UNKNOWN / SOURCE UNAVAILABLE`；不重建旧表。Current Shot composition 由正式 Shot Spec 重建并在 AO-06 验证。AO-02 是下一任务；本次 Product Owner 决定未授权执行 AO-02。
-
+四份旧 CSV 当前均不可取得，Product Owner 决定其退出 Current authority。旧表内部孤儿行、重复行、旧路径/命名一律 `UNKNOWN / SOURCE UNAVAILABLE`；不重建旧表。Current Shot composition 由正式 Shot Spec 重建并在 AO-06 验证。
 
 核对：
 
@@ -42,7 +43,22 @@ Status: `COMPLETE / VERIFIED` (BL-D-028; remote decision/evidence commit `43d8fa
 
 ### AO-02｜Legacy Character Assets → Long-term Registry / Audit
 
-将 D-059 已发布的 48 张 approved legacy Character references 从“Migration Manifest 可读”推进到长期 Registry / Audit 模型的正式可追溯状态。
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
+
+Completion evidence:
+
+`ao02_legacy_asset_registry_migration_v1.md`
+
+结果：
+
+- D-059 的 48 张 `CONFIRMED + APPROVED` legacy Character assets 已确定性回填为 `AST_IMG_000001–000048`；
+- 既有 Runtime `AST_IMG_000049–000051` 保持不变；
+- post-migration Asset Registry = `51` 条；
+- Single Current / SHA / storage validation PASS；
+- D-059 Manifest 与人物 PNG 未修改；
+- migration idempotency / rollback tests PASS；
+- migration commit `4803b928baaa38d875e9c6edd46f4a458e627b61` 已 `REMOTE VERIFIED`；
+- Product Owner 于 2026-09-14 明确批准 AO-02。
 
 完成标准：
 
@@ -52,6 +68,8 @@ Status: `COMPLETE / VERIFIED` (BL-D-028; remote decision/evidence commit `43d8fa
 - 后续 Derived Reference dependency 可直接指向正式 Asset IDs。
 
 ### AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec
+
+Status: `NEXT / NOT STARTED`
 
 将两张已批准 Scene Master 的可继承事实字段结构化，并把 Scene / Costume / Prop / State / Variant 规则落到可执行 Registry / Spec。
 
@@ -116,7 +134,7 @@ Status: `COMPLETE / VERIFIED` (BL-D-028; remote decision/evidence commit `43d8fa
 
 对应 Project Risk：`RISK-001｜GitHub Connectivity Instability`。
 
-近期项目多次出现 GitHub 连接异常，包括 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等。该问题目前虽然可通过 HTTP/1.1 等临时方式缓解，但尚没有稳定、标准、可重复的处理方法。
+近期项目多次出现 GitHub 连接异常，包括 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等。
 
 AO-07 目标不是保证公网永不掉线，而是建立一套**不会因为短暂网络故障而导致资产损坏、重复 ingest、版本分叉或 Project Control 状态误判**的执行方法。
 
@@ -138,17 +156,17 @@ AO-07 目标不是保证公网永不掉线，而是建立一套**不会因为短
 
 ## Execution order
 
-建议按依赖顺序执行：
+当前依赖顺序：
 
-1. AO-01｜4 Registers Final Reconciliation
-2. AO-02｜Legacy Character Assets → Long-term Registry / Audit
-3. AO-03｜Scene Master / Scene-Costume-Prop-Variant Executable Spec
+1. AO-01｜COMPLETE / VERIFIED
+2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
+3. AO-03｜NEXT
 4. AO-04｜9 Character Derived Reference Sheets
 5. AO-05｜Delivery Bridge
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜GitHub Network Resilience / Recovery Method
 
-AO-07 可在 AO-01～AO-06 的工程执行过程中同步收集真实网络故障证据，但必须在解除 Wave 2 HOLD 前独立完成验证与 Runbook。
+AO-07 可在其他任务执行过程中同步收集真实网络故障证据，但必须在解除 Wave 2 HOLD 前独立完成验证与 Runbook。
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -168,3 +186,7 @@ AO-07 可在 AO-01～AO-06 的工程执行过程中同步收集真实网络故�
 ## Non-blocking technical debt
 
 Resolver regression test 已在 AO-01 改为断言 `AST_IMG_000050` 为 CURRENT V002、`AST_IMG_000049` 为 SUPERSEDED，但它不替代 AO-01～AO-07 中任何一项。
+
+## Execution Routing
+
+根据 RC-015，Approved-but-Open 任务不因带有“工程”属性就自动交给 Codex。方案、判断、Task Contract、GitHub 可直接更新内容优先由 Chat 完成；pull / status / test / dry-run / 已有脚本执行 / SHA 验证等由 Terminal 完成；只有确实需要本地多文件工程修改、环境交互或持续调试时才交给 Codex。只有实际交给 Codex 执行的任务才占用 D-###。
