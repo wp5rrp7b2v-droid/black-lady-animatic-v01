@@ -132,27 +132,28 @@ Status: `NEXT / NOT STARTED`
 
 ### AO-07｜GitHub Network Resilience / Recovery Method
 
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-14`
+
 对应 Project Risk：`RISK-001｜GitHub Connectivity Instability`。
 
-近期项目多次出现 GitHub 连接异常，包括 443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等。
+已完成并验证：
 
-AO-07 目标不是保证公网永不掉线，而是建立一套**不会因为短暂网络故障而导致资产损坏、重复 ingest、版本分叉或 Project Control 状态误判**的执行方法。
+- GitHub connectivity preflight；
+- 标准诊断顺序：DNS / HTTPS / Git remote / HTTP version / proxy / VPN / credential / repo reachability；
+- HTTP/1.1 安全 fallback；
+- 动态代理端口识别与恢复；
+- pull / push 失败后的 idempotent retry 规则；
+- `PENDING_REMOTE_PUBLICATION` 进入、退出与恢复发布流程；
+- push ACK loss / remote mismatch 处理；
+- 真实 transient failure → recovery 等价受控恢复证据；
+- lightweight GitHub Network Recovery Runbook；
+- Product Owner 于 2026-09-14 明确批准 AO-07。
 
-完成标准：
+Completion evidence:
 
-- 建立 GitHub connectivity preflight；
-- 锁定标准诊断顺序：DNS / HTTPS / Git remote / HTTP version / proxy / VPN / credential / repo reachability；
-- 对已知 HTTP/2 异常提供安全 fallback 到 HTTP/1.1；
-- 如代理/VPN端口变化会影响 Git，提供可识别、可恢复的方法；
-- pull / push 失败后的 retry 必须 idempotent，不重复写 Registry、不重复分配 Asset ID、不重复 ingest；
-- GitHub 暂时不可用时，允许本地结果进入明确的 `PENDING_REMOTE_PUBLICATION`，但不得标记 `REMOTE VERIFIED`；
-- 网络恢复后可从已有 commit / ingest receipt 继续发布，不重新执行正式 ingest；
-- 至少完成一次受控 failure → recovery 验证；
-- 输出轻量 GitHub Network Recovery Runbook，供 Product Owner / Chat / Codex 后续统一使用。
+`ao07_github_network_resilience_progress_v1.md`
 
-详细风险记录：
-
-`docs/project_control/logs/risk_register.md`
+RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 
 ## Execution order
 
@@ -164,9 +165,9 @@ AO-07 目标不是保证公网永不掉线，而是建立一套**不会因为短
 4. AO-04｜9 Character Derived Reference Sheets
 5. AO-05｜Delivery Bridge
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
-7. AO-07｜GitHub Network Resilience / Recovery Method
+7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
-AO-07 可在其他任务执行过程中同步收集真实网络故障证据，但必须在解除 Wave 2 HOLD 前独立完成验证与 Runbook。
+AO-07 已提前完成，不改变剩余主依赖链：AO-03 → AO-04 → AO-05 → AO-06。
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -182,6 +183,8 @@ AO-07 可在其他任务执行过程中同步收集真实网络故障证据，�
 - `RISK-001` 已至少从 `OPEN / HIGH OPERATIONAL RISK` 降级为具备已验证恢复方案的受控风险；
 - 对应 Execution / Decision / Gate evidence 已写入 Project Control；
 - Daily / Step Closeout consistency check 无未解决状态冲突。
+
+当前 AO-01、AO-02、AO-07 已满足；Wave 2 仍由 AO-03～AO-06 阻塞。
 
 ## Non-blocking technical debt
 
