@@ -1,12 +1,12 @@
 # P0.2-04｜AO-07｜GitHub Network Resilience / Recovery Method｜Progress V1
 
-Status: `CLOSEOUT IN PROGRESS`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 
 Date: `2026-09-14`
 
 ## 1. Purpose
 
-本文件记录 AO-07 在正式完成前已经取得的真实技术证据。AO-07 的目标不是保证公网永不掉线，而是保证：
+AO-07 已正式完成。目标不是保证公网永不掉线，而是保证：
 
 `GitHub transient failure ≠ asset corruption / duplicate ingest / duplicate Asset ID / project-state divergence`
 
@@ -45,19 +45,9 @@ Black Lady repo 当前原则：
 3. `git-proxy-auto push origin main` → PASS / `PUSH_STATUS=SUCCESS`；
 4. Local HEAD 与 remote `refs/heads/main` SHA 比对 → MATCH。
 
-该轮最终技术状态：
+随后 AO-02 的正式 migration publication 也通过同一网络路径完成并达到 `REMOTE_VERIFIED`。
 
-`SUCCESS`
-
-随后 AO-02 的正式 migration publication 也通过同一网络路径完成，最终 Terminal 检查返回：
-
-`FINAL_STATUS=REMOTE_VERIFIED`
-
-这进一步证明：本地正式事务完成后，可以将“数据事务”和“远端 publication”分离，并在网络可用时安全完成发布与 SHA 核验，而不需要重新执行 migration。
-
-## 4. What is already demonstrated
-
-当前已经有真实证据支持：
+## 4. What is demonstrated
 
 - 动态代理端口可被自动识别；
 - `ls-remote / pull / push` 可通过统一 helper 执行；
@@ -83,14 +73,14 @@ Black Lady repo 当前原则：
 
 遇到连接异常时，统一按以下顺序诊断，不跳步、不盲目重跑正式 ingest：
 
-1. **DNS**：确认 `github.com` 可解析；
-2. **HTTPS reachability**：确认 GitHub HTTPS 链路可达；
-3. **Git remote**：确认 `origin` 指向 canonical repo；
-4. **HTTP version**：优先使用 repo-local / command-level `HTTP/1.1` fallback；
-5. **Proxy / VPN**：动态读取当前系统代理，禁止持久化临时端口；
-6. **Credential**：仅在 reachability 正常但认证失败时检查 credential；
-7. **Repository reachability**：再次执行 `ls-remote`；
-8. **Publication**：仅在以上项正常后执行 pull / push。
+1. DNS：确认 `github.com` 可解析；
+2. HTTPS reachability：确认 GitHub HTTPS 链路可达；
+3. Git remote：确认 `origin` 指向 canonical repo；
+4. HTTP version：优先使用 repo-local / command-level `HTTP/1.1` fallback；
+5. Proxy / VPN：动态读取当前系统代理，禁止持久化临时端口；
+6. Credential：仅在 reachability 正常但认证失败时检查 credential；
+7. Repository reachability：再次执行 `ls-remote`；
+8. Publication：仅在以上项正常后执行 pull / push。
 
 ### 5.3 PENDING_REMOTE_PUBLICATION
 
@@ -129,33 +119,19 @@ Black Lady repo 当前原则：
 
 ## 6. Controlled failure → recovery evidence
 
-AO-07 的受控恢复证据采用“已发生的真实 transient failure + 后续恢复成功”作为等价可复现证据，不再人为破坏当前已恢复的网络环境。
+AO-07 的受控恢复证据采用已发生的真实 transient failure + 后续恢复成功作为等价可复现证据，不再人为破坏当前已恢复的网络环境。
 
-已知真实失败症状包括：
+已知真实失败症状包括：443 timeout、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect`。
 
-- 443 timeout；
-- `Empty reply from server`；
-- HTTP/2 framing error；
-- `unexpected disconnect`。
+后续恢复链：
 
-后续恢复链已经完成：
+`transient network failure → dynamic proxy helper + HTTP/1.1 → ls-remote PASS → pull PASS → push PASS → remote SHA == local HEAD → AO-02 publication REMOTE_VERIFIED`
 
-- 采用动态 proxy helper；
-- 使用 HTTP/1.1 fallback；
-- `ls-remote` PASS；
-- `pull --ff-only` PASS；
-- `push` PASS；
-- remote SHA == local HEAD；
-- AO-02 migration publication 完成 `REMOTE VERIFIED`；
-- migration idempotency 已证明重复执行返回 `ALREADY_APPLIED / NO CHANGE`。
-
-因此，AO-07 的 failure → recovery 核心验收点已经由真实故障恢复链覆盖：
-
-`transient network failure → no re-ingest → no duplicate Asset ID → connectivity recovery → publication → SHA verification`
+同时 migration idempotency 已证明重复执行返回 `ALREADY_APPLIED / NO CHANGE`，满足 no re-ingest / no duplicate Asset ID 的核心恢复要求。
 
 ## 7. Closeout assessment
 
-截至 2026-09-14，AO-07 Definition of Done 技术项已满足：
+截至 2026-09-14，AO-07 Definition of Done 全部满足：
 
 - connectivity preflight：SATISFIED；
 - standard diagnostic order：SATISFIED；
@@ -165,17 +141,11 @@ AO-07 的受控恢复证据采用“已发生的真实 transient failure + 后�
 - `PENDING_REMOTE_PUBLICATION` workflow：SATISFIED；
 - ACK loss / remote mismatch handling：SATISFIED；
 - controlled failure → recovery evidence：SATISFIED BY REAL INCIDENT RECOVERY EVIDENCE；
-- lightweight recovery runbook：SATISFIED。
+- lightweight recovery runbook：SATISFIED；
+- Product Owner explicit approval：APPROVED 2026-09-14。
 
-Remaining governance step:
+## 8. Final conclusion
 
-- Product Owner explicit approval in Chat；
-- after approval, cross-file status must be updated to `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED` and `RISK-001` downgraded to controlled risk.
+`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 
-## 8. Current conclusion
-
-当前正式建议状态：
-
-`READY_FOR_APPROVAL / TECHNICALLY VERIFIED`
-
-在 Product Owner 明确批准前，不得写成 `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
+RISK-001 可从 OPEN 降级为 `CONTROLLED / MITIGATION VERIFIED`。该风险不表示公网故障不会再发生，而表示已有经过真实验证、可执行且不破坏资产/Registry一致性的恢复方法。
