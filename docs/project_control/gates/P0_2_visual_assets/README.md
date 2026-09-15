@@ -12,11 +12,11 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
 
-## 当前正式状态｜2026-09-14
+## 当前正式状态｜2026-09-15
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- AO-03：`NEXT / NOT STARTED`
+- AO-03：`IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`
 - AO-04：PENDING
 - AO-05：PENDING
 - AO-06：PENDING
@@ -26,13 +26,17 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 下一正式任务：
 
-`P0.2-04｜AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant Executable Spec`
+`P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition`
+
+AO-03A｜Fact Boundary + Executable Spec Design V0.1 已于 2026-09-15 由 Product Owner 明确批准并落档：
+
+`ao03_scene_executable_spec_design_v0_1.md`
 
 ## TEMP_CLOUD_ONLY_MODE_V1
 
-Status: `ACTIVE / TIME-BOXED / 2026-09-16—2026-09-20`
+Status: `APPROVED / PRE-EFFECTIVE / 2026-09-16—2026-09-20`
 
-Product Owner 于 2026-09-14 批准临时纯云端执行模式。
+Product Owner 于 2026-09-14 批准临时纯云端执行模式；正式生效时间为 `2026-09-16 00:00`。
 
 正式规则文件：
 
@@ -40,7 +44,7 @@ Product Owner 于 2026-09-14 批准临时纯云端执行模式。
 
 Decision：`BL-D-031`
 
-Rules Change：`RC-018`
+Rules Change：`RC-018 + RC-019`
 
 ### 临时模式目标
 
@@ -68,16 +72,36 @@ Rules Change：`RC-018`
 - 确有必要的 repo 多文件工程修改；
 - Registry / Resolver / scripts / tests / JSON / Markdown；
 - Reference Package / Derived Reference Sheet 工程产物；
-- commit + push。
+- commit + Codex Cloud native PR publication。
 
 **GitHub Web / App**
 
 - SSOT 阅读；
-- diff / commit / remote publication 核验。
+- diff / commit / remote publication 核验；
+- PR base/head/changed-files 独立审核；
+- Product Owner 批准后 merge。
 
 **Local Mac / Terminal**
 
+有效期内：
+
 `TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS`
+
+### Cloud PR workflow verification｜2026-09-15
+
+`CLOUD-DRILL-001` 已真实验证：
+
+`GitHub source snapshot → Codex Cloud checkout → controlled change → Cloud commit/work reference → native PR publication → GitHub PR review → Product Owner approval → merge`
+
+验证证据：
+
+- GitHub PR：`#5`
+- Source baseline：`a6db067927e26d19d5566d64fe04d3cb72a24961`
+- PR Head：`codex/-codex-cloud-pr`
+- Merge SHA：`774a6abed34b81e5558dbfeba3846380fb1ff26e`
+- Evidence：`cloud_pr_workflow_drill_2026-09-15.md`
+
+Cloud shell 内直接 `git push` 所需 GitHub credential 不作为临时模式 baseline；已验证的正式远端 publication 路径是 Codex Cloud native PR。若 Codex task UI 未返回 PR number / URL，必须以 GitHub 远端事实核对为准。
 
 ### RC-015 与本地同步
 
@@ -108,7 +132,8 @@ Rules Change：`RC-018`
 - D-060 Reference Package Exporter V0.1 已验证自动选图 + 本地 Reference Package；
 - D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime resolution、Controlled Current Supersession 与 macOS launcher；
 - RC-015 长期 Execution Routing 保持锁定；
-- RC-017 GitHub Network Recovery Runbook 已锁定并经 AO-07 验证。
+- RC-017 GitHub Network Recovery Runbook 已锁定并经 AO-07 验证；
+- RC-019 已补充 Codex Cloud native PR 作为 TEMP_CLOUD_ONLY_MODE 的已验证 publication 路径。
 
 ## P0.2-01｜Visual Asset Authority Audit
 
@@ -118,7 +143,7 @@ AO-01 已按 BL-D-028 完成可取得证据的旧表对账，四份旧表退出 
 
 P0.2 Gate Review 前仍需：
 
-1. AO-03：两张 Scene Master 的事实字段结构化，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
+1. AO-03：完成 AO-03B 具体 Scene Master facts，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
 2. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
 3. AO-05：Delivery Bridge；
 4. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
@@ -142,7 +167,8 @@ AO-07 已提前完成，不再属于 remaining checks。
 - Shot-bound / Entity-bound 归属与命名边界；
 - Controlled Current Supersession；
 - Character image 9:16 Format Compliance；
-- Fixed Standard Review。
+- Fixed Standard Review；
+- AO-03A Stable Scene identity / State separation + executable spec boundary。
 
 ## P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
@@ -180,22 +206,31 @@ P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-03～AO-06 全�
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 NEXT / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / MANDATORY BEFORE P1 WAVE 2`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
-3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `NEXT / NOT STARTED`；
+3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`；
 4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness；
 5. AO-05｜Delivery Bridge；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
 7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
 
-## AO-03 Temporary-mode boundary
+## AO-03 Current boundary
 
-正式对象至少包括：
+稳定 Scene Entity 已锁定：
+
+- `SCENE_CASTLE_ENTRANCE`
+- `SCENE_FIRST_HALL`
+
+对应 legacy/source alias：
 
 - `CASTLE_ENTRANCE_OPEN_DOOR_DAY`
 - `FIRST_HALL_FIREPLACE`
+
+AO-03B 下一步逐项定义两张已批准 Scene Master 的具体事实，明确：
+
+`stable fact / controlled state / shot-variable photography / evidence source`
 
 只允许结构化已有正式批准事实。如 Scene Master 原图无法从云端取得，未核验字段必须写：
 
@@ -242,6 +277,8 @@ AO-07 已完成并经 Product Owner 批准。动态 `git-proxy-auto`、HTTP/1.1 
 - D-065｜macOS Bash Launcher Fix — COMPLETE / REMOTE VERIFIED
 - D-066｜AO-01 Four Registers Final Reconciliation — COMPLETE / VERIFIED
 
+`CLOUD-DRILL-001` 是 operations workflow drill，不占 D-###。
+
 下一 Codex 工程编号仅在确实交给 Codex 执行时使用：`D-067`。
 
 ## 当前执行基线
@@ -258,9 +295,9 @@ P1 按人物整组推进：
 
 下一正式任务：
 
-`P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec`
+`P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition`
 
-先在 Chat 完成事实边界、数据模型与 Definition of Done；在 TEMP_CLOUD_ONLY_MODE_V1 有效期内，如需要 repo 多文件工程实现则交给 Codex Cloud。
+先在 Chat 逐项锁定两张 approved Scene Master 的事实字段和 evidence status；2026-09-16 起，如需要 repo 多文件工程实现则交给 Codex Cloud，通过 native PR publication → GitHub 独立审核 → Product Owner approval → merge。
 
 ## Gate Approval
 
