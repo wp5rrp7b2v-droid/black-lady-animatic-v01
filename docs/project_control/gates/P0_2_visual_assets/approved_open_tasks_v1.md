@@ -6,7 +6,7 @@ Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
 
-Latest closeout update: `2026-09-14`
+Latest closeout update: `2026-09-15`
 
 ## Purpose
 
@@ -69,20 +69,38 @@ Completion evidence:
 
 ### AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec
 
-Status: `NEXT / NOT STARTED`
+Status: `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`
 
-将两张已批准 Scene Master 的可继承事实字段结构化，并把 Scene / Costume / Prop / State / Variant 规则落到可执行 Registry / Spec。
+AO-03A｜Fact Boundary + Executable Spec Design V0.1 已由 Product Owner 于 2026-09-15 明确批准并落档：
+
+`ao03_scene_executable_spec_design_v0_1.md`
+
+已锁定：
+
+- Stable Scene Entity 与 Scene State 分离；
+- `SCENE_CASTLE_ENTRANCE` / `SCENE_FIRST_HALL` 作为稳定 Scene identity；
+- `DAY / NIGHT`、门 `OPEN / CLOSED`、壁炉 `EXTINGUISHED / BURNING` 等作为受控 State dimensions；
+- Scene Master 锁定 Scene Facts，不锁死 Shot Photography；
+- Costume / Prop 使用同一 executable Entity / Asset / Variant / State 逻辑；
+- 所需受控状态不存在正式可用资产时，Resolver 必须返回 `REFERENCE_GAP`，不得静默调用状态不匹配的 Scene Master；
+- AO-03 必须进入 Runtime / Resolver / machine-verifiable test，不能以文档登记替代工程验证。
+
+AO-03B 下一步：对两张已批准 Scene Master 逐项定义具体结构化事实字段，明确每一项是 `stable fact / controlled state / shot-variable photography`。
 
 至少包括：
 
-- `CASTLE_ENTRANCE_OPEN_DOOR_DAY`
-- `FIRST_HALL_FIREPLACE`
+- legacy/source alias `CASTLE_ENTRANCE_OPEN_DOOR_DAY` → `SCENE_CASTLE_ENTRANCE`
+- legacy/source alias `FIRST_HALL_FIREPLACE` → `SCENE_FIRST_HALL`
 
 完成标准：
 
 - 区分 Scene fact 与 Shot photography；
 - DAY/NIGHT、门开闭、壁炉状态等受控 State / Variant 不得静默漂移；
-- 可被后续 Shot/Task Spec 与 Resolver 读取。
+- 可被后续 Shot/Task Spec 与 Resolver 读取；
+- Castle Entrance + DAY + OPEN → 当前 eligible Scene Master；
+- Castle Entrance + CLOSED → `REFERENCE_GAP`；
+- First Hall + FIREPLACE_EXTINGUISHED → 当前 eligible Scene Master；
+- First Hall + FIREPLACE_BURNING → `REFERENCE_GAP`。
 
 ### AO-04｜9 Character Derived Reference Sheets
 
@@ -161,7 +179,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
-3. AO-03｜NEXT
+3. AO-03｜IN PROGRESS / AO-03A APPROVED / AO-03B NEXT
 4. AO-04｜9 Character Derived Reference Sheets
 5. AO-05｜Delivery Bridge
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
