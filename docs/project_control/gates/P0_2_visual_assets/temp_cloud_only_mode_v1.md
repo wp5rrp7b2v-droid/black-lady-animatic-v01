@@ -1,12 +1,14 @@
 # TEMP_CLOUD_ONLY_MODE_V1｜2026-09-16—2026-09-20
 
-Status: `ACTIVE / TIME-BOXED`
+Status: `APPROVED / PRE-EFFECTIVE / TIME-BOXED`
 
 Approved by: `PRODUCT OWNER`
 
 Approved on: `2026-09-14`
 
 Effective period: `2026-09-16 00:00` → `2026-09-20 23:59`
+
+Rules changes: `RC-018 + RC-019`
 
 ## 1. Purpose
 
