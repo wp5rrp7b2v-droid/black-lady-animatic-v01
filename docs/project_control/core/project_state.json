@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R035",
-  "last_updated": "2026-09-14",
-  "session_status": "ACTIVE / TEMP_CLOUD_ONLY_MODE_V1 APPROVED / AO-03 NEXT",
+  "state_revision": "R036",
+  "last_updated": "2026-09-15",
+  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A APPROVED / AO-03B NEXT / TEMP_CLOUD_ONLY_MODE_V1 APPROVED PRE-EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 为下一正式 Closeout 任务。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。2026-09-16～2026-09-20 采用 TEMP_CLOUD_ONLY_MODE_V1 继续推进 AO-03～AO-06。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 已进入 IN PROGRESS，AO-03A 于 2026-09-15 经 Product Owner 批准，AO-03B 为下一步。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 已批准，将于 2026-09-16 00:00 生效；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec｜NEXT / NOT STARTED",
+  "current_task": "P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition｜NEXT",
   "blocker": null,
-  "next_action": "AO-03 先在 Chat 中完成事实边界、数据结构与 Definition of Done；2026-09-16～2026-09-20 如需 repo 多文件工程实现，按 TEMP_CLOUD_ONLY_MODE_V1 交由 Codex Cloud。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
+  "next_action": "AO-03B 在 Chat 中逐项定义两张 approved Scene Master 的 stable facts / controlled states / shot-variable photography，并标注 evidence source；2026-09-16 起如需 repo 多文件工程实现，按 TEMP_CLOUD_ONLY_MODE_V1 交由 Codex Cloud，通过已验证的 native PR publication 路径进入 GitHub 审核。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -66,7 +66,7 @@
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
     "temporary_exception": {
       "mode": "TEMP_CLOUD_ONLY_MODE_V1",
-      "status": "APPROVED / TIME-BOXED",
+      "status": "APPROVED / TIME-BOXED / EFFECTIVE 2026-09-16",
       "effective_from": "2026-09-16",
       "effective_until": "2026-09-20",
       "override": "LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL",
@@ -75,7 +75,7 @@
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
-    "status": "ACTIVE / TIME-BOXED",
+    "status": "APPROVED / PRE-EFFECTIVE / TIME-BOXED",
     "approved_by": "PRODUCT OWNER",
     "approved_on": "2026-09-14",
     "effective_from": "2026-09-16",
@@ -83,9 +83,9 @@
     "scope": "P0.2 Approved-but-Open closeout only: AO-03 → AO-04 → AO-05 → AO-06",
     "ssot": "GitHub main/docs/project_control/",
     "chatgpt_app_role": "analysis / design / Task Contract / review / prompt / Product Owner decision",
-    "codex_cloud_role": "repo multi-file engineering / registry / resolver / scripts / tests / reference-package work / commit + push",
-    "github_web_app_role": "SSOT reading / diff / commit / remote publication review",
-    "local_mac_status": "TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS",
+    "codex_cloud_role": "repo multi-file engineering / registry / resolver / scripts / tests / reference-package work / commit + native PR publication",
+    "github_web_app_role": "SSOT reading / diff / commit / remote publication review / merge after Product Owner approval",
+    "local_mac_status": "TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS during effective period",
     "local_asset_block_status": "BLOCKED_LOCAL_ASSET",
     "validation_rule": "AO-03..AO-06 DoD is not lowered; no reconstruction, guessing, duplicate asset/version, or simulated-result-as-real-validation",
     "p0_3_rule": "DO NOT START EARLY",
@@ -93,11 +93,21 @@
     "long_term_routing_rule": "RC-015 RETAINED / NOT SUPERSEDED",
     "rule_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
     "decision_id": "BL-D-031",
-    "rules_change_id": "RC-018"
+    "rules_change_id": "RC-018 + RC-019"
+  },
+  "cloud_pr_workflow": {
+    "status": "VERIFIED / REAL PR MERGED",
+    "drill_id": "CLOUD-DRILL-001",
+    "source_baseline_sha": "a6db067927e26d19d5566d64fe04d3cb72a24961",
+    "pr_number": 5,
+    "pr_head": "codex/-codex-cloud-pr",
+    "merge_sha": "774a6abed34b81e5558dbfeba3846380fb1ff26e",
+    "evidence_path": "docs/project_control/gates/P0_2_visual_assets/cloud_pr_workflow_drill_2026-09-15.md",
+    "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-14-TEMP-CLOUD-ONLY-MODE-V1-APPROVED",
-    "status": "TEMP_CLOUD_ONLY_MODE_V1 / ACTIVE / AO-03 NEXT",
+    "id": "2026-09-15-AO03A-CLOUD-PR-CLOSEOUT",
+    "status": "AO-03 IN PROGRESS / AO-03A APPROVED / AO-03B NEXT / CLOUD PR WORKFLOW VERIFIED / TEMP MODE PRE-EFFECTIVE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -180,13 +190,16 @@
       "RISK-001 downgraded from OPEN to CONTROLLED / MITIGATION VERIFIED under BL-D-030",
       "TEMP_CLOUD_ONLY_MODE_V1 approved by Product Owner on 2026-09-14 for 2026-09-16 through 2026-09-20",
       "BL-D-031 and RC-018 lock the time-boxed cloud-only execution mode without superseding RC-015",
-      "Local sync temporarily deferred during 2026-09-16 through 2026-09-20; GitHub main remains canonical"
+      "AO-03A Fact Boundary + Executable Spec Design V0.1 approved by Product Owner on 2026-09-15",
+      "Stable Scene identity/state separation locked for SCENE_CASTLE_ENTRANCE and SCENE_FIRST_HALL",
+      "CLOUD-DRILL-001 verified Codex Cloud native PR publication with GitHub PR #5",
+      "PR #5 independently reviewed, corrected for traceability, approved by Product Owner and merged as 774a6abed34b81e5558dbfeba3846380fb1ff26e"
     ],
-    "resume_from": "P0.2-04｜AO-03｜NEXT / NOT STARTED",
+    "resume_from": "P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition｜NEXT",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A APPROVED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -197,6 +210,7 @@
     "registry_schema_path": "docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
     "migration_completion_path": "docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md",
     "ao02_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md",
+    "ao03_design_path": "docs/project_control/gates/P0_2_visual_assets/ao03_scene_executable_spec_design_v0_1.md",
     "ao07_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md",
     "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "temporary_cloud_only_mode_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
@@ -312,7 +326,7 @@
       "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
     },
     "remaining_checks": [
-      "AO-03 Structure two approved Scene Masters and executable Scene / Costume / Prop / State / Variant Specs",
+      "AO-03B define concrete structured facts for two approved Scene Masters, then implement executable Scene / Costume / Prop / State / Variant support",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
       "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
@@ -329,9 +343,11 @@
     "ao01_decision_id": "BL-D-028",
     "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
+    "ao03_status": "IN PROGRESS / AO-03A APPROVED / AO-03B NEXT",
+    "ao03_decision_id": "BL-D-032",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-03",
+    "next_task": "AO-03B",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-03..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02 and AO-07 are already complete"
   },
   "risk_register": {
@@ -397,27 +413,27 @@
     "codex_engineering_tasks": "D-###",
     "last_known_codex_task": "D-066",
     "next_codex_task_when_needed": "D-067",
-    "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015."
+    "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V015",
+    "version": "V016",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "TEMP_CLOUD_ONLY_MODE_V1 / AO-03 NEXT / AO-03..AO-06 REMAIN / P1 WAVE 2 HOLD"
+    "status": "AO-03A APPROVED / AO-03B NEXT / TEMP_CLOUD_ONLY_MODE_V1 PRE-EFFECTIVE / CLOUD PR VERIFIED / P1 WAVE 2 HOLD"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud + GitHub 推进，DoD 不降级。完成后恢复 P1 Character Gap Production。",
+  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud native PR + GitHub 审核推进，DoD 不降级。完成后恢复 P1 Character Gap Production。",
   "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
-    "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision/execution/rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset IDs/versions, D-### numbering and completion state.",
-    "approval_boundary": "Consistency closeout does not change Product Owner-only Gate/Phase approval authority.",
+    "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
+    "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13"
   }
 }
