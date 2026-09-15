@@ -62,7 +62,7 @@ Chat 历史、Codex Cloud workspace、GitHub App 本地缓存均不得独立改�
 - Registry / Resolver / scripts / tests / JSON / Markdown 工程变更；
 - Reference Package / Derived Reference Sheet 等工程产物；
 - 必要的自动化测试；
-- commit + push publication。
+- commit + remote publication through the verified Codex Cloud native PR workflow。
 
 Codex Cloud 仍必须由 Chat 先锁定任务边界与验收标准。只有实际交给 Codex 执行的工程任务占用新的 D-###。
 
@@ -82,6 +82,31 @@ Codex Cloud 仍必须由 Chat 先锁定任务边界与验收标准。只有实�
 `TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS`
 
 任何当天任务不得把 `/Users/caroline/...` 本地路径作为必须可访问的执行前提。
+
+### 4.1 Codex Cloud native PR publication verification
+
+2026-09-15 已通过 `CLOUD-DRILL-001` 完成真实演练并远端核验。
+
+验证成立的路径为：
+
+`GitHub source snapshot → Codex Cloud checkout → controlled change → Cloud commit/work reference → native PR publication → GitHub PR review → Product Owner approval → merge`
+
+正式证据：
+
+`docs/project_control/gates/P0_2_visual_assets/cloud_pr_workflow_drill_2026-09-15.md`
+
+关键边界：
+
+- Cloud shell 内可没有可用于直接 `git push` 的 GitHub 凭据；
+- `origin/main`、`git fetch`、`gh`、shell-level direct push 不作为 TEMP_CLOUD_ONLY_MODE 的必要 baseline；
+- Codex Cloud native PR / `make_pr` 是当前已验证的远端 publication 路径；
+- Codex task UI 未返回 PR number / URL 时，不得仅据此判断失败，必须回到 GitHub 远端事实核对；
+- GitHub PR 的 base / head / changed files / diff 必须由 ChatGPT 或 Product Owner 独立核对后，才允许进入 merge；
+- Product Owner-only merge / approval authority 不变。
+
+`CLOUD-DRILL-001` 最终结果：`PASS / NATIVE PR PUBLICATION VERIFIED / PR #5 MERGED`。
+
+该演练不占 D-###，也不构成 AO-03、AO-04、AO-05、AO-06、P0.2、P1 Wave 2 或 P0.3 的完成证据。
 
 ## 5. AO-03 temporary-mode rule
 
