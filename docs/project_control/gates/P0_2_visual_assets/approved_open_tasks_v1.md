@@ -6,13 +6,13 @@ Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
 
-Latest closeout update: `2026-09-15`
+Latest closeout update: `2026-09-17`
 
 ## Purpose
 
 本文件专门记录已经由 Product Owner 批准/锁定、但尚未执行完成，且存在被后续生产绕过风险的 P0.2 任务。
 
-Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为下一次正式任务完成；在 7 项全部形成可验证完成证据前，不开启：
+Product Owner 于 2026-09-13 明确要求：以下 7 项必须作为正式前置 Closeout；在全部形成可验证完成证据前，不开启：
 
 `P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
 
@@ -69,40 +69,53 @@ Completion evidence:
 
 ### AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec
 
-Status: `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-17`
 
 AO-03A｜Fact Boundary + Executable Spec Design V0.1 已由 Product Owner 于 2026-09-15 明确批准并落档：
 
 `ao03_scene_executable_spec_design_v0_1.md`
 
-已锁定：
+AO-03B｜Two Scene Master Structured Facts Definition 已由 Product Owner 于 2026-09-17 批准。
 
-- Stable Scene Entity 与 Scene State 分离；
-- `SCENE_CASTLE_ENTRANCE` / `SCENE_FIRST_HALL` 作为稳定 Scene identity；
-- `DAY / NIGHT`、门 `OPEN / CLOSED`、壁炉 `EXTINGUISHED / BURNING` 等作为受控 State dimensions；
-- Scene Master 锁定 Scene Facts，不锁死 Shot Photography；
-- Costume / Prop 使用同一 executable Entity / Asset / Variant / State 逻辑；
-- 所需受控状态不存在正式可用资产时，Resolver 必须返回 `REFERENCE_GAP`，不得静默调用状态不匹配的 Scene Master；
-- AO-03 必须进入 Runtime / Resolver / machine-verifiable test，不能以文档登记替代工程验证。
+D-067 已完成：
 
-AO-03B 已由 Product Owner 于 2026-09-17 批准。D-067 已将两张 approved Scene Master、稳定 Scene facts 与多维 State Profile 映射为 executable data，并完成 state-aware Resolver 与 machine-verifiable tests；当前等待 Product Owner 审核，AO-03 不自动标记 COMPLETE / VERIFIED。
+- `SCENE_CASTLE_ENTRANCE` / `SCENE_FIRST_HALL` executable Entity；
+- approved legacy/source alias 保留；
+- Stable Scene Facts / Controlled State / Shot Photography 分离；
+- `AST_IMG_000052` / `AST_IMG_000053` formal Scene Master mapping；
+- multidimensional Scene State Profile；
+- state-aware Resolver；
+- state mismatch / absent state → `REFERENCE_GAP`；
+- Character resolver / ingest / supersession / reference-package regression 保持通过；
+- full test suite：`54 tests / OK`；
+- 两张 Scene Master 原图 SHA 保持不变，仅 100% Git rename/move。
+
+Completion evidence:
+
+- `ao03_closeout_2026-09-17.md`
+- PR `#6｜AO-03: add executable Scene registry and state-aware resolver`
+- merge SHA `b16ffdd5f1c57f0b2c28acdee3caac656afb91a3`
+- closeout evidence commit `6d87401984b7dfe5f4a75db7b262f4fc684de9e5`
 
 至少包括：
 
 - legacy/source alias `CASTLE_ENTRANCE_OPEN_DOOR_DAY` → `SCENE_CASTLE_ENTRANCE`
 - legacy/source alias `FIRST_HALL_FIREPLACE` → `SCENE_FIRST_HALL`
 
-完成标准：
+完成标准已验证：
 
-- 区分 Scene fact 与 Shot photography；
+- Scene fact 与 Shot photography 分离；
 - DAY/NIGHT、门开闭、壁炉状态等受控 State / Variant 不得静默漂移；
 - 可被后续 Shot/Task Spec 与 Resolver 读取；
-- Castle Entrance + DAY + OPEN → 当前 eligible Scene Master；
-- Castle Entrance + CLOSED → `REFERENCE_GAP`；
-- First Hall + FIREPLACE_EXTINGUISHED → 当前 eligible Scene Master；
-- First Hall + FIREPLACE_BURNING → `REFERENCE_GAP`。
+- Castle Entrance + DAY + OPEN → eligible Scene Master；
+- Castle Entrance + CLOSED / NIGHT → `REFERENCE_GAP`；
+- First Hall + FIREPLACE_EXTINGUISHED → eligible Scene Master；
+- First Hall + FIREPLACE_BURNING → `REFERENCE_GAP`；
+- explicit required state 不被 `UNSPECIFIED` 静默满足。
 
 ### AO-04｜9 Character Derived Reference Sheets
+
+Status: `NEXT`
 
 完成当前记录的 `REFERENCE_SHEET_GAP = 9`。
 
@@ -114,6 +127,8 @@ AO-03B 已由 Product Owner 于 2026-09-17 批准。D-067 已将两张 approved 
 - Reference Sheet 不反向覆盖 Atomic Master 权威。
 
 ### AO-05｜Delivery Bridge
+
+Status: `PENDING`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -129,6 +144,8 @@ AO-03B 已由 Product Owner 于 2026-09-17 批准。D-067 已将两张 approved 
 - 对仍不可避免的“最终结果下载到 Mac”环节要明确边界，不把未完成自动化描述为已完成。
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
+
+Status: `PENDING`
 
 选择至少一个真实 Shot Spec，包含：
 
@@ -179,13 +196,15 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
-3. AO-03｜IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION
-4. AO-04｜9 Character Derived Reference Sheets
-5. AO-05｜Delivery Bridge
-6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
+3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
+4. AO-04｜NEXT / 9 Character Derived Reference Sheets
+5. AO-05｜PENDING / Delivery Bridge
+6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
-AO-07 已提前完成，不改变剩余主依赖链：AO-03 → AO-04 → AO-05 → AO-06。
+AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
+
+`AO-04 → AO-05 → AO-06`
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -202,7 +221,7 @@ AO-07 已提前完成，不改变剩余主依赖链：AO-03 → AO-04 → AO-05 
 - 对应 Execution / Decision / Gate evidence 已写入 Project Control；
 - Daily / Step Closeout consistency check 无未解决状态冲突。
 
-当前 AO-01、AO-02、AO-07 已满足；Wave 2 仍由 AO-03～AO-06 阻塞。
+当前 AO-01、AO-02、AO-03、AO-07 已满足；Wave 2 仍由 AO-04～AO-06 阻塞。
 
 ## Non-blocking technical debt
 
