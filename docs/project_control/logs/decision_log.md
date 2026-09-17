@@ -47,4 +47,4 @@
 - P0.2-03 Character Asset Gap Mapping V1 历史基线已锁定：63 Mandatory / 40 Covered / 23 Core View Gap；当前 live coverage 为 42/63，P1 已完成 2/10。
 - AO-01、AO-02、AO-07 已 `COMPLETE / VERIFIED`；AO-03 已 `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`。P1 Wave 2｜君鹭远 PROFILE_LEFT 继续由 AO-03～AO-06 HOLD。
 - `RISK-001｜GitHub Connectivity Instability` 已由 BL-D-030 降级为 `CONTROLLED / MITIGATION VERIFIED`；AO-07 Recovery Runbook 与真实 failure→recovery 证据已完成并经 Product Owner 批准。
-- `TEMP_CLOUD_ONLY_MODE_V1` 已批准，将于 2026-09-16 00:00 生效；GitHub main 保持唯一 SSOT，RC-015 长期规则不变，本地同步在有效期内按 `LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL` 处理；Codex Cloud native PR publication 已由 CLOUD-DRILL-001 / PR #5 实际验证。
+- `TEMP_CLOUD_ONLY_MODE_V1` 已批准，当前处于 `EFFECTIVE / 2026-09-16—2026-09-20`；GitHub main 保持唯一 SSOT，RC-015 长期规则不变，本地同步在有效期内按 `LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL` 处理；Codex Cloud native PR publication 已由 CLOUD-DRILL-001 / PR #5 实际验证。
