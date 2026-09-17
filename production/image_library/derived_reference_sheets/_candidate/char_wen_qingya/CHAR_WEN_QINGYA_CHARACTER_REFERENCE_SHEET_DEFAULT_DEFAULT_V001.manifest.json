@@ -1,0 +1,60 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 641800,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "B",
+  "entity_id": "CHAR_WEN_QINGYA",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_wen_qingya/CHAR_WEN_QINGYA_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "PROFILE_PRIMARY",
+    "REAR_3Q_PRIMARY"
+  ],
+  "primary_side": "LEFT",
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_WEN_QINGYA_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "09551f02ad9cd4d3ae8e4483d017c230877165c4b88346ff9762527246569f0c",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000048",
+      "filename": "CHAR_WEN_QINGYA_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000047",
+      "filename": "CHAR_WEN_QINGYA_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_LEFT",
+      "selected_canonical_slot": "FACE_3Q_PRIMARY",
+      "sha256": "fb1a64777052d2bf1506ab4bffe1f75dad433bd45f3caec3c25e13d115fb9c6d",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000046",
+      "filename": "CHAR_WEN_QINGYA_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "b30c8cf2a4c44652eff4c531e84f4e317eb1073aea833c73ecb7d6f5a5796c80",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000045",
+      "filename": "CHAR_WEN_QINGYA_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "4bf8cd68f62fa954c894a736468b5ec6fff253ada1445dba3a56541fc54bef9b",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

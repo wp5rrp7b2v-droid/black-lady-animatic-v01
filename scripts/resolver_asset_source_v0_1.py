@@ -13,6 +13,7 @@ MANIFEST = Path(
 )
 REGISTRY = Path("production/asset_registry/asset_registry.jsonl")
 ASSET_ROOT = Path("production/image_library/character_references")
+DERIVED_REFERENCE_ROOT = Path("production/image_library/derived_reference_sheets")
 SCENE_ASSET_ROOT = Path("production/image_library/scene_masters")
 SCENE_PROFILES = Path("production/asset_registry/scene_state_profiles.json")
 SOURCES = {"MIGRATION_MANIFEST", "RUNTIME_REGISTRY"}
@@ -48,6 +49,7 @@ def normalize(row, source_layer):
         "sha256": row.get("sha256"),
         "mapping_status": row.get("mapping_status") if migration else "RUNTIME_NATIVE",
         "asset_class": None if migration else row.get("asset_class"),
+        "byte_size": row.get("byte_size"),
     }
 
 
@@ -93,13 +95,15 @@ def source_path(asset, root=ROOT):
     uri = asset["storage_uri"]
     name = asset["filename"]
     entity_id = asset.get("entity_id") or ""
-    asset_kind = "Scene" if entity_id.startswith("SCENE_") else "Character"
+    is_derived = asset.get("asset_class") == "DERIVED_REFERENCE"
+    asset_kind = "Derived Reference" if is_derived else ("Scene" if entity_id.startswith("SCENE_") else "Character")
     if not isinstance(uri, str) or not uri or "\\" in uri:
         raise ValueError(f"Invalid {asset_kind} storage URI: {uri}")
     relative = PurePosixPath(uri)
     if relative.is_absolute() or ".." in relative.parts:
         raise ValueError(f"{asset_kind} storage path escape: {uri}")
-    asset_root = SCENE_ASSET_ROOT if asset_kind == "Scene" else ASSET_ROOT
+    asset_root = (DERIVED_REFERENCE_ROOT if is_derived else
+                  (SCENE_ASSET_ROOT if asset_kind == "Scene" else ASSET_ROOT))
     canonical_root = root / asset_root
     if canonical_root.resolve() != canonical_root:
         raise ValueError(f"Canonical {asset_kind} storage root is redirected")
@@ -110,6 +114,72 @@ def source_path(asset, root=ROOT):
             or path.resolve() != path):
         raise ValueError(f"{asset_kind} storage path escape or symlink: {uri}")
     return path
+
+
+def dependency_status(sheet, root=ROOT):
+    """Compute derived dependency freshness; never persist eligibility as a flag."""
+    root = Path(root)
+    runtime = {row["asset_id"]: row for row in read_runtime_registry(root)}
+    relations = []
+    relation_path = root / "production/asset_registry/asset_relations.jsonl"
+    if relation_path.exists():
+        with relation_path.open(encoding="utf-8") as stream:
+            relations = [json.loads(line) for line in stream if line.strip()]
+    dependency_ids = [r["target_asset_id"] for r in relations
+                      if r.get("source_asset_id") == sheet["asset_id"]
+                      and r.get("relation_type") == "DERIVED_FROM"]
+    if not dependency_ids:
+        return {"status": "DEPENDENCY_STALE", "reason": "MISSING_DEPENDENCIES"}
+    for asset_id in dependency_ids:
+        asset = runtime.get(asset_id)
+        if asset is None:
+            return {"status": "DEPENDENCY_STALE", "reason": "MISSING_DEPENDENCY", "asset_id": asset_id}
+        if (asset.get("asset_class") != "ATOMIC" or asset.get("approval_status") != "APPROVED"
+                or asset.get("lifecycle") != "CURRENT" or asset.get("resolver_usage") == "NEVER"):
+            return {"status": "DEPENDENCY_STALE", "reason": "INVALID_DEPENDENCY_STATE", "asset_id": asset_id}
+        try:
+            path = source_path(normalize(asset, "RUNTIME_REGISTRY"), root)
+        except ValueError:
+            return {"status": "DEPENDENCY_STALE", "reason": "INVALID_DEPENDENCY_PATH", "asset_id": asset_id}
+        if not path.is_file() or sha256(path) != asset.get("sha256"):
+            return {"status": "DEPENDENCY_STALE", "reason": "DEPENDENCY_INTEGRITY_INVALID", "asset_id": asset_id}
+    return {"status": "FRESH", "dependency_asset_ids": dependency_ids}
+
+
+def read_runtime_registry(root=ROOT):
+    rows = []
+    with (Path(root) / REGISTRY).open(encoding="utf-8") as stream:
+        for line in stream:
+            if line.strip():
+                rows.append(json.loads(line))
+    return rows
+
+
+def resolve_character_reference_sheet(entity_id, root=ROOT):
+    """Resolve a formal fresh Sheet separately from unchanged Atomic resolution."""
+    rows = [row for row in read_runtime_registry(root)
+            if row.get("entity_id") == entity_id
+            and row.get("asset_class") == "DERIVED_REFERENCE"
+            and row.get("role") == "CHARACTER_REFERENCE_SHEET"
+            and row.get("approval_status") == "APPROVED"
+            and row.get("lifecycle") == "CURRENT"]
+    if not rows:
+        return {"status": "REFERENCE_GAP", "entity_id": entity_id,
+                "reason": "NO_FORMAL_CHARACTER_REFERENCE_SHEET"}
+    if len(rows) != 1:
+        raise ValueError(f"Duplicate CURRENT Character Reference Sheet for {entity_id}")
+    sheet = rows[0]
+    status = dependency_status(sheet, root)
+    if status["status"] != "FRESH":
+        return {"status": "REFERENCE_GAP", "entity_id": entity_id,
+                "reason": "DEPENDENCY_STALE", "dependency_detail": status}
+    normalized = normalize(sheet, "RUNTIME_REGISTRY")
+    path = source_path(normalized, root)
+    if not path.is_file() or sha256(path) != sheet.get("sha256"):
+        return {"status": "REFERENCE_GAP", "entity_id": entity_id,
+                "reason": "SHEET_INTEGRITY_INVALID"}
+    return {"status": "RESOLVED", "entity_id": entity_id,
+            "dependency_status": "FRESH", "asset": normalized}
 
 
 def eligible_current_assets(root=ROOT, entity_id=None):

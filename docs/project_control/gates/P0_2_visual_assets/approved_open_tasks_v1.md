@@ -115,7 +115,9 @@ Completion evidence:
 
 ### AO-04｜9 Character Derived Reference Sheets
 
-Status: `NEXT`
+Status: `IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
+
+AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea50485`. Stage A produced nine deterministic Candidate Sheets from 42 live CURRENT/APPROVED/DEFAULT Atomic inputs with 21 explicit gaps. Candidates remain outside the Formal Asset Registry; Stage B is blocked pending Product Owner visual approval.
 
 完成当前记录的 `REFERENCE_SHEET_GAP = 9`。
 
@@ -197,7 +199,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
-4. AO-04｜NEXT / 9 Character Derived Reference Sheets
+4. AO-04｜IN PROGRESS / STAGE A WAITING PO VISUAL APPROVAL / 9 Character Derived Reference Sheets
 5. AO-05｜PENDING / Delivery Bridge
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED

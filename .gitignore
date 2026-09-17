@@ -2,3 +2,4 @@
 .DS_Store
 tmp/reference_packages/
 tmp/ingest_receipts/
+production/image_library/derived_reference_sheets/_candidate/**/*.png

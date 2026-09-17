@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-17｜D-068 AO-04 Stage A engineering
+
+- Project Control advanced `R039 → R040`; Dashboard advanced `V018 → V019`.
+- AO-04 state: `IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`.
+- Registered exactly nine stable Character Entities and appended nine `ENTITY_CREATED` audit events; both existing Scene Entities remain unchanged.
+- Live preflight reconciled exactly `42 / 63` selected Atomic Core dependencies and `21` explicit gaps.
+- Generated exactly nine deterministic, non-generative Candidate PNGs plus manifests outside the Formal Asset Registry.
+- Implemented computed `FRESH / DEPENDENCY_STALE`, separate derived-reference resolution, fail-closed Stage B formalizer, and AO-04 tests. Full suite: `66 tests / OK`.
+- No formal Derived Asset IDs or `DERIVED_FROM` relations were created. Stage B was not executed.
+- AO-05 remains PENDING; P1 Wave 2 remains HOLD; P0.3 remains QUEUED.
+- Publication transport boundary: Candidate PNG binary files are `CLOUD_REVIEW_ARTIFACT / NOT FORMAL ASSET / NOT INCLUDED IN STAGE A PR DUE TO CODEX PR BINARY TRANSPORT LIMITATION`. The nine PNGs remain byte-identical in the Codex Cloud workspace for Product Owner visual review; their filenames, expected logical paths, SHA256, byte sizes, dependency lineage, populated slots and explicit gaps remain recorded in the nine version-controlled manifests. This transport boundary does not alter Candidate approval status, dependency lineage, AO-04A authority, or the mandatory Product Owner approval stop.
 本文件记录实际工程执行结果。只保留足以追溯结论的关键事实、证据、失败原因和最终结果；完整脚本、媒体文件、Commit 和工程资产由 GitHub / Local project 保存。
 
 ## Restart Baseline｜2026-09-11

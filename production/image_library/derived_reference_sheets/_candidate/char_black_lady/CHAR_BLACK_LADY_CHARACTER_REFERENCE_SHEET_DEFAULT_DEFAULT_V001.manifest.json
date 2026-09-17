@@ -1,0 +1,54 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 506441,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "A",
+  "entity_id": "CHAR_BLACK_LADY",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_black_lady/CHAR_BLACK_LADY_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "FACE_3Q_LEFT",
+    "FACE_3Q_RIGHT",
+    "PROFILE_LEFT",
+    "PROFILE_RIGHT",
+    "REAR_3Q_LEFT",
+    "REAR_3Q_RIGHT"
+  ],
+  "primary_side": null,
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_BLACK_LADY_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "346e0d8180eecb23448ffb95143f5b43af1db8578b3f9ec849f691e802ec9371",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000003",
+      "filename": "CHAR_BLACK_LADY_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "d60b27bccb394b2452a58a21bfc9a2ff8cc9a64bc53c98e3bf5ef35f77b66f18",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000002",
+      "filename": "CHAR_BLACK_LADY_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "52f8172ccbf3b37f04f3b303e48070fa0189d70b558c6e1dfad582e382c28f87",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000001",
+      "filename": "CHAR_BLACK_LADY_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "1a9d6f7ca29da71a8ee8ced7c9d6acfb8883195fac03e6838ab9ced9d665e545",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

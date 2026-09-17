@@ -1,0 +1,99 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 1123635,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "A",
+  "entity_id": "CHAR_NING_QIUSHUI",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_ning_qiushui/CHAR_NING_QIUSHUI_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "FACE_3Q_LEFT"
+  ],
+  "primary_side": null,
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_NING_QIUSHUI_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "15ec6c2682da0fe2502267bde21e9bc0bd7104bbf3e6041521121cc69a0e77be",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000034",
+      "filename": "CHAR_NING_QIUSHUI_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "5d62423ef9f1abcd349a3736079c77f3f56416cade8991a966fd925e5817ec8c",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000033",
+      "filename": "CHAR_NING_QIUSHUI_FACE_3Q_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_RIGHT",
+      "selected_canonical_slot": "FACE_3Q_RIGHT",
+      "sha256": "7d2292494ab010b324e608f792912fd2d49766318e279bbe22170445464a5c1e",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000050",
+      "filename": "CHAR_NING_QIUSHUI_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png",
+      "lifecycle": "CURRENT",
+      "role": "PROFILE_LEFT",
+      "selected_canonical_slot": "PROFILE_LEFT",
+      "sha256": "c53549b0b70de7fdc9da123b351aa37dcf433801b431479750287c73b84440fd",
+      "version_no": 2
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000035",
+      "filename": "CHAR_NING_QIUSHUI_PROFILE_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "PROFILE_RIGHT",
+      "selected_canonical_slot": "PROFILE_RIGHT",
+      "sha256": "65e66604b1f82e87f5f4d096bbd03cb0c48ca8b5b09cd1fa50b938afb3b16d14",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000051",
+      "filename": "CHAR_NING_QIUSHUI_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "REAR_3Q_LEFT",
+      "selected_canonical_slot": "REAR_3Q_LEFT",
+      "sha256": "e3cbe5ca8be8584e1b3c48d3da6bb2555a619bf36f761ebeefa78734efcbfaf8",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000037",
+      "filename": "CHAR_NING_QIUSHUI_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V002.png",
+      "lifecycle": "CURRENT",
+      "role": "REAR_3Q_RIGHT",
+      "selected_canonical_slot": "REAR_3Q_RIGHT",
+      "sha256": "c56e30657c65942899caa1f5e36e21f8f835a5835325fa68c70b64d754fa70d2",
+      "version_no": 2
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000032",
+      "filename": "CHAR_NING_QIUSHUI_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "c1c63f7d2548035da30133a45bc2e051093289494e672fe930e20104a48e8117",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000031",
+      "filename": "CHAR_NING_QIUSHUI_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "8d33c4e9143dd34733d4d9dfa6a520d9efc74c51f724974a13f909c4172868b5",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}
