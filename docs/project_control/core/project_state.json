@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R038",
+  "state_revision": "R039",
   "last_updated": "2026-09-17",
-  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-03 COMPLETE VERIFIED PO APPROVED / AO-04 NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03A 于 2026-09-15、AO-03B 于 2026-09-17 经 Product Owner 批准，D-067 已交付 AO-03 工程实现并等待 Product Owner 审核：Scene Registry / State Profile / Resolver / REFERENCE_GAP / tests。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-03、AO-07 已 COMPLETE / VERIFIED，其中 AO-02、AO-03、AO-07 已获 Product Owner 批准。AO-03 于 2026-09-17 完成最终 DoD 验收并合并 PR #6；剩余主依赖链为 AO-04 → AO-05 → AO-06。AO-04～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-03｜D-067 Engineering Implementation｜IMPLEMENTED / PENDING PRODUCT OWNER REVIEW",
+  "current_task": "P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT",
   "blocker": null,
-  "next_action": "Review D-067 AO-03 Scene Registry / State Profile / Resolver implementation and test evidence. AO-03 remains IN PROGRESS pending Product Owner approval; P1 Wave 2 remains HOLD until AO-03～AO-06 are COMPLETE / VERIFIED.",
+  "next_action": "Design and execute AO-04 under TEMP_CLOUD_ONLY_MODE_V1. Generate and validate 9 Derived Character Reference Sheets from CURRENT approved Atomic Character Assets, record exact upstream Asset IDs/versions, and verify DEPENDENCY_STALE behavior. Do not start AO-05 until AO-04 completion criteria are satisfied. P1 Wave 2 remains HOLD until AO-04～AO-06 are COMPLETE / VERIFIED.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -89,7 +89,7 @@
     "local_asset_block_status": "BLOCKED_LOCAL_ASSET",
     "validation_rule": "AO-03..AO-06 DoD is not lowered; no reconstruction, guessing, duplicate asset/version, or simulated-result-as-real-validation",
     "p0_3_rule": "DO NOT START EARLY",
-    "p1_wave2_rule": "HOLD UNTIL AO-03..AO-06 COMPLETE / VERIFIED",
+    "p1_wave2_rule": "HOLD UNTIL AO-04..AO-06 COMPLETE / VERIFIED",
     "long_term_routing_rule": "RC-015 RETAINED / NOT SUPERSEDED",
     "rule_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
     "decision_id": "BL-D-031",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-17-D067-AO03-ENGINEERING",
-    "status": "AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / PENDING PRODUCT OWNER REVIEW / TEMP MODE EFFECTIVE",
+    "id": "2026-09-17-AO03-CLOSED-AO04-NEXT",
+    "status": "AO-03 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / PR #6 MERGED / AO-04 NEXT / TEMP MODE EFFECTIVE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -201,13 +201,16 @@
       "D-067 formalized SCENE_CASTLE_ENTRANCE and SCENE_FIRST_HALL executable Scene entities and State Profiles",
       "AST_IMG_000052 and AST_IMG_000053 Scene Masters registered CURRENT / APPROVED / MASTER with source SHA preserved",
       "State-aware Scene resolver returns REFERENCE_GAP for NIGHT, CLOSED, BURNING and explicit-vs-UNSPECIFIED mismatches",
-      "D-067 automated suite passed 54 tests including Character resolver / ingest / supersession / reference-package regressions"
+      "D-067 automated suite passed 54 tests including Character resolver / ingest / supersession / reference-package regressions",
+      "AO-03 final DoD verified and explicitly approved by Product Owner on 2026-09-17",
+      "PR #6 merged as b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
+      "AO-03 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md"
     ],
-    "resume_from": "P0.2-04｜AO-03｜D-067 Product Owner review; do not mark COMPLETE / VERIFIED automatically",
+    "resume_from": "P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A+B APPROVED / AO-03 ENGINEERING IMPLEMENTED PENDING PO REVIEW / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03 COMPLETE VERIFIED PO APPROVED / AO-04 NEXT / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -219,6 +222,8 @@
     "migration_completion_path": "docs/project_control/gates/P0_2_visual_assets/d059_character_asset_migration_v1_completion.md",
     "ao02_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao02_legacy_asset_registry_migration_v1.md",
     "ao03_design_path": "docs/project_control/gates/P0_2_visual_assets/ao03_scene_executable_spec_design_v0_1.md",
+    "ao03_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md",
+    "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_completion_path": "docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md",
     "approved_open_tasks_path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "temporary_cloud_only_mode_path": "docs/project_control/gates/P0_2_visual_assets/temp_cloud_only_mode_v1.md",
@@ -344,7 +349,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-03..AO-06 COMPLETE"
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-04..AO-06 COMPLETE"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -422,12 +427,13 @@
     "ao01_decision_id": "BL-D-028",
     "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
-    "ao03_status": "IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / PENDING PRODUCT OWNER REVIEW",
-    "ao03_decision_id": "BL-D-032 + BL-D-033",
+    "ao03_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "ao03_decision_id": "BL-D-032 + BL-D-033 + BL-D-034",
+    "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "D-067 AO-03 Product Owner review",
-    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-03..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02 and AO-07 are already complete"
+    "next_task": "AO-04｜9 Derived Character Reference Sheets + dependency/staleness",
+    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-04..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03 and AO-07 are already complete"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -496,17 +502,17 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V017",
+    "version": "V018",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R038 / AO-03 ENGINEERING IMPLEMENTATION PENDING PO REVIEW"
+    "status": "CURRENT / DERIVED FROM R039 / AO-04 NEXT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-03 Scene/Variant、AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud native PR + GitHub 审核推进，DoD 不降级。完成后恢复 P1 Character Gap Production。",
+  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud native PR + GitHub 审核推进，DoD 不降级。AO-04～AO-06 全部完成并完成 P0.2 Closeout 后，才可恢复 P1 Character Gap Production。",
   "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
