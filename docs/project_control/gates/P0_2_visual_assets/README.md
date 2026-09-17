@@ -16,21 +16,21 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- AO-03：`IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`
-- AO-04：PENDING
+- AO-03：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- AO-04：`NEXT`
 - AO-05：PENDING
 - AO-06：PENDING
 - AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - RISK-001：`CONTROLLED / MITIGATION VERIFIED`
-- P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED`
+- P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-04～AO-06 COMPLETE / VERIFIED`
 
 当前正式任务：
 
-`P0.2-04｜AO-03｜D-067 Engineering Implementation｜PENDING PRODUCT OWNER REVIEW`
+`P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT`
 
-AO-03A｜Fact Boundary + Executable Spec Design V0.1 已于 2026-09-15 由 Product Owner 明确批准并落档：
+AO-03 已于 2026-09-17 完成最终 DoD 验收并由 Product Owner 明确批准；正式 Closeout：
 
-`ao03_scene_executable_spec_design_v0_1.md`
+`ao03_closeout_2026-09-17.md`
 
 ## TEMP_CLOUD_ONLY_MODE_V1
 
@@ -50,13 +50,13 @@ Rules Change：`RC-018 + RC-019`
 
 16～20 日只推进剩余 P0.2 主依赖链：
 
-`AO-03 → AO-04 → AO-05 → AO-06`
+`AO-04 → AO-05 → AO-06`
 
 不得因为本地 Mac 暂不可稳定使用而：
 
 - 提前进入 P0.3；
 - 提前解除 P1 Wave 2 HOLD；
-- 降低 AO-03～AO-06 Definition of Done；
+- 降低 AO-04～AO-06 Definition of Done；
 - 重建、猜测或伪造当前无法取得的 local-only 正式资产。
 
 ### 临时工具分工
@@ -131,6 +131,7 @@ Cloud shell 内直接 `git push` 所需 GitHub credential 不作为临时模式 
 - D-059 Character Asset Migration V1 已完成并远端验证；
 - D-060 Reference Package Exporter V0.1 已验证自动选图 + 本地 Reference Package；
 - D-061～D-065 已接通 Character ingest、P1 role 泛化、Migration + Runtime resolution、Controlled Current Supersession 与 macOS launcher；
+- AO-03 已完成 Scene Registry / State Profile / state-aware Resolver 验证；
 - RC-015 长期 Execution Routing 保持锁定；
 - RC-017 GitHub Network Recovery Runbook 已锁定并经 AO-07 验证；
 - RC-019 已补充 Codex Cloud native PR 作为 TEMP_CLOUD_ONLY_MODE 的已验证 publication 路径。
@@ -143,12 +144,11 @@ AO-01 已按 BL-D-028 完成可取得证据的旧表对账，四份旧表退出 
 
 P0.2 Gate Review 前仍需：
 
-1. AO-03：完成 AO-03B 具体 Scene Master facts，并落实 Scene / Costume / Prop / State / Variant 可执行 Spec；
-2. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
-3. AO-05：Delivery Bridge；
-4. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
+1. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
+2. AO-05：Delivery Bridge；
+3. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
 
-AO-07 已提前完成，不再属于 remaining checks。
+AO-03、AO-07 已完成，不再属于 remaining checks。
 
 ## P0.2-02｜Visual Asset Management System V1 Design
 
@@ -168,7 +168,7 @@ AO-07 已提前完成，不再属于 remaining checks。
 - Controlled Current Supersession；
 - Character image 9:16 Format Compliance；
 - Fixed Standard Review；
-- AO-03A Stable Scene identity / State separation + executable spec boundary。
+- AO-03 Stable Scene identity / State separation + executable Scene rules + state-aware Resolver。
 
 ## P0.2-03｜Character Tier Assignment + Gap Analysis + P1 Production
 
@@ -202,37 +202,44 @@ Character Asset Gap Mapping V1 历史基线：
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-03～AO-06 全部完成且 Resume Lock 解除。
+P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-04～AO-06 全部完成且 Resume Lock 解除。
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 + AO-02 + AO-03 + AO-07 COMPLETE / AO-04 NEXT / MANDATORY BEFORE P1 WAVE 2`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
-3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`；
-4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness；
-5. AO-05｜Delivery Bridge；
-6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
+3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
+4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness — `NEXT`；
+5. AO-05｜Delivery Bridge — `PENDING`；
+6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — `PENDING`；
 7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
 
-## AO-03 Current boundary
+## AO-03 Closeout
 
-稳定 Scene Entity 已锁定：
+稳定 Scene Entity：
 
 - `SCENE_CASTLE_ENTRANCE`
 - `SCENE_FIRST_HALL`
 
-对应 legacy/source alias：
+legacy/source alias：
 
 - `CASTLE_ENTRANCE_OPEN_DOOR_DAY`
 - `FIRST_HALL_FIREPLACE`
 
-AO-03B 已批准，D-067 已将两张 Scene Master 的事实实现为：
+正式 Scene Master：
 
-`stable fact / controlled state / shot-variable photography / evidence source`
+- `AST_IMG_000052`
+- `AST_IMG_000053`
 
-正式实现包含 `AST_IMG_000052–000053`、Entity Registry、Scene State Profiles 与 state-aware Resolver。原图 SHA 已逐文件验证，未重新生成或改动内容；AO-03 保持 IN PROGRESS，等待 Product Owner 审核。
+D-067 已完成 Entity Registry、Scene State Profiles 与 state-aware Resolver；原图 SHA 保持不变，54 项完整测试通过。AO-03 最终 DoD 已由 Product Owner 于 2026-09-17 批准。
+
+Completion evidence：
+
+- `ao03_closeout_2026-09-17.md`
+- PR `#6｜AO-03: add executable Scene registry and state-aware resolver`
+- Merge SHA：`b16ffdd5f1c57f0b2c28acdee3caac656afb91a3`
 
 ## AO-04 Temporary-mode boundary
 
@@ -272,18 +279,18 @@ AO-07 已完成并经 Product Owner 批准。动态 `git-proxy-auto`、HTTP/1.1 
 - D-064｜Controlled Current Supersession — COMPLETE / REMOTE VERIFIED
 - D-065｜macOS Bash Launcher Fix — COMPLETE / REMOTE VERIFIED
 - D-066｜AO-01 Four Registers Final Reconciliation — COMPLETE / VERIFIED
-- D-067｜AO-03 Scene Registry + State-Aware Resolver — ENGINEERING IMPLEMENTED / PENDING PRODUCT OWNER REVIEW
+- D-067｜AO-03 Scene Registry + State-Aware Resolver — `COMPLETE / REMOTE VERIFIED / PRODUCT OWNER APPROVED`
 
 `CLOUD-DRILL-001` 是 operations workflow drill，不占 D-###。
 
-AO-03 不自动标记 COMPLETE / VERIFIED；P1 Wave 2 继续 HOLD。
+下一新的 Codex 工程编号仅在确实交给 Codex 的新工程任务启动时使用：`D-068`。
 
 ## 当前执行基线
 
 P1 按人物整组推进：
 
 1. 宁秋水：`PROFILE_LEFT + REAR_3Q_LEFT` = **COMPLETE**
-2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **HOLD UNTIL AO-03～AO-06 COMPLETE**
+2. 君鹭远：`PROFILE_LEFT + REAR_3Q_LEFT` = **HOLD UNTIL AO-04～AO-06 COMPLETE**
 3. 尼尔：`PROFILE_RIGHT + REAR_3Q_RIGHT`
 4. 苏小小：`PROFILE_LEFT + REAR_3Q_LEFT`
 5. 廖健：`PROFILE_LEFT + REAR_3Q_LEFT`
@@ -292,9 +299,11 @@ P1 按人物整组推进：
 
 下一正式任务：
 
-`P0.2-04｜AO-03｜D-067 Product Owner Review`
+`P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT`
 
-审核已发布的 Scene Entity / State Profile / formal Asset Registry / Resolver / automated test 证据。AO-03 在 Product Owner 决定前保持 IN PROGRESS；不得自动标记 COMPLETE / VERIFIED，也不得解除 P1 Wave 2 HOLD。
+目标：基于 9 名正式 Character 的 `CURRENT / APPROVED` Atomic Assets 自动生成/验证 Derived Character Reference Sheets，记录明确上游 Asset IDs / versions，并验证 `DEPENDENCY_STALE` 行为。
+
+AO-04 完成前不得启动 AO-05；P1 Wave 2 继续 HOLD。
 
 ## Gate Approval
 
