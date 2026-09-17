@@ -21,14 +21,35 @@
 ## Current Execution State
 
 - P0.1：PASS / PRODUCT OWNER APPROVED
-- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION
-- P0.3：QUEUED
-- 当前实际 Codex 工程编号：D-067；AO-03 工程实现已交付，等待 Product Owner 审核，不自动标记 COMPLETE / VERIFIED
-- AO-02、AO-07 与 CLOUD-DRILL-001 不占新的 D-###；只有实际交给 Codex 执行的正式工程任务才占号
+- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 + AO-03 + AO-07 COMPLETE / AO-04 NEXT
+- P0.3：QUEUED / DO NOT START EARLY
+- 当前实际 Codex 工程编号：D-067；D-067 已 `COMPLETE / REMOTE VERIFIED / PRODUCT OWNER APPROVED`
+- 下一 Codex 工程编号仅在新的 Codex 工程任务实际启动时使用：D-068；本次 Project Control consistency closeout 不占 D-###
 - RISK-001：CONTROLLED / MITIGATION VERIFIED
-- P1 Wave 2：HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED
+- P1 Wave 2：HOLD UNTIL AO-04～AO-06 COMPLETE / VERIFIED
 - TEMP_CLOUD_ONLY_MODE_V1：APPROVED / EFFECTIVE / TIME-BOXED THROUGH 2026-09-20
-- Codex Cloud native PR publication：VERIFIED by CLOUD-DRILL-001 / GitHub PR #5
+- Current formal task：AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT
+
+## AO-03 Product Owner Closeout｜2026-09-17
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+Execution route: `CHAT REVIEW + GITHUB MERGE + PROJECT CONTROL CLOSEOUT / NO NEW D-NUMBER`
+
+- AO-03 final DoD reviewed against approved AO-03A/B contract and D-067 implementation.
+- `SCENE_CASTLE_ENTRANCE` and `SCENE_FIRST_HALL` verified as executable Stable Scene Entities.
+- `AST_IMG_000052` and `AST_IMG_000053` verified as approved/current/master Scene Masters with source SHA preserved.
+- Scene Facts / controlled State / Shot-variable Photography separation verified.
+- State-aware Resolver verified to resolve DAY+OPEN and FIREPLACE_EXTINGUISHED and return `REFERENCE_GAP` for CLOSED / NIGHT / BURNING / missing-state / explicit-vs-UNSPECIFIED mismatches.
+- D-067 full regression evidence: `54 tests / OK`; no implementation or regression blocker remained.
+- Product Owner explicitly approved AO-03 on 2026-09-17.
+- GitHub PR `#6｜AO-03: add executable Scene registry and state-aware resolver` merged.
+- Merge SHA：`b16ffdd5f1c57f0b2c28acdee3caac656afb91a3`。
+- Closeout evidence：`docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md`。
+- Closeout evidence commit：`6d87401984b7dfe5f4a75db7b262f4fc684de9e5`。
+- AO-03 final status：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
+- P0.2 remains ACTIVE；P1 Wave 2 remains HOLD；P0.3 remains QUEUED。
+- Next formal dependency：`AO-04 → AO-05 → AO-06`。
 
 ## D-067｜AO-03 Scene Registry + State-Aware Resolver｜ENGINEERING IMPLEMENTED / 2026-09-17
 
@@ -38,7 +59,7 @@
 - 新增 executable Entity / Scene State Profile 数据；State facts 为多维显式字段，Shot Photography 只保留字段边界而不写入 Stable Scene Facts。
 - Resolver 保留 Character migration/runtime、SHA、canonical path 与 Single Current 行为，并新增 Scene Master 显式 state subset match；NIGHT / CLOSED / BURNING / explicit-vs-UNSPECIFIED 均返回 `REFERENCE_GAP`。
 - 完整测试：`python -m unittest discover -s tests -p 'test_*.py'` → `54 tests / OK`，覆盖既有 Character resolver、ingest、supersession、reference-package 与 AO-02 migration regression。
-- 工程结果已满足 D-067 实现范围，但 AO-03 状态保持 `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`，等待 Product Owner 最终审核；未改变 P0.2 PASS，未解除 P1 Wave 2 HOLD，未启动 AO-04 / P0.3。
+- 本节记录工程交付时的历史状态；AO-03 最终完成与 Product Owner 批准见上方 `AO-03 Product Owner Closeout｜2026-09-17`。
 
 ## Project Control Baseline Commit｜APPROVED / 2026-09-11
 
@@ -319,10 +340,10 @@ Execution route: `CHAT + TERMINAL EVIDENCE + GITHUB CLOSEOUT / NO CODEX D-NUMBER
 - Push ACK loss and remote mismatch handling locked; force push is prohibited for recovery.
 - Controlled failure→recovery requirement satisfied by real transient incidents (`443 timeout`, `Empty reply from server`, HTTP/2 framing error, unexpected disconnect) followed by verified recovery/publication.
 - Product Owner explicitly approved AO-07 on 2026-09-14.
-- Decision: `BL-D-030`.
-- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md`.
-- `RISK-001` downgraded from OPEN to `CONTROLLED / MITIGATION VERIFIED`.
-- Project Control advanced to revision `R034`; AO-03 remains NEXT; P1 Wave 2 is now blocked only by AO-03～AO-06.
+- Decision: `BL-D-030`。
+- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/ao07_github_network_resilience_progress_v1.md`。
+- `RISK-001` downgraded from OPEN to `CONTROLLED / MITIGATION VERIFIED`。
+- Project Control advanced to revision `R034`; AO-03 remains NEXT; P1 Wave 2 is now blocked only by AO-03～AO-06。
 
 AO-07 does not consume D-067. Per RC-015, only work actually executed by Codex consumes a D-### number.
 
@@ -332,15 +353,15 @@ Status: `APPROVED / PRODUCT OWNER APPROVED`
 
 Execution route: `CHAT DESIGN + GITHUB CLOSEOUT / NO CODEX D-NUMBER`
 
-- Product Owner explicitly approved AO-03A on 2026-09-15; decision `BL-D-032`.
-- Stable Scene identity locked as `SCENE_CASTLE_ENTRANCE` and `SCENE_FIRST_HALL`.
-- Legacy/source aliases retained for traceability: `CASTLE_ENTRANCE_OPEN_DOOR_DAY` and `FIRST_HALL_FIREPLACE`.
-- Controlled State dimensions include DAY/NIGHT, door OPEN/CLOSED and fireplace EXTINGUISHED/BURNING; State change does not create a new Scene identity.
-- Scene Master locks Scene Facts, not Shot Photography; camera / shot size / focal length / blocking / occlusion / depth of field / local exposure / composition remain shot-variable.
-- Costume / Prop executable model follows Entity / Asset / Variant / State; missing required eligible formal asset remains `REFERENCE_GAP`, not fabricated completion.
-- AO-03 requires Runtime / Resolver + machine-verifiable tests; documentation-only closeout is prohibited.
-- Formal design evidence: `docs/project_control/gates/P0_2_visual_assets/ao03_scene_executable_spec_design_v0_1.md`.
-- AO-03 overall status advanced to `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`.
+- Product Owner explicitly approved AO-03A on 2026-09-15; decision `BL-D-032`。
+- Stable Scene identity locked as `SCENE_CASTLE_ENTRANCE` and `SCENE_FIRST_HALL`。
+- Legacy/source aliases retained for traceability: `CASTLE_ENTRANCE_OPEN_DOOR_DAY` and `FIRST_HALL_FIREPLACE`。
+- Controlled State dimensions include DAY/NIGHT, door OPEN/CLOSED and fireplace EXTINGUISHED/BURNING; State change does not create a new Scene identity。
+- Scene Master locks Scene Facts, not Shot Photography; camera / shot size / focal length / blocking / occlusion / depth of field / local exposure / composition remain shot-variable。
+- Costume / Prop executable model follows Entity / Asset / Variant / State; missing required eligible formal asset remains `REFERENCE_GAP`, not fabricated completion。
+- AO-03 requires Runtime / Resolver + machine-verifiable tests; documentation-only closeout is prohibited。
+- Formal design evidence: `docs/project_control/gates/P0_2_visual_assets/ao03_scene_executable_spec_design_v0_1.md`。
+- 本节为历史设计阶段记录；AO-03 最终完成状态见 2026-09-17 Closeout。
 
 ## CLOUD-DRILL-001｜Codex Cloud native PR workflow｜2026-09-15
 
@@ -349,27 +370,27 @@ Status: `PASS / REMOTE VERIFIED / PR MERGED`
 Execution route: `OPERATIONS WORKFLOW DRILL / NO D-NUMBER`
 
 - Purpose: verify the temporary no-Mac path without touching Project Control, production, AO-03 engineering, scripts/tests or workflows.
-- Canonical source baseline at drill start: `a6db067927e26d19d5566d64fe04d3cb72a24961`.
+- Canonical source baseline at drill start: `a6db067927e26d19d5566d64fe04d3cb72a24961`。
 - A first shell-level direct `git fetch/push` path failed because the Cloud shell had no GitHub credential; this was treated as diagnostic evidence, not as proof that native Cloud publication was unavailable.
-- Cloud checkout retained a drill-only commit/work reference; preflight confirmed exactly one committed file: `docs/drills/CODEX_CLOUD_BRANCH_PR_DRILL_2026-09-15.md`.
-- Codex Cloud native PR / `make_pr` request was accepted; although the task UI did not return PR number/URL, independent GitHub remote verification found actual PR `#5`.
-- Actual PR head: `codex/-codex-cloud-pr`; base: `main`.
+- Cloud checkout retained a drill-only commit/work reference; preflight confirmed exactly one committed file: `docs/drills/CODEX_CLOUD_BRANCH_PR_DRILL_2026-09-15.md`。
+- Codex Cloud native PR / `make_pr` request was accepted; although the task UI did not return PR number/URL, independent GitHub remote verification found actual PR `#5`。
+- Actual PR head: `codex/-codex-cloud-pr`; base: `main`。
 - PR scope audit: exactly one changed file, 12 additions, 0 deletions; no Project Control / production / AO-03 change.
 - Traceability text was corrected before merge so drill metadata matched the actual PR head and remote publication outcome.
 - Product Owner approved merge after independent review.
-- Merge SHA: `774a6abed34b81e5558dbfeba3846380fb1ff26e`.
-- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/cloud_pr_workflow_drill_2026-09-15.md`.
+- Merge SHA: `774a6abed34b81e5558dbfeba3846380fb1ff26e`。
+- Completion evidence: `docs/project_control/gates/P0_2_visual_assets/cloud_pr_workflow_drill_2026-09-15.md`。
 - Resulting rule supplement: `RC-019` — Codex Cloud native PR publication is the verified remote publication path for TEMP_CLOUD_ONLY_MODE; shell-level direct push credential is not a baseline requirement.
 
 ## End-of-Day Project Control Closeout｜2026-09-15
 
-- `project_state.json` advanced to `R036`.
-- P0.2 remains `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`.
-- AO-03 = `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`.
-- AO-04 / AO-05 / AO-06 remain pending; P1 Wave 2 remains HOLD.
-- `TEMP_CLOUD_ONLY_MODE_V1` is approved but pre-effective on 2026-09-15; it becomes effective at 2026-09-16 00:00.
-- Codex Cloud native PR publication is verified and available for the 09/16–09/20 cloud-only window.
-- Current blocker: NONE.
-- Current live Character coverage remains `42 / 63 = 66.7%`; P1 remains `2 / 10`.
-- D-### baseline unchanged: last actual Codex engineering task `D-066`; next formal Codex engineering task when needed = `D-067`.
-- Next formal step: `AO-03B｜Two Scene Master Structured Facts Definition` in Chat; repo multi-file implementation, if required from 09/16 onward, routes to Codex Cloud native PR.
+- `project_state.json` advanced to `R036`。
+- P0.2 remains `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`。
+- AO-03 historical state at this checkpoint = `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`。
+- AO-04 / AO-05 / AO-06 remained pending; P1 Wave 2 remained HOLD。
+- `TEMP_CLOUD_ONLY_MODE_V1` was approved but pre-effective on 2026-09-15; it became effective at 2026-09-16 00:00。
+- Codex Cloud native PR publication was verified for the 09/16–09/20 cloud-only window。
+- Current blocker at that checkpoint: NONE。
+- Current live Character coverage remained `42 / 63 = 66.7%`; P1 remained `2 / 10`。
+- D-### baseline at that checkpoint: last actual Codex engineering task `D-066`; next formal Codex engineering task when needed = `D-067`。
+- Historical next step at that checkpoint: `AO-03B｜Two Scene Master Structured Facts Definition`。
