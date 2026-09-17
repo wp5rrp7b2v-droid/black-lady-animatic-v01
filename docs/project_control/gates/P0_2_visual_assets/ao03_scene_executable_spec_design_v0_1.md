@@ -147,7 +147,106 @@ PROP Entity
 
 If a Shot Spec requires a Costume / Prop reference that has no eligible formal asset, Resolver returns `REFERENCE_GAP` unless an explicitly approved rule permits a safe alternative. Missing assets must not be represented as completed assets.
 
-## 7. AO-03 Definition of Done
+## 7. AO-03B｜Two Scene Master Structured Facts Definition
+
+Status: `APPROVED / PRODUCT OWNER APPROVED 2026-09-17`
+
+### 7.1 SCENE_CASTLE_ENTRANCE
+
+```text
+scene_id       = SCENE_CASTLE_ENTRANCE
+scene_name     = 古堡主入口
+asset_role     = SCENE_MASTER
+variant        = DEFAULT
+state_profile  = DAY_DOOR_OPEN
+time_of_day    = DAY
+main_door      = OPEN
+legacy_alias   = CASTLE_ENTRANCE_OPEN_DOOR_DAY
+```
+
+#### Stable facts
+
+- `spatial_topology`
+  - 古堡内部入口空间通过主门与外部连接；
+  - 门槛之外立即进入向下延伸的石质台阶；
+  - 台阶进一步连接外部庭院 / 道路；
+  - 更远处为树林环境。
+- `fixed_architecture`
+  - 古堡主入口；
+  - 大型双开主门；
+  - 门槛；
+  - 外部石质台阶。
+- `key_objects`
+  - 当前无必须独立建模的可移动关键物件。
+- `object_relationships`
+  - 主门位于内外空间交界；
+  - 石阶从门槛外开始向下；
+  - 石阶之后连接庭院 / 道路；
+  - 树林位于更远外部环境。
+- `core_materials`
+  - 石质入口建筑体系；
+  - 石质门槛 / 台阶。
+
+Visual evidence may record no visible precipitation, but AO-03B does not invent a new weather enum. Weather remains unspecified until implementation vocabulary is explicitly defined.
+
+### 7.2 SCENE_FIRST_HALL
+
+```text
+scene_id         = SCENE_FIRST_HALL
+scene_name       = 古堡第一大厅
+asset_role       = SCENE_MASTER
+variant          = DEFAULT
+state_profile    = FIREPLACE_EXTINGUISHED
+fireplace_state  = EXTINGUISHED
+fire_visible     = FALSE
+legacy_alias     = FIRST_HALL_FIREPLACE
+```
+
+#### Stable facts
+
+- `spatial_topology`
+  - 一个完整的古堡室内生活大厅；
+  - 大厅存在主要生活 / 停留区域；
+  - 通过一个拱形通道继续连接更深的古堡内部空间。
+- `fixed_architecture`
+  - 大型石质壁炉；
+  - 石质墙体；
+  - 深色木质天花；
+  - 通往更深内部空间的拱形通道。
+- `key_objects`
+  - 扶手椅；
+  - 小边桌；
+  - 书柜及书籍；
+  - 地毯。
+- `object_relationships`
+  - 扶手椅与壁炉形成相邻生活区；
+  - 小边桌属于该座椅区域；
+  - 书柜 / 书籍位于大厅内部；
+  - 地毯定义主要生活空间；
+  - 拱形通道连接大厅与更深古堡内部空间。
+- `core_materials`
+  - 石材为主要墙体及壁炉材质；
+  - 深色木材构成主要天花体系。
+
+Fireplace continuity is strict: no burning flame and no visual interpretation of an actively burning fireplace is allowed under the current `FIREPLACE_EXTINGUISHED` State Profile.
+
+### 7.3 Coordinate and photography exclusion rule
+
+The following are not Scene Facts even when visible in a Scene Master:
+
+- current image left / right position;
+- camera position or viewing direction;
+- shot size;
+- focal length;
+- character presence or blocking;
+- foreground occlusion;
+- depth of field;
+- local exposure;
+- composition.
+
+Relationships must be stored semantically, e.g. `armchair adjacent_to fireplace` and `arched_passage connects first_hall to deeper_castle_interior`, not as screen-coordinate statements such as `fireplace = left` or `archway = right`.
+
+## 8. AO-03 Definition of Done
 
 AO-03 is COMPLETE only when all of the following are verified:
 
@@ -162,16 +261,16 @@ AO-03 is COMPLETE only when all of the following are verified:
    - First Hall + FIREPLACE_EXTINGUISHED → current eligible Scene Master.
    - First Hall + FIREPLACE_BURNING → `REFERENCE_GAP`.
 
-## 8. Runtime implication
+## 9. Runtime implication
 
 Current runtime implementation is Character-only. Existing resolver source validation is fixed to `CHAR_*` and `production/image_library/character_references`.
 
 Therefore AO-03 cannot close by documentation-only registration. Runtime support must be extended so Scene assets and required state matching can participate in resolver decisions without weakening existing Character behavior.
 
-## 9. Execution split
+## 10. Execution split
 
 - `AO-03A` = Fact Boundary + Executable Spec Design V0.1 — **APPROVED 2026-09-15**.
-- `AO-03B` = define concrete structured facts for the two approved Scene Masters — **NEXT**.
+- `AO-03B` = Two Scene Master Structured Facts Definition — **APPROVED 2026-09-17**.
 - Following implementation step = create / extend Registry + resolver runtime + validation tests based on approved AO-03A/B contract.
 
 No P1 Wave 2 production resumes until AO-03 through AO-06 closeout conditions are satisfied.
