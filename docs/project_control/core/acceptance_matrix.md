@@ -43,8 +43,8 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 | 1 | Asset Authority Audit | **PARTIAL / MAJOR BASELINE LOCKED**：Authority Mini-Close、A-Series / SH 边界、Character migration authority 已锁定；AO-01 按 BL-D-028 完成可取得证据的对账；原表内部项 UNKNOWN / SOURCE UNAVAILABLE；AO-01 COMPLETE / VERIFIED。 |
 | 2 | System schema / rules | **VERIFIED DESIGN BASELINE**：Visual Asset Management System V1、Schema V0.3、Naming、Single Current、Lifecycle、Relations、Character Tier/Gap 规则已锁定。 |
 | 3 | Character Reference 规范可执行 | **VERIFIED IN REAL P1 PRODUCTION**：9:16 Format Compliance、Fixed Standard Review、P1 role definitions 已用于宁秋水真实补图。 |
-| 4 | Scene / Costume / Prop / Variant 规则可执行 | **PARTIAL / AO-03 IN PROGRESS**：AO-03A｜Fact Boundary + Executable Spec Design V0.1 已由 Product Owner 于 2026-09-15 批准；Stable Scene Entity / controlled State / Shot Photography 边界已锁定。AO-03B 尚需逐项定义两张 approved Scene Master 的具体事实字段，随后仍需 Runtime / Resolver / machine-verifiable tests，故本项尚未 VERIFIED。 |
-| 5 | Asset Registry / Dependency model | **CHARACTER REGISTRY VERIFIED / DERIVED + SCENE DEPENDENCY PENDING**：AO-02 已将 48 legacy Character assets 以 `AST_IMG_000001–000048` 正式迁入长期 Registry / Audit；现有 Runtime `AST_IMG_000049–000051` 保持不变；总 Registry 51 条，无 duplicate Current。Derived dependency 与 broader Scene/Prop/Costume 数据仍需 AO-03/AO-04 验证。 |
+| 4 | Scene / Costume / Prop / Variant 规则可执行 | **ENGINEERING IMPLEMENTED / AO-03 IN PROGRESS / PO REVIEW PENDING**：AO-03A+B 均已由 Product Owner 批准；D-067 已实现两个 Stable Scene Entity、多维 State Profile、formal Scene Master 映射及显式 state-aware Resolver。正向与 NIGHT / CLOSED / BURNING / UNSPECIFIED 负向测试通过；AO-03 未自动标记 COMPLETE / VERIFIED。 |
+| 5 | Asset Registry / Dependency model | **CHARACTER REGISTRY VERIFIED / SCENE REGISTRY IMPLEMENTED / DERIVED PENDING**：`AST_IMG_000052–000053` 已映射两个 approved Scene Masters；总 Registry 53 条。Derived dependency 仍待 AO-04，Prop / Costume 未伪造资产。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
 | 7 | Real Shot Spec Resolver | **PENDING AO-06**：尚未用至少一个“人物 + 场景 + 关键服装/道具”的真实 Shot Spec 完成完整 Reference Package 验证。 |
 | 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING AO-06**：Asset-level approval / ingest / supersession / legacy migration audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation尚未完整验证。 |
@@ -89,7 +89,7 @@ Cloud-only publication evidence：
 - merge SHA：`774a6abed34b81e5558dbfeba3846380fb1ff26e`；
 - 不改变 P0.2 Gate 技术验收条件，仅验证 2026-09-16～09-20 临时云端执行通路。
 
-当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。AO-03 已进入 IN PROGRESS，下一正式步骤为 AO-03B。**
+当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。AO-03 保持 IN PROGRESS；AO-03A+B 已批准，D-067 工程实现等待 Product Owner 审核。**
 
 ### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
 
@@ -97,7 +97,7 @@ Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前�
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — **COMPLETE / VERIFIED**；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — **COMPLETE / VERIFIED / PO APPROVED**；
-3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec — **IN PROGRESS / AO-03A APPROVED / AO-03B NEXT**；
+3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec — **IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION**；
 4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness；
 5. AO-05｜Delivery Bridge：Reference Package → image-production environment；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；

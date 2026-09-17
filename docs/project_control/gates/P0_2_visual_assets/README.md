@@ -12,11 +12,11 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
 
-## 当前正式状态｜2026-09-15
+## 当前正式状态｜2026-09-17
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- AO-03：`IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`
+- AO-03：`IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`
 - AO-04：PENDING
 - AO-05：PENDING
 - AO-06：PENDING
@@ -24,9 +24,9 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 - RISK-001：`CONTROLLED / MITIGATION VERIFIED`
 - P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED`
 
-下一正式任务：
+当前正式任务：
 
-`P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition`
+`P0.2-04｜AO-03｜D-067 Engineering Implementation｜PENDING PRODUCT OWNER REVIEW`
 
 AO-03A｜Fact Boundary + Executable Spec Design V0.1 已于 2026-09-15 由 Product Owner 明确批准并落档：
 
@@ -34,7 +34,7 @@ AO-03A｜Fact Boundary + Executable Spec Design V0.1 已于 2026-09-15 由 Produ
 
 ## TEMP_CLOUD_ONLY_MODE_V1
 
-Status: `APPROVED / PRE-EFFECTIVE / 2026-09-16—2026-09-20`
+Status: `APPROVED / EFFECTIVE / 2026-09-16—2026-09-20`
 
 Product Owner 于 2026-09-14 批准临时纯云端执行模式；正式生效时间为 `2026-09-16 00:00`。
 
@@ -210,7 +210,7 @@ Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / MANDATORY
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
-3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`；
+3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`；
 4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness；
 5. AO-05｜Delivery Bridge；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace；
@@ -228,15 +228,11 @@ Status: `ACTIVE / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / MANDATORY
 - `CASTLE_ENTRANCE_OPEN_DOOR_DAY`
 - `FIRST_HALL_FIREPLACE`
 
-AO-03B 下一步逐项定义两张已批准 Scene Master 的具体事实，明确：
+AO-03B 已批准，D-067 已将两张 Scene Master 的事实实现为：
 
 `stable fact / controlled state / shot-variable photography / evidence source`
 
-只允许结构化已有正式批准事实。如 Scene Master 原图无法从云端取得，未核验字段必须写：
-
-`SOURCE_ASSET_VALIDATION_PENDING`
-
-不得凭 Chat 记忆重新推断视觉细节或重新生成替代 Scene Master。
+正式实现包含 `AST_IMG_000052–000053`、Entity Registry、Scene State Profiles 与 state-aware Resolver。原图 SHA 已逐文件验证，未重新生成或改动内容；AO-03 保持 IN PROGRESS，等待 Product Owner 审核。
 
 ## AO-04 Temporary-mode boundary
 
@@ -266,7 +262,7 @@ Status: `CONTROLLED / MITIGATION VERIFIED`
 
 AO-07 已完成并经 Product Owner 批准。动态 `git-proxy-auto`、HTTP/1.1 fallback、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch 与真实 failure→recovery 均已有正式 Runbook 与验证证据。
 
-## D-059～D-066｜Engineering Baseline
+## D-059～D-067｜Engineering Baseline
 
 - D-059｜Character Asset Migration V1 — COMPLETE / REMOTE VERIFIED
 - D-060｜Reference Package Exporter V0.1 — TEST APPROVED / PO APPROVED
@@ -276,10 +272,11 @@ AO-07 已完成并经 Product Owner 批准。动态 `git-proxy-auto`、HTTP/1.1 
 - D-064｜Controlled Current Supersession — COMPLETE / REMOTE VERIFIED
 - D-065｜macOS Bash Launcher Fix — COMPLETE / REMOTE VERIFIED
 - D-066｜AO-01 Four Registers Final Reconciliation — COMPLETE / VERIFIED
+- D-067｜AO-03 Scene Registry + State-Aware Resolver — ENGINEERING IMPLEMENTED / PENDING PRODUCT OWNER REVIEW
 
 `CLOUD-DRILL-001` 是 operations workflow drill，不占 D-###。
 
-下一 Codex 工程编号仅在确实交给 Codex 执行时使用：`D-067`。
+AO-03 不自动标记 COMPLETE / VERIFIED；P1 Wave 2 继续 HOLD。
 
 ## 当前执行基线
 
@@ -295,9 +292,9 @@ P1 按人物整组推进：
 
 下一正式任务：
 
-`P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition`
+`P0.2-04｜AO-03｜D-067 Product Owner Review`
 
-先在 Chat 逐项锁定两张 approved Scene Master 的事实字段和 evidence status；2026-09-16 起，如需要 repo 多文件工程实现则交给 Codex Cloud，通过 native PR publication → GitHub 独立审核 → Product Owner approval → merge。
+审核已发布的 Scene Entity / State Profile / formal Asset Registry / Resolver / automated test 证据。AO-03 在 Product Owner 决定前保持 IN PROGRESS；不得自动标记 COMPLETE / VERIFIED，也不得解除 P1 Wave 2 HOLD。
 
 ## Gate Approval
 

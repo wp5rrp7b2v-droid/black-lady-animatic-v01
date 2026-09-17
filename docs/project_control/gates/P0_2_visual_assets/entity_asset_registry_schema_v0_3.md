@@ -120,6 +120,12 @@ Role 必须按 `asset_class` 分组校验。
 
 Supplementary role 不自动计入 Character Tier Core Set。
 
+### Scene Role
+
+- `SCENE_MASTER`
+
+Scene Master 锁定稳定 Scene Facts，并通过独立的 controlled State Profile 表达 DAY/NIGHT、门开闭、壁炉状态等连续性条件；不得把 Shot Photography 写入 Scene Facts。
+
 ### Shot Role
 
 V0.3 当前锁定：

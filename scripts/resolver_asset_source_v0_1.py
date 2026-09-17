@@ -1,4 +1,4 @@
-"""Unified, verified Character resolver view for migration and runtime assets."""
+"""Verified Character and state-aware Entity resolver asset view."""
 
 import hashlib
 import json
@@ -13,6 +13,8 @@ MANIFEST = Path(
 )
 REGISTRY = Path("production/asset_registry/asset_registry.jsonl")
 ASSET_ROOT = Path("production/image_library/character_references")
+SCENE_ASSET_ROOT = Path("production/image_library/scene_masters")
+SCENE_PROFILES = Path("production/asset_registry/scene_state_profiles.json")
 SOURCES = {"MIGRATION_MANIFEST", "RUNTIME_REGISTRY"}
 
 
@@ -81,7 +83,8 @@ def metadata_eligible(asset):
         return asset["mapping_status"] == "CONFIRMED"
     return (asset["asset_class"] == "ATOMIC"
             and isinstance(asset["entity_id"], str)
-            and re.fullmatch(r"CHAR_[A-Z0-9_]+", asset["entity_id"]) is not None)
+            and re.fullmatch(r"(?:CHAR|SCENE|PROP|COSTUME)_[A-Z0-9_]+",
+                             asset["entity_id"]) is not None)
 
 
 def source_path(asset, root=ROOT):
@@ -89,20 +92,23 @@ def source_path(asset, root=ROOT):
     root = Path(root).resolve()
     uri = asset["storage_uri"]
     name = asset["filename"]
+    entity_id = asset.get("entity_id") or ""
+    asset_kind = "Scene" if entity_id.startswith("SCENE_") else "Character"
     if not isinstance(uri, str) or not uri or "\\" in uri:
-        raise ValueError(f"Invalid Character storage URI: {uri}")
+        raise ValueError(f"Invalid {asset_kind} storage URI: {uri}")
     relative = PurePosixPath(uri)
     if relative.is_absolute() or ".." in relative.parts:
-        raise ValueError(f"Character storage path escape: {uri}")
-    canonical_root = root / ASSET_ROOT
+        raise ValueError(f"{asset_kind} storage path escape: {uri}")
+    asset_root = SCENE_ASSET_ROOT if asset_kind == "Scene" else ASSET_ROOT
+    canonical_root = root / asset_root
     if canonical_root.resolve() != canonical_root:
-        raise ValueError("Canonical Character storage root is redirected")
+        raise ValueError(f"Canonical {asset_kind} storage root is redirected")
     if not isinstance(name, str) or PurePosixPath(name).name != name or not name.endswith(".png"):
-        raise ValueError(f"Invalid canonical Character filename: {name}")
+        raise ValueError(f"Invalid canonical {asset_kind} filename: {name}")
     path = root / Path(*relative.parts)
     if (path.name != name or not path.is_relative_to(canonical_root)
             or path.resolve() != path):
-        raise ValueError(f"Character storage path escape or symlink: {uri}")
+        raise ValueError(f"{asset_kind} storage path escape or symlink: {uri}")
     return path
 
 
@@ -136,3 +142,75 @@ def eligible_current_assets(root=ROOT, entity_id=None):
             raise ValueError(f"SHA-256 mismatch for {asset['filename']} ({asset['source_layer']})")
         verified.append(asset)
     return verified
+
+
+def load_scene_profiles(root=ROOT):
+    """Load the executable Scene/State model and reject malformed profiles."""
+    model = json.loads((Path(root) / SCENE_PROFILES).read_text(encoding="utf-8"))
+    scenes = model.get("scene_entities")
+    if not isinstance(scenes, list):
+        raise ValueError("Scene profile model must contain scene_entities")
+    by_id = {}
+    for scene in scenes:
+        scene_id = scene.get("scene_id")
+        if not isinstance(scene_id, str) or not re.fullmatch(r"SCENE_[A-Z0-9_]+", scene_id):
+            raise ValueError(f"Invalid Scene entity id: {scene_id}")
+        if scene_id in by_id:
+            raise ValueError(f"Duplicate Scene entity: {scene_id}")
+        by_id[scene_id] = scene
+    return by_id
+
+
+def _state_matches(profile, required_state):
+    """Require every explicitly requested dimension to match exactly."""
+    if required_state is None:
+        required_state = {}
+    if isinstance(required_state, str):
+        required_state = {"profile_id": required_state}
+    if not isinstance(required_state, dict):
+        raise ValueError("required_state must be a mapping or profile id")
+    if not required_state:
+        return False
+    available = {"profile_id": profile.get("profile_id"), **profile.get("facts", {})}
+    return all(key in available and available[key] == value
+               for key, value in required_state.items())
+
+
+def resolve_scene(scene_id, required_state, root=ROOT):
+    """Resolve one state-matched Scene Master, or report a safe REFERENCE_GAP."""
+    scene = load_scene_profiles(root).get(scene_id)
+    if scene is None:
+        return {"status": "REFERENCE_GAP", "entity_id": scene_id,
+                "required_state": required_state, "reason": "UNKNOWN_SCENE"}
+
+    matching_profiles = [profile for profile in scene.get("state_profiles", [])
+                         if profile.get("status") == "APPROVED"
+                         and _state_matches(profile, required_state)]
+    assets = eligible_current_assets(root, scene_id)
+    matches = []
+    for profile in matching_profiles:
+        for asset in assets:
+            if (asset["asset_id"] == profile.get("source_master_asset_id")
+                    and asset["role"] == "SCENE_MASTER"
+                    and asset["variant"] == scene.get("variant")
+                    and asset["state"] == profile.get("profile_id")):
+                matches.append((profile, asset))
+    if not matches:
+        return {"status": "REFERENCE_GAP", "entity_id": scene_id,
+                "required_state": required_state, "reason": "NO_STATE_MATCHED_SCENE_MASTER"}
+    if len(matches) != 1:
+        raise ValueError(f"Ambiguous eligible Scene Master for {scene_id}: {len(matches)}")
+    profile, asset = matches[0]
+    return {"status": "RESOLVED", "entity_id": scene_id,
+            "state_profile": profile["profile_id"], "state_facts": profile["facts"],
+            "asset": asset}
+
+
+def resolve_entity_reference(entity_id, required_state, root=ROOT):
+    """Extensible Entity entry point; absent Prop/Costume references fail safely."""
+    if isinstance(entity_id, str) and entity_id.startswith("SCENE_"):
+        return resolve_scene(entity_id, required_state, root)
+    if isinstance(entity_id, str) and entity_id.startswith(("PROP_", "COSTUME_")):
+        return {"status": "REFERENCE_GAP", "entity_id": entity_id,
+                "required_state": required_state, "reason": "NO_ELIGIBLE_FORMAL_ASSET"}
+    raise ValueError(f"Unsupported state-aware entity: {entity_id}")

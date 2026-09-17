@@ -5,6 +5,8 @@
 当前轻量实现由 `scripts/automatic_ingest_controller_v0_1.py` 自动维护：
 
 - `asset_registry.jsonl`：正式 Asset Registry 的 V0.1 运行时记录；仅写入 Product Owner 明确批准并完成正式入库的新生产资产。
+- `entity_registry.jsonl`：稳定 Entity identity；AO-03 首先登记两个 Scene Entities。
+- `scene_state_profiles.json`：Scene stable facts、多维 State Profiles、source master 与 evidence/status 的 executable mapping。
 - `audit_event_log.jsonl`：append-only Audit Event Log；V0.1 对每次正式入库至少写入 `ASSET_APPROVED` 与 `ASSET_INGESTED`。
 - `asset_relations.jsonl`：受控替换时创建，记录 `NEW_ASSET SUPERSEDES OLD_ASSET`；无替换时无需空文件。
 
@@ -20,9 +22,9 @@ V0.1 在执行冲突检查、版本计算和 Asset ID 顺序预留时会同时�
 
 因此新生产资产不会反写 Migration Manifest。
 
-## V0.1 边界
+## Automatic Ingest Controller V0.1 边界
 
-- 仅支持 Character PNG；
+- Controller 仅支持 Character PNG；AO-03 Scene records 由 D-067 对既有 approved source files 一次性 formalization，并由 resolver/tests 校验；
 - 仅处理已由 Product Owner 明确批准的结果；
 - 默认遇到 Single Current 冲突仍停止。只有 Product Owner 明确选择替换、同时传入 `--po-approved --supersede-current`，才允许将唯一的 Runtime Registry CURRENT 标记为 `SUPERSEDED`，并把连续下一版本登记为 `CURRENT`。Migration Manifest-only CURRENT 不支持替换；
 - 受控替换保留旧 PNG、旧文件名、SHA 和版本号，并在 Asset Relations 与 append-only Audit Event Log 中记录关系和 `ASSET_SUPERSEDED` 事件；正式写入失败会恢复执行前的 Registry、Relations、Audit 和 Git 暂存状态；
