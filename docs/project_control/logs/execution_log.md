@@ -21,14 +21,24 @@
 ## Current Execution State
 
 - P0.1：PASS / PRODUCT OWNER APPROVED
-- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / AO-03A APPROVED / AO-03B NEXT
+- P0.2：ACTIVE / APPROVED-OPEN CLOSEOUT / AO-01 + AO-02 + AO-07 COMPLETE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION
 - P0.3：QUEUED
-- 当前实际 Codex 工程编号：D-066；下一次确实需要 Codex 执行时使用 D-067
+- 当前实际 Codex 工程编号：D-067；AO-03 工程实现已交付，等待 Product Owner 审核，不自动标记 COMPLETE / VERIFIED
 - AO-02、AO-07 与 CLOUD-DRILL-001 不占新的 D-###；只有实际交给 Codex 执行的正式工程任务才占号
 - RISK-001：CONTROLLED / MITIGATION VERIFIED
 - P1 Wave 2：HOLD UNTIL AO-03～AO-06 COMPLETE / VERIFIED
-- TEMP_CLOUD_ONLY_MODE_V1：APPROVED / PRE-EFFECTIVE；2026-09-16 00:00 生效
+- TEMP_CLOUD_ONLY_MODE_V1：APPROVED / EFFECTIVE / TIME-BOXED THROUGH 2026-09-20
 - Codex Cloud native PR publication：VERIFIED by CLOUD-DRILL-001 / GitHub PR #5
+
+## D-067｜AO-03 Scene Registry + State-Aware Resolver｜ENGINEERING IMPLEMENTED / 2026-09-17
+
+- Source checkout：`15ab19dd4c28257b47f7b6d79f852429ca772e7c`；work reference：`work`。
+- 开始前确认 live Asset Registry 最大编号为 `AST_IMG_000051`；为两张既有 approved Scene Master 分配 `AST_IMG_000052`、`AST_IMG_000053`，未创建重复版本。
+- 两个源 PNG 仅作 canonical rename / move，图像内容未修改；formalized SHA-256 分别保持 `d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961` 与 `ce043c8adb244ce8f07a34f1a2b047b4d7ba41f72cdf777e3cd1877f4ac8b413`。
+- 新增 executable Entity / Scene State Profile 数据；State facts 为多维显式字段，Shot Photography 只保留字段边界而不写入 Stable Scene Facts。
+- Resolver 保留 Character migration/runtime、SHA、canonical path 与 Single Current 行为，并新增 Scene Master 显式 state subset match；NIGHT / CLOSED / BURNING / explicit-vs-UNSPECIFIED 均返回 `REFERENCE_GAP`。
+- 完整测试：`python -m unittest discover -s tests -p 'test_*.py'` → `54 tests / OK`，覆盖既有 Character resolver、ingest、supersession、reference-package 与 AO-02 migration regression。
+- 工程结果已满足 D-067 实现范围，但 AO-03 状态保持 `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`，等待 Product Owner 最终审核；未改变 P0.2 PASS，未解除 P1 Wave 2 HOLD，未启动 AO-04 / P0.3。
 
 ## Project Control Baseline Commit｜APPROVED / 2026-09-11
 
@@ -330,7 +340,7 @@ Execution route: `CHAT DESIGN + GITHUB CLOSEOUT / NO CODEX D-NUMBER`
 - Costume / Prop executable model follows Entity / Asset / Variant / State; missing required eligible formal asset remains `REFERENCE_GAP`, not fabricated completion.
 - AO-03 requires Runtime / Resolver + machine-verifiable tests; documentation-only closeout is prohibited.
 - Formal design evidence: `docs/project_control/gates/P0_2_visual_assets/ao03_scene_executable_spec_design_v0_1.md`.
-- AO-03 overall status advanced to `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`.
+- AO-03 overall status advanced to `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`.
 
 ## CLOUD-DRILL-001｜Codex Cloud native PR workflow｜2026-09-15
 
@@ -355,7 +365,7 @@ Execution route: `OPERATIONS WORKFLOW DRILL / NO D-NUMBER`
 
 - `project_state.json` advanced to `R036`.
 - P0.2 remains `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`.
-- AO-03 = `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`.
+- AO-03 = `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`.
 - AO-04 / AO-05 / AO-06 remain pending; P1 Wave 2 remains HOLD.
 - `TEMP_CLOUD_ONLY_MODE_V1` is approved but pre-effective on 2026-09-15; it becomes effective at 2026-09-16 00:00.
 - Codex Cloud native PR publication is verified and available for the 09/16–09/20 cloud-only window.

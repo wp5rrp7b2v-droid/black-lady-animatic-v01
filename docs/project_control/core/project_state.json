@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R037",
+  "state_revision": "R038",
   "last_updated": "2026-09-17",
-  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03A 于 2026-09-15、AO-03B 于 2026-09-17 经 Product Owner 批准，下一步为 AO-03 工程实现：Scene Registry / State Profile / Resolver / REFERENCE_GAP / tests。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03A 于 2026-09-15、AO-03B 于 2026-09-17 经 Product Owner 批准，D-067 已交付 AO-03 工程实现并等待 Product Owner 审核：Scene Registry / State Profile / Resolver / REFERENCE_GAP / tests。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-03｜Engineering Implementation Task Contract / Codex Cloud Execution｜NEXT",
+  "current_task": "P0.2-04｜AO-03｜D-067 Engineering Implementation｜IMPLEMENTED / PENDING PRODUCT OWNER REVIEW",
   "blocker": null,
-  "next_action": "Lock AO-03 engineering Task Contract in Chat, then execute as the next Codex engineering task (D-067 when actually started) under TEMP_CLOUD_ONLY_MODE_V1. Implementation must extend Scene Registry / State Profile / Resolver / validation tests without weakening existing Character behavior. P1 Wave 2 remains HOLD until AO-03～AO-06 are COMPLETE / VERIFIED.",
+  "next_action": "Review D-067 AO-03 Scene Registry / State Profile / Resolver implementation and test evidence. AO-03 remains IN PROGRESS pending Product Owner approval; P1 Wave 2 remains HOLD until AO-03～AO-06 are COMPLETE / VERIFIED.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-17-AO03B-APPROVED",
-    "status": "AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT / TEMP MODE EFFECTIVE",
+    "id": "2026-09-17-D067-AO03-ENGINEERING",
+    "status": "AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / PENDING PRODUCT OWNER REVIEW / TEMP MODE EFFECTIVE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -197,13 +197,17 @@
       "AO-03B Two Scene Master Structured Facts Definition approved by Product Owner on 2026-09-17",
       "SCENE_CASTLE_ENTRANCE stable facts and DAY_DOOR_OPEN state boundary locked",
       "SCENE_FIRST_HALL stable facts and FIREPLACE_EXTINGUISHED state boundary locked",
-      "Screen-coordinate left/right and shot photography explicitly excluded from Scene Facts"
+      "Screen-coordinate left/right and shot photography explicitly excluded from Scene Facts",
+      "D-067 formalized SCENE_CASTLE_ENTRANCE and SCENE_FIRST_HALL executable Scene entities and State Profiles",
+      "AST_IMG_000052 and AST_IMG_000053 Scene Masters registered CURRENT / APPROVED / MASTER with source SHA preserved",
+      "State-aware Scene resolver returns REFERENCE_GAP for NIGHT, CLOSED, BURNING and explicit-vs-UNSPECIFIED mismatches",
+      "D-067 automated suite passed 54 tests including Character resolver / ingest / supersession / reference-package regressions"
     ],
-    "resume_from": "P0.2-04｜AO-03｜Engineering Implementation Task Contract / Codex Cloud Execution｜NEXT",
+    "resume_from": "P0.2-04｜AO-03｜D-067 Product Owner review; do not mark COMPLETE / VERIFIED automatically",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A+B APPROVED / AO-03 ENGINEERING NEXT / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A+B APPROVED / AO-03 ENGINEERING IMPLEMENTED PENDING PO REVIEW / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -225,22 +229,65 @@
     "character_migration_published_png_count": 48,
     "legacy_registry_migration_status": "AO-02 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "legacy_registry_asset_id_range": "AST_IMG_000001..AST_IMG_000048",
-    "runtime_asset_ids_preserved": ["AST_IMG_000049", "AST_IMG_000050", "AST_IMG_000051"],
-    "asset_registry_record_count": 51,
+    "runtime_asset_ids_preserved": [
+      "AST_IMG_000049",
+      "AST_IMG_000050",
+      "AST_IMG_000051"
+    ],
+    "asset_registry_record_count": 53,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
-    "media_codes": ["IMG", "VID", "AUD", "MDL", "TEX"],
-    "entity_id_prefixes": ["CHAR", "SCENE", "PROP", "COSTUME"],
-    "asset_classes": ["ATOMIC", "DERIVED_REFERENCE", "SHOT"],
+    "media_codes": [
+      "IMG",
+      "VID",
+      "AUD",
+      "MDL",
+      "TEX"
+    ],
+    "entity_id_prefixes": [
+      "CHAR",
+      "SCENE",
+      "PROP",
+      "COSTUME"
+    ],
+    "asset_classes": [
+      "ATOMIC",
+      "DERIVED_REFERENCE",
+      "SHOT"
+    ],
     "entity_filename_pattern": "<ENTITY_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
     "shot_filename_pattern": "<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>",
     "canonical_shot_id_rule": "legacy REBOOT marker is migration history only; A01_REBOOT…A08_REBOOT map to A01…A08",
-    "lifecycle": ["CURRENT", "SUPERSEDED", "DEPRECATED", "ARCHIVED"],
-    "resolver_usage": ["DEFAULT", "CONDITIONAL", "NEVER"],
-    "authority_classes": ["MASTER", "AUXILIARY", "DERIVED", "CONTINUITY", "SUPPLEMENTARY", "LEGACY_SUPPLEMENTARY"],
-    "provenance_status": ["COMPLETE", "PARTIAL", "UNKNOWN"],
-    "relation_types": ["DERIVED_FROM", "SUPERSEDES", "USES_REFERENCE"],
+    "lifecycle": [
+      "CURRENT",
+      "SUPERSEDED",
+      "DEPRECATED",
+      "ARCHIVED"
+    ],
+    "resolver_usage": [
+      "DEFAULT",
+      "CONDITIONAL",
+      "NEVER"
+    ],
+    "authority_classes": [
+      "MASTER",
+      "AUXILIARY",
+      "DERIVED",
+      "CONTINUITY",
+      "SUPPLEMENTARY",
+      "LEGACY_SUPPLEMENTARY"
+    ],
+    "provenance_status": [
+      "COMPLETE",
+      "PARTIAL",
+      "UNKNOWN"
+    ],
+    "relation_types": [
+      "DERIVED_FROM",
+      "SUPERSEDES",
+      "USES_REFERENCE"
+    ],
     "character_tiers": {
       "A": "9-view canonical turnaround",
       "B": "6-view core set / fixed primary side",
@@ -248,9 +295,21 @@
       "D": "background or one-off / no full core set"
     },
     "character_tier_assignment": {
-      "A": ["CHAR_NING_QIUSHUI", "CHAR_JUN_LUYUAN", "CHAR_NEIL", "CHAR_BLACK_LADY"],
-      "B": ["CHAR_WEN_QINGYA", "CHAR_SU_XIAOXIAO", "CHAR_LIAO_JIAN", "CHAR_CASTLE_YOUNG_MASTER"],
-      "C": ["CHAR_GUANG_YONG"],
+      "A": [
+        "CHAR_NING_QIUSHUI",
+        "CHAR_JUN_LUYUAN",
+        "CHAR_NEIL",
+        "CHAR_BLACK_LADY"
+      ],
+      "B": [
+        "CHAR_WEN_QINGYA",
+        "CHAR_SU_XIAOXIAO",
+        "CHAR_LIAO_JIAN",
+        "CHAR_CASTLE_YOUNG_MASTER"
+      ],
+      "C": [
+        "CHAR_GUANG_YONG"
+      ],
       "D": []
     },
     "orientation_rule": "LEFT / RIGHT use screen-facing convention: face/nose toward screen-right = RIGHT; toward screen-left = LEFT",
@@ -293,7 +352,10 @@
     "formal_master_role_count": 36,
     "formal_master_documented_state": "approved / unique current_master / frozen_for_production",
     "auxiliary_reference_count_documented": 12,
-    "scene_masters": ["CASTLE_ENTRANCE_OPEN_DOOR_DAY", "FIRST_HALL_FIREPLACE"],
+    "scene_masters": [
+      "CASTLE_ENTRANCE_OPEN_DOOR_DAY",
+      "FIRST_HALL_FIREPLACE"
+    ],
     "a_series_locked_shots": "A01-A07",
     "a_series_legacy_id_mapping": "A01_REBOOT…A07_REBOOT map to canonical A01…A07 during migration",
     "a_series_archived_semantics": "APPROVED / LOCKED / ARCHIVED; conditionally resolver-eligible for continuity / previous-shot / explicit-shot reference; not a replacement for Character Master or Scene Master",
@@ -318,7 +380,11 @@
       "core_view_gap": 23,
       "coverage_percent": 63.5,
       "reference_sheet_gap": 9,
-      "priority": {"P1": 10, "P2": 7, "P3": 6},
+      "priority": {
+        "P1": 10,
+        "P2": 7,
+        "P3": 6
+      },
       "status": "LOCKED / PER-IMAGE MAPPING VALIDATED"
     },
     "character_storage_migration": {
@@ -327,10 +393,11 @@
       "manifest_files": 2,
       "remote_commit": "d9fb763fb63e57023aa2cf11119c9be1bef037d6",
       "storage_root": "production/image_library/character_references/",
-      "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
+      "pending_assets": [
+        "CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"
+      ]
     },
     "remaining_checks": [
-      "AO-03 implement executable Scene / Costume / Prop / State / Variant support from approved AO-03A/B contract and verify Scene state resolution",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
       "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
@@ -342,16 +409,24 @@
     "decision_id": "BL-D-027",
     "path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "count": 7,
-    "execution_order": ["AO-01", "AO-02", "AO-03", "AO-04", "AO-05", "AO-06", "AO-07"],
+    "execution_order": [
+      "AO-01",
+      "AO-02",
+      "AO-03",
+      "AO-04",
+      "AO-05",
+      "AO-06",
+      "AO-07"
+    ],
     "ao01_status": "COMPLETE / VERIFIED",
     "ao01_decision_id": "BL-D-028",
     "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
-    "ao03_status": "IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT",
-    "ao03_decision_id": "BL-D-032",
+    "ao03_status": "IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION / PENDING PRODUCT OWNER REVIEW",
+    "ao03_decision_id": "BL-D-032 + BL-D-033",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-03 Engineering Implementation",
+    "next_task": "D-067 AO-03 Product Owner review",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-03..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02 and AO-07 are already complete"
   },
   "risk_register": {
@@ -415,16 +490,16 @@
   "task_numbering": {
     "project_restart_gates": "P0.x",
     "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-066",
-    "next_codex_task_when_needed": "D-067",
+    "last_known_codex_task": "D-067",
+    "next_codex_task_when_needed": "D-068",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V016",
+    "version": "V017",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "STALE AFTER AO-03B APPROVAL / UPDATE REQUIRED DURING NEXT PROJECT CONTROL CONSISTENCY CLOSEOUT"
+    "status": "CURRENT / DERIVED FROM R038 / AO-03 ENGINEERING IMPLEMENTATION PENDING PO REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

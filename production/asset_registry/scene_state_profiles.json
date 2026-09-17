@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "model_scope": ["SCENE", "COSTUME", "PROP", "VARIANT", "STATE"],
+  "missing_reference_behavior": "REFERENCE_GAP",
+  "scene_entities": [
+    {
+      "scene_id": "SCENE_CASTLE_ENTRANCE",
+      "scene_name": "古堡主入口",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": ["CASTLE_ENTRANCE_OPEN_DOOR_DAY"],
+      "stable_facts": {
+        "spatial_topology": ["古堡内部入口空间通过主门与外部连接", "门槛之外立即进入向下延伸的石质台阶", "台阶进一步连接外部庭院 / 道路", "更远处为树林环境"],
+        "fixed_architecture": ["古堡主入口", "大型双开主门", "门槛", "外部石质台阶"],
+        "key_objects": [],
+        "object_relationships": ["主门位于内外空间交界", "石阶从门槛外开始向下", "石阶之后连接庭院 / 道路", "树林位于更远外部环境"],
+        "core_materials": ["石质入口建筑体系", "石质门槛 / 台阶"]
+      },
+      "state_profiles": [{
+        "profile_id": "DAY_DOOR_OPEN",
+        "facts": {"time_of_day": "DAY", "main_door": "OPEN"},
+        "source_master_asset_id": "AST_IMG_000052",
+        "evidence": "AO-03B / approved source Scene Master",
+        "status": "APPROVED"
+      }]
+    },
+    {
+      "scene_id": "SCENE_FIRST_HALL",
+      "scene_name": "古堡第一大厅",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": ["FIRST_HALL_FIREPLACE"],
+      "stable_facts": {
+        "spatial_topology": ["一个完整的古堡室内生活大厅", "大厅存在主要生活 / 停留区域", "通过一个拱形通道继续连接更深的古堡内部空间"],
+        "fixed_architecture": ["大型石质壁炉", "石质墙体", "深色木质天花", "通往更深内部空间的拱形通道"],
+        "key_objects": ["扶手椅", "小边桌", "书柜及书籍", "地毯"],
+        "object_relationships": ["扶手椅与壁炉形成相邻生活区", "小边桌属于该座椅区域", "书柜 / 书籍位于大厅内部", "地毯定义主要生活空间", "拱形通道连接大厅与更深古堡内部空间"],
+        "core_materials": ["石材为主要墙体及壁炉材质", "深色木材构成主要天花体系"]
+      },
+      "state_profiles": [{
+        "profile_id": "FIREPLACE_EXTINGUISHED",
+        "facts": {"fireplace_state": "EXTINGUISHED", "fire_visible": false},
+        "source_master_asset_id": "AST_IMG_000053",
+        "evidence": "AO-03B / approved source Scene Master",
+        "status": "APPROVED"
+      }]
+    }
+  ],
+  "shot_variable_fields": ["camera_position", "screen_left_right", "shot_size", "focal_length", "character_blocking", "occlusion", "depth_of_field", "local_exposure", "composition"]
+}

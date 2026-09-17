@@ -69,7 +69,7 @@ Completion evidence:
 
 ### AO-03｜Scene Master Structured Facts + Scene/Costume/Prop/Variant Executable Spec
 
-Status: `IN PROGRESS / AO-03A APPROVED / AO-03B NEXT`
+Status: `IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION`
 
 AO-03A｜Fact Boundary + Executable Spec Design V0.1 已由 Product Owner 于 2026-09-15 明确批准并落档：
 
@@ -85,7 +85,7 @@ AO-03A｜Fact Boundary + Executable Spec Design V0.1 已由 Product Owner 于 20
 - 所需受控状态不存在正式可用资产时，Resolver 必须返回 `REFERENCE_GAP`，不得静默调用状态不匹配的 Scene Master；
 - AO-03 必须进入 Runtime / Resolver / machine-verifiable test，不能以文档登记替代工程验证。
 
-AO-03B 下一步：对两张已批准 Scene Master 逐项定义具体结构化事实字段，明确每一项是 `stable fact / controlled state / shot-variable photography`。
+AO-03B 已由 Product Owner 于 2026-09-17 批准。D-067 已将两张 approved Scene Master、稳定 Scene facts 与多维 State Profile 映射为 executable data，并完成 state-aware Resolver 与 machine-verifiable tests；当前等待 Product Owner 审核，AO-03 不自动标记 COMPLETE / VERIFIED。
 
 至少包括：
 
@@ -179,7 +179,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
-3. AO-03｜IN PROGRESS / AO-03A APPROVED / AO-03B NEXT
+3. AO-03｜IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION
 4. AO-04｜9 Character Derived Reference Sheets
 5. AO-05｜Delivery Bridge
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
