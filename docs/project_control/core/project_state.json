@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R036",
-  "last_updated": "2026-09-15",
-  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A APPROVED / AO-03B NEXT / TEMP_CLOUD_ONLY_MODE_V1 APPROVED PRE-EFFECTIVE",
+  "state_revision": "R037",
+  "last_updated": "2026-09-17",
+  "session_status": "ACTIVE / AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03 已进入 IN PROGRESS，AO-03A 于 2026-09-15 经 Product Owner 批准，AO-03B 为下一步。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 已批准，将于 2026-09-16 00:00 生效；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-07 已 COMPLETE / VERIFIED；AO-03A 于 2026-09-15、AO-03B 于 2026-09-17 经 Product Owner 批准，下一步为 AO-03 工程实现：Scene Registry / State Profile / Resolver / REFERENCE_GAP / tests。AO-03～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59；Codex Cloud native PR publication 已通过 CLOUD-DRILL-001 + PR #5 merge 真实验证。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition｜NEXT",
+  "current_task": "P0.2-04｜AO-03｜Engineering Implementation Task Contract / Codex Cloud Execution｜NEXT",
   "blocker": null,
-  "next_action": "AO-03B 在 Chat 中逐项定义两张 approved Scene Master 的 stable facts / controlled states / shot-variable photography，并标注 evidence source；2026-09-16 起如需 repo 多文件工程实现，按 TEMP_CLOUD_ONLY_MODE_V1 交由 Codex Cloud，通过已验证的 native PR publication 路径进入 GitHub 审核。P1 Wave 2 继续 HOLD，直到 AO-03～AO-06 全部 COMPLETE / VERIFIED。",
+  "next_action": "Lock AO-03 engineering Task Contract in Chat, then execute as the next Codex engineering task (D-067 when actually started) under TEMP_CLOUD_ONLY_MODE_V1. Implementation must extend Scene Registry / State Profile / Resolver / validation tests without weakening existing Character behavior. P1 Wave 2 remains HOLD until AO-03～AO-06 are COMPLETE / VERIFIED.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -75,7 +75,7 @@
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
-    "status": "APPROVED / PRE-EFFECTIVE / TIME-BOXED",
+    "status": "APPROVED / EFFECTIVE / TIME-BOXED",
     "approved_by": "PRODUCT OWNER",
     "approved_on": "2026-09-14",
     "effective_from": "2026-09-16",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-15-AO03A-CLOUD-PR-CLOSEOUT",
-    "status": "AO-03 IN PROGRESS / AO-03A APPROVED / AO-03B NEXT / CLOUD PR WORKFLOW VERIFIED / TEMP MODE PRE-EFFECTIVE",
+    "id": "2026-09-17-AO03B-APPROVED",
+    "status": "AO-03 IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT / TEMP MODE EFFECTIVE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -193,13 +193,17 @@
       "AO-03A Fact Boundary + Executable Spec Design V0.1 approved by Product Owner on 2026-09-15",
       "Stable Scene identity/state separation locked for SCENE_CASTLE_ENTRANCE and SCENE_FIRST_HALL",
       "CLOUD-DRILL-001 verified Codex Cloud native PR publication with GitHub PR #5",
-      "PR #5 independently reviewed, corrected for traceability, approved by Product Owner and merged as 774a6abed34b81e5558dbfeba3846380fb1ff26e"
+      "PR #5 independently reviewed, corrected for traceability, approved by Product Owner and merged as 774a6abed34b81e5558dbfeba3846380fb1ff26e",
+      "AO-03B Two Scene Master Structured Facts Definition approved by Product Owner on 2026-09-17",
+      "SCENE_CASTLE_ENTRANCE stable facts and DAY_DOOR_OPEN state boundary locked",
+      "SCENE_FIRST_HALL stable facts and FIREPLACE_EXTINGUISHED state boundary locked",
+      "Screen-coordinate left/right and shot photography explicitly excluded from Scene Facts"
     ],
-    "resume_from": "P0.2-04｜AO-03B｜Two Scene Master Structured Facts Definition｜NEXT",
+    "resume_from": "P0.2-04｜AO-03｜Engineering Implementation Task Contract / Codex Cloud Execution｜NEXT",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A APPROVED / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-03A+B APPROVED / AO-03 ENGINEERING NEXT / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -326,7 +330,7 @@
       "pending_assets": ["CHAR_neil_rear_turn_45_full_body_aux_reference_v001.png"]
     },
     "remaining_checks": [
-      "AO-03B define concrete structured facts for two approved Scene Masters, then implement executable Scene / Costume / Prop / State / Variant support",
+      "AO-03 implement executable Scene / Costume / Prop / State / Variant support from approved AO-03A/B contract and verify Scene state resolution",
       "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
       "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
@@ -343,11 +347,11 @@
     "ao01_decision_id": "BL-D-028",
     "ao02_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao02_migration_commit": "4803b928baaa38d875e9c6edd46f4a458e627b61",
-    "ao03_status": "IN PROGRESS / AO-03A APPROVED / AO-03B NEXT",
+    "ao03_status": "IN PROGRESS / AO-03A+B APPROVED / ENGINEERING IMPLEMENTATION NEXT",
     "ao03_decision_id": "BL-D-032",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-03B",
+    "next_task": "AO-03 Engineering Implementation",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-03..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02 and AO-07 are already complete"
   },
   "risk_register": {
@@ -420,7 +424,7 @@
     "version": "V016",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "AO-03A APPROVED / AO-03B NEXT / TEMP_CLOUD_ONLY_MODE_V1 PRE-EFFECTIVE / CLOUD PR VERIFIED / P1 WAVE 2 HOLD"
+    "status": "STALE AFTER AO-03B APPROVAL / UPDATE REQUIRED DURING NEXT PROJECT CONTROL CONSISTENCY CLOSEOUT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
