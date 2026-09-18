@@ -15,6 +15,9 @@ REGISTRY = Path("production/asset_registry/asset_registry.jsonl")
 ASSET_ROOT = Path("production/image_library/character_references")
 DERIVED_REFERENCE_ROOT = Path("production/image_library/derived_reference_sheets")
 SCENE_ASSET_ROOT = Path("production/image_library/scene_masters")
+COSTUME_ASSET_ROOT = Path("production/image_library/costume_references")
+PROP_ASSET_ROOT = Path("production/image_library/prop_references")
+SHOT_ASSET_ROOT = Path("production/image_library/shots")
 SCENE_PROFILES = Path("production/asset_registry/scene_state_profiles.json")
 SOURCES = {"MIGRATION_MANIFEST", "RUNTIME_REGISTRY"}
 
@@ -96,14 +99,23 @@ def source_path(asset, root=ROOT):
     name = asset["filename"]
     entity_id = asset.get("entity_id") or ""
     is_derived = asset.get("asset_class") == "DERIVED_REFERENCE"
-    asset_kind = "Derived Reference" if is_derived else ("Scene" if entity_id.startswith("SCENE_") else "Character")
+    if is_derived:
+        asset_kind, asset_root = "Derived Reference", DERIVED_REFERENCE_ROOT
+    elif entity_id.startswith("SCENE_"):
+        asset_kind, asset_root = "Scene", SCENE_ASSET_ROOT
+    elif entity_id.startswith("COSTUME_"):
+        asset_kind, asset_root = "Costume", COSTUME_ASSET_ROOT
+    elif entity_id.startswith("PROP_"):
+        asset_kind, asset_root = "Prop", PROP_ASSET_ROOT
+    elif asset.get("asset_class") == "SHOT" or asset.get("shot_id"):
+        asset_kind, asset_root = "Shot", SHOT_ASSET_ROOT
+    else:
+        asset_kind, asset_root = "Character", ASSET_ROOT
     if not isinstance(uri, str) or not uri or "\\" in uri:
         raise ValueError(f"Invalid {asset_kind} storage URI: {uri}")
     relative = PurePosixPath(uri)
     if relative.is_absolute() or ".." in relative.parts:
         raise ValueError(f"{asset_kind} storage path escape: {uri}")
-    asset_root = (DERIVED_REFERENCE_ROOT if is_derived else
-                  (SCENE_ASSET_ROOT if asset_kind == "Scene" else ASSET_ROOT))
     canonical_root = root / asset_root
     if canonical_root.resolve() != canonical_root:
         raise ValueError(f"Canonical {asset_kind} storage root is redirected")

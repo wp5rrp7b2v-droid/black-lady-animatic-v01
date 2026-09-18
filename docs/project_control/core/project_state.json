@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R052",
+  "state_revision": "R053",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-06 STAGE 2 PRODUCT OWNER APPROVED / D-069 STAGE 3 IMPLEMENTATION NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-06 STAGE 3 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-069｜AO-06 Stage 3｜A04 Resolver + Package + Audit Implementation / Real Validation｜NEXT / NOT STARTED",
-  "blocker": null,
-  "next_action": "Prepare and execute D-069 in Codex Cloud: materialize approved A04 evidence, implement executable A04 Shot Spec + multi-entity Resolver + fail-closed Reference Package + immutable use record + reverse-audit logic, close evidence-backed Neil Costume/Cross gaps without fabrication, and run real validation. Do not start P1 Wave 2 or P0.3.",
+  "current_task": "D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
+  "blocker": "Exact historically approved A04 binary was not found in the current tree or available Git object history; no dedicated approved COSTUME_NEIL_DEFAULT or PROP_NEIL_CROSS visual reference was found.",
+  "next_action": "Product Owner must supply provenance-verifiable exact approved A04 binary and evidence/approval for dedicated Neil default Costume and Cross references; resume the same D-069 without allocating D-070.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
