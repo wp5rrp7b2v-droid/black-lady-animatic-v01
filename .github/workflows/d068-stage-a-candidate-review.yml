@@ -1,0 +1,87 @@
+# Temporary D-068 review transport. Remove this workflow before PR #9 is merged.
+name: D-068 Stage A Candidate Review
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-upload-candidates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current PR branch
+        uses: actions/checkout@v4
+
+      - name: Set up validated Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install locked image dependency
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Deterministically rebuild Candidate Sheets
+        run: |
+          python scripts/character_reference_sheet_builder_v0_1.py \
+            --output-root "${{ runner.temp }}/d068-candidate-review" \
+            > "${{ runner.temp }}/d068-build-result.json"
+
+      - name: Verify all Candidate PNGs against locked manifests
+        env:
+          CANDIDATE_OUTPUT: ${{ runner.temp }}/d068-candidate-review
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          repository = Path.cwd()
+          generated_root = Path(os.environ["CANDIDATE_OUTPUT"])
+          locked_root = repository / "production/image_library/derived_reference_sheets/_candidate"
+
+          locked_manifests = sorted(locked_root.glob("*/*.manifest.json"))
+          generated_pngs = sorted(generated_root.glob("*/*.png"))
+          if len(locked_manifests) != 9 or len(generated_pngs) != 9:
+              raise SystemExit(
+                  f"Expected 9 locked manifests and 9 generated PNGs; "
+                  f"found {len(locked_manifests)} and {len(generated_pngs)}"
+              )
+
+          expected = {}
+          for manifest_path in locked_manifests:
+              manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+              expected[manifest["sheet_filename"]] = manifest["sheet_sha256"]
+
+          if len(expected) != 9:
+              raise SystemExit(f"Expected 9 unique Candidate filenames; found {len(expected)}")
+
+          matched = 0
+          for png_path in generated_pngs:
+              digest = hashlib.sha256(png_path.read_bytes()).hexdigest()
+              locked_digest = expected.pop(png_path.name, None)
+              if locked_digest is None:
+                  raise SystemExit(f"Unexpected generated Candidate PNG: {png_path.name}")
+              if digest != locked_digest:
+                  raise SystemExit(
+                      f"SHA256 MISMATCH for {png_path.name}: "
+                      f"generated={digest} locked={locked_digest}"
+                  )
+              matched += 1
+              print(f"MATCH {matched}/9 {png_path.name} {digest}")
+
+          if expected:
+              raise SystemExit(f"Missing generated Candidate PNGs: {sorted(expected)}")
+          print("D-068 Candidate verification complete: 9/9 SHA MATCH")
+          PY
+
+      - name: Upload Product Owner review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: D068_STAGE_A_CANDIDATE_REVIEW
+          path: ${{ runner.temp }}/d068-candidate-review/*/*.png
+          retention-days: 7
+          if-no-files-found: error
