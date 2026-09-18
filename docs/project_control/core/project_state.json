@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R042",
+  "state_revision": "R043",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-04 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / AO-05 NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-05 DELIVERY BRIDGE DESIGN IN PROGRESS / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-05｜Delivery Bridge｜NEXT / NOT STARTED",
+  "current_task": "AO-05｜Delivery Bridge｜DESIGN IN PROGRESS / CHAT",
   "blocker": null,
-  "next_action": "Design AO-05 Delivery Bridge: validate Reference Package → actual image-production environment handoff with traceable asset versions and minimal Product Owner manual handling. Do not start AO-06, release P1 Wave 2, or start P0.3 before AO-05 is completed and verified.",
+  "next_action": "Lock AO-05 Delivery Bridge V0.1 design: preserve Resolver selection authority, package exact formal references into a traceable cloud delivery bundle, then validate real delivery into the image-production environment. D-069 remains unallocated until engineering implementation is explicitly authorized.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-AO04-FINAL-ACCEPTED",
-    "status": "AO-04 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / AO-05 NEXT",
+    "id": "2026-09-18-AO05-DESIGN-START",
+    "status": "AO-05 DELIVERY BRIDGE / DESIGN IN PROGRESS / NO D-NUMBER ALLOCATED",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -212,7 +212,7 @@
       "AO-04 final status COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
       "Temporary D-068 Stage A review and Stage B publication workflows removed before PR #9 merge"
     ],
-    "resume_from": "AO-05｜Delivery Bridge｜Design and execution planning",
+    "resume_from": "AO-05｜Delivery Bridge V0.1 design lock",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -442,9 +442,10 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-05｜Delivery Bridge",
+    "next_task": "AO-05｜Delivery Bridge｜DESIGN IN PROGRESS",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-05 and AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04 and AO-07 are already complete.",
-    "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED"
+    "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "ao05_status": "DESIGN IN PROGRESS / CHAT / NOT YET ENGINEERING"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -514,10 +515,10 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V021",
+    "version": "V022",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R042 / AO-04 COMPLETE / AO-05 NEXT"
+    "status": "CURRENT / DERIVED FROM R043 / AO-05 DESIGN IN PROGRESS"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

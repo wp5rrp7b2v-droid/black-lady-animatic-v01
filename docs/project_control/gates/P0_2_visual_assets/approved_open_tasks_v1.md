@@ -130,7 +130,7 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `PENDING`
+Status: `DESIGN IN PROGRESS / CHAT / NOT YET ENGINEERING`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -200,7 +200,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜PENDING / Delivery Bridge
+5. AO-05｜DESIGN IN PROGRESS / Delivery Bridge
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 

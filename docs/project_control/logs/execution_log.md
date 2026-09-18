@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-05 Delivery Bridge Design Start
+
+Status: `DESIGN IN PROGRESS / CHAT / NO D-NUMBER ALLOCATED`
+
+- Product Owner 明确启动 AO-05。
+- AO-05 继续遵守既有完成标准：Reference Package 必须稳定进入实际 image-production / generation environment；输入 Asset ID / version / SHA 可追踪；减少 Product Owner 逐张挑图、上传和搬运；不得把仍需人工的环节描述为自动化完成。
+- 本阶段先由 Chat 完成 Delivery Bridge V0.1 设计，不分配 D-069。
+- 设计原则：AO-05 不新增 Resolver 选图权威，不修改 AO-04 Formal Assets；Delivery Bridge 只消费既有 Resolver / Reference Package 输出并负责可验证交付。
+- 当前无 blocker；AO-06、P1 Wave 2、P0.3 继续保持原有 HOLD / PENDING / QUEUED 边界。
+
 ## 2026-09-18｜AO-04 Final Product Owner Acceptance
 
 Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
