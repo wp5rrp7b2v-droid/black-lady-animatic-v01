@@ -1,6 +1,6 @@
 # AO-06｜Stage 2｜A04 Real Shot Spec V0.1 + Resolver Contract
 
-Status: `READY_FOR_PRODUCT_OWNER_REVIEW`
+Status: `APPROVED / PRODUCT OWNER APPROVED 2026-09-18`
 
 Date: `2026-09-18`
 
@@ -425,3 +425,13 @@ Approval should confirm all of the following:
 9. Stage 3 may allocate D-069 for implementation only after this design is approved.
 
 No AO-06 completion or P1 Wave 2 release is implied by Stage 2 approval.
+
+## 12. Product Owner approval
+
+Approved on `2026-09-18`.
+
+All nine Stage 2 approval questions are accepted and locked.
+
+Stage 3 engineering is authorized under `D-069`.
+
+This approval does not mark AO-06 complete and does not release P1 Wave 2 or start P0.3.

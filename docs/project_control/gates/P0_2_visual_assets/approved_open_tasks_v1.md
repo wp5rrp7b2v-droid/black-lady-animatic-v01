@@ -196,7 +196,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / STAGE 2 READY_FOR_PRODUCT_OWNER_REVIEW`
+Status: `IN PROGRESS / STAGE 2 PRODUCT OWNER APPROVED / D-069 STAGE 3 NEXT`
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -233,6 +233,20 @@ Stage 2 design candidate（2026-09-18）：
 - Historical A04 不允许事后编造 `USES_REFERENCE`；AO-06 当前真实 use 先写 immutable validation use record，并在隔离事务中验证 relation/reverse-query 逻辑；只有存在可证明的新 formal output 时才写 live `USES_REFERENCE`。
 
 Detailed design：`ao06_stage2_a04_real_shot_spec_resolver_contract_v0_1.md`。
+
+Stage 2 Product Owner approval（2026-09-18）：
+
+- A04 Real Shot Spec V0.1 structure approved；
+- Ning / Neil Character Reference Sheets + Castle Entrance DAY_DOOR_OPEN are required resolved references；
+- COSTUME_NEIL_DEFAULT + PROP_NEIL_CROSS are required and any REFERENCE_GAP blocks generation；
+- white pocket handkerchief remains a Costume component；
+- approved A04 source evidence is mandatory for exact Shot photography and may not be recreated；
+- blocked diagnostic package may be emitted but `generation_allowed=false`；
+- historical A04 receives no fabricated historical `USES_REFERENCE`；
+- current AO-06 actual use goes to immutable validation use record；live `USES_REFERENCE` requires a genuinely approved formal output with provable inputs；
+- Stage 3 engineering may allocate `D-069`。
+
+Next：`D-069｜AO-06 Stage 3 implementation + real validation`。
 
 
 选择至少一个真实 Shot Spec，包含：
@@ -287,7 +301,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜IN PROGRESS / STAGE 2 READY FOR PO REVIEW
+6. AO-06｜IN PROGRESS / STAGE 2 PO APPROVED / D-069 STAGE 3 NEXT
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：

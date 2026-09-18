@@ -1,5 +1,20 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-06 Stage 2 Product Owner Approval
+
+Status: `APPROVED / D-069 STAGE 3 NEXT`
+
+- Product Owner 明确批准 `AO-06 Stage 2｜A04 Real Shot Spec V0.1 + Resolver Contract`。
+- A04 executable Shot Spec structure 正式锁定。
+- Required resolved anchors：`CHAR_NING_QIUSHUI / AST_IMG_000060`、`CHAR_NEIL / AST_IMG_000059`、`SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN / AST_IMG_000052`。
+- Required current gaps：`COSTUME_NEIL_DEFAULT`、`PROP_NEIL_CROSS`；任一 required gap 存在时必须 `generation_allowed=false`。
+- White pocket handkerchief 锁定为 `COSTUME_NEIL_DEFAULT` required component，不建立独立 fabricated Prop。
+- Exact Shot photography 必须来自真实 approved A04 source evidence，不得从 Scene Master 或聊天记忆猜测。
+- Historical A04 不允许重建/补造历史 `USES_REFERENCE`。
+- AO-06 当前真实 use 必须进入 immutable validation use record；live `USES_REFERENCE` 只允许指向真实、可证明输入的已批准 formal output。
+- Product Owner 授权下一 Codex 工程任务编号：`D-069`，用于 AO-06 Stage 3 implementation + real validation。
+- P1 Wave 2 / P0.3 继续 HOLD / QUEUED。
+
 ## 2026-09-18｜AO-06 Stage 2｜A04 Real Shot Spec + Resolver Contract Ready
 
 Status: `READY_FOR_PRODUCT_OWNER_REVIEW`
