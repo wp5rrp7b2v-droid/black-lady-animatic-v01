@@ -4,8 +4,8 @@
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
   "state_revision": "R040",
-  "last_updated": "2026-09-17",
-  "session_status": "ACTIVE / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "last_updated": "2026-09-18",
+  "session_status": "ACTIVE / D-068 STAGE A PRODUCT OWNER APPROVED / STAGE B AUTHORIZED / BLOCKED_ON_FORMAL_BINARY_PUBLICATION / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-068｜AO-04｜Stage A Candidate Build + Dependency Staleness Engineering｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
-  "blocker": null,
-  "next_action": "Product Owner must visually review the 9 deterministic AO-04 Candidate Reference Sheets. Do not execute Stage B formalization, allocate Derived Asset IDs, create DERIVED_FROM relations, or start AO-05 before explicit approval. P1 Wave 2 remains HOLD; P0.3 remains QUEUED.",
+  "current_task": "D-068｜AO-04｜Stage B Formalization｜BLOCKED_ON_FORMAL_BINARY_PUBLICATION",
+  "blocker": "The current Codex PR publication mechanism cannot publish the nine required canonical formal PNG binaries. Do not write registry, relation, or audit records until binaries and records can be published atomically on PR #9.",
+  "next_action": "Resume D-068 Stage B only in an environment that can verify PR #9 head ebed801fdc5b35ceb000516b7352fd7241ceebf5 and publish all nine canonical PNG binaries with the formal Registry transaction. AO-05, P1 Wave 2, and P0.3 remain blocked.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-D068-STAGE-A-WAITING-PRODUCT-OWNER-VISUAL-APPROVAL",
-    "status": "AO-04 IN PROGRESS / D-068 STAGE A REVIEW PATCH 01 COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+    "id": "2026-09-18-D068-STAGE-B-FORMAL-BINARY-PUBLICATION-BLOCKED",
+    "status": "AO-04 IN PROGRESS / STAGE A PRODUCT OWNER APPROVED / STAGE B AUTHORIZED / BLOCKED_ON_FORMAL_BINARY_PUBLICATION",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -206,8 +206,10 @@
       "PR #6 merged as b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
       "AO-03 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md"
     ],
-    "resume_from": "D-068｜AO-04 Stage A｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
-    "blockers": []
+    "resume_from": "D-068｜AO-04 Stage B｜publish nine canonical formal PNGs atomically with Registry, lineage, and audit records",
+    "blockers": [
+      "BLOCKED_ON_FORMAL_BINARY_PUBLICATION"
+    ]
   },
   "visual_asset_management_system": {
     "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04A PO APPROVED / AO-04 IN PROGRESS / D-068 STAGE A WAITING PO VISUAL APPROVAL / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",

@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜D-068 Stage B authorization and publication preflight
+
+- Product Owner visually approved all 9 Stage A Candidate Sheets and authorized D-068 Stage B.
+- Rehydration preflight passed: `9 manifests / 9 PNGs / 9/9 filename / 9/9 SHA256 / 9/9 byte size / 42 dependencies / 21 REFERENCE_GAP / 63 slots`.
+- Stage B stopped before formalizer execution because the recorded Codex PR publisher cannot publish the nine required canonical formal PNG binaries and this checkout cannot verify supplied remote head `ebed801fdc5b35ceb000516b7352fd7241ceebf5`.
+- Status: `BLOCKED_ON_FORMAL_BINARY_PUBLICATION`. D-068 formal state remains `DERIVED_REFERENCE=0 / DERIVED_FROM=0 / D-068 ASSET_FORMALIZED=0`; no prospective Asset ID was allocated.
+- The temporary Candidate review workflow remains present because cleanup is authorized only after successful Stage B formalization and validation.
+- AO-04 remains `IN PROGRESS`; D-069 remains reservation-only; AO-05 remains not started; PR #9 remains `OPEN / DO NOT MERGE`.
+- Blocker evidence: `docs/project_control/gates/P0_2_visual_assets/d068_stage_b_formal_binary_publication_blocker_2026-09-18.md`.
+
 ## 2026-09-18｜D-068 Stage A Review Patch 01
 
 - Continued the existing D-068 / AO-04 Stage A task; D-069 remains reservation-only and was not allocated or executed.
