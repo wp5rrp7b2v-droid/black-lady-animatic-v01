@@ -1,5 +1,20 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜D-068 Stage B Engineering Complete / Remote Verified
+
+- Product Owner 已于 2026-09-18 视觉批准全部 9 张 Stage A Candidate Character Reference Sheets，并授权 Stage B。
+- GitHub Actions workflow `D-068 Stage B Publication`（run `35308216933`）在真实 `codex/ao-04` 分支执行并成功完成。
+- Stage B publication commit：`09b9e2c44f8f2f78c1d102f3d141263074316310`；PR #9 远端 head 已独立核对为同一 SHA，PR 保持 OPEN / NOT MERGED。
+- 同一 formal transaction commit 原子发布 12 个文件：9 张 canonical formal PNG + `asset_registry.jsonl` + `asset_relations.jsonl` + `audit_event_log.jsonl`。
+- 正式结果：Asset Registry `62` 条；其中 AO-04 formal `DERIVED_REFERENCE=9`（`AST_IMG_000054–000062`）；AO-04 `DERIVED_FROM=42`；D-068/AO-04 `ASSET_FORMALIZED=9`。
+- 9 张正式 PNG 的 SHA256 / byte size 与 Product Owner 已批准 Candidate manifests 逐一一致；Character Core Coverage 保持 `42/63 = 66.7%`，`REFERENCE_GAP=21`，未生成任何新人物视角。
+- 9 张 Sheet 均验证为 `CURRENT / APPROVED / DERIVED / DEFAULT`，dependency status 全部 `FRESH`，Character Reference Sheet Resolver 9/9 RESOLVED。
+- Idempotency：第二次执行 formalizer 返回 `ALREADY_FORMALIZED`，Registry / Relations / Audit / 9 PNG hashes 无变化。
+- 完整仓库回归：`68 tests / OK`。
+- Binary publication blocker 已解除。AO-04 仍保持 `IN PROGRESS`，当前状态为 `STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`。
+- 未启动 AO-05；D-069 仍为 reservation only；P1 Wave 2 继续 HOLD；P0.3 继续 QUEUED；PR #9 不得 merge，等待 Product Owner 最终 AO-04 DoD 验收。
+- Completion evidence：`docs/project_control/gates/P0_2_visual_assets/d068_stage_b_engineering_complete_2026-09-18.md`。
+
 ## 2026-09-18｜D-068 Stage B authorization and publication preflight
 
 - Product Owner visually approved all 9 Stage A Candidate Sheets and authorized D-068 Stage B.

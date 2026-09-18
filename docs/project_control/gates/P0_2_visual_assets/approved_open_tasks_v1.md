@@ -6,7 +6,7 @@ Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
 
-Latest closeout update: `2026-09-17`
+Latest closeout update: `2026-09-18`
 
 ## Purpose
 
@@ -115,9 +115,9 @@ Completion evidence:
 
 ### AO-04｜9 Character Derived Reference Sheets
 
-Status: `IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
+Status: `IN PROGRESS / STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`
 
-AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea50485`. Stage A produced nine deterministic Candidate Sheets from 42 live CURRENT/APPROVED/DEFAULT Atomic inputs with 21 explicit gaps. Candidates remain outside the Formal Asset Registry; Stage B is blocked pending Product Owner visual approval.
+AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea50485`. Stage A produced nine deterministic Candidate Sheets from 42 live CURRENT/APPROVED/DEFAULT Atomic inputs with 21 explicit gaps; Product Owner visually approved all 9 on 2026-09-18. Stage B then formalized `AST_IMG_000054–000062` as 9 formal CURRENT / APPROVED `DERIVED_REFERENCE / CHARACTER_REFERENCE_SHEET` assets, created 42 `DERIVED_FROM` relations and 9 `ASSET_FORMALIZED` events, and published the 9 canonical PNG binaries atomically with Registry / lineage / audit in commit `09b9e2c44f8f2f78c1d102f3d141263074316310`. GitHub Actions validation confirmed all 9 dependency states `FRESH`, resolver resolution PASS, second formalizer run `ALREADY_FORMALIZED`, and full suite `68 tests / OK`. AO-04 still requires final Product Owner DoD acceptance before it may be marked COMPLETE / VERIFIED.
 
 完成当前记录的 `REFERENCE_SHEET_GAP = 9`。
 
@@ -199,7 +199,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
-4. AO-04｜IN PROGRESS / STAGE A WAITING PO VISUAL APPROVAL / 9 Character Derived Reference Sheets
+4. AO-04｜IN PROGRESS / STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY FOR FINAL PO ACCEPTANCE
 5. AO-05｜PENDING / Delivery Bridge
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED

@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R040",
+  "state_revision": "R041",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / D-068 STAGE A PRODUCT OWNER APPROVED / STAGE B AUTHORIZED / BLOCKED_ON_FORMAL_BINARY_PUBLICATION / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / D-068 STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_AO04_PRODUCT_OWNER_ACCEPTANCE / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-03、AO-07 已 COMPLETE / VERIFIED，其中 AO-02、AO-03、AO-07 已获 Product Owner 批准。AO-03 于 2026-09-17 完成最终 DoD 验收并合并 PR #6；剩余主依赖链为 AO-04 → AO-05 → AO-06。AO-04～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-03、AO-07 已 COMPLETE / VERIFIED，其中 AO-02、AO-03、AO-07 已获 Product Owner 批准。AO-04 Stage B 工程已完成并远端验证：9 张正式 Character Reference Sheet（AST_IMG_000054..000062）、42 条 DERIVED_FROM、9 条 D-068 ASSET_FORMALIZED，68 tests / OK；当前等待 Product Owner 最终 AO-04 DoD 验收。AO-04～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 已降级为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-068｜AO-04｜Stage B Formalization｜BLOCKED_ON_FORMAL_BINARY_PUBLICATION",
-  "blocker": "The current Codex PR publication mechanism cannot publish the nine required canonical formal PNG binaries. Do not write registry, relation, or audit records until binaries and records can be published atomically on PR #9.",
-  "next_action": "Resume D-068 Stage B only in an environment that can verify PR #9 head ebed801fdc5b35ceb000516b7352fd7241ceebf5 and publish all nine canonical PNG binaries with the formal Registry transaction. AO-05, P1 Wave 2, and P0.3 remain blocked.",
+  "current_task": "D-068｜AO-04｜Stage B Formalization｜ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE",
+  "blocker": null,
+  "next_action": "Product Owner performs final AO-04 DoD acceptance. Do not start AO-05, release P1 Wave 2, start P0.3, or merge PR #9 before explicit AO-04 final approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-D068-STAGE-B-FORMAL-BINARY-PUBLICATION-BLOCKED",
-    "status": "AO-04 IN PROGRESS / STAGE A PRODUCT OWNER APPROVED / STAGE B AUTHORIZED / BLOCKED_ON_FORMAL_BINARY_PUBLICATION",
+    "id": "2026-09-18-D068-STAGE-B-ENGINEERING-COMPLETE-REMOTE-VERIFIED",
+    "status": "AO-04 IN PROGRESS / D-068 STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -204,15 +204,16 @@
       "D-067 automated suite passed 54 tests including Character resolver / ingest / supersession / reference-package regressions",
       "AO-03 final DoD verified and explicitly approved by Product Owner on 2026-09-17",
       "PR #6 merged as b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
-      "AO-03 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md"
+      "AO-03 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md",
+      "D-068 Stage A 9 Candidate Character Reference Sheets visually approved by Product Owner on 2026-09-18",
+      "D-068 Stage B formalized AST_IMG_000054..AST_IMG_000062 as 9 CURRENT / APPROVED Derived Character Reference Sheets with 42 DERIVED_FROM relations and 9 ASSET_FORMALIZED audit events",
+      "D-068 Stage B GitHub Actions publication commit 09b9e2c44f8f2f78c1d102f3d141263074316310 REMOTE VERIFIED; 9 canonical PNG binaries published atomically with Registry / lineage / audit; all 9 FRESH and resolver-resolved; idempotency ALREADY_FORMALIZED verified; full suite 68 tests / OK"
     ],
-    "resume_from": "D-068｜AO-04 Stage B｜publish nine canonical formal PNGs atomically with Registry, lineage, and audit records",
-    "blockers": [
-      "BLOCKED_ON_FORMAL_BINARY_PUBLICATION"
-    ]
+    "resume_from": "D-068｜AO-04 final Product Owner acceptance",
+    "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04A PO APPROVED / AO-04 IN PROGRESS / D-068 STAGE A WAITING PO VISUAL APPROVAL / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04A PO APPROVED / D-068 STAGE B ENGINEERING COMPLETE + REMOTE VERIFIED / WAITING FINAL AO-04 PO ACCEPTANCE / APPROVED-OPEN CLOSEOUT ACTIVE / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -241,7 +242,7 @@
       "AST_IMG_000050",
       "AST_IMG_000051"
     ],
-    "asset_registry_record_count": 53,
+    "asset_registry_record_count": 62,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -351,7 +352,11 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-04..AO-06 COMPLETE"
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-04..AO-06 COMPLETE",
+    "derived_reference_sheet_formal_count": 9,
+    "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
+    "ao04_stage_b_test_result": "68 tests / OK",
+    "ao04_stage_b_status": "ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -405,7 +410,7 @@
       ]
     },
     "remaining_checks": [
-      "AO-04 Generate/approve 9 Derived Character Reference Sheets and validate dependency staleness behavior",
+      "AO-04 final Product Owner acceptance for 9 formal Derived Character Reference Sheets",
       "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
       "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
     ],
@@ -434,8 +439,9 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-04｜9 Derived Character Reference Sheets + dependency/staleness",
-    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-04..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03 and AO-07 are already complete"
+    "next_task": "AO-04｜FINAL PRODUCT OWNER ACCEPTANCE",
+    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-04..AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03 and AO-07 are already complete",
+    "ao04_status": "IN PROGRESS / STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -505,10 +511,10 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V019",
+    "version": "V020",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R040 / AO-04 STAGE A WAITING PO VISUAL APPROVAL"
+    "status": "CURRENT / DERIVED FROM R041 / AO-04 STAGE B ENGINEERING COMPLETE / WAITING FINAL PRODUCT OWNER ACCEPTANCE"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
