@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R053",
+  "state_revision": "R054",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-06 STAGE 3 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
+  "session_status": "PAUSED / END-OF-DAY 2026-09-18 / AO-06 D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
-  "blocker": "Exact historically approved A04 binary was not found in the current tree or available Git object history; no dedicated approved COSTUME_NEIL_DEFAULT or PROP_NEIL_CROSS visual reference was found.",
-  "next_action": "Product Owner must supply provenance-verifiable exact approved A04 binary and evidence/approval for dedicated Neil default Costume and Cross references; resume the same D-069 without allocating D-070.",
+  "current_task": "D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION MERGED / PAUSED FOR DAY / RESUME SAME D-069",
+  "blocker": "Approved A04 binary is not materialized in the current GitHub runtime; under the currently locked Stage 2 contract, Neil Costume/Cross formal evidence/modeling also remains unresolved pending Product Owner review.",
+  "next_action": "Tomorrow resume the SAME D-069. First review A-Series legacy Shot migration/recovery and Neil Costume/Cross modeling; recover/materialize approved A04 evidence when available. Do not allocate D-070 and do not start Work real validation while required evidence/model remains unresolved.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-D069-STAGE3-ENGINEERING-CHECKPOINT",
-    "status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
+    "id": "2026-09-18-EOD-D069-CHECKPOINT",
+    "status": "D-069 ENGINEERING FOUNDATION MERGED / EOD PAUSED / EVIDENCE BLOCKED",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -249,22 +249,27 @@
       "Stage 3 engineering authorized to use next Codex task number D-069",
       "D-069 Stage 3 engineering foundation implemented: executable A04 Spec, fail-closed Resolver/Package, immutable use-record and reverse-audit support",
       "D-069 truthful runtime result: three formal anchors RESOLVED; Costume/Prop REFERENCE_GAP; approved A04 SHOT_EVIDENCE_GAP; generation_allowed=false",
-      "D-069 Review Patch 01 targets Project Control consistency, Character Sheet resolver_usage eligibility, USES_REFERENCE Schema V0.3 linkage, and exact A04 evidence identity"
+      "D-069 Review Patch 01 targets Project Control consistency, Character Sheet resolver_usage eligibility, USES_REFERENCE Schema V0.3 linkage, and exact A04 evidence identity",
+      "D-069 Review Patch 01 independently cross-checked on GitHub remote; fail-closed corrections verified",
+      "PR #10 merged to main as 68716eae9e73a1ee1891dfde6ac5c7ea4d578cce without marking AO-06 COMPLETE",
+      "Post-merge Registry truth cross-check: Asset 62 / Entity 13 / Relations 44 / Audit 78 / Formal SHOT 0 / Formal COSTUME 0 / Formal PROP 0 / live USES_REFERENCE 0",
+      "2026-09-18 end-of-day cross-file consistency closeout completed; resume same D-069 next session"
     ],
-    "resume_from": "same D-069 after evidence is supplied",
+    "resume_from": "same D-069 on next work session",
     "blockers": [
       "BLOCKED_ON_APPROVED_A04_BINARY",
-      "BLOCKED_ON_COSTUME_PROP_EVIDENCE"
+      "COSTUME_PROP_MODEL_OR_EVIDENCE_REVIEW_PENDING"
     ],
     "remote_publication": {
       "pr_number": 10,
-      "status": "OPEN / DO NOT MERGE",
+      "status": "MERGED",
       "remote_branch": "codex/a04",
-      "remote_head_at_review_patch_start": "351a41b9452eafc01e724fd6f36f9edb6793c627"
+      "reviewed_head_sha": "7cf9e82cf937bc4150c83bcf0fc04e57e334e824",
+      "merge_sha": "68716eae9e73a1ee1891dfde6ac5c7ea4d578cce"
     }
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE / AO-06 D-069 ENGINEERING FOUNDATION COMPLETE / EVIDENCE BLOCKED / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY CHARACTER REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE / AO-06 D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -412,8 +417,8 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "D-069｜resume same task after approved A04 and Costume/Prop evidence is supplied",
-    "ao06_status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE"
+    "next_task": "D-069｜resume same task next work session after A04 evidence + Costume/Cross model/evidence review",
+    "ao06_status": "D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -494,11 +499,11 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "D-069｜resume same task after approved A04 and Costume/Prop evidence is supplied",
+    "next_task": "D-069｜resume same task next work session; resolve A04 evidence and Costume/Cross model/evidence review",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-06 is COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04, AO-05 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao06_status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE"
+    "ao06_status": "D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -571,28 +576,33 @@
     "codex_engineering_tasks": "D-###",
     "last_known_codex_task": "D-069",
     "next_codex_task_when_needed": "NOT ALLOCATED",
-    "next_codex_task_status": "D-069 ACTIVE / REVIEW PATCH 01; D-070 NOT ALLOCATED",
+    "next_codex_task_status": "D-069 ACTIVE / EOD PAUSED / RESUME SAME TASK; D-070 NOT ALLOCATED",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V031",
+    "version": "V032",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R053 / AO-06 D-069 ENGINEERING FOUNDATION COMPLETE / EVIDENCE BLOCKED"
+    "status": "CURRENT / DERIVED FROM R054 / AO-06 D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "完成剩余 Approved-but-Open System Closeout：AO-04 Reference Sheet、AO-05 Delivery Bridge、AO-06 真实 Shot-level Resolver/Audit；2026-09-16～2026-09-20 在 TEMP_CLOUD_ONLY_MODE_V1 下以 ChatGPT App + Codex Cloud native PR + GitHub 审核推进，DoD 不降级。AO-04～AO-06 全部完成并完成 P0.2 Closeout 后，才可恢复 P1 Character Gap Production。",
-  "blockers": [],
+  "stage_goal": "Complete AO-06 real Shot-level Resolver/Audit validation without lowering DoD. D-069 engineering foundation is merged; next session must resolve approved A04 evidence and review the Neil Costume/Cross modeling boundary before Work real validation. P1 Wave 2 remains HOLD; P0.3 remains QUEUED.",
+  "blockers": [
+    "BLOCKED_ON_APPROVED_A04_BINARY",
+    "COSTUME_PROP_MODEL_OR_EVIDENCE_REVIEW_PENDING"
+  ],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
-    "effective_from": "2026-09-13"
+    "effective_from": "2026-09-13",
+    "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-18.md",
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED"
   }
 }
