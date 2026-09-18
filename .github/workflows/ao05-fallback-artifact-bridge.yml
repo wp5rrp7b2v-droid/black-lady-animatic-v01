@@ -1,0 +1,255 @@
+# Temporary AO-05 fallback transport workflow.
+# Remove after AO-05 closes unless retained by explicit Product Owner decision.
+name: AO-05 Fallback Artifact Bridge
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/ao05-fallback-artifact-bridge.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ao05-fallback-artifact-bridge
+  cancel-in-progress: false
+
+jobs:
+  build-delivery-bundle:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build and verify manifest-locked delivery bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+          rm -rf "$RUNNER_TEMP/AO05_GUANG_YONG_DELIVERY_BUNDLE_V001"
+          mkdir -p "$RUNNER_TEMP/AO05_GUANG_YONG_DELIVERY_BUNDLE_V001/visual_refs"
+
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import shutil
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path.cwd()
+          out = Path(os.environ["RUNNER_TEMP"]) / "AO05_GUANG_YONG_DELIVERY_BUNDLE_V001"
+          visual = out / "visual_refs"
+
+          wanted = [
+              {
+                  "asset_id": "AST_IMG_000056",
+                  "delivery_order": 1,
+                  "responsibility": "Primary compact character reference sheet / identity + available Tier-C coverage carrier",
+                  "expected_role": "CHARACTER_REFERENCE_SHEET",
+                  "expected_sha256": "2a98e74ddba60a259758643b56ffddafd5a7cb30de040880f991fb47216b45fb",
+                  "expected_byte_size": 475761,
+              },
+              {
+                  "asset_id": "AST_IMG_000011",
+                  "delivery_order": 2,
+                  "responsibility": "Face identity / frontal facial structure",
+                  "expected_role": "FACE_FRONT",
+                  "expected_sha256": "7f88a3f8d68dbfea0058ff0379d0164380722d96ae1774364bcd8b79367ad6f5",
+                  "expected_byte_size": 2903455,
+              },
+              {
+                  "asset_id": "AST_IMG_000009",
+                  "delivery_order": 3,
+                  "responsibility": "Front body proportion / clothing structure",
+                  "expected_role": "BODY_FRONT",
+                  "expected_sha256": "60005a45f2c89bceb463183c9fa4acee2b6ad0eebabadf8b825bc5e877b85b6e",
+                  "expected_byte_size": 2852067,
+              },
+              {
+                  "asset_id": "AST_IMG_000008",
+                  "delivery_order": 4,
+                  "responsibility": "Back body proportion / rear clothing structure",
+                  "expected_role": "BODY_BACK",
+                  "expected_sha256": "63034c8deabef693321e5a3eadb4ffdbfdf69378527767d31852fd4ae45b621b",
+                  "expected_byte_size": 2857476,
+              },
+          ]
+
+          registry_path = root / "production/asset_registry/asset_registry.jsonl"
+          rows = [
+              json.loads(line)
+              for line in registry_path.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          by_id = {row["asset_id"]: row for row in rows}
+
+          def sha256(path):
+              h = hashlib.sha256()
+              with path.open("rb") as f:
+                  for block in iter(lambda: f.read(1024 * 1024), b""):
+                      h.update(block)
+              return h.hexdigest()
+
+          refs = []
+          for spec in wanted:
+              asset_id = spec["asset_id"]
+              row = by_id.get(asset_id)
+              if row is None:
+                  raise SystemExit(f"Missing Asset Registry row: {asset_id}")
+              if row.get("entity_id") != "CHAR_GUANG_YONG":
+                  raise SystemExit(f"Wrong entity for {asset_id}: {row.get('entity_id')}")
+              if row.get("role") != spec["expected_role"]:
+                  raise SystemExit(f"Wrong role for {asset_id}: {row.get('role')}")
+              if row.get("approval_status") != "APPROVED":
+                  raise SystemExit(f"Not APPROVED: {asset_id}")
+              if row.get("lifecycle") != "CURRENT":
+                  raise SystemExit(f"Not CURRENT: {asset_id}")
+              if row.get("resolver_usage") != "DEFAULT":
+                  raise SystemExit(f"Not DEFAULT resolver usage: {asset_id}")
+              if row.get("sha256") != spec["expected_sha256"]:
+                  raise SystemExit(f"Registry SHA mismatch for {asset_id}")
+              if row.get("byte_size") != spec["expected_byte_size"]:
+                  raise SystemExit(f"Registry byte-size mismatch for {asset_id}")
+
+              src = root / row["storage_uri"]
+              if not src.is_file():
+                  raise SystemExit(f"Canonical file missing: {row['storage_uri']}")
+
+              actual_sha = sha256(src)
+              actual_size = src.stat().st_size
+              if actual_sha != spec["expected_sha256"]:
+                  raise SystemExit(f"Canonical file SHA mismatch for {asset_id}: {actual_sha}")
+              if actual_size != spec["expected_byte_size"]:
+                  raise SystemExit(f"Canonical file byte-size mismatch for {asset_id}: {actual_size}")
+
+              delivered_name = f"{asset_id}__{row['filename']}"
+              dst = visual / delivered_name
+              shutil.copyfile(src, dst)
+              if sha256(dst) != actual_sha or dst.stat().st_size != actual_size:
+                  raise SystemExit(f"Copied delivery binary mismatch for {asset_id}")
+
+              refs.append({
+                  "delivery_order": spec["delivery_order"],
+                  "asset_id": asset_id,
+                  "entity_id": row["entity_id"],
+                  "role": row["role"],
+                  "version_no": row["version_no"],
+                  "approval_status": row["approval_status"],
+                  "lifecycle": row["lifecycle"],
+                  "authority_class": row["authority_class"],
+                  "resolver_usage": row["resolver_usage"],
+                  "canonical_filename": row["filename"],
+                  "canonical_storage_uri": row["storage_uri"],
+                  "delivered_filename": delivered_name,
+                  "sha256": actual_sha,
+                  "byte_size": actual_size,
+                  "responsibility": spec["responsibility"],
+              })
+
+          manifest = {
+              "delivery_id": "AO05_GUANG_YONG_DELIVERY_BUNDLE_V001",
+              "purpose": "AO-05 fallback multi-reference + repeatability validation only",
+              "proof_status": "NON-PRODUCTION",
+              "source_branch": os.environ["GITHUB_REF_NAME"],
+              "source_commit": os.environ["GITHUB_SHA"],
+              "generated_at": datetime.now(timezone.utc).isoformat(),
+              "manual_product_owner_reference_upload_required": False,
+              "expected_manual_product_owner_reference_upload_count": 0,
+              "reference_count": len(refs),
+              "references": refs,
+              "hard_boundaries": [
+                  "Do not ingest proof outputs",
+                  "Do not allocate Asset IDs",
+                  "Do not change Character Core Coverage",
+                  "Do not start P1 Wave 2",
+                  "Do not start AO-06",
+                  "Do not start P0.3",
+              ],
+          }
+          (out / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          handoff = """# AO-05 Fallback Delivery Bundle
+
+This bundle is transport evidence only.
+
+Use all four files under visual_refs/ as the exact visual reference input set.
+
+Before generation:
+1. Read delivery_manifest.json.
+2. Verify each delivered file SHA256 and byte_size against the manifest.
+3. Confirm the four Asset IDs are AST_IMG_000056, AST_IMG_000011, AST_IMG_000009, AST_IMG_000008.
+4. Do not substitute another Guang Yong image.
+5. Product Owner manual reference upload count must remain 0.
+
+Run A and Run B must independently re-verify the same four delivered files.
+Generated images are AO05 delivery proofs only and are NON-PRODUCTION.
+"""
+          (out / "WORK_HANDOFF.md").write_text(handoff, encoding="utf-8")
+
+          print("AO-05 delivery bundle verified")
+          print(json.dumps({
+              "delivery_id": manifest["delivery_id"],
+              "source_commit": manifest["source_commit"],
+              "reference_count": manifest["reference_count"],
+              "asset_ids": [r["asset_id"] for r in refs],
+              "sha256": {r["asset_id"]: r["sha256"] for r in refs},
+              "byte_sizes": {r["asset_id"]: r["byte_size"] for r in refs},
+          }, indent=2))
+          PY
+
+      - name: Re-verify bundle immediately before upload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          out = Path(os.environ["RUNNER_TEMP"]) / "AO05_GUANG_YONG_DELIVERY_BUNDLE_V001"
+          manifest = json.loads((out / "delivery_manifest.json").read_text(encoding="utf-8"))
+          if manifest["reference_count"] != 4:
+              raise SystemExit("Expected reference_count=4")
+          if [r["asset_id"] for r in manifest["references"]] != [
+              "AST_IMG_000056", "AST_IMG_000011", "AST_IMG_000009", "AST_IMG_000008"
+          ]:
+              raise SystemExit("Asset set/order mismatch")
+
+          for ref in manifest["references"]:
+              p = out / "visual_refs" / ref["delivered_filename"]
+              if not p.is_file():
+                  raise SystemExit(f"Missing delivered file: {p.name}")
+              h = hashlib.sha256(p.read_bytes()).hexdigest()
+              if h != ref["sha256"] or p.stat().st_size != ref["byte_size"]:
+                  raise SystemExit(f"Pre-upload verification failed: {ref['asset_id']}")
+
+          print("AO-05 pre-upload verification PASS: 4/4 exact binaries")
+          PY
+
+      - name: Upload short-lived Delivery Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: AO05_GUANG_YONG_DELIVERY_BUNDLE_V001
+          path: ${{ runner.temp }}/AO05_GUANG_YONG_DELIVERY_BUNDLE_V001/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
