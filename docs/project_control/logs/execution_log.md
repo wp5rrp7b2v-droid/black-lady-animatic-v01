@@ -1,5 +1,21 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-05 Primary Delivery Path Proof｜PASS
+
+Status: `PRIMARY DELIVERY PATH PASS / ROBUSTNESS VALIDATION PENDING`
+
+- Work 读取 GitHub main / Project Control，确认 source revision R043 / AO-05 DESIGN IN PROGRESS。
+- 验证对象：`AST_IMG_000056 / CHAR_GUANG_YONG_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png`。
+- GitHub / Registry 独立事实：`APPROVED / CURRENT / DERIVED / DEFAULT`；canonical path 正确；byte_size=`475761`；SHA256=`2a98e74ddba60a259758643b56ffddafd5a7cb30de040880f991fb47216b45fb`。
+- Work 从 GitHub 自动 materialize 正式 PNG，无 Product Owner 手工挑图或上传。
+- Work receipt：received byte size `475761`，received SHA256 与 expected 完全一致。
+- 正式 reference binary 已通过 Work 的 image-production path 作为真实视觉参考输入，并成功生成 `AO05_DELIVERY_PROOF_ONLY`。
+- Proof 明确为 `NON-PRODUCTION`；未进入 Asset Registry；未改变 Core Coverage；未启动 P1 Wave 2。
+- Product Owner manual reference file upload count = `0`。
+- 能力边界：单文件路径已证明；生成服务未给出独立 input-SHA receipt，因此证据链为 GitHub canonical bytes + Work 本地 SHA 核验 + 实际 reference path 调用 + proof generation。
+- 尚未验证 multi-file delivery 与 repeated-run stability；AO-05 不标记 COMPLETE。
+- D-069 仍 `RESERVATION ONLY / NOT ALLOCATED / NOT EXECUTED`。
+
 ## 2026-09-18｜AO-05 Delivery Bridge Design Start
 
 Status: `DESIGN IN PROGRESS / CHAT / NO D-NUMBER ALLOCATED`

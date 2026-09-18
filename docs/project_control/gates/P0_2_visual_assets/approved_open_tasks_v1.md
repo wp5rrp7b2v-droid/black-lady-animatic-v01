@@ -130,13 +130,25 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `DESIGN IN PROGRESS / CHAT / NOT YET ENGINEERING`
+Status: `IN PROGRESS / PRIMARY DELIVERY PATH PASS / ROBUSTNESS VALIDATION PENDING`
 
 完成 D-060 已明确批准的下一验证方向：
 
 `local Reference Package → image-production / generation environment`
 
 目标不是扩大 Resolver 选图复杂度，而是减少 Product Owner 的人工挑图、上传和搬运。
+
+
+Primary Delivery Path Proof（2026-09-18）已 PASS：
+
+- Work 从 GitHub `main` 自动取得 `AST_IMG_000056 / CHAR_GUANG_YONG_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png`；
+- 475,761 bytes；SHA256 与 Formal Asset Registry 完全一致；
+- reference binary 已真实加载进入 Work 的 image-production environment；
+- 成功生成一张 `AO05_DELIVERY_PROOF_ONLY` NON-PRODUCTION 验证图；
+- Product Owner 手工 reference file selection / upload count = `0`；
+- 未修改 GitHub、Registry、正式 Asset；未分配 D-069。
+
+当前仍需验证多文件交付与重复运行稳定性，之后才可提交 AO-05 最终验收。
 
 完成标准：
 
@@ -200,7 +212,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜DESIGN IN PROGRESS / Delivery Bridge
+5. AO-05｜IN PROGRESS / PRIMARY PATH PASS / ROBUSTNESS VALIDATION PENDING
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
