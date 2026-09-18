@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R045",
+  "state_revision": "R046",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-05 PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED ON CANONICAL BINARY MATERIALIZATION / FALLBACK DESIGN NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-05 FALLBACK ARTIFACT BRIDGE READY / WORK ROBUSTNESS VALIDATION PENDING / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-05｜Delivery Bridge｜MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK ARTIFACT BRIDGE DESIGN NEXT",
-  "blocker": "Work GitHub file APIs could materialize the small derived Reference Sheet but could not materialize the three larger Atomic PNG binaries; UTF-8-only blob/raw interfaces prevent independent SHA verification and multi-reference loading.",
-  "next_action": "Design and validate AO-05 fallback transport: GitHub Actions creates a short-lived manifest-verified Delivery Bundle artifact containing the exact formal reference binaries; Work downloads/materializes that artifact and performs the multi-reference + repeatability proof with zero Product Owner uploads. D-069 remains unallocated unless a separate engineering task is actually required.",
+  "current_task": "AO-05｜Delivery Bridge｜FALLBACK ARTIFACT READY / WORK MULTI-REFERENCE + REPEATABILITY VALIDATION PENDING",
+  "blocker": null,
+  "next_action": "In ChatGPT Work, download artifact AO05_GUANG_YONG_DELIVERY_BUNDLE_V001 (artifact ID 10536850548; run 35319662012), independently verify delivery_manifest.json and all four binaries, then execute RUN A and RUN B multi-reference generation with zero Product Owner reference uploads.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-AO05-MULTIREF-CANONICAL-BINARY-MATERIALIZATION-FAILED",
-    "status": "AO-05 IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED",
+    "id": "2026-09-18-AO05-FALLBACK-ARTIFACT-BRIDGE-READY",
+    "status": "AO-05 IN PROGRESS / FALLBACK ARTIFACT BRIDGE READY / WORK ROBUSTNESS VALIDATION PENDING",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -216,12 +216,13 @@
       "AO05_DELIVERY_PROOF_ONLY generated as NON-PRODUCTION evidence; no GitHub/Registry mutation and no D-069 allocation",
       "AO-05 robustness RUN A failed closed before generation because three Atomic PNG binaries could not be materialized from GitHub through current Work APIs",
       "Failure does not prove multi-image generation unsupported; generation environment was not invoked",
-      "RUN B was not started; Product Owner manual reference uploads remained 0; no GitHub/Registry mutation and no D-069 allocation"
+      "RUN B was not started; Product Owner manual reference uploads remained 0; no GitHub/Registry mutation and no D-069 allocation",
+      "AO-05 fallback GitHub Actions workflow built and uploaded manifest-verified Delivery Bundle artifact AO05_GUANG_YONG_DELIVERY_BUNDLE_V001",
+      "Fallback artifact run 35319662012 SUCCESS; artifact ID 10536850548; 4/4 exact formal binaries verified immediately before upload",
+      "Artifact ZIP digest sha256:a0923387923798a77ea02837e2f7eb3917ac45360e523d06345fccba8b2fb65d; expires 2026-09-25; D-069 remains unallocated"
     ],
-    "resume_from": "AO-05｜Fallback Artifact Bridge V0.1 design",
-    "blockers": [
-      "CANONICAL_BINARY_MATERIALIZATION_FAILED for three large Atomic PNGs through current Work GitHub file/blob/raw APIs"
-    ]
+    "resume_from": "AO-05｜Work downloads verified Delivery Bundle artifact and runs multi-reference A/B proof",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 COMPLETE + VERIFIED + PRODUCT OWNER APPROVED / APPROVED-OPEN CLOSEOUT ACTIVE / AO-05 NEXT / P1 WAVE 2 HOLD",
@@ -450,10 +451,10 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-05｜Fallback Artifact Bridge V0.1",
+    "next_task": "AO-05｜Work fallback multi-reference + repeatability proof",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-05 and AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao05_status": "IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED"
+    "ao05_status": "IN PROGRESS / FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -523,10 +524,10 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V024",
+    "version": "V025",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R045 / AO-05 FALLBACK REQUIRED"
+    "status": "CURRENT / DERIVED FROM R046 / AO-05 FALLBACK ARTIFACT READY / WORK VALIDATION PENDING"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

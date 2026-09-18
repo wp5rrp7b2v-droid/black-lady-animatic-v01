@@ -130,7 +130,7 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED`
+Status: `IN PROGRESS / FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -161,6 +161,20 @@ Robustness Proof（2026-09-18）结果：
 
 下一步按 AO-05 V0.1 已定义 fallback：
 `GitHub Actions → manifest-verified short-lived Delivery Bundle artifact → Work`。
+
+Fallback Artifact Bridge（2026-09-18）已成功建立：
+
+- GitHub Actions workflow：`.github/workflows/ao05-fallback-artifact-bridge.yml`；
+- successful run：`35319662012`；
+- artifact：`AO05_GUANG_YONG_DELIVERY_BUNDLE_V001`；
+- artifact ID：`10536850548`；
+- artifact size：`9,094,747 bytes`；
+- artifact digest：`sha256:a0923387923798a77ea02837e2f7eb3917ac45360e523d06345fccba8b2fb65d`；
+- retention：7 days，expires `2026-09-25`；
+- source commit：`775238d05278af963d6e673063ce71ae522c18d1`；
+- Bundle 内 4/4 formal reference binaries 在 GitHub runner 中已按 Registry ID / state / SHA256 / byte size 验证并在 upload 前再次验证。
+
+当前下一步：Work 自动下载该 artifact，解包后独立复核 manifest + 4 个 reference bytes，再执行 RUN A / RUN B 多图 + repeatability proof。Product Owner reference upload count 仍必须为 0。
 
 完成标准：
 
@@ -224,7 +238,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED
+5. AO-05｜IN PROGRESS / FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
