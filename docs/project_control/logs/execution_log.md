@@ -1,5 +1,19 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-06 Stage 1 Product Owner Approval
+
+Status: `APPROVED / STAGE 2 NEXT`
+
+- Product Owner 明确批准 AO-06 Stage 1。
+- Canonical validation Shot 锁定为 `A04`。
+- A04 Scene requirement 锁定为 `SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN`。
+- Required Characters 锁定为 `CHAR_NING_QIUSHUI + CHAR_NEIL`。
+- Neil default butler costume、cross、white handkerchief 被确认是 AO-06 的 Costume/Prop continuity requirements；当前正式 Runtime 仍无 `COSTUME_*` / `PROP_*` assets，因此 Stage 2 必须显式处理 REFERENCE_GAP，不得冒充已正式化资产。
+- A04 不承载 A05 的 `keys absent` insert fact；若未来需要，必须建模为 negative continuity / forbidden presence，而不是 fabricated Prop asset。
+- Exact Shot photography 仅能来自 approved A04 evidence；不得从 Scene Master 或 chat memory 推断为正式 camera metadata。
+- Stage 2 next：`A04 Real Shot Spec V0.1 + Resolver Contract`。
+- No D-069 allocated.
+
 ## 2026-09-18｜AO-06 Stage 1｜A04 Selection + Fact Boundary Ready
 
 Status: `READY_FOR_PRODUCT_OWNER_REVIEW`

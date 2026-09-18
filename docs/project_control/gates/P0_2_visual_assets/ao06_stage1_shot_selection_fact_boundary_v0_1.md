@@ -1,6 +1,6 @@
 # AO-06｜Stage 1｜A01–A07 Real Shot Selection + Fact Boundary Audit V0.1
 
-Status: `READY_FOR_PRODUCT_OWNER_REVIEW`
+Status: `APPROVED / PRODUCT OWNER APPROVED 2026-09-18`
 
 Date: `2026-09-18`
 
@@ -197,3 +197,18 @@ Stage 2 must define:
 - reverse-audit queries.
 
 No D-069 is allocated by Stage 1.
+
+## 10. Product Owner approval
+
+Approved on `2026-09-18`.
+
+Locked conclusions:
+
+1. `A04` is the canonical AO-06 validation Shot.
+2. Scene = `SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN`.
+3. Characters = `CHAR_NING_QIUSHUI + CHAR_NEIL`.
+4. Neil default costume + cross + white handkerchief are valid continuity requirements but remain current formal runtime gaps.
+5. A04 does not claim A05's keys-absent fact.
+6. Exact Shot photography must come from approved A04 evidence and may not be inferred from Scene Master or chat memory.
+
+Stage 2 is authorized for design only. No D-069 is allocated by this approval.

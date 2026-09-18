@@ -196,7 +196,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / STAGE 1 READY_FOR_PRODUCT_OWNER_REVIEW`
+Status: `IN PROGRESS / STAGE 1 PRODUCT OWNER APPROVED / STAGE 2 NEXT`
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -210,6 +210,17 @@ Stage 1 recommendation（2026-09-18）：
 
 Detailed evidence:
 `ao06_stage1_shot_selection_fact_boundary_v0_1.md`.
+
+Stage 1 Product Owner approval（2026-09-18）：
+
+- canonical AO-06 validation Shot = `A04`；
+- Scene = `SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN`；
+- Characters = `CHAR_NING_QIUSHUI + CHAR_NEIL`；
+- Neil default butler costume + cross + white handkerchief are valid continuity requirements but remain current formal runtime gaps；
+- A04 does not inherit A05's keys-absent insert fact；
+- exact Shot photography must come from approved A04 evidence and may not be inferred from Scene Master or chat memory。
+
+Stage 2 next：`A04 Real Shot Spec V0.1 + Resolver Contract`。
 
 
 选择至少一个真实 Shot Spec，包含：
@@ -264,7 +275,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜IN PROGRESS / STAGE 1 READY FOR PO REVIEW
+6. AO-06｜IN PROGRESS / STAGE 1 PO APPROVED / STAGE 2 NEXT
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
