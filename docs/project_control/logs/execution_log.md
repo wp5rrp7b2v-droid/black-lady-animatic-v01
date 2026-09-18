@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-06 Stage 1｜A04 Selection + Fact Boundary Ready
+
+Status: `READY_FOR_PRODUCT_OWNER_REVIEW`
+
+- AO-06 Stage 1 compared A01–A07 and recommends canonical Shot `A04`.
+- A04 is preferred because it covers two Characters + state-aware Castle Entrance + Neil Costume/Prop continuity without A01 crowd complexity or A05 detail-insert over-specialization.
+- Current Registry independently verified: `SHOT=0 / PROP=0 / COSTUME=0`.
+- Formal anchors available now: `AST_IMG_000060 / CHAR_NING_QIUSHUI Reference Sheet`, `AST_IMG_000059 / CHAR_NEIL Reference Sheet`, `AST_IMG_000052 / SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN`.
+- Proposed A04 executable gaps: `COSTUME_NEIL_DEFAULT`, `PROP_NEIL_CROSS`; white pocket handkerchief treated as a required Costume component proposal. None are claimed formal yet.
+- A04 does not inherit A05's “keys absent” insert fact. Any absence rule must be represented as negative continuity, not a fabricated Prop asset.
+- Scene Facts vs Shot Photography boundary remains locked; camera/lens/composition cannot be invented from the Scene Master or chat memory.
+- No D-069 allocated; no Registry/Relation/Audit production mutation performed.
+
 ## 2026-09-18｜AO-05 Final Product Owner Acceptance
 
 Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`

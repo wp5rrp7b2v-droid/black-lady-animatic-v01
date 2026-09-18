@@ -196,7 +196,21 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `PENDING`
+Status: `IN PROGRESS / STAGE 1 READY_FOR_PRODUCT_OWNER_REVIEW`
+
+Stage 1 recommendation（2026-09-18）：
+
+- canonical validation Shot: `A04`;
+- formal Character anchors: `AST_IMG_000060 / CHAR_NING_QIUSHUI CHARACTER_REFERENCE_SHEET` + `AST_IMG_000059 / CHAR_NEIL CHARACTER_REFERENCE_SHEET`;
+- formal Scene anchor: `AST_IMG_000052 / SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN`;
+- current runtime gaps independently verified: `SHOT assets=0 / PROP assets=0 / COSTUME assets=0`;
+- therefore Stage 1 does not pretend A04 Shot Asset, Neil costume, cross or handkerchief are already formal runtime assets;
+- A04 is used to test two-character + scene + costume/prop boundary without the crowd complexity of A01 or the scene-thin framing of A05;
+- exact camera/lens/shot-size fields are not promoted to stable Scene Facts and must be taken only from the approved A04 Shot source when that source is formally materialized for Stage 2/3.
+
+Detailed evidence:
+`ao06_stage1_shot_selection_fact_boundary_v0_1.md`.
+
 
 选择至少一个真实 Shot Spec，包含：
 
@@ -250,7 +264,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
+6. AO-06｜IN PROGRESS / STAGE 1 READY FOR PO REVIEW
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
