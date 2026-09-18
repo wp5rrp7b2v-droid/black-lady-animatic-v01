@@ -1,5 +1,24 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-05 Fallback Robustness Proof｜PASS
+
+Status: `ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`
+
+- Work 自动下载 GitHub Actions artifact `10536850548`；Product Owner 未手工下载或上传 reference。
+- Received ZIP bytes: `9,094,747`.
+- ZIP SHA256 independently verified: `a0923387923798a77ea02837e2f7eb3917ac45360e523d06345fccba8b2fb65d`.
+- Environment: `ChatGPT Work / built-in image generation`.
+- RUN A exact inputs: `AST_IMG_000056 / 000011 / 000009 / 000008`; 4/4 binaries materialized; 4/4 SHA matched; loaded_reference_count=`4`; proof `AO05_FALLBACK_MULTIREF_RUN_A` generated; manual Product Owner reference uploads=`0`.
+- RUN B independently re-read the same ZIP, extracted to an independent directory, recalculated all four hashes, confirmed the same four Asset IDs and SHA values, loaded_reference_count=`4`, and generated `AO05_FALLBACK_MULTIREF_RUN_B`; manual Product Owner reference uploads=`0`.
+- `input_set_identical_between_runs=YES`.
+- `multi_reference_delivery=PASS`.
+- `repeatability=PASS`.
+- Both proofs are `NON-PRODUCTION`; neither was ingested or registered; Core Coverage unchanged.
+- No GitHub / Registry mutation occurred in Work; D-069 remains reservation-only and was not allocated.
+- Evidence boundary: image generation did not emit an independent input-SHA receipt; evidence is canonical GitHub runner verification + artifact digest + Work-side independent byte/SHA validation + actual four-reference generation calls.
+- Two consecutive successful runs prove repeatability for this validated path; they do not assert indefinite long-term service stability.
+- AO-05 remains `IN PROGRESS` until explicit Product Owner final acceptance.
+
 ## 2026-09-18｜AO-05 Fallback Artifact Bridge｜READY
 
 Status: `FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING`

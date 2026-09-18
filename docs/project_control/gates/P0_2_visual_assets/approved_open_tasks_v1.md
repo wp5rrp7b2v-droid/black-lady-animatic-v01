@@ -130,7 +130,7 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `IN PROGRESS / FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING`
+Status: `IN PROGRESS / ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -175,6 +175,17 @@ Fallback Artifact Bridge（2026-09-18）已成功建立：
 - Bundle 内 4/4 formal reference binaries 在 GitHub runner 中已按 Registry ID / state / SHA256 / byte size 验证并在 upload 前再次验证。
 
 当前下一步：Work 自动下载该 artifact，解包后独立复核 manifest + 4 个 reference bytes，再执行 RUN A / RUN B 多图 + repeatability proof。Product Owner reference upload count 仍必须为 0。
+
+Fallback Robustness Proof（2026-09-18）已 PASS：
+
+- Work 自动下载 artifact `10536850548`，Product Owner 无需上传 ZIP 或 reference；
+- ZIP digest 独立验证为 `a0923387923798a77ea02837e2f7eb3917ac45360e523d06345fccba8b2fb65d`；
+- RUN A：4/4 binaries materialized，4/4 SHA match，loaded_reference_count=4，proof generated，manual upload=0；
+- RUN B：独立重新读取同一 ZIP、解包到独立目录并重算 4/4 SHA；输入 Asset IDs / SHA 与 RUN A 完全一致；loaded_reference_count=4，proof generated，manual upload=0；
+- multi-reference delivery = PASS；repeatability = PASS；
+- 两张 proof 均为 NON-PRODUCTION；未修改 GitHub / Registry / Core Coverage；未分配 D-069。
+
+证据边界：image generation service 未返回独立 input-SHA receipt；现有证据链为 GitHub Actions canonical-byte verification + artifact ZIP digest + Work 侧独立 SHA verification + 实际 4-reference generation call。两轮重复证明当前路径可重复，但不宣称无限期长期稳定。
 
 完成标准：
 
@@ -238,7 +249,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜IN PROGRESS / FALLBACK ARTIFACT READY / WORK ROBUSTNESS VALIDATION PENDING
+5. AO-05｜IN PROGRESS / ROBUSTNESS PASS / READY FOR FINAL PO ACCEPTANCE
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
