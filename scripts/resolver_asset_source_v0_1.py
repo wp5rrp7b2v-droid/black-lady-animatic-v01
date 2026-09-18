@@ -181,6 +181,9 @@ def resolve_character_reference_sheet(entity_id, root=ROOT):
     if len(rows) != 1:
         raise ValueError(f"Duplicate CURRENT Character Reference Sheet for {entity_id}")
     sheet = rows[0]
+    if sheet.get("resolver_usage") in (None, "NEVER"):
+        return {"status": "REFERENCE_GAP", "entity_id": entity_id,
+                "reason": "NOT_ELIGIBLE"}
     status = dependency_status(sheet, root)
     if status["status"] != "FRESH":
         return {"status": "REFERENCE_GAP", "entity_id": entity_id,

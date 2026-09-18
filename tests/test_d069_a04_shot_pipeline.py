@@ -31,6 +31,10 @@ class LiveTests(unittest.TestCase):
  def test_no_live_historical_use_relations(self): self.assertEqual(audit.query_relations('AST_IMG_000060','reverse'),[])
 
 class ResolverFixtureTests(Fixture):
+ def test_character_sheet_with_never_usage_is_not_eligible(self):
+  rows=self.rows();sheet=next(x for x in rows if x['asset_id']=='AST_IMG_000060');sheet['resolver_usage']='NEVER';self.write_rows(rows)
+  result=resolver.resolve(root=self.root);gap=next(x for x in result['reference_gaps'] if x.get('entity_id')=='CHAR_NING_QIUSHUI')
+  self.assertEqual(gap['reason'],'NOT_ELIGIBLE');self.assertFalse(result['generation_allowed'])
  def test_scene_mismatches(self):
   spec=resolver.load_spec(root=self.root)
   for k,v in [('time_of_day','NIGHT'),('main_door','CLOSED')]:
@@ -52,6 +56,12 @@ class ResolverFixtureTests(Fixture):
   out=self.root/'packages'/'A04_REFERENCE_PACKAGE_V001';out.parent.mkdir();m=exporter.export(out,root=self.root,generated_at='2026-09-18T12:00:00Z');self.assertTrue(m['generation_allowed'])
   for x in m['resolved_assets']:
    matches=list(out.rglob(x['delivered_filename']));self.assertEqual(len(matches),1);self.assertEqual(source.sha256(matches[0]),x['sha256'])
+ def test_a04_evidence_requires_default_variant_state_and_eligible_usage(self):
+  for field,value in [('variant','ALTERNATE'),('state','OTHER'),('resolver_usage','NEVER')]:
+   with self.subTest(field=field,value=value):
+    self.setUp();self.add_asset('COSTUME_NEIL_DEFAULT','COSTUME','COSTUME_MASTER');self.add_asset('PROP_NEIL_CROSS','PROP','PROP_MASTER');shot=self.add_asset('A04','SHOT','SHOT_MASTER',True)
+    rows=self.rows();next(x for x in rows if x['asset_id']==shot['asset_id'])[field]=value;self.write_rows(rows)
+    result=resolver.resolve(root=self.root);self.assertEqual(result['shot_evidence']['status'],'SHOT_EVIDENCE_GAP');self.assertFalse(result['generation_allowed'])
  def test_character_cannot_satisfy_costume_or_prop(self):
   rows=self.rows(); neil=next(x for x in rows if x['asset_id']=='AST_IMG_000059')
   for entity,kind,role in [('COSTUME_NEIL_DEFAULT','COSTUME','COSTUME_MASTER'),('PROP_NEIL_CROSS','PROP','PROP_MASTER')]:
@@ -67,12 +77,15 @@ class AuditTests(Fixture):
   with self.assertRaises(FileExistsError): audit.write_use_record(self.record(),self.root)
   self.assertEqual(audit.query_shot('A04',self.root)[0]['input_asset_ids'],['AST_IMG_000060']);self.assertEqual(audit.query_asset('AST_IMG_000060',self.root)[0]['shot_id'],'A04')
  def test_uses_reference_direction_duplicate_reverse_and_rollback(self):
+  live_before=((ROOT/audit.RELATIONS).read_bytes(),(ROOT/audit.AUDIT).read_bytes())
   rows=self.rows();rows.append({"asset_id":"AST_SHOT","asset_class":"SHOT"});self.write_rows(rows)
   rel=audit.add_uses_reference('AST_SHOT','AST_IMG_000060',self.root);self.assertEqual(rel['source_asset_id'],'AST_SHOT');self.assertEqual(audit.query_relations('AST_SHOT','forward',self.root)[0]['target_asset_id'],'AST_IMG_000060');self.assertEqual(audit.query_relations('AST_IMG_000060','reverse',self.root)[0]['source_asset_id'],'AST_SHOT')
+  self.assertIn('created_by_event_id',rel);events=[json.loads(x) for x in (self.root/audit.AUDIT).read_text().splitlines() if x.strip()];event=next(x for x in events if x['event_id']==rel['created_by_event_id']);self.assertEqual(event['new_value']['created_by_event_id'],event['event_id'])
   with self.assertRaises(ValueError): audit.add_uses_reference('AST_SHOT','AST_IMG_000060',self.root)
   before=((self.root/audit.RELATIONS).read_bytes(),(self.root/audit.AUDIT).read_bytes())
   with self.assertRaises(RuntimeError): audit.add_uses_reference('AST_SHOT','AST_IMG_000059',self.root,True)
   self.assertEqual(before,((self.root/audit.RELATIONS).read_bytes(),(self.root/audit.AUDIT).read_bytes()))
+  self.assertEqual(live_before,((ROOT/audit.RELATIONS).read_bytes(),(ROOT/audit.AUDIT).read_bytes()))
  def test_invalid_relation_sources(self):
   with self.assertRaises(ValueError): audit.add_uses_reference('AST_IMG_000060','AST_IMG_000059',self.root)
   with self.assertRaises(ValueError): audit.add_uses_reference('AST_IMG_000060','AST_IMG_000060',self.root)

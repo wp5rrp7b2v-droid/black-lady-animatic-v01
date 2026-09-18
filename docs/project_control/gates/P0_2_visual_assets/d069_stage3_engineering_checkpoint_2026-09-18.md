@@ -57,3 +57,22 @@ Gaps:
 ## Next gate
 
 Resume the same D-069 only after the Product Owner supplies the byte-exact approved A04 source with reliable provenance and suitable dedicated Costume/Prop evidence or explicit visual-candidate approval. Do not allocate D-070 and do not start Work real validation while the package is blocked.
+
+## Review Patch 01
+
+Status: `D-069 REVIEW PATCH 01 COMPLETE / ENGINEERING FOUNDATION CLEAN / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE`
+
+Remote publication context supplied by Product Owner:
+
+- PR: `#10` (`OPEN / DO NOT MERGE`);
+- remote branch: `codex/a04`;
+- remote head at Review Patch 01 start: `351a41b9452eafc01e724fd6f36f9edb6793c627`.
+
+Corrections:
+
+- Project Control nested AO-06/checkpoint fields now reflect the D-069 Stage 3 evidence-blocked checkpoint and resume the same D-069;
+- a Character Reference Sheet with `resolver_usage = NEVER` is ineligible even when CURRENT, APPROVED, FRESH, present, and SHA-valid;
+- isolated `USES_REFERENCE` rows include the Schema V0.3 `created_by_event_id`, equal to the paired `RELATION_CREATED.event_id` and embedded consistently in that event;
+- A04 evidence selection additionally requires `variant = DEFAULT` and `state = DEFAULT`; wrong variant/state and `resolver_usage = NEVER` remain `SHOT_EVIDENCE_GAP`.
+
+This review patch changes no live Registry counts and writes no live `USES_REFERENCE` relation.

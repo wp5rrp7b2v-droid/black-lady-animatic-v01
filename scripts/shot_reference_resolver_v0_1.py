@@ -50,7 +50,15 @@ def resolve_atomic(entity_id, entity_type, role, variant, state, root=ROOT):
 
 
 def _shot_evidence(spec, root):
-    rows = [r for r in assets.read_runtime_registry(root) if r.get("asset_class") == "SHOT" and r.get("shot_id") == spec["shot_id"] and r.get("role") == "SHOT_MASTER" and r.get("approval_status") == "APPROVED" and r.get("resolver_usage") not in (None, "NEVER") and r.get("lifecycle") in ("CURRENT", "ARCHIVED")]
+    rows = [r for r in assets.read_runtime_registry(root)
+            if r.get("asset_class") == "SHOT"
+            and r.get("shot_id") == spec["shot_id"]
+            and r.get("role") == "SHOT_MASTER"
+            and r.get("variant") == "DEFAULT"
+            and r.get("state") == "DEFAULT"
+            and r.get("approval_status") == "APPROVED"
+            and r.get("resolver_usage") not in (None, "NEVER")
+            and r.get("lifecycle") in ("CURRENT", "ARCHIVED")]
     if not rows:
         return {"status": "SHOT_EVIDENCE_GAP", "shot_id": spec["shot_id"], "reason": "APPROVED_A04_SOURCE_NOT_MATERIALIZED"}
     if len(rows) != 1:

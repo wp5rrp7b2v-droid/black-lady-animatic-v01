@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-AO06-STAGE2-PO-APPROVED",
-    "status": "AO-06 IN PROGRESS / STAGE 2 PRODUCT OWNER APPROVED / D-069 STAGE 3 NEXT",
+    "id": "2026-09-18-D069-STAGE3-ENGINEERING-CHECKPOINT",
+    "status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -246,13 +246,25 @@
       "White pocket handkerchief locked as required component of COSTUME_NEIL_DEFAULT, not standalone Prop",
       "Historical A04 may not receive reconstructed USES_REFERENCE; current AO-06 use must be captured through immutable validation use record",
       "Live USES_REFERENCE write permitted only for genuinely approved formal output with provable actual inputs",
-      "Stage 3 engineering authorized to use next Codex task number D-069"
+      "Stage 3 engineering authorized to use next Codex task number D-069",
+      "D-069 Stage 3 engineering foundation implemented: executable A04 Spec, fail-closed Resolver/Package, immutable use-record and reverse-audit support",
+      "D-069 truthful runtime result: three formal anchors RESOLVED; Costume/Prop REFERENCE_GAP; approved A04 SHOT_EVIDENCE_GAP; generation_allowed=false",
+      "D-069 Review Patch 01 targets Project Control consistency, Character Sheet resolver_usage eligibility, USES_REFERENCE Schema V0.3 linkage, and exact A04 evidence identity"
     ],
-    "resume_from": "D-069｜AO-06 Stage 3 implementation + real validation",
-    "blockers": []
+    "resume_from": "same D-069 after evidence is supplied",
+    "blockers": [
+      "BLOCKED_ON_APPROVED_A04_BINARY",
+      "BLOCKED_ON_COSTUME_PROP_EVIDENCE"
+    ],
+    "remote_publication": {
+      "pr_number": 10,
+      "status": "OPEN / DO NOT MERGE",
+      "remote_branch": "codex/a04",
+      "remote_head_at_review_patch_start": "351a41b9452eafc01e724fd6f36f9edb6793c627"
+    }
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE / AO-06 STAGE 2 PO APPROVED / D-069 NEXT / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE / AO-06 D-069 ENGINEERING FOUNDATION COMPLETE / EVIDENCE BLOCKED / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -399,7 +411,9 @@
     "ao04_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao04_closeout_2026-09-18.md",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
-    "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT"
+    "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
+    "next_task": "D-069｜resume same task after approved A04 and Costume/Prop evidence is supplied",
+    "ao06_status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -480,11 +494,11 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "D-069｜AO-06 Stage 3 implementation + real validation",
+    "next_task": "D-069｜resume same task after approved A04 and Costume/Prop evidence is supplied",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-06 is COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04, AO-05 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao06_status": "IN PROGRESS / STAGE 2 PRODUCT OWNER APPROVED / D-069 STAGE 3 NEXT"
+    "ao06_status": "D-069 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -555,9 +569,9 @@
   "task_numbering": {
     "project_restart_gates": "P0.x",
     "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-068",
-    "next_codex_task_when_needed": "D-069",
-    "next_codex_task_status": "RESERVATION ONLY / NOT ALLOCATED / NOT EXECUTED",
+    "last_known_codex_task": "D-069",
+    "next_codex_task_when_needed": "NOT ALLOCATED",
+    "next_codex_task_status": "D-069 ACTIVE / REVIEW PATCH 01; D-070 NOT ALLOCATED",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
@@ -565,7 +579,7 @@
     "version": "V031",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R052 / AO-06 STAGE 2 APPROVED / D-069 NEXT"
+    "status": "CURRENT / DERIVED FROM R053 / AO-06 D-069 ENGINEERING FOUNDATION COMPLETE / EVIDENCE BLOCKED"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

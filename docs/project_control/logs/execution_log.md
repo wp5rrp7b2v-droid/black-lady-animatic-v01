@@ -1,5 +1,13 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜D-069 Review Patch 01
+
+- Corrected R053 nested checkpoint/AO-06 state; resume remains the same D-069 after evidence is supplied.
+- Recorded PR #10 / `codex/a04` / review-start remote head `351a41b9452eafc01e724fd6f36f9edb6793c627`; PR remains open and must not be merged.
+- Enforced Character Sheet `resolver_usage != NEVER`, exact A04 evidence `DEFAULT/DEFAULT`, and Schema V0.3 `created_by_event_id` relation/audit cross-reference.
+- No live Registry mutation and no live `USES_REFERENCE` write.
+
+
 ## 2026-09-18｜D-069 AO-06 Stage 3 first-run engineering checkpoint
 
 - Baseline `0208a31f...` / R052 verified; 68 tests / OK.

@@ -51,7 +51,10 @@ def add_uses_reference(source_asset_id,target_asset_id,root=ROOT,fail_after_rela
     relpath=root/RELATIONS; auditpath=root/AUDIT
     relations=[json.loads(x) for x in relpath.read_text().splitlines() if x.strip()]
     if any(r.get("relation_type")=="USES_REFERENCE" and r.get("source_asset_id")==source_asset_id and r.get("target_asset_id")==target_asset_id for r in relations): raise ValueError("Duplicate USES_REFERENCE")
-    now=datetime.now(timezone.utc).isoformat(); relation={"relation_id":f"REL_USE_{source_asset_id}_{target_asset_id}","relation_type":"USES_REFERENCE","source_asset_id":source_asset_id,"target_asset_id":target_asset_id,"created_at":now,"task_id":"D-069/AO-06"}; event={"event_id":f"EVT_USE_{source_asset_id}_{target_asset_id}","event_type":"RELATION_CREATED","event_time":now,"actor_type":"SYSTEM","actor_id":"SHOT_USE_AUDIT_V0_1","asset_id":source_asset_id,"entity_id":None,"previous_value":None,"new_value":relation,"reason":"Proven current formal output reference use","source_reference":"validated immutable use record","task_id":"D-069/AO-06"}
+    now=datetime.now(timezone.utc).isoformat()
+    event_id=f"EVT_USE_{source_asset_id}_{target_asset_id}"
+    relation={"relation_id":f"REL_USE_{source_asset_id}_{target_asset_id}","relation_type":"USES_REFERENCE","source_asset_id":source_asset_id,"target_asset_id":target_asset_id,"created_at":now,"created_by_event_id":event_id,"task_id":"D-069/AO-06"}
+    event={"event_id":event_id,"event_type":"RELATION_CREATED","event_time":now,"actor_type":"SYSTEM","actor_id":"SHOT_USE_AUDIT_V0_1","asset_id":source_asset_id,"entity_id":None,"previous_value":None,"new_value":relation,"reason":"Proven current formal output reference use","source_reference":"validated immutable use record","task_id":"D-069/AO-06"}
     old_rel=relpath.read_bytes(); old_audit=auditpath.read_bytes()
     try:
         relpath.write_bytes(old_rel+(json.dumps(relation,separators=(",",":"))+"\n").encode())
