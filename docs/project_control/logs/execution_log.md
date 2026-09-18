@@ -1,5 +1,14 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜D-068 Stage A Review Patch 01
+
+- Continued the existing D-068 / AO-04 Stage A task; D-069 remains reservation-only and was not allocated or executed.
+- Enforced `variant=DEFAULT` and `state=DEFAULT` in Atomic Candidate input selection, with negative regression coverage for non-default required-role rows, duplicate/default-slot ambiguity, and false Core-slot satisfaction.
+- Complete repository suite: `68 tests / OK`.
+- Rebuilt all 9 Candidate PNGs into a temporary review directory without overwriting the locked baseline: `9/9 SHA256 MATCH`; `42 selected dependencies / 21 explicit REFERENCE_GAP / 63 Tier Core slots`.
+- Formal registry remains unchanged: `DERIVED_REFERENCE=0 / DERIVED_FROM=0`. AO-04 remains `IN PROGRESS`; Stage B and AO-05 were not started.
+- Final state: `D-068 STAGE A ENGINEERING CLEAN / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL / PR #9 OPEN / DO NOT MERGE`.
+
 ## 2026-09-17｜D-068 AO-04 Stage A engineering
 
 - Project Control advanced `R039 → R040`; Dashboard advanced `V018 → V019`.

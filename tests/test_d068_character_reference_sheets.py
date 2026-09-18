@@ -24,6 +24,18 @@ class AO04Tests(unittest.TestCase):
  def test_filters_nondefault_and_supplementary(self):
   e={'entity_id':'CHAR_NING_QIUSHUI','character_tier':'A','primary_side':None}; selected=builder.select_atomic_assets(ROOT,e)
   self.assertEqual('AST_IMG_000037',selected['REAR_3Q_RIGHT']['asset_id']); self.assertNotIn('STRUCTURE_FRONT_3Q_BODY_RIGHT',selected)
+ def test_nondefault_variant_cannot_duplicate_or_satisfy_core_slot(self):
+  e={'entity_id':'CHAR_NING_QIUSHUI','character_tier':'A','primary_side':None}
+  original=builder.select_atomic_assets(ROOT,e)['FACE_FRONT']; row=copy.deepcopy(original); row['asset_id']='AST_IMG_NONDEFAULT_VARIANT'; row['variant']='ALT'
+  selected=builder.select_atomic_assets(ROOT,e,[row]+builder.read_jsonl(ROOT/builder.REGISTRY))
+  self.assertEqual(original['asset_id'],selected['FACE_FRONT']['asset_id'])
+  self.assertNotIn('FACE_FRONT',builder.select_atomic_assets(ROOT,e,[row]))
+ def test_nondefault_state_cannot_duplicate_or_satisfy_core_slot(self):
+  e={'entity_id':'CHAR_NING_QIUSHUI','character_tier':'A','primary_side':None}
+  original=builder.select_atomic_assets(ROOT,e)['FACE_FRONT']; row=copy.deepcopy(original); row['asset_id']='AST_IMG_NONDEFAULT_STATE'; row['state']='INJURED'
+  selected=builder.select_atomic_assets(ROOT,e,[row]+builder.read_jsonl(ROOT/builder.REGISTRY))
+  self.assertEqual(original['asset_id'],selected['FACE_FRONT']['asset_id'])
+  self.assertNotIn('FACE_FRONT',builder.select_atomic_assets(ROOT,e,[row]))
  def test_manifests_have_lineage_and_gaps_no_fake_dependency(self):
   for p in (ROOT/builder.CANDIDATE_ROOT).glob('*/*.manifest.json'):
    m=json.loads(p.read_text()); self.assertNotIn('asset_id',m)

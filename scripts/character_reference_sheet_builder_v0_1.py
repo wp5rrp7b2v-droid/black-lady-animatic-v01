@@ -43,7 +43,7 @@ def select_atomic_assets(root, entity, registry=None):
     wanted={role for _,role in layout(entity)[0]}
     selected={}
     for row in rows:
-        if not (row.get("entity_id")==entity["entity_id"] and row.get("asset_class")=="ATOMIC" and row.get("approval_status")=="APPROVED" and row.get("lifecycle")=="CURRENT" and row.get("resolver_usage")=="DEFAULT" and row.get("role") in wanted): continue
+        if not (row.get("entity_id")==entity["entity_id"] and row.get("asset_class")=="ATOMIC" and row.get("approval_status")=="APPROVED" and row.get("lifecycle")=="CURRENT" and row.get("resolver_usage")=="DEFAULT" and row.get("variant")=="DEFAULT" and row.get("state")=="DEFAULT" and row.get("role") in wanted): continue
         key=row["role"]
         if key in selected: raise ValueError(f"Duplicate DEFAULT CURRENT Atomic role: {entity['entity_id']} {key}")
         p=root/row["storage_uri"]

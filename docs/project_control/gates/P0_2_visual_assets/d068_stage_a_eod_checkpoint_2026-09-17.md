@@ -1,6 +1,6 @@
 # D-068｜AO-04 Stage A｜End-of-Day Checkpoint｜2026-09-17
 
-Status: `IN PROGRESS / STAGE A ENGINEERING + BYTE-IDENTICAL RECOVERY COMPLETE / REVIEW PATCH PENDING / PRODUCT OWNER VISUAL APPROVAL PENDING`
+Status: `IN PROGRESS / STAGE A REVIEW PATCH 01 COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
 
 Project: `BLACK-LADY-001 / 诡舍·黑衣夫人`
 
@@ -67,56 +67,44 @@ A ZIP review artifact containing exactly the 9 PNGs was produced in the Codex ta
 
 These task artifacts are review transport only and are not Formal Registry assets.
 
-## 4. Final engineering review findings still open
+## 4. Stage A Review Patch 01 result (2026-09-18)
 
-Two review findings remain pending and MUST be fixed before Stage A can be treated as engineering-clean:
+Product Owner-authorized Review Patch 01 is complete on the existing D-068 task:
 
-### Finding A｜DEFAULT Variant / State enforcement
+- `select_atomic_assets()` now explicitly requires both `variant=DEFAULT` and `state=DEFAULT` in addition to the existing eligibility filters;
+- negative regression tests prove that required-role rows with a non-default variant or state are ignored, do not create duplicate/default-slot ambiguity, and cannot silently satisfy a Core slot;
+- `last_known_codex_task=D-068` and `next_codex_task_when_needed=D-069`; D-069 remains `RESERVATION ONLY / NOT ALLOCATED / NOT EXECUTED`;
+- `latest_checkpoint.id` and `resume_from` now identify D-068 Stage A at `WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`;
+- AO-04 remains `IN PROGRESS`. Stage B and AO-05 remain unstarted.
 
-Current `scripts/character_reference_sheet_builder_v0_1.py::select_atomic_assets()` explicitly filters:
+Post-patch candidate revalidation rebuilt all nine PNGs in `/tmp/d068_review_patch_01/candidates` without writing over the locked Candidate manifests. Results:
 
-- `asset_class = ATOMIC`
-- `approval_status = APPROVED`
-- `lifecycle = CURRENT`
-- `resolver_usage = DEFAULT`
-- required role
+- Candidate SHA comparison: `9 / 9 MATCH` against the locked manifest SHA256 values;
+- selected Atomic dependencies: `42`;
+- explicit `REFERENCE_GAP`: `21`;
+- Tier Core slots: `63`;
+- Candidate manifests: `9`;
+- formal `DERIVED_REFERENCE`: `0`;
+- formal `DERIVED_FROM`: `0`.
 
-but does not yet explicitly require:
+Review download transport in this Codex workspace:
 
-- `variant = DEFAULT`
-- `state = DEFAULT`
-
-The current 42 live inputs happen to match the intended baseline, but the code-level contract is incomplete until both conditions are enforced and regression-tested.
-
-Required patch: `D-068 Stage A Review Patch 01`.
-
-### Finding B｜Project Control D-number / checkpoint consistency
-
-The PR branch is already executing D-068, but `project_state.json` still retains historical task-numbering fields:
-
-- `last_known_codex_task = D-067`
-- `next_codex_task_when_needed = D-068`
-
-and the `latest_checkpoint.id` still refers to the pre-D-068 AO-03 closeout checkpoint.
-
-Required correction:
-
-- `last_known_codex_task = D-068`
-- `next_codex_task_when_needed = D-069`
-- do NOT allocate or execute D-069;
-- checkpoint identity / resume point must reflect `D-068 Stage A / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`.
+- ZIP: `/tmp/d068_review_patch_01/D068_STAGE_A_REVIEW_PATCH_01_CANDIDATE_PNGS.zip`
+- ZIP byte size: `6,484,063`
+- ZIP SHA256: `19c629dbfccc96058ddd27aa6d1608abedff251cd978fb99f793a4c7490ae06c`
+- canonical per-image filenames, byte sizes, SHA256 values, lineage, and gap evidence remain available in the nine version-controlled Candidate manifests.
 
 ## 5. Test evidence boundary
 
-Recorded Codex execution evidence before Review Patch 01:
+Recorded Codex execution evidence after Review Patch 01:
 
-- complete repository suite: `66 tests / OK`;
+- complete repository suite: `68 tests / OK`;
 - D-067 baseline regressions remained passing;
 - Stage B formalizer failed closed without explicit `--po-approved`.
 
-There is currently no GitHub Actions CI configured for PR #9. Therefore `66 tests / OK` is Codex execution evidence, not GitHub CI evidence.
+There is currently no GitHub Actions CI configured for PR #9. Therefore `68 tests / OK` is Codex execution evidence, not GitHub CI evidence.
 
-After Review Patch 01, the complete repository suite must be rerun and the new total must pass.
+The complete repository suite was rerun after the selection-contract change and passed.
 
 ## 6. Main vs PR branch truth boundary
 
@@ -148,17 +136,10 @@ As of this checkpoint:
 Next session must resume in this exact order:
 
 1. read GitHub `main` and PR #9;
-2. apply `D-068 Stage A Review Patch 01`:
-   - enforce `variant=DEFAULT` and `state=DEFAULT` in Builder selection;
-   - add negative regression tests;
-   - update task numbering to `last=D-068 / next=D-069`;
-   - update checkpoint/resume metadata;
-3. rerun complete repository tests and reconfirm `42 dependencies / 21 gaps / 63 slots`;
-4. reconfirm the nine Candidate SHA256 values remain unchanged;
-5. perform Product Owner visual review of the 9 Candidate Reference Sheets;
-6. only after explicit Product Owner approval may D-068 Stage B Formalization proceed;
-7. do not start AO-05 before AO-04 completion criteria are satisfied.
+2. perform Product Owner visual review of the 9 Candidate Reference Sheets;
+3. only after explicit Product Owner approval may D-068 Stage B Formalization proceed;
+4. do not start AO-05 before AO-04 completion criteria are satisfied.
 
 ## 9. End-of-day status
 
-`D-068 STAGE A ENGINEERING + BYTE-IDENTICAL RECOVERY COMPLETE / REVIEW PATCH 01 PENDING / PRODUCT OWNER VISUAL APPROVAL PENDING / PR #9 OPEN / DO NOT MERGE`
+`D-068 STAGE A ENGINEERING CLEAN / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL / PR #9 OPEN / DO NOT MERGE`

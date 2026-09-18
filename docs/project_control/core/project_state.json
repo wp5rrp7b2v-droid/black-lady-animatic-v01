@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-17-AO03-CLOSED-AO04-NEXT",
-    "status": "AO-04 IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+    "id": "2026-09-18-D068-STAGE-A-WAITING-PRODUCT-OWNER-VISUAL-APPROVAL",
+    "status": "AO-04 IN PROGRESS / D-068 STAGE A REVIEW PATCH 01 COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -206,7 +206,7 @@
       "PR #6 merged as b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
       "AO-03 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/ao03_closeout_2026-09-17.md"
     ],
-    "resume_from": "P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness",
+    "resume_from": "D-068｜AO-04 Stage A｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -496,8 +496,9 @@
   "task_numbering": {
     "project_restart_gates": "P0.x",
     "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-067",
-    "next_codex_task_when_needed": "D-068",
+    "last_known_codex_task": "D-068",
+    "next_codex_task_when_needed": "D-069",
+    "next_codex_task_status": "RESERVATION ONLY / NOT ALLOCATED / NOT EXECUTED",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
