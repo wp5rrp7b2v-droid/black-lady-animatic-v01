@@ -63,9 +63,21 @@ class AO04Tests(unittest.TestCase):
   td,r,s=self._fixture('DEPRECATED'); self.addCleanup(td.cleanup); self.assertEqual('DEPENDENCY_STALE',resolver.dependency_status(s,r)['status'])
  def test_dependency_invalid_sha(self):
   td,r,s=self._fixture(bad_sha=True); self.addCleanup(td.cleanup); self.assertEqual('DEPENDENCY_STALE',resolver.dependency_status(s,r)['status'])
- def test_no_formal_candidate_or_relations(self):
+ def test_formal_state_is_coherent_pre_or_post_stage_b(self):
   assets=builder.read_jsonl(ROOT/builder.REGISTRY); rels=builder.read_jsonl(ROOT/'production/asset_registry/asset_relations.jsonl')
-  self.assertFalse(any(r.get('asset_class')=='DERIVED_REFERENCE' for r in assets)); self.assertFalse(any(r.get('relation_type')=='DERIVED_FROM' for r in rels))
+  sheets=[r for r in assets if r.get('asset_class')=='DERIVED_REFERENCE' and r.get('role')=='CHARACTER_REFERENCE_SHEET']
+  if not sheets:
+   self.assertFalse(any(r.get('relation_type')=='DERIVED_FROM' for r in rels))
+   return
+  self.assertEqual(9,len(sheets))
+  self.assertEqual(set(builder.EXPECTED),{r['entity_id'] for r in sheets})
+  required={'approval_status':'APPROVED','lifecycle':'CURRENT','authority_class':'DERIVED','provenance_status':'COMPLETE','resolver_usage':'DEFAULT','variant':'DEFAULT','state':'DEFAULT'}
+  for sheet in sheets:
+   for key,value in required.items(): self.assertEqual(value,sheet.get(key))
+  self.assertEqual(9,len({(r['entity_id'],r['role'],r['variant'],r['state']) for r in sheets}))
+  ids={r['asset_id'] for r in sheets}
+  derived=[r for r in rels if r.get('relation_type')=='DERIVED_FROM' and r.get('source_asset_id') in ids]
+  self.assertEqual(42,len(derived))
  def test_formalizer_fails_closed(self):
   p=subprocess.run([sys.executable,str(ROOT/'scripts/character_reference_sheet_formalizer_v0_1.py')],capture_output=True,text=True)
   self.assertNotEqual(0,p.returncode); self.assertIn('FAIL_CLOSED',p.stderr)
