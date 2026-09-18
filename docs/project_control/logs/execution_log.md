@@ -1,5 +1,20 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-04 Final Product Owner Acceptance
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+- Product Owner 于 2026-09-18 明确批准 AO-04 最终验收。
+- 最终 DoD 基线：9 个 Character Entity；9 张 formal Derived Character Reference Sheets；42 个实际 Atomic dependencies；21 个明确 `REFERENCE_GAP`；63 个 Tier Core slots。
+- Formal Asset IDs：`AST_IMG_000054–AST_IMG_000062`。
+- Stage B publication commit：`09b9e2c44f8f2f78c1d102f3d141263074316310`，已 remote verified。
+- 9 张 canonical PNG 与已批准 Candidate SHA / byte size 一致；全部 dependency status `FRESH`；Resolver 9/9 RESOLVED；Single Current 与 idempotency 验证通过。
+- 完整仓库回归：`68 tests / OK`。
+- AO-04 不改变 Character Core Coverage：`42/63 = 66.7%`；`REFERENCE_GAP=21`。
+- 临时 D-068 Stage A review workflow 与 Stage B publication workflow 在最终验收后删除，避免进入最终 merge。
+- AO-05 成为下一正式任务，但尚未启动；AO-06 仍 PENDING；P1 Wave 2 继续 HOLD；P0.3 继续 QUEUED。
+- Completion evidence：`docs/project_control/gates/P0_2_visual_assets/ao04_closeout_2026-09-18.md`。
+
 ## 2026-09-18｜D-068 Stage B Engineering Complete / Remote Verified
 
 - Product Owner 已于 2026-09-18 视觉批准全部 9 张 Stage A Candidate Character Reference Sheets，并授权 Stage B。
