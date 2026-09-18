@@ -1,5 +1,24 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-06 Stage 2｜A04 Real Shot Spec + Resolver Contract Ready
+
+Status: `READY_FOR_PRODUCT_OWNER_REVIEW`
+
+- Stage 2 design follows Product Owner-approved Stage 1 without changing A04 narrative facts.
+- A04 executable Shot Spec candidate separates required Characters, state-aware Scene, required Costume/Prop continuity, action semantics, negative-continuity boundary, and Shot-photography evidence.
+- Current expected Resolver result:
+  - `CHAR_NING_QIUSHUI → AST_IMG_000060 / RESOLVED`;
+  - `CHAR_NEIL → AST_IMG_000059 / RESOLVED`;
+  - `SCENE_CASTLE_ENTRANCE + DAY_DOOR_OPEN → AST_IMG_000052 / RESOLVED`;
+  - `COSTUME_NEIL_DEFAULT → REFERENCE_GAP`;
+  - `PROP_NEIL_CROSS → REFERENCE_GAP`.
+- White pocket handkerchief is modeled as a required component of `COSTUME_NEIL_DEFAULT`, not a separate fabricated Prop.
+- Any required REFERENCE_GAP blocks generation; no Character asset may silently satisfy a Costume/Prop requirement.
+- Exact A04 Shot photography remains evidence-bound and may only be populated after the approved A04 source is materialized.
+- Historical A04 provenance must remain honest: if A04 Shot Master is formalized with `provenance_status=PARTIAL`, no historical `USES_REFERENCE` relations may be backfilled from memory.
+- AO-06 actual use will be captured in an immutable validation use record. `USES_REFERENCE` direction is locked candidate as `formal output SHOT asset → actual reference asset`; relation/reverse-query behavior can be tested in an isolated registry transaction without polluting live history. Live relation write requires a genuinely approved formal output with provable input use.
+- No D-069 allocated by Stage 2 design.
+
 ## 2026-09-18｜AO-06 Stage 1 Product Owner Approval
 
 Status: `APPROVED / STAGE 2 NEXT`

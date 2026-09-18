@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R050",
+  "state_revision": "R051",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-06 STAGE 1 PRODUCT OWNER APPROVED / STAGE 2 DESIGN NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-06 STAGE 2 A04 REAL SHOT SPEC + RESOLVER CONTRACT READY_FOR_PRODUCT_OWNER_REVIEW / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-06｜Stage 2｜A04 Real Shot Spec V0.1 + Resolver Contract｜NEXT / NOT STARTED",
+  "current_task": "AO-06｜Stage 2｜A04 Real Shot Spec V0.1 + Resolver Contract｜READY_FOR_PRODUCT_OWNER_REVIEW",
   "blocker": null,
-  "next_action": "Design AO-06 Stage 2 in Chat: formalize A04 Real Shot Spec V0.1, required/optional references, Costume/Prop gap behavior, expected Reference Package, production-use record, USES_REFERENCE direction, and reverse-audit queries. Do not allocate D-069 unless engineering implementation is explicitly authorized.",
+  "next_action": "Product Owner reviews AO-06 Stage 2 contract: A04 executable Shot Spec, required-reference fail-closed behavior, current expected gaps for COSTUME_NEIL_DEFAULT / PROP_NEIL_CROSS, approved-A04-evidence requirement, Reference Package/use-record schema, and audit-safe USES_REFERENCE rule. If approved, Stage 3 may allocate D-069 for implementation/real validation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-AO06-STAGE1-PO-APPROVED",
-    "status": "AO-06 IN PROGRESS / STAGE 1 PRODUCT OWNER APPROVED / STAGE 2 NEXT",
+    "id": "2026-09-18-AO06-STAGE2-DESIGN-READY",
+    "status": "AO-06 IN PROGRESS / STAGE 2 READY_FOR_PRODUCT_OWNER_REVIEW",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -235,9 +235,13 @@
       "AO-06 Stage 1 explicitly approved by Product Owner on 2026-09-18",
       "Canonical AO-06 validation Shot locked to A04",
       "A04 Stage 1 fact boundary locked: SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN + CHAR_NING_QIUSHUI + CHAR_NEIL; Neil default costume/cross/white handkerchief are continuity requirements but current formal runtime gaps",
-      "A04 excludes A05's keys-absent fact; Shot photography must come from approved A04 evidence, not Scene Master inference or chat-memory fabrication"
+      "A04 excludes A05's keys-absent fact; Shot photography must come from approved A04 evidence, not Scene Master inference or chat-memory fabrication",
+      "AO-06 Stage 2 A04 Real Shot Spec V0.1 drafted from Stage 1 approved boundary",
+      "Resolver Contract locked as fail-closed candidate: required Character/Scene resolve exactly; required Costume/Prop gaps block generation; no silent fallback from Character assets",
+      "Current expected A04 resolve result documented: AST_IMG_000060 + AST_IMG_000059 + AST_IMG_000052 RESOLVED; COSTUME_NEIL_DEFAULT + PROP_NEIL_CROSS = REFERENCE_GAP",
+      "Audit-safe rule proposed: do not backfill historical A04 USES_REFERENCE without evidence; validate actual AO-06 use through immutable validation use record and sandbox relation transaction unless/until a newly approved formal output exists"
     ],
-    "resume_from": "AO-06｜Stage 2 A04 Real Shot Spec V0.1 + Resolver Contract",
+    "resume_from": "AO-06｜Stage 2 Product Owner review",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -469,11 +473,11 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-06｜Stage 2 A04 Real Shot Spec V0.1 + Resolver Contract",
+    "next_task": "AO-06｜Stage 2 Product Owner review",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-06 is COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04, AO-05 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao06_status": "IN PROGRESS / STAGE 1 PRODUCT OWNER APPROVED / STAGE 2 NEXT"
+    "ao06_status": "IN PROGRESS / STAGE 2 READY_FOR_PRODUCT_OWNER_REVIEW"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -551,10 +555,10 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V029",
+    "version": "V030",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R050 / AO-06 STAGE 1 APPROVED / STAGE 2 NEXT"
+    "status": "CURRENT / DERIVED FROM R051 / AO-06 STAGE 2 READY FOR PO REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

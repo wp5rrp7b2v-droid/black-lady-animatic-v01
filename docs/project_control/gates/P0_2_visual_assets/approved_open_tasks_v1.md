@@ -196,7 +196,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / STAGE 1 PRODUCT OWNER APPROVED / STAGE 2 NEXT`
+Status: `IN PROGRESS / STAGE 2 READY_FOR_PRODUCT_OWNER_REVIEW`
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -221,6 +221,18 @@ Stage 1 Product Owner approval（2026-09-18）：
 - exact Shot photography must come from approved A04 evidence and may not be inferred from Scene Master or chat memory。
 
 Stage 2 next：`A04 Real Shot Spec V0.1 + Resolver Contract`。
+
+Stage 2 design candidate（2026-09-18）：
+
+- A04 Shot Spec 把 Character / Scene / Costume / Prop / action / photography-evidence 分开表达；
+- required Character：`CHAR_NING_QIUSHUI + CHAR_NEIL`，默认解析各自 CURRENT/FRESH `CHARACTER_REFERENCE_SHEET`；
+- required Scene：`SCENE_CASTLE_ENTRANCE` + `DAY_DOOR_OPEN`；
+- required Costume/Prop：`COSTUME_NEIL_DEFAULT`（含 white pocket handkerchief continuity）+ `PROP_NEIL_CROSS`；当前预期均返回 `REFERENCE_GAP`；
+- 任何 required gap 都使 package `generation_allowed=false`，不得用 Character image 静默替代；
+- approved A04 evidence 必须在 Stage 3 materialize 后才能锁定 exact Shot photography；
+- Historical A04 不允许事后编造 `USES_REFERENCE`；AO-06 当前真实 use 先写 immutable validation use record，并在隔离事务中验证 relation/reverse-query 逻辑；只有存在可证明的新 formal output 时才写 live `USES_REFERENCE`。
+
+Detailed design：`ao06_stage2_a04_real_shot_spec_resolver_contract_v0_1.md`。
 
 
 选择至少一个真实 Shot Spec，包含：
@@ -275,7 +287,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜IN PROGRESS / STAGE 1 PO APPROVED / STAGE 2 NEXT
+6. AO-06｜IN PROGRESS / STAGE 2 READY FOR PO REVIEW
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
