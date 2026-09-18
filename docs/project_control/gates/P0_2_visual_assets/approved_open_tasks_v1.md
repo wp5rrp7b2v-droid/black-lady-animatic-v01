@@ -196,7 +196,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / STAGE 3 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE`
+Status: `IN PROGRESS / D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -243,6 +243,17 @@ Stage 3 D-069 first-run checkpoint（2026-09-18）：
 - current tree、`git log --all --name-only` 与 `git rev-list --objects --all` 未找到可证明为 exact approved A04 的 binary；
 - 未找到 dedicated approved Costume/Cross reference；Character Sheet 中可见内容不被冒充为 formal Costume/Prop Asset；
 - live `USES_REFERENCE` unchanged；isolated transaction validates direction/reverse query/duplicate rejection/rollback。
+
+D-069 Review Patch 01 + remote closeout（2026-09-18 EOD）：
+
+- Review Patch 01 已完成并由 Chat 独立检查 GitHub remote；
+- PR #10 head `7cf9e82cf937bc4150c83bcf0fc04e57e334e824` 已 merge 到 `main`；merge SHA = `68716eae9e73a1ee1891dfde6ac5c7ea4d578cce`；
+- merge 只落入 D-069 engineering foundation，不代表 AO-06 COMPLETE / APPROVED；
+- post-merge Registry truth：Asset 62 / Entity 13 / Relations 44 / Audit 78 / Formal SHOT 0 / COSTUME 0 / PROP 0 / live USES_REFERENCE 0；
+- 当前暂停到下一工作日，继续同一个 D-069；D-070 不分配；
+- A04 approved binary 尚未 materialize；历史 A-Series Shot migration/recovery 需要下一步核查；
+- Neil Costume/Cross 是否继续作为独立 formal Asset requirement，或作为 Character canonical appearance continuity，尚未形成新的 Product Owner 锁定决策；在复核前保留 evidence/model blocker，禁止 Work real validation。
+
 
 Stage 2 Product Owner approval（2026-09-18）：
 
