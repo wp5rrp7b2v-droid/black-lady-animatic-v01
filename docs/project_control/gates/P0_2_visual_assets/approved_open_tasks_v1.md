@@ -196,7 +196,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / STAGE 2 PRODUCT OWNER APPROVED / D-069 STAGE 3 NEXT`
+Status: `IN PROGRESS / STAGE 3 ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE`
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -233,6 +233,16 @@ Stage 2 design candidate（2026-09-18）：
 - Historical A04 不允许事后编造 `USES_REFERENCE`；AO-06 当前真实 use 先写 immutable validation use record，并在隔离事务中验证 relation/reverse-query 逻辑；只有存在可证明的新 formal output 时才写 live `USES_REFERENCE`。
 
 Detailed design：`ao06_stage2_a04_real_shot_spec_resolver_contract_v0_1.md`。
+
+Stage 3 D-069 first-run checkpoint（2026-09-18）：
+
+- executable `A04_SPEC_V001`、fail-closed Shot resolver/package、immutable use-record/reverse-audit tooling 已实现；
+- formal anchors `AST_IMG_000060 / 000059 / 000052` resolve；
+- stable Costume/Prop Entities 已创建，但没有伪造 visual Assets；
+- current truthful package remains `BLOCKED / generation_allowed=false`；
+- current tree、`git log --all --name-only` 与 `git rev-list --objects --all` 未找到可证明为 exact approved A04 的 binary；
+- 未找到 dedicated approved Costume/Cross reference；Character Sheet 中可见内容不被冒充为 formal Costume/Prop Asset；
+- live `USES_REFERENCE` unchanged；isolated transaction validates direction/reverse query/duplicate rejection/rollback。
 
 Stage 2 Product Owner approval（2026-09-18）：
 

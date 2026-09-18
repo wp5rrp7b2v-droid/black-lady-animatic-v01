@@ -11,7 +11,9 @@ resolver=load('ao04_resolver','scripts/resolver_asset_source_v0_1.py')
 class AO04Tests(unittest.TestCase):
  def test_character_entities(self):
   rows=builder.read_jsonl(ROOT/builder.ENTITIES); scenes=[r for r in rows if r['entity_type']=='SCENE']; chars=[r for r in rows if r['entity_type']=='CHARACTER']
-  self.assertEqual(2,len(scenes)); self.assertEqual(9,len(chars)); self.assertEqual(11,len({r['entity_id'] for r in rows}))
+  self.assertEqual(2,len(scenes)); self.assertEqual(9,len(chars)); self.assertEqual(13,len({r['entity_id'] for r in rows}))
+  self.assertEqual({'COSTUME_NEIL_DEFAULT','PROP_NEIL_CROSS'},
+                   {r['entity_id'] for r in rows if r['entity_type'] in {'COSTUME','PROP'}})
   self.assertEqual({'A':4,'B':4,'C':1},{t:sum(r['character_tier']==t for r in chars) for t in 'ABC'})
   self.assertTrue(all(r['primary_side']=='LEFT' for r in chars if r['character_tier']=='B'))
  def test_layouts(self):

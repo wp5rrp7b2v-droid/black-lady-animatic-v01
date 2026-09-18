@@ -1,0 +1,18 @@
+{
+  "shot_spec_id": "A04_SPEC_V001",
+  "shot_id": "A04",
+  "spec_version": 1,
+  "purpose": "AO-06_REAL_SHOT_VALIDATION",
+  "narrative_intent": "宁秋水观察并将注意力指向尼尔腰间区域。",
+  "characters": [
+    {"entity_id": "CHAR_NING_QIUSHUI", "required": true, "reference_policy": {"role": "CHARACTER_REFERENCE_SHEET", "variant": "DEFAULT", "state": "DEFAULT", "require_dependency_fresh": true, "silent_fallback": false}},
+    {"entity_id": "CHAR_NEIL", "required": true, "reference_policy": {"role": "CHARACTER_REFERENCE_SHEET", "variant": "DEFAULT", "state": "DEFAULT", "require_dependency_fresh": true, "silent_fallback": false}}
+  ],
+  "scene": {"entity_id": "SCENE_CASTLE_ENTRANCE", "required": true, "variant": "DEFAULT", "required_state": {"time_of_day": "DAY", "main_door": "OPEN"}},
+  "costumes": [{"entity_id": "COSTUME_NEIL_DEFAULT", "required": true, "variant": "DEFAULT", "state": "DEFAULT", "role": "COSTUME_MASTER", "required_components": ["BLACK_BUTLER_ATTIRE", "WHITE_POCKET_HANDKERCHIEF_VISIBLE"], "silent_fallback": false}],
+  "props": [{"entity_id": "PROP_NEIL_CROSS", "required": true, "owner_entity_id": "CHAR_NEIL", "context": "VISIBLE_CHEST_CROSS_CONTINUITY", "variant": "DEFAULT", "state": "DEFAULT", "role": "PROP_MASTER", "silent_fallback": false}],
+  "action_constraints": [{"subject": "CHAR_NING_QIUSHUI", "action": "OBSERVE_AND_DIRECT_ATTENTION", "target": "CHAR_NEIL.WAIST_AREA"}],
+  "negative_continuity": {"explicitly_excluded_from_a04": ["A05_KEYS_ABSENT_INSERT_FACT", "PROP_NEIL_KEYS", "KEYS_ABSENT_ASSET"]},
+  "shot_photography": {"authority": "APPROVED_A04_EVIDENCE_ONLY", "required": true, "camera_position": "UNSPECIFIED_UNTIL_EVIDENCE", "shot_size": "UNSPECIFIED_UNTIL_EVIDENCE", "focal_length": "UNSPECIFIED_UNTIL_EVIDENCE", "character_blocking": "UNSPECIFIED_UNTIL_EVIDENCE", "screen_left_right": "UNSPECIFIED_UNTIL_EVIDENCE", "composition": "UNSPECIFIED_UNTIL_EVIDENCE", "depth_of_field": "UNSPECIFIED_UNTIL_EVIDENCE", "local_exposure": "UNSPECIFIED_UNTIL_EVIDENCE"},
+  "generation_policy": {"required_inputs_only": true, "silent_fallback": false, "best_effort": false, "allow_generation_with_any_gap": false}
+}
