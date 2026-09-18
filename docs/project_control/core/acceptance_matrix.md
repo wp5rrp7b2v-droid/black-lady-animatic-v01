@@ -36,7 +36,7 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 7. 至少选择一个包含人物 + 场景 + 关键道具/服装的真实 Shot Spec，验证 Reference Resolver 能自动生成可追踪 Reference Package；
 8. Audit Trail 能从生成镜头反查当次实际使用的 Asset IDs / versions，并能从资产反查批准、替代、依赖和生产使用关系。
 
-### P0.2 Evidence Status｜2026-09-17
+### P0.2 Evidence Status｜2026-09-18 EOD
 
 | # | Evidence | 当前证据状态 |
 |---|---|---|
@@ -44,10 +44,10 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 | 2 | System schema / rules | **VERIFIED DESIGN BASELINE**：Visual Asset Management System V1、Schema V0.3、Naming、Single Current、Lifecycle、Relations、Character Tier/Gap 规则已锁定。 |
 | 3 | Character Reference 规范可执行 | **VERIFIED IN REAL P1 PRODUCTION**：9:16 Format Compliance、Fixed Standard Review、P1 role definitions 已用于宁秋水真实补图。 |
 | 4 | Scene / Costume / Prop / Variant 规则可执行 | **VERIFIED / AO-03 COMPLETE / PRODUCT OWNER APPROVED**：AO-03A+B 均获 Product Owner 批准；D-067 已实现两个 Stable Scene Entity、多维 State Profile、formal Scene Master 映射及显式 state-aware Resolver；DAY+OPEN / FIREPLACE_EXTINGUISHED 正向案例与 NIGHT / CLOSED / BURNING / missing-state / UNSPECIFIED 负向案例通过。AO-03 最终 DoD 已审核通过，PR #6 已合并。 |
-| 5 | Asset Registry / Dependency model | **CHARACTER REGISTRY VERIFIED / SCENE REGISTRY VERIFIED / DERIVED PENDING AO-04**：`AST_IMG_000052–000053` 已正式映射两个 approved Scene Masters；总 Registry 53 条。AO-04 Stage A Candidate dependency manifests and computed staleness are implemented; formal DERIVED_FROM relations remain correctly gated behind Product Owner visual approval；Prop / Costume 未伪造资产。 |
+| 5 | Asset Registry / Dependency model | **VERIFIED FOR CHARACTER / SCENE / DERIVED; SHOT MIGRATION GAP EXPOSED**：当前 Runtime Registry = 62 Assets；Character / Scene / Derived dependency model 已验证。历史 A-Series Shot 尚未迁入当前 Runtime Registry，Formal SHOT=0；该缺口在 D-069 A04 real validation 中暴露。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
-| 7 | Real Shot Spec Resolver | **PENDING AO-06**：尚未用至少一个“人物 + 场景 + 关键服装/道具”的真实 Shot Spec 完成完整 Reference Package 验证。 |
-| 8 | Shot-level Audit reverse-trace | **PARTIAL / PENDING AO-06**：Asset-level approval / ingest / supersession / legacy migration audit 已验证；从生成 Shot 反查实际 Reference Asset IDs / versions 及反向 production use relation尚未完整验证。 |
+| 7 | Real Shot Spec Resolver | **ENGINEERING FOUNDATION COMPLETE / REAL VALIDATION BLOCKED**：D-069 已实现 A04 executable Shot Spec、fail-closed Resolver、Reference Package exporter；PR #10 已 merge。当前 approved A04 binary 未 materialize 到 Runtime，且 Costume/Cross 模型/证据边界待复核，因此尚未完成 real generation validation。 |
+| 8 | Shot-level Audit reverse-trace | **ENGINEERING FOUNDATION VERIFIED / END-TO-END PENDING**：immutable use record、Shot→inputs、Asset→use、sandbox USES_REFERENCE forward/reverse query 与 rollback 已实现并测试；live USES_REFERENCE 仍为 0，待真实 Work generation receipt 后完成 end-to-end evidence。 |
 
 AO-02 completion evidence：
 
@@ -92,7 +92,7 @@ Cloud-only publication evidence：
 - merge SHA：`774a6abed34b81e5558dbfeba3846380fb1ff26e`；
 - 不改变 P0.2 Gate 技术验收条件，仅验证 2026-09-16～09-20 临时云端执行通路。
 
-当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。AO-03 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED；AO-04 当前为 IN PROGRESS；D-068 Stage A 已完成并等待 Product Owner 视觉审批。**
+当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；仅 AO-06 剩余。D-069 engineering foundation 已通过 PR #10 merge 进入 main，但真实 A04 end-to-end validation 仍被 approved A04 binary 与 Costume/Cross 模型/证据问题阻塞。**
 
 ### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
 
@@ -101,14 +101,14 @@ Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前�
 1. AO-01｜4 Canonical Registers Final Reconciliation — **COMPLETE / VERIFIED**；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — **COMPLETE / VERIFIED / PO APPROVED**；
 3. AO-03｜2 Scene Masters + Scene / Costume / Prop / State / Variant executable Spec — **COMPLETE / VERIFIED / PRODUCT OWNER APPROVED**；
-4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness — **IN PROGRESS / AO-04A PO APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING PRODUCT OWNER VISUAL APPROVAL**；
-5. AO-05｜Delivery Bridge：Reference Package → image-production environment — **PENDING**；
-6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — **PENDING**；
+4. AO-04｜9 Derived Character Reference Sheets + dependency/staleness — **COMPLETE / VERIFIED / PRODUCT OWNER APPROVED**；
+5. AO-05｜Delivery Bridge：Reference Package → image-production environment — **COMPLETE / VERIFIED / PRODUCT OWNER APPROVED**；
+6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — **D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED**；
 7. AO-07｜GitHub Network Resilience / Recovery Method — **COMPLETE / VERIFIED / PO APPROVED**。
 
 详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`；正式风险见 `logs/risk_register.md`。
 
-**当前 AO-01、AO-02、AO-03、AO-07 已完成；Wave 2 仍由 AO-04～AO-06 阻塞。**
+**当前 AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；Wave 2 仅由 AO-06 阻塞。**
 
 满足全部技术条件后，P0.2 状态仍只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
 
