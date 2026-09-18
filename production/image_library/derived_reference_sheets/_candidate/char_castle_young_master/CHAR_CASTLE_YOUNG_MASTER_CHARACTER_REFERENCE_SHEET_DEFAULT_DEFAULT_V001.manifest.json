@@ -1,0 +1,60 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 634831,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "B",
+  "entity_id": "CHAR_CASTLE_YOUNG_MASTER",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_castle_young_master/CHAR_CASTLE_YOUNG_MASTER_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "PROFILE_PRIMARY",
+    "REAR_3Q_PRIMARY"
+  ],
+  "primary_side": "LEFT",
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_CASTLE_YOUNG_MASTER_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "a2170a9874653a7b6d1ecb0628dbeb8c31eeff4e625de388f5cdedad8047a571",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000007",
+      "filename": "CHAR_CASTLE_YOUNG_MASTER_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "1b3ececacac2e58b451386cbc9bdb05a4621ce0d1c6c6cf26439aece707f0fb7",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000006",
+      "filename": "CHAR_CASTLE_YOUNG_MASTER_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_LEFT",
+      "selected_canonical_slot": "FACE_3Q_PRIMARY",
+      "sha256": "bcbde25f81f881f89bc3d2b37dae460ecc995588c2d25fd198f8b03b5e801d9e",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000005",
+      "filename": "CHAR_CASTLE_YOUNG_MASTER_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "7528157a9b00c4ec0b62145168791ee228fa1a126372ff67cf7981cad802f48a",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000004",
+      "filename": "CHAR_CASTLE_YOUNG_MASTER_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "0a3811487139fee8f1ef8a5fed26adbb8bb906de9125ea72f9045f7f2683a8cc",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

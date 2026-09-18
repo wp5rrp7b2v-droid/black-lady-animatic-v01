@@ -1,5 +1,65 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-04 Final Product Owner Acceptance
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+- Product Owner 于 2026-09-18 明确批准 AO-04 最终验收。
+- 最终 DoD 基线：9 个 Character Entity；9 张 formal Derived Character Reference Sheets；42 个实际 Atomic dependencies；21 个明确 `REFERENCE_GAP`；63 个 Tier Core slots。
+- Formal Asset IDs：`AST_IMG_000054–AST_IMG_000062`。
+- Stage B publication commit：`09b9e2c44f8f2f78c1d102f3d141263074316310`，已 remote verified。
+- 9 张 canonical PNG 与已批准 Candidate SHA / byte size 一致；全部 dependency status `FRESH`；Resolver 9/9 RESOLVED；Single Current 与 idempotency 验证通过。
+- 完整仓库回归：`68 tests / OK`。
+- AO-04 不改变 Character Core Coverage：`42/63 = 66.7%`；`REFERENCE_GAP=21`。
+- 临时 D-068 Stage A review workflow 与 Stage B publication workflow 在最终验收后删除，避免进入最终 merge。
+- AO-05 成为下一正式任务，但尚未启动；AO-06 仍 PENDING；P1 Wave 2 继续 HOLD；P0.3 继续 QUEUED。
+- Completion evidence：`docs/project_control/gates/P0_2_visual_assets/ao04_closeout_2026-09-18.md`。
+
+## 2026-09-18｜D-068 Stage B Engineering Complete / Remote Verified
+
+- Product Owner 已于 2026-09-18 视觉批准全部 9 张 Stage A Candidate Character Reference Sheets，并授权 Stage B。
+- GitHub Actions workflow `D-068 Stage B Publication`（run `35308216933`）在真实 `codex/ao-04` 分支执行并成功完成。
+- Stage B publication commit：`09b9e2c44f8f2f78c1d102f3d141263074316310`；PR #9 远端 head 已独立核对为同一 SHA，PR 保持 OPEN / NOT MERGED。
+- 同一 formal transaction commit 原子发布 12 个文件：9 张 canonical formal PNG + `asset_registry.jsonl` + `asset_relations.jsonl` + `audit_event_log.jsonl`。
+- 正式结果：Asset Registry `62` 条；其中 AO-04 formal `DERIVED_REFERENCE=9`（`AST_IMG_000054–000062`）；AO-04 `DERIVED_FROM=42`；D-068/AO-04 `ASSET_FORMALIZED=9`。
+- 9 张正式 PNG 的 SHA256 / byte size 与 Product Owner 已批准 Candidate manifests 逐一一致；Character Core Coverage 保持 `42/63 = 66.7%`，`REFERENCE_GAP=21`，未生成任何新人物视角。
+- 9 张 Sheet 均验证为 `CURRENT / APPROVED / DERIVED / DEFAULT`，dependency status 全部 `FRESH`，Character Reference Sheet Resolver 9/9 RESOLVED。
+- Idempotency：第二次执行 formalizer 返回 `ALREADY_FORMALIZED`，Registry / Relations / Audit / 9 PNG hashes 无变化。
+- 完整仓库回归：`68 tests / OK`。
+- Binary publication blocker 已解除。AO-04 仍保持 `IN PROGRESS`，当前状态为 `STAGE B ENGINEERING COMPLETE / REMOTE VERIFIED / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`。
+- 未启动 AO-05；D-069 仍为 reservation only；P1 Wave 2 继续 HOLD；P0.3 继续 QUEUED；PR #9 不得 merge，等待 Product Owner 最终 AO-04 DoD 验收。
+- Completion evidence：`docs/project_control/gates/P0_2_visual_assets/d068_stage_b_engineering_complete_2026-09-18.md`。
+
+## 2026-09-18｜D-068 Stage B authorization and publication preflight
+
+- Product Owner visually approved all 9 Stage A Candidate Sheets and authorized D-068 Stage B.
+- Rehydration preflight passed: `9 manifests / 9 PNGs / 9/9 filename / 9/9 SHA256 / 9/9 byte size / 42 dependencies / 21 REFERENCE_GAP / 63 slots`.
+- Stage B stopped before formalizer execution because the recorded Codex PR publisher cannot publish the nine required canonical formal PNG binaries and this checkout cannot verify supplied remote head `ebed801fdc5b35ceb000516b7352fd7241ceebf5`.
+- Status: `BLOCKED_ON_FORMAL_BINARY_PUBLICATION`. D-068 formal state remains `DERIVED_REFERENCE=0 / DERIVED_FROM=0 / D-068 ASSET_FORMALIZED=0`; no prospective Asset ID was allocated.
+- The temporary Candidate review workflow remains present because cleanup is authorized only after successful Stage B formalization and validation.
+- AO-04 remains `IN PROGRESS`; D-069 remains reservation-only; AO-05 remains not started; PR #9 remains `OPEN / DO NOT MERGE`.
+- Blocker evidence: `docs/project_control/gates/P0_2_visual_assets/d068_stage_b_formal_binary_publication_blocker_2026-09-18.md`.
+
+## 2026-09-18｜D-068 Stage A Review Patch 01
+
+- Continued the existing D-068 / AO-04 Stage A task; D-069 remains reservation-only and was not allocated or executed.
+- Enforced `variant=DEFAULT` and `state=DEFAULT` in Atomic Candidate input selection, with negative regression coverage for non-default required-role rows, duplicate/default-slot ambiguity, and false Core-slot satisfaction.
+- Complete repository suite: `68 tests / OK`.
+- Rebuilt all 9 Candidate PNGs into a temporary review directory without overwriting the locked baseline: `9/9 SHA256 MATCH`; `42 selected dependencies / 21 explicit REFERENCE_GAP / 63 Tier Core slots`.
+- Formal registry remains unchanged: `DERIVED_REFERENCE=0 / DERIVED_FROM=0`. AO-04 remains `IN PROGRESS`; Stage B and AO-05 were not started.
+- Final state: `D-068 STAGE A ENGINEERING CLEAN / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL / PR #9 OPEN / DO NOT MERGE`.
+
+## 2026-09-17｜D-068 AO-04 Stage A engineering
+
+- Project Control advanced `R039 → R040`; Dashboard advanced `V018 → V019`.
+- AO-04 state: `IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`.
+- Registered exactly nine stable Character Entities and appended nine `ENTITY_CREATED` audit events; both existing Scene Entities remain unchanged.
+- Live preflight reconciled exactly `42 / 63` selected Atomic Core dependencies and `21` explicit gaps.
+- Generated exactly nine deterministic, non-generative Candidate PNGs plus manifests outside the Formal Asset Registry.
+- Implemented computed `FRESH / DEPENDENCY_STALE`, separate derived-reference resolution, fail-closed Stage B formalizer, and AO-04 tests. Full suite: `66 tests / OK`.
+- No formal Derived Asset IDs or `DERIVED_FROM` relations were created. Stage B was not executed.
+- AO-05 remains PENDING; P1 Wave 2 remains HOLD; P0.3 remains QUEUED.
+- Publication transport boundary: Candidate PNG binary files are `CLOUD_REVIEW_ARTIFACT / NOT FORMAL ASSET / NOT INCLUDED IN STAGE A PR DUE TO CODEX PR BINARY TRANSPORT LIMITATION`. The nine PNGs remain byte-identical in the Codex Cloud workspace for Product Owner visual review; their filenames, expected logical paths, SHA256, byte sizes, dependency lineage, populated slots and explicit gaps remain recorded in the nine version-controlled manifests. This transport boundary does not alter Candidate approval status, dependency lineage, AO-04A authority, or the mandatory Product Owner approval stop.
 本文件记录实际工程执行结果。只保留足以追溯结论的关键事实、证据、失败原因和最终结果；完整脚本、媒体文件、Commit 和工程资产由 GitHub / Local project 保存。
 
 ## Restart Baseline｜2026-09-11

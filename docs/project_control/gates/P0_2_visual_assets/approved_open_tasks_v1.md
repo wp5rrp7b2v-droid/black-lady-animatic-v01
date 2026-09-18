@@ -6,7 +6,7 @@ Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
 
-Latest closeout update: `2026-09-17`
+Latest closeout update: `2026-09-18`
 
 ## Purpose
 
@@ -115,7 +115,9 @@ Completion evidence:
 
 ### AO-04｜9 Character Derived Reference Sheets
 
-Status: `NEXT`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-18`
+
+AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea50485`. Stage A produced nine deterministic Candidate Sheets from 42 live CURRENT/APPROVED/DEFAULT Atomic inputs with 21 explicit gaps; Product Owner visually approved all 9 on 2026-09-18. Stage B then formalized `AST_IMG_000054–000062` as 9 formal CURRENT / APPROVED `DERIVED_REFERENCE / CHARACTER_REFERENCE_SHEET` assets, created 42 `DERIVED_FROM` relations and 9 `ASSET_FORMALIZED` events, and published the 9 canonical PNG binaries atomically with Registry / lineage / audit in commit `09b9e2c44f8f2f78c1d102f3d141263074316310`. GitHub Actions validation confirmed all 9 dependency states `FRESH`, resolver resolution PASS, second formalizer run `ALREADY_FORMALIZED`, and full suite `68 tests / OK`. Product Owner completed final AO-04 DoD acceptance on 2026-09-18. AO-04 is now COMPLETE / VERIFIED / PRODUCT OWNER APPROVED.
 
 完成当前记录的 `REFERENCE_SHEET_GAP = 9`。
 
@@ -197,14 +199,14 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 1. AO-01｜COMPLETE / VERIFIED
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
-4. AO-04｜NEXT / 9 Character Derived Reference Sheets
+4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜PENDING / Delivery Bridge
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
 
-`AO-04 → AO-05 → AO-06`
+`AO-05 → AO-06`
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -221,7 +223,7 @@ AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链�
 - 对应 Execution / Decision / Gate evidence 已写入 Project Control；
 - Daily / Step Closeout consistency check 无未解决状态冲突。
 
-当前 AO-01、AO-02、AO-03、AO-07 已满足；Wave 2 仍由 AO-04～AO-06 阻塞。
+当前 AO-01、AO-02、AO-03、AO-04、AO-07 已满足；Wave 2 仍由 AO-05～AO-06 阻塞。
 
 ## Non-blocking technical debt
 

@@ -1,0 +1,60 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 650562,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "B",
+  "entity_id": "CHAR_LIAO_JIAN",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_liao_jian/CHAR_LIAO_JIAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "PROFILE_PRIMARY",
+    "REAR_3Q_PRIMARY"
+  ],
+  "primary_side": "LEFT",
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_LIAO_JIAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "3f2f01fea63401a3726abdf5053e75361d5d43091830ce8e1636883bd1cd6817",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000024",
+      "filename": "CHAR_LIAO_JIAN_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "48d991f780c620d2090f6334e61c7b580e83b433f593b4ad0f3445f7139b9540",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000023",
+      "filename": "CHAR_LIAO_JIAN_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_LEFT",
+      "selected_canonical_slot": "FACE_3Q_PRIMARY",
+      "sha256": "935fa830c88ef76fbe286e96caff613e2bf8cfee7a2f23d81fa65056669f7e49",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000022",
+      "filename": "CHAR_LIAO_JIAN_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "5af9e7fccfe332b096147c2623ff9b17676b5d3b65dcc21dfee49f2958761acc",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000021",
+      "filename": "CHAR_LIAO_JIAN_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "a3e089530f5371bc4bedadd14425af78a7381a9c1a3c402a6fc8c8c46d91c3a7",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

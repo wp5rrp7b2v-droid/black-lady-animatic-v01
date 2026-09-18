@@ -1,0 +1,81 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 969995,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "A",
+  "entity_id": "CHAR_JUN_LUYUAN",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_jun_luyuan/CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "FACE_3Q_LEFT",
+    "PROFILE_LEFT",
+    "REAR_3Q_LEFT"
+  ],
+  "primary_side": null,
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "e8a0410cfc176ec9d6446b84f89b2c12d0683ec32b927c90353e850c416d909e",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000017",
+      "filename": "CHAR_JUN_LUYUAN_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "7bf1f211743fb9f071d427c1404ea04dfd71c3804b5b526c2dca8b258ed4b96f",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000016",
+      "filename": "CHAR_JUN_LUYUAN_FACE_3Q_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_RIGHT",
+      "selected_canonical_slot": "FACE_3Q_RIGHT",
+      "sha256": "f9ddbb18d4b548bf4887d09d1e0a9eba8be2dde7d61275a8c09a1a5d639f9929",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000018",
+      "filename": "CHAR_JUN_LUYUAN_PROFILE_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "PROFILE_RIGHT",
+      "selected_canonical_slot": "PROFILE_RIGHT",
+      "sha256": "7a04169daed3034ed9d37a508670dce995d2dc2cb75a11148006f9e821321c92",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000019",
+      "filename": "CHAR_JUN_LUYUAN_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "REAR_3Q_RIGHT",
+      "selected_canonical_slot": "REAR_3Q_RIGHT",
+      "sha256": "56d0ad057e61807d1aaaa5340c22d520ccf4a8b89bb1fe676e1e38e9c629eb0f",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000015",
+      "filename": "CHAR_JUN_LUYUAN_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "f9960466266f08d79fde32435f542bd47ed0f8ab26af99bbb2928bd8d3957e92",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000014",
+      "filename": "CHAR_JUN_LUYUAN_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "ee9090dd2d4df72aed2ae81cb2047ebffc11cadc39982a98640954d1bad7fe37",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

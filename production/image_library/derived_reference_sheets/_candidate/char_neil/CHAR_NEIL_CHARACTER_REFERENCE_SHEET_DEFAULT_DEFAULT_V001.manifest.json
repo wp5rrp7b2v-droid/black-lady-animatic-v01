@@ -1,0 +1,81 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 840092,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "A",
+  "entity_id": "CHAR_NEIL",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_neil/CHAR_NEIL_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [
+    "FACE_3Q_RIGHT",
+    "PROFILE_RIGHT",
+    "REAR_3Q_RIGHT"
+  ],
+  "primary_side": null,
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_NEIL_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "964445754ec69dcfeace287d46b2964a6d5044c59950c5ede5553859e1e229de",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000028",
+      "filename": "CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_FRONT",
+      "sha256": "e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000027",
+      "filename": "CHAR_NEIL_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_3Q_LEFT",
+      "selected_canonical_slot": "FACE_3Q_LEFT",
+      "sha256": "252f18eff4511a6b1255c751448a7fb667ad68ea2f9ebae49824ce3f453ea037",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000029",
+      "filename": "CHAR_NEIL_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "PROFILE_LEFT",
+      "selected_canonical_slot": "PROFILE_LEFT",
+      "sha256": "22a1cd4d9373a2a70c89c7a2acc9b88e580d52a70de80002ec2dd9a13f044c85",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000030",
+      "filename": "CHAR_NEIL_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "REAR_3Q_LEFT",
+      "selected_canonical_slot": "REAR_3Q_LEFT",
+      "sha256": "2b87e618ee39702e2270beb3695b166f6f70c56b7bea85032897fae986c49317",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000026",
+      "filename": "CHAR_NEIL_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "f78ccfc252d2ed0cb31117ce1dae4c84893c5e52611a27fac161c8e6d014cf3d",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000025",
+      "filename": "CHAR_NEIL_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "BODY_BACK",
+      "sha256": "cba43e22ca16a538a197a877fea81bb5086a12caf2a8be11090aa00d6f285060",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}

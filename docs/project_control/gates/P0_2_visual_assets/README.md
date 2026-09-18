@@ -17,7 +17,7 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - AO-03：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- AO-04：`NEXT`
+- AO-04：`IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
 - AO-05：PENDING
 - AO-06：PENDING
 - AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
@@ -26,7 +26,7 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 当前正式任务：
 
-`P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT`
+`D-068｜AO-04｜Stage A Candidate Build + Dependency Staleness Engineering｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
 
 AO-03 已于 2026-09-17 完成最终 DoD 验收并由 Product Owner 明确批准；正式 Closeout：
 
@@ -206,12 +206,12 @@ P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-04～AO-06 全�
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 + AO-02 + AO-03 + AO-07 COMPLETE / AO-04 NEXT / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / AO-01 + AO-02 + AO-03 + AO-07 COMPLETE / AO-04 IN PROGRESS / STAGE A WAITING PO VISUAL APPROVAL / MANDATORY BEFORE P1 WAVE 2`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
 3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
-4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness — `NEXT`；
+4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness — `IN PROGRESS / STAGE A WAITING PRODUCT OWNER VISUAL APPROVAL`；
 5. AO-05｜Delivery Bridge — `PENDING`；
 6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — `PENDING`；
 7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
@@ -299,7 +299,7 @@ P1 按人物整组推进：
 
 下一正式任务：
 
-`P0.2-04｜AO-04｜9 Derived Character Reference Sheets + dependency/staleness｜NEXT`
+`D-068｜AO-04｜Stage A Candidate Build + Dependency Staleness Engineering｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
 
 目标：基于 9 名正式 Character 的 `CURRENT / APPROVED` Atomic Assets 自动生成/验证 Derived Character Reference Sheets，记录明确上游 Asset IDs / versions，并验证 `DEPENDENCY_STALE` 行为。
 

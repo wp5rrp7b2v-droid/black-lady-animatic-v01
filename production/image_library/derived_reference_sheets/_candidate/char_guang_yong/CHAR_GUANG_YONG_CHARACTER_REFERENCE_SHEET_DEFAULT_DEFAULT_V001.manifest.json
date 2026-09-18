@@ -1,0 +1,47 @@
+{
+  "builder_version": "0.1",
+  "byte_size": 475761,
+  "candidate_status": "WAITING_PRODUCT_OWNER_VISUAL_APPROVAL",
+  "character_tier": "C",
+  "entity_id": "CHAR_GUANG_YONG",
+  "expected_candidate_path": "production/image_library/derived_reference_sheets/_candidate/char_guang_yong/CHAR_GUANG_YONG_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "explicit_gap_slots": [],
+  "primary_side": null,
+  "role": "CHARACTER_REFERENCE_SHEET",
+  "sheet_filename": "CHAR_GUANG_YONG_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+  "sheet_sha256": "2a98e74ddba60a259758643b56ffddafd5a7cb30de040880f991fb47216b45fb",
+  "sources": [
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000011",
+      "filename": "CHAR_GUANG_YONG_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "FACE_FRONT",
+      "selected_canonical_slot": "FACE_IDENTITY",
+      "sha256": "7f88a3f8d68dbfea0058ff0379d0164380722d96ae1774364bcd8b79367ad6f5",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000009",
+      "filename": "CHAR_GUANG_YONG_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_FRONT",
+      "selected_canonical_slot": "BODY_FRONT",
+      "sha256": "60005a45f2c89bceb463183c9fa4acee2b6ad0eebabadf8b825bc5e877b85b6e",
+      "version_no": 1
+    },
+    {
+      "approval_status": "APPROVED",
+      "asset_id": "AST_IMG_000008",
+      "filename": "CHAR_GUANG_YONG_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+      "lifecycle": "CURRENT",
+      "role": "BODY_BACK",
+      "selected_canonical_slot": "REAR_OR_BACK",
+      "sha256": "63034c8deabef693321e5a3eadb4ffdbfdf69378527767d31852fd4ae45b621b",
+      "version_no": 1
+    }
+  ],
+  "state": "DEFAULT",
+  "variant": "DEFAULT"
+}
