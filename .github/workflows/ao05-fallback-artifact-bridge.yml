@@ -186,22 +186,23 @@ jobs:
               encoding="utf-8",
           )
 
-          handoff = """# AO-05 Fallback Delivery Bundle
-
-This bundle is transport evidence only.
-
-Use all four files under visual_refs/ as the exact visual reference input set.
-
-Before generation:
-1. Read delivery_manifest.json.
-2. Verify each delivered file SHA256 and byte_size against the manifest.
-3. Confirm the four Asset IDs are AST_IMG_000056, AST_IMG_000011, AST_IMG_000009, AST_IMG_000008.
-4. Do not substitute another Guang Yong image.
-5. Product Owner manual reference upload count must remain 0.
-
-Run A and Run B must independently re-verify the same four delivered files.
-Generated images are AO05 delivery proofs only and are NON-PRODUCTION.
-"""
+          handoff = "\n".join([
+              "# AO-05 Fallback Delivery Bundle",
+              "",
+              "This bundle is transport evidence only.",
+              "",
+              "Use all four files under visual_refs/ as the exact visual reference input set.",
+              "",
+              "Before generation:",
+              "1. Read delivery_manifest.json.",
+              "2. Verify each delivered file SHA256 and byte_size against the manifest.",
+              "3. Confirm the four Asset IDs are AST_IMG_000056, AST_IMG_000011, AST_IMG_000009, AST_IMG_000008.",
+              "4. Do not substitute another Guang Yong image.",
+              "5. Product Owner manual reference upload count must remain 0.",
+              "",
+              "Run A and Run B must independently re-verify the same four delivered files.",
+              "Generated images are AO05 delivery proofs only and are NON-PRODUCTION.",
+          ]) + "\n"
           (out / "WORK_HANDOFF.md").write_text(handoff, encoding="utf-8")
 
           print("AO-05 delivery bundle verified")
