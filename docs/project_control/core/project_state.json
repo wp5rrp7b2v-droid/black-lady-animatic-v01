@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R047",
+  "state_revision": "R048",
   "last_updated": "2026-09-18",
-  "session_status": "ACTIVE / AO-05 ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
+  "session_status": "ACTIVE / AO-05 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / AO-06 NEXT / TEMP_CLOUD_ONLY_MODE_V1 EFFECTIVE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
     "status": "ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2",
-    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-03、AO-04、AO-07 已 COMPLETE / VERIFIED，其中 AO-02、AO-03、AO-04、AO-07 已获 Product Owner 批准。AO-04 于 2026-09-18 完成最终 DoD 验收；剩余主依赖链为 AO-05 → AO-06。AO-05～AO-06 全部 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-001 为 CONTROLLED / MITIGATION VERIFIED。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59。"
+    "note": "宁秋水 P1 Wave 1 已完成，live Core Coverage=42/63（66.7%），P1=2/10。AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已 COMPLETE / VERIFIED，其中 AO-02、AO-03、AO-04、AO-05、AO-07 已获 Product Owner 批准。AO-05 于 2026-09-18 完成最终 DoD 验收；剩余主依赖链仅 AO-06。AO-06 COMPLETE / VERIFIED 前不得开启君鹭远 PROFILE_LEFT。RISK-002 为 ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT。TEMP_CLOUD_ONLY_MODE_V1 当前生效至 2026-09-20 23:59。"
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-05｜Delivery Bridge｜ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE",
+  "current_task": "AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace｜NEXT / NOT STARTED",
   "blocker": null,
-  "next_action": "Product Owner performs final AO-05 acceptance. If approved, close AO-05, remove the temporary AO-05 fallback artifact workflow, then proceed to AO-06. Do not start P1 Wave 2 or P0.3 yet.",
+  "next_action": "Start AO-06 design in Chat: choose one real Shot Spec with Character + Scene + key Costume/Prop, define Resolver inputs/expected package, then validate production-use reverse audit. Do not release P1 Wave 2 or start P0.3 before AO-06 is COMPLETE / VERIFIED.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-AO05-FALLBACK-ROBUSTNESS-PASS",
-    "status": "AO-05 IN PROGRESS / ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE",
+    "id": "2026-09-18-AO05-FINAL-ACCEPTED",
+    "status": "AO-05 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / AO-06 NEXT",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -223,13 +223,17 @@
       "AO-05 fallback Work proof PASS: artifact 10536850548 automatically downloaded and ZIP digest independently verified",
       "RUN A materialized and SHA-verified 4/4 formal Guang Yong references, loaded all 4 into image generation, and generated NON-PRODUCTION proof with Product Owner manual uploads=0",
       "RUN B independently re-read/re-extracted/re-hashed the same Bundle, used the identical 4 Asset IDs/SHA inputs, loaded all 4 into image generation, and generated second NON-PRODUCTION proof with Product Owner manual uploads=0",
-      "AO-05 multi-reference delivery PASS and repeatability PASS; no GitHub/Registry/Core Coverage mutation and D-069 remains unallocated"
+      "AO-05 multi-reference delivery PASS and repeatability PASS; no GitHub/Registry/Core Coverage mutation and D-069 remains unallocated",
+      "AO-05 final DoD explicitly approved by Product Owner on 2026-09-18",
+      "AO-05 final status COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+      "AO-05 residual audit limitation recorded as RISK-002: image-generation service does not return an independent input-SHA receipt",
+      "Temporary AO-05 fallback artifact workflow removed after final acceptance"
     ],
-    "resume_from": "AO-05｜Final Product Owner acceptance",
+    "resume_from": "AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace｜Design",
     "blockers": []
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 COMPLETE + VERIFIED + PRODUCT OWNER APPROVED / APPROVED-OPEN CLOSEOUT ACTIVE / AO-05 NEXT / P1 WAVE 2 HOLD",
+    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE VERIFIED PO APPROVED / APPROVED-OPEN CLOSEOUT ACTIVE / AO-06 NEXT / P1 WAVE 2 HOLD",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -368,12 +372,15 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-04..AO-06 COMPLETE",
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-06 COMPLETE",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
     "ao04_stage_b_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao04_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao04_closeout_2026-09-18.md"
+    "ao04_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao04_closeout_2026-09-18.md",
+    "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+    "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
+    "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -427,7 +434,6 @@
       ]
     },
     "remaining_checks": [
-      "AO-05 Complete Reference Package → image-production environment Delivery Bridge",
       "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
@@ -455,10 +461,10 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "AO-05｜FINAL PRODUCT OWNER ACCEPTANCE",
-    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-05 and AO-06 are COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04 and AO-07 are already complete.",
+    "next_task": "AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace",
+    "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-06 is COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04, AO-05 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao05_status": "IN PROGRESS / ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE"
+    "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -470,6 +476,14 @@
         "linked_task": "AO-07 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
         "hard_blocker": false,
         "exit_condition": "SATISFIED 2026-09-14; retain recovery runbook for recurrence"
+      },
+      {
+        "id": "RISK-002",
+        "name": "Generation Service Input SHA Receipt Unavailable",
+        "status": "ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT",
+        "linked_task": "AO-05 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
+        "hard_blocker": false,
+        "exit_condition": "When the image-production service/API exposes an independent consumed-input digest, request manifest, or equivalent cryptographic receipt, add it to the delivery audit chain."
       }
     ]
   },
@@ -528,10 +542,10 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V026",
+    "version": "V027",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R047 / AO-05 ROBUSTNESS PASS / WAITING FINAL PO ACCEPTANCE"
+    "status": "CURRENT / DERIVED FROM R048 / AO-05 COMPLETE / AO-06 NEXT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",

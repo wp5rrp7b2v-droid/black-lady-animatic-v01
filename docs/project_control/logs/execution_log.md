@@ -1,5 +1,20 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-05 Final Product Owner Acceptance
+
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+
+- Product Owner 于 2026-09-18 明确批准 AO-05 最终验收。
+- Primary single-reference Delivery Path 已 PASS；Fallback Artifact Bridge 已完成 RUN A / RUN B 多 reference + repeatability 真实验证。
+- 两轮均使用同一 formal input set：`AST_IMG_000056 / 000011 / 000009 / 000008`，4/4 SHA match，loaded_reference_count=`4`，proof generated，manual Product Owner reference upload=`0`。
+- 所有 proof 均为 `NON-PRODUCTION`；未 ingest、未登记 Asset ID、未改变 Character Core Coverage。
+- D-069 未分配；AO-05 不需要额外 Codex 工程任务即可完成 DoD。
+- 残余审计限制：image-generation service 当前不返回独立 consumed-input SHA / cryptographic receipt。Product Owner 明确接受该限制为 non-blocking residual audit risk，并要求未来能力允许时补齐。
+- 该限制登记为 `RISK-002 / ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`。
+- 临时 `.github/workflows/ao05-fallback-artifact-bridge.yml` 在 AO-05 closeout 中删除；已生成 artifact 按 GitHub retention policy 自动过期。
+- AO-06 成为下一正式任务；P1 Wave 2 与 P0.3 继续 HOLD / QUEUED。
+- Closeout evidence：`docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md`。
+
 ## 2026-09-18｜AO-05 Fallback Robustness Proof｜PASS
 
 Status: `ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`

@@ -130,7 +130,7 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `IN PROGRESS / ROBUSTNESS PASS / READY_FOR_FINAL_PRODUCT_OWNER_ACCEPTANCE`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-18`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -249,13 +249,13 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜IN PROGRESS / ROBUSTNESS PASS / READY FOR FINAL PO ACCEPTANCE
+5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
 AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
 
-`AO-05 → AO-06`
+`AO-06`
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -272,7 +272,7 @@ AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链�
 - 对应 Execution / Decision / Gate evidence 已写入 Project Control；
 - Daily / Step Closeout consistency check 无未解决状态冲突。
 
-当前 AO-01、AO-02、AO-03、AO-04、AO-07 已满足；Wave 2 仍由 AO-05～AO-06 阻塞。
+当前 AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已满足；Wave 2 仅由 AO-06 阻塞。
 
 ## Non-blocking technical debt
 
@@ -281,3 +281,11 @@ Resolver regression test 已在 AO-01 改为断言 `AST_IMG_000050` 为 CURRENT 
 ## Execution Routing
 
 根据 RC-015，Approved-but-Open 任务不因带有“工程”属性就自动交给 Codex。方案、判断、Task Contract、GitHub 可直接更新内容优先由 Chat 完成；pull / status / test / dry-run / 已有脚本执行 / SHA 验证等由 Terminal 完成；只有确实需要本地多文件工程修改、环境交互或持续调试时才交给 Codex。只有实际交给 Codex 执行的任务才占用 D-###。
+
+## AO-05 Accepted Residual Limitation
+
+- `SERVICE_INPUT_SHA_RECEIPT = NOT AVAILABLE`.
+- 当前 image-generation service 不返回独立的 consumed-input SHA / cryptographic receipt。
+- 该限制不阻塞 AO-05，因为现有证据链为：GitHub canonical SHA → GitHub Actions canonical-byte verification → artifact ZIP digest → Work 独立 SHA → actual multi-reference generation call。
+- Product Owner 于 2026-09-18 明确接受该限制作为 non-blocking residual audit risk，并要求未来服务能力允许时补齐。
+- 正式风险记录：`RISK-002 / ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`。

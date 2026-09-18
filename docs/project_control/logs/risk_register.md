@@ -4,6 +4,7 @@
 
 | ID | 日期 | 风险 | 影响 | 当前缓解 | 状态 |
 |---|---|---|---|---|---|
+| RISK-002 | 2026-09-18 | Image-generation service 不返回独立的 consumed-input SHA / cryptographic receipt。当前只能证明送入 generation call 前的正式 reference bytes、Asset IDs、SHA 与实际 reference file paths，无法从生成服务自身取得“最终实际消费输入”的密码学回执。 | 严格端到端 provenance 存在最后一跳审计缺口；未来若发生 identity drift / service-side caching / preprocessing 异常，无法仅凭服务回执证明模型内部消费的原始输入字节。 | AO-05 已建立多层证据链：GitHub canonical Asset SHA → GitHub Actions canonical-byte verification → artifact ZIP digest → Work 独立 SHA verification → actual 4-reference generation call；RUN A / RUN B 输入集合一致且均成功。要求所有正式生成继续记录 Asset IDs、SHA、调用文件路径/顺序、时间与 output/proof identifier。 | **ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT** |
 | RISK-001 | 2026-09-13 | GitHub 网络连接不稳定：项目近期多次出现 `443 timeout`、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等，导致 pull / fetch / push / Automatic Ingest publication 可能随机失败。 | Project Control 同步、Automatic Ingest、Codex Git 操作与正式资产发布都依赖 GitHub；若没有稳定恢复方案，可能出现“本地已完成但远端未发布”、重复执行、版本分叉或误判完成状态。 | 2026-09-14 已完成并验证 AO-07：动态 helper `$HOME/.local/bin/git-proxy-auto` 可动态读取 macOS proxy、不持久化动态端口，命令级使用 HTTP/1.1；真实完成 `ls-remote / pull / push / local-vs-remote SHA match`；AO-02 migration publication 通过该链路达到 `REMOTE_VERIFIED`，migration 二次执行返回 `ALREADY_APPLIED / NO CHANGE`。正式 lightweight recovery runbook、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch、failure→recovery 规则均已落档并经 Product Owner 批准。 | **CONTROLLED / MITIGATION VERIFIED / AO-07 COMPLETE** |
 
 ## RISK-001 Exit Criteria
@@ -42,3 +43,16 @@ AO-07 completion evidence：
 风险控制目标继续保持：
 
 `GitHub transient failure ≠ asset corruption / duplicate ingest / project-state divergence`。
+
+## RISK-002 Improvement Trigger
+
+RISK-002 当前不阻塞生产，也不推翻 AO-05 验收。未来出现以下任一能力时重新开启改进：
+
+1. image-production API 返回 uploaded-file digest / input digest；
+2. generation request 返回 immutable request manifest；
+3. service-side input file ID 可与上传 bytes 的 SHA256 做可验证绑定；
+4. 平台提供等价的 cryptographic consumed-input receipt。
+
+届时将目标证据链升级为：
+
+`Asset SHA → Delivery SHA → Service Input Receipt SHA / immutable file ID → Output ID`。
