@@ -12,21 +12,21 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
 
-## 当前正式状态｜2026-09-17
+## 当前正式状态｜2026-09-18 EOD
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - AO-03：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- AO-04：`IN PROGRESS / AO-04A PRODUCT OWNER APPROVED / D-068 STAGE A ENGINEERING COMPLETE / WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
-- AO-05：PENDING
-- AO-06：PENDING
+- AO-04：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- AO-05：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
+- AO-06：`D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`
 - AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - RISK-001：`CONTROLLED / MITIGATION VERIFIED`
 - P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-04～AO-06 COMPLETE / VERIFIED`
 
 当前正式任务：
 
-`D-068｜AO-04｜Stage A Candidate Build + Dependency Staleness Engineering｜WAITING_PRODUCT_OWNER_VISUAL_APPROVAL`
+`D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION MERGED / PAUSED FOR DAY / RESUME SAME D-069`
 
 AO-03 已于 2026-09-17 完成最终 DoD 验收并由 Product Owner 明确批准；正式 Closeout：
 
@@ -144,11 +144,9 @@ AO-01 已按 BL-D-028 完成可取得证据的旧表对账，四份旧表退出 
 
 P0.2 Gate Review 前仍需：
 
-1. AO-04：9 个 Derived Character Reference Sheets 与 dependency / staleness；
-2. AO-05：Delivery Bridge；
-3. AO-06：真实 Shot Spec Resolver + Shot-level Audit reverse-trace。
+1. AO-06：完成真实 Shot Spec Resolver + Shot-level Audit reverse-trace 的 end-to-end real validation。
 
-AO-03、AO-07 已完成，不再属于 remaining checks。
+AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成，不再属于 remaining checks。
 
 ## P0.2-02｜Visual Asset Management System V1 Design
 
@@ -206,15 +204,22 @@ P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-04～AO-06 全�
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / AO-01 + AO-02 + AO-03 + AO-07 COMPLETE / AO-04 IN PROGRESS / STAGE A WAITING PO VISUAL APPROVAL / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / ONLY AO-06 REMAINS / D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / MANDATORY BEFORE P1 WAVE 2`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
 3. AO-03｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
-4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness — `IN PROGRESS / STAGE A WAITING PRODUCT OWNER VISUAL APPROVAL`；
-5. AO-05｜Delivery Bridge — `PENDING`；
-6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — `PENDING`；
+4. AO-04｜9 Derived Character Reference Sheets + dependency / staleness — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
+5. AO-05｜Delivery Bridge — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
+6. AO-06｜Real Shot Spec Resolver + Shot-level Audit reverse-trace — `D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`；
 7. AO-07｜GitHub Network Resilience / Recovery Method — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`。
+
+AO-06 当前事实：
+- PR #10 已经独立 cross-check 后 merge，merge SHA `68716eae9e73a1ee1891dfde6ac5c7ea4d578cce`；
+- D-069 工程基础已进入 main，但 AO-06 **未 COMPLETE / 未 APPROVED**；
+- A04 approved binary 尚未 materialize 到当前 GitHub runtime；
+- Neil Costume/Cross 是否继续要求独立 formal Asset，或应改为 Character canonical appearance continuity，留待下一工作日由 Product Owner 审核设计边界；
+- 在该模型/证据问题解决前，不启动 Work real validation，不分配 D-070。
 
 ## AO-03 Closeout
 
