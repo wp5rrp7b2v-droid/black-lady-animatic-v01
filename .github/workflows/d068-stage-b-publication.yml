@@ -1,0 +1,331 @@
+# Temporary D-068 Stage B publication workflow.
+# Remove this workflow before PR #9 is eventually merged.
+name: D-068 Stage B Publication
+
+on:
+  push:
+    branches:
+      - codex/ao-04
+    paths:
+      - .github/workflows/d068-stage-b-publication.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: d068-stage-b-publication
+  cancel-in-progress: false
+
+jobs:
+  formalize-and-publish:
+    if: github.ref == 'refs/heads/codex/ao-04'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out authoritative PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/ao-04
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up validated Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install locked dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Fail-closed preconditions
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "codex/ao-04"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -f docs/project_control/gates/P0_2_visual_assets/d068_stage_b_formal_binary_publication_blocker_2026-09-18.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path.cwd()
+          reg = [json.loads(x) for x in (root / "production/asset_registry/asset_registry.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          rel = [json.loads(x) for x in (root / "production/asset_registry/asset_relations.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          aud = [json.loads(x) for x in (root / "production/asset_registry/audit_event_log.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          manifests = sorted((root / "production/image_library/derived_reference_sheets/_candidate").glob("*/*.manifest.json"))
+
+          formal = [r for r in reg if r.get("asset_class") == "DERIVED_REFERENCE" and r.get("role") == "CHARACTER_REFERENCE_SHEET"]
+          ao04_aud = [r for r in aud if r.get("task_id") == "D-068/AO-04" and r.get("event_type") == "ASSET_FORMALIZED"]
+          prospective = {f"AST_IMG_{n:06d}" for n in range(54, 63)}
+          allocated = prospective & {r.get("asset_id") for r in reg}
+          existing_derived = [r for r in rel if r.get("relation_type") == "DERIVED_FROM"]
+
+          if formal:
+              raise SystemExit(f"Precondition failed: expected 0 formal Character Reference Sheets, found {len(formal)}")
+          if existing_derived:
+              raise SystemExit(f"Precondition failed: expected 0 DERIVED_FROM relations, found {len(existing_derived)}")
+          if ao04_aud:
+              raise SystemExit(f"Precondition failed: expected 0 D-068 ASSET_FORMALIZED events, found {len(ao04_aud)}")
+          if len(manifests) != 9:
+              raise SystemExit(f"Precondition failed: expected 9 Candidate manifests, found {len(manifests)}")
+          if allocated:
+              raise SystemExit(f"Precondition failed: prospective IDs already allocated: {sorted(allocated)}")
+
+          print("D-068 Stage B preconditions PASS")
+          PY
+
+      - name: Deterministically rebuild approved Candidate Sheets
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$RUNNER_TEMP/d068-stage-b-candidates"
+          python scripts/character_reference_sheet_builder_v0_1.py             --output-root "$RUNNER_TEMP/d068-stage-b-candidates"             > "$RUNNER_TEMP/d068-stage-b-build.json"
+
+      - name: Verify 9 Candidates and rehydrate formalizer inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import shutil
+          from pathlib import Path
+
+          root = Path.cwd()
+          generated_root = Path(os.environ["RUNNER_TEMP"]) / "d068-stage-b-candidates"
+          locked_root = root / "production/image_library/derived_reference_sheets/_candidate"
+
+          locked = sorted(locked_root.glob("*/*.manifest.json"))
+          generated = sorted(generated_root.glob("*/*.png"))
+          if len(locked) != 9 or len(generated) != 9:
+              raise SystemExit(f"Expected 9 manifests and 9 PNGs; found {len(locked)} and {len(generated)}")
+
+          expected = {}
+          dependencies = 0
+          gaps = 0
+          slots = 0
+          for manifest_path in locked:
+              m = json.loads(manifest_path.read_text(encoding="utf-8"))
+              expected[m["sheet_filename"]] = (manifest_path, m)
+              dependencies += len(m["sources"])
+              gaps += len(m["explicit_gap_slots"])
+              slots += len(m["sources"]) + len(m["explicit_gap_slots"])
+
+          if len(expected) != 9:
+              raise SystemExit("Candidate filenames are not unique")
+          if (dependencies, gaps, slots) != (42, 21, 63):
+              raise SystemExit(f"Coverage mismatch: dependencies={dependencies} gaps={gaps} slots={slots}")
+
+          seen = set()
+          for png in generated:
+              item = expected.get(png.name)
+              if item is None:
+                  raise SystemExit(f"Unexpected generated PNG: {png.name}")
+              manifest_path, m = item
+              digest = hashlib.sha256(png.read_bytes()).hexdigest()
+              size = png.stat().st_size
+              if digest != m["sheet_sha256"]:
+                  raise SystemExit(f"SHA mismatch for {png.name}: {digest} != {m['sheet_sha256']}")
+              if size != m["byte_size"]:
+                  raise SystemExit(f"Byte-size mismatch for {png.name}: {size} != {m['byte_size']}")
+              target = manifest_path.with_name(png.name)
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(png, target)
+              if hashlib.sha256(target.read_bytes()).hexdigest() != digest:
+                  raise SystemExit(f"Rehydration copy mismatch for {png.name}")
+              seen.add(png.name)
+
+          if seen != set(expected):
+              raise SystemExit(f"Missing generated PNGs: {sorted(set(expected) - seen)}")
+
+          print("D-068 Candidate verification PASS: 9/9 SHA + byte-size; 42 dependencies; 21 gaps; 63 slots")
+          PY
+
+      - name: Execute Product Owner-authorized Stage B formalizer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/character_reference_sheet_formalizer_v0_1.py --po-approved | tee "$RUNNER_TEMP/d068-stage-b-formalizer-first.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "d068-stage-b-formalizer-first.json"
+          result = json.loads(p.read_text(encoding="utf-8"))
+          expected = [f"AST_IMG_{n:06d}" for n in range(54,63)]
+          if result.get("status") != "FORMALIZED":
+              raise SystemExit(f"Expected FORMALIZED, got {result}")
+          if result.get("asset_ids") != expected:
+              raise SystemExit(f"Unexpected Asset IDs: {result.get('asset_ids')} != {expected}")
+          print("Stage B formalizer first run PASS")
+          PY
+
+      - name: Validate formal transaction and resolver freshness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import importlib.util
+          import json
+          from pathlib import Path
+
+          root = Path.cwd()
+          reg = [json.loads(x) for x in (root / "production/asset_registry/asset_registry.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          rel = [json.loads(x) for x in (root / "production/asset_registry/asset_relations.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          aud = [json.loads(x) for x in (root / "production/asset_registry/audit_event_log.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          manifests = {}
+          for p in sorted((root / "production/image_library/derived_reference_sheets/_candidate").glob("*/*.manifest.json")):
+              m = json.loads(p.read_text(encoding="utf-8"))
+              manifests[m["entity_id"]] = m
+
+          spec = importlib.util.spec_from_file_location("resolver", root / "scripts/resolver_asset_source_v0_1.py")
+          resolver = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(resolver)
+
+          sheets = [r for r in reg if r.get("asset_class") == "DERIVED_REFERENCE" and r.get("role") == "CHARACTER_REFERENCE_SHEET"]
+          if len(sheets) != 9:
+              raise SystemExit(f"Expected 9 formal sheets, found {len(sheets)}")
+          expected_ids = {f"AST_IMG_{n:06d}" for n in range(54,63)}
+          if {s["asset_id"] for s in sheets} != expected_ids:
+              raise SystemExit("Formal Asset ID set mismatch")
+
+          required = {
+              "approval_status":"APPROVED","lifecycle":"CURRENT","authority_class":"DERIVED",
+              "provenance_status":"COMPLETE","resolver_usage":"DEFAULT","variant":"DEFAULT","state":"DEFAULT"
+          }
+          current_keys = set()
+          for sheet in sheets:
+              for k,v in required.items():
+                  if sheet.get(k) != v:
+                      raise SystemExit(f"{sheet['asset_id']} invalid {k}: {sheet.get(k)}")
+              key = (sheet["entity_id"], sheet["role"], sheet["variant"], sheet["state"])
+              if key in current_keys:
+                  raise SystemExit(f"Single Current violation: {key}")
+              current_keys.add(key)
+
+              m = manifests[sheet["entity_id"]]
+              path = root / sheet["storage_uri"]
+              if not path.is_file():
+                  raise SystemExit(f"Missing canonical PNG: {path}")
+              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              if digest != m["sheet_sha256"] or digest != sheet["sha256"]:
+                  raise SystemExit(f"Formal PNG SHA mismatch: {sheet['entity_id']}")
+              if path.stat().st_size != m["byte_size"] or path.stat().st_size != sheet["byte_size"]:
+                  raise SystemExit(f"Formal PNG byte-size mismatch: {sheet['entity_id']}")
+              dep = resolver.dependency_status(sheet, root)
+              if dep.get("status") != "FRESH":
+                  raise SystemExit(f"Dependency not FRESH for {sheet['entity_id']}: {dep}")
+              resolved = resolver.resolve_character_reference_sheet(sheet["entity_id"], root)
+              if resolved.get("status") != "RESOLVED" or resolved.get("dependency_status") != "FRESH":
+                  raise SystemExit(f"Resolver did not resolve {sheet['entity_id']}: {resolved}")
+
+          sheet_ids = {s["asset_id"] for s in sheets}
+          ao04_rel = [r for r in rel if r.get("relation_type") == "DERIVED_FROM" and r.get("source_asset_id") in sheet_ids]
+          if len(ao04_rel) != 42:
+              raise SystemExit(f"Expected 42 AO-04 DERIVED_FROM relations, found {len(ao04_rel)}")
+          ao04_aud = [r for r in aud if r.get("task_id") == "D-068/AO-04" and r.get("event_type") == "ASSET_FORMALIZED"]
+          if len(ao04_aud) != 9:
+              raise SystemExit(f"Expected 9 D-068 ASSET_FORMALIZED events, found {len(ao04_aud)}")
+
+          dependencies = sum(len(m["sources"]) for m in manifests.values())
+          gaps = sum(len(m["explicit_gap_slots"]) for m in manifests.values())
+          slots = dependencies + gaps
+          if (dependencies, gaps, slots) != (42,21,63):
+              raise SystemExit("Core Coverage / REFERENCE_GAP changed")
+
+          print("Formal validation PASS: 9 sheets / 42 DERIVED_FROM / 9 audit / all FRESH / 42 of 63 coverage")
+          PY
+
+      - name: Record formal transaction hashes before idempotency check
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            sha256sum production/asset_registry/asset_registry.jsonl
+            sha256sum production/asset_registry/asset_relations.jsonl
+            sha256sum production/asset_registry/audit_event_log.jsonl
+            find production/image_library/derived_reference_sheets -mindepth 2 -maxdepth 2 -type f -name '*.png' ! -path '*/_candidate/*' -print0 | sort -z | xargs -0 sha256sum
+          } > "$RUNNER_TEMP/d068-before-idempotency.sha256"
+
+      - name: Prove formalizer idempotency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/character_reference_sheet_formalizer_v0_1.py --po-approved | tee "$RUNNER_TEMP/d068-stage-b-formalizer-second.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "d068-stage-b-formalizer-second.json"
+          result = json.loads(p.read_text(encoding="utf-8"))
+          if result.get("status") != "ALREADY_FORMALIZED":
+              raise SystemExit(f"Expected ALREADY_FORMALIZED, got {result}")
+          if set(result.get("asset_ids", [])) != {f"AST_IMG_{n:06d}" for n in range(54,63)}:
+              raise SystemExit(f"Idempotent Asset ID set mismatch: {result}")
+          PY
+          {
+            sha256sum production/asset_registry/asset_registry.jsonl
+            sha256sum production/asset_registry/asset_relations.jsonl
+            sha256sum production/asset_registry/audit_event_log.jsonl
+            find production/image_library/derived_reference_sheets -mindepth 2 -maxdepth 2 -type f -name '*.png' ! -path '*/_candidate/*' -print0 | sort -z | xargs -0 sha256sum
+          } > "$RUNNER_TEMP/d068-after-idempotency.sha256"
+          diff -u "$RUNNER_TEMP/d068-before-idempotency.sha256" "$RUNNER_TEMP/d068-after-idempotency.sha256"
+
+      - name: Run complete repository tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests
+
+      - name: Ensure exact publishable mutation set
+        shell: bash
+        run: |
+          set -euo pipefail
+          git status --short
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path.cwd()
+          reg = [json.loads(x) for x in (root / "production/asset_registry/asset_registry.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          sheets = [r for r in reg if r.get("asset_class") == "DERIVED_REFERENCE" and r.get("role") == "CHARACTER_REFERENCE_SHEET"]
+          paths = sorted(r["storage_uri"] for r in sheets)
+          if len(paths) != 9:
+              raise SystemExit("Expected exactly 9 canonical formal PNG paths")
+          (Path.home() / "d068-formal-paths.txt").write_text("\n".join(paths) + "\n", encoding="utf-8")
+          PY
+
+      - name: Atomically commit formal binaries and formal records
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add             production/asset_registry/asset_registry.jsonl             production/asset_registry/asset_relations.jsonl             production/asset_registry/audit_event_log.jsonl
+
+          while IFS= read -r path; do
+            git add -- "$path"
+          done < "$HOME/d068-formal-paths.txt"
+
+          staged="$(git diff --cached --name-only)"
+          count="$(printf '%s\n' "$staged" | sed '/^$/d' | wc -l | tr -d ' ')"
+          if [ "$count" -ne 12 ]; then
+            echo "Expected exactly 12 staged files (9 PNG + 3 registries), found $count"
+            printf '%s\n' "$staged"
+            exit 1
+          fi
+          if printf '%s\n' "$staged" | grep -q '/_candidate/'; then
+            echo "Candidate PNG or manifest was accidentally staged"
+            exit 1
+          fi
+
+          git commit -m "D-068: formalize approved character reference sheets"
+          git push origin HEAD:codex/ao-04
+
+      - name: Confirm pushed branch contains formal assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          pushed="$(git rev-parse HEAD)"
+          remote="$(git ls-remote origin refs/heads/codex/ao-04 | awk '{print $1}')"
+          test "$pushed" = "$remote"
+          echo "D-068 Stage B publication commit: $pushed"
