@@ -1,5 +1,20 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-18｜AO-05 Multi-reference Robustness Proof｜CANONICAL_BINARY_MATERIALIZATION_FAILED
+
+Status: `FAIL CLOSED / FALLBACK REQUIRED / AO-05 REMAINS IN PROGRESS`
+
+- Work 读取 main 四份事实源并确认 R044 / ROBUSTNESS VALIDATION PENDING。
+- RUN A 在 binary acquisition 阶段停止；generation environment 未调用。
+- `AST_IMG_000056`：GitHub file API 返回 Reference Sheet Base64；本轮未以统一多文件路径完成 materialization / SHA receipt。
+- `AST_IMG_000011 / AST_IMG_000009 / AST_IMG_000008`：file API 返回空 binary content / metadata only；blob read 触发 UnicodeDecodeError；raw blob path 被 UTF-8-only interface 拒绝。
+- 因无法取得四张可独立哈希的 bytes，`sha256_verified=0/4`，`loaded_reference_count=0`，proof 未生成。
+- RUN B：NOT STARTED，因此 repeatability 未测试。
+- Product Owner manual reference upload count = `0`；未通过人工上传规避失败。
+- 失败边界明确定位为 Work 当前 GitHub binary materialization transport；不等于 multi-reference image generation unsupported。
+- 未修改 GitHub/Registry/正式 Asset；未分配 D-069；AO-06 / P1 Wave 2 / P0.3 均未启动。
+- 下一步采用 AO-05 已预定义 fallback：`GitHub Actions → short-lived manifest-verified Delivery Bundle artifact → Work`。
+
 ## 2026-09-18｜AO-05 Primary Delivery Path Proof｜PASS
 
 Status: `PRIMARY DELIVERY PATH PASS / ROBUSTNESS VALIDATION PENDING`

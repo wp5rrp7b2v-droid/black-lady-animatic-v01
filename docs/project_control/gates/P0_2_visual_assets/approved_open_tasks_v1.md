@@ -130,7 +130,7 @@ AO-04A approval evidence: PR #8, merge SHA `a336cc46e3d81045e990ade7c67e0ec3eea5
 
 ### AO-05｜Delivery Bridge
 
-Status: `IN PROGRESS / PRIMARY DELIVERY PATH PASS / ROBUSTNESS VALIDATION PENDING`
+Status: `IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED`
 
 完成 D-060 已明确批准的下一验证方向：
 
@@ -149,6 +149,18 @@ Primary Delivery Path Proof（2026-09-18）已 PASS：
 - 未修改 GitHub、Registry、正式 Asset；未分配 D-069。
 
 当前仍需验证多文件交付与重复运行稳定性，之后才可提交 AO-05 最终验收。
+
+Robustness Proof（2026-09-18）结果：
+
+- RUN A 在 canonical binary materialization 阶段 fail closed；
+- `AST_IMG_000056` 的 Reference Sheet 可返回 Base64，但未完成本轮统一 materialization；
+- `AST_IMG_000011 / 000009 / 000008` 三张较大的 Atomic PNG 经当前 Work GitHub file/blob/raw API 无法取得可哈希的二进制内容；
+- 因此 0/4 完成独立 SHA 校验，generation environment 未被调用；
+- RUN B 未启动；Product Owner manual upload count 仍为 `0`；
+- 该失败只定位于 binary transport，不证明 multi-reference generation 不受支持。
+
+下一步按 AO-05 V0.1 已定义 fallback：
+`GitHub Actions → manifest-verified short-lived Delivery Bundle artifact → Work`。
 
 完成标准：
 
@@ -212,7 +224,7 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 2. AO-02｜COMPLETE / VERIFIED / PO APPROVED
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-5. AO-05｜IN PROGRESS / PRIMARY PATH PASS / ROBUSTNESS VALIDATION PENDING
+5. AO-05｜IN PROGRESS / PRIMARY PATH PASS / MULTI-REFERENCE ROBUSTNESS BLOCKED / FALLBACK REQUIRED
 6. AO-06｜PENDING / Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
