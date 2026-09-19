@@ -361,3 +361,12 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Formal V002 revalidation remains incomplete.
 - Rerun must explicitly target the Product Owner-selected strict left-profile short-neck candidate; do not confuse it with the earlier REAR_3Q visual direction image.
 - No ingest.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 rerun status｜2026-09-19
+
+- Work rerun: `INTERNAL APPROVED FINAL CANDIDATE`.
+- Correct short-neck strict-left-profile target reportedly used.
+- Canonical four-reference identity authority retained.
+- Main Chat has not yet visually reviewed the actual final image.
+- No Product Owner approval yet; no ingest.
