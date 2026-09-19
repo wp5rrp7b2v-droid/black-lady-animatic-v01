@@ -411,3 +411,12 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
   - SHA-256 `7f8cb635945e20035ba1b39dafecdf4caecc520d8e8794f67e39c2cfa1a6dad6`
 - Formal P1 progress remains `2/10` until exact-byte ingest.
 - Next production target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Su Xiaoxiao PROFILE_LEFT V001 delivery setup｜2026-09-19
+
+- Target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`
+- Delivery workflow: `.github/workflows/p1-su-xiaoxiao-profile-left-delivery-bundle.yml`
+- Source commit: `bcfe78f973f6221845ffbc80affb2cd99b5a09e6`
+- Canonical set: AST_IMG_000044 FACE_FRONT, AST_IMG_000043 FACE_3Q_LEFT, AST_IMG_000042 BODY_FRONT, AST_IMG_000041 BODY_BACK.
+- No authoritative profile exists; profile geometry is a controlled reconstruction from the canonical set.
