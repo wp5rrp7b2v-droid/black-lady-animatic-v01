@@ -204,7 +204,7 @@ P1 Character production 已由 Product Owner 于 2026-09-19 恢复。当前从 `
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
-Status: `ACTIVE / ONLY AO-06 REMAINS / D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / MANDATORY BEFORE P1 WAVE 2`
+Status: `ACTIVE / ONLY AO-06 REMAINS FOR P0.2 FINAL CLOSEOUT / P1 PRODUCTION RESUMED`
 
 1. AO-01｜4 Canonical Registers Final Reconciliation — `COMPLETE / VERIFIED`；
 2. AO-02｜48 legacy Character assets → Long-term Registry / Audit — `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`；
@@ -321,3 +321,15 @@ P0.2 条件满足后只能进入：
 ## 2026-09-19｜P1 Production Resume Override
 
 Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作为 P0.2 最终 Closeout 必做项，但不再作为 P1 Character production 的前置阻塞。剩余 P1 8 项按 BL-D-022 原顺序继续：君鹭远左侧 Profile + Rear 3Q → 尼尔右侧 Profile + Rear 3Q → 苏小小左侧 Profile + Rear 3Q → 廖健左侧 Profile + Rear 3Q。P0.3 继续 QUEUED。
+
+
+## P1｜Jun Luyuan PROFILE_LEFT delivery status｜2026-09-19
+
+- Direct Work binary materialization: `FAIL CLOSED / known transport limitation`.
+- GitHub Actions fallback bundle: `READY`.
+- Run: `35422665719 / SUCCESS`.
+- Artifact: `10577930931 / P1_JUN_LUYUAN_PROFILE_LEFT_DELIVERY_BUNDLE_V001`.
+- ZIP digest: `sha256:a4cd646a66f7925089be869178efe255ce1e0612e36633358e883bf86a290075`.
+- 4/4 canonical references validated by Asset ID / Role / CURRENT / APPROVED / DEFAULT / byte size / SHA256.
+- Next: Work artifact download → independent 4/4 verification → PROFILE_LEFT generation → Fixed Standard Review.
+- No Registry mutation; D-070 not allocated.
