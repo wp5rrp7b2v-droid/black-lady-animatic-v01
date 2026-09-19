@@ -8,7 +8,7 @@ Date: `2026-09-13`
 
 > **2026-09-19 Product Owner override:** 本清单继续作为 P0.2 final closeout 的强制完成清单，但不再阻塞 P1 Character production sequencing。AO-06 仍必须在 P0.2 `READY_FOR_APPROVAL` 前 COMPLETE / VERIFIED；剩余 P1 8 项可先行生产。详见 BL-D-039 / RC-020。
 
-Latest closeout update: `2026-09-18`
+Latest closeout update: `2026-09-19 EOD`
 
 ## Purpose
 
@@ -335,7 +335,7 @@ AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链�
 
 ## Resume / Closeout rule｜updated 2026-09-19
 
-P1 Character production sequencing HOLD 已由 Product Owner 解除；`CHAR_JUN_LUYUAN PROFILE_LEFT` 可立即恢复。AO-06 不再阻塞 P1 production，但仍是 P0.2 final closeout / `READY_FOR_APPROVAL` 前的强制条件。AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；AO-06 是唯一剩余 closeout 项。
+P1 Character production sequencing HOLD 已由 Product Owner 解除；截至 2026-09-19 EOD，君鹭远与尼尔四张新增 P1 视角均已获得 PO 视觉批准但仍待 exact-byte ingest，当前生产目标已推进至 `CHAR_SU_XIAOXIAO PROFILE_LEFT V001`。AO-06 不再阻塞 P1 production，但仍是 P0.2 final closeout / `READY_FOR_APPROVAL` 前的唯一剩余强制 closeout 项。
 
 ## Non-blocking technical debt
 
