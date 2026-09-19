@@ -737,3 +737,17 @@ Status: `PO APPROVED / FORMAL INGEST PENDING`
 - Core Coverage / P1 completion remain unchanged until exact-byte canonical publication + Automatic Ingest + Registry/Audit verification succeeds.
 - After ingest: continue `CHAR_JUN_LUYUAN REAR_3Q_LEFT`.
 - D-069 remains open in parallel; D-070 remains NOT ALLOCATED.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Visual Candidate｜2026-09-19
+
+Status: `V001 APPROVAL WITHDRAWN PRE-INGEST / V002 VISUAL CANDIDATE / FORMAL REVALIDATION PENDING`
+
+- Product Owner re-reviewed V001 before formal ingest and identified the neck as proportionally too long.
+- A revised Chat-generated image with a shorter, more natural neck/shoulder relationship was selected as the preferred visual direction.
+- V001 had not entered canonical storage/Registry, so its earlier approval is withdrawn without formal supersession.
+- Do **not** publish or ingest V001.
+- The revised image is designated only as `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002 / VISUAL CANDIDATE`.
+- It is not yet a formal Asset because it was generated outside the locked 4-reference Delivery Bundle execution path.
+- Formal next step: rerun with the same verified canonical four-reference set; use the V002 candidate only as target appearance/neck-proportion guidance; then Fixed Standard Review → Product Owner final approval → exact-byte publication → Automatic Ingest.
+- D-069 remains parallel; D-070 remains NOT ALLOCATED.
