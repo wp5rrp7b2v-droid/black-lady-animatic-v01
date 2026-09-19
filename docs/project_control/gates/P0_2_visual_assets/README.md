@@ -343,3 +343,12 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Approved source SHA-256: `00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be`.
 - Work did not return the candidate PNG SHA, so no claim is made that this upload was cryptographically compared to a prior Work-candidate digest; this exact upload is now the Product Owner-approved source identity.
 - Next: exact-byte canonical publication + Automatic Ingest + Registry/Audit verification; then Jun Luyuan `REAR_3Q_LEFT`.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 visual candidate｜2026-09-19
+
+- V001 visual approval withdrawn before formal ingest due to neck-proportion concern.
+- V001: `DO NOT INGEST`.
+- Preferred revised image: `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002 / VISUAL CANDIDATE`.
+- V002 was generated in Chat outside the formal four-reference Delivery Bundle path, so it is not yet a formal Asset.
+- Required before ingest: canonical 4-reference rerun → Fixed Standard Review → explicit Product Owner approval → exact-byte canonical publication → Automatic Ingest.
