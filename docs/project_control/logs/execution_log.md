@@ -795,3 +795,15 @@ Status: `PRODUCT OWNER APPROVED / FORMAL INGEST PENDING`
 - Next: byte-for-byte canonical publication → remote SHA verification → Automatic Ingest → Registry/Audit verification.
 - V001 remains `DO NOT INGEST`.
 - No Registry/Audit mutation has occurred yet.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Transport Pending / REAR_3Q_LEFT Resume｜2026-09-19
+
+Status: `PROFILE_LEFT V002 PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT PRODUCTION RESUMED`
+
+- PROFILE_LEFT V002 remains the Product Owner-approved visual result.
+- Exact source identity remains locked: 941×1672 / 1,938,522 bytes / SHA-256 `8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c`.
+- GitHub binary upload repeatedly remained too slow/unreliable.
+- Product Owner approved continuing P1 production without waiting for that transport/ingest.
+- Formal P1 progress remains 2/10 until PROFILE_LEFT V002 exact-byte publication + Automatic Ingest completes.
+- Next production target: `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
