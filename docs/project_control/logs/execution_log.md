@@ -778,3 +778,20 @@ Status: `WORK INTERNAL APPROVED FINAL CANDIDATE / MAIN CHAT VISUAL REVIEW PENDIN
 - Work reported PASS for Format, Identity, Role Accuracy, Continuity, Production Utility, Reference Type Purity, Problem Check, and Neck / Shoulder Proportion.
 - No ingest / Registry / Audit / Project Control mutation was performed by Work.
 - Formal status is still pending main-Chat visual review of the actual image and explicit Product Owner approval.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Product Owner Approval｜2026-09-19
+
+Status: `PRODUCT OWNER APPROVED / FORMAL INGEST PENDING`
+
+- Main Chat visually reviewed the actual Work rerun output and passed it.
+- Product Owner explicitly approved `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png`.
+- Exact approved source:
+  - format: PNG
+  - dimensions: 941 × 1672
+  - byte_size: 1,938,522
+  - SHA-256: `8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c`
+- This exact PNG is now the sole PO-approved source for formalization.
+- Next: byte-for-byte canonical publication → remote SHA verification → Automatic Ingest → Registry/Audit verification.
+- V001 remains `DO NOT INGEST`.
+- No Registry/Audit mutation has occurred yet.
