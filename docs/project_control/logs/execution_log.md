@@ -718,3 +718,22 @@ Status: `READY / WORK GENERATION NEXT`
 - Next: Work automatically downloads the artifact, independently validates manifest + 4 file SHA/bytes, then generates the `PROFILE_LEFT` candidate and performs Fixed Standard Review.
 - Product Owner manual reference upload count remains `0`.
 - D-070 remains NOT ALLOCATED.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V001 Product Owner Approval｜2026-09-19
+
+Status: `PO APPROVED / FORMAL INGEST PENDING`
+
+- Final candidate visually reviewed in main Chat: `PASS`.
+- Product Owner explicitly approved the candidate as Jun Luyuan `PROFILE_LEFT V001`.
+- Canonical target filename: `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Exact uploaded approved source identity:
+  - format: `PNG`
+  - dimensions: `941 × 1672`
+  - byte size: `1,933,426`
+  - SHA-256: `00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be`
+- Important audit boundary: Work's final report did not include the candidate PNG SHA, so there is no prior candidate SHA against which to cryptographically compare this upload. The current uploaded PNG is therefore locked as the PO-approved source identity for formalization.
+- Do not re-encode, resize, screenshot, or substitute this source during formal publication.
+- Core Coverage / P1 completion remain unchanged until exact-byte canonical publication + Automatic Ingest + Registry/Audit verification succeeds.
+- After ingest: continue `CHAR_JUN_LUYUAN REAR_3Q_LEFT`.
+- D-069 remains open in parallel; D-070 remains NOT ALLOCATED.
