@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R057",
+  "state_revision": "R058",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / P1 CHARACTER PRODUCTION RESUMED BY PRODUCT OWNER / D-069 REMAINS OPEN IN PARALLEL",
+  "session_status": "ACTIVE / P1 JUN LUYUAN PROFILE_LEFT DELIVERY BUNDLE READY / WORK GENERATION NEXT / D-069 PARALLEL",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production resumed｜NEXT: CHAR_JUN_LUYUAN PROFILE_LEFT; D-069 AO-06 remains open in parallel",
-  "blocker": "P1 Character production is no longer blocked by AO-06 sequencing. D-069 remains an open P0.2 closeout track; only its byte-exact A04 binary substep waits for MacBook access. P0.2 cannot enter final closeout/approval until AO-06 is completed.",
-  "next_action": "Resume remaining P1 Character production in locked order: Jun Luyuan PROFILE_LEFT → REAR_3Q_LEFT; Neil PROFILE_RIGHT → REAR_3Q_RIGHT; Su Xiaoxiao PROFILE_LEFT → REAR_3Q_LEFT; Liao Jian PROFILE_LEFT → REAR_3Q_LEFT. Start with CHAR_JUN_LUYUAN PROFILE_LEFT using the existing 9:16 + Fixed Standard Review workflow. Continue D-069 separately when its non-binary work is useful, and complete the A04 binary-dependent substep after MacBook access returns. D-070 remains unallocated.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT｜DELIVERY BUNDLE READY / WORK GENERATION NEXT",
+  "blocker": "No active binary-delivery blocker for the current Jun Luyuan PROFILE_LEFT production target. The four required canonical references have been validated and packed by GitHub Actions. AO-06 / D-069 remains an independent P0.2 final-closeout blocker only.",
+  "next_action": "In ChatGPT Work, automatically download GitHub Actions artifact 10577930931 (P1_JUN_LUYUAN_PROFILE_LEFT_DELIVERY_BUNDLE_V001), verify artifact digest sha256:a4cd646a66f7925089be869178efe255ce1e0612e36633358e883bf86a290075 and independently verify all four reference files against delivery_manifest.json, then generate CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png and run Fixed Standard Review. Do not modify Registry/Project Control and do not allocate D-070 until Product Owner approves the candidate.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,23 +106,25 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-RESUME-PO-OVERRIDE",
-    "status": "P1 CHARACTER PRODUCTION RESUMED / 8 REMAINING / AO-06 OPEN IN PARALLEL",
+    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-BUNDLE-READY",
+    "status": "P1 JUN LUYUAN PROFILE_LEFT / DELIVERY BUNDLE READY / WORK GENERATION NEXT",
     "completed": [
-      "Product Owner explicitly reprioritized P0.2 on 2026-09-19: resume remaining P1 Character production before AO-06 is fully closed",
-      "Previous sequencing HOLD from BL-D-026 / BL-D-027 / BL-D-031 is superseded only for P1 production order; AO-06 remains mandatory for P0.2 final closeout",
-      "P1 live progress remains 2/10 complete; current Core Coverage remains 42/63 = 66.7%",
-      "Remaining P1 targets locked: Jun Luyuan PROFILE_LEFT + REAR_3Q_LEFT; Neil PROFILE_RIGHT + REAR_3Q_RIGHT; Su Xiaoxiao PROFILE_LEFT + REAR_3Q_LEFT; Liao Jian PROFILE_LEFT + REAR_3Q_LEFT",
-      "Next production target = CHAR_JUN_LUYUAN PROFILE_LEFT",
-      "D-069 remains open in parallel; A04 byte-exact binary substep waits for MacBook access; D-070 not allocated"
+      "Initial Work attempt correctly FAIL CLOSED because four required canonical PNG binaries were not materialized through direct GitHub file/blob APIs",
+      "Registry expected references independently cross-checked: AST_IMG_000017 FACE_FRONT, AST_IMG_000018 PROFILE_RIGHT, AST_IMG_000016 FACE_3Q_RIGHT, AST_IMG_000015 BODY_FRONT",
+      "Temporary GitHub Actions transport workflow published at .github/workflows/p1-jun-luyuan-profile-left-delivery-bundle.yml",
+      "Workflow run 35422665719 completed SUCCESS",
+      "GitHub runner verified 4/4 exact canonical reference binaries by Registry identity, CURRENT/APPROVED/DEFAULT state, byte size and SHA-256 before bundle upload",
+      "Artifact 10577930931 P1_JUN_LUYUAN_PROFILE_LEFT_DELIVERY_BUNDLE_V001 uploaded successfully; 11,348,718 bytes; digest sha256:a4cd646a66f7925089be869178efe255ce1e0612e36633358e883bf86a290075; expires 2026-09-26",
+      "Source commit ebd22de616ebbae5be5b822575020a4fe4892b8c",
+      "No Registry / Audit / formal Asset mutation; D-070 not allocated"
     ],
-    "resume_from": "CHAR_JUN_LUYUAN PROFILE_LEFT",
+    "resume_from": "Work downloads artifact 10577930931, revalidates 4/4 inputs, then generates Jun Luyuan PROFILE_LEFT candidate",
     "blockers": [
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER RULE + ASSET NAMING + AUTHORITY + REGISTRY SCHEMA V0.3 + LEGACY CHARACTER REGISTRY MIGRATION + CHARACTER RESOLVER + AUTOMATIC INGEST VERIFIED / AO-04 + AO-05 COMPLETE / AO-06 D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / P1 WAVE 2 HOLD",
+    "status": "CHARACTER SYSTEM VERIFIED / P1 PRODUCTION RESUMED / JUN LUYUAN PROFILE_LEFT DELIVERY BUNDLE READY / AO-06 PARALLEL CLOSEOUT",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -261,7 +263,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / HOLD UNTIL AO-06 COMPLETE",
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT / DELIVERY BUNDLE READY / WORK GENERATION NEXT",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -270,7 +272,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "P1 production｜CHAR_JUN_LUYUAN PROFILE_LEFT; D-069 AO-06 parallel open",
+    "next_task": "Work generation｜CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001 using artifact 10577930931",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -444,7 +446,7 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete the remaining 8 P1 Character Core targets under the locked 9:16 / Fixed Standard Review / Automatic Ingest workflow, beginning with Jun Luyuan PROFILE_LEFT. AO-06 remains a parallel mandatory closeout track but no longer blocks P1 production sequencing. P0.3 remains queued.",
+  "stage_goal": "Complete Jun Luyuan PROFILE_LEFT using the verified four-reference Delivery Bundle with zero Product Owner manual reference upload, then obtain Product Owner approval before formal ingest. Continue remaining P1 targets afterward; AO-06 remains parallel final-closeout work.",
   "blockers": [
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
