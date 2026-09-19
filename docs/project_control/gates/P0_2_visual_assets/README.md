@@ -399,3 +399,15 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - PROFILE_LEFT V002 remains separately PO approved / transport-ingest pending.
 - Formal P1 progress stays `2/10` until both approved views are ingested.
 - Next production target: `CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Neil two-view approval｜2026-09-19
+
+- `PROFILE_RIGHT V001`: PO APPROVED / TRANSPORT-INGEST PENDING
+  - 941×1672 / 1,693,697 bytes
+  - SHA-256 `17dff7f50b7392915db6d74f1d04b506f2de884e9069ba11f9013bbe2fce8262`
+- `REAR_3Q_RIGHT V001`: PO APPROVED / TRANSPORT-INGEST PENDING
+  - 941×1672 / 1,656,490 bytes
+  - SHA-256 `7f8cb635945e20035ba1b39dafecdf4caecc520d8e8794f67e39c2cfa1a6dad6`
+- Formal P1 progress remains `2/10` until exact-byte ingest.
+- Next production target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001`.
