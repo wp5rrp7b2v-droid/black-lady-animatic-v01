@@ -12,7 +12,7 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
 
-## 当前正式状态｜2026-09-18 EOD
+## 当前正式状态｜2026-09-19 EOD
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
@@ -22,11 +22,11 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 - AO-06：`D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`
 - AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - RISK-001：`CONTROLLED / MITIGATION VERIFIED`
-- P1 Character Production：`RESUMED BY PRODUCT OWNER 2026-09-19`；next = `CHAR_JUN_LUYUAN PROFILE_LEFT`；AO-06 remains mandatory before P0.2 final closeout
+- P1 Character Production：`RESUMED BY PRODUCT OWNER 2026-09-19`；current = `CHAR_SU_XIAOXIAO PROFILE_LEFT V001 / DELIVERY BUNDLE BUILD PENDING`；AO-06 remains mandatory before P0.2 final closeout
 
 当前正式任务：
 
-`P0.2-03｜P1 Character Production resumed｜NEXT: CHAR_JUN_LUYUAN PROFILE_LEFT`\n\nParallel closeout track: `D-069｜AO-06 remains OPEN; A04 binary substep waits for MacBook access`
+`P0.2-03｜P1 Character Production｜CURRENT: CHAR_SU_XIAOXIAO PROFILE_LEFT V001 / DELIVERY BUNDLE BUILD PENDING`\n\nParallel closeout track: `D-069｜AO-06 remains OPEN; A04 binary substep waits for MacBook access`
 
 AO-03 已于 2026-09-17 完成最终 DoD 验收并由 Product Owner 明确批准；正式 Closeout：
 
@@ -200,7 +200,7 @@ Character Asset Gap Mapping V1 历史基线：
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-P1 Character production 已由 Product Owner 于 2026-09-19 恢复。当前从 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续；AO-06 仍须在 P0.2 final closeout 前完成，但不再阻塞 P1 production sequencing。
+P1 Character production 已由 Product Owner 于 2026-09-19 恢复。截至 EOD：君鹭远 `PROFILE_LEFT V002 / REAR_3Q_LEFT V001`、尼尔 `PROFILE_RIGHT V001 / REAR_3Q_RIGHT V001` 均已获 PO 视觉批准，但因 exact-byte transport/ingest 未完成，formal coverage 仍为 42/63、P1 仍为 2/10。当前生产目标为 `CHAR_SU_XIAOXIAO PROFILE_LEFT V001`；AO-06 仍须在 P0.2 final closeout 前完成，但不再阻塞 P1 production sequencing。
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
@@ -420,3 +420,15 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Source commit: `bcfe78f973f6221845ffbc80affb2cd99b5a09e6`
 - Canonical set: AST_IMG_000044 FACE_FRONT, AST_IMG_000043 FACE_3Q_LEFT, AST_IMG_000042 BODY_FRONT, AST_IMG_000041 BODY_BACK.
 - No authoritative profile exists; profile geometry is a controlled reconstruction from the canonical set.
+
+
+## Daily closeout summary｜2026-09-19
+
+- Formal Core Coverage remains `42 / 63 = 66.7%`.
+- Formal P1 progress remains `2 / 10`.
+- Four new views are `PO APPROVED / TRANSPORT-INGEST PENDING`: Jun PROFILE_LEFT V002, Jun REAR_3Q_LEFT V001, Neil PROFILE_RIGHT V001, Neil REAR_3Q_RIGHT V001.
+- Their canonical GitHub paths were checked at EOD and were absent; no premature Registry/Audit/progress claim is made.
+- Current production target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Dedicated Su Xiaoxiao Delivery Bundle workflow created at source commit `bcfe78f973f6221845ffbc80affb2cd99b5a09e6`; artifact build remains pending at EOD.
+- AO-06 / D-069 remains the only mandatory P0.2 system-closeout track; D-070 is not allocated.
+- Full closeout evidence: `daily_closeout_2026-09-19.md`.
