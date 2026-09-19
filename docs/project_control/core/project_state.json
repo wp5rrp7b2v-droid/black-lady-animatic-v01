@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R059",
+  "state_revision": "R060",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V001 PRODUCT OWNER APPROVED / FORMAL INGEST PENDING / D-069 PARALLEL",
+  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V001 APPROVAL WITHDRAWN BEFORE INGEST / V002 VISUAL CANDIDATE SELECTED / FORMAL REVALIDATION PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT V001｜PO APPROVED / FORMAL INGEST PENDING",
-  "blocker": "No creative/review blocker remains for Jun Luyuan PROFILE_LEFT V001. The exact Product Owner-approved uploaded PNG must still be materialized into canonical GitHub storage and formally ingested before Core Coverage / P1 completion may advance. AO-06 / D-069 remains a parallel P0.2 final-closeout track.",
-  "next_action": "Formalize the exact Product Owner-approved PNG CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png using source identity 941×1672 PNG, 1,933,426 bytes, SHA-256 00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be. Do not substitute/re-encode. After exact-byte canonical publication + Automatic Ingest + Registry/Audit verification, update Core Coverage and P1 progress, then proceed to CHAR_JUN_LUYUAN REAR_3Q_LEFT. D-070 remains unallocated.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT V002｜VISUAL CANDIDATE SELECTED / FORMAL REVALIDATION PENDING",
+  "blocker": "Jun Luyuan PROFILE_LEFT V002 is visually preferred by Product Owner but was generated in Chat outside the formal 4-reference Delivery Bundle execution path. It must not be ingested until the formal reference-provenance path is rerun. V001 approval was withdrawn before ingest and must not enter Registry as CURRENT.",
+  "next_action": "When formal execution capacity is available, rerun Jun Luyuan PROFILE_LEFT using the verified four-reference Delivery Bundle, with the selected V002 visual candidate used only as target appearance/neck-proportion guidance, not as authority. Perform Fixed Standard Review, obtain explicit Product Owner approval for formal V002, then exact-byte publish + Automatic Ingest. Do not ingest V001. D-069 remains parallel; D-070 not allocated.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,21 +106,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-PO-APPROVED",
-    "status": "JUN LUYUAN PROFILE_LEFT V001 / PRODUCT OWNER APPROVED / FORMAL INGEST PENDING",
+    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-V002-VISUAL-CANDIDATE",
+    "status": "V001 APPROVAL WITHDRAWN BEFORE INGEST / V002 VISUAL CANDIDATE SELECTED / FORMAL REVALIDATION PENDING",
     "completed": [
-      "GitHub Actions Delivery Bundle run 35422665719 SUCCESS; artifact 10577930931; 4/4 canonical reference binaries SHA/byte verified",
-      "Work independently verified artifact ZIP and all four reference binaries and generated final PROFILE_LEFT candidate",
-      "Main Chat Fixed Standard Review PASS",
-      "Product Owner explicitly approved Jun Luyuan PROFILE_LEFT V001 on 2026-09-19",
-      "Approved source upload independently inspected: PNG 941×1672, 1,933,426 bytes",
-      "Approved source SHA-256 = 00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be",
-      "Formal Registry ingest has NOT yet occurred; live Core Coverage remains unchanged until exact-byte publication + ingest verification",
+      "Product Owner identified V001 neck proportion as too long before formal ingest",
+      "A revised Chat-generated visual candidate with shorter, more natural neck/shoulder proportion was selected as preferred direction",
+      "Product Owner agreed not to ingest V001 and to treat the revised image as PROFILE_LEFT V002 visual candidate",
+      "V001 was never formally ingested; therefore no Registry CURRENT asset or supersession mutation is required",
+      "V002 is not yet a formal Asset because it has not passed the locked 4-reference Delivery Bundle provenance path",
       "D-069 remains open in parallel; D-070 not allocated"
     ],
-    "resume_from": "Exact-byte canonical publication + Automatic Ingest of approved Jun Luyuan PROFILE_LEFT V001, then REAR_3Q_LEFT",
+    "resume_from": "Formal revalidation of Jun Luyuan PROFILE_LEFT V002 through verified four-reference Delivery Bundle path",
     "blockers": [
-      "FORMAL_INGEST_PENDING_FOR_APPROVED_JUN_LUYUAN_PROFILE_LEFT",
+      "V002_FORMAL_REFERENCE_PROVENANCE_REVALIDATION_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
@@ -264,7 +262,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT V001 / PO APPROVED / FORMAL INGEST PENDING",
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT V002 / VISUAL CANDIDATE SELECTED / FORMAL REVALIDATION PENDING",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -273,7 +271,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Exact-byte formal ingest of approved Jun Luyuan PROFILE_LEFT V001, then CHAR_JUN_LUYUAN REAR_3Q_LEFT",
+    "next_task": "Formal 4-reference revalidation of Jun Luyuan PROFILE_LEFT V002; V001 must not be ingested",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -447,9 +445,9 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete exact-byte formal ingest of the approved Jun Luyuan PROFILE_LEFT V001, then continue Jun Luyuan REAR_3Q_LEFT. AO-06 remains parallel and mandatory only for P0.2 final closeout.",
+  "stage_goal": "Formalize Jun Luyuan PROFILE_LEFT V002 through the locked reference-provenance workflow, then continue REAR_3Q_LEFT. V001 is retired before ingest and must not be published as a formal Asset.",
   "blockers": [
-    "FORMAL_INGEST_PENDING_FOR_APPROVED_JUN_LUYUAN_PROFILE_LEFT",
+    "V002_FORMAL_REFERENCE_PROVENANCE_REVALIDATION_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {
