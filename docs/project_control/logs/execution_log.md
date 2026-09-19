@@ -691,3 +691,30 @@ Status: `ACTIVE / PRODUCT OWNER REPRIORITIZATION`
 - D-069 remains open as a parallel AO-06 closeout track; its byte-exact A04 binary substep waits for MacBook access.
 - D-070 remains NOT ALLOCATED.
 - P0.3 remains QUEUED / DO NOT START EARLY.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT Delivery Bundle｜2026-09-19
+
+Status: `READY / WORK GENERATION NEXT`
+
+- Initial Work generation attempt correctly returned `BLOCKED_ON_REQUIRED_REFERENCE_BINARIES`: Registry metadata resolved, but the four required Atomic PNG bodies were empty through the direct Work GitHub file/blob transport path.
+- This reproduces the already-known AO-05 transport limitation and does not invalidate the Character Resolver or canonical assets.
+- Required exact inputs:
+  - `AST_IMG_000017 / FACE_FRONT / V001 / 7bf1f211743fb9f071d427c1404ea04dfd71c3804b5b526c2dca8b258ed4b96f`
+  - `AST_IMG_000018 / PROFILE_RIGHT / V001 / 7a04169daed3034ed9d37a508670dce995d2dc2cb75a11148006f9e821321c92`
+  - `AST_IMG_000016 / FACE_3Q_RIGHT / V001 / f9ddbb18d4b548bf4887d09d1e0a9eba8be2dde7d61275a8c09a1a5d639f9929`
+  - `AST_IMG_000015 / BODY_FRONT / V001 / f9960466266f08d79fde32435f542bd47ed0f8ab26af99bbb2928bd8d3957e92`
+- Chat created a temporary GitHub Actions transport workflow:
+  `.github/workflows/p1-jun-luyuan-profile-left-delivery-bundle.yml`
+- Workflow run `35422665719`: `SUCCESS`.
+- Runner log: `PASS: 4/4 exact canonical reference binaries verified`.
+- Artifact: `P1_JUN_LUYUAN_PROFILE_LEFT_DELIVERY_BUNDLE_V001`.
+- Artifact ID: `10577930931`.
+- Artifact size: `11,348,718 bytes`.
+- Artifact ZIP digest: `sha256:a4cd646a66f7925089be869178efe255ce1e0612e36633358e883bf86a290075`.
+- Source commit: `ebd22de616ebbae5be5b822575020a4fe4892b8c`.
+- Expires: `2026-09-26T04:57:51Z`.
+- This is a transport artifact only; it is not a formal Asset and causes no Registry / Audit mutation.
+- Next: Work automatically downloads the artifact, independently validates manifest + 4 file SHA/bytes, then generates the `PROFILE_LEFT` candidate and performs Fixed Standard Review.
+- Product Owner manual reference upload count remains `0`.
+- D-070 remains NOT ALLOCATED.
