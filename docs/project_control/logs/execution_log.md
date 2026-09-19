@@ -668,3 +668,26 @@ Status: `D-069 ACTIVE / ONLY A04 BINARY SUBSTEP DEFERRED UNTIL MACBOOK ACCESS`
 - GitHub Web/App, ChatGPT, Codex Cloud, Project Control work, model review, resolver/package engineering, cross-checks, and any other work that does not require the local A04 binary may continue normally.
 - When MacBook access returns, retrieve the formal A04 source, verify SHA-256 against `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`, then continue the binary-dependent formalization/real-validation substep.
 - D-070 remains NOT ALLOCATED.
+
+
+## P0.2 P1 Character Production Resume｜2026-09-19
+
+Status: `ACTIVE / PRODUCT OWNER REPRIORITIZATION`
+
+- Product Owner explicitly chose to resume the remaining P1 Character production before AO-06 is fully closed.
+- This supersedes only the sequencing HOLD created by BL-D-026 / BL-D-027 / BL-D-031; AO-06 remains mandatory before P0.2 final closeout / READY_FOR_APPROVAL.
+- P1 live state at resume: `2 / 10 complete`, Core Coverage `42 / 63 = 66.7%`.
+- Remaining P1 targets (8):
+  1. `CHAR_JUN_LUYUAN / PROFILE_LEFT`
+  2. `CHAR_JUN_LUYUAN / REAR_3Q_LEFT`
+  3. `CHAR_NEIL / PROFILE_RIGHT`
+  4. `CHAR_NEIL / REAR_3Q_RIGHT`
+  5. `CHAR_SU_XIAOXIAO / PROFILE_LEFT`
+  6. `CHAR_SU_XIAOXIAO / REAR_3Q_LEFT`
+  7. `CHAR_LIAO_JIAN / PROFILE_LEFT`
+  8. `CHAR_LIAO_JIAN / REAR_3Q_LEFT`
+- Next production target: `CHAR_JUN_LUYUAN PROFILE_LEFT`.
+- Existing production rules remain: 9:16 target, Fixed Standard Review, Product Owner approval before formal Registry entry, Automatic Ingest after approval.
+- D-069 remains open as a parallel AO-06 closeout track; its byte-exact A04 binary substep waits for MacBook access.
+- D-070 remains NOT ALLOCATED.
+- P0.3 remains QUEUED / DO NOT START EARLY.
