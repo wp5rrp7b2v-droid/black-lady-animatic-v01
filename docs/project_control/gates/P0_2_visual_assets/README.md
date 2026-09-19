@@ -370,3 +370,13 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Canonical four-reference identity authority retained.
 - Main Chat has not yet visually reviewed the actual final image.
 - No Product Owner approval yet; no ingest.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 PO approval｜2026-09-19
+
+- Formal filename: `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png`
+- Status: `PRODUCT OWNER APPROVED / FORMAL INGEST PENDING`
+- Exact approved PNG: 941×1672 / 1,938,522 bytes
+- SHA-256: `8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c`
+- V001: `DO NOT INGEST`.
+- Required next step: exact-byte canonical publication + remote SHA verification + Automatic Ingest + Registry/Audit verification.
