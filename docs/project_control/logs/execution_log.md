@@ -751,3 +751,17 @@ Status: `V001 APPROVAL WITHDRAWN PRE-INGEST / V002 VISUAL CANDIDATE / FORMAL REV
 - It is not yet a formal Asset because it was generated outside the locked 4-reference Delivery Bundle execution path.
 - Formal next step: rerun with the same verified canonical four-reference set; use the V002 candidate only as target appearance/neck-proportion guidance; then Fixed Standard Review → Product Owner final approval → exact-byte publication → Automatic Ingest.
 - D-069 remains parallel; D-070 remains NOT ALLOCATED.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Work Revalidation Rejected｜2026-09-19
+
+Status: `REJECTED BY PRODUCT OWNER / WRONG IMAGE / RERUN REQUIRED`
+
+- Work successfully revalidated the Delivery Bundle and canonical 4-reference input set.
+- Work nevertheless returned the wrong image for the intended V002 target.
+- Product Owner explicitly rejected the image.
+- Therefore Work's internal `INTERNAL APPROVED FINAL CANDIDATE` label is overridden by Product Owner authority and has no formal effect.
+- Reference delivery evidence remains valid; the failure is at target-candidate selection/use or generation-result level.
+- Correct visual target to use on rerun: the strict 90° left-profile image selected after V001 neck-length rejection, with shorter neck and more natural shoulder-neck proportion.
+- Do not use the earlier REAR_3Q visual direction image as V002 target guidance.
+- No ingest / Registry / Audit mutation occurred.
