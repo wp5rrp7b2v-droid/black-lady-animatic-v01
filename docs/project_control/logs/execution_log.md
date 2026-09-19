@@ -640,3 +640,19 @@ Execution route: `OPERATIONS WORKFLOW DRILL / NO D-NUMBER`
 - Current live Character coverage remained `42 / 63 = 66.7%`; P1 remained `2 / 10`。
 - D-### baseline at that checkpoint: last actual Codex engineering task `D-066`; next formal Codex engineering task when needed = `D-067`。
 - Historical next step at that checkpoint: `AO-03B｜Two Scene Master Structured Facts Definition`。
+
+
+## D-069｜A04 Binary Delivery Deferral｜2026-09-19
+
+Status: `DEFERRED BY PRODUCT OWNER / RESUME SAME D-069`
+
+- Product Owner chose to pause the A04 binary-delivery step until GitHub/local access is available.
+- Source attachment `A04_REBOOT_approved_v001.png` was successfully read in Work as the original PNG bytes: 2,486,659 bytes, 941 × 1672.
+- Computed SHA-256 matched the expected approved identity exactly: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`.
+- Transport branch `work/d069-a04-binary-intake` exists remotely, but no A04 staging binary has been committed; branch still points at the current main baseline.
+- Multiple Work attempts to encode/upload the 2.49 MB PNG were interrupted by streaming failures before the GitHub commit completed.
+- No Asset Registry, Entity Registry, Asset Relations, Audit Event Log, Shot Spec, Costume Asset, Prop Asset, or live USES_REFERENCE mutation occurred.
+- Do not retry the Work direct-upload loop for now.
+- Resume gate: when access is available, deliver the byte-exact original to `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`, re-read from GitHub, verify the same SHA-256, then resume the same D-069 formalization path.
+- AO-06 remains IN PROGRESS.
+- D-070 remains NOT ALLOCATED.
