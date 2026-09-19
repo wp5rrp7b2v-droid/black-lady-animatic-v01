@@ -9,7 +9,7 @@
 | Gate | 核心问题 | 验收标准 | 当前状态 |
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2** |
+| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 PARALLEL CLOSEOUT** |
 | P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **QUEUED** |
 
 ## P0.1 PASS Evidence｜2026-09-12
@@ -94,7 +94,7 @@ Cloud-only publication evidence：
 
 当前结论：**P0.2 仍为 ACTIVE，不满足 READY_FOR_APPROVAL。AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；仅 AO-06 剩余。D-069 engineering foundation 已通过 PR #10 merge 进入 main，但真实 A04 end-to-end validation 仍被 approved A04 binary 与 Costume/Cross 模型/证据问题阻塞。**
 
-### Approved-but-Open Pre-Wave2 Closeout｜BL-D-026 + BL-D-027
+### Approved-but-Open Closeout｜BL-D-026 + BL-D-027; sequencing updated by BL-D-039 / RC-020
 
 Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前置任务：
 
@@ -108,7 +108,7 @@ Product Owner 已把以下 7 项提升为 P1 Wave 2 前必须完成的正式前�
 
 详细完成标准见：`gates/P0_2_visual_assets/approved_open_tasks_v1.md`；正式风险见 `logs/risk_register.md`。
 
-**当前 AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；Wave 2 仅由 AO-06 阻塞。**
+**当前 AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；AO-06 仍是唯一 final closeout 缺口，但自 2026-09-19 起不再阻塞 P1 Character production sequencing。P1 已恢复，下一目标为君鹭远 PROFILE_LEFT。**
 
 满足全部技术条件后，P0.2 状态仍只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`，由 Product Owner 决定是否正式 PASS。
 
