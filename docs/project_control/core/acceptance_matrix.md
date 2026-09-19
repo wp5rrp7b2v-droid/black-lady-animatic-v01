@@ -121,3 +121,18 @@ P0 完成前只允许形成：
 3. 后续正式生产 Roadmap 的输入。
 
 P0 不以“完成更多 A 系列镜头”作为进度指标。
+
+
+### P0.2 Evidence Status Delta｜2026-09-19 EOD
+
+- P0.2 remains `ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 PARALLEL CLOSEOUT`; it is **not** READY_FOR_APPROVAL.
+- P1 production sequencing resumed under BL-D-039 / RC-020.
+- Four new P1 views reached explicit Product Owner visual approval but remain outside formal Registry/Core Coverage because exact-byte publication + Automatic Ingest has not completed:
+  - Jun Luyuan `PROFILE_LEFT V002`
+  - Jun Luyuan `REAR_3Q_LEFT V001`
+  - Neil `PROFILE_RIGHT V001`
+  - Neil `REAR_3Q_RIGHT V001`
+- Formal live coverage therefore remains `42 / 63 = 66.7%`; formal P1 completion remains `2 / 10`.
+- Current production target advanced to Su Xiaoxiao `PROFILE_LEFT V001`; dedicated Delivery Bundle workflow created, artifact build pending.
+- AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 can become READY_FOR_APPROVAL.
+- P0.3 remains QUEUED / DO NOT START EARLY.
