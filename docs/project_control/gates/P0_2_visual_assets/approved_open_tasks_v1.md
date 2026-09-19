@@ -1,10 +1,12 @@
 # P0.2｜Approved-but-Open Tasks V1
 
-Status: `LOCKED / MANDATORY PRE-WAVE2 CLOSEOUT`
+Status: `LOCKED / AO-06 STILL MANDATORY FOR P0.2 FINAL CLOSEOUT / P1 SEQUENCING HOLD SUPERSEDED 2026-09-19`
 
 Approved by: `PRODUCT OWNER`
 
 Date: `2026-09-13`
+
+> **2026-09-19 Product Owner override:** 本清单继续作为 P0.2 final closeout 的强制完成清单，但不再阻塞 P1 Character production sequencing。AO-06 仍必须在 P0.2 `READY_FOR_APPROVAL` 前 COMPLETE / VERIFIED；剩余 P1 8 项可先行生产。详见 BL-D-039 / RC-020。
 
 Latest closeout update: `2026-09-18`
 
@@ -331,20 +333,9 @@ AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链�
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
-## Resume lock
+## Resume / Closeout rule｜updated 2026-09-19
 
-只有以下条件同时满足，才能恢复：
-
-`P0.2-03｜P1 Wave 2｜君鹭远 PROFILE_LEFT`
-
-条件：
-
-- AO-01～AO-07 全部 `COMPLETE / VERIFIED`；
-- `RISK-001` 已至少从 `OPEN / HIGH OPERATIONAL RISK` 降级为具备已验证恢复方案的受控风险；
-- 对应 Execution / Decision / Gate evidence 已写入 Project Control；
-- Daily / Step Closeout consistency check 无未解决状态冲突。
-
-当前 AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已满足；Wave 2 仅由 AO-06 阻塞。
+P1 Character production sequencing HOLD 已由 Product Owner 解除；`CHAR_JUN_LUYUAN PROFILE_LEFT` 可立即恢复。AO-06 不再阻塞 P1 production，但仍是 P0.2 final closeout / `READY_FOR_APPROVAL` 前的强制条件。AO-01、AO-02、AO-03、AO-04、AO-05、AO-07 已完成；AO-06 是唯一剩余 closeout 项。
 
 ## Non-blocking technical debt
 
