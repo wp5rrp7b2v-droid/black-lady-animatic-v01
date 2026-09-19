@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R054",
-  "last_updated": "2026-09-18",
-  "session_status": "PAUSED / END-OF-DAY 2026-09-18 / AO-06 D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED",
+  "state_revision": "R055",
+  "last_updated": "2026-09-19",
+  "session_status": "ACTIVE / D-069 A04 BINARY DELIVERY DEFERRED BY PRODUCT OWNER / RESUME WHEN ACCESS AVAILABLE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION MERGED / PAUSED FOR DAY / RESUME SAME D-069",
-  "blocker": "Approved A04 binary is not materialized in the current GitHub runtime; under the currently locked Stage 2 contract, Neil Costume/Cross formal evidence/modeling also remains unresolved pending Product Owner review.",
-  "next_action": "Tomorrow resume the SAME D-069. First review A-Series legacy Shot migration/recovery and Neil Costume/Cross modeling; recover/materialize approved A04 evidence when available. Do not allocate D-070 and do not start Work real validation while required evidence/model remains unresolved.",
+  "current_task": "D-069｜AO-06 Stage 3｜A04 BINARY DELIVERY DEFERRED / RESUME SAME D-069",
+  "blocker": "The approved A04 identity is known and its source attachment was byte-read in Work (2,486,659 bytes, 941×1672) with SHA-256 matching 8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398, but the byte-exact PNG has not yet been committed into the GitHub runtime. Product Owner deferred binary delivery until GitHub/local access is available. Costume/Cross formalization remains pending after delivery.",
+  "next_action": "When Product Owner can log in / access GitHub or the local environment, deliver the original A04_REBOOT_approved_v001.png byte-for-byte to staging/d069_a04_intake/A04_REBOOT_approved_v001.png on work/d069-a04-binary-intake, re-read from GitHub and verify the same SHA-256, then resume the SAME D-069 for A04 / Costume / Cross formalization. Stop repeated Work direct-upload retries. Do not allocate D-070.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,8 +106,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-18-EOD-D069-CHECKPOINT",
-    "status": "D-069 ENGINEERING FOUNDATION MERGED / EOD PAUSED / EVIDENCE BLOCKED",
+    "id": "2026-09-19-D069-A04-BINARY-DELIVERY-DEFERRED",
+    "status": "D-069 / A04 BINARY DELIVERY DEFERRED BY PRODUCT OWNER / NO REGISTRY MUTATION",
     "completed": [
       "P0.1 PASS / Product Owner approved",
       "P0.2 gate activated",
@@ -253,12 +253,17 @@
       "D-069 Review Patch 01 independently cross-checked on GitHub remote; fail-closed corrections verified",
       "PR #10 merged to main as 68716eae9e73a1ee1891dfde6ac5c7ea4d578cce without marking AO-06 COMPLETE",
       "Post-merge Registry truth cross-check: Asset 62 / Entity 13 / Relations 44 / Audit 78 / Formal SHOT 0 / Formal COSTUME 0 / Formal PROP 0 / live USES_REFERENCE 0",
-      "2026-09-18 end-of-day cross-file consistency closeout completed; resume same D-069 next session"
+      "2026-09-18 end-of-day cross-file consistency closeout completed; resume same D-069 next session",
+      "A04_REBOOT_approved_v001.png source attachment successfully byte-read in Work: 2,486,659 bytes / 941×1672",
+      "Source attachment SHA-256 independently matched expected 8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
+      "GitHub transport branch work/d069-a04-binary-intake exists but remains at main baseline with no A04 staging file committed",
+      "Repeated Work direct binary upload attempts suffered streaming interruption; no Registry / Relations / Audit mutation occurred",
+      "Product Owner explicitly deferred A04 binary delivery until GitHub/local access is available; same D-069 must resume later and D-070 remains unallocated"
     ],
-    "resume_from": "same D-069 on next work session",
+    "resume_from": "same D-069 after byte-exact A04 delivery and remote SHA verification",
     "blockers": [
-      "BLOCKED_ON_APPROVED_A04_BINARY",
-      "COSTUME_PROP_MODEL_OR_EVIDENCE_REVIEW_PENDING"
+      "A04_BINARY_DELIVERY_DEFERRED_UNTIL_ACCESS_AVAILABLE",
+      "COSTUME_PROP_FORMALIZATION_PENDING_AFTER_BINARY_DELIVERY"
     ],
     "remote_publication": {
       "pr_number": 10,
@@ -417,8 +422,8 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "D-069｜resume same task next work session after A04 evidence + Costume/Cross model/evidence review",
-    "ao06_status": "D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED"
+    "next_task": "D-069｜resume same task after byte-exact A04 delivery and remote SHA verification",
+    "ao06_status": "D-069 / A04 BINARY DELIVERY DEFERRED BY PRODUCT OWNER / IN PROGRESS"
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -499,11 +504,11 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "D-069｜resume same task next work session; resolve A04 evidence and Costume/Cross model/evidence review",
+    "next_task": "D-069｜resume same task after byte-exact A04 delivery and remote SHA verification",
     "resume_lock": "P0.2-03 P1 Wave 2 / CHAR_JUN_LUYUAN PROFILE_LEFT may start only after AO-06 is COMPLETE / VERIFIED; AO-01, AO-02, AO-03, AO-04, AO-05 and AO-07 are already complete.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao06_status": "D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED"
+    "ao06_status": "D-069 / A04 BINARY DELIVERY DEFERRED BY PRODUCT OWNER / IN PROGRESS"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -576,7 +581,7 @@
     "codex_engineering_tasks": "D-###",
     "last_known_codex_task": "D-069",
     "next_codex_task_when_needed": "NOT ALLOCATED",
-    "next_codex_task_status": "D-069 ACTIVE / EOD PAUSED / RESUME SAME TASK; D-070 NOT ALLOCATED",
+    "next_codex_task_status": "D-069 ACTIVE / BINARY DELIVERY DEFERRED / RESUME SAME TASK; D-070 NOT ALLOCATED",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
@@ -591,10 +596,10 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete AO-06 real Shot-level Resolver/Audit validation without lowering DoD. D-069 engineering foundation is merged; next session must resolve approved A04 evidence and review the Neil Costume/Cross modeling boundary before Work real validation. P1 Wave 2 remains HOLD; P0.3 remains QUEUED.",
+  "stage_goal": "Complete AO-06 real Shot-level Resolver/Audit validation without lowering DoD. A04 source identity and SHA are verified, but binary delivery to GitHub is deferred by Product Owner until access is available. Resume the same D-069 after byte-exact delivery; P1 Wave 2 remains HOLD; P0.3 remains QUEUED.",
   "blockers": [
-    "BLOCKED_ON_APPROVED_A04_BINARY",
-    "COSTUME_PROP_MODEL_OR_EVIDENCE_REVIEW_PENDING"
+    "A04_BINARY_DELIVERY_DEFERRED_UNTIL_ACCESS_AVAILABLE",
+    "COSTUME_PROP_FORMALIZATION_PENDING_AFTER_BINARY_DELIVERY"
   ],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
