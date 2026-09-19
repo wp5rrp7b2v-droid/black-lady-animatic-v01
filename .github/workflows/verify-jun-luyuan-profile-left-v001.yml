@@ -1,0 +1,36 @@
+name: Verify Jun Luyuan PROFILE_LEFT V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-exact-binary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify exact approved PNG
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE="production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png"
+          EXPECTED_SHA="00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be"
+          EXPECTED_BYTES="1933426"
+          test -f "$FILE"
+          ACTUAL_BYTES="$(wc -c < "$FILE" | tr -d ' ')"
+          ACTUAL_SHA="$(sha256sum "$FILE" | awk '{print $1}')"
+          echo "remote_path=$FILE"
+          echo "remote_byte_size=$ACTUAL_BYTES"
+          echo "remote_sha256=$ACTUAL_SHA"
+          test "$ACTUAL_BYTES" = "$EXPECTED_BYTES"
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+          echo "SHA_MATCH=YES"
