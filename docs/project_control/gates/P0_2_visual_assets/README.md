@@ -333,3 +333,13 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - 4/4 canonical references validated by Asset ID / Role / CURRENT / APPROVED / DEFAULT / byte size / SHA256.
 - Next: Work artifact download → independent 4/4 verification → PROFILE_LEFT generation → Fixed Standard Review.
 - No Registry mutation; D-070 not allocated.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT approval｜2026-09-19
+
+- Status: `PRODUCT OWNER APPROVED / FORMAL INGEST PENDING`.
+- Target: `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Approved source: PNG / 941×1672 / 1,933,426 bytes.
+- Approved source SHA-256: `00915474a52a29df753542b916503998c450b056d2ef59d98279841fdc9ad9be`.
+- Work did not return the candidate PNG SHA, so no claim is made that this upload was cryptographically compared to a prior Work-candidate digest; this exact upload is now the Product Owner-approved source identity.
+- Next: exact-byte canonical publication + Automatic Ingest + Registry/Audit verification; then Jun Luyuan `REAR_3Q_LEFT`.
