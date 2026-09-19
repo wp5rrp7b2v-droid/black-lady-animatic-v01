@@ -765,3 +765,16 @@ Status: `REJECTED BY PRODUCT OWNER / WRONG IMAGE / RERUN REQUIRED`
 - Correct visual target to use on rerun: the strict 90° left-profile image selected after V001 neck-length rejection, with shorter neck and more natural shoulder-neck proportion.
 - Do not use the earlier REAR_3Q visual direction image as V002 target guidance.
 - No ingest / Registry / Audit mutation occurred.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Work Rerun Internal Pass｜2026-09-19
+
+Status: `WORK INTERNAL APPROVED FINAL CANDIDATE / MAIN CHAT VISUAL REVIEW PENDING`
+
+- Work rerun explicitly confirmed it used the correct Product Owner-selected short-neck strict 90° left-profile visual target.
+- The target candidate was used only as `NON-AUTHORITATIVE VISUAL TARGET GUIDANCE`.
+- Identity authority remained the verified four canonical references.
+- The previously rejected Work image was not used.
+- Work reported PASS for Format, Identity, Role Accuracy, Continuity, Production Utility, Reference Type Purity, Problem Check, and Neck / Shoulder Proportion.
+- No ingest / Registry / Audit / Project Control mutation was performed by Work.
+- Formal status is still pending main-Chat visual review of the actual image and explicit Product Owner approval.
