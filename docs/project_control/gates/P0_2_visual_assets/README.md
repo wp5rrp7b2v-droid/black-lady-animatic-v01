@@ -1,6 +1,6 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / APPROVED-OPEN CLOSEOUT BEFORE P1 WAVE 2`
+Status: `ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 PARALLEL CLOSEOUT`
 
 ## 当前目标
 
@@ -22,11 +22,11 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 - AO-06：`D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`
 - AO-07：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
 - RISK-001：`CONTROLLED / MITIGATION VERIFIED`
-- P1 Wave 2｜`CHAR_JUN_LUYUAN PROFILE_LEFT`：`HOLD UNTIL AO-04～AO-06 COMPLETE / VERIFIED`
+- P1 Character Production：`RESUMED BY PRODUCT OWNER 2026-09-19`；next = `CHAR_JUN_LUYUAN PROFILE_LEFT`；AO-06 remains mandatory before P0.2 final closeout
 
 当前正式任务：
 
-`D-069｜AO-06 Stage 3｜ENGINEERING FOUNDATION MERGED / PAUSED FOR DAY / RESUME SAME D-069`
+`P0.2-03｜P1 Character Production resumed｜NEXT: CHAR_JUN_LUYUAN PROFILE_LEFT`\n\nParallel closeout track: `D-069｜AO-06 remains OPEN; A04 binary substep waits for MacBook access`
 
 AO-03 已于 2026-09-17 完成最终 DoD 验收并由 Product Owner 明确批准；正式 Closeout：
 
@@ -200,7 +200,7 @@ Character Asset Gap Mapping V1 历史基线：
 - Tier A current Core Coverage = `8 / 9`
 - Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
 
-P1 Wave 2 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续 HOLD，直到 AO-04～AO-06 全部完成且 Resume Lock 解除。
+P1 Character production 已由 Product Owner 于 2026-09-19 恢复。当前从 `CHAR_JUN_LUYUAN PROFILE_LEFT` 继续；AO-06 仍须在 P0.2 final closeout 前完成，但不再阻塞 P1 production sequencing。
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
@@ -317,3 +317,7 @@ P0.2 条件满足后只能进入：
 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`
 
 必须由 Product Owner 明确审批后才可标记 `PASS`。
+
+## 2026-09-19｜P1 Production Resume Override
+
+Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作为 P0.2 最终 Closeout 必做项，但不再作为 P1 Character production 的前置阻塞。剩余 P1 8 项按 BL-D-022 原顺序继续：君鹭远左侧 Profile + Rear 3Q → 尼尔右侧 Profile + Rear 3Q → 苏小小左侧 Profile + Rear 3Q → 廖健左侧 Profile + Rear 3Q。P0.3 继续 QUEUED。
