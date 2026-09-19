@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R066",
+  "state_revision": "R067",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / JUN TWO VIEWS + NEIL TWO VIEWS PO APPROVED / ALL TRANSPORT-INGEST PENDING / SU XIAOXIAO PROFILE_LEFT PRODUCTION READY",
+  "session_status": "ACTIVE / SU XIAOXIAO PROFILE_LEFT DELIVERY WORKFLOW CREATED / BUILD PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_SU_XIAOXIAO PROFILE_LEFT V001｜PRODUCTION READY",
-  "blocker": "No creative blocker for Su Xiaoxiao PROFILE_LEFT production. Four newly approved P1 views (Jun PROFILE_LEFT V002, Jun REAR_3Q_LEFT V001, Neil PROFILE_RIGHT V001, Neil REAR_3Q_RIGHT V001) remain exact-byte transport/ingest pending; none may be counted in Registry/Core Coverage/P1 formal progress until ingested.",
-  "next_action": "Start formal production of CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001 through the locked reference Delivery Bundle workflow. Keep all four approved pending views outside formal P1/Core Coverage counts until exact-byte publication + Automatic Ingest succeeds.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_SU_XIAOXIAO PROFILE_LEFT V001｜DELIVERY BUNDLE WORKFLOW CREATED / BUILD PENDING",
+  "blocker": "No creative blocker. Su Xiaoxiao has no existing authoritative profile view; PROFILE_LEFT must be reconstructed from canonical FACE_FRONT + FACE_3Q_LEFT as primary facial authorities, with BODY_FRONT/BODY_BACK supporting body, neck and hair continuity. Delivery workflow has been created and awaits successful artifact build.",
+  "next_action": "Wait for/verify successful GitHub Actions run of .github/workflows/p1-su-xiaoxiao-profile-left-delivery-bundle.yml from source commit bcfe78f973f6221845ffbc80affb2cd99b5a09e6. Then Work downloads artifact, verifies all four canonical binaries 4/4 MATCH, and generates CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001. No ingest or progress count before PO approval and formal ingest.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,19 +106,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-NEIL-TWO-VIEWS-PO-APPROVED",
-    "status": "NEIL PROFILE_RIGHT V001 + REAR_3Q_RIGHT V001 PO APPROVED / TRANSPORT-INGEST PENDING / SU XIAOXIAO PROFILE_LEFT MAY PROCEED",
+    "id": "2026-09-19-P1-SU-XIAOXIAO-PROFILE-LEFT-DELIVERY-WORKFLOW",
+    "status": "DELIVERY BUNDLE WORKFLOW CREATED / BUILD PENDING",
     "completed": [
-      "Product Owner previously approved CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001",
-      "Exact approved Neil PROFILE_RIGHT source locked at PNG 941×1672 / 1,693,697 bytes / SHA-256 17dff7f50b7392915db6d74f1d04b506f2de884e9069ba11f9013bbe2fce8262",
-      "Product Owner now approved CHAR_NEIL_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V001",
-      "Exact approved Neil REAR_3Q_RIGHT source locked at PNG 941×1672 / 1,656,490 bytes / SHA-256 7f8cb635945e20035ba1b39dafecdf4caecc520d8e8794f67e39c2cfa1a6dad6",
-      "Both Neil views remain transport-ingest pending",
-      "Jun PROFILE_LEFT V002 and REAR_3Q_LEFT V001 also remain transport-ingest pending",
-      "Formal P1 progress remains 2/10 until ingest completes"
+      "Neil PROFILE_RIGHT V001 and REAR_3Q_RIGHT V001 are both PO approved / transport-ingest pending",
+      "Su Xiaoxiao PROFILE_LEFT V001 selected as next production target",
+      "Canonical atomic reference set locked: AST_IMG_000044 FACE_FRONT, AST_IMG_000043 FACE_3Q_LEFT, AST_IMG_000042 BODY_FRONT, AST_IMG_000041 BODY_BACK",
+      "Dedicated GitHub Actions delivery workflow created",
+      "Workflow source commit: bcfe78f973f6221845ffbc80affb2cd99b5a09e6"
     ],
-    "resume_from": "Formal production of Su Xiaoxiao PROFILE_LEFT V001 while four PO-approved P1 views await exact-byte transport/ingest",
+    "resume_from": "Verify Su Xiaoxiao PROFILE_LEFT delivery artifact, then run formal generation in Work",
     "blockers": [
+      "SU_XIAOXIAO_PROFILE_LEFT_DELIVERY_ARTIFACT_PENDING",
       "FOUR_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
@@ -263,7 +262,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_SU_XIAOXIAO PROFILE_LEFT V001 / PRODUCTION READY",
+    "current_character_target": "CHAR_SU_XIAOXIAO PROFILE_LEFT V001 / DELIVERY BUNDLE WORKFLOW CREATED / BUILD PENDING",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -272,7 +271,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Formal production of Su Xiaoxiao PROFILE_LEFT V001; four approved Jun/Neil views remain transport-ingest pending",
+    "next_task": "Verify Su Xiaoxiao delivery artifact then generate PROFILE_LEFT V001 in Work",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -436,18 +435,19 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V042",
+    "version": "V043",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R066 / JUN+NEIL FOUR P1 VIEWS PO APPROVED TRANSPORT PENDING / SU XIAOXIAO PROFILE_LEFT READY"
+    "status": "CURRENT / DERIVED FROM R067 / SU XIAOXIAO PROFILE_LEFT DELIVERY WORKFLOW CREATED / BUILD PENDING"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Continue P1 production to Su Xiaoxiao PROFILE_LEFT V001 while preserving audit boundaries: do not count any of the four newly approved but un-ingested views as formal progress.",
+  "stage_goal": "Produce Su Xiaoxiao PROFILE_LEFT V001 from verified canonical atomic references, with explicit reconstruction boundary because no authoritative profile exists.",
   "blockers": [
+    "SU_XIAOXIAO_PROFILE_LEFT_DELIVERY_ARTIFACT_PENDING",
     "FOUR_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
