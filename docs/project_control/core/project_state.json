@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R061",
+  "state_revision": "R062",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V002 WORK REVALIDATION OUTPUT REJECTED / WRONG IMAGE / RERUN REQUIRED",
+  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V002 WORK RERUN INTERNAL PASS / MAIN CHAT VISUAL REVIEW PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT V002｜WORK OUTPUT REJECTED / TARGET-CANDIDATE MISMATCH / RERUN REQUIRED",
-  "blocker": "The Work run passed bundle/reference SHA validation but the returned image was judged wrong by Product Owner. Therefore the formal revalidation is NOT accepted despite Work's internal review text. The likely process failure is target-candidate selection/use mismatch, not canonical-reference delivery failure.",
-  "next_action": "Rerun the SAME Jun Luyuan PROFILE_LEFT V002 formal revalidation in Work. Keep the same verified artifact 10577930931 and canonical 4-reference set. Explicitly identify the correct V002 visual target as the strict 90° left-profile image with shorter neck and more natural shoulder-neck ratio selected by Product Owner after rejecting V001; do not use the earlier REAR_3Q visual candidate or any other Chat-generated image. Require Work to first return/confirm a visual thumbnail or description of the selected target candidate before generation if possible, then generate and stop for PO review. Do not ingest any output until PO approval.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT V002｜WORK INTERNAL PASS / MAIN CHAT VISUAL REVIEW PENDING",
+  "blocker": "Work rerun reports the correct short-neck strict 90° left-profile target was used and all fixed-standard checks passed, but the actual final image has not yet been visually reviewed in main Chat. No Product Owner approval and no ingest may occur before that review.",
+  "next_action": "Product Owner sends the actual final V002 image to main Chat. Main Chat performs Fixed Standard Review with special attention to identity and neck/shoulder proportions. If PASS, Product Owner may explicitly approve; only then proceed to exact-byte canonical publication and Automatic Ingest.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,19 +106,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-V002-WORK-OUTPUT-REJECTED",
-    "status": "WORK FORMAL REVALIDATION OUTPUT REJECTED BY PRODUCT OWNER / WRONG IMAGE / RERUN REQUIRED",
+    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-V002-WORK-RERUN-INTERNAL-PASS",
+    "status": "WORK INTERNAL APPROVED FINAL CANDIDATE / MAIN CHAT VISUAL REVIEW PENDING",
     "completed": [
-      "Artifact 10577930931 downloaded and ZIP SHA matched",
-      "Canonical 4-reference set revalidated 4/4 MATCH",
-      "Work reported INTERNAL APPROVED FINAL CANDIDATE",
-      "Product Owner rejected the returned image as wrong",
-      "Formal revalidation therefore remains incomplete",
-      "No ingest / Registry / Audit mutation occurred"
+      "Work rerun explicitly confirmed the correct short-neck strict 90° left-profile visual target",
+      "Canonical four-reference identity authority retained",
+      "Prior rejected Work image was not used",
+      "Work reported Fixed Standard Review PASS including Neck / Shoulder Proportion PASS",
+      "No ingest / Registry / Audit / Project Control mutation by Work"
     ],
-    "resume_from": "Rerun Work with explicit correct V002 target-candidate identification; same canonical 4-reference bundle",
+    "resume_from": "Main Chat visual review of the actual final V002 image",
     "blockers": [
-      "V002_TARGET_CANDIDATE_MISMATCH_RERUN_REQUIRED",
+      "MAIN_CHAT_VISUAL_REVIEW_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
@@ -262,7 +261,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT V002 / WORK OUTPUT REJECTED / RERUN REQUIRED",
+    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT V002 / WORK INTERNAL PASS / MAIN CHAT VISUAL REVIEW PENDING",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -271,7 +270,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Rerun formal V002 revalidation with explicit correct target-candidate identification; same 4-reference bundle",
+    "next_task": "Main Chat reviews actual final V002 image; no ingest before explicit PO approval",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -445,9 +444,9 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Obtain a correct formal V002 image that matches the Product Owner-selected short-neck strict left-profile visual target while preserving identity authority from the canonical four-reference set. No ingest before PO approval.",
+  "stage_goal": "Complete main-Chat visual verification and Product Owner approval for the actual Jun Luyuan PROFILE_LEFT V002 image, then formalize it through exact-byte publication and Automatic Ingest.",
   "blockers": [
-    "V002_TARGET_CANDIDATE_MISMATCH_RERUN_REQUIRED",
+    "MAIN_CHAT_VISUAL_REVIEW_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {
