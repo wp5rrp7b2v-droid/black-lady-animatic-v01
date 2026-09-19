@@ -1,8 +1,8 @@
 # P0.2-03｜Character Gap Live Progress V1
 
-Status: `ACTIVE / POST-BASELINE LIVE PROGRESS / WAVE 2 HOLD`
+Status: `ACTIVE / POST-BASELINE LIVE PROGRESS / P1 PRODUCTION RESUMED`
 
-Date: `2026-09-14`
+Date: `2026-09-19 EOD`
 
 This file tracks live production progress after the locked baseline in `character_asset_gap_mapping_v1.md`.
 
@@ -69,54 +69,47 @@ Remaining Core Gap:
 
 Locked P1 baseline = `10` Core View Gaps.
 
-Current completed = `2 / 10`.
+Formal completed = `2 / 10`.
 
-Current remaining = `8 / 10`.
+Formal remaining = `8 / 10`.
+
+Only Product Owner-approved **and formally ingested** assets count toward these numbers.
+
+### Formally ingested
 
 Wave 1｜宁秋水:
 
 - `PROFILE_LEFT` = `COMPLETE / APPROVED / INGESTED / CURRENT=V002`
 - `REAR_3Q_LEFT` = `COMPLETE / APPROVED / INGESTED`
 
-Next locked production target remains:
+### Product Owner approved but NOT yet ingested
 
-- 君鹭远 `PROFILE_LEFT`
+These four views are approved visual results but do **not** yet change coverage:
 
-P1 Wave 2 is currently held by the remaining Approved-but-Open closeout tasks.
+- 君鹭远 `PROFILE_LEFT V002` — `PO APPROVED / TRANSPORT-INGEST PENDING`
+- 君鹭远 `REAR_3Q_LEFT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
+- 尼尔 `PROFILE_RIGHT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
+- 尼尔 `REAR_3Q_RIGHT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
 
-Completed closeout items:
+At 2026-09-19 EOD, all four canonical GitHub target paths were independently checked and were still absent. No Registry / Audit / Core Coverage update is claimed.
 
-- `AO-01` = `COMPLETE / VERIFIED`
-- `AO-02` = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- `AO-07` = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`
-- `RISK-001` = `CONTROLLED / MITIGATION VERIFIED`
+### Current production target
 
-Remaining pre-Wave2 blockers:
+- 苏小小 `PROFILE_LEFT V001` — dedicated Delivery Bundle workflow created; artifact build pending.
 
-- `AO-03`｜Scene Master Structured Facts + Scene / Costume / Prop / State / Variant executable Spec
-- `AO-04`｜9 Character Derived Reference Sheets + dependency / staleness
-- `AO-05`｜Delivery Bridge
-- `AO-06`｜Real Shot Spec Resolver + Shot-level Audit reverse-trace
+Remaining locked P1 order after the current target:
 
-Current pre-Wave2 task:
+1. 苏小小 `PROFILE_LEFT`
+2. 苏小小 `REAR_3Q_LEFT`
+3. 廖健 `PROFILE_LEFT`
+4. 廖健 `REAR_3Q_LEFT`
 
-`P0.2-04｜AO-03｜NEXT / NOT STARTED`
-
-Subsequent locked P1 order remains unchanged:
-
-1. 君鹭远 `PROFILE_LEFT`
-2. 君鹭远 `REAR_3Q_LEFT`
-3. 尼尔 `PROFILE_RIGHT`
-4. 尼尔 `REAR_3Q_RIGHT`
-5. 苏小小 `PROFILE_LEFT`
-6. 苏小小 `REAR_3Q_LEFT`
-7. 廖健 `PROFILE_LEFT`
-8. 廖健 `REAR_3Q_LEFT`
+The original full P1 order remains historically locked; Jun/Neil production steps have now reached PO-approved visual state but await formal ingest.
 
 ## Governance note
 
-This live-progress overlay does not rewrite the Product Owner-approved original 40/63 baseline. It records approved production changes after that baseline.
+This live-progress overlay does not rewrite the Product Owner-approved original 40/63 baseline.
 
-Only Product Owner-approved and formally ingested assets count toward live coverage.
+Current formal coverage remains `42 / 63 = 66.7%` and P1 formal completion remains `2 / 10` until the four pending exact-byte assets are formally ingested.
 
-The Wave 2 HOLD changes execution sequencing only; it does not change the locked P1 priority baseline or current coverage counts.
+BL-D-039 / RC-020 removed the sequencing HOLD on P1 production only. AO-06 remains mandatory before P0.2 final closeout / READY_FOR_APPROVAL.
