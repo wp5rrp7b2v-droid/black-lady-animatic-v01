@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R065",
+  "state_revision": "R066",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V002 + REAR_3Q_LEFT V001 PO APPROVED / BOTH TRANSPORT-INGEST PENDING / NEIL PROFILE_RIGHT PRODUCTION READY",
+  "session_status": "ACTIVE / JUN TWO VIEWS + NEIL TWO VIEWS PO APPROVED / ALL TRANSPORT-INGEST PENDING / SU XIAOXIAO PROFILE_LEFT PRODUCTION READY",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_NEIL PROFILE_RIGHT V001｜PRODUCTION READY",
-  "blocker": "No creative blocker for Neil PROFILE_RIGHT production. Jun Luyuan PROFILE_LEFT V002 and REAR_3Q_LEFT V001 are both Product Owner approved but exact-byte GitHub transport/ingest remains pending. Neither may be counted in Registry/Core Coverage/P1 formal progress until their respective exact-byte publication + Automatic Ingest completes.",
-  "next_action": "Start formal production of CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001 through the locked reference Delivery Bundle workflow. Keep both Jun Luyuan approved views as PO APPROVED / TRANSPORT-INGEST PENDING. Do not prematurely increase P1/Core Coverage.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_SU_XIAOXIAO PROFILE_LEFT V001｜PRODUCTION READY",
+  "blocker": "No creative blocker for Su Xiaoxiao PROFILE_LEFT production. Four newly approved P1 views (Jun PROFILE_LEFT V002, Jun REAR_3Q_LEFT V001, Neil PROFILE_RIGHT V001, Neil REAR_3Q_RIGHT V001) remain exact-byte transport/ingest pending; none may be counted in Registry/Core Coverage/P1 formal progress until ingested.",
+  "next_action": "Start formal production of CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001 through the locked reference Delivery Bundle workflow. Keep all four approved pending views outside formal P1/Core Coverage counts until exact-byte publication + Automatic Ingest succeeds.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,20 +106,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-JUN-REAR-3Q-LEFT-V001-PO-APPROVED",
-    "status": "JUN PROFILE_LEFT V002 + REAR_3Q_LEFT V001 PO APPROVED / TRANSPORT-INGEST PENDING / NEIL PROFILE_RIGHT MAY PROCEED",
+    "id": "2026-09-19-P1-NEIL-TWO-VIEWS-PO-APPROVED",
+    "status": "NEIL PROFILE_RIGHT V001 + REAR_3Q_RIGHT V001 PO APPROVED / TRANSPORT-INGEST PENDING / SU XIAOXIAO PROFILE_LEFT MAY PROCEED",
     "completed": [
-      "Product Owner approved CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001",
-      "Main Chat visual review passed role geometry, identity continuity and production utility",
-      "Exact approved REAR_3Q_LEFT source identity locked at PNG 941×1672 / 1,941,468 bytes / SHA-256 97ad38c259274eced5be61035cda4c28df72babe084fc452fbbc927a2a6da21e",
-      "PROFILE_LEFT V002 remains PO APPROVED / TRANSPORT-INGEST PENDING",
-      "REAR_3Q_LEFT V001 now also PO APPROVED / TRANSPORT-INGEST PENDING",
+      "Product Owner previously approved CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001",
+      "Exact approved Neil PROFILE_RIGHT source locked at PNG 941×1672 / 1,693,697 bytes / SHA-256 17dff7f50b7392915db6d74f1d04b506f2de884e9069ba11f9013bbe2fce8262",
+      "Product Owner now approved CHAR_NEIL_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V001",
+      "Exact approved Neil REAR_3Q_RIGHT source locked at PNG 941×1672 / 1,656,490 bytes / SHA-256 7f8cb635945e20035ba1b39dafecdf4caecc520d8e8794f67e39c2cfa1a6dad6",
+      "Both Neil views remain transport-ingest pending",
+      "Jun PROFILE_LEFT V002 and REAR_3Q_LEFT V001 also remain transport-ingest pending",
       "Formal P1 progress remains 2/10 until ingest completes"
     ],
-    "resume_from": "Formal production of Neil PROFILE_RIGHT V001 while Jun Luyuan approved views await exact-byte transport/ingest",
+    "resume_from": "Formal production of Su Xiaoxiao PROFILE_LEFT V001 while four PO-approved P1 views await exact-byte transport/ingest",
     "blockers": [
-      "JUN_PROFILE_LEFT_V002_TRANSPORT_INGEST_PENDING",
-      "JUN_REAR_3Q_LEFT_V001_TRANSPORT_INGEST_PENDING",
+      "FOUR_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
@@ -263,7 +263,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_NEIL PROFILE_RIGHT V001 / PRODUCTION READY",
+    "current_character_target": "CHAR_SU_XIAOXIAO PROFILE_LEFT V001 / PRODUCTION READY",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -272,7 +272,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Formal production of Neil PROFILE_RIGHT V001; Jun PROFILE_LEFT V002 + REAR_3Q_LEFT V001 remain transport-ingest pending",
+    "next_task": "Formal production of Su Xiaoxiao PROFILE_LEFT V001; four approved Jun/Neil views remain transport-ingest pending",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -436,20 +436,19 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V041",
+    "version": "V042",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R065 / JUN TWO P1 VIEWS PO APPROVED TRANSPORT PENDING / NEIL PROFILE_RIGHT READY"
+    "status": "CURRENT / DERIVED FROM R066 / JUN+NEIL FOUR P1 VIEWS PO APPROVED TRANSPORT PENDING / SU XIAOXIAO PROFILE_LEFT READY"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Continue P1 production without compromising audit boundaries: start Neil PROFILE_RIGHT V001 while both approved Jun Luyuan missing views remain outside formal Registry progress until exact-byte ingest succeeds.",
+  "stage_goal": "Continue P1 production to Su Xiaoxiao PROFILE_LEFT V001 while preserving audit boundaries: do not count any of the four newly approved but un-ingested views as formal progress.",
   "blockers": [
-    "JUN_PROFILE_LEFT_V002_TRANSPORT_INGEST_PENDING",
-    "JUN_REAR_3Q_LEFT_V001_TRANSPORT_INGEST_PENDING",
+    "FOUR_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {
