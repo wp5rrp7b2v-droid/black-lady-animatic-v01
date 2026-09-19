@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R063",
+  "state_revision": "R064",
   "last_updated": "2026-09-19",
-  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V002 PRODUCT OWNER APPROVED / EXACT-BYTE PUBLICATION + AUTOMATIC INGEST PENDING",
+  "session_status": "ACTIVE / JUN LUYUAN PROFILE_LEFT V002 PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT PRODUCTION RESUMED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN PROFILE_LEFT V002｜PRODUCT OWNER APPROVED / FORMAL INGEST PENDING",
-  "blocker": "No creative/review blocker remains for Jun Luyuan PROFILE_LEFT V002. The exact Product Owner-approved PNG must now be published byte-for-byte to canonical GitHub storage and passed through Automatic Ingest / Registry / Audit verification before P1/Core Coverage changes.",
-  "next_action": "Publish the exact approved PNG as production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png without re-encoding. Expected PNG: 941×1672, 1,938,522 bytes, SHA-256 8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c. Re-read remote bytes and verify SHA, then run Automatic Ingest, verify Registry/Audit, update coverage/progress, then move to CHAR_JUN_LUYUAN REAR_3Q_LEFT. Do not ingest V001.",
+  "current_task": "P0.2-03｜P1 Character Production｜CHAR_JUN_LUYUAN REAR_3Q_LEFT V001｜PRODUCTION READY",
+  "blocker": "No creative blocker for REAR_3Q_LEFT production. Jun Luyuan PROFILE_LEFT V002 remains Product Owner approved but exact-byte GitHub transport/ingest is pending due repeated slow/failed upload. P1 formal progress therefore remains 2/10 until that ingest completes.",
+  "next_action": "Start formal production of CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001 using canonical references through the locked Delivery Bundle workflow. PROFILE_LEFT V002 remains PO APPROVED / TRANSPORT-INGEST PENDING and must not be counted in Registry/Core Coverage until exact-byte publication + Automatic Ingest succeeds.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,19 +106,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-V002-PO-APPROVED",
-    "status": "PRODUCT OWNER APPROVED / EXACT-BYTE FORMAL INGEST PENDING",
+    "id": "2026-09-19-P1-JUN-PROFILE-LEFT-V002-TRANSPORT-PENDING-REAR-3Q-RESUME",
+    "status": "PROFILE_LEFT V002 PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT MAY PROCEED",
     "completed": [
-      "Work rerun used the correct short-neck strict 90° left-profile target",
-      "Canonical 4-reference set remained identity authority",
-      "Main Chat visually reviewed the actual final PNG and passed it",
-      "Product Owner explicitly approved CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002",
-      "Approved exact source PNG measured 941×1672 / 1,938,522 bytes / SHA-256 8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c",
-      "No ingest / Registry / Audit mutation has occurred yet"
+      "Product Owner approved Jun Luyuan PROFILE_LEFT V002",
+      "Exact approved source identity locked at 941×1672 / 1,938,522 bytes / SHA-256 8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c",
+      "Repeated GitHub upload attempts were too slow/unreliable",
+      "Product Owner agreed to continue next character view without waiting for V002 ingest",
+      "P1 formal progress remains 2/10 until V002 ingest completes"
     ],
-    "resume_from": "Exact-byte publication + Automatic Ingest of PO-approved Jun Luyuan PROFILE_LEFT V002",
+    "resume_from": "Formal production of Jun Luyuan REAR_3Q_LEFT V001 while PROFILE_LEFT V002 transport/ingest remains pending",
     "blockers": [
-      "EXACT_BYTE_PUBLICATION_AND_AUTOMATIC_INGEST_PENDING",
+      "PROFILE_LEFT_V002_TRANSPORT_INGEST_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
@@ -262,7 +261,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_JUN_LUYUAN PROFILE_LEFT V002 / PRODUCT OWNER APPROVED / FORMAL INGEST PENDING",
+    "current_character_target": "CHAR_JUN_LUYUAN REAR_3Q_LEFT V001 / PRODUCTION READY",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -271,7 +270,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Exact-byte publication + Automatic Ingest + Registry/Audit verification for Jun Luyuan PROFILE_LEFT V002; then REAR_3Q_LEFT",
+    "next_task": "Formal production of Jun Luyuan REAR_3Q_LEFT V001; PROFILE_LEFT V002 remains transport-ingest pending",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
   },
   "visual_asset_audit_preliminary": {
@@ -435,19 +434,19 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V039",
+    "version": "V040",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R063 / JUN LUYUAN PROFILE_LEFT V002 PO APPROVED / FORMAL INGEST PENDING"
+    "status": "CURRENT / DERIVED FROM R064 / JUN LUYUAN PROFILE_LEFT V002 TRANSPORT PENDING / REAR_3Q_LEFT PRODUCTION RESUMED"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Formalize the exact Product Owner-approved Jun Luyuan PROFILE_LEFT V002 into canonical storage, Registry and Audit without changing bytes; then continue Jun Luyuan REAR_3Q_LEFT.",
+  "stage_goal": "Continue Jun Luyuan P1 production without compromising audit boundaries: produce REAR_3Q_LEFT V001 through formal reference delivery, while keeping PROFILE_LEFT V002 out of formal progress until exact-byte ingest succeeds.",
   "blockers": [
-    "EXACT_BYTE_PUBLICATION_AND_AUTOMATIC_INGEST_PENDING",
+    "PROFILE_LEFT_V002_TRANSPORT_INGEST_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {
