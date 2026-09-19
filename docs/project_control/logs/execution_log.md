@@ -656,3 +656,15 @@ Status: `DEFERRED BY PRODUCT OWNER / RESUME SAME D-069`
 - Resume gate: when access is available, deliver the byte-exact original to `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`, re-read from GitHub, verify the same SHA-256, then resume the same D-069 formalization path.
 - AO-06 remains IN PROGRESS.
 - D-070 remains NOT ALLOCATED.
+
+
+## D-069｜A04 Binary Deferral Scope Correction｜2026-09-19
+
+Status: `D-069 ACTIVE / ONLY A04 BINARY SUBSTEP DEFERRED UNTIL MACBOOK ACCESS`
+
+- Product Owner clarified the previous deferral scope.
+- The deferred item is only retrieval of the formal `A04_REBOOT_approved_v001.png` from the MacBook and its byte-exact delivery/formalization path.
+- This is **not** a GitHub-access deferral and **not** a pause of the whole D-069.
+- GitHub Web/App, ChatGPT, Codex Cloud, Project Control work, model review, resolver/package engineering, cross-checks, and any other work that does not require the local A04 binary may continue normally.
+- When MacBook access returns, retrieve the formal A04 source, verify SHA-256 against `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`, then continue the binary-dependent formalization/real-validation substep.
+- D-070 remains NOT ALLOCATED.
