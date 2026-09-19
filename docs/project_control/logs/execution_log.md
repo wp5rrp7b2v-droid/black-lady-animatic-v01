@@ -824,3 +824,20 @@ Status: `PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
 - Jun PROFILE_LEFT V002 and REAR_3Q_LEFT V001 both remain outside formal progress until exact-byte publication + Automatic Ingest succeeds.
 - Formal P1 progress remains `2/10`.
 - Next production target: `CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Neil PROFILE_RIGHT V001 + REAR_3Q_RIGHT V001 Product Owner Approval｜2026-09-19
+
+Status: `BOTH PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
+
+- `CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001.png`
+  - PNG / 941×1672 / 1,693,697 bytes
+  - SHA-256: `17dff7f50b7392915db6d74f1d04b506f2de884e9069ba11f9013bbe2fce8262`
+- `CHAR_NEIL_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V001.png`
+  - PNG / 941×1672 / 1,656,490 bytes
+  - SHA-256: `7f8cb635945e20035ba1b39dafecdf4caecc520d8e8794f67e39c2cfa1a6dad6`
+- Both passed main-Chat visual review and explicit Product Owner approval.
+- Both remain outside formal Registry/Core Coverage/P1 progress until exact-byte publication + Automatic Ingest succeeds.
+- Jun Luyuan PROFILE_LEFT V002 and REAR_3Q_LEFT V001 remain in the same transport-ingest-pending state.
+- Formal P1 progress therefore remains `2/10`.
+- Next production target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001`.
