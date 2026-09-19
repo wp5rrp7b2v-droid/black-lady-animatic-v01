@@ -352,3 +352,12 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Preferred revised image: `CHAR_JUN_LUYUAN_PROFILE_LEFT_DEFAULT_DEFAULT_V002 / VISUAL CANDIDATE`.
 - V002 was generated in Chat outside the formal four-reference Delivery Bundle path, so it is not yet a formal Asset.
 - Required before ingest: canonical 4-reference rerun → Fixed Standard Review → explicit Product Owner approval → exact-byte canonical publication → Automatic Ingest.
+
+
+## P1｜Jun Luyuan PROFILE_LEFT V002 Work output rejection｜2026-09-19
+
+- Work bundle/reference validation: `PASS`.
+- Work returned image: `REJECTED BY PRODUCT OWNER / WRONG IMAGE`.
+- Formal V002 revalidation remains incomplete.
+- Rerun must explicitly target the Product Owner-selected strict left-profile short-neck candidate; do not confuse it with the earlier REAR_3Q visual direction image.
+- No ingest.
