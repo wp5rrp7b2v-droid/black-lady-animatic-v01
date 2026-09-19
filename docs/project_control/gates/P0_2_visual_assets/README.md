@@ -380,3 +380,11 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - SHA-256: `8bc4ca3ab9f5f2b9e8603918c147211ad8234e80c0b527fa45c880879a8ee71c`
 - V001: `DO NOT INGEST`.
 - Required next step: exact-byte canonical publication + remote SHA verification + Automatic Ingest + Registry/Audit verification.
+
+
+## P1｜Jun Luyuan sequencing update｜2026-09-19
+
+- `PROFILE_LEFT V002`: Product Owner approved; exact-byte GitHub publication / Automatic Ingest still pending due transport slowness.
+- Do not count PROFILE_LEFT V002 in Registry/Core Coverage/P1 formal progress until ingest completes.
+- P1 formal progress remains `2/10`.
+- Production may continue with `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
