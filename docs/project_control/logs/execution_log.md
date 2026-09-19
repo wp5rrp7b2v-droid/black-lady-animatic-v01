@@ -841,3 +841,19 @@ Status: `BOTH PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
 - Jun Luyuan PROFILE_LEFT V002 and REAR_3Q_LEFT V001 remain in the same transport-ingest-pending state.
 - Formal P1 progress therefore remains `2/10`.
 - Next production target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Su Xiaoxiao PROFILE_LEFT V001 Delivery Workflow｜2026-09-19
+
+Status: `WORKFLOW CREATED / ARTIFACT BUILD PENDING`
+
+- Target: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Dedicated workflow created: `.github/workflows/p1-su-xiaoxiao-profile-left-delivery-bundle.yml`.
+- Source commit: `bcfe78f973f6221845ffbc80affb2cd99b5a09e6`.
+- Canonical atomic set:
+  - AST_IMG_000044 — FACE_FRONT / V001
+  - AST_IMG_000043 — FACE_3Q_LEFT / V001
+  - AST_IMG_000042 — BODY_FRONT / V001
+  - AST_IMG_000041 — BODY_BACK / V001
+- Su Xiaoxiao has no authoritative profile view. FACE_FRONT + FACE_3Q_LEFT are therefore the primary facial authorities; BODY_FRONT/BODY_BACK support body, neck and hair continuity.
+- Next: successful artifact build → 4/4 exact-byte verification → Work generation → main-Chat review → Product Owner approval.
