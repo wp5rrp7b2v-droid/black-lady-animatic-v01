@@ -807,3 +807,20 @@ Status: `PROFILE_LEFT V002 PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT
 - Product Owner approved continuing P1 production without waiting for that transport/ingest.
 - Formal P1 progress remains 2/10 until PROFILE_LEFT V002 exact-byte publication + Automatic Ingest completes.
 - Next production target: `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Jun Luyuan REAR_3Q_LEFT V001 Product Owner Approval｜2026-09-19
+
+Status: `PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
+
+- Main Chat reviewed the actual Work output and passed it.
+- Product Owner explicitly approved `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Exact approved source:
+  - format: PNG
+  - dimensions: 941 × 1672
+  - byte_size: 1,941,468
+  - SHA-256: `97ad38c259274eced5be61035cda4c28df72babe084fc452fbbc927a2a6da21e`
+- Geometry review: rear/back dominant; left face exposure approximately 1/4; no PROFILE or front-3Q drift; head/ear/neck/shoulder-back structures usable.
+- Jun PROFILE_LEFT V002 and REAR_3Q_LEFT V001 both remain outside formal progress until exact-byte publication + Automatic Ingest succeeds.
+- Formal P1 progress remains `2/10`.
+- Next production target: `CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001`.
