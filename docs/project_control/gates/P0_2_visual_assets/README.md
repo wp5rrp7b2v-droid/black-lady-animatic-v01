@@ -388,3 +388,14 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Do not count PROFILE_LEFT V002 in Registry/Core Coverage/P1 formal progress until ingest completes.
 - P1 formal progress remains `2/10`.
 - Production may continue with `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
+
+
+## P1｜Jun Luyuan REAR_3Q_LEFT V001 approval｜2026-09-19
+
+- Formal filename: `CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png`
+- Status: `PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
+- Exact approved PNG: 941×1672 / 1,941,468 bytes
+- SHA-256: `97ad38c259274eced5be61035cda4c28df72babe084fc452fbbc927a2a6da21e`
+- PROFILE_LEFT V002 remains separately PO approved / transport-ingest pending.
+- Formal P1 progress stays `2/10` until both approved views are ingested.
+- Next production target: `CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001`.
