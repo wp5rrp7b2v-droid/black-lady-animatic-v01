@@ -90,19 +90,19 @@ These four views are approved visual results but do **not** yet change coverage:
 - 君鹭远 `REAR_3Q_LEFT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
 - 尼尔 `PROFILE_RIGHT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
 - 尼尔 `REAR_3Q_RIGHT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
+- 苏小小 `PROFILE_LEFT V001` — `PO APPROVED / TRANSPORT-INGEST PENDING`
 
 At 2026-09-19 EOD, all four canonical GitHub target paths were independently checked and were still absent. No Registry / Audit / Core Coverage update is claimed.
 
 ### Current production target
 
-- 苏小小 `PROFILE_LEFT V001` — dedicated Delivery Bundle workflow created; artifact build pending.
+- 苏小小 `REAR_3Q_LEFT V001` — dedicated Delivery Bundle workflow created at commit `2dcf38869f684add4a1424b1b60b6438229628a7`; artifact verification / generation pending.
 
 Remaining locked P1 order after the current target:
 
-1. 苏小小 `PROFILE_LEFT`
-2. 苏小小 `REAR_3Q_LEFT`
-3. 廖健 `PROFILE_LEFT`
-4. 廖健 `REAR_3Q_LEFT`
+1. 苏小小 `REAR_3Q_LEFT`
+2. 廖健 `PROFILE_LEFT`
+3. 廖健 `REAR_3Q_LEFT`
 
 The original full P1 order remains historically locked; Jun/Neil production steps have now reached PO-approved visual state but await formal ingest.
 
@@ -110,6 +110,6 @@ The original full P1 order remains historically locked; Jun/Neil production step
 
 This live-progress overlay does not rewrite the Product Owner-approved original 40/63 baseline.
 
-Current formal coverage remains `42 / 63 = 66.7%` and P1 formal completion remains `2 / 10` until the four pending exact-byte assets are formally ingested.
+Current formal coverage remains `42 / 63 = 66.7%` and P1 formal completion remains `2 / 10` until the five pending exact-byte assets are formally ingested.
 
 BL-D-039 / RC-020 removed the sequencing HOLD on P1 production only. AO-06 remains mandatory before P0.2 final closeout / READY_FOR_APPROVAL.
