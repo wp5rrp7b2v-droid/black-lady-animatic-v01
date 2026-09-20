@@ -1,0 +1,159 @@
+name: P1 Su Xiaoxiao REAR_3Q_LEFT Delivery Bundle
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p1-su-xiaoxiao-rear-3q-left-delivery-bundle.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify exact canonical references and build bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, hashlib, pathlib, shutil
+
+          registry_path = pathlib.Path("production/asset_registry/asset_registry.jsonl")
+          expected = {
+              "AST_IMG_000044": {
+                  "role": "FACE_FRONT",
+                  "sha256": "1ecf8d82a1346b08da5a5530d39a1492e14427439b3630facf436369f1e59403",
+                  "bytes": 3057346,
+                  "path": "production/image_library/character_references/su_xiaoxiao/CHAR_SU_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+              },
+              "AST_IMG_000043": {
+                  "role": "FACE_3Q_LEFT",
+                  "sha256": "dbeecd9656cdeba342717f15f7a07b53f6fb39331ed9d15a4d4cad907eb26b25",
+                  "bytes": 3063603,
+                  "path": "production/image_library/character_references/su_xiaoxiao/CHAR_SU_XIAOXIAO_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+              },
+              "AST_IMG_000042": {
+                  "role": "BODY_FRONT",
+                  "sha256": "2d734e6a1a47077c75b448af520d5570ac18af25d3775cb41140ed3032b2ce5a",
+                  "bytes": 2890670,
+                  "path": "production/image_library/character_references/su_xiaoxiao/CHAR_SU_XIAOXIAO_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+              },
+              "AST_IMG_000041": {
+                  "role": "BODY_BACK",
+                  "sha256": "16e517049a7ffa1cddec1d576f7be587c438f9ef6af67f27145fb8536568a6b6",
+                  "bytes": 2766559,
+                  "path": "production/image_library/character_references/su_xiaoxiao/CHAR_SU_XIAOXIAO_BODY_BACK_DEFAULT_DEFAULT_V001.png",
+              },
+          }
+
+          rows = {}
+          for line in registry_path.read_text(encoding="utf-8").splitlines():
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              aid = row.get("asset_id")
+              if aid in expected:
+                  rows[aid] = row
+
+          if set(rows) != set(expected):
+              raise SystemExit(f"Registry asset set mismatch: got={sorted(rows)} expected={sorted(expected)}")
+
+          out = pathlib.Path("P1_SU_XIAOXIAO_REAR_3Q_LEFT_DELIVERY_BUNDLE_V001")
+          refs = out / "visual_refs"
+          refs.mkdir(parents=True, exist_ok=True)
+          manifest = {
+              "bundle_id": "P1_SU_XIAOXIAO_REAR_3Q_LEFT_DELIVERY_BUNDLE_V001",
+              "target": "CHAR_SU_XIAOXIAO_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+              "entity_id": "CHAR_SU_XIAOXIAO",
+              "target_role": "REAR_3Q_LEFT",
+              "source_commit": None,
+              "references": [],
+          }
+
+          for aid, exp in expected.items():
+              row = rows[aid]
+              checks = {
+                  "entity_id": row.get("entity_id") == "CHAR_SU_XIAOXIAO",
+                  "role": row.get("role") == exp["role"],
+                  "approval_status": row.get("approval_status") == "APPROVED",
+                  "lifecycle": row.get("lifecycle") == "CURRENT",
+                  "variant": row.get("variant") == "DEFAULT",
+                  "state": row.get("state") == "DEFAULT",
+                  "resolver_usage": row.get("resolver_usage") == "DEFAULT",
+                  "registry_sha": row.get("sha256") == exp["sha256"],
+                  "registry_bytes": row.get("byte_size") == exp["bytes"],
+                  "storage_uri": row.get("storage_uri") == exp["path"],
+              }
+              if not all(checks.values()):
+                  raise SystemExit(f"{aid} registry validation failed: {checks}")
+
+              src = pathlib.Path(exp["path"])
+              data = src.read_bytes()
+              digest = hashlib.sha256(data).hexdigest()
+              if digest != exp["sha256"] or len(data) != exp["bytes"]:
+                  raise SystemExit(f"{aid} canonical byte validation failed")
+
+              dst = refs / f"{aid}__{src.name}"
+              shutil.copyfile(src, dst)
+              copied = dst.read_bytes()
+              if hashlib.sha256(copied).hexdigest() != exp["sha256"] or len(copied) != exp["bytes"]:
+                  raise SystemExit(f"{aid} copied byte validation failed")
+
+              manifest["references"].append({
+                  "asset_id": aid,
+                  "role": exp["role"],
+                  "version": f"V{int(row.get('version_no', 1)):03d}",
+                  "sha256": exp["sha256"],
+                  "byte_size": exp["bytes"],
+                  "canonical_path": exp["path"],
+                  "bundle_path": str(dst),
+              })
+
+          pathlib.Path(out / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+          pathlib.Path(out / "WORK_HANDOFF.md").write_text(
+              "# P1 Su Xiaoxiao REAR_3Q_LEFT Delivery Bundle\n\n"
+              "Transport-only bundle. Not a formal Asset.\n"
+              "Verify all four files against delivery_manifest.json before image generation.\n"
+              "Use the four exact canonical references for CHAR_SU_XIAOXIAO REAR_3Q_LEFT generation.\n"
+              "No authoritative rear-3Q view exists; FACE_FRONT + FACE_3Q_LEFT control identity, BODY_BACK controls rear silhouette/hair/back continuity, BODY_FRONT supports body scale.\n"
+              "Do not modify Registry or Project Control and do not allocate D-070.\n",
+              encoding="utf-8",
+          )
+
+          for ref in manifest["references"]:
+              p = pathlib.Path(ref["bundle_path"])
+              b = p.read_bytes()
+              if hashlib.sha256(b).hexdigest() != ref["sha256"] or len(b) != ref["byte_size"]:
+                  raise SystemExit(f"Final validation failed: {ref['asset_id']}")
+          print("PASS: 4/4 exact canonical reference binaries verified")
+          PY
+
+      - name: Record source commit in manifest
+        shell: bash
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path("P1_SU_XIAOXIAO_REAR_3Q_LEFT_DELIVERY_BUNDLE_V001/delivery_manifest.json")
+          d = json.loads(p.read_text(encoding="utf-8"))
+          d["source_commit"] = os.environ["SOURCE_SHA"]
+          p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+
+      - name: Upload delivery bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: P1_SU_XIAOXIAO_REAR_3Q_LEFT_DELIVERY_BUNDLE_V001
+          path: P1_SU_XIAOXIAO_REAR_3Q_LEFT_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
