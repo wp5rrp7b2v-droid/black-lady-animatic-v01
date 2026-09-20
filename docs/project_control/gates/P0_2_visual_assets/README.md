@@ -432,3 +432,15 @@ Product Owner 明确调整执行顺序：AO-06 / D-069 保持打开并继续作�
 - Dedicated Su Xiaoxiao Delivery Bundle workflow created at source commit `bcfe78f973f6221845ffbc80affb2cd99b5a09e6`; artifact build remains pending at EOD.
 - AO-06 / D-069 remains the only mandatory P0.2 system-closeout track; D-070 is not allocated.
 - Full closeout evidence: `daily_closeout_2026-09-19.md`.
+
+
+## P1｜Su Xiaoxiao PROFILE_LEFT V001 approval｜2026-09-20
+
+- Formal filename: `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`
+- Status: `PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
+- Exact approved PNG: 941×1672 / 2,088,722 bytes
+- SHA-256: `3af763a5d96d043ccce061459b16af93114e0bcf59d44a98c9df17130c97868c`
+- Controlled reconstruction boundary retained: FACE_FRONT + FACE_3Q_LEFT are primary facial authorities.
+- Formal P1 progress remains `2/10` until exact-byte ingest.
+- Next production target: `CHAR_SU_XIAOXIAO_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
+- REAR_3Q_LEFT delivery workflow commit: `2dcf38869f684add4a1424b1b60b6438229628a7`.
