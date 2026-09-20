@@ -333,9 +333,17 @@ AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链�
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
-## Resume / Closeout rule｜updated 2026-09-19
+## Resume / Closeout rule｜updated 2026-09-20 EOD
 
-P1 Character production sequencing HOLD 已由 Product Owner 解除；截至 2026-09-19 EOD，君鹭远与尼尔四张新增 P1 视角均已获得 PO 视觉批准但仍待 exact-byte ingest，当前生产目标已推进至 `CHAR_SU_XIAOXIAO PROFILE_LEFT V001`。AO-06 不再阻塞 P1 production，但仍是 P0.2 final closeout / `READY_FOR_APPROVAL` 前的唯一剩余强制 closeout 项。
+P1 Character visual production is now complete at `10/10 PO APPROVED`, while formal P1 remains `2/10` because 8 approved P1 Core views are not yet formally ingested.
+
+P2 visual generation has reached `7/7`; `6/7` have explicit PO approval. Castle Young Master `REAR_3Q_LEFT V001` remains `PO REVIEW PENDING` and must not be ingested before explicit approval.
+
+Across P1 + P2, `14` PO-approved Core-view binaries remain exact-byte publication / Automatic Ingest pending. These do not change formal Core Coverage, which remains `42/63 = 66.7%`.
+
+AO-06 remains the only mandatory P0.2 system closeout item before `READY_FOR_APPROVAL`; it does not block the already-completed character visual production. D-069 remains open; D-070 is not allocated.
+
+Next operational sequence: resolve the remaining Castle Young Master PO review → batch exact-byte publication + remote SHA verification → Automatic Ingest / Registry / Audit cross-check → formal coverage update → GitHub→Local truth sync before local formal production resumes.
 
 ## Non-blocking technical debt
 

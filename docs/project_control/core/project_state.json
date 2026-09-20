@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R069",
+  "state_revision": "R070",
   "last_updated": "2026-09-20",
-  "session_status": "ACTIVE / SU XIAOXIAO PROFILE_LEFT V001 PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT DELIVERY WORKFLOW CREATED",
+  "session_status": "EOD PAUSED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED CORE VIEWS TRANSPORT-INGEST PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 REMAINS OPEN FOR CLOSEOUT",
-    "note": "P0.2 remains ACTIVE. Formal Core Coverage remains 42/63 (66.7%) and P1 formal progress remains 2/10 because five newly PO-approved views are still not formally ingested. Su Xiaoxiao PROFILE_LEFT V001 is now PO approved; current production target advances to CHAR_SU_XIAOXIAO REAR_3Q_LEFT V001. AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
+    "status": "ACTIVE / P1 VISUAL COMPLETE / P2 VISUAL PRODUCTION COMPLETE / AO-06 REMAINS OPEN FOR CLOSEOUT",
+    "note": "P0.2 remains ACTIVE. Formal Core Coverage remains 42/63 (66.7%) and formal P1 progress remains 2/10 because 14 PO-approved Core-view PNGs are still outside formal Registry pending exact-byte publication + Automatic Ingest. P1 visual production is 10/10 PO approved. P2 generated all 7 target views; 6/7 are PO approved and Castle Young Master REAR_3Q_LEFT V001 remains PO REVIEW PENDING. AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜P1 Character Production｜CHAR_SU_XIAOXIAO REAR_3Q_LEFT V001｜DELIVERY BUNDLE WORKFLOW CREATED",
-  "blocker": "No creative blocker for Su Xiaoxiao REAR_3Q_LEFT production. Five PO-approved P1 PNGs (Jun PROFILE_LEFT V002, Jun REAR_3Q_LEFT V001, Neil PROFILE_RIGHT V001, Neil REAR_3Q_RIGHT V001, Su Xiaoxiao PROFILE_LEFT V001) remain exact-byte transport/ingest pending and therefore do not change Registry/Core Coverage/P1 formal progress. AO-06 remains required only for P0.2 final closeout.",
-  "next_action": "Verify the GitHub Actions run/artifact for .github/workflows/p1-su-xiaoxiao-rear-3q-left-delivery-bundle.yml from source commit 2dcf38869f684add4a1424b1b60b6438229628a7. Work then independently verifies canonical binaries and generates CHAR_SU_XIAOXIAO_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001. In parallel, retry exact-byte publication + Automatic Ingest for the five approved pending views when transport is stable. Do not allocate D-070.",
+  "current_task": "P0.2-03｜Character Gap Production｜EOD PAUSED｜P1 VISUAL 10/10 APPROVED / P2 6/7 APPROVED / CASTLE YOUNG MASTER REAR_3Q_LEFT PO REVIEW PENDING",
+  "blocker": "Fourteen PO-approved Core-view PNGs remain exact-byte publication / Automatic Ingest pending, so Registry/Core Coverage/formal P1 progress cannot advance yet. Castle Young Master REAR_3Q_LEFT V001 is generated and internally passed but lacks explicit Product Owner approval. AO-06 remains required only for P0.2 final closeout.",
+  "next_action": "Next session: first resolve Product Owner review for CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png. Then gather all approved exact binaries, publish to canonical GitHub paths, remote-SHA verify, run Automatic Ingest and Registry/Audit cross-check, update formal coverage, and only then perform GitHub→Mac local truth sync before local formal production resumes. AO-06 / D-069 remains a separate final-closeout track. D-070 remains NOT ALLOCATED.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -66,7 +66,7 @@
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
     "temporary_exception": {
       "mode": "TEMP_CLOUD_ONLY_MODE_V1",
-      "status": "APPROVED / TIME-BOXED / EFFECTIVE 2026-09-16",
+      "status": "TIME-BOX ENDED 2026-09-20 EOD / NEXT LOCAL SESSION MUST SYNC GITHUB→LOCAL BEFORE FORMAL PRODUCTION",
       "effective_from": "2026-09-16",
       "effective_until": "2026-09-20",
       "override": "LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL",
@@ -75,7 +75,7 @@
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
-    "status": "APPROVED / EFFECTIVE / TIME-BOXED",
+    "status": "COMPLETED / TIME-BOX ENDED 2026-09-20 EOD / LOCAL TRUTH SYNC REQUIRED BEFORE LOCAL FORMAL PRODUCTION",
     "approved_by": "PRODUCT OWNER",
     "approved_on": "2026-09-14",
     "effective_from": "2026-09-16",
@@ -85,7 +85,7 @@
     "chatgpt_app_role": "analysis / design / Task Contract / review / prompt / Product Owner decision",
     "codex_cloud_role": "repo multi-file engineering / registry / resolver / scripts / tests / reference-package work / commit + native PR publication",
     "github_web_app_role": "SSOT reading / diff / commit / remote publication review / merge after Product Owner approval",
-    "local_mac_status": "TEMPORARILY UNAVAILABLE / DO NOT ASSUME LOCAL ACCESS during effective period",
+    "local_mac_status": "TEMP_CLOUD_ONLY WINDOW ENDED / DO NOT RESUME FORMAL LOCAL PRODUCTION UNTIL GITHUB→LOCAL TRUTH SYNC",
     "local_asset_block_status": "BLOCKED_LOCAL_ASSET",
     "validation_rule": "AO-03..AO-06 DoD is not lowered; no reconstruction, guessing, duplicate asset/version, or simulated-result-as-real-validation",
     "p0_3_rule": "DO NOT START EARLY",
@@ -106,27 +106,26 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-20-P1-SU-XIAOXIAO-PROFILE-LEFT-V001-PO-APPROVED",
-    "status": "PO APPROVED / TRANSPORT-INGEST PENDING / REAR_3Q_LEFT NEXT",
+    "id": "2026-09-20-EOD-P1-P2-VISUAL-CLOSEOUT",
+    "status": "EOD PAUSED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED BINARIES INGEST PENDING",
     "completed": [
-      "Work generated CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001 using verified canonical references",
-      "Artifact 10584448292 matched expected digest 583294d5ac2acca71278a8d5cc02c1a628560623cdf9ec4fb2691604f06d42a0",
-      "Canonical reference binaries matched 4/4",
-      "Main Chat visual review passed controlled profile reconstruction",
-      "Product Owner explicitly approved Su Xiaoxiao PROFILE_LEFT V001",
-      "Exact approved PNG locked at 941×1672 / 2,088,722 bytes / SHA-256 3af763a5d96d043ccce061459b16af93114e0bcf59d44a98c9df17130c97868c",
-      "No ingest / Registry / Audit / Core Coverage mutation has occurred",
-      "Dedicated REAR_3Q_LEFT delivery workflow created at commit 2dcf38869f684add4a1424b1b60b6438229628a7",
-      "D-069 remains open; D-070 remains NOT ALLOCATED"
+      "P1 visual production reached 10/10 explicit Product Owner approvals; formal ingest remains 2/10.",
+      "P2 generated all 7 locked target views; 6/7 have explicit Product Owner approval.",
+      "New 2026-09-20 PO approvals locked: Su Xiaoxiao REAR_3Q_LEFT V001, Liao Jian PROFILE_LEFT V001, Liao Jian REAR_3Q_LEFT V001, Ning Qiushui FACE_3Q_LEFT V001, Jun Luyuan FACE_3Q_LEFT V001, Neil FACE_3Q_RIGHT V001, Wen Qingya PROFILE_LEFT V001, Wen Qingya REAR_3Q_LEFT V001, Castle Young Master PROFILE_LEFT V001.",
+      "Castle Young Master REAR_3Q_LEFT V001 generated and internal review passed, but explicit Product Owner approval has not been given.",
+      "Fourteen PO-approved Core-view binaries are transport-ingest pending; no premature Registry/Audit/Core Coverage mutation is claimed.",
+      "Formal Core Coverage remains 42/63 = 66.7%; formal Core View Gap remains 21.",
+      "AO-06 / D-069 remains open and mandatory before P0.2 final closeout; D-070 remains NOT ALLOCATED.",
+      "TEMP_CLOUD_ONLY_MODE_V1 reaches its time-box end at 2026-09-20 EOD; next local formal production requires GitHub→Local truth sync first."
     ],
-    "resume_from": "Verify Su Xiaoxiao REAR_3Q_LEFT delivery artifact, then run formal generation in Work",
+    "resume_from": "Resolve Castle Young Master REAR_3Q_LEFT PO review, then batch exact-byte publication + Automatic Ingest for approved pending character views, then update formal coverage and sync local Mac.",
     "blockers": [
-      "FIVE_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
+      "FOURTEEN_PO_APPROVED_CORE_VIEWS_TRANSPORT_INGEST_PENDING",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
     ]
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER SYSTEM VERIFIED / P1 PRODUCTION RESUMED / JUN LUYUAN PROFILE_LEFT DELIVERY BUNDLE READY / AO-06 PARALLEL CLOSEOUT",
+    "status": "CHARACTER SYSTEM VERIFIED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED CORE VIEWS AWAIT INGEST / AO-06 PARALLEL CLOSEOUT",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -265,7 +264,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_SU_XIAOXIAO REAR_3Q_LEFT V001 / DELIVERY BUNDLE WORKFLOW CREATED",
+    "current_character_target": "CHAR_CASTLE_YOUNG_MASTER REAR_3Q_LEFT V001 / GENERATED / PO REVIEW PENDING / EOD PAUSED",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -274,8 +273,22 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Verify Su Xiaoxiao REAR_3Q_LEFT delivery artifact then generate in Work; five approved views remain transport-ingest pending",
-    "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED"
+    "next_task": "Resolve Castle Young Master REAR_3Q_LEFT PO review; then batch exact-byte publication + Automatic Ingest for 14 approved pending Core views; AO-06 remains separate final-closeout track.",
+    "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED",
+    "visual_production_overlay": {
+      "as_of": "2026-09-20 EOD",
+      "p1_visual_po_approved": 10,
+      "p1_visual_total": 10,
+      "p1_formal_ingested": 2,
+      "p1_formal_total": 10,
+      "p2_generated": 7,
+      "p2_po_approved": 6,
+      "p2_total": 7,
+      "approved_transport_ingest_pending": 14,
+      "po_review_pending": [
+        "CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png"
+      ]
+    }
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -356,7 +369,7 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "P1 production active｜CHAR_SU_XIAOXIAO REAR_3Q_LEFT V001; AO-06 remains parallel final-closeout track",
+    "next_task": "P1 visual production complete; P2 visual production generated 7/7 with 6/7 PO approved. Resolve Castle Young Master REAR_3Q_LEFT PO review, batch-ingest approved views, and continue AO-06 as the only mandatory P0.2 system-closeout track.",
     "resume_lock": "P1 sequencing HOLD was superseded by BL-D-039 / RC-020 on 2026-09-19. AO-06 no longer blocks P1 production but remains mandatory before P0.2 READY_FOR_APPROVAL.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -438,19 +451,19 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V045",
+    "version": "V046",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R069 / SU PROFILE_LEFT PO APPROVED / REAR_3Q_LEFT NEXT / FIVE APPROVED P1 VIEWS TRANSPORT-INGEST PENDING"
+    "status": "CURRENT / DERIVED FROM R070 / EOD 2026-09-20 / P1 VISUAL 10/10 APPROVED / P2 6/7 APPROVED / 14 APPROVED VIEWS INGEST PENDING"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Continue P1 Character production with Su Xiaoxiao REAR_3Q_LEFT V001 while preserving exact-byte/Registry audit boundaries for five already PO-approved but un-ingested views; AO-06 remains a parallel final-closeout requirement.",
+  "stage_goal": "Close the remaining P2 PO review boundary, then reconcile 14 approved-but-uningested Core views through exact-byte publication + Automatic Ingest without premature coverage claims; afterward sync GitHub main to the Mac before local formal production resumes. AO-06 remains the parallel final-closeout requirement.",
   "blockers": [
-    "FIVE_PO_APPROVED_P1_VIEWS_TRANSPORT_INGEST_PENDING",
+    "FOURTEEN_PO_APPROVED_CORE_VIEWS_TRANSPORT_INGEST_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {
@@ -459,7 +472,7 @@
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-19.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD PAUSED"
+    "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-20.md",
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD PAUSED / R070"
   }
 }

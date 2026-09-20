@@ -136,3 +136,18 @@ P0 不以“完成更多 A 系列镜头”作为进度指标。
 - Current production target advanced to Su Xiaoxiao `PROFILE_LEFT V001`; dedicated Delivery Bundle workflow created, artifact build pending.
 - AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 can become READY_FOR_APPROVAL.
 - P0.3 remains QUEUED / DO NOT START EARLY.
+
+
+### P0.2 Evidence Status Delta｜2026-09-20 EOD
+
+- P0.2 remains `ACTIVE`; it is **not** READY_FOR_APPROVAL.
+- Formal Core Coverage remains `42 / 63 = 66.7%`; formal Core View Gap remains `21`.
+- P1 visual production reached `10 / 10 PO APPROVED`, but formal P1 remains `2 / 10` until the remaining 8 approved P1 views are formally ingested.
+- P2 visual generation reached `7 / 7`; `6 / 7` have explicit Product Owner approval.
+- Castle Young Master `REAR_3Q_LEFT V001` remains `PO REVIEW PENDING / DO NOT INGEST`.
+- Total approved Core-view binaries awaiting publication + Automatic Ingest = `14`.
+- None of those 14 are counted in formal Registry/Core Coverage yet.
+- P3 Black Lady 6-view lateral rebuild remains `NOT STARTED`.
+- AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 can become READY_FOR_APPROVAL.
+- D-070 remains NOT ALLOCATED.
+- TEMP_CLOUD_ONLY_MODE_V1 reaches its pre-approved time-box end at 2026-09-20 EOD; the next local formal production session requires GitHub→Local truth sync first.
