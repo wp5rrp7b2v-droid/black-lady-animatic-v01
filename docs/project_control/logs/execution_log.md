@@ -880,3 +880,24 @@ Cross-checked and synchronized:
 No new project-wide rule was added beyond existing RC-020. Risk Register statuses remain unchanged. Four approved PNGs are still not present at canonical GitHub paths; therefore no formal progress increment is recorded.
 
 Resume point: Su Xiaoxiao PROFILE_LEFT delivery artifact verification / formal generation; exact-byte ingest of four approved Jun/Neil views when transport is stable; AO-06/D-069 remains parallel final-closeout work. D-070 remains NOT ALLOCATED.
+
+
+## P1｜Su Xiaoxiao PROFILE_LEFT V001 Product Owner Approval｜2026-09-20
+
+Status: `PRODUCT OWNER APPROVED / TRANSPORT-INGEST PENDING`
+
+- Work generation used verified canonical reference delivery.
+- Artifact ID: `10584448292`.
+- Artifact actual SHA-256: `583294d5ac2acca71278a8d5cc02c1a628560623cdf9ec4fb2691604f06d42a0` / MATCH.
+- Canonical references: AST_IMG_000044 FACE_FRONT, AST_IMG_000043 FACE_3Q_LEFT, AST_IMG_000042 BODY_FRONT, AST_IMG_000041 BODY_BACK; 4/4 MATCH.
+- Main Chat Fixed Standard Review: PASS.
+- Product Owner explicitly approved `CHAR_SU_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png`.
+- Exact approved source:
+  - format: PNG
+  - dimensions: 941 × 1672
+  - byte_size: 2,088,722
+  - SHA-256: `3af763a5d96d043ccce061459b16af93114e0bcf59d44a98c9df17130c97868c`
+- No ingest / Registry / Audit / Core Coverage mutation has occurred.
+- Formal P1 progress remains `2/10`.
+- Next production target: `CHAR_SU_XIAOXIAO_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001`.
+- Dedicated delivery workflow created at commit `2dcf38869f684add4a1424b1b60b6438229628a7`.
