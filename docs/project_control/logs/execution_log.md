@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-21｜Character Visual Completion + 21 Binary Canonical Publication
+
+- Product Owner approved Castle Young Master `REAR_3Q_LEFT V001` and all six Black Lady P3 lateral views; Character Core visual production therefore reached `63/63 PO APPROVED` with visual gap `0`.
+- The 21 pending approved PNGs were consolidated outside the repo, UUID/unrelated files were separated, canonical filenames were verified, and source→repo copies passed `21/21 exact-byte SHA_MATCH` before staging.
+- Git staging was restricted to exactly the 21 Character Core PNGs; unrelated untracked `black_lady_character_asset_migration_v1.zip` and `production/audio/` were not staged.
+- Local publication commit: `b9bafa2af4b9be8aadf2bd2abe79b724837eff88` — `Publish 21 approved character core view PNGs`.
+- First standard push failed with `Empty reply from server`; retry using temporary `http.postBuffer=524288000` succeeded. GitHub main independently verified at the same commit.
+- GitHub commit contains the intended 21 PNG additions; all 21 committed binaries were re-read via Git object and independently verified `21/21 SHA_MATCH` against approved source identities.
+- No Asset Registry/Audit mutation was performed. Formal Core Coverage remains `42/63 = 66.7%`.
+- Engineering boundary identified: `automatic_ingest_controller_v0_1.py` expects canonical target not to exist, so direct ingest of these already-published binaries would fail closed with `Target already exists`.
+- Next proposed Codex Cloud task: `D-070｜Published Binary Adoption + 21-Asset Automatic Ingest`; NOT STARTED tonight and D-number is consumed only when execution actually launches.
+- AO-06 / D-069 remains OPEN and mandatory for P0.2 final closeout. P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY.
+
 ## 2026-09-18｜Daily Closeout / D-069 Engineering Foundation Merge
 
 - PR #10 reviewed head `7cf9e82cf937bc4150c83bcf0fc04e57e334e824` merged to `main` as `68716eae9e73a1ee1891dfde6ac5c7ea4d578cce`.

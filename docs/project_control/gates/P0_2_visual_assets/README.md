@@ -1,6 +1,19 @@
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 PARALLEL CLOSEOUT`
+Status: `ACTIVE / CHARACTER CORE VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL INGEST PENDING / AO-06 PARALLEL CLOSEOUT`
+
+## 当前权威检查点｜2026-09-21 EOD
+
+- Character Core visual production：`63/63 PO APPROVED`；视觉缺口 = `0`。
+- 21 张新增 Core PNG 已 byte-for-byte 发布至 canonical GitHub paths。
+- Publication commit：`b9bafa2af4b9be8aadf2bd2abe79b724837eff88`。
+- Committed binary verification：`21/21 SHA_MATCH`。
+- Formal Registry/Core Coverage：仍为 `42/63 = 66.7%`；不得在 ingest 前提前改成 63/63。
+- Immediate engineering gap：Automatic Ingest V0.1 不支持已存在 canonical target 的安全 adoption。
+- Tomorrow resume task：`D-070｜Published Binary Adoption + 21-Asset Automatic Ingest`，优先使用 Codex Cloud；今晚未启动，D-number 仅在实际 launch 时消耗。
+- D-070 完成后还需检查现有 Derived Character Reference Sheets 的 freshness/coverage implications。
+- AO-06 / D-069：继续 `OPEN`，仍是 P0.2 final closeout 必做项。
+- P0.2：继续 `ACTIVE`；P0.3：`QUEUED / DO NOT START EARLY`。
 
 ## 当前目标
 
@@ -12,7 +25,7 @@ P0.2 建立可规模化的 **Visual Asset Management System V1**，并把现有�
 
 目标是在正常生产中取消 Product Owner 的例行人工挑图、下载、命名、存储、登记与版本维护；Product Owner 只保留创意判断、异常处理与正式审批。
 
-## 当前正式状态｜2026-09-19 EOD
+## 历史正式状态｜2026-09-19 EOD
 
 - AO-01：`COMPLETE / VERIFIED`
 - AO-02：`COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`

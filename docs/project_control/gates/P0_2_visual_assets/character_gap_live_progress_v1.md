@@ -1,8 +1,8 @@
 # P0.2-03｜Character Gap Live Progress V1
 
-Status: `EOD PAUSED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED CORE VIEWS TRANSPORT-INGEST PENDING`
+Status: `EOD PAUSED / CHARACTER CORE VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs CANONICAL-PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 / D-070 NEXT`
 
-Date: `2026-09-20 EOD`
+Date: `2026-09-21 EOD`
 
 This file tracks live production progress after the locked baseline in `character_asset_gap_mapping_v1.md`.
 
@@ -15,48 +15,52 @@ This file tracks live production progress after the locked baseline in `characte
 
 The baseline remains unchanged for historical traceability.
 
-## Current formal live coverage
+## Current visual-production truth
+
+- Mandatory Core visual slots = `63`
+- Product Owner-approved visual results = `63 / 63`
+- Visual production gap = `0`
+- P1 visual production = `10 / 10 PO APPROVED`
+- P2 visual production = `7 / 7 PO APPROVED`
+- P3 Black Lady lateral rebuild = `6 / 6 PO APPROVED`
+
+Visual completion does **not** equal formal Registry admission.
+
+## Current formal Registry truth
 
 Only Product Owner-approved **and formally ingested** assets count toward formal coverage.
 
 - Current Confirmed Core Coverage = `42 / 63`
-- Current Core View Gap = `21`
+- Current Formal Core View Gap = `21`
 - Current Core Coverage = `66.7%`
 - Formal P1 completion = `2 / 10`
+- Newly published but not yet formally ingested Core views = `21`
 
-Formally ingested P1 views:
+Formally ingested P1 views remain:
 
 - Ning Qiushui `PROFILE_LEFT` = `CURRENT V002 / APPROVED / INGESTED`
 - Ning Qiushui `REAR_3Q_LEFT` = `CURRENT V001 / APPROVED / INGESTED`
 
-No 2026-09-20 visual approval is counted in formal coverage until exact-byte publication + Automatic Ingest succeeds.
+No 2026-09-21 publication is counted in formal coverage until Registry/Audit ingest succeeds.
 
-## P1 visual production
+## 21-file exact-byte publication
 
-- Locked P1 baseline = `10`
-- PO-approved visual results = `10 / 10`
-- Formally ingested = `2 / 10`
-- Approved but transport/ingest pending = `8 / 10`
+Canonical publication commit:
 
-Pending P1: Jun PROFILE_LEFT V002; Jun REAR_3Q_LEFT V001; Neil PROFILE_RIGHT V001; Neil REAR_3Q_RIGHT V001; Su PROFILE_LEFT V001; Su REAR_3Q_LEFT V001; Liao PROFILE_LEFT V001; Liao REAR_3Q_LEFT V001.
+`b9bafa2af4b9be8aadf2bd2abe79b724837eff88`
 
-## P2 visual production
+Commit message:
 
-Locked P2 baseline = `7`: Ning FACE_3Q_LEFT; Jun FACE_3Q_LEFT; Neil FACE_3Q_RIGHT; Wen PROFILE_LEFT; Wen REAR_3Q_LEFT; Castle Young Master PROFILE_LEFT; Castle Young Master REAR_3Q_LEFT.
+`Publish 21 approved character core view PNGs`
 
-- Generated = `7 / 7`
-- Explicit Product Owner approval = `6 / 7`
-- Formal ingest = `0 / 7`
+Verification:
 
-PO-approved P2 views pending publication/ingest: Ning FACE_3Q_LEFT V001; Jun FACE_3Q_LEFT V001; Neil FACE_3Q_RIGHT V001; Wen PROFILE_LEFT V001; Wen REAR_3Q_LEFT V001; Castle Young Master PROFILE_LEFT V001.
+- intended new Character Core PNG count = `21`
+- GitHub commit changed-file count for these PNGs = `21`
+- committed-binary SHA-256 verification = `21 / 21 SHA_MATCH`
+- PNG bytes were not re-encoded, resized, screenshotted, or regenerated during publication
 
-PO review pending: Castle Young Master `REAR_3Q_LEFT V001` = `GENERATED / WORK INTERNAL PASS / PO REVIEW PENDING / DO NOT INGEST`.
-
-## Approved-but-uningested exact source identities
-
-Total = `14`.
-
-### P1
+### P1｜8 published / formal ingest pending
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -69,7 +73,7 @@ Total = `14`.
 | `CHAR_LIAO_JIAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 1,889,115 | `421a1bd6052bcf291a374dccededb32a25a5f6077cfad21168e90fa2b28664bd` |
 | `CHAR_LIAO_JIAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,917,221 | `2d3a223a7365a49f5b912df98aeb5fe18d4227507f5c093f42360399a7de91be` |
 
-### P2
+### P2｜7 published / formal ingest pending
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -79,28 +83,49 @@ Total = `14`.
 | `CHAR_WEN_QINGYA_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 2,027,950 | `3068d9ad2c345191d3e5cf7a5a657ba64d61d01c5077d9c04c05521e7db36309` |
 | `CHAR_WEN_QINGYA_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,902,463 | `2f52fe5067671d52f5b35eb9dc83567dbcd9bd76030ef1280a35e88e102c7344` |
 | `CHAR_CASTLE_YOUNG_MASTER_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 2,030,361 | `142448eb20d63a9576e9600c15cfdc0b2885252517781659b36d086572764589` |
+| `CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,939,282 | `37e274912023d5bf3a1ec2e208910ecc3a23a5de2aca11d280c0097925f5225f` |
 
-All listed production candidates are 941 × 1672 PNGs.
+### P3｜Black Lady 6 published / formal ingest pending
 
-## Current production boundary
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| `CHAR_BLACK_LADY_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 2,031,897 | `54de7695bd552103222d42bfad50c7fd20195bd5f84c59a79f5275d9ccbfdc4b` |
+| `CHAR_BLACK_LADY_FACE_3Q_RIGHT_DEFAULT_DEFAULT_V001.png` | 2,013,776 | `06d94fee32cf7906ce84ed252681f6e5f5b4b9c0fc6727431c081ddabcfd0fe1` |
+| `CHAR_BLACK_LADY_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 1,990,254 | `2998b768a45801746f58b876c4f718ba55453f5c1659f5b76b8f5102d57dd22d` |
+| `CHAR_BLACK_LADY_PROFILE_RIGHT_DEFAULT_DEFAULT_V001.png` | 1,943,339 | `9da64a45095fee5f092990ad193404135f080f842aebe7e03b5e6fde4d7ea492` |
+| `CHAR_BLACK_LADY_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,995,089 | `b6fb7cf38390c955b77cc87fe3f8f86206ac6dbbd488438f84934abef6fd9f25` |
+| `CHAR_BLACK_LADY_REAR_3Q_RIGHT_DEFAULT_DEFAULT_V001.png` | 1,952,886 | `b7456815b978c3931f92880cd777b95686f3f5db7526d3f7016b6d4f6257be51` |
 
-- P1 visual production: `COMPLETE / 10/10 PO APPROVED`
-- P2 visual generation: `COMPLETE / 7/7 GENERATED`
-- P2 Product Owner approvals: `6/7`
-- Castle Young Master `REAR_3Q_LEFT V001`: explicit PO approval still required.
-- P3 Black Lady 6-view lateral rebuild: `NOT STARTED`
+All 21 production PNGs are 941 × 1672.
 
-## Next actions
+Black Lady rear-view mapping is permanently locked as shown above; do not swap LEFT/RIGHT.
 
-1. Resolve PO review for Castle Young Master `REAR_3Q_LEFT V001`.
-2. Gather all approved exact source binaries.
-3. Exact-byte publish to canonical GitHub paths.
-4. Re-read remote binaries and verify SHA-256 / byte size.
-5. Run Automatic Ingest; verify Registry / Audit / Single Current.
-6. Update formal coverage only after successful ingest.
-7. Perform GitHub → Local truth sync before local formal production resumes.
-8. Continue AO-06 / D-069 separately; do not allocate D-070.
+## Current ingest boundary
+
+Current `scripts/automatic_ingest_controller_v0_1.py` assumes the canonical target path does not already exist. Because the 21 approved binaries were first safely published to their canonical paths, direct V0.1 ingest would fail with `Target already exists`.
+
+This is an ingest-controller capability gap, not a binary or approval gap.
+
+## Next task
+
+Next proposed Codex Cloud engineering task:
+
+`D-070｜Published Binary Adoption + 21-Asset Automatic Ingest`
+
+Status tonight:
+
+`NOT STARTED / D-NUMBER IS CONSUMED ONLY WHEN THE CODEX TASK ACTUALLY LAUNCHES`
+
+Required result:
+
+1. add a minimal fail-closed adopt-existing/published-binary mode;
+2. preserve all 21 PNG bytes exactly;
+3. run read-only preflight for all 21;
+4. formally ingest 21/21 into Registry/Audit with Single Current/version safety;
+5. cross-check Derived Reference Sheet freshness/coverage implications after the 21 missing slots become formal;
+6. set formal Core Coverage to `63/63` only after all ingest checks pass;
+7. keep AO-06 / D-069 OPEN and P0.2 ACTIVE.
 
 ## Governance note
 
-AO-06 remains mandatory before P0.2 final closeout / READY_FOR_APPROVAL, but it does not block Character image production. P0.3 remains QUEUED / DO NOT START EARLY.
+AO-06 remains mandatory before P0.2 final closeout / READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY.

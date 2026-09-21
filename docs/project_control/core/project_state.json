@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R070",
-  "last_updated": "2026-09-20",
-  "session_status": "EOD PAUSED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED CORE VIEWS TRANSPORT-INGEST PENDING",
+  "state_revision": "R071",
+  "last_updated": "2026-09-21",
+  "session_status": "EOD PAUSED / CHARACTER CORE VISUAL PRODUCTION 63/63 PO APPROVED / 21/21 NEW CORE PNGs CANONICAL-PUBLISHED + SHA VERIFIED / FORMAL REGISTRY 42/63 / D-070 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / P1 VISUAL COMPLETE / P2 VISUAL PRODUCTION COMPLETE / AO-06 REMAINS OPEN FOR CLOSEOUT",
-    "note": "P0.2 remains ACTIVE. Formal Core Coverage remains 42/63 (66.7%) and formal P1 progress remains 2/10 because 14 PO-approved Core-view PNGs are still outside formal Registry pending exact-byte publication + Automatic Ingest. P1 visual production is 10/10 PO approved. P2 generated all 7 target views; 6/7 are PO approved and Castle Young Master REAR_3Q_LEFT V001 remains PO REVIEW PENDING. AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
+    "status": "ACTIVE / CHARACTER VISUAL PRODUCTION COMPLETE / NEW BINARY PUBLICATION COMPLETE / FORMAL INGEST PENDING / AO-06 REMAINS OPEN",
+    "note": "P0.2 remains ACTIVE. All 63 mandatory Character Core visual slots now have explicit Product Owner-approved images. The 21 previously missing Core PNGs were published byte-for-byte to canonical GitHub paths in commit b9bafa2af4b9be8aadf2bd2abe79b724837eff88 and independently verified 21/21 SHA_MATCH. Formal Core Coverage intentionally remains 42/63 (66.7%) because these 21 published binaries have not yet been admitted to the runtime Asset Registry/Audit. Current Automatic Ingest V0.1 assumes the canonical target does not already exist, so the next Codex engineering task is to add a safe adopt-existing/published-binary path and ingest the 21 assets. AO-06 / D-069 remains mandatory before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "P0.2-03｜Character Gap Production｜EOD PAUSED｜P1 VISUAL 10/10 APPROVED / P2 6/7 APPROVED / CASTLE YOUNG MASTER REAR_3Q_LEFT PO REVIEW PENDING",
-  "blocker": "Fourteen PO-approved Core-view PNGs remain exact-byte publication / Automatic Ingest pending, so Registry/Core Coverage/formal P1 progress cannot advance yet. Castle Young Master REAR_3Q_LEFT V001 is generated and internally passed but lacks explicit Product Owner approval. AO-06 remains required only for P0.2 final closeout.",
-  "next_action": "Next session: first resolve Product Owner review for CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png. Then gather all approved exact binaries, publish to canonical GitHub paths, remote-SHA verify, run Automatic Ingest and Registry/Audit cross-check, update formal coverage, and only then perform GitHub→Mac local truth sync before local formal production resumes. AO-06 / D-069 remains a separate final-closeout track. D-070 remains NOT ALLOCATED.",
+  "current_task": "NEXT SESSION｜D-070 CANDIDATE｜Published Binary Adoption + 21-Asset Automatic Ingest｜NOT STARTED / ALLOCATE ONLY WHEN CODEX CLOUD TASK LAUNCHES",
+  "blocker": "Twenty-one PO-approved Character Core PNGs are safely published and 21/21 SHA verified, but formal Registry/Core Coverage remains 42/63 because Automatic Ingest V0.1 rejects already-existing canonical targets. A safe adopt-existing path plus Registry/Audit ingest is required. AO-06 / D-069 remains a separate mandatory final-closeout item.",
+  "next_action": "Tomorrow: launch Codex Cloud D-070 from latest GitHub main. Add a minimal fail-closed adopt-existing mode to Automatic Ingest, test it, preflight all 21 published binaries, ingest 21/21 without modifying PNG bytes, verify Registry/Audit/Single Current and Derived Reference Sheet freshness implications, then update formal Core Coverage to 63/63 only if all checks pass. Keep AO-06/D-069 OPEN and P0.2 ACTIVE; do not start P0.3.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,26 +106,30 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-20-EOD-P1-P2-VISUAL-CLOSEOUT",
-    "status": "EOD PAUSED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED BINARIES INGEST PENDING",
+    "id": "2026-09-21-EOD-CHARACTER-VISUAL-PUBLICATION-COMPLETE",
+    "status": "EOD PAUSED / VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 / D-070 NEXT",
     "completed": [
-      "P1 visual production reached 10/10 explicit Product Owner approvals; formal ingest remains 2/10.",
-      "P2 generated all 7 locked target views; 6/7 have explicit Product Owner approval.",
-      "New 2026-09-20 PO approvals locked: Su Xiaoxiao REAR_3Q_LEFT V001, Liao Jian PROFILE_LEFT V001, Liao Jian REAR_3Q_LEFT V001, Ning Qiushui FACE_3Q_LEFT V001, Jun Luyuan FACE_3Q_LEFT V001, Neil FACE_3Q_RIGHT V001, Wen Qingya PROFILE_LEFT V001, Wen Qingya REAR_3Q_LEFT V001, Castle Young Master PROFILE_LEFT V001.",
-      "Castle Young Master REAR_3Q_LEFT V001 generated and internal review passed, but explicit Product Owner approval has not been given.",
-      "Fourteen PO-approved Core-view binaries are transport-ingest pending; no premature Registry/Audit/Core Coverage mutation is claimed.",
-      "Formal Core Coverage remains 42/63 = 66.7%; formal Core View Gap remains 21.",
-      "AO-06 / D-069 remains open and mandatory before P0.2 final closeout; D-070 remains NOT ALLOCATED.",
-      "TEMP_CLOUD_ONLY_MODE_V1 reaches its time-box end at 2026-09-20 EOD; next local formal production requires GitHub→Local truth sync first."
+      "Castle Young Master REAR_3Q_LEFT V001 received explicit Product Owner approval.",
+      "Black Lady P3 lateral rebuild completed: FACE_3Q_LEFT, FACE_3Q_RIGHT, PROFILE_LEFT, PROFILE_RIGHT, REAR_3Q_LEFT and REAR_3Q_RIGHT all received explicit Product Owner approval.",
+      "Character Core visual production reached 63/63 Product Owner-approved images; visual gap is zero.",
+      "The full 21-file pending set was normalized to canonical filenames and verified 21/21 exact-byte before Git staging.",
+      "21 PNGs were committed as b9bafa2af4b9be8aadf2bd2abe79b724837eff88 with message 'Publish 21 approved character core view PNGs' and pushed to GitHub main.",
+      "GitHub main was independently verified at b9bafa2af4b9be8aadf2bd2abe79b724837eff88; the commit contains exactly the intended 21 Character Core PNG additions.",
+      "All 21 binaries were re-read from the committed Git object and verified 21/21 SHA_MATCH against approved source identities.",
+      "No Registry/Audit formal-ingest claim is made yet. Formal Core Coverage remains 42/63.",
+      "Automatic Ingest V0.1 target-exists contract was identified as the only immediate ingest engineering gap for already-published binaries.",
+      "D-070 is the next proposed Codex Cloud engineering task but is NOT STARTED and is not consumed until the task is actually launched.",
+      "AO-06 / D-069 remains OPEN and mandatory before P0.2 final closeout; P0.3 remains QUEUED / DO NOT START EARLY."
     ],
-    "resume_from": "Resolve Castle Young Master REAR_3Q_LEFT PO review, then batch exact-byte publication + Automatic Ingest for approved pending character views, then update formal coverage and sync local Mac.",
+    "resume_from": "Launch D-070 in Codex Cloud from latest main: safe published-binary adoption → 21/21 formal ingest → Registry/Audit/Single Current + derived-reference freshness cross-check → formal coverage refresh. Then continue AO-06/D-069.",
     "blockers": [
-      "FOURTEEN_PO_APPROVED_CORE_VIEWS_TRANSPORT_INGEST_PENDING",
-      "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
+      "21_PUBLISHED_CORE_VIEWS_FORMAL_INGEST_PENDING",
+      "AUTOMATIC_INGEST_V0_1_ALREADY_PUBLISHED_TARGET_ADOPTION_GAP",
+      "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT"
     ]
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER SYSTEM VERIFIED / P1 VISUAL 10/10 PO APPROVED / P2 7/7 GENERATED, 6/7 PO APPROVED / 14 APPROVED CORE VIEWS AWAIT INGEST / AO-06 PARALLEL CLOSEOUT",
+    "status": "CHARACTER SYSTEM VERIFIED / VISUAL PRODUCTION 63/63 PO APPROVED / 21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 UNTIL INGEST / AO-06 PARALLEL CLOSEOUT",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -264,7 +268,7 @@
       "p1_completed": 2,
       "p1_total": 10
     },
-    "current_character_target": "CHAR_CASTLE_YOUNG_MASTER REAR_3Q_LEFT V001 / GENERATED / PO REVIEW PENDING / EOD PAUSED",
+    "current_character_target": "VISUAL PRODUCTION COMPLETE / 63 OF 63 CORE VIEWS PO APPROVED / 21 PUBLISHED BINARIES FORMAL INGEST PENDING",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -273,21 +277,28 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "Resolve Castle Young Master REAR_3Q_LEFT PO review; then batch exact-byte publication + Automatic Ingest for 14 approved pending Core views; AO-06 remains separate final-closeout track.",
+    "next_task": "NEXT: D-070 candidate on Codex Cloud — add safe adopt-existing/published-binary ingest mode, preflight and formally ingest the 21 published Core PNGs; allocate D-070 only when execution starts. AO-06/D-069 remains separate final-closeout track.",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED",
     "visual_production_overlay": {
-      "as_of": "2026-09-20 EOD",
+      "as_of": "2026-09-21 EOD",
+      "all_core_visual_po_approved": 63,
+      "all_core_visual_total": 63,
+      "visual_gap": 0,
       "p1_visual_po_approved": 10,
       "p1_visual_total": 10,
       "p1_formal_ingested": 2,
       "p1_formal_total": 10,
       "p2_generated": 7,
-      "p2_po_approved": 6,
+      "p2_po_approved": 7,
       "p2_total": 7,
-      "approved_transport_ingest_pending": 14,
-      "po_review_pending": [
-        "CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png"
-      ]
+      "p3_black_lady_generated": 6,
+      "p3_black_lady_po_approved": 6,
+      "p3_black_lady_total": 6,
+      "approved_transport_ingest_pending": 0,
+      "approved_published_ingest_pending": 21,
+      "publication_commit": "b9bafa2af4b9be8aadf2bd2abe79b724837eff88",
+      "publication_sha_check": "21/21 SHA_MATCH",
+      "po_review_pending": []
     }
   },
   "visual_asset_audit_preliminary": {

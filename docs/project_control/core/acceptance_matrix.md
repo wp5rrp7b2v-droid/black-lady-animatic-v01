@@ -151,3 +151,16 @@ P0 不以“完成更多 A 系列镜头”作为进度指标。
 - AO-06 / D-069 remains the only mandatory system-closeout item before P0.2 can become READY_FOR_APPROVAL.
 - D-070 remains NOT ALLOCATED.
 - TEMP_CLOUD_ONLY_MODE_V1 reaches its pre-approved time-box end at 2026-09-20 EOD; the next local formal production session requires GitHub→Local truth sync first.
+
+
+### P0.2 Evidence Status Delta｜2026-09-21 EOD
+
+- P0.2 remains `ACTIVE`; it is **not** READY_FOR_APPROVAL.
+- Character Core visual production is now `63 / 63 PO APPROVED`; visual-production gap is zero.
+- The 21 formerly missing Core PNGs were byte-for-byte published to canonical GitHub paths in commit `b9bafa2af4b9be8aadf2bd2abe79b724837eff88`.
+- All 21 committed binaries were independently re-read and verified `21/21 SHA_MATCH` against their approved source identities.
+- Formal Core Coverage intentionally remains `42 / 63 = 66.7%` because those 21 published binaries have not yet been admitted to the runtime Asset Registry/Audit.
+- Automatic Ingest V0.1 currently rejects an already-existing canonical target; the next proposed Codex Cloud task is `D-070｜Published Binary Adoption + 21-Asset Automatic Ingest`. D-070 is not started and should be consumed only when the Codex task launches.
+- D-070 must preserve binary identity, enforce Single Current/version safety, and cross-check Derived Reference Sheet freshness implications after the missing Core slots become formal.
+- AO-06 / D-069 remains OPEN and is still mandatory before P0.2 can become READY_FOR_APPROVAL.
+- P0.3 remains QUEUED / DO NOT START EARLY.
