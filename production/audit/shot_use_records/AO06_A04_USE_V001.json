@@ -1,0 +1,66 @@
+{
+  "use_record_id": "AO06_A04_USE_V001",
+  "shot_spec_id": "A04_SPEC_V001",
+  "shot_id": "A04",
+  "package_id": "A04_REFERENCE_PACKAGE_V001",
+  "source_commit": "4e074d272b411d50dbfef4bfcfcc31fe83e95a80",
+  "resolver_version": "SHOT_REFERENCE_RESOLVER_V0_1",
+  "input_asset_ids": [
+    "AST_IMG_000060",
+    "AST_IMG_000059",
+    "AST_IMG_000052"
+  ],
+  "input_versions": [
+    1,
+    1,
+    1
+  ],
+  "input_sha256": [
+    "15ec6c2682da0fe2502267bde21e9bc0bd7104bbf3e6041521121cc69a0e77be",
+    "964445754ec69dcfeace287d46b2964a6d5044c59950c5ede5553859e1e229de",
+    "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961"
+  ],
+  "input_order": [
+    1,
+    2,
+    3
+  ],
+  "delivery_artifact_digest": "sha256:3f1d5fb1b3d54cdfd0ff1c0c6d25df85cd1e78f066e9a8269419943612fc916e",
+  "generation_environment": "OpenAI built-in image generation / ChatGPT Work",
+  "request_or_proof_identifier": "GitHub run 35705835709 / Artifact 10684566525 / imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea",
+  "manual_product_owner_reference_upload_count": 0,
+  "service_input_sha_receipt": "NOT_AVAILABLE",
+  "result": "NON_PRODUCTION_VALIDATION_OUTPUT_GENERATED",
+  "created_at": "2026-09-22T09:14:19.580977+00:00",
+  "scene_state": {
+    "time_of_day": "DAY",
+    "main_door": "OPEN"
+  },
+  "blockers": [],
+  "shot_evidence": {
+    "filename": "A04_REBOOT_approved_v001.png",
+    "storage_uri": "staging/d069_a04_intake/A04_REBOOT_approved_v001.png",
+    "sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
+    "byte_size": 2486659,
+    "provenance_status": "PARTIAL",
+    "resolver_usage": "EVIDENCE_ONLY",
+    "historical_uses_reference_policy": "DO_NOT_RECONSTRUCT"
+  },
+  "reference_package_proof": {
+    "github_actions_run_id": 35705835709,
+    "artifact_id": 10684566525,
+    "artifact_sha256": "3f1d5fb1b3d54cdfd0ff1c0c6d25df85cd1e78f066e9a8269419943612fc916e"
+  },
+  "production_output": {
+    "formal_asset": false,
+    "output_class": "NON_PRODUCTION_VALIDATION_OUTPUT",
+    "filename": "exec-ae7fde3c-02a5-4106-beaa-69704b9164ea.png",
+    "sha256": "13b90caa908049e9afb4f7bce10f505fa5a60c408a8cb87dcd4dd2e6dc1180f3",
+    "byte_size": 1748548,
+    "dimensions": [
+      941,
+      1672
+    ],
+    "registry_admission": false
+  }
+}
