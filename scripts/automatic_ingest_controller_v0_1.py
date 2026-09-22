@@ -388,7 +388,9 @@ def main() -> int:
     if old is not None and reserved:
         raise IngestError("Version safety: controlled supersession cannot reserve skipped versions")
 
-    if filename_version is not None and filename_version > next_version:
+    if old is not None:
+        version_no = next_version
+    elif a.adopt_existing and filename_version is not None and filename_version > next_version:
         required = list(range(next_version, filename_version))
         if sorted(reserved) != required:
             raise IngestError(
@@ -398,14 +400,14 @@ def main() -> int:
         version_no = filename_version
     else:
         if reserved:
-            raise IngestError("Version safety: reservation supplied but no version gap exists")
+            raise IngestError("Version safety: reservation supplied but no adopt-existing version gap exists")
         version_no = next_version
 
     if old is not None and version_no != int(old.get("version_no") or 0) + 1:
         raise IngestError("Version safety: new version must equal old version + 1")
     if filename_version is not None and filename_version != version_no:
         raise IngestError(
-            f"Filename version V{filename_version:03d} does not match next/adopted version V{version_no:03d}"
+            f"Filename version V{filename_version:03d} does not match next version V{version_no:03d}"
         )
     vtag = f"V{version_no:03d}"
     filename = f"{entity}_{role}_{variant}_{state}_{vtag}.png"
