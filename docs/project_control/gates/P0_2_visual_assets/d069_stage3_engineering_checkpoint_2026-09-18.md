@@ -1,6 +1,6 @@
 # D-069 / AO-06 Stage 3 engineering checkpoint
 
-Status: `ENGINEERING FOUNDATION COMPLETE / BLOCKED_ON_APPROVED_A04_BINARY / BLOCKED_ON_COSTUME_PROP_EVIDENCE`
+Status: `REVIEW PATCH 02 VALIDATED / APPROVED A04 EVIDENCE MATERIALIZED / COSTUME_PROP ASSET BLOCKERS REMOVED BY PO-APPROVED BOUNDARY / REAL USE PENDING`
 
 Date: `2026-09-18`
 
@@ -76,3 +76,47 @@ Corrections:
 - A04 evidence selection additionally requires `variant = DEFAULT` and `state = DEFAULT`; wrong variant/state and `resolver_usage = NEVER` remain `SHOT_EVIDENCE_GAP`.
 
 This review patch changes no live Registry counts and writes no live `USES_REFERENCE` relation.
+
+
+## Review Patch 02 — 2026-09-22
+
+Status: `ENGINEERING PATCH VALIDATED / NOT YET MERGED / AO-06 NOT COMPLETE`
+
+Product Owner approved the following evidence-boundary correction on 2026-09-22:
+
+- the exact approved A04 binary is now materialized at
+  `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`;
+- byte size = `2486659`;
+- SHA-256 = `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`;
+- A04 Shot evidence is authority for composition / blocking / visible Shot facts only;
+- Neil black butler attire and visible chest cross are handled as
+  `CHAR_NEIL / DEFAULT` canonical appearance-continuity constraints for A04;
+- `COSTUME_NEIL_DEFAULT` and `PROP_NEIL_CROSS` no longer block this Shot as required standalone formal visual Assets;
+- `WHITE_POCKET_HANDKERCHIEF_VISIBLE` is removed from A04 required continuity facts because the approved Shot does not provide sufficient evidence for that requirement;
+- existing Costume/Prop Entity records are retained as historical/model records but are not A04 Resolver blockers;
+- no historical `USES_REFERENCE` edge is reconstructed for the approved legacy A04 image.
+
+Executable behavior after this patch:
+
+- Character resolution remains:
+  - `CHAR_NING_QIUSHUI → AST_IMG_000060`;
+  - `CHAR_NEIL → AST_IMG_000059`;
+- Scene resolution remains:
+  - `SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN → AST_IMG_000052`;
+- exact A04 approved evidence is integrity-checked directly against its locked path, byte size, and SHA;
+- Reference Package keeps formal resolved Assets separate from approved Shot evidence;
+- any missing/corrupt A04 evidence still fail-closes generation;
+- any Character/Scene gap still fail-closes generation.
+
+Validation:
+
+- targeted D-069 tests: `13 / 13 PASS`;
+- full regression: `86 / 86 PASS`;
+- exact A04 binary identity check: `PASS`;
+- validation workflow run: `35703125845 / SUCCESS`.
+
+Remaining AO-06 work:
+
+`Shot Spec → Resolver → traceable Reference Package → Actual Production Use → immutable use record → reverse audit`
+
+Therefore this patch removes the obsolete A04 binary and standalone Costume/Prop blockers, but does **not** mark AO-06 complete and does **not** authorize P0.3.
