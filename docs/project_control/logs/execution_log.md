@@ -1033,3 +1033,37 @@ Status: `MERGED / REMOTE VERIFIED / AO-06 ACTUAL USE + AUDIT NEXT`
   `Reference Package → Actual Production Use → immutable use record → reverse audit`.
 - P0.3 remains `QUEUED / DO NOT START EARLY`.
 - Local GitHub→Mac sync remains intentionally deferred to EOD for one consolidated sync.
+
+
+## 2026-09-22｜D-069 Final Audit PR #13 Merge Closeout
+
+Status: `MERGED / REMOTE VERIFIED / AO-06 READY_FOR_APPROVAL`
+
+- Product Owner authorized the next step, including PR #13 Ready-for-Review transition and squash merge.
+- PR #13: `D-069 Final Audit: record A04 actual production use`.
+- Merge SHA: `9ec2975059582bbd279d3a05d4af1284fac3f27a`.
+- Post-merge main verification passed:
+  - immutable use record `production/audit/shot_use_records/AO06_A04_USE_V001.json` exists on main;
+  - use record references `A04_SPEC_V001` and `A04_REFERENCE_PACKAGE_V001`;
+  - formal inputs are `AST_IMG_000060 / AST_IMG_000059 / AST_IMG_000052`;
+  - Stage 4 actual-use proof remains `GitHub run 35705835709 / Artifact 10684566525 / imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea`.
+- Final audit validation run `35709208035` had already passed:
+  - immutable duplicate-write rejection;
+  - Shot→inputs reverse trace;
+  - Asset→use reverse trace 3/3;
+  - targeted `13/13 PASS`;
+  - full regression `86/86 PASS`.
+- Controlled data counts remain unchanged after merge:
+  - Asset Registry = `83`;
+  - Asset Relations = `44`;
+  - Audit Event Log = `120`.
+- No live `USES_REFERENCE` was created; this is intentional because the validation output is NON_PRODUCTION and has no formal SHOT Asset ID.
+- AO-06 engineering evidence chain is now complete:
+  `Real Shot Spec → Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit`.
+- Governance result:
+  - AO-06 = `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`;
+  - do not mark COMPLETE / APPROVED until explicit PO approval;
+  - P0.2 remains ACTIVE pending that decision;
+  - P0.3 remains QUEUED / DO NOT START EARLY.
+- Project Control advanced to R076.
+- Local GitHub→Mac sync remains deferred to EOD for one consolidated sync.
