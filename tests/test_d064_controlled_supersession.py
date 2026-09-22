@@ -261,5 +261,39 @@ class Fixture(unittest.TestCase):
         self.assertEqual(self.rows(self.registry)[0]["version_no"], 2)
 
 
+    def test_adopt_existing_rejects_inspect_mode_combination(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        self._publish_existing(self.source.name)
+        with patch.object(
+            sys,
+            "argv",
+            self.args + ["--source", str(self.source), "--adopt-existing", "--inspect-current"],
+        ):
+            with self.assertRaisesRegex(ctl.IngestError, "cannot be combined"):
+                ctl.main()
+
+    def test_adopt_existing_failure_rolls_back_without_touching_binary(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        target = self._publish_existing(self.source.name)
+        binary_before = target.read_bytes()
+        formal_before = {p: p.read_bytes() for p in (self.registry, self.audit)}
+        original = ctl.atomic_bytes
+        injected = False
+        def fail_audit(path, data):
+            nonlocal injected
+            if path == self.audit and not injected:
+                injected = True
+                raise OSError("injected adopt audit failure")
+            return original(path, data)
+        with patch.object(ctl, "atomic_bytes", side_effect=fail_audit):
+            with self.assertRaisesRegex(OSError, "injected adopt audit failure"):
+                self.call("--adopt-existing")
+        self.assertEqual(binary_before, target.read_bytes())
+        self.assertEqual(formal_before, {p: p.read_bytes() for p in formal_before})
+        self.assert_clean()
+
+
 if __name__ == "__main__":
     unittest.main()
