@@ -1,6 +1,6 @@
 ## D-070 Current Update｜2026-09-22
 
-Status: `FORMAL CHARACTER CORE 63/63 / D-070 RESCUE PUBLICATION READY / AO-06 OPEN`
+Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 READY_FOR_APPROVAL`
 
 - The 21 already-published PO-approved Character Core PNGs are formally admitted as `AST_IMG_000063–AST_IMG_000083`.
 - Registry = `83` Assets.
@@ -11,36 +11,34 @@ Status: `FORMAL CHARACTER CORE 63/63 / D-070 RESCUE PUBLICATION READY / AO-06 OP
 - `--adopt-existing` is fail-closed and never rewrites the existing canonical PNG.
 - Jun Luyuan `PROFILE_LEFT V002` requires explicit contiguous reservation of rejected/do-not-ingest `V001`; unacknowledged version skipping remains blocked.
 - Existing Derived Reference Sheet PNGs are not modified by D-070.
-- AO-06 / D-069 remains the only mandatory P0.2 final-closeout track.
-- P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY.
+- AO-06 / D-069 end-to-end engineering evidence is complete; AO-06 is now READY_FOR_APPROVAL and awaits explicit Product Owner approval.
+- P0.2 remains ACTIVE until that approval is recorded; P0.3 remains QUEUED / DO NOT START EARLY.
 
 ---
 
 ## AO-06 / D-069 Current Update｜2026-09-22
 
-Status: `REVIEW PATCH 02 MERGED / A04 EXACT EVIDENCE VERIFIED / ACTUAL USE + AUDIT PENDING`
+Status: `READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PRODUCT OWNER APPROVAL`
 
-- PR #12 received explicit Product Owner merge approval and was squash-merged.
-- Merge SHA: `fdc43a907cb799eef3c11553b34bab74374ddd5c`.
-- Approved A04 evidence is now present on `main` at:
-  `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`.
-- Exact identity remains:
-  - byte size: `2486659`;
-  - SHA-256: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`.
-- Neil black butler attire + visible chest cross are enforced as `CHAR_NEIL / DEFAULT` appearance continuity for A04.
-- Standalone `COSTUME_NEIL_DEFAULT` / `PROP_NEIL_CROSS` visual Assets are not required to unblock this Shot.
-- `WHITE_POCKET_HANDKERCHIEF_VISIBLE` is no longer an A04 hard requirement.
-- Historical `USES_REFERENCE` remains non-reconstructable.
-- Validation run `35703125845`: targeted `13/13 PASS`; full regression `86/86 PASS`.
-- Remaining AO-06 chain:
-  `Reference Package → Actual Production Use → immutable use record → reverse audit`.
+- PR #12 merged the PO-approved A04 evidence-boundary correction and exact A04 evidence.
+- Real Resolver selected `AST_IMG_000060 / AST_IMG_000059 / AST_IMG_000052`.
+- Real Reference Package `A04_REFERENCE_PACKAGE_V001` was built by GitHub Actions run `35705835709`, Artifact `10684566525`.
+- ChatGPT Work executed a real non-simulated image-generation call with `manual_product_owner_reference_upload_count = 0`.
+- Actual-use proof: `imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea`.
+- PR #13 squash-merged immutable use record `AO06_A04_USE_V001`.
+- PR #13 merge SHA: `9ec2975059582bbd279d3a05d4af1284fac3f27a`.
+- Final audit validation run `35709208035`: immutability PASS; Shot→inputs PASS; Asset→use 3/3 PASS; targeted `13/13`; full regression `86/86`.
+- Registry / Relations / Audit Event Log remain `83 / 44 / 120`.
+- No `USES_REFERENCE` was created because the validation output is non-production and has no formal SHOT Asset ID; historical A04 relation policy remains `DO_NOT_RECONSTRUCT`.
+- No engineering blocker remains for AO-06.
+- AO-06 is not yet COMPLETE / APPROVED; explicit Product Owner approval is still required.
 - P0.2 remains ACTIVE. P0.3 remains QUEUED / DO NOT START EARLY.
 
 ---
 
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / D-069 REVIEW PATCH 02 MERGED / AO-06 ACTUAL USE + AUDIT FINAL CLOSEOUT`
+Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`
 
 ## 前一权威检查点｜2026-09-21 EOD（历史）
 
