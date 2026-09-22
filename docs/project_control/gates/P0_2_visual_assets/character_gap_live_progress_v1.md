@@ -44,20 +44,18 @@ Visual completion does **not** equal formal Registry admission.
 
 ## Current formal Registry truth
 
-Only Product Owner-approved **and formally ingested** assets count toward formal coverage.
+Only Product Owner-approved **and formally ingested/adopted** assets count toward formal coverage.
 
-- Current Confirmed Core Coverage = `42 / 63`
-- Current Formal Core View Gap = `21`
-- Current Core Coverage = `66.7%`
-- Formal P1 completion = `2 / 10`
-- Newly published but not yet formally ingested Core views = `21`
+- Current Confirmed Core Coverage = `63 / 63`
+- Current Formal Core View Gap = `0`
+- Current Core Coverage = `100%`
+- Formal P1 completion = `10 / 10`
+- Published but not yet formally ingested Core views = `0`
+- D-070 adopted Asset IDs = `AST_IMG_000063–AST_IMG_000083`
+- Single Current = `63/63 PASS`
+- D-070 Audit = `42/42`
 
-Formally ingested P1 views remain:
-
-- Ning Qiushui `PROFILE_LEFT` = `CURRENT V002 / APPROVED / INGESTED`
-- Ning Qiushui `REAR_3Q_LEFT` = `CURRENT V001 / APPROVED / INGESTED`
-
-No 2026-09-21 publication is counted in formal coverage until Registry/Audit ingest succeeds.
+The 21 binaries published on 2026-09-21 now count in formal coverage through D-070 Registry/Audit adoption.
 
 ## 21-file exact-byte publication
 
@@ -76,7 +74,7 @@ Verification:
 - committed-binary SHA-256 verification = `21 / 21 SHA_MATCH`
 - PNG bytes were not re-encoded, resized, screenshotted, or regenerated during publication
 
-### P1｜8 published / formal ingest pending
+### P1｜8 published / D-070 formal adoption complete
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -89,7 +87,7 @@ Verification:
 | `CHAR_LIAO_JIAN_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 1,889,115 | `421a1bd6052bcf291a374dccededb32a25a5f6077cfad21168e90fa2b28664bd` |
 | `CHAR_LIAO_JIAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,917,221 | `2d3a223a7365a49f5b912df98aeb5fe18d4227507f5c093f42360399a7de91be` |
 
-### P2｜7 published / formal ingest pending
+### P2｜7 published / D-070 formal adoption complete
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -101,7 +99,7 @@ Verification:
 | `CHAR_CASTLE_YOUNG_MASTER_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png` | 2,030,361 | `142448eb20d63a9576e9600c15cfdc0b2885252517781659b36d086572764589` |
 | `CHAR_CASTLE_YOUNG_MASTER_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png` | 1,939,282 | `37e274912023d5bf3a1ec2e208910ecc3a23a5de2aca11d280c0097925f5225f` |
 
-### P3｜Black Lady 6 published / formal ingest pending
+### P3｜Black Lady 6 published / D-070 formal adoption complete
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -116,7 +114,7 @@ All 21 production PNGs are 941 × 1672.
 
 Black Lady rear-view mapping is permanently locked as shown above; do not swap LEFT/RIGHT.
 
-## Current ingest boundary
+## Historical pre-D-070 ingest boundary
 
 Current `scripts/automatic_ingest_controller_v0_1.py` assumes the canonical target path does not already exist. Because the 21 approved binaries were first safely published to their canonical paths, direct V0.1 ingest would fail with `Target already exists`.
 
@@ -124,23 +122,18 @@ This is an ingest-controller capability gap, not a binary or approval gap.
 
 ## Next task
 
-Next proposed Codex Cloud engineering task:
+D-070 is complete on PR #11 and awaits Product Owner merge approval.
 
-`D-070｜Published Binary Adoption + 21-Asset Automatic Ingest`
+Next execution after merge:
 
-Status tonight:
+`AO-06 / D-069｜Real Shot Spec Resolver + Shot-level Audit reverse-trace final validation`
 
-`NOT STARTED / D-NUMBER IS CONSUMED ONLY WHEN THE CODEX TASK ACTUALLY LAUNCHES`
+Boundary:
 
-Required result:
-
-1. add a minimal fail-closed adopt-existing/published-binary mode;
-2. preserve all 21 PNG bytes exactly;
-3. run read-only preflight for all 21;
-4. formally ingest 21/21 into Registry/Audit with Single Current/version safety;
-5. cross-check Derived Reference Sheet freshness/coverage implications after the 21 missing slots become formal;
-6. set formal Core Coverage to `63/63` only after all ingest checks pass;
-7. keep AO-06 / D-069 OPEN and P0.2 ACTIVE.
+1. keep P0.2 ACTIVE;
+2. keep P0.3 QUEUED / DO NOT START EARLY;
+3. do not regenerate existing Derived Reference Sheet PNGs as part of D-070;
+4. complete the remaining real Shot Spec → Resolver → Package → Actual Use → Audit evidence before P0.2 READY_FOR_APPROVAL.
 
 ## Governance note
 
