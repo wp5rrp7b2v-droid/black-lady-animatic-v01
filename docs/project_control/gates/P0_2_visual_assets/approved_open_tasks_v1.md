@@ -1,6 +1,6 @@
 # P0.2｜Approved-but-Open Tasks V1
 
-Status: `LOCKED / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL / P0.2 REMAINS ACTIVE`
+Status: `LOCKED / AO-01..AO-07 CLOSEOUT SATISFIED / P0.2 READY_FOR_APPROVAL`
 
 Approved by: `PRODUCT OWNER`
 
@@ -198,7 +198,7 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PRODUCT OWNER APPROVAL`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`
 
 Final end-to-end closeout evidence（2026-09-22）：
 
@@ -211,7 +211,7 @@ Final end-to-end closeout evidence（2026-09-22）：
 - Final audit validation run `35709208035`: immutability PASS; Shot→inputs PASS; Asset→use 3/3 PASS; targeted `13/13`; full regression `86/86`.
 - Registry / Relations / Audit Event Log remained `83 / 44 / 120`.
 - No `USES_REFERENCE` was created because the validation output is explicitly non-production and has no formal SHOT Asset ID; historical A04 relations remain `DO_NOT_RECONSTRUCT`.
-- No engineering evidence gap remains. AO-06 is now `READY_FOR_APPROVAL`, not yet COMPLETE / APPROVED.
+- No engineering evidence gap remains. Product Owner explicitly approved AO-06 on 2026-09-22.
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -337,12 +337,12 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PO APPROVAL
+6. AO-06｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
-AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前不存在 AO-06 工程证据缺口；剩余步骤仅为 Product Owner 对 AO-06 的正式批准。
+AO-01～AO-07 mandatory approved-open closeout set 已全部满足。P0.2 已完成 final readiness review，当前只等待 Product Owner 对 P0.2 Gate 的正式批准。
 
-`AO-06 → PRODUCT OWNER FINAL APPROVAL`
+`P0.2 → PRODUCT OWNER FINAL APPROVAL`
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
@@ -354,15 +354,15 @@ AO-06 end-to-end engineering evidence is complete and remotely verified through 
 
 Current governance state:
 
-- AO-06 = `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`;
-- do not mark AO-06 COMPLETE / APPROVED until explicit PO approval;
-- P0.2 remains ACTIVE until AO-06 approval is recorded and the final P0.2 readiness review is performed;
+- AO-06 = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`;
+- AO-01～AO-07 closeout requirements are satisfied;
+- P0.2 = `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`;
 - P0.3 remains QUEUED / DO NOT START EARLY;
 - local GitHub→Mac sync remains deferred to 2026-09-22 EOD as one consolidated sync.
 
 Next operational sequence:
 
-`PO AO-06 approval → P0.2 final readiness review → PO P0.2 decision → EOD local sync before local formal P0.3 work`
+`PO P0.2 decision → EOD local sync → only after P0.2 approval, prepare P0.3 entry`
 
 ## Non-blocking technical debt
 
