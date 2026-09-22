@@ -1,6 +1,6 @@
 # AO-06｜Stage 2｜A04 Real Shot Spec V0.1 + Resolver Contract
 
-Status: `APPROVED / PRODUCT OWNER APPROVED 2026-09-18`
+Status: `APPROVED 2026-09-18 / PARTIALLY SUPERSEDED BY PO-APPROVED REVIEW PATCH 02 ON 2026-09-22`
 
 Date: `2026-09-18`
 
@@ -435,3 +435,34 @@ All nine Stage 2 approval questions are accepted and locked.
 Stage 3 engineering is authorized under `D-069`.
 
 This approval does not mark AO-06 complete and does not release P1 Wave 2 or start P0.3.
+
+
+## Review Patch 02 override — 2026-09-22
+
+The Product Owner approved a narrower evidence boundary after recovery and direct review of the exact approved A04 binary.
+
+The following Stage 2 requirements are superseded for A04:
+
+- standalone formal `COSTUME_NEIL_DEFAULT` is no longer a required positive reference;
+- standalone formal `PROP_NEIL_CROSS` is no longer a required positive reference;
+- `WHITE_POCKET_HANDKERCHIEF_VISIBLE` is not a required A04 continuity fact.
+
+Current A04 continuity rule:
+
+- Neil black butler attire = required canonical appearance-continuity fact;
+- visible chest cross = required canonical appearance-continuity fact;
+- these are enforced under `CHAR_NEIL / DEFAULT` continuity plus approved A04 Shot evidence;
+- no standalone Costume/Prop visual Asset is fabricated or required merely to close AO-06.
+
+Current A04 Shot evidence rule:
+
+- exact evidence path:
+  `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`;
+- byte size:
+  `2486659`;
+- SHA-256:
+  `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`;
+- approved evidence controls composition / blocking / visible Shot facts;
+- historical `USES_REFERENCE` remains non-reconstructable.
+
+All other Stage 2 fail-closed rules remain in force.
