@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R074",
+  "state_revision": "R075",
   "last_updated": "2026-09-22",
-  "session_status": "D-070 MERGED + REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 D-069 CURRENT",
+  "session_status": "D-070 COMPLETE / D-069 REVIEW PATCH 02 MERGED + REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 ACTUAL USE + AUDIT REMAIN",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / CHARACTER CORE FORMAL COVERAGE COMPLETE 63/63 / AO-06 REMAINS OPEN",
-    "note": "D-070 formally adopts the 21 previously published Product Owner-approved Character Core PNGs as AST_IMG_000063–000083 without changing PNG bytes. Formal Character Core Coverage is now 63/63 with Single Current passing for every mandatory slot. AO-06 / D-069 remains mandatory before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
+    "status": "ACTIVE / CHARACTER CORE FORMAL COVERAGE COMPLETE 63/63 / AO-06 FINAL ACTUAL-USE VALIDATION REMAINS",
+    "note": "Character Core remains 63/63 formal. D-069 Review Patch 02 is squash-merged on main with exact approved A04 evidence materialized and verified; standalone Neil Costume/Cross visual-asset blockers are removed under the PO-approved continuity boundary. AO-06 still requires one real Actual Production Use plus immutable use record and reverse audit before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-06 / D-069｜RESUME FINAL REAL SHOT VALIDATION",
-  "blocker": "Character Core formal-ingest blocker is cleared. Remaining P0.2 blocker is AO-06 / D-069 real Shot Spec → Resolver → Package → Actual Use → Audit validation.",
-  "next_action": "Continue cloud-side work on AO-06 / D-069. Defer local GitHub→Mac sync until end of day, then perform one consolidated sync before any local formal production.",
+  "current_task": "AO-06 / D-069｜REAL REFERENCE PACKAGE → ACTUAL PRODUCTION USE → AUDIT REVERSE-TRACE",
+  "blocker": "A04 binary, Shot Spec/Resolver, Character/Scene resolution, and Neil appearance-continuity boundary are cleared. Remaining P0.2 blocker is AO-06 real Reference Package → Actual Production Use → immutable use record → reverse audit validation.",
+  "next_action": "Run the real A04 Reference Package from GitHub main, perform one traceable non-simulated production use, capture the actual input/use receipt, then write and verify the immutable Shot-level audit record and reverse trace. Keep local GitHub→Mac sync deferred until end of day.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,16 +106,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-D070-MERGED-LOCAL-SYNC-DEFERRED",
-    "status": "D-070 COMPLETE / REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 CURRENT",
+    "id": "2026-09-22-D069-RP02-MERGED",
+    "status": "D-069 REVIEW PATCH 02 MERGED + REMOTE VERIFIED / A04 EVIDENCE READY / AO-06 ACTUAL USE + AUDIT NEXT",
     "completed": [
-      "PR #11 squash-merged and remote verified.",
-      "Project Control updated after merge.",
-      "Local Mac sync intentionally deferred until end of day for one consolidated sync."
+      "PR #12 marked Ready and squash-merged after explicit Product Owner approval.",
+      "Merge SHA fdc43a907cb799eef3c11553b34bab74374ddd5c is GitHub main HEAD.",
+      "Exact approved A04 evidence remains byte-identical on main: 2486659 bytes / SHA-256 8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398.",
+      "D-069 targeted validation 13/13 PASS and full regression 86/86 PASS.",
+      "Standalone COSTUME_NEIL_DEFAULT / PROP_NEIL_CROSS formal visual-asset blockers removed for A04 by PO-approved continuity boundary; WHITE_POCKET_HANDKERCHIEF_VISIBLE removed as an A04 hard requirement."
     ],
-    "resume_from": "Continue AO-06 / D-069 work now; at end of day perform the consolidated local sync before any local formal production.",
+    "resume_from": "AO-06 real Reference Package → Actual Production Use → immutable use record → reverse audit. P0.3 remains queued.",
     "blockers": [
-      "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT"
+      "AO-06_ACTUAL_PRODUCTION_USE_AND_SHOT_LEVEL_AUDIT_REMAIN"
     ]
   },
   "visual_asset_management_system": {
@@ -267,8 +269,8 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "AO-06 / D-069 final-closeout validation.",
-    "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED",
+    "next_task": "AO-06 / D-069 real Reference Package → Actual Production Use → Shot-level Audit reverse-trace.",
+    "ao06_status": "D-069 REVIEW PATCH 02 MERGED / A04 EXACT EVIDENCE VERIFIED / RESOLVER READY / ACTUAL USE + AUDIT PENDING",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
       "all_core_visual_po_approved": 63,
@@ -291,6 +293,18 @@
       "po_review_pending": [],
       "formal_core_coverage": "63/63",
       "d070_asset_range": "AST_IMG_000063..AST_IMG_000083"
+    },
+    "ao06_review_patch_02": {
+      "pr_number": 12,
+      "merge_sha": "fdc43a907cb799eef3c11553b34bab74374ddd5c",
+      "validation_run": 35703125845,
+      "targeted_tests": "13/13 PASS",
+      "full_regression": "86/86 PASS",
+      "a04_path": "staging/d069_a04_intake/A04_REBOOT_approved_v001.png",
+      "a04_byte_size": 2486659,
+      "a04_sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
+      "boundary": "CHAR_NEIL DEFAULT appearance continuity + approved A04 evidence; no standalone Costume/Prop visual Asset required for A04",
+      "historical_uses_reference": "DO NOT RECONSTRUCT"
     }
   },
   "visual_asset_audit_preliminary": {
@@ -345,7 +359,7 @@
       ]
     },
     "remaining_checks": [
-      "AO-06 Validate one real Shot Spec with Character + Scene + key Costume/Prop through Resolver and shot-level Audit reverse-trace"
+      "AO-06 run one real A04 Reference Package through Actual Production Use and complete immutable Shot-level Audit reverse-trace."
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
   },
