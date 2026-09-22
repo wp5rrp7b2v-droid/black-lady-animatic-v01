@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R077",
+  "state_revision": "R078",
   "last_updated": "2026-09-22",
-  "session_status": "AO-06 COMPLETE + PO APPROVED / P0.2 READY_FOR_APPROVAL / WAITING PO APPROVAL / LOCAL SYNC DEFERRED TO EOD",
+  "session_status": "P0.2 PASS + PO APPROVED / P0.3 READY_TO_START / LOCAL SYNC REQUIRED BEFORE FORMAL LOCAL EXECUTION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -20,16 +20,16 @@
   },
   "overall_gate_progress": {
     "phase": "P0",
-    "passed": 1,
+    "passed": 2,
     "total": 3,
-    "percent": 33,
-    "status": "1 / 3 PASS"
+    "percent": 67,
+    "status": "2 / 3 PASS"
   },
   "current_gate": {
-    "id": "P0.2",
-    "name": "人物锚定与 Scene Master 资产治理",
-    "status": "READY_FOR_APPROVAL / CHARACTER CORE FORMAL 63/63 / AO-01..AO-07 CLOSEOUT SATISFIED",
-    "note": "AO-06 is now COMPLETE / VERIFIED / PRODUCT OWNER APPROVED. P0.2 final readiness review found no remaining mandatory engineering evidence gap: Character Core is 63/63 formal, AO-01..AO-07 closeout requirements are satisfied, real Resolver→Package→Actual Use→Audit was validated, and residual RISK-002 remains accepted/non-blocking. P0.2 is READY_FOR_APPROVAL but not PASS until explicit Product Owner approval."
+    "id": "P0.3",
+    "name": "视频制作与剪辑 Pipeline 再验证",
+    "status": "READY_TO_START / NOT YET VALIDATED",
+    "note": "P0.2 is PASS / PRODUCT OWNER APPROVED. P0.3 prerequisite is cleared, but P0.3 has not started or passed. Before any formal local production or Remotion/video execution, perform the deferred GitHub→Mac truth sync and verify the local working copy matches GitHub main."
   },
   "restart_tasks": [
     {
@@ -40,24 +40,25 @@
     {
       "id": "P0.2",
       "name": "人物锚定与 Scene Master 资产治理",
-      "status": "READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL"
+      "status": "PASS / PRODUCT OWNER APPROVED"
     },
     {
       "id": "P0.3",
       "name": "视频制作与剪辑 Pipeline 再验证",
-      "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
+      "status": "READY_TO_START / AUDIO RESOLVER REQUIREMENT LOCKED / LOCAL TRUTH SYNC REQUIRED"
     }
   ],
-  "current_task": "P0.2｜FINAL PRODUCT OWNER APPROVAL",
-  "blocker": "No engineering blocker remains for P0.2. The only remaining step is explicit Product Owner Gate approval.",
-  "next_action": "Product Owner reviews and explicitly approves or rejects P0.2. If approved, record P0.2 PASS / PRODUCT OWNER APPROVED, advance overall gate progress to 2/3, and only then prepare P0.3 entry. Keep local GitHub→Mac sync deferred until end of day before any local formal production.",
+  "current_task": "P0.3｜ENTRY REVIEW + LOCAL TRUTH SYNC BEFORE FORMAL EXECUTION",
+  "blocker": "No P0.2 blocker remains. P0.3 formal local execution is gated only by the previously deferred GitHub→Mac truth sync and P0.3 entry planning.",
+  "next_action": "Perform the consolidated EOD GitHub→Mac truth sync (git status → if clean git pull --ff-only origin main → verify local/remote HEAD), then conduct P0.3 entry review before launching any formal video-generation, animation, audio-alignment, editing, or Remotion validation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
     "pre_approval_status": "READY_FOR_APPROVAL / WAITING_PO_APPROVAL",
     "rule": "ChatGPT / Codex may review and recommend approval but may not mark PASS / APPROVED / CLOSED without explicit Product Owner approval in Chat.",
     "effective_from": "2026-09-12",
-    "p0_1_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12"
+    "p0_1_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12",
+    "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
     "status": "DEFERRED TO EOD 2026-09-22 / ONE CONSOLIDATED SYNC",
@@ -106,23 +107,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-AO06-PO-APPROVED-P02-READY",
-    "status": "AO-06 COMPLETE / VERIFIED / PO APPROVED / P0.2 READY_FOR_APPROVAL",
+    "id": "2026-09-22-P02-PO-APPROVED",
+    "status": "P0.2 PASS / PRODUCT OWNER APPROVED / P0.3 READY_TO_START",
     "completed": [
-      "Product Owner explicitly approved AO-06 on 2026-09-22.",
-      "AO-06 closeout evidence file recorded at docs/project_control/gates/P0_2_visual_assets/ao06_closeout_2026-09-22.md.",
-      "P0.2 mandatory Character Core coverage is 63/63 formal with zero gap.",
-      "AO-01..AO-07 mandatory closeout set has no remaining execution blocker.",
-      "Real A04 chain validated through Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit.",
-      "RISK-002 remains accepted / non-blocking / deferred improvement."
+      "Product Owner explicitly approved P0.2 on 2026-09-22.",
+      "P0.2 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/p0_2_closeout_2026-09-22.md.",
+      "Overall P0 gate progress advanced to 2/3 PASS.",
+      "P0.2 Character Core formal coverage remains 63/63 with zero gap.",
+      "AO-01..AO-07 closeout requirements are satisfied.",
+      "AO-06 remains COMPLETE / VERIFIED / PRODUCT OWNER APPROVED."
     ],
-    "resume_from": "Await explicit Product Owner P0.2 Gate approval. Do not start P0.3 before that approval.",
+    "resume_from": "Consolidated EOD GitHub→Mac truth sync, then P0.3 entry review. Do not claim P0.3 validation before new evidence.",
     "blockers": [
-      "PRODUCT_OWNER_APPROVAL_REQUIRED_FOR_P0_2"
+      "LOCAL_TRUTH_SYNC_REQUIRED_BEFORE_FORMAL_P0_3_LOCAL_EXECUTION"
     ]
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER SYSTEM VERIFIED / FORMAL CHARACTER CORE 63/63 / AO-06 PO APPROVED / P0.2 READY_FOR_APPROVAL",
+    "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -270,7 +271,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "P0.2 final Product Owner approval.",
+    "next_task": "P0.3 entry review after local truth sync.",
     "ao06_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
