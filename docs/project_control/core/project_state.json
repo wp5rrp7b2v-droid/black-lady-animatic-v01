@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R078",
+  "state_revision": "R079",
   "last_updated": "2026-09-22",
-  "session_status": "P0.2 PASS + PO APPROVED / P0.3 READY_TO_START / LOCAL SYNC REQUIRED BEFORE FORMAL LOCAL EXECUTION",
+  "session_status": "P0.2 PASS + PO APPROVED / LOCAL TRUTH SYNC COMPLETE / P0.3 ENTRY REVIEW NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
-    "status": "READY_TO_START / NOT YET VALIDATED",
-    "note": "P0.2 is PASS / PRODUCT OWNER APPROVED. P0.3 prerequisite is cleared, but P0.3 has not started or passed. Before any formal local production or Remotion/video execution, perform the deferred GitHub→Mac truth sync and verify the local working copy matches GitHub main."
+    "status": "READY_TO_START / LOCAL TRUTH SYNC COMPLETE / NOT YET VALIDATED",
+    "note": "P0.2 is PASS / PRODUCT OWNER APPROVED. The deferred GitHub→Mac truth sync completed successfully on 2026-09-22: local HEAD and origin/main both equal d3a62f05c3c47c83d4b0583f591a9d61b308f4e8. Two local untracked items remain intentionally outside Git: black_lady_character_asset_migration_v1.zip and production/audio/. P0.3 can now proceed to entry review; no P0.3 capability conclusion is yet established."
   },
   "restart_tasks": [
     {
@@ -45,12 +45,12 @@
     {
       "id": "P0.3",
       "name": "视频制作与剪辑 Pipeline 再验证",
-      "status": "READY_TO_START / AUDIO RESOLVER REQUIREMENT LOCKED / LOCAL TRUTH SYNC REQUIRED"
+      "status": "READY_TO_START / LOCAL TRUTH SYNC COMPLETE / ENTRY REVIEW NEXT"
     }
   ],
-  "current_task": "P0.3｜ENTRY REVIEW + LOCAL TRUTH SYNC BEFORE FORMAL EXECUTION",
-  "blocker": "No P0.2 blocker remains. P0.3 formal local execution is gated only by the previously deferred GitHub→Mac truth sync and P0.3 entry planning.",
-  "next_action": "Perform the consolidated EOD GitHub→Mac truth sync (git status → if clean git pull --ff-only origin main → verify local/remote HEAD), then conduct P0.3 entry review before launching any formal video-generation, animation, audio-alignment, editing, or Remotion validation.",
+  "current_task": "P0.3｜ENTRY REVIEW",
+  "blocker": "No current engineering blocker. Local GitHub→Mac truth sync is complete; P0.3 now awaits entry review and first representative validation-slice design.",
+  "next_action": "Conduct P0.3 entry review: review prior image/video/audio/animatic failures, define validation questions and failure criteria, then lock the first representative validation slice before any new formal P0.3 production run.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "DEFERRED TO EOD 2026-09-22 / ONE CONSOLIDATED SYNC",
+    "status": "COMPLETED 2026-09-22 / LOCAL HEAD == ORIGIN/MAIN",
     "rule": "For 2026-09-22, do not interrupt work for intermediate local pulls. Perform one consolidated GitHub→Mac sync at end of day. Before that sync, run git status; if clean, git pull --ff-only origin main; if not clean, stop and resolve before pulling.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -72,7 +72,12 @@
       "effective_until": "2026-09-20",
       "override": "LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL",
       "resume_rule": "Before any local formal production resumes, run git status, connectivity preflight, git pull --ff-only origin main, then local-vs-remote truth check."
-    }
+    },
+    "completed_head": "d3a62f05c3c47c83d4b0583f591a9d61b308f4e8",
+    "local_untracked_preserved": [
+      "black_lady_character_asset_migration_v1.zip",
+      "production/audio/"
+    ]
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -107,20 +112,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-P02-PO-APPROVED",
-    "status": "P0.2 PASS / PRODUCT OWNER APPROVED / P0.3 READY_TO_START",
+    "id": "2026-09-22-LOCAL-TRUTH-SYNC-COMPLETE",
+    "status": "P0.2 PASS / LOCAL TRUTH SYNC COMPLETE / P0.3 ENTRY REVIEW NEXT",
     "completed": [
-      "Product Owner explicitly approved P0.2 on 2026-09-22.",
-      "P0.2 closeout evidence recorded at docs/project_control/gates/P0_2_visual_assets/p0_2_closeout_2026-09-22.md.",
-      "Overall P0 gate progress advanced to 2/3 PASS.",
-      "P0.2 Character Core formal coverage remains 63/63 with zero gap.",
-      "AO-01..AO-07 closeout requirements are satisfied.",
-      "AO-06 remains COMPLETE / VERIFIED / PRODUCT OWNER APPROVED."
+      "Product Owner approved P0.2.",
+      "GitHub main remained d3a62f05c3c47c83d4b0583f591a9d61b308f4e8 during final sync.",
+      "Local main fast-forward sync completed through the verified AO-07 recovery path after one transient Empty reply from server.",
+      "Local HEAD = origin/main = d3a62f05c3c47c83d4b0583f591a9d61b308f4e8.",
+      "Tracked working tree has no reported modifications; two known untracked local items remain preserved."
     ],
-    "resume_from": "Consolidated EOD GitHub→Mac truth sync, then P0.3 entry review. Do not claim P0.3 validation before new evidence.",
-    "blockers": [
-      "LOCAL_TRUTH_SYNC_REQUIRED_BEFORE_FORMAL_P0_3_LOCAL_EXECUTION"
-    ]
+    "resume_from": "P0.3 entry review. Do not infer P0.3 capability from prior AO-06 image-generation proof.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
