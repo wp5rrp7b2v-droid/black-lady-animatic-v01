@@ -376,7 +376,7 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "P1 visual production complete; P2 visual production generated 7/7 with 6/7 PO approved. Resolve Castle Young Master REAR_3Q_LEFT PO review, batch-ingest approved views, and continue AO-06 as the only mandatory P0.2 system-closeout track.",
+    "next_task": "D-070 formal Character Core adoption is complete on PR #11; after merge, resume AO-06 / D-069 as the only mandatory P0.2 system-closeout track.",
     "resume_lock": "P1 sequencing HOLD was superseded by BL-D-039 / RC-020 on 2026-09-19. AO-06 no longer blocks P1 production but remains mandatory before P0.2 READY_FOR_APPROVAL.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
