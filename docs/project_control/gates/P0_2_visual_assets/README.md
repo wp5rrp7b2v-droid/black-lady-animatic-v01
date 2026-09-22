@@ -16,9 +16,31 @@ Status: `FORMAL CHARACTER CORE 63/63 / D-070 RESCUE PUBLICATION READY / AO-06 OP
 
 ---
 
+## AO-06 / D-069 Current Update｜2026-09-22
+
+Status: `REVIEW PATCH 02 MERGED / A04 EXACT EVIDENCE VERIFIED / ACTUAL USE + AUDIT PENDING`
+
+- PR #12 received explicit Product Owner merge approval and was squash-merged.
+- Merge SHA: `fdc43a907cb799eef3c11553b34bab74374ddd5c`.
+- Approved A04 evidence is now present on `main` at:
+  `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`.
+- Exact identity remains:
+  - byte size: `2486659`;
+  - SHA-256: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`.
+- Neil black butler attire + visible chest cross are enforced as `CHAR_NEIL / DEFAULT` appearance continuity for A04.
+- Standalone `COSTUME_NEIL_DEFAULT` / `PROP_NEIL_CROSS` visual Assets are not required to unblock this Shot.
+- `WHITE_POCKET_HANDKERCHIEF_VISIBLE` is no longer an A04 hard requirement.
+- Historical `USES_REFERENCE` remains non-reconstructable.
+- Validation run `35703125845`: targeted `13/13 PASS`; full regression `86/86 PASS`.
+- Remaining AO-06 chain:
+  `Reference Package → Actual Production Use → immutable use record → reverse audit`.
+- P0.2 remains ACTIVE. P0.3 remains QUEUED / DO NOT START EARLY.
+
+---
+
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / D-070 ADOPTION COMPLETE ON PR #11 / AO-06 FINAL CLOSEOUT`
+Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / D-069 REVIEW PATCH 02 MERGED / AO-06 ACTUAL USE + AUDIT FINAL CLOSEOUT`
 
 ## 前一权威检查点｜2026-09-21 EOD（历史）
 
