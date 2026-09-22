@@ -18,9 +18,9 @@ Status: `FORMAL CHARACTER CORE 63/63 / D-070 RESCUE PUBLICATION READY / AO-06 OP
 
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / CHARACTER CORE VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL INGEST PENDING / AO-06 PARALLEL CLOSEOUT`
+Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / D-070 ADOPTION COMPLETE ON PR #11 / AO-06 FINAL CLOSEOUT`
 
-## 当前权威检查点｜2026-09-21 EOD
+## 前一权威检查点｜2026-09-21 EOD（历史）
 
 - Character Core visual production：`63/63 PO APPROVED`；视觉缺口 = `0`。
 - 21 张新增 Core PNG 已 byte-for-byte 发布至 canonical GitHub paths。
@@ -216,22 +216,22 @@ Character Asset Gap Mapping V1 历史基线：
 - Core Coverage baseline = `63.5%`
 - Reference Sheet Gap = `9`
 
-当前 live production progress：
+当前 live formal progress：
 
-- Confirmed Core Coverage = `42 / 63`
-- Core View Gap = `21`
-- Core Coverage = `66.7%`
-- P1 completed = `2 / 10`
-- P1 remaining = `8 / 10`
+- Confirmed Core Coverage = `63 / 63`
+- Core View Gap = `0`
+- Core Coverage = `100%`
+- P1 completed = `10 / 10`
+- P1 remaining = `0 / 10`
 
 宁秋水：
 
 - `PROFILE_LEFT` = COMPLETE / APPROVED / CURRENT `V002 / AST_IMG_000050`
 - `REAR_3Q_LEFT` = COMPLETE / APPROVED / CURRENT `V001 / AST_IMG_000051`
-- Tier A current Core Coverage = `8 / 9`
-- Remaining non-P1 Core Gap = `FACE_3Q_LEFT`
+- Tier A current Core Coverage = `9 / 9`
+- Remaining non-P1 Core Gap = `NONE`
 
-P1 Character production 已由 Product Owner 于 2026-09-19 恢复。截至 EOD：君鹭远 `PROFILE_LEFT V002 / REAR_3Q_LEFT V001`、尼尔 `PROFILE_RIGHT V001 / REAR_3Q_RIGHT V001` 均已获 PO 视觉批准，但因 exact-byte transport/ingest 未完成，formal coverage 仍为 42/63、P1 仍为 2/10。当前生产目标为 `CHAR_SU_XIAOXIAO PROFILE_LEFT V001`；AO-06 仍须在 P0.2 final closeout 前完成，但不再阻塞 P1 production sequencing。
+P1 Character production 已完成 `10/10 PO APPROVED + 10/10 FORMAL`。D-070 已将全部 21 张 published-but-uningested Core PNG 正式纳入 Registry/Audit，Formal Character Core Coverage = `63/63`。当前不再有 Character Core ingest blocker；AO-06 / D-069 是 P0.2 唯一 remaining final-closeout track。
 
 ## P0.2-04｜Approved-but-Open System Closeout
 
