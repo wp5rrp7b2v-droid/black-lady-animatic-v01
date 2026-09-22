@@ -9,7 +9,7 @@
 | Gate | 核心问题 | 验收标准 | 当前状态 |
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL** |
+| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL** |
 | P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **QUEUED** |
 
 ## P0.1 PASS Evidence｜2026-09-12
@@ -47,7 +47,7 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 | 5 | Asset Registry / Dependency model | **VERIFIED FOR CHARACTER / SCENE / DERIVED; A04 EVIDENCE BOUNDARY EXPLICIT**：当前 Runtime Registry = 83 Assets；Character / Scene / Derived dependency model 已验证。A04 approved legacy Shot binary 作为 exact Shot evidence 单独 materialize，不伪造历史 formal SHOT Registry lineage，也不补造历史 USES_REFERENCE。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
 | 7 | Real Shot Spec Resolver | **VERIFIED END-TO-END / REAL ACTUAL USE COMPLETED**：A04 exact approved binary、Character + Scene Resolver、Neil appearance-continuity boundary、Reference Package 与真实 Actual Production Use 均已验证。Stage 4 GitHub Actions run `35705835709` 生成 `A04_REFERENCE_PACKAGE_V001`，Work 实际完成非模拟 image generation，manual Product Owner reference upload count = 0；service input SHA receipt = `NOT_AVAILABLE` 作为已记录服务限制。 |
-| 8 | Shot-level Audit reverse-trace | **VERIFIED END-TO-END / READY_FOR_APPROVAL**：PR #13 已 squash merge；`AO06_A04_USE_V001` immutable use record 已在 main。Shot→inputs 反查 PASS；`AST_IMG_000060 / 000059 / 000052` → A04 production-use 反查 3/3 PASS；duplicate-write rejection PASS；Registry / Relations / Audit Event Log 保持 `83 / 44 / 120` 不变；因 validation output 非 formal SHOT Asset，按边界不创建 `USES_REFERENCE`，也不补造历史关系。targeted `13/13`、full regression `86/86` PASS。 |
+| 8 | Shot-level Audit reverse-trace | **VERIFIED END-TO-END / PRODUCT OWNER APPROVED WITH AO-06**：PR #13 已 squash merge；`AO06_A04_USE_V001` immutable use record 已在 main。Shot→inputs 反查 PASS；`AST_IMG_000060 / 000059 / 000052` → A04 production-use 反查 3/3 PASS；duplicate-write rejection PASS；Registry / Relations / Audit Event Log 保持 `83 / 44 / 120` 不变；因 validation output 非 formal SHOT Asset，按边界不创建 `USES_REFERENCE`，也不补造历史关系。targeted `13/13`、full regression `86/86` PASS。Product Owner 于 2026-09-22 正式批准 AO-06。 |
 
 AO-02 completion evidence：
 
@@ -192,3 +192,29 @@ P0 不以“完成更多 A 系列镜头”作为进度指标。
 - Existing Derived Reference Sheet PNGs are **not regenerated or re-approved by D-070**; only the expected live Core coverage contract is refreshed.
 - P0.2 remains **ACTIVE**. AO-06 / D-069 remains the sole mandatory final-closeout requirement.
 - P0.3 remains **QUEUED / DO NOT START EARLY**.
+
+
+## P0.2 Final Readiness Review｜2026-09-22
+
+Result: **READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL**
+
+Cross-check conclusion:
+
+- Character Core formal coverage = `63/63`, gap = `0`;
+- AO-01 = COMPLETE / VERIFIED;
+- AO-02 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- AO-03 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- AO-04 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- AO-05 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- AO-06 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- AO-07 = COMPLETE / VERIFIED / PRODUCT OWNER APPROVED;
+- Automatic Ingest real path verified;
+- real A04 Shot Spec → Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit verified;
+- Asset Registry / dependency / Scene state / Derived Reference / audit boundaries remain consistent;
+- RISK-001 = CONTROLLED / MITIGATION VERIFIED;
+- RISK-002 = ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT;
+- no mandatory P0.2 engineering evidence gap remains.
+
+P0.2 is therefore eligible for Product Owner Gate approval.
+
+Per governance, this does **not** mark P0.2 PASS automatically. P0.3 remains QUEUED until explicit Product Owner P0.2 approval.
