@@ -985,3 +985,16 @@ Resume: Castle Rear-3Q PO decision → exact-byte publication / remote SHA / Aut
   - mandatory Single Current `63/63 PASS`;
   - AO-06 / D-069 still OPEN.
 - Project Control advanced to R073 to remove the pre-merge waiting state and set AO-06 / D-069 as the current task.
+
+
+## 2026-09-22｜Local Sync Deferral
+
+- Product Owner decision: defer GitHub→Mac local sync until end of day.
+- No intermediate local pull is required during the remaining cloud-side work.
+- At end of day, perform one consolidated sync.
+- Required sequence before the EOD pull:
+  1. `git status`
+  2. if clean, `git pull --ff-only origin main`
+  3. if not clean, stop and resolve local changes before pulling.
+- This deferral does not change GitHub `main` as SSOT.
+- Current project task remains `AO-06 / D-069`.
