@@ -177,6 +177,7 @@ jobs:
         run: |
           set -euo pipefail
           test -f production/audit/shot_use_records/AO06_A04_USE_V001.json
+          find scripts tests -type d -name __pycache__ -prune -exec rm -rf {} +
           echo "GIT_STATUS_BEGIN"
           git status --short --untracked-files=all
           echo "GIT_STATUS_END"
