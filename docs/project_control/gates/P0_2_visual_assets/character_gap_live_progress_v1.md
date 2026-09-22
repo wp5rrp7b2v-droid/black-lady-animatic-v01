@@ -116,7 +116,7 @@ Black Lady rear-view mapping is permanently locked as shown above; do not swap L
 
 ## Historical pre-D-070 ingest boundary
 
-Current `scripts/automatic_ingest_controller_v0_1.py` assumes the canonical target path does not already exist. Because the 21 approved binaries were first safely published to their canonical paths, direct V0.1 ingest would fail with `Target already exists`.
+Before D-070, `scripts/automatic_ingest_controller_v0_1.py` assumed the canonical target path did not already exist. Because the 21 approved binaries were first safely published to their canonical paths, direct V0.1 ingest would fail with `Target already exists`.
 
 This is an ingest-controller capability gap, not a binary or approval gap.
 
