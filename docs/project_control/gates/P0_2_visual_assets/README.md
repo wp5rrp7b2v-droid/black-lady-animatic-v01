@@ -32,7 +32,7 @@ Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`
 - No `USES_REFERENCE` was created because the validation output is non-production and has no formal SHOT Asset ID; historical A04 relation policy remains `DO_NOT_RECONSTRUCT`.
 - No engineering blocker remains for AO-06.
 - Product Owner explicitly approved AO-06 on 2026-09-22.
-- P0.2 final readiness review is complete and P0.2 is READY_FOR_APPROVAL; P0.3 remains QUEUED / DO NOT START EARLY.
+- P0.2 final readiness review is complete and Product Owner approved P0.2 on 2026-09-22; P0.3 is READY_TO_START / NOT YET VALIDATED.
 
 ---
 
