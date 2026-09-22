@@ -1,6 +1,6 @@
 # P0.2｜Approved-but-Open Tasks V1
 
-Status: `LOCKED / AO-01..AO-07 CLOSEOUT SATISFIED / P0.2 READY_FOR_APPROVAL`
+Status: `CLOSED / AO-01..AO-07 CLOSEOUT SATISFIED / P0.2 PASS / PRODUCT OWNER APPROVED`
 
 Approved by: `PRODUCT OWNER`
 
@@ -8,7 +8,7 @@ Date: `2026-09-13`
 
 > **2026-09-19 Product Owner override:** 本清单继续作为 P0.2 final closeout 的强制完成清单，但不再阻塞 P1 Character production sequencing。AO-06 仍必须在 P0.2 `READY_FOR_APPROVAL` 前 COMPLETE / VERIFIED；剩余 P1 8 项可先行生产。详见 BL-D-039 / RC-020。
 
-Latest closeout update: `2026-09-22 / D-069 FINAL AUDIT MERGED`
+Latest closeout update: `2026-09-22 / P0.2 PRODUCT OWNER APPROVED`
 
 ## Purpose
 
@@ -379,3 +379,12 @@ Resolver regression test 已在 AO-01 改为断言 `AST_IMG_000050` 为 CURRENT 
 - 该限制不阻塞 AO-05，因为现有证据链为：GitHub canonical SHA → GitHub Actions canonical-byte verification → artifact ZIP digest → Work 独立 SHA → actual multi-reference generation call。
 - Product Owner 于 2026-09-18 明确接受该限制作为 non-blocking residual audit risk，并要求未来服务能力允许时补齐。
 - 正式风险记录：`RISK-002 / ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`。
+
+
+## Final Closeout｜2026-09-22
+
+- AO-01..AO-07 mandatory approved-open closeout set is satisfied.
+- AO-06 is COMPLETE / VERIFIED / PRODUCT OWNER APPROVED.
+- Product Owner explicitly approved P0.2 on 2026-09-22.
+- This approved-open task list is therefore closed for P0.2.
+- P0.3 now owns subsequent video / animation / audio-alignment / editing validation work.
