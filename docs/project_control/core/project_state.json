@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R075",
+  "state_revision": "R076",
   "last_updated": "2026-09-22",
-  "session_status": "D-070 COMPLETE / D-069 REVIEW PATCH 02 MERGED + REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 ACTUAL USE + AUDIT REMAIN",
+  "session_status": "D-069 FINAL AUDIT MERGED + REMOTE VERIFIED / AO-06 READY_FOR_APPROVAL / WAITING PO APPROVAL / LOCAL SYNC DEFERRED TO EOD",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / CHARACTER CORE FORMAL COVERAGE COMPLETE 63/63 / AO-06 FINAL ACTUAL-USE VALIDATION REMAINS",
-    "note": "Character Core remains 63/63 formal. D-069 Review Patch 02 is squash-merged on main with exact approved A04 evidence materialized and verified; standalone Neil Costume/Cross visual-asset blockers are removed under the PO-approved continuity boundary. AO-06 still requires one real Actual Production Use plus immutable use record and reverse audit before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
+    "status": "ACTIVE / CHARACTER CORE FORMAL COVERAGE COMPLETE 63/63 / AO-06 READY_FOR_APPROVAL",
+    "note": "Character Core remains 63/63 formal. D-069 end-to-end A04 chain is now remotely verified through Real Shot Spec → Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit. PR #13 is squash-merged on main. AO-06 has no remaining engineering blocker and is READY_FOR_APPROVAL, but remains unapproved until explicit Product Owner approval. P0.2 therefore remains ACTIVE. P0.3 remains QUEUED / DO NOT START EARLY."
   },
   "restart_tasks": [
     {
@@ -40,7 +40,7 @@
     {
       "id": "P0.2",
       "name": "人物锚定与 Scene Master 资产治理",
-      "status": "ACTIVE / APPROVED-OPEN CLOSEOUT"
+      "status": "ACTIVE / AO-06 READY_FOR_APPROVAL / WAITING PO APPROVAL"
     },
     {
       "id": "P0.3",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "AO-06 / D-069｜REAL REFERENCE PACKAGE → ACTUAL PRODUCTION USE → AUDIT REVERSE-TRACE",
-  "blocker": "A04 binary, Shot Spec/Resolver, Character/Scene resolution, and Neil appearance-continuity boundary are cleared. Remaining P0.2 blocker is AO-06 real Reference Package → Actual Production Use → immutable use record → reverse audit validation.",
-  "next_action": "Run the real A04 Reference Package from GitHub main, perform one traceable non-simulated production use, capture the actual input/use receipt, then write and verify the immutable Shot-level audit record and reverse trace. Keep local GitHub→Mac sync deferred until end of day.",
+  "current_task": "AO-06｜FINAL PRODUCT OWNER APPROVAL",
+  "blocker": "No engineering blocker remains for AO-06. The only remaining step is explicit Product Owner approval under approval governance; P0.2 remains ACTIVE until that decision is recorded.",
+  "next_action": "Product Owner reviews and explicitly approves or rejects AO-06. If approved, record AO-06 COMPLETE / VERIFIED / PO APPROVED, then perform the P0.2 final readiness review. Keep local GitHub→Mac sync deferred until end of day.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,18 +106,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-D069-RP02-MERGED",
-    "status": "D-069 REVIEW PATCH 02 MERGED + REMOTE VERIFIED / A04 EVIDENCE READY / AO-06 ACTUAL USE + AUDIT NEXT",
+    "id": "2026-09-22-D069-FINAL-AUDIT-MERGED",
+    "status": "D-069 END-TO-END VERIFIED / AO-06 READY_FOR_APPROVAL / WAITING PO APPROVAL",
     "completed": [
-      "PR #12 marked Ready and squash-merged after explicit Product Owner approval.",
-      "Merge SHA fdc43a907cb799eef3c11553b34bab74374ddd5c is GitHub main HEAD.",
-      "Exact approved A04 evidence remains byte-identical on main: 2486659 bytes / SHA-256 8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398.",
-      "D-069 targeted validation 13/13 PASS and full regression 86/86 PASS.",
-      "Standalone COSTUME_NEIL_DEFAULT / PROP_NEIL_CROSS formal visual-asset blockers removed for A04 by PO-approved continuity boundary; WHITE_POCKET_HANDKERCHIEF_VISIBLE removed as an A04 hard requirement."
+      "PR #13 moved Draft → Ready and was squash-merged after Product Owner authorized the merge step.",
+      "PR #13 merge SHA 9ec2975059582bbd279d3a05d4af1284fac3f27a is remotely verified on main.",
+      "Immutable use record AO06_A04_USE_V001 is present on main and records the real Stage 4 production use.",
+      "Shot → inputs trace PASS for AST_IMG_000060 / AST_IMG_000059 / AST_IMG_000052.",
+      "Asset → production-use reverse trace PASS for all three formal inputs.",
+      "Registry / Relations / Audit Event Log counts remain 83 / 44 / 120; no USES_REFERENCE was fabricated.",
+      "Final audit validation run 35709208035 passed targeted 13/13 and full regression 86/86."
     ],
-    "resume_from": "AO-06 real Reference Package → Actual Production Use → immutable use record → reverse audit. P0.3 remains queued.",
+    "resume_from": "Await explicit Product Owner AO-06 approval. If approved, close AO-06 and perform P0.2 final readiness review.",
     "blockers": [
-      "AO-06_ACTUAL_PRODUCTION_USE_AND_SHOT_LEVEL_AUDIT_REMAIN"
+      "PRODUCT_OWNER_APPROVAL_REQUIRED_FOR_AO06"
     ]
   },
   "visual_asset_management_system": {
@@ -269,8 +271,8 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "AO-06 / D-069 real Reference Package → Actual Production Use → Shot-level Audit reverse-trace.",
-    "ao06_status": "D-069 REVIEW PATCH 02 MERGED / A04 EXACT EVIDENCE VERIFIED / RESOLVER READY / ACTUAL USE + AUDIT PENDING",
+    "next_task": "AO-06 final Product Owner approval, then P0.2 final readiness review.",
+    "ao06_status": "READY_FOR_APPROVAL / END-TO-END REAL A04 VALIDATION VERIFIED / WAITING PRODUCT OWNER APPROVAL",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
       "all_core_visual_po_approved": 63,
@@ -305,6 +307,21 @@
       "a04_sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
       "boundary": "CHAR_NEIL DEFAULT appearance continuity + approved A04 evidence; no standalone Costume/Prop visual Asset required for A04",
       "historical_uses_reference": "DO NOT RECONSTRUCT"
+    },
+    "ao06_final_audit": {
+      "pr_number": 13,
+      "merge_sha": "9ec2975059582bbd279d3a05d4af1284fac3f27a",
+      "validation_run": 35709208035,
+      "use_record_id": "AO06_A04_USE_V001",
+      "use_record_path": "production/audit/shot_use_records/AO06_A04_USE_V001.json",
+      "use_record_sha256": "5186c087c37bb391cd3e2b0b92d9748d9454d6118f64c2ba1cac11c20f67152d",
+      "targeted_tests": "13/13 PASS",
+      "full_regression": "86/86 PASS",
+      "shot_to_inputs": "PASS",
+      "asset_to_use_reverse_trace": "PASS / 3 of 3",
+      "registry_relations_audit_counts": "83 / 44 / 120 unchanged",
+      "uses_reference_created": "NO / intentionally not applicable to non-production validation output",
+      "approval_status": "WAITING_PRODUCT_OWNER_APPROVAL"
     }
   },
   "visual_asset_audit_preliminary": {
@@ -359,7 +376,7 @@
       ]
     },
     "remaining_checks": [
-      "AO-06 run one real A04 Reference Package through Actual Production Use and complete immutable Shot-level Audit reverse-trace."
+      "Product Owner final approval of AO-06; no engineering evidence gap remains."
     ],
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
   },
