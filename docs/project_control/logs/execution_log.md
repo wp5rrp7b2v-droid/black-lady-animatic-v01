@@ -949,3 +949,23 @@ Resume: Castle Rear-3Q PO decision → exact-byte publication / remote SHA / Aut
 - Published PNGs were not changed by the rescue transaction.
 - Existing Derived Reference Sheet PNGs remain unchanged; builder expected live coverage updated to complete Tier distribution.
 - AO-06 / D-069 remains OPEN and mandatory before P0.2 final approval. P0.3 remains QUEUED.
+
+
+## 2026-09-22｜D-070 PR #11 Formal Review
+
+- PR #11 underwent code, Registry/Audit, binary-integrity and Project Control consistency review.
+- Review Patch fixed post-commit invariant rollback ordering, scoped version reservation to adopt-existing only, and corrected rescue audit provenance/time semantics.
+- First temporary validation run exposed a normal-supersession regression in the reservation logic; the regression was fixed before approval.
+- Final GitHub Actions validation run `35678375411` passed:
+  - targeted tests `15/15`;
+  - full regression `86/86`;
+  - all 21 D-070 canonical PNG SHA/byte/path checks;
+  - Registry/Audit/Relations `83/120/44`;
+  - D-070 `21 assets / 42 events / 0 relations`;
+  - mandatory Character Core Single Current `63/63`;
+  - Derived Reference Sheet live-coverage contract;
+  - Project Control JSON and diff hygiene.
+- Temporary review workflow removed after PASS; final PR changed-file scope = `13`, with no PNG, `production/audio/`, or ZIP change.
+- Review conclusion: `PASS / READY_FOR_PRODUCT_OWNER_MERGE_APPROVAL`.
+- Required merge method: `SQUASH` so rescue/review intermediate commits do not enter canonical main history.
+- P0.2 remains ACTIVE; AO-06 / D-069 remains OPEN; P0.3 remains QUEUED.
