@@ -1112,3 +1112,22 @@ Status: `P0.2 PASS / PRODUCT OWNER APPROVED / P0.3 READY_TO_START`
 - Before formal local P0.3 execution, the deferred GitHub→Mac truth sync is required.
 - Current next task:
   `P0.3｜ENTRY REVIEW + LOCAL TRUTH SYNC BEFORE FORMAL EXECUTION`.
+
+
+## Local Truth Sync Complete｜2026-09-22
+
+Status: `COMPLETE / LOCAL HEAD == ORIGIN/MAIN`
+
+- Initial ordinary `git pull --ff-only origin main` failed with `Empty reply from server`.
+- AO-07 verified recovery path was used via `$HOME/.local/bin/git-proxy-auto`.
+- Sync then completed successfully.
+- Final local truth:
+  - branch: `main`
+  - local HEAD: `d3a62f05c3c47c83d4b0583f591a9d61b308f4e8`
+  - `origin/main`: `d3a62f05c3c47c83d4b0583f591a9d61b308f4e8`
+- Known untracked local items remain preserved:
+  - `black_lady_character_asset_migration_v1.zip`
+  - `production/audio/`
+- These untracked paths are not present on GitHub main and did not block the fast-forward sync.
+- P0.3 local-entry prerequisite is satisfied.
+- Next: `P0.3｜ENTRY REVIEW`.
