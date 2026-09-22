@@ -270,6 +270,8 @@ def main() -> int:
         raise IngestError("Blocked: --po-approved is required after explicit Product Owner approval.")
     if a.inspect_current and a.supersede_current:
         raise IngestError("--inspect-current cannot be combined with --supersede-current")
+    if a.inspect_current and (a.adopt_existing or a.reserve_version):
+        raise IngestError("--inspect-current cannot be combined with adoption/version-reservation flags")
     if a.adopt_existing and a.supersede_current:
         raise IngestError("--adopt-existing cannot be combined with --supersede-current")
     if a.reserve_version and not a.adopt_existing:
@@ -571,7 +573,7 @@ def main() -> int:
     audit_data = (before[audit_path] or b"") + jsonl_bytes(events)
     relation_data = (before.get(relations_path) or b"") + jsonl_bytes([relation]) if relation else None
 
-    def commit_formal_files(commit_mode: str) -> None:
+    def write_and_stage_formal_files() -> None:
         atomic_bytes(registry_path, registry_data)
         if relation_data is not None:
             atomic_bytes(relations_path, relation_data)
@@ -583,16 +585,17 @@ def main() -> int:
                 "Safety stop: staged set differs from expected.\n"
                 f"Expected: {sorted(touched)}\nActual: {sorted(actual_staged)}"
             )
-        git(repo, "commit", "-m", f"P0.2 {commit_mode} {entity} {role} {vtag}")
 
     if a.adopt_existing:
         # The canonical PNG is already the approved Git-tracked binary. Never copy, delete,
         # rewrite, re-encode, replace, or stage it in adoption mode.
         binary_before = sha256(target)
         try:
-            commit_formal_files("adopt")
+            write_and_stage_formal_files()
+            # Check the binary invariant before creating a commit so rollback remains complete.
             if sha256(target) != binary_before or binary_before != digest:
                 raise IngestError("Adopt-existing invariant failed: canonical PNG bytes changed")
+            git(repo, "commit", "-m", f"P0.2 adopt {entity} {role} {vtag}")
         except Exception as write_error:
             git(repo, "reset", "HEAD", "--", *touched, check=False)
             rollback_errors = []
@@ -621,7 +624,8 @@ def main() -> int:
             try:
                 os.replace(copied_name, target)
                 fsync_dir(target.parent)
-                commit_formal_files("supersede" if old else "ingest")
+                write_and_stage_formal_files()
+                git(repo, "commit", "-m", f"P0.2 {'supersede' if old else 'ingest'} {entity} {role} {vtag}")
             except Exception as write_error:
                 git(repo, "reset", "HEAD", "--", *touched, check=False)
                 rollback_errors = []
