@@ -1,6 +1,6 @@
 ## D-070 Current Update｜2026-09-22
 
-Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 READY_FOR_APPROVAL`
+Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 PRODUCT OWNER APPROVED / P0.2 READY_FOR_APPROVAL`
 
 - The 21 already-published PO-approved Character Core PNGs are formally admitted as `AST_IMG_000063–AST_IMG_000083`.
 - Registry = `83` Assets.
@@ -11,14 +11,14 @@ Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 READY_FOR_APPROVAL
 - `--adopt-existing` is fail-closed and never rewrites the existing canonical PNG.
 - Jun Luyuan `PROFILE_LEFT V002` requires explicit contiguous reservation of rejected/do-not-ingest `V001`; unacknowledged version skipping remains blocked.
 - Existing Derived Reference Sheet PNGs are not modified by D-070.
-- AO-06 / D-069 end-to-end engineering evidence is complete; AO-06 is now READY_FOR_APPROVAL and awaits explicit Product Owner approval.
-- P0.2 remains ACTIVE until that approval is recorded; P0.3 remains QUEUED / DO NOT START EARLY.
+- AO-06 / D-069 end-to-end engineering evidence is complete and Product Owner approved on 2026-09-22.
+- P0.2 final readiness review found no remaining mandatory engineering gap; P0.2 is READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY.
 
 ---
 
 ## AO-06 / D-069 Current Update｜2026-09-22
 
-Status: `READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PRODUCT OWNER APPROVAL`
+Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`
 
 - PR #12 merged the PO-approved A04 evidence-boundary correction and exact A04 evidence.
 - Real Resolver selected `AST_IMG_000060 / AST_IMG_000059 / AST_IMG_000052`.
@@ -31,14 +31,31 @@ Status: `READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PRODUCT OWNER APPROV
 - Registry / Relations / Audit Event Log remain `83 / 44 / 120`.
 - No `USES_REFERENCE` was created because the validation output is non-production and has no formal SHOT Asset ID; historical A04 relation policy remains `DO_NOT_RECONSTRUCT`.
 - No engineering blocker remains for AO-06.
-- AO-06 is not yet COMPLETE / APPROVED; explicit Product Owner approval is still required.
-- P0.2 remains ACTIVE. P0.3 remains QUEUED / DO NOT START EARLY.
+- Product Owner explicitly approved AO-06 on 2026-09-22.
+- P0.2 final readiness review is complete and P0.2 is READY_FOR_APPROVAL; P0.3 remains QUEUED / DO NOT START EARLY.
+
+---
+
+## P0.2 Final Readiness｜2026-09-22
+
+Status: `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`
+
+Final readiness findings:
+
+- Character Core formal coverage = `63/63`;
+- AO-01..AO-07 mandatory closeout set = satisfied;
+- AO-06 = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`;
+- real A04 Resolver → Package → Actual Production Use → immutable use record → reverse audit = verified;
+- RISK-002 remains accepted / non-blocking;
+- no mandatory P0.2 engineering evidence gap remains.
+
+P0.2 is not PASS until explicit Product Owner Gate approval. P0.3 remains QUEUED / DO NOT START EARLY.
 
 ---
 
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `ACTIVE / CHARACTER CORE FORMAL 63/63 / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`
+Status: `READY_FOR_APPROVAL / CHARACTER CORE FORMAL 63/63 / AO-01..AO-07 CLOSEOUT SATISFIED`
 
 ## 前一权威检查点｜2026-09-21 EOD（历史）
 
