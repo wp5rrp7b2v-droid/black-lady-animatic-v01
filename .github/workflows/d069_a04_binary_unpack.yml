@@ -6,6 +6,7 @@ on:
       - work/d069-a04-binary-intake-r074
     paths:
       - staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip
+      - .github/workflows/d069_a04_binary_unpack.yml
 
 permissions:
   contents: write
@@ -30,15 +31,8 @@ jobs:
           EXPECTED_SIZE="2486659"
 
           test -f "$ZIP"
-          python - <<'PY'
-import zipfile, pathlib
-z = pathlib.Path("staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip")
-out = pathlib.Path("staging/d069_a04_intake/A04_REBOOT_approved_v001.png")
-with zipfile.ZipFile(z, "r") as f:
-    names = f.namelist()
-    assert names == ["A04_REBOOT_approved_v001.png"], names
-    out.write_bytes(f.read("A04_REBOOT_approved_v001.png"))
-PY
+          test "$(unzip -Z1 "$ZIP")" = "A04_REBOOT_approved_v001.png"
+          unzip -p "$ZIP" A04_REBOOT_approved_v001.png > "$OUT"
 
           ACTUAL_SIZE="$(wc -c < "$OUT" | tr -d ' ')"
           ACTUAL_SHA="$(sha256sum "$OUT" | awk '{print $1}')"
