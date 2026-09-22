@@ -9,7 +9,7 @@
 | Gate | 核心问题 | 验收标准 | 当前状态 |
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / P1 CHARACTER PRODUCTION RESUMED / AO-06 PARALLEL CLOSEOUT** |
+| P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **ACTIVE / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL** |
 | P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **QUEUED** |
 
 ## P0.1 PASS Evidence｜2026-09-12
@@ -46,8 +46,8 @@ P0.2 不能仅凭文档设计进入 PASS。至少需要：
 | 4 | Scene / Costume / Prop / Variant 规则可执行 | **VERIFIED / AO-03 COMPLETE / PRODUCT OWNER APPROVED**：AO-03A+B 均获 Product Owner 批准；D-067 已实现两个 Stable Scene Entity、多维 State Profile、formal Scene Master 映射及显式 state-aware Resolver；DAY+OPEN / FIREPLACE_EXTINGUISHED 正向案例与 NIGHT / CLOSED / BURNING / missing-state / UNSPECIFIED 负向案例通过。AO-03 最终 DoD 已审核通过，PR #6 已合并。 |
 | 5 | Asset Registry / Dependency model | **VERIFIED FOR CHARACTER / SCENE / DERIVED; A04 EVIDENCE BOUNDARY EXPLICIT**：当前 Runtime Registry = 83 Assets；Character / Scene / Derived dependency model 已验证。A04 approved legacy Shot binary 作为 exact Shot evidence 单独 materialize，不伪造历史 formal SHOT Registry lineage，也不补造历史 USES_REFERENCE。 |
 | 6 | Automatic Ingest | **VERIFIED**：`AST_IMG_000049` 首次 ingest、`AST_IMG_000050` controlled supersession、`AST_IMG_000051` normal ingest 均真实成功；Product Owner 无需手工分配 Asset ID、登记 Registry 或维护替代关系。 |
-| 7 | Real Shot Spec Resolver | **ENGINEERING + EVIDENCE BOUNDARY VALIDATED / ACTUAL USE PENDING**：PR #12 已经 PO 批准并 squash merge。A04 exact approved binary 已 materialize 并校验 2,486,659 bytes / SHA-256 `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`；Character + Scene 自动解析正常；Neil 黑色管家服 + 胸前十字架按 `CHAR_NEIL / DEFAULT` appearance continuity 处理，不再要求独立 Costume/Prop visual Asset；targeted 13/13、full regression 86/86 PASS。剩余：真实 Reference Package → Actual Production Use。 |
-| 8 | Shot-level Audit reverse-trace | **ENGINEERING FOUNDATION VERIFIED / END-TO-END ACTUAL USE PENDING**：immutable use record、Shot→inputs、Asset→use、sandbox USES_REFERENCE forward/reverse query 与 rollback 已实现并测试；不补造 A04 历史 USES_REFERENCE。待一次真实 Actual Production Use 后写入实际 use record，并完成 Shot→inputs 与 Asset→production-use 反查。 |
+| 7 | Real Shot Spec Resolver | **VERIFIED END-TO-END / REAL ACTUAL USE COMPLETED**：A04 exact approved binary、Character + Scene Resolver、Neil appearance-continuity boundary、Reference Package 与真实 Actual Production Use 均已验证。Stage 4 GitHub Actions run `35705835709` 生成 `A04_REFERENCE_PACKAGE_V001`，Work 实际完成非模拟 image generation，manual Product Owner reference upload count = 0；service input SHA receipt = `NOT_AVAILABLE` 作为已记录服务限制。 |
+| 8 | Shot-level Audit reverse-trace | **VERIFIED END-TO-END / READY_FOR_APPROVAL**：PR #13 已 squash merge；`AO06_A04_USE_V001` immutable use record 已在 main。Shot→inputs 反查 PASS；`AST_IMG_000060 / 000059 / 000052` → A04 production-use 反查 3/3 PASS；duplicate-write rejection PASS；Registry / Relations / Audit Event Log 保持 `83 / 44 / 120` 不变；因 validation output 非 formal SHOT Asset，按边界不创建 `USES_REFERENCE`，也不补造历史关系。targeted `13/13`、full regression `86/86` PASS。 |
 
 AO-02 completion evidence：
 
@@ -71,6 +71,19 @@ AO-03 completion evidence：
 - D-067 full regression：`54 tests / OK`。
 - PR #6：`AO-03: add executable Scene registry and state-aware resolver`。
 - Merge SHA：`b16ffdd5f1c57f0b2c28acdee3caac656afb91a3`。
+
+AO-06 final validation evidence：
+
+- Stage 4 Actual Production Use：GitHub Actions run `35705835709`；
+- Reference Package：`A04_REFERENCE_PACKAGE_V001` / Artifact `10684566525` / SHA-256 `3f1d5fb1b3d54cdfd0ff1c0c6d25df85cd1e78f066e9a8269419943612fc916e`；
+- Actual generation proof：`imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea`；
+- Final immutable use record：`production/audit/shot_use_records/AO06_A04_USE_V001.json`；
+- PR #13 merge SHA：`9ec2975059582bbd279d3a05d4af1284fac3f27a`；
+- Final audit validation run：`35709208035`；
+- Shot→inputs PASS；Asset→use 3/3 PASS；immutability PASS；
+- Registry / Relations / Audit Event Log = `83 / 44 / 120` unchanged；
+- `USES_REFERENCE_CREATED = NO` by design for non-production validation output；
+- AO-06 current status: `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`.
 
 AO-07 completion evidence：
 
