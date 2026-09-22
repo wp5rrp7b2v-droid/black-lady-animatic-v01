@@ -1,0 +1,39 @@
+name: D-069 Review Patch 02 Validation
+
+on:
+  push:
+    branches:
+      - chatgpt/d069-review-patch-02
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout patch branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install locked dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Verify approved A04 binary identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE="staging/d069_a04_intake/A04_REBOOT_approved_v001.png"
+          test -f "$FILE"
+          test "$(wc -c < "$FILE" | tr -d ' ')" = "2486659"
+          test "$(sha256sum "$FILE" | awk '{print $1}')" = "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398"
+
+      - name: Targeted D-069 tests
+        run: python -m unittest discover -s tests -p 'test_d069_a04_shot_pipeline.py' -v
+
+      - name: Full regression
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
