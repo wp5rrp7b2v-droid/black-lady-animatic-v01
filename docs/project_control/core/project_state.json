@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R073",
+  "state_revision": "R074",
   "last_updated": "2026-09-22",
-  "session_status": "D-070 PR #11 SQUASH-MERGED + REMOTE VERIFIED / CHARACTER CORE 63/63 / AO-06 D-069 OPEN / P0.2 ACTIVE / P0.3 QUEUED",
+  "session_status": "D-070 MERGED + REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 D-069 CURRENT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -50,7 +50,7 @@
   ],
   "current_task": "AO-06 / D-069｜RESUME FINAL REAL SHOT VALIDATION",
   "blocker": "Character Core formal-ingest blocker is cleared. Remaining P0.2 blocker is AO-06 / D-069 real Shot Spec → Resolver → Package → Actual Use → Audit validation.",
-  "next_action": "Resume AO-06 / D-069 real Shot Spec → Resolver → Package → Actual Use → Audit validation. Keep P0.2 ACTIVE and P0.3 QUEUED / DO NOT START EARLY.",
+  "next_action": "Continue cloud-side work on AO-06 / D-069. Defer local GitHub→Mac sync until end of day, then perform one consolidated sync before any local formal production.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -60,8 +60,8 @@
     "p0_1_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-12"
   },
   "local_sync_reminder": {
-    "status": "LOCKED",
-    "rule": "After every actual ChatGPT write/update to the canonical GitHub repo, the user-facing reply must remind Product Owner to sync the local working copy.",
+    "status": "DEFERRED TO EOD 2026-09-22 / ONE CONSOLIDATED SYNC",
+    "rule": "For 2026-09-22, do not interrupt work for intermediate local pulls. Perform one consolidated GitHub→Mac sync at end of day. Before that sync, run git status; if clean, git pull --ff-only origin main; if not clean, stop and resolve before pulling.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
     "temporary_exception": {
@@ -106,18 +106,14 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-D070-MERGED-REMOTE-VERIFIED",
-    "status": "D-070 COMPLETE / PR #11 SQUASH-MERGED / REMOTE VERIFIED / AO-06 NEXT",
+    "id": "2026-09-22-D070-MERGED-LOCAL-SYNC-DEFERRED",
+    "status": "D-070 COMPLETE / REMOTE VERIFIED / LOCAL SYNC DEFERRED TO EOD / AO-06 CURRENT",
     "completed": [
-      "PR #11 was explicitly approved by Product Owner and squash-merged to main.",
-      "Merge SHA 6dc3171bba701c22a97580eadc06f62f391b5fe1 independently verified on GitHub remote.",
-      "Runtime Registry = 83; Audit = 120; Relations = 44.",
-      "D-070 formal adoption = 21 assets / 42 audit events / 0 relations.",
-      "Formal Character Core Coverage = 63/63; mandatory Single Current = 63/63 PASS.",
-      "AO-06 / D-069 remains OPEN and is the only remaining mandatory P0.2 final-closeout track.",
-      "P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY."
+      "PR #11 squash-merged and remote verified.",
+      "Project Control updated after merge.",
+      "Local Mac sync intentionally deferred until end of day for one consolidated sync."
     ],
-    "resume_from": "AO-06 / D-069 final real-shot validation.",
+    "resume_from": "Continue AO-06 / D-069 work now; at end of day perform the consolidated local sync before any local formal production.",
     "blockers": [
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT"
     ]
