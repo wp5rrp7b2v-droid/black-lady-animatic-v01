@@ -1,0 +1,185 @@
+name: D-069 Final Audit Writeback
+
+on:
+  push:
+    branches:
+      - work/d069-final-audit-writeback-r075
+
+permissions:
+  contents: write
+
+jobs:
+  writeback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install locked dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Create immutable actual-use record and verify reverse trace
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts")
+          import shot_use_audit_v0_1 as audit
+
+          root = Path(".")
+          use_path = root / "production/audit/shot_use_records/AO06_A04_USE_V001.json"
+          if use_path.exists() or use_path.is_symlink():
+              raise SystemExit("FAIL: use record already exists before first write")
+
+          def line_count(path):
+              return sum(1 for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip())
+
+          registry = "production/asset_registry/asset_registry.jsonl"
+          relations = "production/asset_registry/asset_relations.jsonl"
+          audit_log = "production/asset_registry/audit_event_log.jsonl"
+
+          before = {
+              "registry": line_count(registry),
+              "relations": line_count(relations),
+              "audit": line_count(audit_log),
+          }
+
+          row = {
+              "use_record_id": "AO06_A04_USE_V001",
+              "shot_spec_id": "A04_SPEC_V001",
+              "shot_id": "A04",
+              "package_id": "A04_REFERENCE_PACKAGE_V001",
+              "source_commit": "4e074d272b411d50dbfef4bfcfcc31fe83e95a80",
+              "resolver_version": "SHOT_REFERENCE_RESOLVER_V0_1",
+              "input_asset_ids": [
+                  "AST_IMG_000060",
+                  "AST_IMG_000059",
+                  "AST_IMG_000052"
+              ],
+              "input_versions": [1, 1, 1],
+              "input_sha256": [
+                  "15ec6c2682da0fe2502267bde21e9bc0bd7104bbf3e6041521121cc69a0e77be",
+                  "964445754ec69dcfeace287d46b2964a6d5044c59950c5ede5553859e1e229de",
+                  "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961"
+              ],
+              "input_order": [1, 2, 3],
+              "delivery_artifact_digest": "sha256:3f1d5fb1b3d54cdfd0ff1c0c6d25df85cd1e78f066e9a8269419943612fc916e",
+              "generation_environment": "OpenAI built-in image generation / ChatGPT Work",
+              "request_or_proof_identifier": "GitHub run 35705835709 / Artifact 10684566525 / imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea",
+              "manual_product_owner_reference_upload_count": 0,
+              "service_input_sha_receipt": "NOT_AVAILABLE",
+              "result": "NON_PRODUCTION_VALIDATION_OUTPUT_GENERATED",
+              "created_at": datetime.now(timezone.utc).isoformat(),
+              "scene_state": {
+                  "time_of_day": "DAY",
+                  "main_door": "OPEN"
+              },
+              "blockers": [],
+              "shot_evidence": {
+                  "filename": "A04_REBOOT_approved_v001.png",
+                  "storage_uri": "staging/d069_a04_intake/A04_REBOOT_approved_v001.png",
+                  "sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
+                  "byte_size": 2486659,
+                  "provenance_status": "PARTIAL",
+                  "resolver_usage": "EVIDENCE_ONLY",
+                  "historical_uses_reference_policy": "DO_NOT_RECONSTRUCT"
+              },
+              "reference_package_proof": {
+                  "github_actions_run_id": 35705835709,
+                  "artifact_id": 10684566525,
+                  "artifact_sha256": "3f1d5fb1b3d54cdfd0ff1c0c6d25df85cd1e78f066e9a8269419943612fc916e"
+              },
+              "production_output": {
+                  "formal_asset": False,
+                  "output_class": "NON_PRODUCTION_VALIDATION_OUTPUT",
+                  "filename": "exec-ae7fde3c-02a5-4106-beaa-69704b9164ea.png",
+                  "sha256": "13b90caa908049e9afb4f7bce10f505fa5a60c408a8cb87dcd4dd2e6dc1180f3",
+                  "byte_size": 1748548,
+                  "dimensions": [941, 1672],
+                  "registry_admission": False
+              }
+          }
+
+          audit.write_use_record(row, root)
+
+          try:
+              audit.write_use_record(row, root)
+          except FileExistsError:
+              print("IMMUTABILITY_CHECK=PASS")
+          else:
+              raise SystemExit("FAIL: immutable use record was overwriteable")
+
+          shot_rows = audit.query_shot("A04", root)
+          match = next((r for r in shot_rows if r["use_record_id"] == "AO06_A04_USE_V001"), None)
+          if match is None:
+              raise SystemExit("FAIL: Shot -> inputs trace missing")
+          if match["input_asset_ids"] != row["input_asset_ids"]:
+              raise SystemExit("FAIL: Shot -> input asset IDs mismatch")
+          if match["input_versions"] != row["input_versions"]:
+              raise SystemExit("FAIL: Shot -> versions mismatch")
+          if match["input_sha256"] != row["input_sha256"]:
+              raise SystemExit("FAIL: Shot -> SHA mismatch")
+
+          for asset_id in row["input_asset_ids"]:
+              asset_rows = audit.query_asset(asset_id, root)
+              trace = next((r for r in asset_rows if r["use_record_id"] == row["use_record_id"]), None)
+              if trace is None:
+                  raise SystemExit(f"FAIL: reverse trace missing for {asset_id}")
+              if trace["shot_id"] != "A04" or trace["package_id"] != "A04_REFERENCE_PACKAGE_V001":
+                  raise SystemExit(f"FAIL: reverse trace mismatch for {asset_id}")
+              print(f"ASSET_TRACE_PASS={asset_id}")
+
+          after = {
+              "registry": line_count(registry),
+              "relations": line_count(relations),
+              "audit": line_count(audit_log),
+          }
+          if before != after:
+              raise SystemExit(f"FAIL: controlled Registry/Relations/Audit files changed: {before} -> {after}")
+
+          if audit.query_relations("AST_IMG_000060", "reverse", root):
+              raise SystemExit("FAIL: unexpected USES_REFERENCE created")
+
+          digest = hashlib.sha256(use_path.read_bytes()).hexdigest()
+          print(f"USE_RECORD_SHA256={digest}")
+          print(f"REGISTRY_COUNT_BEFORE={before['registry']}")
+          print(f"REGISTRY_COUNT_AFTER={after['registry']}")
+          print(f"RELATION_COUNT_BEFORE={before['relations']}")
+          print(f"RELATION_COUNT_AFTER={after['relations']}")
+          print(f"AUDIT_EVENT_COUNT_BEFORE={before['audit']}")
+          print(f"AUDIT_EVENT_COUNT_AFTER={after['audit']}")
+          print("SHOT_TO_INPUTS_TRACE=PASS")
+          print("USES_REFERENCE_CREATED=NO")
+          print("AUDIT_WRITEBACK_VALIDATION=PASS")
+          PY
+
+      - name: Targeted D-069 tests
+        run: python -m unittest discover -s tests -p 'test_d069_a04_shot_pipeline.py' -v
+
+      - name: Full regression
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Commit immutable use record
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f production/audit/shot_use_records/AO06_A04_USE_V001.json
+          test -z "$(git status --short --untracked-files=all | grep -v '^?? production/audit/shot_use_records/AO06_A04_USE_V001.json$' || true)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/audit/shot_use_records/AO06_A04_USE_V001.json
+          git commit -m "D-069: write immutable A04 actual-use audit record [skip ci]"
+          git push origin HEAD:work/d069-final-audit-writeback-r075
