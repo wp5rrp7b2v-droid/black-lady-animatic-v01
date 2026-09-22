@@ -934,3 +934,18 @@ Status: `COMPLETE / CROSS-CHECKED / EOD PAUSED / R070`
 - Reviewed unchanged: rules_change_log (no new rule); risk_register (RISK-001 CONTROLLED, RISK-002 ACCEPTED/NON-BLOCKING).
 
 Resume: Castle Rear-3Q PO decision → exact-byte publication / remote SHA / Automatic Ingest for approved views → formal coverage refresh → GitHub→Local truth sync → AO-06/D-069 separate closeout.
+
+
+## 2026-09-22｜D-070 Published Binary Adoption｜Rescue Publication
+
+- Source baseline: `3d3aebba8ca458dcdb133c77e3611f037f2fc49a / R071`.
+- Original Codex Cloud result was complete but not remotely published; rescue branch created directly on GitHub.
+- Added fail-closed `--adopt-existing` controller mode and focused version-reservation safety.
+- Formally admitted 21 previously published PO-approved Character Core binaries as `AST_IMG_000063–AST_IMG_000083`.
+- Registry count advanced `62 → 83`.
+- Audit count advanced `78 → 120`; D-070 contributes exactly 42 events.
+- Formal Character Core Coverage advanced `42/63 → 63/63`; Single Current `63/63 PASS`.
+- D-070 relation count = `0`; no existing CURRENT slot was replaced.
+- Published PNGs were not changed by the rescue transaction.
+- Existing Derived Reference Sheet PNGs remain unchanged; builder expected live coverage updated to complete Tier distribution.
+- AO-06 / D-069 remains OPEN and mandatory before P0.2 final approval. P0.3 remains QUEUED.
