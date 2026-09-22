@@ -1,3 +1,21 @@
+## D-070 Current Update｜2026-09-22
+
+Status: `FORMAL CHARACTER CORE 63/63 / D-070 RESCUE PUBLICATION READY / AO-06 OPEN`
+
+- The 21 already-published PO-approved Character Core PNGs are formally admitted as `AST_IMG_000063–AST_IMG_000083`.
+- Registry = `83` Assets.
+- Formal Character Core Coverage = `63/63 = 100%`; gap = `0`.
+- D-070 Audit = `42` append-only events: 21 `ASSET_APPROVED` + 21 `ASSET_INGESTED`.
+- Single Current = `63/63 PASS`.
+- No D-070 supersession relation is required.
+- `--adopt-existing` is fail-closed and never rewrites the existing canonical PNG.
+- Jun Luyuan `PROFILE_LEFT V002` requires explicit contiguous reservation of rejected/do-not-ingest `V001`; unacknowledged version skipping remains blocked.
+- Existing Derived Reference Sheet PNGs are not modified by D-070.
+- AO-06 / D-069 remains the only mandatory P0.2 final-closeout track.
+- P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY.
+
+---
+
 # P0.2｜人物锚定与 Scene Master 资产治理
 
 Status: `ACTIVE / CHARACTER CORE VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL INGEST PENDING / AO-06 PARALLEL CLOSEOUT`
