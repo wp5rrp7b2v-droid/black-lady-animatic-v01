@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R071",
-  "last_updated": "2026-09-21",
-  "session_status": "EOD PAUSED / CHARACTER CORE VISUAL PRODUCTION 63/63 PO APPROVED / 21/21 NEW CORE PNGs CANONICAL-PUBLISHED + SHA VERIFIED / FORMAL REGISTRY 42/63 / D-070 NEXT",
+  "state_revision": "R072",
+  "last_updated": "2026-09-22",
+  "session_status": "D-070 PR #11 FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL / CHARACTER CORE 63/63 / AO-06 OPEN",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.2",
     "name": "人物锚定与 Scene Master 资产治理",
-    "status": "ACTIVE / CHARACTER VISUAL PRODUCTION COMPLETE / NEW BINARY PUBLICATION COMPLETE / FORMAL INGEST PENDING / AO-06 REMAINS OPEN",
-    "note": "P0.2 remains ACTIVE. All 63 mandatory Character Core visual slots now have explicit Product Owner-approved images. The 21 previously missing Core PNGs were published byte-for-byte to canonical GitHub paths in commit b9bafa2af4b9be8aadf2bd2abe79b724837eff88 and independently verified 21/21 SHA_MATCH. Formal Core Coverage intentionally remains 42/63 (66.7%) because these 21 published binaries have not yet been admitted to the runtime Asset Registry/Audit. Current Automatic Ingest V0.1 assumes the canonical target does not already exist, so the next Codex engineering task is to add a safe adopt-existing/published-binary path and ingest the 21 assets. AO-06 / D-069 remains mandatory before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
+    "status": "ACTIVE / CHARACTER CORE FORMAL COVERAGE COMPLETE 63/63 / AO-06 REMAINS OPEN",
+    "note": "D-070 formally adopts the 21 previously published Product Owner-approved Character Core PNGs as AST_IMG_000063–000083 without changing PNG bytes. Formal Character Core Coverage is now 63/63 with Single Current passing for every mandatory slot. AO-06 / D-069 remains mandatory before P0.2 READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "NEXT SESSION｜D-070 CANDIDATE｜Published Binary Adoption + 21-Asset Automatic Ingest｜NOT STARTED / ALLOCATE ONLY WHEN CODEX CLOUD TASK LAUNCHES",
-  "blocker": "Twenty-one PO-approved Character Core PNGs are safely published and 21/21 SHA verified, but formal Registry/Core Coverage remains 42/63 because Automatic Ingest V0.1 rejects already-existing canonical targets. A safe adopt-existing path plus Registry/Audit ingest is required. AO-06 / D-069 remains a separate mandatory final-closeout item.",
-  "next_action": "Tomorrow: launch Codex Cloud D-070 from latest GitHub main. Add a minimal fail-closed adopt-existing mode to Automatic Ingest, test it, preflight all 21 published binaries, ingest 21/21 without modifying PNG bytes, verify Registry/Audit/Single Current and Derived Reference Sheet freshness implications, then update formal Core Coverage to 63/63 only if all checks pass. Keep AO-06/D-069 OPEN and P0.2 ACTIVE; do not start P0.3.",
+  "current_task": "D-070 PR #11｜FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL",
+  "blocker": "Character Core formal-ingest blocker is cleared. Remaining P0.2 blocker is AO-06 / D-069 real Shot Spec → Resolver → Package → Actual Use → Audit validation.",
+  "next_action": "Product Owner decides whether to approve squash-merge PR #11. After merge, independently verify main R072 / Registry 83 / Character Core 63/63, then resume AO-06 / D-069.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -106,30 +106,24 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-21-EOD-CHARACTER-VISUAL-PUBLICATION-COMPLETE",
-    "status": "EOD PAUSED / VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 / D-070 NEXT",
+    "id": "2026-09-22-D070-RESCUE-PUBLICATION-READY",
+    "status": "D-070 PR #11 FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL",
     "completed": [
-      "Castle Young Master REAR_3Q_LEFT V001 received explicit Product Owner approval.",
-      "Black Lady P3 lateral rebuild completed: FACE_3Q_LEFT, FACE_3Q_RIGHT, PROFILE_LEFT, PROFILE_RIGHT, REAR_3Q_LEFT and REAR_3Q_RIGHT all received explicit Product Owner approval.",
-      "Character Core visual production reached 63/63 Product Owner-approved images; visual gap is zero.",
-      "The full 21-file pending set was normalized to canonical filenames and verified 21/21 exact-byte before Git staging.",
-      "21 PNGs were committed as b9bafa2af4b9be8aadf2bd2abe79b724837eff88 with message 'Publish 21 approved character core view PNGs' and pushed to GitHub main.",
-      "GitHub main was independently verified at b9bafa2af4b9be8aadf2bd2abe79b724837eff88; the commit contains exactly the intended 21 Character Core PNG additions.",
-      "All 21 binaries were re-read from the committed Git object and verified 21/21 SHA_MATCH against approved source identities.",
-      "No Registry/Audit formal-ingest claim is made yet. Formal Core Coverage remains 42/63.",
-      "Automatic Ingest V0.1 target-exists contract was identified as the only immediate ingest engineering gap for already-published binaries.",
-      "D-070 is the next proposed Codex Cloud engineering task but is NOT STARTED and is not consumed until the task is actually launched.",
-      "AO-06 / D-069 remains OPEN and mandatory before P0.2 final closeout; P0.3 remains QUEUED / DO NOT START EARLY."
+      "21 previously published PO-approved Character Core PNGs adopted as AST_IMG_000063–000083 without PNG byte mutation.",
+      "42 append-only D-070 audit events present: 21 ASSET_APPROVED + 21 ASSET_INGESTED.",
+      "Formal Character Core Coverage = 63/63; mandatory slot gap = 0.",
+      "Single Current validation passes for all 63 mandatory Character Core slots.",
+      "No D-070 SUPERSEDES relation was required because all 21 admissions filled previously empty formal slots.",
+      "Derived-reference builder expected live coverage updated to Tier A 9/9/9/9, Tier B 6/6/6/6, Tier C 3.",
+      "AO-06 / D-069 remains OPEN; P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY."
     ],
-    "resume_from": "Launch D-070 in Codex Cloud from latest main: safe published-binary adoption → 21/21 formal ingest → Registry/Audit/Single Current + derived-reference freshness cross-check → formal coverage refresh. Then continue AO-06/D-069.",
+    "resume_from": "If Product Owner approves: squash-merge PR #11, verify main remote truth, sync local working copy safely, then resume AO-06 / D-069.",
     "blockers": [
-      "21_PUBLISHED_CORE_VIEWS_FORMAL_INGEST_PENDING",
-      "AUTOMATIC_INGEST_V0_1_ALREADY_PUBLISHED_TARGET_ADOPTION_GAP",
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT"
     ]
   },
   "visual_asset_management_system": {
-    "status": "CHARACTER SYSTEM VERIFIED / VISUAL PRODUCTION 63/63 PO APPROVED / 21 NEW CORE PNGs PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 UNTIL INGEST / AO-06 PARALLEL CLOSEOUT",
+    "status": "CHARACTER SYSTEM VERIFIED / FORMAL CHARACTER CORE COVERAGE 63/63 / AO-06 PARALLEL CLOSEOUT",
     "spec_path": "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
     "character_rule_path": "docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md",
     "character_tier_assignment_path": "docs/project_control/gates/P0_2_visual_assets/character_tier_assignment_v1.md",
@@ -158,7 +152,7 @@
       "AST_IMG_000050",
       "AST_IMG_000051"
     ],
-    "asset_registry_record_count": 62,
+    "asset_registry_record_count": 83,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -261,14 +255,14 @@
     "automatic_ingest_status": "REAL CHARACTER INGEST VERIFIED",
     "controlled_supersession_status": "REAL V001→V002 CURRENT REPLACEMENT VERIFIED",
     "current_live_core_coverage": {
-      "confirmed": 42,
+      "confirmed": 63,
       "mandatory": 63,
-      "gap": 21,
-      "coverage_percent": 66.7,
-      "p1_completed": 2,
+      "gap": 0,
+      "coverage_percent": 100,
+      "p1_completed": 10,
       "p1_total": 10
     },
-    "current_character_target": "VISUAL PRODUCTION COMPLETE / 63 OF 63 CORE VIEWS PO APPROVED / 21 PUBLISHED BINARIES FORMAL INGEST PENDING",
+    "current_character_target": "FORMAL CHARACTER CORE COMPLETE / 63 OF 63 CURRENT APPROVED CORE VIEWS",
     "derived_reference_sheet_formal_count": 9,
     "ao04_stage_b_publication_commit": "09b9e2c44f8f2f78c1d102f3d141263074316310",
     "ao04_stage_b_test_result": "68 tests / OK",
@@ -277,16 +271,16 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "NEXT: D-070 candidate on Codex Cloud — add safe adopt-existing/published-binary ingest mode, preflight and formally ingest the 21 published Core PNGs; allocate D-070 only when execution starts. AO-06/D-069 remains separate final-closeout track.",
+    "next_task": "WAITING PO MERGE APPROVAL FOR PR #11; after merge resume AO-06 / D-069 final-closeout validation.",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED",
     "visual_production_overlay": {
-      "as_of": "2026-09-21 EOD",
+      "as_of": "2026-09-22 D-070 rescue",
       "all_core_visual_po_approved": 63,
       "all_core_visual_total": 63,
       "visual_gap": 0,
       "p1_visual_po_approved": 10,
       "p1_visual_total": 10,
-      "p1_formal_ingested": 2,
+      "p1_formal_ingested": 10,
       "p1_formal_total": 10,
       "p2_generated": 7,
       "p2_po_approved": 7,
@@ -295,10 +289,12 @@
       "p3_black_lady_po_approved": 6,
       "p3_black_lady_total": 6,
       "approved_transport_ingest_pending": 0,
-      "approved_published_ingest_pending": 21,
+      "approved_published_ingest_pending": 0,
       "publication_commit": "b9bafa2af4b9be8aadf2bd2abe79b724837eff88",
       "publication_sha_check": "21/21 SHA_MATCH",
-      "po_review_pending": []
+      "po_review_pending": [],
+      "formal_core_coverage": "63/63",
+      "d070_asset_range": "AST_IMG_000063..AST_IMG_000083"
     }
   },
   "visual_asset_audit_preliminary": {
@@ -380,7 +376,7 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "P1 visual production complete; P2 visual production generated 7/7 with 6/7 PO approved. Resolve Castle Young Master REAR_3Q_LEFT PO review, batch-ingest approved views, and continue AO-06 as the only mandatory P0.2 system-closeout track.",
+    "next_task": "D-070 formal Character Core adoption is complete on PR #11; after merge, resume AO-06 / D-069 as the only mandatory P0.2 system-closeout track.",
     "resume_lock": "P1 sequencing HOLD was superseded by BL-D-039 / RC-020 on 2026-09-19. AO-06 no longer blocks P1 production but remains mandatory before P0.2 READY_FOR_APPROVAL.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -455,26 +451,25 @@
   "task_numbering": {
     "project_restart_gates": "P0.x",
     "codex_engineering_tasks": "D-###",
-    "last_known_codex_task": "D-069",
+    "last_known_codex_task": "D-070",
     "next_codex_task_when_needed": "NOT ALLOCATED",
-    "next_codex_task_status": "D-069 REMAINS OPEN FOR AO-06; P1 IMAGE PRODUCTION DOES NOT ALLOCATE D-070; D-070 NOT ALLOCATED",
+    "next_codex_task_status": "D-070 engineering result reconstructed for real GitHub publication; D-069 remains OPEN for AO-06 final validation.",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V046",
+    "version": "V048",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R070 / EOD 2026-09-20 / P1 VISUAL 10/10 APPROVED / P2 6/7 APPROVED / 14 APPROVED VIEWS INGEST PENDING"
+    "status": "CURRENT / DERIVED FROM R072 / D-070 PR #11 REVIEW PASS / WAITING PO MERGE APPROVAL / AO-06 OPEN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Close the remaining P2 PO review boundary, then reconcile 14 approved-but-uningested Core views through exact-byte publication + Automatic Ingest without premature coverage claims; afterward sync GitHub main to the Mac before local formal production resumes. AO-06 remains the parallel final-closeout requirement.",
+  "stage_goal": "Complete Product Owner decision and remote merge verification for D-070 PR #11; then resume AO-06 / D-069 as the only remaining P0.2 system-closeout requirement.",
   "blockers": [
-    "FOURTEEN_PO_APPROVED_CORE_VIEWS_TRANSPORT_INGEST_PENDING",
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
   "project_control_closeout": {

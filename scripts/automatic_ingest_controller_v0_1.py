@@ -245,6 +245,18 @@ def parse_args():
     p.add_argument("--source-reference", default="PO approval in main Chat")
     p.add_argument("--po-approved", action="store_true")
     p.add_argument("--supersede-current", action="store_true")
+    p.add_argument(
+        "--adopt-existing",
+        action="store_true",
+        help="Adopt a byte-identical PNG already published at its exact canonical Git path; never copy/rewrite it.",
+    )
+    p.add_argument(
+        "--reserve-version",
+        action="append",
+        type=int,
+        default=[],
+        help="Explicitly reserve an intentionally rejected/do-not-ingest version number. Reservations must be contiguous.",
+    )
     p.add_argument("--inspect-current", action="store_true", help="Read-only launcher preflight")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--no-pull", action="store_true")
@@ -258,6 +270,12 @@ def main() -> int:
         raise IngestError("Blocked: --po-approved is required after explicit Product Owner approval.")
     if a.inspect_current and a.supersede_current:
         raise IngestError("--inspect-current cannot be combined with --supersede-current")
+    if a.inspect_current and (a.adopt_existing or a.reserve_version):
+        raise IngestError("--inspect-current cannot be combined with adoption/version-reservation flags")
+    if a.adopt_existing and a.supersede_current:
+        raise IngestError("--adopt-existing cannot be combined with --supersede-current")
+    if a.reserve_version and not a.adopt_existing:
+        raise IngestError("--reserve-version is allowed only with --adopt-existing")
 
     source = Path(a.source).expanduser().resolve()
     validate_png(source)
@@ -363,7 +381,28 @@ def main() -> int:
         ):
             versions.append(int(r.get("version_no") or 0))
 
-    version_no = max(versions, default=0) + 1
+    next_version = max(versions, default=0) + 1
+    reserved = list(a.reserve_version or [])
+    if len(reserved) != len(set(reserved)) or any(v <= 0 for v in reserved):
+        raise IngestError("Version safety: --reserve-version values must be unique positive integers")
+    if old is not None and reserved:
+        raise IngestError("Version safety: controlled supersession cannot reserve skipped versions")
+
+    if old is not None:
+        version_no = next_version
+    elif a.adopt_existing and filename_version is not None and filename_version > next_version:
+        required = list(range(next_version, filename_version))
+        if sorted(reserved) != required:
+            raise IngestError(
+                "Version safety: filename skips version(s); acknowledge every skipped version "
+                "contiguously with --reserve-version"
+            )
+        version_no = filename_version
+    else:
+        if reserved:
+            raise IngestError("Version safety: reservation supplied but no adopt-existing version gap exists")
+        version_no = next_version
+
     if old is not None and version_no != int(old.get("version_no") or 0) + 1:
         raise IngestError("Version safety: new version must equal old version + 1")
     if filename_version is not None and filename_version != version_no:
@@ -374,7 +413,23 @@ def main() -> int:
     filename = f"{entity}_{role}_{variant}_{state}_{vtag}.png"
     rel_target = entity_dir(entity) / filename
     target = repo / rel_target
-    if target.exists() or target.is_symlink():
+
+    if a.adopt_existing:
+        if source != target.resolve():
+            raise IngestError(
+                "Adopt-existing requires --source to be the exact canonical target path"
+            )
+        if target.is_symlink() or not target.is_file():
+            raise IngestError("Adopt-existing requires an existing regular canonical PNG")
+        tracked = git(repo, "ls-files", "--error-unmatch", "--", rel_target.as_posix(), check=False)
+        if tracked.returncode != 0:
+            raise IngestError("Adopt-existing requires the canonical PNG to be Git-tracked")
+        binary_dirty = git(repo, "status", "--porcelain", "--", rel_target.as_posix()).stdout.strip()
+        if binary_dirty:
+            raise IngestError("Adopt-existing requires the canonical PNG to have no uncommitted changes")
+        if sha256(target) != digest:
+            raise IngestError("Adopt-existing canonical SHA mismatch")
+    elif target.exists() or target.is_symlink():
         raise IngestError(f"Target already exists: {rel_target}")
     asset_id = next_asset_id(manifest, registry)
     relations = load_jsonl(relations_path) if old is not None else []
@@ -477,7 +532,11 @@ def main() -> int:
 
     result = {
         "status": "DRY_RUN" if a.dry_run else "READY",
-        "mode": "SUPERSEDE_CURRENT" if old is not None else "NORMAL_INGEST",
+        "mode": (
+            "SUPERSEDE_CURRENT" if old is not None
+            else "ADOPT_EXISTING" if a.adopt_existing
+            else "NORMAL_INGEST"
+        ),
         "asset_id": asset_id,
         "entity_id": entity,
         "role": role,
@@ -500,7 +559,9 @@ def main() -> int:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
 
-    touched = [rel_target.as_posix(), REGISTRY.as_posix(), AUDIT.as_posix()]
+    touched = [REGISTRY.as_posix(), AUDIT.as_posix()]
+    if not a.adopt_existing:
+        touched.insert(0, rel_target.as_posix())
     if old is not None:
         touched.append(RELATIONS.as_posix())
     dirty = git(repo, "status", "--porcelain", "--", *touched).stdout.strip()
@@ -514,31 +575,29 @@ def main() -> int:
     audit_data = (before[audit_path] or b"") + jsonl_bytes(events)
     relation_data = (before.get(relations_path) or b"") + jsonl_bytes([relation]) if relation else None
 
-    target.parent.mkdir(parents=True, exist_ok=True)
-    fd, copied_name = tempfile.mkstemp(prefix=f".{filename}.", dir=target.parent)
-    try:
-        with os.fdopen(fd, "wb") as out, source.open("rb") as incoming:
-            shutil.copyfileobj(incoming, out)
-            out.flush()
-            os.fsync(out.fileno())
-        if sha256(Path(copied_name)) != digest:
-            raise IngestError("SHA mismatch after copy; ingest aborted.")
-        # All pre-write checks are complete; roll back every formal file on any write/stage/commit failure.
+    def write_and_stage_formal_files() -> None:
+        atomic_bytes(registry_path, registry_data)
+        if relation_data is not None:
+            atomic_bytes(relations_path, relation_data)
+        atomic_bytes(audit_path, audit_data)
+        git(repo, "add", "--", *touched)
+        actual_staged = set(git(repo, "diff", "--cached", "--name-only").stdout.splitlines())
+        if actual_staged != set(touched):
+            raise IngestError(
+                "Safety stop: staged set differs from expected.\n"
+                f"Expected: {sorted(touched)}\nActual: {sorted(actual_staged)}"
+            )
+
+    if a.adopt_existing:
+        # The canonical PNG is already the approved Git-tracked binary. Never copy, delete,
+        # rewrite, re-encode, replace, or stage it in adoption mode.
+        binary_before = sha256(target)
         try:
-            os.replace(copied_name, target)
-            fsync_dir(target.parent)
-            atomic_bytes(registry_path, registry_data)
-            if relation_data is not None:
-                atomic_bytes(relations_path, relation_data)
-            atomic_bytes(audit_path, audit_data)
-            git(repo, "add", "--", *touched)
-            actual_staged = set(git(repo, "diff", "--cached", "--name-only").stdout.splitlines())
-            if actual_staged != set(touched):
-                raise IngestError(
-                    "Safety stop: staged set differs from expected.\n"
-                    f"Expected: {sorted(touched)}\nActual: {sorted(actual_staged)}"
-                )
-            git(repo, "commit", "-m", f"P0.2 {'supersede' if old else 'ingest'} {entity} {role} {vtag}")
+            write_and_stage_formal_files()
+            # Check the binary invariant before creating a commit so rollback remains complete.
+            if sha256(target) != binary_before or binary_before != digest:
+                raise IngestError("Adopt-existing invariant failed: canonical PNG bytes changed")
+            git(repo, "commit", "-m", f"P0.2 adopt {entity} {role} {vtag}")
         except Exception as write_error:
             git(repo, "reset", "HEAD", "--", *touched, check=False)
             rollback_errors = []
@@ -550,12 +609,42 @@ def main() -> int:
                         atomic_bytes(path, data)
                 except OSError as e:
                     rollback_errors.append(f"{path}: {e}")
-            target.unlink(missing_ok=True)
             if rollback_errors:
                 raise IngestError("Rollback failed: " + "; ".join(rollback_errors)) from write_error
             raise
-    finally:
-        Path(copied_name).unlink(missing_ok=True)
+    else:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        fd, copied_name = tempfile.mkstemp(prefix=f".{filename}.", dir=target.parent)
+        try:
+            with os.fdopen(fd, "wb") as out, source.open("rb") as incoming:
+                shutil.copyfileobj(incoming, out)
+                out.flush()
+                os.fsync(out.fileno())
+            if sha256(Path(copied_name)) != digest:
+                raise IngestError("SHA mismatch after copy; ingest aborted.")
+            # All pre-write checks are complete; roll back every formal file on any write/stage/commit failure.
+            try:
+                os.replace(copied_name, target)
+                fsync_dir(target.parent)
+                write_and_stage_formal_files()
+                git(repo, "commit", "-m", f"P0.2 {'supersede' if old else 'ingest'} {entity} {role} {vtag}")
+            except Exception as write_error:
+                git(repo, "reset", "HEAD", "--", *touched, check=False)
+                rollback_errors = []
+                for path, data in before.items():
+                    try:
+                        if data is None:
+                            path.unlink(missing_ok=True)
+                        else:
+                            atomic_bytes(path, data)
+                    except OSError as e:
+                        rollback_errors.append(f"{path}: {e}")
+                target.unlink(missing_ok=True)
+                if rollback_errors:
+                    raise IngestError("Rollback failed: " + "; ".join(rollback_errors)) from write_error
+                raise
+        finally:
+            Path(copied_name).unlink(missing_ok=True)
 
     commit_sha = git(repo, "rev-parse", "HEAD").stdout.strip()
 

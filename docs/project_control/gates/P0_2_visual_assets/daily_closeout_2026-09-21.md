@@ -119,3 +119,18 @@ Reviewed unchanged:
 ## Resume point
 
 Tomorrow begin by reading `core/project_state.json` R071 and this closeout. Then launch the D-070 Codex Cloud task. Do not redo today's binary collection, renaming, upload, or SHA verification.
+
+
+## D-070 Post-closeout update｜Published Binary Adoption
+
+Status: `ENGINEERING + FORMAL ADOPTION COMPLETE / RESCUE REMOTE PUBLICATION PENDING PO REVIEW`
+
+- The 21 binaries published in `b9bafa2af4b9be8aadf2bd2abe79b724837eff88` have now been admitted to Registry/Audit without PNG byte mutation.
+- Asset IDs: `AST_IMG_000063–AST_IMG_000083`.
+- Registry count: `83`.
+- Formal Character Core Coverage: `63/63 = 100%`; gap `0`.
+- Audit: `42/42` required D-070 events.
+- Single Current: `63/63 PASS`.
+- Relations added by D-070: `0`.
+- Existing Derived Reference Sheet PNGs were not modified or regenerated.
+- AO-06 / D-069 remains OPEN; P0.2 remains ACTIVE; P0.3 remains QUEUED.

@@ -164,3 +164,18 @@ P0 不以“完成更多 A 系列镜头”作为进度指标。
 - D-070 must preserve binary identity, enforce Single Current/version safety, and cross-check Derived Reference Sheet freshness implications after the missing Core slots become formal.
 - AO-06 / D-069 remains OPEN and is still mandatory before P0.2 can become READY_FOR_APPROVAL.
 - P0.3 remains QUEUED / DO NOT START EARLY.
+
+
+## 2026-09-22｜D-070 Published Binary Adoption
+
+- D-070 adoption result: **21/21 COMPLETE** on the rescue publication branch.
+- Asset IDs: `AST_IMG_000063–AST_IMG_000083`.
+- Formal Character Core Coverage: **63 / 63 = 100%**; formal Core gap = **0**.
+- Single Current: **63/63 PASS** for mandatory Character Core slots.
+- Audit: **42 required events** = 21 `ASSET_APPROVED` + 21 `ASSET_INGESTED`.
+- D-070 relations: **0**, expected because the 21 admissions filled empty formal slots.
+- Published PNG content remains unchanged; D-070 is Registry/Audit adoption, not image regeneration.
+- Automatic Ingest now has a fail-closed `--adopt-existing` path with exact canonical-path, Git-tracked/clean and SHA checks plus explicit contiguous version reservation safety.
+- Existing Derived Reference Sheet PNGs are **not regenerated or re-approved by D-070**; only the expected live Core coverage contract is refreshed.
+- P0.2 remains **ACTIVE**. AO-06 / D-069 remains the sole mandatory final-closeout requirement.
+- P0.3 remains **QUEUED / DO NOT START EARLY**.

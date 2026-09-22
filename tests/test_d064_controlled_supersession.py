@@ -211,5 +211,89 @@ class Fixture(unittest.TestCase):
         self.assert_clean()
 
 
+    def _publish_existing(self, filename):
+        target = self.root / ctl.entity_dir("CHAR_TEST") / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(self.source.read_bytes())
+        self.source = target
+        run_git(self.root, "add", "--", target.relative_to(self.root).as_posix())
+        run_git(self.root, "commit", "-m", "publish canonical binary")
+        return target
+
+    def test_adopt_existing_is_byte_preserving(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        target = self._publish_existing(self.source.name)
+        before = target.read_bytes()
+        self.assertEqual(self.call("--adopt-existing"), 0)
+        self.assertEqual(target.read_bytes(), before)
+        row = self.rows(self.registry)[0]
+        self.assertEqual((row["version_no"], row["sha256"]), (1, hashlib.sha256(before).hexdigest()))
+        self.assertEqual(
+            run_git(self.root, "status", "--porcelain", "--", target.relative_to(self.root).as_posix()).stdout,
+            "",
+        )
+
+    def test_adopt_existing_requires_exact_tracked_clean_target(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        canonical = self.root / ctl.entity_dir("CHAR_TEST") / self.source.name
+        canonical.parent.mkdir(parents=True, exist_ok=True)
+        canonical.write_bytes(self.source.read_bytes())
+        with self.assertRaisesRegex(ctl.IngestError, "exact canonical target"):
+            self.call("--adopt-existing")
+        self.source = canonical
+        with self.assertRaisesRegex(ctl.IngestError, "Git-tracked"):
+            self.call("--adopt-existing")
+        run_git(self.root, "add", "--", canonical.relative_to(self.root).as_posix())
+        run_git(self.root, "commit", "-m", "track canonical")
+        canonical.write_bytes(ctl.PNG_MAGIC + b"dirty")
+        with self.assertRaisesRegex(ctl.IngestError, "no uncommitted changes"):
+            self.call("--adopt-existing")
+
+    def test_adopt_existing_explicit_contiguous_version_reservation(self):
+        target = self._publish_existing("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V002.png")
+        with self.assertRaisesRegex(ctl.IngestError, "acknowledge every skipped version"):
+            self.call("--adopt-existing")
+        with self.assertRaisesRegex(ctl.IngestError, "acknowledge every skipped version"):
+            self.call("--adopt-existing", "--reserve-version", "2")
+        self.assertEqual(self.call("--adopt-existing", "--reserve-version", "1"), 0)
+        self.assertEqual(self.rows(self.registry)[0]["version_no"], 2)
+
+
+    def test_adopt_existing_rejects_inspect_mode_combination(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        self._publish_existing(self.source.name)
+        with patch.object(
+            sys,
+            "argv",
+            self.args + ["--source", str(self.source), "--adopt-existing", "--inspect-current"],
+        ):
+            with self.assertRaisesRegex(ctl.IngestError, "cannot be combined"):
+                ctl.main()
+
+    def test_adopt_existing_failure_rolls_back_without_touching_binary(self):
+        self.source = self.source.with_name("CHAR_TEST_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+        self.source.write_bytes(ctl.PNG_MAGIC + b"adopt-v1")
+        target = self._publish_existing(self.source.name)
+        binary_before = target.read_bytes()
+        formal_before = {p: p.read_bytes() for p in (self.registry, self.audit)}
+        original = ctl.atomic_bytes
+        injected = False
+        def fail_audit(path, data):
+            nonlocal injected
+            if path == self.audit and not injected:
+                injected = True
+                raise OSError("injected adopt audit failure")
+            return original(path, data)
+        with patch.object(ctl, "atomic_bytes", side_effect=fail_audit):
+            with self.assertRaisesRegex(OSError, "injected adopt audit failure"):
+                self.call("--adopt-existing")
+        self.assertEqual(binary_before, target.read_bytes())
+        self.assertEqual(formal_before, {p: p.read_bytes() for p in formal_before})
+        self.assert_clean()
+
+
 if __name__ == "__main__":
     unittest.main()
