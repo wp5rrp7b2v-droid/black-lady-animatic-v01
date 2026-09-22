@@ -64,3 +64,37 @@ D-070 does **not** close P0.2.
 - P0.2 remains ACTIVE.
 - P0.3 remains QUEUED / DO NOT START EARLY.
 - Product Owner review is required before merge.
+
+
+## Formal PR Review｜2026-09-22
+
+PR: `#11｜D-070: adopt and formally ingest 21 published Character Core binaries`
+
+Final review status: `PASS / READY_FOR_PRODUCT_OWNER_MERGE_APPROVAL`
+
+Review Patch corrected three issues before approval:
+
+1. adoption rollback remained incomplete if the final PNG invariant check failed after commit; the invariant check now occurs before commit, preserving fail-closed rollback;
+2. version reservation was initially too broad and changed normal supersession behavior; `--reserve-version` is now scoped to `--adopt-existing`, while normal ingest/supersession retains its prior version-safety behavior;
+3. rescue Registry/Audit records initially used a reconstruction placeholder time and generic source reference; they now preserve the locked PO decision IDs / date-only approval precision and actual rescue-ingest/audit commit times.
+
+Project Control current-state contradictions were also corrected; dated historical checkpoints remain unchanged.
+
+Dynamic validation:
+
+- GitHub Actions run: `35678375411`
+- validated head: `d68ed8e0582a4316023f56ed89e06c034e45c40c`
+- targeted controller tests: `15/15 PASS`
+- full regression suite: `86/86 PASS`
+- Registry / Audit / Relations: `83 / 120 / 44`
+- D-070 assets / Audit / Relations: `21 / 42 / 0`
+- 21 canonical PNG storage paths, byte sizes and SHA-256: `21/21 PASS`
+- mandatory Character Core Single Current: `63/63 PASS`
+- Black Lady LEFT/RIGHT rear mapping: `PASS / NOT SWAPPED`
+- Derived Reference Sheet live-coverage contract: `PASS`
+- Project Control JSON: `PASS`
+- diff hygiene / forbidden PNG-audio-ZIP additions: `PASS`
+
+The temporary validation workflow was removed after the successful run; final PR scope returns to the intended 13 files.
+
+Merge method requirement for this rescue PR: `SQUASH`. The rescue branch contains intermediate review/reconstruction commits whose transient states must not become canonical main history.
