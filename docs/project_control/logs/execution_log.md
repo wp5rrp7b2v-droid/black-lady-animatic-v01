@@ -1095,3 +1095,20 @@ Status: `AO-06 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED / P0.2 READY_FOR_APP
 - P0.2 is not yet PASS.
 - P0.3 remains `QUEUED / DO NOT START EARLY`.
 - Local GitHub→Mac sync remains deferred to EOD.
+
+
+## 2026-09-22｜P0.2 Product Owner Approval + P0.3 Entry
+
+Status: `P0.2 PASS / PRODUCT OWNER APPROVED / P0.3 READY_TO_START`
+
+- Product Owner explicitly approved `P0.2｜人物锚定与 Scene Master 资产治理`.
+- P0.2 closeout evidence:
+  `docs/project_control/gates/P0_2_visual_assets/p0_2_closeout_2026-09-22.md`.
+- Decision record: `BL-D-066`.
+- Overall P0 Gate progress advanced from `1/3 PASS` to `2/3 PASS`.
+- P0.2 approved-open task list closed; AO-01..AO-07 satisfied.
+- P0.3 prerequisite is cleared.
+- P0.3 is `READY_TO_START / NOT YET VALIDATED`; no video/animation quality conclusion is inherited from AO-06.
+- Before formal local P0.3 execution, the deferred GitHub→Mac truth sync is required.
+- Current next task:
+  `P0.3｜ENTRY REVIEW + LOCAL TRUTH SYNC BEFORE FORMAL EXECUTION`.
