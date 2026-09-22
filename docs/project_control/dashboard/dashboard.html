@@ -3,44 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V053</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V054</title>
 <style>
-:root{--bg:#111317;--panel:#1a1e24;--panel2:#15191e;--border:#2b323b;--text:#eceff3;--muted:#9aa3ad;--soft:#c8ced6}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:var(--bg);color:var(--text)}main{max-width:1040px;margin:0 auto;padding:28px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}h1{font-size:25px;margin:0 0 4px}h2{font-size:15px;margin:0 0 10px}p,li{line-height:1.55}.muted{color:var(--muted)}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;min-width:0}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}.tag{display:inline-block;padding:4px 9px;border:1px solid #46505c;border-radius:999px;font-size:12px;color:var(--soft)}.tag.active{border-color:#7e8996}.tag.queued{opacity:.72}.big{font-size:30px;font-weight:700;line-height:1.1;margin:8px 0 3px}.bar{height:9px;background:#2a3038;border-radius:999px;overflow:hidden;margin-top:10px}.bar span{display:block;height:100%;background:#818b97}.goal{font-size:16px;line-height:1.65;color:var(--soft)}.blocker{background:var(--panel2);border-left:3px solid #7d8793;padding:12px 14px;border-radius:8px}.rules{margin:0;padding-left:18px;color:var(--soft)}.rules li{margin:4px 0}.mini{font-size:13px;color:var(--soft);line-height:1.55}.gate{border-top:1px solid var(--border);padding-top:10px;margin-top:10px}.gate:first-child{border-top:0;padding-top:0;margin-top:0}@media(max-width:760px){.span-3,.span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 12}}
+:root{
+  --bg:#111317;--panel:#1a1e24;--panel2:#15191e;--border:#2b323b;
+  --text:#eef1f4;--muted:#9aa3ad;--soft:#cbd1d8;--strong:#ffffff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:28px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:18px;margin:0 0 12px}
+h3{font-size:15px;margin:0 0 8px}
+p,li{line-height:1.6}
+.muted{color:var(--muted)}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;min-width:0}
+.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+.big{font-size:30px;font-weight:750;line-height:1.1;margin:8px 0 4px}
+.tag{display:inline-block;padding:4px 9px;border:1px solid #46505c;border-radius:999px;font-size:12px;color:var(--soft)}
+.bar{height:10px;background:#2a3038;border-radius:999px;overflow:hidden;margin-top:12px}
+.bar span{display:block;height:100%;width:67%;background:#89939f}
+.focus{background:var(--panel2);border-left:3px solid #9aa4b0;padding:14px 16px;border-radius:9px}
+.steps{margin:0;padding-left:22px}
+.steps li{margin:8px 0}
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gatebox{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.gatebox strong{display:block;margin-bottom:6px}
+.pass{color:var(--strong)}
+.ready{color:var(--soft)}
+.metric{font-size:13px;color:var(--muted);margin-top:6px}
+details{border-top:1px solid var(--border);padding-top:12px;margin-top:12px}
+summary{cursor:pointer;color:var(--soft);font-weight:600}
+ul.compact{margin:8px 0 0;padding-left:20px}
+ul.compact li{margin:4px 0}
+.notice{font-size:13px;color:var(--soft)}
+@media(max-width:760px){
+  .span-3,.span-4,.span-6,.span-8,.span-12{grid-column:span 12}
+  .gates{grid-template-columns:1fr}
+}
 </style>
 </head>
-<body><main>
-<h1>诡舍·黑衣夫人</h1>
-<p class="muted">Project Dashboard V053 · 派生可视化，非事实源 · Derived from R078 · Updated 2026-09-22</p>
-<div class="grid">
-<section class="card span-3"><div class="kicker">Current Phase</div><div class="big">P0</div><strong>项目重启与基础能力再验证</strong><p><span class="tag active">ACTIVE</span></p></section>
-<section class="card span-3"><div class="kicker">Overall Gate Progress</div><div class="big">2 / 3</div><strong>PASS</strong><div class="bar"><span style="width:67%"></span></div><p class="muted">P0.1 PASS；P0.2 PASS；P0.3 READY_TO_START。</p></section>
-<section class="card span-3"><div class="kicker">Current Gate</div><div class="big">P0.3</div><strong>Video & Edit Pipeline Revalidation</strong><p><span class="tag active">READY TO START</span></p></section>
-<section class="card span-3"><div class="kicker">Current Blockers</div><div class="big">1</div><strong>Entry prerequisite</strong><p class="muted">正式本地 P0.3 执行前，需完成今天延期的 GitHub→Mac truth sync。</p></section>
+<body>
+<main>
+  <h1>诡舍·黑衣夫人</h1>
+  <p class="muted">Project Dashboard V054 · 派生可视化，非事实源 · Derived from R079 · Updated 2026-09-22</p>
 
-<section class="card span-12"><div class="kicker">Temporary Operating Mode</div><h2 style="margin-top:6px">TEMP_CLOUD_ONLY_MODE_V1</h2><p><span class="tag active">APPROVED · EFFECTIVE 2026-09-16—2026-09-20</span></p><div class="blocker"><strong>临时纯云端模式｜TIME-BOX ENDED 2026-09-20 EOD</strong><p>临时纯云端 time-box 已结束。2026-09-21 本地 Mac 已恢复并完成 Character binary publication；D-070 当前通过真实 GitHub PR #11 完成救援发布。GitHub main 继续为唯一 SSOT，PR merge 前 main 仍保持 R071。</p><p><strong>AO-03：</strong>已完成、验收并获 Product Owner 批准；PR #6 已 merge。</p><p><strong>Local Mac / Terminal：</strong>已恢复；2026-09-22 的中间同步按 PO 决定延期到 EOD。正式本地 P0.3 执行前必须先完成一次 GitHub→Mac truth sync，并核对 local/remote HEAD。</p><p style="margin-bottom:0"><strong>RC-015 保持长期有效，不被替代。</strong> RC-012 当前执行 <code>LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL</code>。</p></div></section>
+  <div class="grid">
+    <section class="card span-3">
+      <div class="kicker">P0 Restart Progress</div>
+      <div class="big">2 / 3</div>
+      <strong>Gate PASS</strong>
+      <div class="bar"><span></span></div>
+      <p class="metric">67% 仅代表 P0 重启 Gate 进度，不代表整部成片完成度。</p>
+    </section>
 
-<section class="card span-7"><div class="kicker">Current Stage Goal</div><p class="goal">P0.2 已 PASS / PRODUCT OWNER APPROVED。P0.3 现在进入独立验证入口：先完成本地 truth sync，再锁定首个代表性视频验证切片。</p></section>
-<section class="card span-5"><div class="kicker">Current Task</div><p><strong>P0.3 · ENTRY REVIEW + LOCAL TRUTH SYNC</strong></p><p class="mini">P0.2 is formally approved. P0.3 is READY_TO_START but not yet validated; complete local truth sync before formal local execution.</p></section>
+    <section class="card span-3">
+      <div class="kicker">Current Gate</div>
+      <div class="big">P0.3</div>
+      <strong>视频制作与剪辑 Pipeline 再验证</strong>
+      <p><span class="tag">READY TO START</span></p>
+    </section>
 
-<section class="card span-12"><div class="kicker">Approved-but-Open Tasks</div><h2 style="margin-top:4px">MANDATORY BEFORE P0.2 FINAL CLOSEOUT</h2><ol class="rules"><li><strong>AO-01</strong> — COMPLETE / VERIFIED</li><li><strong>AO-02</strong> — COMPLETE / VERIFIED / PO APPROVED</li><li><strong>AO-03</strong> — <strong>COMPLETE / VERIFIED / PO APPROVED</strong></li><li><strong>AO-04</strong> — <strong>COMPLETE / VERIFIED / PRODUCT OWNER APPROVED</strong> · 9 Derived Character Reference Sheets</li><li><strong>AO-05</strong> — <strong>COMPLETE / VERIFIED / PRODUCT OWNER APPROVED</strong></li><li><strong>AO-06</strong> — <strong>COMPLETE / VERIFIED / PRODUCT OWNER APPROVED</strong></li><li><strong>AO-07</strong> — COMPLETE / VERIFIED / PO APPROVED</li></ol><p class="mini">AO-01～AO-07 closeout 已满足，P0.2 已正式 PASS。Approved-but-Open 清单已关闭。</p></section>
+    <section class="card span-3">
+      <div class="kicker">Current Task</div>
+      <div class="big" style="font-size:24px">Entry Review</div>
+      <strong>先确定怎么验证，再开始新生产</strong>
+      <p class="metric">Local truth sync 已完成。</p>
+    </section>
 
-<section class="card span-6"><div class="kicker">Live Character Progress</div><h2 style="margin-top:4px">63 / 63 · 100%</h2><p><strong>0</strong> Formal Core View Gaps</p><p><strong>P1 visual 10/10 approved · formal 10/10</strong></p><p class="mini">Visual production 63/63 PO approved；formal Character Core coverage is now 63/63.</p></section>
-<section class="card span-6"><div class="kicker">P1 Character Production</div><h2 style="margin-top:4px">VISUAL COMPLETE</h2><p><strong>10 / 10 PO APPROVED</strong></p><p class="mini">P1 formal ingest is complete 10/10.</p></section>
+    <section class="card span-3">
+      <div class="kicker">Current Blockers</div>
+      <div class="big">0</div>
+      <strong>No engineering blocker</strong>
+      <p class="metric">下一步是方法判断与验证设计，不是故障处理。</p>
+    </section>
 
-<section class="card span-6"><div class="kicker">AO-03 Closeout</div><p><strong>CLOSED / COMPLETE / VERIFIED / PO APPROVED</strong></p><p class="mini">D-067：Scene Registry + State-Aware Resolver；54 tests / OK；PR #6 MERGED；merge <code>b16ffdd5...</code>。</p></section>
-<section class="card span-6"><div class="kicker">Cloud Publication</div><p><strong>VERIFIED</strong>：Codex Cloud native PR → GitHub review → PO approval → merge 已真实验证。GitHub 远端事实优先于 Task UI 摘要。</p></section>
-<section class="card span-6"><div class="kicker">AO-04 Cloud Boundary</div><p>Stage B 已远端验证：9 个正式 Derived Reference Sheets、42 条 <code>DERIVED_FROM</code>、9 条 Audit Event 与 canonical PNG 已原子发布；全部 FRESH / Resolver PASS；完整回归 68 tests / OK。</p></section>
-<section class="card span-6"><div class="kicker">AO-05 Cloud Boundary</div><p>AO-05 已 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED；Delivery Bridge 已完成多参考图与 repeatability proof。</p></section>
-<section class="card span-6"><div class="kicker">AO-06 Cloud Boundary</div><p>D-069 / AO-06 end-to-end evidence 已完成并获 Product Owner 正式批准：A04 exact evidence、3 formal inputs、Reference Package、真实生成调用、immutable use record 与双向 reverse trace 均验证通过。</p></section>
-<section class="card span-6"><div class="kicker">AO-03 Evidence</div><p><code>ao03_closeout_2026-09-17.md</code><br>PR #6 · Merge <code>b16ffdd5...</code><br>Scene Assets <code>AST_IMG_000052 / 000053</code></p></section>
+    <section class="card span-12">
+      <div class="kicker">What To Do Now</div>
+      <h2>P0.3 当前唯一主线</h2>
+      <div class="focus">
+        <strong>Next Decision</strong>
+        <p style="margin:6px 0 0">锁定第一个“代表性验证切片”，并明确什么结果算 PASS、什么情况立即停止。</p>
+      </div>
+      <ol class="steps">
+        <li><strong>复盘历史失败：</strong>图片→视频、原音→Animatic、对白截断、旁白/对白误配、Remotion 时间线等问题分别为什么失败。</li>
+        <li><strong>锁定首个验证切片：</strong>选择一个足够小、但能同时测试人物、场景、原音、动态化和剪辑衔接的真实片段。</li>
+        <li><strong>锁定验收标准：</strong>人物一致性、动作可接受度、对白完整性、音画同步、镜头连续性、是否需要人工搬运等。</li>
+        <li><strong>再开始第一次正式 P0.3 验证：</strong>只验证已定义的问题，不提前扩大到整段成片。</li>
+      </ol>
+    </section>
 
-<section class="card span-12"><div class="kicker">Risk Status</div><div class="blocker"><strong>RISK-001｜GitHub Connectivity Instability</strong><p><code>CONTROLLED / MITIGATION VERIFIED</code></p><p style="margin-bottom:0">AO-07 Recovery Runbook、动态 proxy、HTTP/1.1 fallback、PENDING_REMOTE_PUBLICATION、ACK loss / remote mismatch 与真实 failure→recovery 均已验证并获 PO 批准。</p></div></section>
+    <section class="card span-12">
+      <div class="kicker">Gate Map</div>
+      <h2>当前阶段一眼看懂</h2>
+      <div class="gates">
+        <div class="gatebox">
+          <strong>P0.1｜故事与文本数据基线</strong>
+          <div class="pass">✓ PASS / PO APPROVED</div>
+          <p class="metric">小说、黑衣夫人文本、canonical audio、S3 searchable index 已建立。</p>
+        </div>
+        <div class="gatebox">
+          <strong>P0.2｜人物锚定与 Scene Master 资产治理</strong>
+          <div class="pass">✓ PASS / PO APPROVED</div>
+          <p class="metric">Character Core 63/63 formal；AO-01～AO-07 closeout 完成。</p>
+        </div>
+        <div class="gatebox">
+          <strong>P0.3｜视频制作与剪辑 Pipeline 再验证</strong>
+          <div class="ready">▶ READY TO START</div>
+          <p class="metric">尚未验证视频生成、动态化、音画对齐和剪辑方案。</p>
+        </div>
+      </div>
+    </section>
 
-<section class="card span-6"><div class="kicker">Temporary Cadence</div><ul class="rules"><li>P1 production resumed</li><li>Character Core visual production 63/63 PO approved</li><li>21/21 new Core PNGs published + SHA verified</li><li>P0.2 PASS / PRODUCT OWNER APPROVED</li></ul><p class="mini">P0.3 prerequisite 已清除；正式本地执行前仍需 truth sync。</p></section>
-<section class="card span-6"><div class="kicker">Next Action</div><p><strong>P0.3 → Entry Review + Local Truth Sync</strong></p><p>P0.2 已正式批准。下一步先完成 GitHub→Mac truth sync，再进行 P0.3 entry review；尚不提前认定任何视频生成、动态化或剪辑方案可行。</p></section>
+    <section class="card span-6">
+      <div class="kicker">What Is Already Solid</div>
+      <h2>已经不用重做的基础</h2>
+      <ul class="compact">
+        <li>故事 / 原音事实基线已锁定。</li>
+        <li>Character Core：63 / 63 formal。</li>
+        <li>Scene / Character / Derived Asset Registry 已验证。</li>
+        <li>Reference Resolver → Package → Actual Use → Audit 已真实跑通。</li>
+        <li>GitHub ↔ Local truth sync 已完成。</li>
+      </ul>
+    </section>
 
-<section class="card span-12"><div class="kicker">Project Control Rules</div><ul class="rules"><li>GitHub <code>main/docs/project_control/</code> 是唯一正式事实源。</li><li>所有 Gate / Phase 只能由 Product Owner 明确审批。</li><li>RC-015 长期 Execution Routing 保持 ACTIVE；TEMP_CLOUD_ONLY_MODE_V1 只是时限例外。</li><li>Codex Cloud remote publication 使用已验证 native PR；shell direct push credential 不是 baseline requirement。</li><li>Local-only 正式资产缺失时标记 <code>BLOCKED_LOCAL_ASSET</code>，不得重建、猜测、重复建 Asset/Version 或伪完成。</li><li>09/16～09/20 不要求每日 local pull；重新取得 Mac 后先完成 GitHub → Local truth sync。</li><li>每天仍执行 Project Control cross-file consistency check。</li></ul></section>
+    <section class="card span-6">
+      <div class="kicker">What P0.3 Still Must Prove</div>
+      <h2>不能提前假设成立的能力</h2>
+      <ul class="compact">
+        <li>静态图能否稳定转成可接受动态镜头。</li>
+        <li>人物一致性、动作和表情是否可控。</li>
+        <li>原音能否按剧情自动检索、完整提取并正确放入时间线。</li>
+        <li>对白不会截断，旁白 / 对白不会误配。</li>
+        <li>Remotion / 剪辑职责边界是否合理。</li>
+        <li>最终能否产出一个代表性的真实视频结果。</li>
+      </ul>
+    </section>
 
-<section class="card span-12"><div class="kicker">Current Gates</div><div class="gate"><strong>P0.1｜故事与文本数据基线</strong><p class="muted">PASS / PRODUCT OWNER APPROVED</p></div><div class="gate"><strong>P0.2｜人物锚定与 Scene Master 资产治理</strong><p class="muted">PASS / PRODUCT OWNER APPROVED</p></div><div class="gate"><strong>P0.3｜视频制作与剪辑 Pipeline 再验证</strong><p class="muted">READY_TO_START / NOT YET VALIDATED</p></div></section>
-</div>
-</main></body></html>
+    <section class="card span-12">
+      <div class="kicker">Current Operating Boundary</div>
+      <h2>当前不要做什么</h2>
+      <p class="notice">不要因为 AO-06 曾成功调用图像生成，就推断正式镜头图片质量、视频生成、动画质量或最终剪辑已经验证。P0.3 必须重新用真实项目材料独立验证。</p>
+    </section>
+
+    <section class="card span-12">
+      <div class="kicker">Risks</div>
+      <h2>当前风险状态</h2>
+      <p><strong>RISK-001｜GitHub Connectivity：</strong>CONTROLLED / MITIGATION VERIFIED。</p>
+      <p><strong>RISK-002｜Service Input SHA Receipt：</strong>ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT。</p>
+    </section>
+
+    <section class="card span-12">
+      <div class="kicker">History & Evidence</div>
+      <details>
+        <summary>展开历史 closeout / 技术证据</summary>
+        <ul class="compact">
+          <li>AO-01～AO-07：P0.2 mandatory closeout set 已全部满足。</li>
+          <li>D-070：21 张新增 Character Core PNG 已正式 ingest，Character Core 达 63/63。</li>
+          <li>AO-06 / D-069：A04 Real Shot Spec → Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit 已验证。</li>
+          <li>Asset Registry / Relations / Audit Event Log：83 / 44 / 120。</li>
+          <li>P0.2 已由 Product Owner 于 2026-09-22 正式批准。</li>
+        </ul>
+      </details>
+    </section>
+  </div>
+</main>
+</body>
+</html>
