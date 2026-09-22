@@ -1,6 +1,6 @@
 ## D-070 Current Update｜2026-09-22
 
-Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 PRODUCT OWNER APPROVED / P0.2 READY_FOR_APPROVAL`
+Status: `P0.2 PASS / PRODUCT OWNER APPROVED / CHARACTER CORE FORMAL 63/63 / AO-01..AO-07 CLOSEOUT SATISFIED`
 
 - The 21 already-published PO-approved Character Core PNGs are formally admitted as `AST_IMG_000063–AST_IMG_000083`.
 - Registry = `83` Assets.
@@ -12,7 +12,7 @@ Status: `FORMAL CHARACTER CORE 63/63 / D-070 COMPLETE / AO-06 PRODUCT OWNER APPR
 - Jun Luyuan `PROFILE_LEFT V002` requires explicit contiguous reservation of rejected/do-not-ingest `V001`; unacknowledged version skipping remains blocked.
 - Existing Derived Reference Sheet PNGs are not modified by D-070.
 - AO-06 / D-069 end-to-end engineering evidence is complete and Product Owner approved on 2026-09-22.
-- P0.2 final readiness review found no remaining mandatory engineering gap; P0.2 is READY_FOR_APPROVAL. P0.3 remains QUEUED / DO NOT START EARLY.
+- P0.2 final readiness review found no remaining mandatory engineering gap; Product Owner explicitly approved P0.2 on 2026-09-22. P0.3 prerequisite is cleared but P0.3 remains unvalidated until its own evidence is produced.
 
 ---
 
@@ -38,7 +38,7 @@ Status: `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`
 
 ## P0.2 Final Readiness｜2026-09-22
 
-Status: `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`
+Status: `PASS / PRODUCT OWNER APPROVED`
 
 Final readiness findings:
 
@@ -49,13 +49,13 @@ Final readiness findings:
 - RISK-002 remains accepted / non-blocking;
 - no mandatory P0.2 engineering evidence gap remains.
 
-P0.2 is not PASS until explicit Product Owner Gate approval. P0.3 remains QUEUED / DO NOT START EARLY.
+Product Owner explicitly approved P0.2 on 2026-09-22. P0.3 prerequisite is now cleared; P0.3 has not yet been validated.
 
 ---
 
 # P0.2｜人物锚定与 Scene Master 资产治理
 
-Status: `READY_FOR_APPROVAL / CHARACTER CORE FORMAL 63/63 / AO-01..AO-07 CLOSEOUT SATISFIED`
+Status: `PASS / PRODUCT OWNER APPROVED / CHARACTER CORE FORMAL 63/63 / AO-01..AO-07 CLOSEOUT SATISFIED`
 
 ## 前一权威检查点｜2026-09-21 EOD（历史）
 
