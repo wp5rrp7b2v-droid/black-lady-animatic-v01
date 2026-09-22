@@ -5,7 +5,7 @@
   "project_name": "诡舍·黑衣夫人",
   "state_revision": "R072",
   "last_updated": "2026-09-22",
-  "session_status": "D-070 RESCUE PUBLICATION READY / CHARACTER CORE FORMAL COVERAGE 63/63 / AO-06 D-069 OPEN / P0.2 ACTIVE / P0.3 QUEUED",
+  "session_status": "D-070 PR #11 FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL / CHARACTER CORE 63/63 / AO-06 OPEN",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "QUEUED / AUDIO RESOLVER REQUIREMENT LOCKED"
     }
   ],
-  "current_task": "D-070 RESCUE PUBLICATION｜PO REVIEW / MERGE PENDING; AFTER MERGE RESUME AO-06 / D-069",
+  "current_task": "D-070 PR #11｜FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL",
   "blocker": "Character Core formal-ingest blocker is cleared. Remaining P0.2 blocker is AO-06 / D-069 real Shot Spec → Resolver → Package → Actual Use → Audit validation.",
-  "next_action": "Review and merge the D-070 rescue PR after remote verification. Then resume AO-06 / D-069. Keep P0.2 ACTIVE and P0.3 QUEUED / DO NOT START EARLY.",
+  "next_action": "Product Owner decides whether to approve squash-merge PR #11. After merge, independently verify main R072 / Registry 83 / Character Core 63/63, then resume AO-06 / D-069.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -107,7 +107,7 @@
   },
   "latest_checkpoint": {
     "id": "2026-09-22-D070-RESCUE-PUBLICATION-READY",
-    "status": "D-070 FORMAL ADOPTION COMPLETE ON RESCUE BRANCH / PO REVIEW + MERGE PENDING",
+    "status": "D-070 PR #11 FORMAL REVIEW PASS / WAITING PRODUCT OWNER MERGE APPROVAL",
     "completed": [
       "21 previously published PO-approved Character Core PNGs adopted as AST_IMG_000063–000083 without PNG byte mutation.",
       "42 append-only D-070 audit events present: 21 ASSET_APPROVED + 21 ASSET_INGESTED.",
@@ -117,7 +117,7 @@
       "Derived-reference builder expected live coverage updated to Tier A 9/9/9/9, Tier B 6/6/6/6, Tier C 3.",
       "AO-06 / D-069 remains OPEN; P0.2 remains ACTIVE; P0.3 remains QUEUED / DO NOT START EARLY."
     ],
-    "resume_from": "After Product Owner review and merge of D-070 rescue PR, resume AO-06 / D-069 final-closeout validation.",
+    "resume_from": "If Product Owner approves: squash-merge PR #11, verify main remote truth, sync local working copy safely, then resume AO-06 / D-069.",
     "blockers": [
       "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT"
     ]
@@ -271,7 +271,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "NEXT AFTER D-070 MERGE: resume AO-06 / D-069 final-closeout validation.",
+    "next_task": "WAITING PO MERGE APPROVAL FOR PR #11; after merge resume AO-06 / D-069 final-closeout validation.",
     "ao06_status": "D-069 OPEN / PARALLEL CLOSEOUT TRACK / A04 BINARY SUBSTEP DEFERRED",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
@@ -461,14 +461,14 @@
     "version": "V048",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R072 / D-070 FORMAL CORE 63/63 / AO-06 REMAINS OPEN"
+    "status": "CURRENT / DERIVED FROM R072 / D-070 PR #11 REVIEW PASS / WAITING PO MERGE APPROVAL / AO-06 OPEN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete D-070 remote publication/merge with formal Character Core 63/63, then resume AO-06 / D-069 as the only remaining P0.2 system-closeout requirement.",
+  "stage_goal": "Complete Product Owner decision and remote merge verification for D-070 PR #11; then resume AO-06 / D-069 as the only remaining P0.2 system-closeout requirement.",
   "blockers": [
     "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
   ],
