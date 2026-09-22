@@ -1,0 +1,62 @@
+name: D-069 A04 Binary Unpack
+
+on:
+  push:
+    branches:
+      - work/d069-a04-binary-intake-r074
+    paths:
+      - staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout task branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/d069-a04-binary-intake-r074
+          fetch-depth: 0
+
+      - name: Extract and verify exact approved A04 binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip"
+          OUT="staging/d069_a04_intake/A04_REBOOT_approved_v001.png"
+          EXPECTED_SHA="8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398"
+          EXPECTED_SIZE="2486659"
+
+          test -f "$ZIP"
+          python - <<'PY'
+import zipfile, pathlib
+z = pathlib.Path("staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip")
+out = pathlib.Path("staging/d069_a04_intake/A04_REBOOT_approved_v001.png")
+with zipfile.ZipFile(z, "r") as f:
+    names = f.namelist()
+    assert names == ["A04_REBOOT_approved_v001.png"], names
+    out.write_bytes(f.read("A04_REBOOT_approved_v001.png"))
+PY
+
+          ACTUAL_SIZE="$(wc -c < "$OUT" | tr -d ' ')"
+          ACTUAL_SHA="$(sha256sum "$OUT" | awk '{print $1}')"
+
+          echo "REMOTE_BYTE_SIZE=$ACTUAL_SIZE"
+          echo "REMOTE_SHA256=$ACTUAL_SHA"
+
+          test "$ACTUAL_SIZE" = "$EXPECTED_SIZE"
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+
+      - name: Commit verified PNG only
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f staging/d069_a04_intake/A04_REBOOT_approved_v001_EXACT.zip
+          rm -f .github/workflows/d069_a04_binary_unpack.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "D-069: materialize approved A04 binary for AO-06 validation"
+          git push origin HEAD:work/d069-a04-binary-intake-r074
