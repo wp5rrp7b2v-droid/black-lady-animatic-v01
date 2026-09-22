@@ -1,0 +1,90 @@
+name: D069 Stage 4 actual-use package bridge
+
+on:
+  push:
+    branches:
+      - codex/d069-stage4-actual-use-wrapper-20260922
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out authoritative main revision
+        uses: actions/checkout@v4
+        with:
+          ref: 4e074d272b411d50dbfef4bfcfcc31fe83e95a80
+          fetch-depth: 1
+
+      - name: Run formal resolver
+        run: |
+          python scripts/shot_reference_resolver_v0_1.py --root "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/resolver_result.json"
+
+      - name: Fail-closed resolver assertions
+        run: |
+          python - "$RUNNER_TEMP/resolver_result.json" <<'PY'
+          import json, sys
+          p = json.load(open(sys.argv[1], encoding="utf-8"))
+          assert p["status"] == "READY_FOR_GENERATION", p
+          assert p["generation_allowed"] is True, p
+          assert p["shot_spec_id"] == "A04_SPEC_V001", p
+          assert p["shot_evidence"]["status"] == "RESOLVED", p
+          ids = {x["asset"]["asset_id"] for x in p["resolved"]}
+          assert ids == {"AST_IMG_000060", "AST_IMG_000059", "AST_IMG_000052"}, ids
+          ev = p["shot_evidence"]["evidence"]
+          assert ev["sha256"] == "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398", ev
+          assert ev["byte_size"] == 2486659, ev
+          PY
+
+      - name: Export formal reference package
+        run: |
+          python scripts/shot_reference_package_exporter_v0_1.py "$RUNNER_TEMP/A04_REFERENCE_PACKAGE_V001" --root "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/exporter_result.json"
+
+      - name: Verify package inputs
+        run: |
+          python - "$RUNNER_TEMP/A04_REFERENCE_PACKAGE_V001/package_manifest.json" <<'PY'
+          import hashlib, json, pathlib, sys
+          manifest_path = pathlib.Path(sys.argv[1])
+          package = manifest_path.parent
+          m = json.loads(manifest_path.read_text(encoding="utf-8"))
+          assert m["package_id"] == "A04_REFERENCE_PACKAGE_V001", m
+          assert m["status"] == "READY_FOR_GENERATION", m
+          assert m["generation_allowed"] is True, m
+          assert {x["asset_id"] for x in m["resolved_assets"]} == {"AST_IMG_000060", "AST_IMG_000059", "AST_IMG_000052"}, m
+          rows = []
+          for item in m["resolved_assets"]:
+              p = package / "visual_refs" / item["delivered_filename"]
+              b = p.read_bytes()
+              got = hashlib.sha256(b).hexdigest()
+              assert got == item["sha256"] and len(b) == item["byte_size"], item
+              rows.append({"path": str(p.relative_to(package)), "sha256": got, "byte_size": len(b), "asset_id": item["asset_id"]})
+          ev = m["shot_evidence"]
+          p = package / "evidence" / "approved_a04_source_reference" / ev["delivered_filename"]
+          b = p.read_bytes()
+          got = hashlib.sha256(b).hexdigest()
+          assert got == ev["sha256"] == "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398", ev
+          assert len(b) == ev["byte_size"] == 2486659, ev
+          rows.append({"path": str(p.relative_to(package)), "sha256": got, "byte_size": len(b), "evidence": True})
+          (package / "verified_input_receipt.json").write_text(json.dumps({
+              "source_main_sha": "4e074d272b411d50dbfef4bfcfcc31fe83e95a80",
+              "shot_spec_id": "A04_SPEC_V001",
+              "package_id": "A04_REFERENCE_PACKAGE_V001",
+              "manual_po_reference_upload_count": 0,
+              "verified_inputs": rows
+          }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+
+      - name: Attach resolver and exporter evidence
+        run: |
+          cp "$RUNNER_TEMP/resolver_result.json" "$RUNNER_TEMP/A04_REFERENCE_PACKAGE_V001/"
+          cp "$RUNNER_TEMP/exporter_result.json" "$RUNNER_TEMP/A04_REFERENCE_PACKAGE_V001/"
+
+      - name: Upload exact package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: D069_STAGE4_A04_REFERENCE_PACKAGE_V001
+          path: ${{ runner.temp }}/A04_REFERENCE_PACKAGE_V001
+          retention-days: 7
+          if-no-files-found: error
