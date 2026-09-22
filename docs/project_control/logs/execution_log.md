@@ -969,3 +969,19 @@ Resume: Castle Rear-3Q PO decision → exact-byte publication / remote SHA / Aut
 - Review conclusion: `PASS / READY_FOR_PRODUCT_OWNER_MERGE_APPROVAL`.
 - Required merge method: `SQUASH` so rescue/review intermediate commits do not enter canonical main history.
 - P0.2 remains ACTIVE; AO-06 / D-069 remains OPEN; P0.3 remains QUEUED.
+
+
+## 2026-09-22｜D-070 PR #11 Merge Closeout
+
+- Product Owner explicitly approved merge.
+- PR #11 transitioned from Draft to Ready for Review and was squash-merged.
+- Merge SHA: `6dc3171bba701c22a97580eadc06f62f391b5fe1`.
+- Post-merge GitHub remote verification passed:
+  - Registry `83`;
+  - Audit `120`;
+  - Relations `44`;
+  - D-070 `21 assets / 42 events / 0 relations`;
+  - Character Core `63/63`;
+  - mandatory Single Current `63/63 PASS`;
+  - AO-06 / D-069 still OPEN.
+- Project Control advanced to R073 to remove the pre-merge waiting state and set AO-06 / D-069 as the current task.
