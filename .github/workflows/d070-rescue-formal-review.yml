@@ -1,0 +1,123 @@
+name: D070 Rescue Formal Review
+
+on:
+  push:
+    branches:
+      - chatgpt/d070-publication-rescue
+  workflow_dispatch:
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependency
+        run: python -m pip install pillow
+
+      - name: Targeted D-064/D-070 controller tests
+        run: python -m unittest tests.test_d064_controlled_supersession -q
+
+      - name: Full regression suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Validate registry audit coverage and published PNG SHA
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path(".")
+          def rows(path):
+              return [json.loads(x) for x in Path(path).read_text(encoding="utf-8").splitlines() if x.strip()]
+          def sha(path):
+              h=hashlib.sha256()
+              with Path(path).open("rb") as f:
+                  for b in iter(lambda:f.read(1024*1024), b""):
+                      h.update(b)
+              return h.hexdigest()
+
+          registry=rows("production/asset_registry/asset_registry.jsonl")
+          audit=rows("production/asset_registry/audit_event_log.jsonl")
+          relations=rows("production/asset_registry/asset_relations.jsonl")
+          assert len(registry)==83, len(registry)
+          assert len(audit)==120, len(audit)
+          assert len(relations)==44, len(relations)
+
+          d070=[r for r in registry if r.get("task_id")=="D-070/P0.2-03"]
+          assert len(d070)==21, len(d070)
+          expected_ids=[f"AST_IMG_{i:06d}" for i in range(63,84)]
+          assert [r["asset_id"] for r in d070]==expected_ids
+
+          for r in d070:
+              p=root/r["storage_uri"]
+              assert p.is_file(), p
+              assert p.stat().st_size==r["byte_size"], (p, p.stat().st_size, r["byte_size"])
+              assert sha(p)==r["sha256"], (p, sha(p), r["sha256"])
+
+          ev=[e for e in audit if e.get("task_id")=="D-070/P0.2-03"]
+          assert len(ev)==42, len(ev)
+          assert sum(e["event_type"]=="ASSET_APPROVED" for e in ev)==21
+          assert sum(e["event_type"]=="ASSET_INGESTED" for e in ev)==21
+
+          d070_ids=set(expected_ids)
+          assert not [r for r in relations if r.get("source_asset_id") in d070_ids or r.get("target_asset_id") in d070_ids]
+
+          tiersA=["CHAR_NING_QIUSHUI","CHAR_JUN_LUYUAN","CHAR_NEIL","CHAR_BLACK_LADY"]
+          rolesA=["FACE_FRONT","FACE_3Q_LEFT","FACE_3Q_RIGHT","PROFILE_LEFT","PROFILE_RIGHT","REAR_3Q_LEFT","REAR_3Q_RIGHT","BODY_FRONT","BODY_BACK"]
+          rolesB={
+              "CHAR_WEN_QINGYA":["FACE_FRONT","FACE_3Q_LEFT","PROFILE_LEFT","REAR_3Q_LEFT","BODY_FRONT","BODY_BACK"],
+              "CHAR_SU_XIAOXIAO":["FACE_FRONT","FACE_3Q_LEFT","PROFILE_LEFT","REAR_3Q_LEFT","BODY_FRONT","BODY_BACK"],
+              "CHAR_LIAO_JIAN":["FACE_FRONT","FACE_3Q_LEFT","PROFILE_LEFT","REAR_3Q_LEFT","BODY_FRONT","BODY_BACK"],
+              "CHAR_CASTLE_YOUNG_MASTER":["FACE_FRONT","FACE_3Q_LEFT","PROFILE_LEFT","REAR_3Q_LEFT","BODY_FRONT","BODY_BACK"],
+          }
+          mandatory=[(e,r) for e in tiersA for r in rolesA]
+          mandatory += [(e,r) for e,roles in rolesB.items() for r in roles]
+          mandatory += [("CHAR_GUANG_YONG",r) for r in ["FACE_FRONT","BODY_FRONT","BODY_BACK"]]
+          assert len(mandatory)==63
+
+          current={}
+          for r in registry:
+              if (r.get("asset_class")=="ATOMIC" and r.get("approval_status")=="APPROVED"
+                  and r.get("lifecycle")=="CURRENT" and r.get("resolver_usage")=="DEFAULT"
+                  and r.get("variant")=="DEFAULT" and r.get("state")=="DEFAULT"):
+                  current.setdefault((r["entity_id"],r["role"]),[]).append(r["asset_id"])
+          for slot in mandatory:
+              assert len(current.get(slot,[]))==1, (slot,current.get(slot,[]))
+
+          bl={r["role"]:r["sha256"] for r in d070 if r["entity_id"]=="CHAR_BLACK_LADY"}
+          assert bl["REAR_3Q_LEFT"]=="b6fb7cf38390c955b77cc87fe3f8f86206ac6dbbd488438f84934abef6fd9f25"
+          assert bl["REAR_3Q_RIGHT"]=="b7456815b978c3931f92880cd777b95686f3f5db7526d3f7016b6d4f6257be51"
+
+          state=json.loads(Path("docs/project_control/core/project_state.json").read_text(encoding="utf-8"))
+          assert state["state_revision"]=="R072"
+          assert state["visual_asset_management_system"]["current_live_core_coverage"]["confirmed"]==63
+          assert state["visual_asset_management_system"]["current_live_core_coverage"]["gap"]==0
+
+          print("D070_FORMAL_REVIEW_PASS")
+          PY
+
+      - name: Validate derived-reference live coverage contract
+        run: python scripts/character_reference_sheet_builder_v0_1.py --output-root /tmp/d070-reference-review >/tmp/d070-builder.json
+
+      - name: Validate Project Control JSON
+        run: python -m json.tool docs/project_control/core/project_state.json >/dev/null
+
+      - name: Diff hygiene
+        run: |
+          git diff --check 3d3aebba8ca458dcdb133c77e3611f037f2fc49a...HEAD
+          python - <<'PY'
+          import subprocess
+          base="3d3aebba8ca458dcdb133c77e3611f037f2fc49a"
+          files=subprocess.check_output(["git","diff","--name-only",f"{base}...HEAD"],text=True).splitlines()
+          bad=[p for p in files if p.startswith("production/audio/") or p.endswith(".zip") or p.endswith(".png")]
+          assert not bad, bad
+          print("CHANGED_FILES", len(files))
+          print("\n".join(files))
+          PY
