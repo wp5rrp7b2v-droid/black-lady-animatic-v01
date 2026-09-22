@@ -73,11 +73,11 @@
 
 ## 当前边界
 
-- P0.1 已由 Product Owner 明确批准 PASS；S1 / S2 / canonical audio / 完整 MVP1 S3 searchable index 构成正式故事与声音事实基线。
-- 所有后续 Gate / Phase 必须经过 Product Owner 明确审批；技术完成只能进入 `READY_FOR_APPROVAL`，不得自动 PASS / CLOSED。
-- P0.2 的正式方向已锁定为 Visual Asset Management System V1，而不是单纯图库整理；必须实现/验证 Entity/Asset、Reference Resolver、Automatic Ingest 与 Audit Trail 的可执行路径。
-- P0.2-02 Character Asset 采用 Tier A/B/C/D 分级；P0.2-03 Tier Assignment V1 已锁定：A=宁秋水/君鹭远/尼尔/黑衣夫人，B=温倾雅/苏小小/廖健/古堡小主人，C=光勇，当前正式角色无 D。
-- P0.2-03 Character Asset Gap Mapping V1 历史基线已锁定：63 Mandatory / 40 Covered / 23 Core View Gap；当前 live coverage 为 42/63，P1 已完成 2/10。
-- AO-01、AO-02、AO-03、AO-07 已 `COMPLETE / VERIFIED`；其中 AO-02、AO-03、AO-07 已 Product Owner Approved。当前剩余主依赖链为 `AO-04 → AO-05 → AO-06`；P1 Wave 2｜君鹭远 PROFILE_LEFT 继续 HOLD。
-- `RISK-001｜GitHub Connectivity Instability` 已由 BL-D-030 降级为 `CONTROLLED / MITIGATION VERIFIED`；AO-07 Recovery Runbook 与真实 failure→recovery 证据已完成并经 Product Owner 批准。
-- `TEMP_CLOUD_ONLY_MODE_V1` 已批准，当前处于 `EFFECTIVE / 2026-09-16—2026-09-20`；GitHub main 保持唯一 SSOT，RC-015 长期规则不变，本地同步在有效期内按 `LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL` 处理；Codex Cloud native PR publication 已由 CLOUD-DRILL-001 / PR #5 实际验证。
+- P0.1 = `PASS / PRODUCT OWNER APPROVED`; S1 / S2 / canonical audio / MVP1 S3 searchable index remain the formal story/audio factual baseline.
+- P0.2 = `PASS / PRODUCT OWNER APPROVED` as of 2026-09-22; Character Core formal coverage = `63/63`; AO-01..AO-07 closeout set is satisfied.
+- AO-06 = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`; it validates real visual-reference selection/delivery/audit, not final image quality, video generation quality, animation, edit, or final film delivery.
+- P0.3 = `READY_TO_START / NOT YET VALIDATED`; it owns shot-driven Audio Alignment / Resolver, source-audio extraction, Animatic, dynamicization/video generation, editing/Remotion boundary, timing/continuity, and representative real video validation.
+- Before formal local P0.3 execution, perform the deferred GitHub→Mac truth sync and verify local HEAD against GitHub main.
+- All Gate / Phase approvals remain Product Owner-only under BL-D-017.
+- `RISK-001` remains `CONTROLLED / MITIGATION VERIFIED`; `RISK-002` remains `ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`.
+- GitHub `main/docs/project_control/` remains the canonical Project Control SSOT.
