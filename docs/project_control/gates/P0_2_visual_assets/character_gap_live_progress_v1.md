@@ -1,10 +1,26 @@
 # P0.2-03｜Character Gap Live Progress V1
 
-Status: `EOD PAUSED / CHARACTER CORE VISUAL 63/63 PO APPROVED / 21/21 NEW CORE PNGs CANONICAL-PUBLISHED + SHA VERIFIED / FORMAL COVERAGE 42/63 / D-070 NEXT`
+Status: `D-070 FORMAL ADOPTION COMPLETE / CHARACTER CORE 63/63 FORMAL / AO-06 OPEN`
 
-Date: `2026-09-21 EOD`
+Date: `2026-09-22`
 
-This file tracks live production progress after the locked baseline in `character_asset_gap_mapping_v1.md`.
+## D-070 current formal truth
+
+- Mandatory Core Slots = `63`
+- Product Owner-approved visual results = `63 / 63`
+- Formal Registry Core Coverage = `63 / 63 = 100%`
+- Formal Core View Gap = `0`
+- Formal P1 completion = `10 / 10`
+- D-070 admitted Asset IDs = `AST_IMG_000063–AST_IMG_000083`
+- D-070 Audit = `42/42` required events
+- Single Current = `63/63 PASS`
+- D-070 relations = `0` as expected
+- The 21 canonical PNG binaries remain the already-published byte identities from commit `b9bafa2af4b9be8aadf2bd2abe79b724837eff88`; D-070 does not regenerate, resize, re-encode, copy, or replace them.
+- Existing Derived Character Reference Sheet PNGs remain unchanged and require a separate controlled regeneration/PO approval if refreshed visual sheets are desired.
+- AO-06 / D-069 remains OPEN and mandatory before P0.2 READY_FOR_APPROVAL.
+- P0.3 remains QUEUED / DO NOT START EARLY.
+
+---
 
 ## Locked baseline
 
