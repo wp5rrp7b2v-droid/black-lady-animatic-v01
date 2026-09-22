@@ -1,6 +1,6 @@
 # P0.2｜Approved-but-Open Tasks V1
 
-Status: `LOCKED / AO-06 STILL MANDATORY FOR P0.2 FINAL CLOSEOUT / P1 SEQUENCING HOLD SUPERSEDED 2026-09-19`
+Status: `LOCKED / AO-06 READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL / P0.2 REMAINS ACTIVE`
 
 Approved by: `PRODUCT OWNER`
 
@@ -8,7 +8,7 @@ Date: `2026-09-13`
 
 > **2026-09-19 Product Owner override:** 本清单继续作为 P0.2 final closeout 的强制完成清单，但不再阻塞 P1 Character production sequencing。AO-06 仍必须在 P0.2 `READY_FOR_APPROVAL` 前 COMPLETE / VERIFIED；剩余 P1 8 项可先行生产。详见 BL-D-039 / RC-020。
 
-Latest closeout update: `2026-09-19 EOD`
+Latest closeout update: `2026-09-22 / D-069 FINAL AUDIT MERGED`
 
 ## Purpose
 
@@ -198,7 +198,20 @@ Fallback Robustness Proof（2026-09-18）已 PASS：
 
 ### AO-06｜Real Shot Spec Resolver + Shot-level Audit Reverse Trace
 
-Status: `IN PROGRESS / D-069 ENGINEERING FOUNDATION MERGED / EVIDENCE BLOCKED / EOD PAUSED`
+Status: `READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PRODUCT OWNER APPROVAL`
+
+Final end-to-end closeout evidence（2026-09-22）：
+
+- PR #12 merged the PO-approved A04 evidence-boundary correction; exact A04 evidence is materialized and byte-verified.
+- Real Resolver selected formal inputs `AST_IMG_000060 / AST_IMG_000059 / AST_IMG_000052`.
+- `A04_REFERENCE_PACKAGE_V001` was built and verified by GitHub Actions run `35705835709`, Artifact `10684566525`.
+- ChatGPT Work performed a real, non-simulated image-generation call with Product Owner manual reference upload count = 0.
+- Actual-use proof: `imagegen exec-ae7fde3c-02a5-4106-beaa-69704b9164ea`.
+- PR #13 squash-merged immutable use record `AO06_A04_USE_V001`; merge SHA `9ec2975059582bbd279d3a05d4af1284fac3f27a`.
+- Final audit validation run `35709208035`: immutability PASS; Shot→inputs PASS; Asset→use 3/3 PASS; targeted `13/13`; full regression `86/86`.
+- Registry / Relations / Audit Event Log remained `83 / 44 / 120`.
+- No `USES_REFERENCE` was created because the validation output is explicitly non-production and has no formal SHOT Asset ID; historical A04 relations remain `DO_NOT_RECONSTRUCT`.
+- No engineering evidence gap remains. AO-06 is now `READY_FOR_APPROVAL`, not yet COMPLETE / APPROVED.
 
 Stage 1 recommendation（2026-09-18）：
 
@@ -324,26 +337,32 @@ RISK-001 正式降级为 `CONTROLLED / MITIGATION VERIFIED`。
 3. AO-03｜COMPLETE / VERIFIED / PO APPROVED
 4. AO-04｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
 5. AO-05｜COMPLETE / VERIFIED / PRODUCT OWNER APPROVED
-6. AO-06｜IN PROGRESS / STAGE 2 PO APPROVED / D-069 STAGE 3 NEXT
+6. AO-06｜READY_FOR_APPROVAL / END-TO-END VERIFIED / WAITING PO APPROVAL
 7. AO-07｜COMPLETE / VERIFIED / PO APPROVED
 
-AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前剩余主依赖链：
+AO-07 已提前完成；AO-03 于 2026-09-17 完成。当前不存在 AO-06 工程证据缺口；剩余步骤仅为 Product Owner 对 AO-06 的正式批准。
 
-`AO-06`
+`AO-06 → PRODUCT OWNER FINAL APPROVAL`
 
 如执行中发现依赖关系需要调整顺序，可以调整，但不得跳过任何一项。
 
-## Resume / Closeout rule｜updated 2026-09-20 EOD
+## Resume / Closeout rule｜updated 2026-09-22
 
-P1 Character visual production is now complete at `10/10 PO APPROVED`, while formal P1 remains `2/10` because 8 approved P1 Core views are not yet formally ingested.
+Character Core visual + formal coverage is now `63/63`.
 
-P2 visual generation has reached `7/7`; `6/7` have explicit PO approval. Castle Young Master `REAR_3Q_LEFT V001` remains `PO REVIEW PENDING` and must not be ingested before explicit approval.
+AO-06 end-to-end engineering evidence is complete and remotely verified through real Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit.
 
-Across P1 + P2, `14` PO-approved Core-view binaries remain exact-byte publication / Automatic Ingest pending. These do not change formal Core Coverage, which remains `42/63 = 66.7%`.
+Current governance state:
 
-AO-06 remains the only mandatory P0.2 system closeout item before `READY_FOR_APPROVAL`; it does not block the already-completed character visual production. D-069 remains open; D-070 is not allocated.
+- AO-06 = `READY_FOR_APPROVAL / WAITING PRODUCT OWNER APPROVAL`;
+- do not mark AO-06 COMPLETE / APPROVED until explicit PO approval;
+- P0.2 remains ACTIVE until AO-06 approval is recorded and the final P0.2 readiness review is performed;
+- P0.3 remains QUEUED / DO NOT START EARLY;
+- local GitHub→Mac sync remains deferred to 2026-09-22 EOD as one consolidated sync.
 
-Next operational sequence: resolve the remaining Castle Young Master PO review → batch exact-byte publication + remote SHA verification → Automatic Ingest / Registry / Audit cross-check → formal coverage update → GitHub→Local truth sync before local formal production resumes.
+Next operational sequence:
+
+`PO AO-06 approval → P0.2 final readiness review → PO P0.2 decision → EOD local sync before local formal P0.3 work`
 
 ## Non-blocking technical debt
 
