@@ -998,3 +998,38 @@ Resume: Castle Rear-3Q PO decision → exact-byte publication / remote SHA / Aut
   3. if not clean, stop and resolve local changes before pulling.
 - This deferral does not change GitHub `main` as SSOT.
 - Current project task remains `AO-06 / D-069`.
+
+
+## 2026-09-22｜D-069 Review Patch 02 Merge Closeout
+
+Status: `MERGED / REMOTE VERIFIED / AO-06 ACTUAL USE + AUDIT NEXT`
+
+- Product Owner explicitly approved the Review Patch 02 design boundary and subsequent PR #12 merge.
+- Codex Cloud publication handshake failed because GitHub credentials were unavailable; no remote Codex branch was created, so the local Codex handshake commit was not treated as project fact.
+- Chat/GitHub path executed the patch directly on `chatgpt/d069-review-patch-02`.
+- Exact approved A04 evidence was materialized and verified:
+  - path: `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`
+  - byte size: `2486659`
+  - SHA-256: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`
+  - Git blob SHA: `fd05cae8618d7daa16c16658b29d25ab65052fbb`
+- Evidence-boundary correction:
+  - `COSTUME_NEIL_DEFAULT` and `PROP_NEIL_CROSS` no longer block A04 as standalone formal visual Assets;
+  - Neil black butler attire + visible chest cross are `CHAR_NEIL / DEFAULT` appearance-continuity constraints;
+  - `WHITE_POCKET_HANDKERCHIEF_VISIBLE` removed as an A04 hard requirement;
+  - no historical `USES_REFERENCE` was reconstructed.
+- Validation workflow run `35703125845`:
+  - exact A04 binary identity: PASS;
+  - targeted D-069: `13/13 PASS`;
+  - full regression: `86/86 PASS`.
+- PR #12 changed-file scope after cleanup: 7 files; temporary validation workflow removed before merge.
+- PR #12 moved Draft → Ready after PO approval and was squash-merged.
+- Merge SHA: `fdc43a907cb799eef3c11553b34bab74374ddd5c`.
+- Post-merge remote verification:
+  - PR state = merged;
+  - main HEAD = merge SHA;
+  - squash-merge tree SHA exactly matches reviewed branch tree SHA `740a43aa62ed48948426a9da18bd488617f36bd5`;
+  - A04 evidence on main retains byte size `2486659` and Git blob SHA `fd05cae8618d7daa16c16658b29d25ab65052fbb`, proving byte identity with the SHA-verified reviewed file.
+- AO-06 is not complete. Remaining chain:
+  `Reference Package → Actual Production Use → immutable use record → reverse audit`.
+- P0.3 remains `QUEUED / DO NOT START EARLY`.
+- Local GitHub→Mac sync remains intentionally deferred to EOD for one consolidated sync.
