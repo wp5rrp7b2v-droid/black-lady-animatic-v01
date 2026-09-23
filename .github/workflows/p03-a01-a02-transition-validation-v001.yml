@@ -1,0 +1,166 @@
+name: P0.3 A01-A02 Transition Validation V001
+
+on:
+  push:
+    branches:
+      - codex/p03-a01-a02-transition-validation-v001
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure FFmpeg
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+
+      - name: Validate inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          A01="production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png"
+          A02="production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png"
+          WIDE="staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_WIDE_CANDIDATE.png"
+          TIGHT="staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_TIGHT_CANDIDATE.png"
+          AUDIO="staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a"
+
+          check_file() {
+            local path="$1" expected_size="$2" expected_sha="$3"
+            test -f "$path" || { echo "INPUT_VALIDATION_FAIL missing $path"; exit 1; }
+            actual_size="$(wc -c < "$path" | tr -d ' ')"
+            actual_sha="$(sha256sum "$path" | awk '{print $1}')"
+            test "$actual_size" = "$expected_size" || { echo "INPUT_VALIDATION_FAIL size $path expected=$expected_size actual=$actual_size"; exit 1; }
+            test "$actual_sha" = "$expected_sha" || { echo "INPUT_VALIDATION_FAIL sha $path expected=$expected_sha actual=$actual_sha"; exit 1; }
+            echo "$path|$actual_size|$actual_sha" >> input_manifest.txt
+          }
+
+          : > input_manifest.txt
+          check_file "$A01" 3399726 a484bc7f34726f6b1c15f80d1b8a840aa5b4cc17804583ca68dc5eddce833c95
+          check_file "$A02" 2359724 a8a9e5c0cc80df95eccaabf378c27457102365dd3df3012e27fb2417e487f4dd
+          check_file "$WIDE" 2658382 f60bf3289bb1eadcab770c9f51cc20afae725d282a3f46b78e401949983785ca
+          check_file "$TIGHT" 2407156 57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316
+          check_file "$AUDIO" 4957338 8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0
+
+          for img in "$A01" "$A02" "$WIDE" "$TIGHT"; do
+            ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$img" >/dev/null               || { echo "INPUT_VALIDATION_FAIL invalid image $img"; exit 1; }
+          done
+
+          audio_codec="$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$AUDIO")"
+          audio_duration="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$AUDIO")"
+          test -n "$audio_codec" || { echo "INPUT_VALIDATION_FAIL no audio stream"; exit 1; }
+          awk -v d="$audio_duration" 'BEGIN { exit !(d >= 3.250) }'             || { echo "INPUT_VALIDATION_FAIL audio duration=$audio_duration"; exit 1; }
+
+          echo "INPUT_VALIDATION_PASS"
+          echo "AUDIO_SHA_MATCH=YES"
+
+      - name: Render comparison videos
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          A01="production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png"
+          A02="production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png"
+          WIDE="staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_WIDE_CANDIDATE.png"
+          TIGHT="staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_TIGHT_CANDIDATE.png"
+          AUDIO="staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a"
+
+          OUT="p03_transition_validation"
+          mkdir -p "$OUT"
+
+          vf() {
+            local idx="$1" dur="$2"
+            printf '[%s:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,trim=duration=%s,setpts=PTS-STARTPTS' "$idx" "$dur"
+          }
+
+          ffmpeg -y             -loop 1 -framerate 30 -i "$A01"             -loop 1 -framerate 30 -i "$A02"             -ss 0 -t 3.250 -i "$AUDIO"             -filter_complex "$(vf 0 1.550)[v0];$(vf 1 1.700)[v1];[v0][v1]concat=n=2:v=1:a=0[v]"             -map "[v]" -map 2:a:0 -t 3.250             -c:v libx264 -pix_fmt yuv420p -r 30 -preset medium -crf 18             -c:a aac -movflags +faststart             "$OUT/P03_A01_A02_TRANSITION_BASELINE_V001.mp4"
+
+          ffmpeg -y             -loop 1 -framerate 30 -i "$A01"             -loop 1 -framerate 30 -i "$WIDE"             -loop 1 -framerate 30 -i "$A02"             -ss 0 -t 3.250 -i "$AUDIO"             -filter_complex "$(vf 0 0.900)[v0];$(vf 1 0.950)[v1];$(vf 2 1.400)[v2];[v0][v1][v2]concat=n=3:v=1:a=0[v]"             -map "[v]" -map 3:a:0 -t 3.250             -c:v libx264 -pix_fmt yuv420p -r 30 -preset medium -crf 18             -c:a aac -movflags +faststart             "$OUT/P03_A01_A02_TRANSITION_WIDE_ONLY_V001.mp4"
+
+          ffmpeg -y             -loop 1 -framerate 30 -i "$A01"             -loop 1 -framerate 30 -i "$WIDE"             -loop 1 -framerate 30 -i "$TIGHT"             -loop 1 -framerate 30 -i "$A02"             -ss 0 -t 3.250 -i "$AUDIO"             -filter_complex "$(vf 0 0.700)[v0];$(vf 1 0.700)[v1];$(vf 2 0.700)[v2];$(vf 3 1.150)[v3];[v0][v1][v2][v3]concat=n=4:v=1:a=0[v]"             -map "[v]" -map 4:a:0 -t 3.250             -c:v libx264 -pix_fmt yuv420p -r 30 -preset medium -crf 18             -c:a aac -movflags +faststart             "$OUT/P03_A01_A02_TRANSITION_WIDE_TIGHT_V001.mp4"
+
+      - name: Validate outputs and write report
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="p03_transition_validation"
+          REPORT="$OUT/VALIDATION_REPORT.txt"
+
+          {
+            echo "P03_A01_A02_TRANSITION_VALIDATION_V001"
+            echo "source_commit=${GITHUB_SHA}"
+            echo
+            echo "INPUTS"
+            cat input_manifest.txt
+            echo
+            echo "INPUT_VALIDATION_PASS"
+            echo "AUDIO_SHA_MATCH=YES"
+            echo "source_audio_tc=00:00:00.000-00:00:03.250"
+            echo
+            echo "TIMING"
+            echo "BASELINE: A01 0.000-1.550 | A02 1.550-3.250"
+            echo "WIDE_ONLY: A01 0.000-0.900 | WIDE 0.900-1.850 | A02 1.850-3.250"
+            echo "WIDE_TIGHT: A01 0.000-0.700 | WIDE 0.700-1.400 | TIGHT 1.400-2.100 | A02 2.100-3.250"
+            echo
+          } > "$REPORT"
+
+          validate_mp4() {
+            local f="$1"
+            test -s "$f" || { echo "OUTPUT_VALIDATION_FAIL empty $f"; exit 1; }
+
+            codec="$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$f")"
+            pix="$(ffprobe -v error -select_streams v:0 -show_entries stream=pix_fmt -of default=nw=1:nk=1 "$f")"
+            width="$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 "$f")"
+            height="$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 "$f")"
+            fps="$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 "$f")"
+            acodec="$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$f")"
+            dur="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$f")"
+
+            test "$codec" = "h264" || { echo "OUTPUT_VALIDATION_FAIL video codec $f $codec"; exit 1; }
+            test "$pix" = "yuv420p" || { echo "OUTPUT_VALIDATION_FAIL pixfmt $f $pix"; exit 1; }
+            test "$width" = "1080" && test "$height" = "1920" || { echo "OUTPUT_VALIDATION_FAIL resolution $f ${width}x${height}"; exit 1; }
+            test "$fps" = "30/1" || { echo "OUTPUT_VALIDATION_FAIL fps $f $fps"; exit 1; }
+            test "$acodec" = "aac" || { echo "OUTPUT_VALIDATION_FAIL audio codec $f $acodec"; exit 1; }
+            awk -v d="$dur" 'BEGIN { exit !(d >= 3.20 && d <= 3.32) }'               || { echo "OUTPUT_VALIDATION_FAIL duration $f $dur"; exit 1; }
+
+            {
+              echo "$(basename "$f")"
+              echo "duration=$dur"
+              echo "resolution=${width}x${height}"
+              echo "fps=$fps"
+              echo "video_codec=$codec"
+              echo "pixel_format=$pix"
+              echo "audio_codec=$acodec"
+              echo
+            } >> "$REPORT"
+          }
+
+          validate_mp4 "$OUT/P03_A01_A02_TRANSITION_BASELINE_V001.mp4"
+          validate_mp4 "$OUT/P03_A01_A02_TRANSITION_WIDE_ONLY_V001.mp4"
+          validate_mp4 "$OUT/P03_A01_A02_TRANSITION_WIDE_TIGHT_V001.mp4"
+
+          echo "OVERALL_RENDER_VALIDATION=PASS" >> "$REPORT"
+          echo "OUTPUT_VALIDATION_PASS"
+
+      - name: Upload validation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_A01_A02_TRANSITION_VALIDATION_V001
+          path: |
+            p03_transition_validation/P03_A01_A02_TRANSITION_BASELINE_V001.mp4
+            p03_transition_validation/P03_A01_A02_TRANSITION_WIDE_ONLY_V001.mp4
+            p03_transition_validation/P03_A01_A02_TRANSITION_WIDE_TIGHT_V001.mp4
+            p03_transition_validation/VALIDATION_REPORT.txt
+          retention-days: 7
