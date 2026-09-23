@@ -276,7 +276,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "P0.3 entry review after local truth sync.",
+    "next_task": "P0.3 DepthFlow execution optimization + A01 V002; P0.2 remains closed/approved.",
     "ao06_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
