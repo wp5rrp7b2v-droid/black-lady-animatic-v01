@@ -1,0 +1,147 @@
+name: P0.3 A01 Depth Gate B V001
+
+on:
+  push:
+    branches:
+      - codex/p03-a01-depthflow-proof-v001
+    paths:
+      - "experiments/p0_3_a01_depthflow_gate_b_v001/**"
+      - ".github/workflows/p03-a01-depth-gate-b-v001.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  depth-gate-b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      PYOPENGL_PLATFORM: "egl"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate canonical A01
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT="production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png"
+          test -f "$INPUT"
+          SIZE="$(wc -c < "$INPUT" | tr -d ' ')"
+          SHA="$(sha256sum "$INPUT" | awk '{print $1}')"
+          echo "A01_BYTES=$SIZE"
+          echo "A01_SHA256=$SHA"
+          test "$SIZE" = "3399726"
+          test "$SHA" = "a484bc7f34726f6b1c15f80d1b8a840aa5b4cc17804583ca68dc5eddce833c95"
+          echo "A01_CANONICAL_VALIDATION=PASS"
+
+      - name: Retrieve approved Gate A depth artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: P03_A01_DEPTH_GATE_A_V001
+          path: experiments/p0_3_a01_depthflow_gate_b_v001/input
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 35861220002
+
+      - name: Validate Gate A depth identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEPTH="experiments/p0_3_a01_depthflow_gate_b_v001/input/A01_DEPTH_DA2_SMALL_PROOF_V001.png"
+          REPORT="experiments/p0_3_a01_depthflow_gate_b_v001/input/DEPTH_GATE_A_REPORT.txt"
+          test -s "$DEPTH"
+          test -s "$REPORT"
+          SHA="$(sha256sum "$DEPTH" | awk '{print $1}')"
+          echo "DEPTH_SHA256=$SHA"
+          test "$SHA" = "fdcb7844cac2141a4a37f66b82a8c65a0978bd75d457b1302af21d8e24e14fe5"
+          grep -q "GATE_A_GENERATION=PASS" "$REPORT"
+          echo "GATE_A_DEPTH_IDENTITY=PASS"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install DepthFlow CPU runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libegl1 libgl1-mesa-dri libglx-mesa0 mesa-utils
+          python -m pip install --upgrade pip
+          python -m pip install depthflow==1.0.1
+          python - <<'PY'
+          from importlib.metadata import version
+          print("depthflow", version("depthflow"))
+          PY
+
+      - name: Render A01 2.5D camera proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/p0_3_a01_depthflow_gate_b_v001/output
+          python experiments/p0_3_a01_depthflow_gate_b_v001/render_depthflow.py
+
+      - name: Validate render and write report
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="experiments/p0_3_a01_depthflow_gate_b_v001/output"
+          VIDEO="$OUT/A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4"
+          REPORT="$OUT/DEPTHFLOW_CAMERA_REPORT.txt"
+          test -s "$VIDEO"
+
+          CODEC="$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$VIDEO")"
+          WIDTH="$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 "$VIDEO")"
+          HEIGHT="$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 "$VIDEO")"
+          FPS="$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 "$VIDEO")"
+          DUR="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$VIDEO")"
+          DEPTHFLOW_VERSION="$(python - <<'PY'
+          from importlib.metadata import version
+          print(version("depthflow"))
+          PY
+          )"
+
+          test "$CODEC" = "h264"
+          test "$WIDTH" = "720"
+          test "$HEIGHT" = "1280"
+          test "$FPS" = "30/1"
+          awk -v d="$DUR" 'BEGIN { exit !(d >= 2.45 && d <= 2.60) }'
+
+          {
+            echo "P03_A01_DEPTHFLOW_PROOF_V001 / GATE_B"
+            echo "source_commit=${GITHUB_SHA}"
+            echo "branch=${GITHUB_REF_NAME}"
+            echo "a01_source_sha256=a484bc7f34726f6b1c15f80d1b8a840aa5b4cc17804583ca68dc5eddce833c95"
+            echo "a01_source_bytes=3399726"
+            echo "depth_map=A01_DEPTH_DA2_SMALL_PROOF_V001.png"
+            echo "depth_map_sha256=fdcb7844cac2141a4a37f66b82a8c65a0978bd75d457b1302af21d8e24e14fe5"
+            echo "depthflow_version=$DEPTHFLOW_VERSION"
+            echo "render_method=DepthFlow headless CPU software rendering"
+            echo "camera=restrained forward 2.5D push"
+            echo "height=0.10->0.20"
+            echo "zoom=1.00->0.945"
+            echo "steady=0.28"
+            echo "isometric=0.18"
+            echo "quality=0.80"
+            echo "resolution=${WIDTH}x${HEIGHT}"
+            echo "fps=$FPS"
+            echo "duration=$DUR"
+            echo "video_codec=$CODEC"
+            echo "RENDER_VALIDATION=PASS"
+          } > "$REPORT"
+
+          cat "$REPORT"
+
+      - name: Upload Gate B artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_A01_DEPTH_GATE_B_V001
+          path: |
+            experiments/p0_3_a01_depthflow_gate_b_v001/output/A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4
+            experiments/p0_3_a01_depthflow_gate_b_v001/output/DEPTHFLOW_CAMERA_REPORT.txt
+          retention-days: 7
