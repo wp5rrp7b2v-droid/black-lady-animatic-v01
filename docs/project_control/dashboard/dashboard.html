@@ -48,7 +48,7 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V054 · 派生可视化，非事实源 · Derived from R079 · Updated 2026-09-22</p>
+  <p class="muted">Project Dashboard V054 · 派生可视化，非事实源 · Derived from R080 · Updated 2026-09-23</p>
 
   <div class="grid">
     <section class="card span-3">
@@ -63,73 +63,33 @@ ul.compact li{margin:4px 0}
       <div class="kicker">Current Gate</div>
       <div class="big">P0.3</div>
       <strong>视频制作与剪辑 Pipeline 再验证</strong>
-      <p><span class="tag">READY TO START</span></p>
+      <p><span class="tag">IN PROGRESS</span></p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Task</div>
-      <div class="big" style="font-size:24px">Entry Review</div>
-      <strong>先确定怎么验证，再开始新生产</strong>
-      <p class="metric">Local truth sync 已完成。</p>
+      <div class="big" style="font-size:24px">2.5D Pipeline Optimization</div>
+      <strong>先优化执行链，再做 A01 DepthFlow V002</strong>
+      <p class="metric">A01 2.5D V001 technical PASS；PO 判断值得继续尝试。</p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Blockers</div>
       <div class="big">0</div>
-      <strong>No engineering blocker</strong>
-      <p class="metric">下一步是方法判断与验证设计，不是故障处理。</p>
+      <strong>No content blocker; optimize repeated dependency setup</strong>
+      <p class="metric">当前主要低效来自重复下载依赖，不是内容或资产阻塞。</p>
     </section>
 
     <section class="card span-12">
       <div class="kicker">What To Do Now</div>
       <h2>P0.3 当前唯一主线</h2>
-      <div class="focus">
-        <strong>Next Decision</strong>
-        <p style="margin:6px 0 0">锁定第一个“代表性验证切片”，并明确什么结果算 PASS、什么情况立即停止。</p>
-      </div>
-      <ol class="steps">
-        <li><strong>复盘历史失败：</strong>图片→视频、原音→Animatic、对白截断、旁白/对白误配、Remotion 时间线等问题分别为什么失败。</li>
-        <li><strong>锁定首个验证切片：</strong>选择一个足够小、但能同时测试人物、场景、原音、动态化和剪辑衔接的真实片段。</li>
-        <li><strong>锁定验收标准：</strong>人物一致性、动作可接受度、对白完整性、音画同步、镜头连续性、是否需要人工搬运等。</li>
-        <li><strong>再开始第一次正式 P0.3 验证：</strong>只验证已定义的问题，不提前扩大到整段成片。</li>
-      </ol>
-    </section>
-
-    <section class="card span-12">
-      <div class="kicker">Gate Map</div>
-      <h2>当前阶段一眼看懂</h2>
-      <div class="gates">
-        <div class="gatebox">
-          <strong>P0.1｜故事与文本数据基线</strong>
-          <div class="pass">✓ PASS / PO APPROVED</div>
-          <p class="metric">小说、黑衣夫人文本、canonical audio、S3 searchable index 已建立。</p>
-        </div>
-        <div class="gatebox">
-          <strong>P0.2｜人物锚定与 Scene Master 资产治理</strong>
-          <div class="pass">✓ PASS / PO APPROVED</div>
-          <p class="metric">Character Core 63/63 formal；AO-01～AO-07 closeout 完成。</p>
-        </div>
-        <div class="gatebox">
-          <strong>P0.3｜视频制作与剪辑 Pipeline 再验证</strong>
-          <div class="ready">▶ READY TO START</div>
-          <p class="metric">尚未验证视频生成、动态化、音画对齐和剪辑方案。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card span-6">
-      <div class="kicker">What Is Already Solid</div>
-      <h2>已经不用重做的基础</h2>
-      <ul class="compact">
-        <li>故事 / 原音事实基线已锁定。</li>
-        <li>Character Core：63 / 63 formal。</li>
-        <li>Scene / Character / Derived Asset Registry 已验证。</li>
-        <li>Reference Resolver → Package → Actual Use → Audit 已真实跑通。</li>
-        <li>GitHub ↔ Local truth sync 已完成。</li>
+      <p><strong>2026-09-23 已完成代表性实测：</strong>A01→A02 静态桥接、Remotion 2D 运镜、A01 深度图与 DepthFlow 2.5D 单镜头 Proof。当前结论不是 P0.3 PASS，而是 2.5D 值得继续验证。</p>
+      <ul>
+        <li><strong>已否定：</strong>仅增加静帧 + 硬切仍偏“有声音的幻灯片”。</li>
+        <li><strong>已确认边界：</strong>Remotion 适合合成/剪辑/时序/音频/输出，不负责凭空重建缺失空间视角。</li>
+        <li><strong>当前方向：</strong>镜头内部 2.5D motion + 独立镜头之间正常 CUT。</li>
+        <li><strong>下一步：</strong>先优化 GitHub Actions 缓存/CPU runtime，避免重复下载，再做 A01 DepthFlow V002；通过后扩展 Wide/Tight。</li>
       </ul>
-    </section>
-
-    <section class="card span-6">
       <div class="kicker">What P0.3 Still Must Prove</div>
       <h2>不能提前假设成立的能力</h2>
       <ul class="compact">

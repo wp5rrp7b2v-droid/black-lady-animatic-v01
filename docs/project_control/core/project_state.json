@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R079",
-  "last_updated": "2026-09-22",
-  "session_status": "P0.2 PASS + PO APPROVED / LOCAL TRUTH SYNC COMPLETE / P0.3 ENTRY REVIEW NEXT",
+  "state_revision": "R080",
+  "last_updated": "2026-09-23",
+  "session_status": "P0.3 IN PROGRESS / REPRESENTATIVE MOTION PROOFS COMPLETE / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
-    "status": "READY_TO_START / LOCAL TRUTH SYNC COMPLETE / NOT YET VALIDATED",
-    "note": "P0.2 is PASS / PRODUCT OWNER APPROVED. The deferred GitHub→Mac truth sync completed successfully on 2026-09-22: local HEAD and origin/main both equal d3a62f05c3c47c83d4b0583f591a9d61b308f4e8. Two local untracked items remain intentionally outside Git: black_lady_character_asset_migration_v1.zip and production/audio/. P0.3 can now proceed to entry review; no P0.3 capability conclusion is yet established."
+    "status": "IN PROGRESS / REPRESENTATIVE MOTION PROOFS COMPLETE / NOT YET VALIDATED",
+    "note": "2026-09-23 completed real A01→A02 transition, Remotion camera-move, Depth Anything depth-map, and A01 DepthFlow 2.5D proofs. Remotion V002 technically passed but was not artistically approved as the primary spatial-motion solution. A01 DepthFlow Gate B technically passed and the Product Owner judged the 2.5D result worth continuing to test. P0.3 remains unapproved and not PASS."
   },
   "restart_tasks": [
     {
@@ -45,12 +45,12 @@
     {
       "id": "P0.3",
       "name": "视频制作与剪辑 Pipeline 再验证",
-      "status": "READY_TO_START / LOCAL TRUTH SYNC COMPLETE / ENTRY REVIEW NEXT"
+      "status": "IN PROGRESS / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜ENTRY REVIEW",
-  "blocker": "No current engineering blocker. Local GitHub→Mac truth sync is complete; P0.3 now awaits entry review and first representative validation-slice design.",
-  "next_action": "Conduct P0.3 entry review: review prior image/video/audio/animatic failures, define validation questions and failure criteria, then lock the first representative validation slice before any new formal P0.3 production run.",
+  "current_task": "P0.3｜DEPTHFLOW EXECUTION OPTIMIZATION + A01 V002",
+  "blocker": "No current content blocker. Main execution inefficiency is repeated GitHub Actions runtime/dependency setup; optimize caching / CPU-specific dependency path before repeated 2.5D iterations.",
+  "next_action": "Optimize the GitHub Actions DepthFlow execution chain to reuse unchanged dependencies and the approved Gate A depth map; then generate A01_DEPTHFLOW_CAMERA_PROOF_V002. If acceptable, extend internal 2.5D motion to Wide/Tight and rebuild the A01→A02 sequence with normal cuts.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,8 +61,8 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "COMPLETED 2026-09-22 / LOCAL HEAD == ORIGIN/MAIN",
-    "rule": "For 2026-09-22, do not interrupt work for intermediate local pulls. Perform one consolidated GitHub→Mac sync at end of day. Before that sync, run git status; if clean, git pull --ff-only origin main; if not clean, stop and resolve before pulling.",
+    "status": "PENDING 2026-09-23 EOD / SYNC AFTER PROJECT CONTROL CLOSEOUT MERGE",
+    "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
     "temporary_exception": {
@@ -77,7 +77,8 @@
     "local_untracked_preserved": [
       "black_lady_character_asset_migration_v1.zip",
       "production/audio/"
-    ]
+    ],
+    "target": "POST-CLOSEOUT GITHUB MAIN (merge SHA to be verified after merge)"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -112,16 +113,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-22-LOCAL-TRUTH-SYNC-COMPLETE",
-    "status": "P0.2 PASS / LOCAL TRUTH SYNC COMPLETE / P0.3 ENTRY REVIEW NEXT",
+    "id": "2026-09-23-P03-REPRESENTATIVE-MOTION-PROOFS",
+    "status": "P0.3 IN PROGRESS / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED",
     "completed": [
-      "Product Owner approved P0.2.",
-      "GitHub main remained d3a62f05c3c47c83d4b0583f591a9d61b308f4e8 during final sync.",
-      "Local main fast-forward sync completed through the verified AO-07 recovery path after one transient Empty reply from server.",
-      "Local HEAD = origin/main = d3a62f05c3c47c83d4b0583f591a9d61b308f4e8.",
-      "Tracked working tree has no reported modifications; two known untracked local items remain preserved."
+      "A01→A02 verified reference bundle completed with 12/12 identity checks.",
+      "Wide and Tight bridge candidates retained as experimental staging inputs.",
+      "Initial hard-cut sequence confirmed that additional stills alone remain slideshow-like.",
+      "Remotion camera-move V002 technically passed; Product Owner did not approve its artistic result as the primary spatial-motion solution.",
+      "A01 Depth Anything V2 Small depth map Gate A passed practical review.",
+      "A01 DepthFlow Gate B successful run 35867948575 produced A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4.",
+      "Product Owner judged the A01 2.5D result worth continuing to test."
     ],
-    "resume_from": "P0.3 entry review. Do not infer P0.3 capability from prior AO-06 image-generation proof.",
+    "resume_from": "Optimize DepthFlow GitHub Actions execution so unchanged dependencies are not repeatedly downloaded; then build A01 DepthFlow V002 before extending to Wide/Tight.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -273,7 +276,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "P0.3 entry review after local truth sync.",
+    "next_task": "P0.3 DepthFlow execution optimization + A01 V002; P0.2 remains closed/approved.",
     "ao06_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
@@ -509,5 +512,49 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-20.md",
     "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD PAUSED / R070"
+  },
+  "p0_3_motion_validation": {
+    "as_of": "2026-09-23",
+    "status": "IN PROGRESS / REPRESENTATIVE PROOFS COMPLETE / NOT YET VALIDATED",
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-23.md",
+    "bridge_reference_bundle": {
+      "source_commit": "770635048a427ba1343f1bbee6cb5000f72429a9",
+      "workflow_run": 35838222340,
+      "artifact_id": 10740625723,
+      "artifact_name": "BRIDGE_A01_A02_REFERENCE_DELIVERY_BUNDLE_V001",
+      "reference_count": 12
+    },
+    "bridge_candidates": {
+      "status": "EXPERIMENTAL / RETAINED / NOT FORMAL INGEST",
+      "wide_sha256": "f60bf3289bb1eadcab770c9f51cc20afae725d282a3f46b78e401949983785ca",
+      "tight_sha256": "57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316"
+    },
+    "remotion_v002": {
+      "branch": "codex/p03-a01-a02-remotion-camera-v002",
+      "commit": "01f248e182f4998121525b46eba54c58c28021cf",
+      "workflow_run": 35857760082,
+      "artifact_id": 10747314541,
+      "technical_result": "PASS",
+      "artistic_result": "NOT_APPROVED / NOT_IDEAL"
+    },
+    "depth_gate_a": {
+      "branch": "codex/p03-a01-depthflow-proof-v001",
+      "workflow_run": 35861220002,
+      "artifact_id": 10750093687,
+      "estimator": "Depth Anything V2 Small",
+      "depth_sha256": "fdcb7844cac2141a4a37f66b82a8c65a0978bd75d457b1302af21d8e24e14fe5",
+      "result": "PASS"
+    },
+    "depth_gate_b": {
+      "corrected_commit": "d6509c43c987646a04c7ac83329252af78f0741d",
+      "workflow_run": 35867948575,
+      "artifact_id": 10753710981,
+      "artifact_name": "P03_A01_DEPTH_GATE_B_V001",
+      "output": "A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4",
+      "result": "TECHNICAL_PASS / PO_CONTINUE_TESTING",
+      "output_spec": "720x1280 / 30fps / ~2.5s / H.264"
+    },
+    "working_direction": "Internal motion inside shots + normal cuts between independently authored shots; continue 2.5D validation. Remotion remains compositor/editor/timing/audio/output. AI video/FLF2V remains optional for selected shots.",
+    "next_optimization": "Avoid repeated downloads of unchanged dependencies; cache or use CPU-specific runtime, reuse Gate A depth map, then render A01 V002."
   }
 }

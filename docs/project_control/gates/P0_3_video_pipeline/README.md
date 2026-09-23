@@ -1,6 +1,6 @@
 # P0.3｜视频制作与剪辑 Pipeline 再验证
 
-Status: `READY_TO_START / LOCAL TRUTH SYNC COMPLETE / ENTRY REVIEW NEXT`
+Status: `IN PROGRESS / REPRESENTATIVE MOTION PROOFS COMPLETE / NOT YET VALIDATED`
 
 Prerequisite:
 
@@ -37,8 +37,31 @@ Local truth sync completed on 2026-09-22:
 
 Current Project Control task:
 
-`P0.3｜ENTRY REVIEW`
+`P0.3｜2.5D EXECUTION OPTIMIZATION + A01 V002`
 
-Next: review historical failure evidence and lock the first representative validation slice before any new formal production run.
+2026-09-23 representative validation evidence now exists:
 
-No P0.3 PASS claim is permitted until new P0.3 evidence exists and Product Owner explicitly approves the Gate.
+- A01→A02 bridge stills and hard-cut edit confirmed that additional stills alone remain too slideshow-like;
+- Remotion camera-move V002 technically rendered but was not artistically approved as the primary spatial-motion solution;
+- A01 Depth Anything V2 Small depth map passed practical review;
+- A01 DepthFlow Gate B produced a valid 720×1280 / 30fps / ~2.5s H.264 proof;
+- Product Owner judged the 2.5D result worth continuing to test.
+
+Current working direction:
+
+- internal motion inside each shot;
+- normal cuts between independently authored shots;
+- 2.5D depth/parallax continues as the next still-shot validation path;
+- Remotion remains compositor / timing / audio / output, not a geometry-reconstruction engine;
+- selected AI video / FLF2V may still be tested later for shots that truly require continuous generated motion.
+
+Immediate next step:
+
+1. optimize the GitHub Actions DepthFlow runtime to avoid repeated dependency downloads;
+2. generate A01 DepthFlow V002;
+3. if acceptable, extend the same method to Wide / Tight and rebuild the A01→A02 sequence.
+
+See:
+`p0_3_progress_closeout_2026-09-23.md`
+
+No P0.3 PASS claim is permitted until representative production evidence is sufficient and Product Owner explicitly approves the Gate.

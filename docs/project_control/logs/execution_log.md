@@ -1131,3 +1131,58 @@ Status: `COMPLETE / LOCAL HEAD == ORIGIN/MAIN`
 - These untracked paths are not present on GitHub main and did not block the fast-forward sync.
 - P0.3 local-entry prerequisite is satisfied.
 - Next: `P0.3｜ENTRY REVIEW`.
+
+
+## 2026-09-23｜P0.3 Representative Motion Validation Closeout
+
+Status: `IN PROGRESS / TECHNICAL PROOFS RECORDED / P0.3 NOT YET VALIDATED`
+
+- P0.3 moved from entry review into real project-material validation.
+- A01→A02 Reference Delivery Bundle completed:
+  - source commit `770635048a427ba1343f1bbee6cb5000f72429a9`;
+  - workflow run `35838222340`;
+  - artifact `BRIDGE_A01_A02_REFERENCE_DELIVERY_BUNDLE_V001`;
+  - artifact ID `10740625723`;
+  - 12/12 reference identity checks passed.
+- Two bridge candidates retained as experimental staging inputs:
+  - Wide SHA-256 `f60bf3289bb1eadcab770c9f51cc20afae725d282a3f46b78e401949983785ca`;
+  - Tight SHA-256 `57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316`.
+- Initial A01→Wide→Tight→A02 hard-cut validation showed improved structural progression but remained visually jumpy / slideshow-like.
+- Remotion camera-move V002:
+  - branch `codex/p03-a01-a02-remotion-camera-v002`;
+  - technical commit `01f248e182f4998121525b46eba54c58c28021cf`;
+  - run `35857760082`;
+  - artifact ID `10747314541`;
+  - technical PASS;
+  - Product Owner artistic result: not ideal / not approved as primary solution.
+- A01 depth Gate A:
+  - branch `codex/p03-a01-depthflow-proof-v001`;
+  - run `35861220002`;
+  - artifact `P03_A01_DEPTH_GATE_A_V001`, ID `10750093687`;
+  - Depth Anything V2 Small depth map SHA-256 `fdcb7844cac2141a4a37f66b82a8c65a0978bd75d457b1302af21d8e24e14fe5`;
+  - visual depth review usable for 2.5D proof.
+- A01 DepthFlow Gate B:
+  - two initial implementation attempts failed on unsupported `DepthState.quality`; source/depth identity and runtime initialization remained valid;
+  - corrected commit `d6509c43c987646a04c7ac83329252af78f0741d`;
+  - successful run `35867948575`;
+  - artifact `P03_A01_DEPTH_GATE_B_V001`, ID `10753710981`;
+  - output `A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4`;
+  - 720×1280 / 30fps / ~2.5s / H.264;
+  - Product Owner result: `可以，值得继续尝试`.
+- Execution-time finding:
+  - successful run total ~3m37s;
+  - actual 75-frame DepthFlow render ~40s;
+  - most overhead came from repeated environment / Python / Torch / CUDA-related dependency setup.
+- Product Owner next-direction instruction:
+  - do not repeatedly download unchanged dependencies;
+  - optimize caching / CPU-specific dependency path before repeated V002/V003 iterations.
+- Current working method:
+  - internal motion inside shots;
+  - normal cuts between independently authored shots;
+  - continue 2.5D validation;
+  - Remotion remains compositor/editor/timing/audio/output;
+  - AI video / FLF2V remains optional for selected shots only.
+- No experimental motion branch was merged into production.
+- No formal Asset Registry / Audit / P0.3 PASS update was made from experimental outputs.
+- Detailed closeout:
+  `docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-23.md`.
