@@ -67,6 +67,12 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Restore pip download cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: depthflow-pip-${{ runner.os }}-py311-depthflow-1.0.1-v1
+
       - name: Install DepthFlow CPU runtime
         shell: bash
         run: |
