@@ -1,0 +1,106 @@
+name: P0.3 A01 Depth Gate A V001
+
+on:
+  push:
+    branches:
+      - codex/p03-a01-depthflow-proof-v001
+    paths:
+      - "experiments/p0_3_a01_depthflow_v001/**"
+      - ".github/workflows/p03-a01-depth-gate-a-v001.yml"
+      - "production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png"
+
+permissions:
+  contents: read
+
+jobs:
+  depth-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      TOKENIZERS_PARALLELISM: "false"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate canonical A01
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT="production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png"
+          test -f "$INPUT"
+          SIZE="$(wc -c < "$INPUT" | tr -d ' ')"
+          SHA="$(sha256sum "$INPUT" | awk '{print $1}')"
+          echo "A01_BYTES=$SIZE"
+          echo "A01_SHA256=$SHA"
+          test "$SIZE" = "3399726"
+          test "$SHA" = "a484bc7f34726f6b1c15f80d1b8a840aa5b4cc17804583ca68dc5eddce833c95"
+          echo "A01_CANONICAL_VALIDATION=PASS"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache Hugging Face model
+        uses: actions/cache@v4
+        with:
+          path: .cache/huggingface
+          key: depth-anything-v2-small-hf-v001
+
+      - name: Install CPU depth dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install             torch==2.8.0             torchvision==0.23.0             --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install             transformers==4.56.2             pillow==11.3.0             numpy==2.2.6             safetensors==0.6.2
+          python - <<'PY'
+          import torch, transformers
+          print("torch", torch.__version__)
+          print("transformers", transformers.__version__)
+          print("cuda_available", torch.cuda.is_available())
+          PY
+
+      - name: Generate A01 depth map
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/p0_3_a01_depthflow_v001/output
+          python experiments/p0_3_a01_depthflow_v001/generate_depth.py             --input production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png             --outdir experiments/p0_3_a01_depthflow_v001/output
+
+      - name: Validate Gate A outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="experiments/p0_3_a01_depthflow_v001/output"
+          test -s "$OUT/A01_DEPTH_DA2_SMALL_PROOF_V001.png"
+          test -s "$OUT/A01_DEPTH_PREVIEW_V001.png"
+          grep -q "GATE_A_GENERATION=PASS" "$OUT/DEPTH_GATE_A_REPORT.txt"
+          grep -q "GATE_B_2_5D_RENDER=NOT_RUN" "$OUT/DEPTH_GATE_A_REPORT.txt"
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          out = Path("experiments/p0_3_a01_depthflow_v001/output")
+          d = Image.open(out / "A01_DEPTH_DA2_SMALL_PROOF_V001.png")
+          p = Image.open(out / "A01_DEPTH_PREVIEW_V001.png")
+          assert d.mode == "L", d.mode
+          assert d.size == (941, 1672), d.size
+          assert p.size == (1882, 1672), p.size
+          print("DEPTH_MODE", d.mode)
+          print("DEPTH_SIZE", d.size)
+          print("PREVIEW_SIZE", p.size)
+          print("GATE_A_OUTPUT_VALIDATION=PASS")
+          PY
+
+      - name: Upload Gate A artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_A01_DEPTH_GATE_A_V001
+          path: |
+            experiments/p0_3_a01_depthflow_v001/output/A01_DEPTH_DA2_SMALL_PROOF_V001.png
+            experiments/p0_3_a01_depthflow_v001/output/A01_DEPTH_PREVIEW_V001.png
+            experiments/p0_3_a01_depthflow_v001/output/DEPTH_GATE_A_REPORT.txt
+          retention-days: 7
