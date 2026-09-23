@@ -77,8 +77,8 @@
 - P0.1 = `PASS / PRODUCT OWNER APPROVED`; S1 / S2 / canonical audio / MVP1 S3 searchable index remain the formal story/audio factual baseline.
 - P0.2 = `PASS / PRODUCT OWNER APPROVED` as of 2026-09-22; Character Core formal coverage = `63/63`; AO-01..AO-07 closeout set is satisfied.
 - AO-06 = `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED`; it validates real visual-reference selection/delivery/audit, not final image quality, video generation quality, animation, edit, or final film delivery.
-- P0.3 = `READY_TO_START / NOT YET VALIDATED`; it owns shot-driven Audio Alignment / Resolver, source-audio extraction, Animatic, dynamicization/video generation, editing/Remotion boundary, timing/continuity, and representative real video validation.
-- Before formal local P0.3 execution, perform the deferred GitHub→Mac truth sync and verify local HEAD against GitHub main.
+- P0.3 = `IN PROGRESS / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED`; 2026-09-23 representative proofs established that stills + cuts alone remain slideshow-like, Remotion 2D transforms are not the primary spatial-motion solution, and A01 DepthFlow 2.5D is worth continued testing.
+- The 2026-09-22 GitHub→Mac truth sync prerequisite was completed. After the 2026-09-23 Project Control closeout merge, perform one consolidated EOD fast-forward sync to bring the local working copy to the new main.
 - All Gate / Phase approvals remain Product Owner-only under BL-D-017.
 - `RISK-001` remains `CONTROLLED / MITIGATION VERIFIED`; `RISK-002` remains `ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`.
 - GitHub `main/docs/project_control/` remains the canonical Project Control SSOT.
