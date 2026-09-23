@@ -1,0 +1,260 @@
+name: Bridge A01 A02 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/bridge-a01-a02-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-reference-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Resolve and verify canonical references
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import shutil
+          import sys
+
+          ROOT = pathlib.Path.cwd().resolve()
+          sys.path.insert(0, str(ROOT / "scripts"))
+          import resolver_asset_source_v0_1 as resolver
+
+          BUNDLE_ID = "BRIDGE_A01_A02_REFERENCE_DELIVERY_BUNDLE_V001"
+          WORKING_SHOT_ID = "BRIDGE_A01_A02_CANDIDATE_01"
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          OUT = ROOT / BUNDLE_ID
+          VISUAL_REFS = OUT / "visual_refs"
+          CONTINUITY_REFS = OUT / "continuity_refs"
+
+          EXPECTED_SCENE_PATH = (
+              "production/image_library/scene_masters/castle_entrance/"
+              "SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png"
+          )
+          EXPECTED_NEIL_ROLES = {
+              "BODY_BACK",
+              "BODY_FRONT",
+              "FACE_3Q_LEFT",
+              "FACE_3Q_RIGHT",
+              "FACE_FRONT",
+              "PROFILE_LEFT",
+              "PROFILE_RIGHT",
+              "REAR_3Q_LEFT",
+              "REAR_3Q_RIGHT",
+          }
+          CONTINUITY = (
+              {
+                  "role": "A01_REBOOT_APPROVED",
+                  "authority_class": "CONTINUITY_REFERENCE_ONLY",
+                  "asset_id": None,
+                  "canonical_path": (
+                      "production/image_library/approved/A_Series/"
+                      "A01_REBOOT_approved_v001.png"
+                  ),
+                  "responsibility": "PREVIOUS_SHOT",
+              },
+              {
+                  "role": "A02_REBOOT_APPROVED",
+                  "authority_class": "CONTINUITY_REFERENCE_ONLY",
+                  "asset_id": None,
+                  "canonical_path": (
+                      "production/image_library/approved/A_Series/"
+                      "A02_REBOOT_approved_v001.png"
+                  ),
+                  "responsibility": "NEXT_SHOT",
+              },
+          )
+
+          def digest(path):
+              value = hashlib.sha256()
+              with path.open("rb") as stream:
+                  for block in iter(lambda: stream.read(1024 * 1024), b""):
+                      value.update(block)
+              return value.hexdigest()
+
+          def require_regular_canonical(path, expected_root):
+              if not path.is_file() or path.is_symlink():
+                  raise SystemExit(f"Missing or redirected canonical binary: {path}")
+              if path.resolve() != path or not path.is_relative_to(expected_root):
+                  raise SystemExit(f"Canonical path escaped expected root: {path}")
+
+          def deliver(item, source, destination_dir, expected_sha=None, expected_size=None):
+              require_regular_canonical(source, ROOT)
+              actual_sha = digest(source)
+              actual_size = source.stat().st_size
+              if expected_sha is not None and actual_sha != expected_sha:
+                  raise SystemExit(f"Registry SHA-256 mismatch: {item['canonical_path']}")
+              if expected_size is not None and actual_size != expected_size:
+                  raise SystemExit(f"Registry byte-size mismatch: {item['canonical_path']}")
+              destination = destination_dir / source.name
+              if destination.exists():
+                  raise SystemExit(f"Duplicate bundle filename: {destination.name}")
+              shutil.copyfile(source, destination)
+              copied_sha = digest(destination)
+              copied_size = destination.stat().st_size
+              if copied_sha != actual_sha or copied_size != actual_size:
+                  raise SystemExit(f"Copied bundle binary mismatch: {destination}")
+              return {
+                  **item,
+                  "sha256": actual_sha,
+                  "byte_size": actual_size,
+                  "source_commit": SOURCE_COMMIT,
+                  "bundle_path": destination.relative_to(OUT).as_posix(),
+              }
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          VISUAL_REFS.mkdir(parents=True)
+          CONTINUITY_REFS.mkdir()
+
+          scene_result = resolver.resolve_scene(
+              "SCENE_CASTLE_ENTRANCE",
+              {"time_of_day": "DAY", "main_door": "OPEN"},
+              ROOT,
+          )
+          if scene_result.get("status") != "RESOLVED":
+              raise SystemExit(f"Scene resolver failed closed: {scene_result}")
+          scene = scene_result["asset"]
+          scene_checks = {
+              "source_layer": scene.get("source_layer") == "RUNTIME_REGISTRY",
+              "asset_id": scene.get("asset_id") == "AST_IMG_000052",
+              "entity_id": scene.get("entity_id") == "SCENE_CASTLE_ENTRANCE",
+              "role": scene.get("role") == "SCENE_MASTER",
+              "approval_status": scene.get("approval_status") == "APPROVED",
+              "lifecycle": scene.get("lifecycle") == "CURRENT",
+              "storage_uri": scene.get("storage_uri") == EXPECTED_SCENE_PATH,
+          }
+          if not all(scene_checks.values()):
+              raise SystemExit(f"Scene Registry identity mismatch: {scene_checks}")
+
+          neil_assets = sorted(
+              resolver.eligible_current_assets(ROOT, "CHAR_NEIL"),
+              key=lambda item: item["role"],
+          )
+          neil_roles = {item.get("role") for item in neil_assets}
+          if neil_roles != EXPECTED_NEIL_ROLES or len(neil_assets) != len(EXPECTED_NEIL_ROLES):
+              raise SystemExit(
+                  f"Neil Character Core resolver set mismatch: roles={sorted(neil_roles)} "
+                  f"count={len(neil_assets)}"
+              )
+          for item in neil_assets:
+              checks = {
+                  "source_layer": item.get("source_layer") == "RUNTIME_REGISTRY",
+                  "asset_id": isinstance(item.get("asset_id"), str),
+                  "entity_id": item.get("entity_id") == "CHAR_NEIL",
+                  "asset_class": item.get("asset_class") == "ATOMIC",
+                  "approval_status": item.get("approval_status") == "APPROVED",
+                  "lifecycle": item.get("lifecycle") == "CURRENT",
+                  "resolver_usage": item.get("resolver_usage") in {"DEFAULT", "CONDITIONAL"},
+                  "sha256": isinstance(item.get("sha256"), str),
+                  "byte_size": isinstance(item.get("byte_size"), int),
+              }
+              if not all(checks.values()):
+                  raise SystemExit(
+                      f"Neil Registry identity/state mismatch for {item.get('asset_id')}: {checks}"
+                  )
+
+          references = []
+          scene_source = resolver.source_path(scene, ROOT)
+          references.append(deliver(
+              {
+                  "role": "SCENE_MASTER",
+                  "authority_class": "SCENE_AUTHORITY",
+                  "registry_authority_class": scene.get("authority_class"),
+                  "asset_id": scene["asset_id"],
+                  "canonical_path": scene["storage_uri"],
+                  "responsibility": "SCENE_AUTHORITY",
+              },
+              scene_source,
+              VISUAL_REFS,
+              scene["sha256"],
+              scene["byte_size"],
+          ))
+
+          for neil in neil_assets:
+              neil_source = resolver.source_path(neil, ROOT)
+              references.append(deliver(
+                  {
+                      "role": neil["role"],
+                      "authority_class": "CHARACTER_AUTHORITY",
+                      "registry_authority_class": neil.get("authority_class"),
+                      "asset_id": neil["asset_id"],
+                      "canonical_path": neil["storage_uri"],
+                      "responsibility": "CHARACTER_AUTHORITY",
+                  },
+                  neil_source,
+                  VISUAL_REFS,
+                  neil["sha256"],
+                  neil["byte_size"],
+              ))
+
+          for continuity in CONTINUITY:
+              source = ROOT / continuity["canonical_path"]
+              references.append(deliver(
+                  continuity,
+                  source,
+                  CONTINUITY_REFS,
+              ))
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": WORKING_SHOT_ID,
+              "artifact_retention_days": 7,
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": len(references),
+              "authority_precedence": [
+                  "SCENE_AUTHORITY",
+                  "CHARACTER_AUTHORITY",
+                  "CONTINUITY_REFERENCE_ONLY",
+              ],
+              "references": references,
+              "overall_result": "PASS",
+          }
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# BRIDGE A01 to A02 Reference Delivery Bundle V001\n\n"
+              "Working shot: `BRIDGE_A01_A02_CANDIDATE_01`\n\n"
+              "This is a short-lived transport artifact, not a formal Asset. "
+              "It does not authorize Registry or Project Control changes.\n\n"
+              "Authority order: Scene Master defines the environment; Neil Character Core "
+              "defines character identity and structure; A01 and A02 are "
+              "`CONTINUITY_REFERENCE_ONLY` and must never override Scene or Character authority.\n\n"
+              "Verify every binary against `delivery_manifest.json` before the later image task. "
+              "Do not re-encode, rename, screenshot, or otherwise modify any PNG.\n",
+              encoding="utf-8",
+          )
+
+          for item in manifest["references"]:
+              delivered = OUT / item["bundle_path"]
+              if digest(delivered) != item["sha256"] or delivered.stat().st_size != item["byte_size"]:
+                  raise SystemExit(f"Final bundle validation failed: {item['canonical_path']}")
+          print(f"PASS: {len(references)}/{len(references)} exact canonical binaries verified")
+          PY
+
+      - name: Upload reference delivery bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: BRIDGE_A01_A02_REFERENCE_DELIVERY_BUNDLE_V001
+          path: BRIDGE_A01_A02_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
