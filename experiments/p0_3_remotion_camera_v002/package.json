@@ -1,0 +1,14 @@
+{
+  "name": "p03-a01-a02-remotion-camera-v002",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "render": "remotion render src/index.jsx P03A01A02CameraMoveV002 out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002_SILENT.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.527",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.527"
+  }
+}

@@ -1,0 +1,158 @@
+name: P0.3 A01-A02 Remotion Camera Move V002
+
+on:
+  push:
+    branches:
+      - codex/p03-a01-a02-remotion-camera-v002
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Ensure FFmpeg
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+
+      - name: Validate source inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          check_file() {
+            local path="$1" expected_size="$2" expected_sha="$3"
+            test -f "$path" || { echo "INPUT_VALIDATION_FAIL missing $path"; exit 1; }
+            local size sha
+            size="$(wc -c < "$path" | tr -d ' ')"
+            sha="$(sha256sum "$path" | awk '{print $1}')"
+            test "$size" = "$expected_size" || { echo "INPUT_VALIDATION_FAIL size $path"; exit 1; }
+            test "$sha" = "$expected_sha" || { echo "INPUT_VALIDATION_FAIL sha $path"; exit 1; }
+          }
+
+          check_file production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png 3399726 a484bc7f34726f6b1c15f80d1b8a840aa5b4cc17804583ca68dc5eddce833c95
+          check_file production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png 2359724 a8a9e5c0cc80df95eccaabf378c27457102365dd3df3012e27fb2417e487f4dd
+          check_file staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_WIDE_CANDIDATE.png 2658382 f60bf3289bb1eadcab770c9f51cc20afae725d282a3f46b78e401949983785ca
+          check_file staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_TIGHT_CANDIDATE.png 2407156 57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316
+          check_file staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a 4957338 8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0
+          echo INPUT_VALIDATION_PASS
+
+      - name: Prepare isolated Remotion public assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXP=experiments/p0_3_remotion_camera_v002
+          mkdir -p "$EXP/public" "$EXP/out"
+          cp production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png "$EXP/public/A01.png"
+          cp staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_WIDE_CANDIDATE.png "$EXP/public/WIDE.png"
+          cp staging/p0_3_a01_a02_transition_validation/BRIDGE_A01_A02_TIGHT_CANDIDATE.png "$EXP/public/TIGHT.png"
+          cp production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png "$EXP/public/A02.png"
+
+      - name: Install minimal Remotion dependencies
+        working-directory: experiments/p0_3_remotion_camera_v002
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          node -p "require('remotion/package.json').version" | tee REMOTION_VERSION.txt
+
+      - name: Render silent Remotion camera proof
+        working-directory: experiments/p0_3_remotion_camera_v002
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx remotion render             src/index.jsx             P03A01A02CameraMoveV002             out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002_SILENT.mp4             --codec=h264             --crf=18             --pixel-format=yuv420p             --frames=0-97
+
+      - name: Mux canonical audio
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXP=experiments/p0_3_remotion_camera_v002
+          SILENT="$EXP/out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002_SILENT.mp4"
+          AUDIO=staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a
+          FINAL="$EXP/out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002.mp4"
+
+          ffmpeg -y             -i "$SILENT"             -ss 0 -t 3.250 -i "$AUDIO"             -filter_complex "[1:a]apad=pad_dur=0.020[a]"             -map 0:v:0 -map "[a]"             -c:v copy -c:a aac             -t 3.266667             -movflags +faststart             "$FINAL"
+
+      - name: Validate output and write camera report
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXP=experiments/p0_3_remotion_camera_v002
+          FINAL="$EXP/out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002.mp4"
+          REPORT="$EXP/out/CAMERA_MOVE_REPORT.txt"
+
+          codec="$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$FINAL")"
+          pix="$(ffprobe -v error -select_streams v:0 -show_entries stream=pix_fmt -of default=nw=1:nk=1 "$FINAL")"
+          width="$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 "$FINAL")"
+          height="$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 "$FINAL")"
+          fps="$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 "$FINAL")"
+          acodec="$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$FINAL")"
+          duration="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$FINAL")"
+          version="$(cat "$EXP/REMOTION_VERSION.txt")"
+
+          test "$codec" = h264
+          test "$pix" = yuv420p
+          test "$width" = 1080
+          test "$height" = 1920
+          test "$fps" = 30/1
+          test "$acodec" = aac
+          awk -v d="$duration" 'BEGIN { exit !(d >= 3.24 && d <= 3.29) }'
+
+          {
+            echo "P03_A01_A02_REMOTION_CAMERA_V002"
+            echo "source_commit=${GITHUB_SHA}"
+            echo "remotion_version=$version"
+            echo "composition=P03A01A02CameraMoveV002"
+            echo "frames=98"
+            echo "fps=30"
+            echo "duration=$duration"
+            echo "source_audio_tc=00:00:00.000-00:00:03.250"
+            echo
+            echo "TIMING"
+            echo "A01 frames 0-23 | 0.000-0.800"
+            echo "WIDE frames 24-46 | 0.800-1.567"
+            echo "TIGHT frames 47-67 | 1.567-2.267"
+            echo "A02 frames 68-97 | 2.267-3.267"
+            echo
+            echo "CAMERA"
+            echo "A01 scale 1.000->1.420 x 0->-6 y 0->18 origin 65% 51%"
+            echo "WIDE scale 1.010->1.180 x 0->-8 y 4->-2 origin 60% 57%"
+            echo "TIGHT scale 1.000->1.170 x -2->-10 y 2->-10 origin 61% 47%"
+            echo "A02 scale 1.000->1.065 x 0->-5 y 0->-7 origin 53% 33%"
+            echo "global_camera_clock=continuous cubic-bezier(0.22,0.0,0.28,1.0)"
+            echo "cut_blur=2-frame max 2.8px around cuts; no dissolve"
+            echo
+            echo "video_codec=$codec"
+            echo "pixel_format=$pix"
+            echo "resolution=${width}x${height}"
+            echo "fps=$fps"
+            echo "audio_codec=$acodec"
+            echo "RENDER_VALIDATION=PASS"
+          } > "$REPORT"
+
+          cat "$REPORT"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_A01_A02_REMOTION_CAMERA_V002
+          path: |
+            experiments/p0_3_remotion_camera_v002/out/P03_A01_A02_TRANSITION_WIDE_TIGHT_CAMERA_MOVE_V002.mp4
+            experiments/p0_3_remotion_camera_v002/out/CAMERA_MOVE_REPORT.txt
+          retention-days: 7
