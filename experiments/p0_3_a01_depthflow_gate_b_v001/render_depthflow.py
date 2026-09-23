@@ -20,7 +20,6 @@ class A01DepthFlowProof(DepthScene):
         self.state.zoom = 1.00 - 0.055 * e
         self.state.steady = 0.28
         self.state.isometric = 0.18
-        self.state.quality = 0.80
 
 
 def main() -> None:
