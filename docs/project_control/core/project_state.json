@@ -499,22 +499,20 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete AO-06 / D-069 real end-to-end validation as the remaining P0.2 system-closeout requirement.",
-  "blockers": [
-    "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
-  ],
+  "stage_goal": "Validate a practical P0.3 cinematic audio-comic production path from canonical story/audio + approved Story Shots to an acceptable representative audiovisual result.",
+  "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-20.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD PAUSED / R070"
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-25.md",
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R081"
   },
   "p0_3_motion_validation": {
-    "as_of": "2026-09-23",
-    "status": "IN PROGRESS / REPRESENTATIVE PROOFS COMPLETE / NOT YET VALIDATED",
+    "as_of": "2026-09-25",
+    "status": "HISTORICAL TECHNICAL EVIDENCE / CHARACTER-SHOT 2.5D MAIN ROUTE REJECTED",
     "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-23.md",
     "bridge_reference_bundle": {
       "source_commit": "770635048a427ba1343f1bbee6cb5000f72429a9",
@@ -553,8 +551,8 @@
       "result": "TECHNICAL_PASS / PO_CONTINUE_TESTING",
       "output_spec": "720x1280 / 30fps / ~2.5s / H.264"
     },
-    "working_direction": "Internal motion inside shots + normal cuts between independently authored shots; continue 2.5D validation. Remotion remains compositor/editor/timing/audio/output. AI video/FLF2V remains optional for selected shots.",
-    "next_optimization": "Avoid repeated downloads of unchanged dependencies; cache or use CPU-specific runtime, reuse Gate A depth map, then render A01 V002."
+    "working_direction": "Historical evidence only. Character-shot single-image 2.5D was later rejected after the four-shot sequence showed visible deformation. Do not resume as the current main P0.3 route.",
+    "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
     "status": "DESIGN APPROVED / IMPLEMENTATION DEFERRED TO NEXT SESSION",
