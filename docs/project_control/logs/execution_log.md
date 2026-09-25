@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-25｜P0.3 Route Pivot + N01 Story Shot Approval
+
+- Product Owner rejected the real `A01 → Wide → Tight → A02` 2.5D sequence as a production path because characters visibly deformed; character-shot single-image 2.5D is no longer the P0.3 main route.
+- Current P0.3 validation route changed to cinematic audio comic: canonical story/audio + approved Story Shots + normal cuts + restrained crop/zoom; AI video remains optional for selected key shots only.
+- N01 was produced through composition correction plus targeted local edits for Ning Qiushui identity, Jun Luyuan identity and Jun Luyuan pose; Product Owner approved the final N01.
+- N01 approved source identity: 941×1672 PNG / 2,687,303 bytes / SHA-256 `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`.
+- Product Owner approved the unified `STORY_SHOT` model: A/N prefixes are historical only; only approved Story Shots may be admitted; candidate/rejected/WIP are excluded.
+- No Story Shot library/index implementation or N01 formal registration is performed in today's closeout; these are explicitly deferred to the next work session.
+- N01 approved source must not be regenerated or re-encoded before tomorrow's formal registration.
+- Next-session order: Story Shot library/index implementation → N01 exact-source registration → Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.
+
 ## 2026-09-21｜Character Visual Completion + 21 Binary Canonical Publication
 
 - Product Owner approved Castle Young Master `REAR_3Q_LEFT V001` and all six Black Lady P3 lateral views; Character Core visual production therefore reached `63/63 PO APPROVED` with visual gap `0`.

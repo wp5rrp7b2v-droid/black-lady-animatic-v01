@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R080",
-  "last_updated": "2026-09-23",
-  "session_status": "P0.3 IN PROGRESS / REPRESENTATIVE MOTION PROOFS COMPLETE / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED",
+  "state_revision": "R081",
+  "last_updated": "2026-09-25",
+  "session_status": "P0.3 IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE + STORY_SHOT MODEL APPROVED / IMPLEMENTATION DEFERRED TO NEXT SESSION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -28,8 +28,8 @@
   "current_gate": {
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
-    "status": "IN PROGRESS / REPRESENTATIVE MOTION PROOFS COMPLETE / NOT YET VALIDATED",
-    "note": "2026-09-23 completed real A01→A02 transition, Remotion camera-move, Depth Anything depth-map, and A01 DepthFlow 2.5D proofs. Remotion V002 technically passed but was not artistically approved as the primary spatial-motion solution. A01 DepthFlow Gate B technically passed and the Product Owner judged the 2.5D result worth continuing to test. P0.3 remains unapproved and not PASS."
+    "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
+    "note": "2026-09-25: Product Owner rejected character-shot single-image 2.5D after visible deformation in the A01→Wide→Tight→A02 sequence; current main validation route is cinematic audio comic. Product Owner also approved the unified STORY_SHOT concept: legacy A and later N IDs are the same narrative composition asset class, with approved-only admission. The Story Shot library/index implementation and N01 canonical publication are explicitly deferred to the next work session. P0.3 remains NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -45,12 +45,12 @@
     {
       "id": "P0.3",
       "name": "视频制作与剪辑 Pipeline 再验证",
-      "status": "IN PROGRESS / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED"
+      "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜DEPTHFLOW EXECUTION OPTIMIZATION + A01 V002",
-  "blocker": "No current content blocker. Main execution inefficiency is repeated GitHub Actions runtime/dependency setup; optimize caching / CPU-specific dependency path before repeated 2.5D iterations.",
-  "next_action": "Optimize the GitHub Actions DepthFlow execution chain to reuse unchanged dependencies and the approved Gate A depth map; then generate A01_DEPTHFLOW_CAMERA_PROOF_V002. If acceptable, extend internal 2.5D motion to Wide/Tight and rebuild the A01→A02 sequence with normal cuts.",
+  "current_task": "P0.3｜NEXT SESSION: STORY_SHOT REGISTRATION → OPENING AUDIO-COMIC PROOF",
+  "blocker": "No hard content blocker. Story Shot model is approved; its library/index implementation and N01 canonical binary publication are intentionally deferred to the next work session.",
+  "next_action": "Next session: implement the approved unified Story Shot library/index and publish the exact PO-approved N01 binary without regeneration/re-encoding; verify identity; then build the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING 2026-09-23 EOD / SYNC AFTER PROJECT CONTROL CLOSEOUT MERGE",
+    "status": "2026-09-25 EOD / SYNC AFTER CLOSEOUT MERGE",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -78,7 +78,7 @@
       "black_lady_character_asset_migration_v1.zip",
       "production/audio/"
     ],
-    "target": "POST-CLOSEOUT GITHUB MAIN (merge SHA to be verified after merge)"
+    "target": "POST-2026-09-25 CLOSEOUT GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -113,18 +113,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-23-P03-REPRESENTATIVE-MOTION-PROOFS",
-    "status": "P0.3 IN PROGRESS / 2.5D VALIDATION CONTINUES / NOT YET VALIDATED",
+    "id": "2026-09-25-P03-AUDIO-COMIC-STORY-SHOT-DESIGN-APPROVED",
+    "status": "P0.3 IN PROGRESS / ROUTE + STORY_SHOT MODEL APPROVED / IMPLEMENTATION DEFERRED",
     "completed": [
-      "A01→A02 verified reference bundle completed with 12/12 identity checks.",
-      "Wide and Tight bridge candidates retained as experimental staging inputs.",
-      "Initial hard-cut sequence confirmed that additional stills alone remain slideshow-like.",
-      "Remotion camera-move V002 technically passed; Product Owner did not approve its artistic result as the primary spatial-motion solution.",
-      "A01 Depth Anything V2 Small depth map Gate A passed practical review.",
-      "A01 DepthFlow Gate B successful run 35867948575 produced A01_DEPTHFLOW_CAMERA_PROOF_V001.mp4.",
-      "Product Owner judged the A01 2.5D result worth continuing to test."
+      "A01→Wide→Tight→A02 4-shot 2.5D sequence reviewed; Product Owner rejected character-shot 2.5D because of visible character deformation.",
+      "Current P0.3 main validation route changed to cinematic audio comic: canonical audio/story beats + approved narrative compositions + normal cuts + restrained crop/zoom.",
+      "AI video remains optional for selected key shots and is not the current production blocker.",
+      "Product Owner approved the unified STORY_SHOT concept: A/N prefixes are historical IDs only and do not define separate asset systems.",
+      "Approved-only admission rule confirmed: candidate / rejected / WIP outputs are not formally stored or registered.",
+      "N01 final image approved by Product Owner after Ning Qiushui identity, Jun Luyuan identity and Jun Luyuan pose corrections."
     ],
-    "resume_from": "Optimize DepthFlow GitHub Actions execution so unchanged dependencies are not repeatedly downloaded; then build A01 DepthFlow V002 before extending to Wide/Tight.",
+    "resume_from": "Implement the approved STORY_SHOT library/index and publish N01 exact approved binary; then build the Opening Audio-Comic Proof.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -276,7 +275,7 @@
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_closeout_path": "docs/project_control/gates/P0_2_visual_assets/ao05_closeout_2026-09-18.md",
     "ao05_delivery_limitation": "SERVICE_INPUT_SHA_RECEIPT NOT AVAILABLE / ACCEPTED NON-BLOCKING LIMITATION / FUTURE IMPROVEMENT",
-    "next_task": "P0.3 DepthFlow execution optimization + A01 V002; P0.2 remains closed/approved.",
+    "next_task": "P0.3 Opening Audio-Comic Proof; P0.2 remains closed/approved.",
     "ao06_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22",
     "visual_production_overlay": {
       "as_of": "2026-09-22 D-070 rescue",
@@ -500,22 +499,20 @@
     "P0.2": "docs/project_control/gates/P0_2_visual_assets/",
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
-  "stage_goal": "Complete AO-06 / D-069 real end-to-end validation as the remaining P0.2 system-closeout requirement.",
-  "blockers": [
-    "AO-06_REMAINS_REQUIRED_FOR_P0_2_FINAL_CLOSEOUT_ONLY"
-  ],
+  "stage_goal": "Validate a practical P0.3 cinematic audio-comic production path from canonical story/audio + approved Story Shots to an acceptable representative audiovisual result.",
+  "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_2_visual_assets/daily_closeout_2026-09-20.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD PAUSED / R070"
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-25.md",
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R081"
   },
   "p0_3_motion_validation": {
-    "as_of": "2026-09-23",
-    "status": "IN PROGRESS / REPRESENTATIVE PROOFS COMPLETE / NOT YET VALIDATED",
+    "as_of": "2026-09-25",
+    "status": "HISTORICAL TECHNICAL EVIDENCE / CHARACTER-SHOT 2.5D MAIN ROUTE REJECTED",
     "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-23.md",
     "bridge_reference_bundle": {
       "source_commit": "770635048a427ba1343f1bbee6cb5000f72429a9",
@@ -554,7 +551,28 @@
       "result": "TECHNICAL_PASS / PO_CONTINUE_TESTING",
       "output_spec": "720x1280 / 30fps / ~2.5s / H.264"
     },
-    "working_direction": "Internal motion inside shots + normal cuts between independently authored shots; continue 2.5D validation. Remotion remains compositor/editor/timing/audio/output. AI video/FLF2V remains optional for selected shots.",
-    "next_optimization": "Avoid repeated downloads of unchanged dependencies; cache or use CPU-specific runtime, reuse Gate A depth map, then render A01 V002."
+    "working_direction": "Historical evidence only. Character-shot single-image 2.5D was later rejected after the four-shot sequence showed visible deformation. Do not resume as the current main P0.3 route.",
+    "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
+  },
+  "story_shot_system": {
+    "status": "DESIGN APPROVED / IMPLEMENTATION DEFERRED TO NEXT SESSION",
+    "asset_class": "STORY_SHOT",
+    "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
+    "admission": "PRODUCT_OWNER_APPROVED_ONLY",
+    "excluded_states": [
+      "CANDIDATE",
+      "REJECTED",
+      "WIP"
+    ],
+    "implementation_status": "NOT IMPLEMENTED TODAY / CREATE FORMAL LIBRARY + INDEX NEXT SESSION",
+    "legacy_path_principle": "Do not rename or duplicate A01-A07 merely to normalize the new model; preserve historical IDs and references.",
+    "n01": {
+      "shot_id": "N01",
+      "status": "PRODUCT_OWNER_APPROVED / EXACT SOURCE LOCKED / FORMAL REGISTRATION DEFERRED",
+      "width": 941,
+      "height": 1672,
+      "byte_size": 2687303,
+      "sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b"
+    }
   }
 }

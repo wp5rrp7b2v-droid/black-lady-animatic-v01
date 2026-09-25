@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V054</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V055</title>
 <style>
 :root{
   --bg:#111317;--panel:#1a1e24;--panel2:#15191e;--border:#2b323b;
@@ -48,7 +48,7 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V054 · 派生可视化，非事实源 · Derived from R080 · Updated 2026-09-23</p>
+  <p class="muted">Project Dashboard V054 · 派生可视化，非事实源 · Derived from R081 · Updated 2026-09-25</p>
 
   <div class="grid">
     <section class="card span-3">
@@ -68,44 +68,45 @@ ul.compact li{margin:4px 0}
 
     <section class="card span-3">
       <div class="kicker">Current Task</div>
-      <div class="big" style="font-size:24px">2.5D Pipeline Optimization</div>
-      <strong>先优化执行链，再做 A01 DepthFlow V002</strong>
-      <p class="metric">A01 2.5D V001 technical PASS；PO 判断值得继续尝试。</p>
+      <div class="big" style="font-size:24px">Opening Audio-Comic Proof</div>
+      <strong>Story Shot 登记 → A01 + A02 + N01 Opening Proof</strong>
+      <p class="metric">Story Shot 模型今日已批准；正式库/index 与 N01 入库延后至下一工作日。</p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Blockers</div>
       <div class="big">0</div>
-      <strong>No content blocker; optimize repeated dependency setup</strong>
-      <p class="metric">当前主要低效来自重复下载依赖，不是内容或资产阻塞。</p>
+      <strong>No hard content blocker</strong>
+      <p class="metric">N01 已 PO APPROVED；明日先完成 Story Shot 正式登记，再进入 Opening Proof。</p>
     </section>
 
     <section class="card span-12">
       <div class="kicker">What To Do Now</div>
       <h2>P0.3 当前唯一主线</h2>
-      <p><strong>2026-09-23 已完成代表性实测：</strong>A01→A02 静态桥接、Remotion 2D 运镜、A01 深度图与 DepthFlow 2.5D 单镜头 Proof。当前结论不是 P0.3 PASS，而是 2.5D 值得继续验证。</p>
+      <p><strong>2026-09-25 最新结论：</strong>A01→Wide→Tight→A02 四镜头 2.5D 实测出现明显人物形变，人物镜头 2.5D 不再作为当前主生产路线。P0.3 转入电影化有声漫画 Opening Proof。</p>
       <ul>
-        <li><strong>已否定：</strong>仅增加静帧 + 硬切仍偏“有声音的幻灯片”。</li>
-        <li><strong>已确认边界：</strong>Remotion 适合合成/剪辑/时序/音频/输出，不负责凭空重建缺失空间视角。</li>
-        <li><strong>当前方向：</strong>镜头内部 2.5D motion + 独立镜头之间正常 CUT。</li>
-        <li><strong>下一步：</strong>先优化 GitHub Actions 缓存/CPU runtime，避免重复下载，再做 A01 DepthFlow V002；通过后扩展 Wide/Tight。</li>
+        <li><strong>当前主线：</strong>canonical audio / story beat → approved Story Shot → 正常 CUT + 必要裁切/轻微缩放 → Remotion 剪辑/音频/输出。</li>
+        <li><strong>Story Shot：</strong>A01–A07 与 N01 属于同一资产类别；A/N 仅为历史 ID，只有 PO APPROVED 图才允许入库并登记。</li>
+        <li><strong>N01：</strong>已 PO APPROVED；宁秋水、君鹭远一致性及君鹭远姿势均通过。</li>
+        <li><strong>今日边界：</strong>只批准并记录 Story Shot 方案，不建立正式库/index，不执行 N01 正式登记。</li>
+        <li><strong>明日第一步：</strong>Story Shot 正式库/index → N01 exact-source 登记 → A01 + A02 + N01 + canonical audio Opening Proof。</li>
       </ul>
       <div class="kicker">What P0.3 Still Must Prove</div>
       <h2>不能提前假设成立的能力</h2>
       <ul class="compact">
-        <li>静态图能否稳定转成可接受动态镜头。</li>
-        <li>人物一致性、动作和表情是否可控。</li>
+        <li>Story Shot + 剪辑是否能形成持续的视觉阅读流，而不是“有声音的幻灯片”。</li>
+        <li>Approved Story Shot 的人物一致性、剧情构图与连续性是否稳定可控。</li>
         <li>原音能否按剧情自动检索、完整提取并正确放入时间线。</li>
         <li>对白不会截断，旁白 / 对白不会误配。</li>
         <li>Remotion / 剪辑职责边界是否合理。</li>
-        <li>最终能否产出一个代表性的真实视频结果。</li>
+        <li>最终能否产出一个代表性的真实有声漫画 / 影视化结果。</li>
       </ul>
     </section>
 
     <section class="card span-12">
       <div class="kicker">Current Operating Boundary</div>
       <h2>当前不要做什么</h2>
-      <p class="notice">不要因为 AO-06 曾成功调用图像生成，就推断正式镜头图片质量、视频生成、动画质量或最终剪辑已经验证。P0.3 必须重新用真实项目材料独立验证。</p>
+      <p class="notice">不要把单张 Story Shot 的视觉通过等同于 P0.3 通过。当前必须先完成 Opening Proof，验证图片选择、切换、裁切/缩放、原音和整体叙事节奏是否真正成立。</p>
     </section>
 
     <section class="card span-12">
