@@ -61,20 +61,20 @@ Rules:
 
 ## Story Shot model
 
-A01–A07 and later N01-style additions are one logical asset class:
+Product Owner approved the following model on 2026-09-25:
 
-`STORY_SHOT`
+- A01–A07 and later N01-style additions are one logical asset class: `STORY_SHOT`;
+- A / N prefixes are historical IDs only and do not represent different asset systems;
+- only Product Owner-approved Story Shots may enter the formal library and registration;
+- candidate / rejected / WIP outputs do not enter the formal library or registration;
+- existing A01–A07 must not be renamed or duplicated merely to normalize the model;
+- later production must make approved Story Shots retrievable by story beat, characters, scene and continuity.
 
-A / N prefixes are historical IDs only. They do not represent different asset systems.
+Implementation boundary for 2026-09-25:
 
-- Existing A01–A07 paths remain unchanged to avoid breaking historical references.
-- New approved Story Shots use the generic approved Story Shot storage root.
-- A unified Story Shot index makes all approved Story Shots retrievable by story beat, characters, scene and continuity.
-- Do not duplicate A01–A07 binaries merely to normalize directory layout.
+`MODEL APPROVED / LIBRARY + INDEX IMPLEMENTATION DEFERRED TO NEXT SESSION`
 
-Index:
-
-`production/image_library/approved/story_shots/story_shot_index.json`
+No formal Story Shot index or N01 canonical registration is created as part of today's closeout.
 
 ## Current approved addition
 
@@ -95,12 +95,12 @@ Approved source identity:
 - 2,687,303 bytes
 - SHA-256: `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`
 
-Canonical binary publication is the remaining closeout step for N01.
+N01 is visually approved and its exact source identity is locked. Formal Story Shot registration / canonical publication is intentionally deferred to the next work session.
 
 ## Immediate next step
 
-1. publish the exact approved N01 binary to the canonical Story Shot path and verify SHA / byte size;
-2. finalize the unified Story Shot index against the published binary;
+1. next session, implement the approved unified Story Shot library / index model;
+2. publish the exact approved N01 binary without regeneration, re-encoding, resizing or screenshotting, then verify SHA / byte size;
 3. build the Opening Audio-Comic Proof using existing approved A01 + A02 + N01 + canonical audio;
 4. judge pacing, visual-reading flow and slideshow risk before generating more Story Shots;
 5. only then expand full-chapter visual coverage.
