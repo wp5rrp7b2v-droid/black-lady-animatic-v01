@@ -10,7 +10,14 @@
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
 | P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 2.5D REPRESENTATIVE PROOF PASSED TECHNICALLY / NOT YET VALIDATED** |
+| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / CINEMATIC AUDIO-COMIC OPENING PROOF / NOT YET VALIDATED** |
+
+## P0.3 Current Validation Note｜2026-09-25
+
+- 4-shot `A01 → Wide → Tight → A02` 2.5D proof was artistically rejected because character deformation was visible.
+- Character-shot single-image 2.5D is no longer the current main route.
+- Current representative validation target is an Opening Audio-Comic Proof using canonical audio + approved Story Shots + normal cuts + restrained crop/zoom.
+- Acceptance criteria are not lowered or declared satisfied; P0.3 remains NOT YET VALIDATED.
 
 ## P0.1 PASS Evidence｜2026-09-12
 
