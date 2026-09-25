@@ -56,9 +56,11 @@ Rules:
 6. Do not duplicate A01–A07 binaries merely to normalize paths.
 7. A unified index provides the logical Story Shot library across legacy and new paths.
 
-Unified index:
+2026-09-25 closeout boundary:
 
-`production/image_library/approved/story_shots/story_shot_index.json`
+`MODEL APPROVED ONLY / FORMAL LIBRARY + INDEX IMPLEMENTATION DEFERRED TO NEXT SESSION`
+
+No Story Shot index is created today.
 
 ## 4. N01 production result
 
@@ -85,15 +87,11 @@ Approved source identity:
 - byte size: 2,687,303
 - SHA-256: `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`
 
-Target canonical path:
+Current registration boundary:
 
-`production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png`
+`PO APPROVED / EXACT SOURCE LOCKED / FORMAL STORY_SHOT REGISTRATION DEFERRED TO NEXT SESSION`
 
-Current publication boundary:
-
-`PO APPROVED / EXACT SOURCE LOCKED / CANONICAL BINARY PUBLICATION PENDING`
-
-Do not regenerate, re-encode, resize or screenshot the approved N01 source during publication.
+No canonical Story Shot path is assigned today. When registration is implemented next session, do not regenerate, re-encode, resize or screenshot the approved N01 source.
 
 ## 5. Current proof objective
 
@@ -122,8 +120,8 @@ No P0.3 PASS claim is made.
 
 ## 7. Resume point
 
-1. publish the exact approved N01 binary and verify SHA / byte size;
-2. change N01 index publication status from pending to canonical;
+1. implement the approved unified Story Shot library / index;
+2. register and publish the exact approved N01 binary and verify SHA / byte size;
 3. build the Opening Audio-Comic Proof;
 4. Product Owner reviews narrative flow and slideshow risk;
 5. then determine the next missing Story Shot(s).
