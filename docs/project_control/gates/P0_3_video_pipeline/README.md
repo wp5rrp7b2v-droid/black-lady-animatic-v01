@@ -93,52 +93,50 @@ Product Owner approved the following model on 2026-09-25:
 - existing A01–A07 must not be renamed or duplicated merely to normalize the model;
 - later production must make approved Story Shots retrievable by story beat, characters, scene and continuity.
 
-Implementation boundary for 2026-09-25:
-
-`MODEL APPROVED / LIBRARY + INDEX IMPLEMENTATION DEFERRED TO NEXT SESSION`
-
-No formal Story Shot index or N01 canonical registration is created as part of today's closeout.
+Implementation boundary for 2026-09-25 was historical and is now superseded by the implemented Story Shot system.
 
 Implementation status as of 2026-09-26:
 
-`IMPLEMENTED / ACTIVE / N01 FORMALLY REGISTERED`
+`IMPLEMENTED / ACTIVE / 15 APPROVED STORY SHOTS / OPENING V2 EXPANSION IN PROGRESS`
 
 - machine-readable index: `production/story_shots/story_shot_index.jsonl`;
-- registered approved Story Shots: A01–A07 + N01 = 8;
+- registered approved Story Shots: A01–A07 + N01–N05 + N08–N10 = 15;
 - A01–A07 remain at their legacy `production/image_library/approved/A_Series/` paths and are not duplicated;
-- N01 canonical path: `production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png`;
-- N01 canonical rename reused the exact uploaded Git blob `d55d2c218926c0b916c67d34979887315c351a1c`;
-- N01 byte size = 2,687,303, matching the approved identity;
-- locked approved SHA-256 remains `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`;
-- direct SHA-256 recheck of the GitHub binary remains a non-blocking local verification item because the temporary GitHub Actions verifier failed before executing steps.
+- N01–N05 and N08–N10 are canonically published under `production/image_library/approved/story_shots/`;
+- exact upload-to-canonical renames reuse the original Git blobs with no PNG re-encode;
+- N08–N10 upload verification run: `36247789055`;
+- N08 SHA-256: `6bda5a8cb4d04d15071f95c6b3fdce09b10230ac95100d59aabf5bad4aef1bb4`;
+- N09 SHA-256: `5e76be2c9815a6caa2d8688d1879bb5ddaad78352b6440ed220dd08332a5e0ac`;
+- N10 SHA-256: `14dbf276dbf9ef6c7de84570d46f40230daa3ba53a304ccdc05645c58e9f6e54`.
 
-## Current approved addition
+## Current Opening V2 Story Shot state
 
-`N01` = Product Owner approved.
+Product Owner-approved / formally registered additions now include:
 
-Narrative function:
+- N08 = Castle Entrance Architecture / Candidate 01;
+- N09 = Neil Formal Butler Descriptor / Candidate 03;
+- N10 = Neil Subtle Smile / Candidate 01.
 
-- Neil has finished the welcome speech and moved to / waits at the castle doorway;
-- the 16 visitors remain outside, curiously observing the surroundings;
-- Jun Luyuan stands beside Ning Qiushui;
-- Ning Qiushui and Jun Luyuan identity consistency passed Product Owner review;
-- Jun Luyuan final pose passed Product Owner review.
+Locked narrative / spatial boundaries:
 
-Approved source identity:
+- N08 makes the castle itself the subject for the narrator beat “巨大的褐色古堡前”;
+- N09 keeps Neil clearly outside on the castle entrance platform with the open double doors behind him;
+- N10 is a restrained closed-mouth slight-smile beat only; no teeth, speech, turn or step;
+- N05 remains the later turn / threshold-action shot.
 
-- PNG
-- 941 × 1672
-- 2,687,303 bytes
-- SHA-256: `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`
+Opening V2 planned sequence:
 
-N01 is visually approved, canonically published and formally registered. Its approved source identity remains locked; GitHub byte size and exact Git-blob preservation are verified. Direct SHA-256 recheck remains pending local verification and is non-blocking for the Opening Audio-Comic Proof.
+`A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`
+
+N06 and N07 remain pending, so the Opening V2 Story-Shot Set is not yet complete.
 
 ## Immediate next step
 
-1. build the Opening Audio-Comic Proof using existing approved A01 + A02 + N01 + canonical audio;
-2. judge pacing, visual-reading flow and slideshow risk before generating more Story Shots;
-3. identify only the additional Story Shots actually required by the proof;
-4. expand full-chapter visual coverage only after the representative proof is reviewed.
+1. design and produce N06 and N07 through the locked Reference Delivery Bundle → Work image-generation pipeline;
+2. Product Owner review and formally register N06 / N07 if approved;
+3. assemble the revised 12-shot Opening V2 proof;
+4. re-review audio/action alignment, cut rhythm, narrative readability, slideshow risk and restrained 2D motion;
+5. do not claim P0.3 PASS until representative production evidence is sufficient and Product Owner explicitly approves the Gate.
 
 See:
 
