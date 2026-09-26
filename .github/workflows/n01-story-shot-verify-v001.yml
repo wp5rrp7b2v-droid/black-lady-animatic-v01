@@ -1,0 +1,44 @@
+name: N01 Story Shot Verify V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/n01-story-shot-verify-v001.yml"
+      - "production/image_library/approved/story_shots/N01_JUN_POSE_LOCAL_CANDIDATE_01.png"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact approved N01 binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, pathlib, struct
+          p = pathlib.Path("production/image_library/approved/story_shots/N01_JUN_POSE_LOCAL_CANDIDATE_01.png")
+          b = p.read_bytes()
+          sha = hashlib.sha256(b).hexdigest()
+          if b[:8] != b"\x89PNG\r\n\x1a\n":
+              raise SystemExit("N01_VERIFY_FAIL: not PNG")
+          w, h = struct.unpack(">II", b[16:24])
+          print(f"N01_PATH={p}")
+          print(f"N01_BYTES={len(b)}")
+          print(f"N01_SHA256={sha}")
+          print(f"N01_DIMENSIONS={w}x{h}")
+          checks = {
+              "BYTE_MATCH": len(b) == 2687303,
+              "SHA_MATCH": sha == "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+              "DIMENSION_MATCH": (w, h) == (941, 1672),
+          }
+          for k,v in checks.items():
+              print(f"{k}={'YES' if v else 'NO'}")
+          if not all(checks.values()):
+              raise SystemExit("N01_VERIFY_FAIL")
+          print("N01_VERIFY_PASS")
+          PY
