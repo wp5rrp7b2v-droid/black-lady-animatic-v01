@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R086",
+  "state_revision": "R087",
   "last_updated": "2026-09-26",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT EXPANSION ACTIVE / N08-N10 FORMALLY REGISTERED / N06-N07 NEXT / NOT YET VALIDATED",
+  "session_status": "PAUSED FOR DAY / P0.3 IN PROGRESS / OPENING V2 STORY-SHOT EXPANSION ACTIVE / N08-N10 FORMALLY REGISTERED / N06-N07 NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -50,7 +50,7 @@
   ],
   "current_task": "P0.3｜OPENING V2 STORY-SHOT COMPLETION｜N06 / N07",
   "blocker": null,
-  "next_action": "Design and produce N06 and N07 through the locked Reference Delivery Bundle → Work image-generation pipeline. After both are Product Owner approved and formally registered, assemble the revised Opening V2 proof using the planned 12-shot sequence and re-review audio/action alignment, shot rhythm, narrative readability, and restrained 2D motion.",
+  "next_action": "Next session: design and produce N06 and N07 through the locked Reference Delivery Bundle → Work image-generation pipeline; formally register both after Product Owner approval; then assemble and review the revised 12-shot Opening V2 proof.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R086 CLOSEOUT",
+    "status": "PENDING USER LOCAL PULL AFTER 2026-09-26 EOD CLOSEOUT",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-N08-N10 STORY_SHOT REGISTRATION GITHUB MAIN"
+    "target": "POST-2026-09-26 P0.3 DAILY CLOSEOUT GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,18 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-26-P03-N08-N10-STORY-SHOTS-REGISTERED",
-    "status": "P0.3 IN PROGRESS / OPENING V2 EXPANSION ACTIVE / N08-N10 REGISTERED / N06-N07 NEXT",
+    "id": "2026-09-26-P03-DAILY-CLOSEOUT-R087",
+    "status": "PAUSED FOR DAY / P0.3 IN PROGRESS / OPENING V2 EXPANSION ACTIVE / N06-N07 NEXT",
     "completed": [
+      "Opening V1 30-second proof achieved TECHNICAL_RENDER_PASS but was not artistically approved; PR #16 remains OPEN / NOT MERGED as historical evidence.",
+      "Opening V2 12-shot plan is locked for current production: A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01.",
       "Product Owner approved N08 Candidate 01, N09 Candidate 03, and N10 Candidate 01.",
-      "GitHub Actions run 36247789055 verified all three uploaded PNGs at 941×1672 with SHA-256, byte-size, and Git blob receipts.",
-      "Uploaded UUID binaries were mapped visually and canonically renamed by exact Git blob reuse with no binary re-encode.",
-      "N08/N09/N10 were added to production/story_shots/story_shot_index.jsonl; approved Story Shot count is now 15.",
-      "N09 spatial relation is locked: Neil stands clearly outside on the castle entrance platform with the open double doors behind him.",
-      "N10 expression beat is locked: restrained closed-mouth slight smile only, before any turn or step.",
-      "Opening V2 planned sequence is A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01."
+      "N08/N09/N10 exact uploaded PNGs were verified and formally registered as APPROVED / CURRENT Story Shots.",
+      "End-of-day independent verification run 36248526501 passed all three canonical PNGs at 941×1672 with SHA-256 / byte-size / Git-blob checks.",
+      "Approved Story Shot count is 15: A01–A07 + N01–N05 + N08–N10.",
+      "N09 spatial lock: Neil stands clearly outside on the castle entrance platform with the open double doors behind him.",
+      "N10 performance lock: restrained closed-mouth slight smile only, before any turn or step.",
+      "Temporary N08/N09/N10 delivery and verification workflows were removed after evidence capture.",
+      "Daily closeout recorded at docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-26.md."
     ],
-    "resume_from": "Design and produce N06 and N07, then assemble the revised Opening V2 proof.",
+    "resume_from": "N06 director design → N06 Reference Delivery Bundle → Work generation/review/registration → N07 same pipeline → revised 12-shot Opening V2 proof.",
     "blockers": []
   },
   "visual_asset_management_system": {
