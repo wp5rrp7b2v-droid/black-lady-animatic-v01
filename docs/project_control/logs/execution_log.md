@@ -1,5 +1,26 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-26｜N08-N10 Story Shot Final Registration
+
+- Product Owner approved N08 Candidate 01, N09 Candidate 03, and N10 Candidate 01 for Opening V2.
+- Product Owner uploaded the three final PNGs into `production/image_library/approved/story_shots/`; upload verification workflow run `36247789055` staged and independently verified the exact uploaded binaries.
+- Verification result: `PASS`; all three files are PNG 941×1672 and their SHA-256 / byte sizes / Git blob SHAs matched the repository binaries.
+- Upload UUID → formal canonical mapping:
+  - `c01710f7-2b7b-44b6-814b-8f93401b30a3.png` → `N08_CASTLE_ENTRANCE_ARCHITECTURE_APPROVED_V001.png`
+  - `39b24dd5-3959-47f9-af27-98d782b7a5ed.png` → `N09_NEIL_FORMAL_BUTLER_DESCRIPTOR_APPROVED_V001.png`
+  - `e44b1fa8-ad0d-4838-92c5-0021ef2ebfb6.png` → `N10_NEIL_SUBTLE_SMILE_APPROVED_V001.png`
+- Canonical rename commit: `80bb54d1ed7878676e52ffc1fdb50b2f6897e94f`; exact Git blobs were reused with no PNG re-encode.
+- Canonical identities:
+  - N08: SHA-256 `6bda5a8cb4d04d15071f95c6b3fdce09b10230ac95100d59aabf5bad4aef1bb4` / 2,794,372 bytes / Git blob `58b41dff1993455dcaac263a1275b973c131ba5b`.
+  - N09: SHA-256 `5e76be2c9815a6caa2d8688d1879bb5ddaad78352b6440ed220dd08332a5e0ac` / 2,281,168 bytes / Git blob `9ba7456b1133efe9f449ec199ecd8d1a018b2e45`.
+  - N10: SHA-256 `14dbf276dbf9ef6c7de84570d46f40230daa3ba53a304ccdc05645c58e9f6e54` / 1,822,641 bytes / Git blob `23be40b7f338e903a6f60c61d995667cb8affdce`.
+- Story Shot index now contains 15 approved records: A01–A07 + N01–N05 + N08–N10.
+- Opening V2 planned sequence is `A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`.
+- N06 and N07 remain pending; therefore the Opening V2 Story-Shot Set is not yet complete.
+- N09 spatial lock: Neil stands clearly outside on the castle entrance platform with the open double doors behind him.
+- N10 expression lock: restrained closed-mouth slight smile only; no teeth, speech, turn, or step.
+- Next production step: design and produce N06 / N07, then assemble the revised Opening V2 proof.
+
 ## 2026-09-26｜N02–N05 Story Shot Final Registration
 
 - Product Owner approved and locked N02, N03 Candidate 02, N04 Candidate 01, and N05 Candidate 01.
