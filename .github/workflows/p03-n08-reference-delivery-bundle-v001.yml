@@ -1,0 +1,243 @@
+name: P03 N08 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n08-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N08 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import shutil
+          import struct
+
+          ROOT = pathlib.Path.cwd().resolve()
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID = "N08_REFERENCE_DELIVERY_BUNDLE_V001"
+          OUT = ROOT / BUNDLE_ID
+          REFS = OUT / "visual_refs"
+
+          REGISTRY_PATH = ROOT / "production/asset_registry/asset_registry.jsonl"
+          STORY_INDEX_PATH = ROOT / "production/story_shots/story_shot_index.jsonl"
+
+          SCENE = {
+              "asset_id": "AST_IMG_000052",
+              "entity_id": "SCENE_CASTLE_ENTRANCE",
+              "role": "SCENE_MASTER",
+              "authority_class": "MASTER",
+              "resolver_usage": "CONDITIONAL",
+              "approval_status": "APPROVED",
+              "lifecycle": "CURRENT",
+              "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+              "byte_size": 2305753,
+              "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+              "git_blob_sha": "e4dafe096f5c5c8782257030a5a659aeec7808f9",
+              "responsibility": "SCENE_FACT_AUTHORITY",
+          }
+
+          A01 = {
+              "shot_id": "A01",
+              "approval_status": "APPROVED",
+              "lifecycle": "CURRENT",
+              "byte_size": 3399726,
+              "path": "production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png",
+              "git_blob_sha": "35769a40dc1fd559d97908235f6a6024562b71b7",
+              "responsibility": "OPENING_VISUAL_CONTINUITY",
+          }
+
+          def sha256_bytes(data):
+              return hashlib.sha256(data).hexdigest()
+
+          def git_blob_sha(data):
+              return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+
+          def png_dimensions(data):
+              if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit("Invalid PNG signature")
+              return struct.unpack(">II", data[16:24])
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          REFS.mkdir(parents=True)
+
+          # Scene Master registry authority validation.
+          registry_rows = [
+              json.loads(line)
+              for line in REGISTRY_PATH.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          scene_rows = [row for row in registry_rows if row.get("asset_id") == SCENE["asset_id"]]
+          if len(scene_rows) != 1:
+              raise SystemExit(f"Scene Master registry cardinality mismatch: {len(scene_rows)}")
+          scene_row = scene_rows[0]
+          scene_checks = {
+              "entity_id": scene_row.get("entity_id") == SCENE["entity_id"],
+              "role": scene_row.get("role") == SCENE["role"],
+              "authority_class": scene_row.get("authority_class") == SCENE["authority_class"],
+              "resolver_usage": scene_row.get("resolver_usage") == SCENE["resolver_usage"],
+              "approval_status": scene_row.get("approval_status") == SCENE["approval_status"],
+              "lifecycle": scene_row.get("lifecycle") == SCENE["lifecycle"],
+              "sha256": scene_row.get("sha256") == SCENE["sha256"],
+              "byte_size": scene_row.get("byte_size") == SCENE["byte_size"],
+              "storage_uri": scene_row.get("storage_uri") == SCENE["path"],
+          }
+          if not all(scene_checks.values()):
+              raise SystemExit(f"Scene Master registry validation failed: {scene_checks}")
+
+          scene_src = ROOT / SCENE["path"]
+          if not scene_src.is_file() or scene_src.is_symlink():
+              raise SystemExit("Missing or redirected Scene Master binary")
+          scene_data = scene_src.read_bytes()
+          scene_sha = sha256_bytes(scene_data)
+          scene_blob = git_blob_sha(scene_data)
+          scene_w, scene_h = png_dimensions(scene_data)
+          if scene_sha != SCENE["sha256"]:
+              raise SystemExit("Scene Master SHA-256 mismatch")
+          if len(scene_data) != SCENE["byte_size"]:
+              raise SystemExit("Scene Master byte-size mismatch")
+          if scene_blob != SCENE["git_blob_sha"]:
+              raise SystemExit("Scene Master Git blob mismatch")
+
+          # A01 Story Shot authority validation.
+          story_rows = [
+              json.loads(line)
+              for line in STORY_INDEX_PATH.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          a01_rows = [row for row in story_rows if row.get("shot_id") == "A01"]
+          if len(a01_rows) != 1:
+              raise SystemExit(f"A01 Story Shot index cardinality mismatch: {len(a01_rows)}")
+          a01_row = a01_rows[0]
+          a01_checks = {
+              "approval_status": a01_row.get("approval_status") == A01["approval_status"],
+              "lifecycle": a01_row.get("lifecycle") == A01["lifecycle"],
+              "canonical_path": a01_row.get("canonical_path") == A01["path"],
+              "byte_size": a01_row.get("byte_size") == A01["byte_size"],
+              "github_blob_sha": a01_row.get("github_blob_sha") == A01["git_blob_sha"],
+          }
+          if not all(a01_checks.values()):
+              raise SystemExit(f"A01 Story Shot index validation failed: {a01_checks}")
+
+          a01_src = ROOT / A01["path"]
+          if not a01_src.is_file() or a01_src.is_symlink():
+              raise SystemExit("Missing or redirected A01 binary")
+          a01_data = a01_src.read_bytes()
+          a01_sha = sha256_bytes(a01_data)
+          a01_blob = git_blob_sha(a01_data)
+          a01_w, a01_h = png_dimensions(a01_data)
+          if len(a01_data) != A01["byte_size"]:
+              raise SystemExit("A01 byte-size mismatch")
+          if a01_blob != A01["git_blob_sha"]:
+              raise SystemExit("A01 Git blob mismatch")
+
+          refs = []
+          for src, data, meta, actual_sha, actual_blob, w, h, prefix in [
+              (scene_src, scene_data, SCENE, scene_sha, scene_blob, scene_w, scene_h, "SCENE"),
+              (a01_src, a01_data, A01, a01_sha, a01_blob, a01_w, a01_h, "A01"),
+          ]:
+              dst = REFS / f"{prefix}__{src.name}"
+              shutil.copyfile(src, dst)
+              copied = dst.read_bytes()
+              if copied != data:
+                  raise SystemExit(f"Byte-identical copy failed: {src.name}")
+              refs.append({
+                  "asset_id": meta.get("asset_id"),
+                  "shot_id": meta.get("shot_id"),
+                  "role": meta.get("role", "STORY_SHOT_CONTINUITY"),
+                  "responsibility": meta["responsibility"],
+                  "approval_status": meta["approval_status"],
+                  "lifecycle": meta["lifecycle"],
+                  "canonical_path": meta["path"],
+                  "filename": src.name,
+                  "bundle_path": dst.relative_to(OUT).as_posix(),
+                  "sha256": actual_sha,
+                  "byte_size": len(data),
+                  "git_blob_sha": actual_blob,
+                  "width": w,
+                  "height": h,
+                  "source_commit": SOURCE_COMMIT,
+              })
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": "N08",
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": 2,
+              "reference_policy": "MINIMUM_NECESSARY_REFERENCES",
+              "authority_precedence": [
+                  "SCENE_FACT_AUTHORITY",
+                  "OPENING_VISUAL_CONTINUITY",
+              ],
+              "manual_product_owner_reference_upload": 0,
+              "references": refs,
+              "overall_result": "PASS",
+          }
+
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# N08 Reference Delivery Bundle V001\n\n"
+              "Purpose: formal binary transport for ChatGPT Work N08 architecture Story Shot generation.\n\n"
+              "Locked chain: GitHub canonical assets -> Resolver / Registry validation -> "
+              "Reference Delivery Bundle -> Work automatic PNG acquisition -> image generation.\n\n"
+              "Rules:\n"
+              "1. Revalidate both PNGs against delivery_manifest.json before generation.\n"
+              "2. Do not re-encode, resize, screenshot, or modify reference PNGs.\n"
+              "3. Scene Master is factual authority for castle entrance architecture and door-open state.\n"
+              "4. A01 is Opening visual-continuity guidance, not authority to repeat A01 composition.\n"
+              "5. N08 is an architecture Story Shot; no character identity references are required.\n"
+              "6. Use minimum necessary references only.\n"
+              "7. If either reference fails SHA/byte/blob verification, fail closed.\n"
+              "8. Product Owner manual reference upload count = 0.\n"
+              "9. This artifact is transport evidence only, not a formal Asset.\n",
+              encoding="utf-8",
+          )
+
+          print("PASS: 2/2 exact canonical reference binaries verified")
+          print(f"SCENE_SHA256={scene_sha}")
+          print(f"A01_SHA256={a01_sha}")
+          print(f"BUNDLE_ID={BUNDLE_ID}")
+          print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+
+      - name: Upload N08 reference delivery artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N08_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N08_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
