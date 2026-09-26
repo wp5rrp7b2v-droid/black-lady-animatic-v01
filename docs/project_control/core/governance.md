@@ -225,6 +225,26 @@ P0 不继续生产 A08 或后续正式镜头；先重建：
 
 P0.2 的详细字段、人物标准视图、场景/服装/道具模板、存储方案、Reference Resolver 规则和 Production Readiness 计算方式在专项规范中定义；本节只锁定项目级硬规则。
 
+## 11.8 Work Formal Image Generation Delivery Rule
+
+凡由 ChatGPT Work 执行的正式视觉制图 / Story Shot 制图，正式生产基线固定为：
+
+`GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation`
+
+这是正式生产路径，不是可选建议。
+
+硬规则：
+
+- **GitHub canonical assets** 是正式视觉输入的唯一 canonical binary authority；Work 不以聊天附件、Library 临时副本、浏览器预览图或人工记忆取代 canonical source。
+- **Resolver / Registry validation** 必须先于制图发生。只允许满足当次 Shot / Task Spec 的正式有效资产进入 Reference Delivery Bundle；不得静默使用 `SUPERSEDED / DEPRECATED / REJECTED / CANDIDATE / WIP` 资产。
+- **Reference Delivery Bundle** 是 GitHub canonical binary 到 Work 图像输入层之间的正式 transport layer。Bundle 必须记录实际输入的 canonical path、asset / role identity、SHA-256、byte size、source commit 与必要的 authority / continuity responsibility。
+- **Work automatic PNG acquisition** 必须从已验证的 Reference Delivery Bundle 自动取得实际 PNG；不得把“直接通过 private GitHub raw URL / browser 打开 PNG”作为正式 baseline，也不得要求 Product Owner 例行手工逐张挑选、下载、打包或上传 canonical references。
+- **image generation** 只有在 Bundle 的实际 PNG 已成功物化并完成必要校验后才允许开始。若 binary materialization / delivery 失败，必须 fail closed，明确报告失败层级，不得在缺少正式参考图时继续生成。
+- 用户直接上传的非 canonical 源图仅可在任务明确要求“以该用户提供原图为直接编辑底图”时作为显式 intake；它不得绕过正式身份 / 场景 authority，也不得被误登记为 canonical asset。
+- 任何偏离该正式链路的临时 fallback，必须明确记录原因、输入来源、完整性校验和 Product Owner 授权；fallback 不能静默升级为新的默认生产模式。
+
+本规则锁定的是**正式制图的数据交付链路**，不改变 Product Owner-only approval，不改变 Asset Registry / Story Shot admission 规则，也不要求 Work 自行承担 GitHub canonical 状态判断；Reference Resolver / Registry 层负责先完成正式参考选择与校验。
+
 ## 12. Project Control Step Closeout / Daily Consistency Check
 
 Project Control 维护必须跟随实际项目推进，不允许只更新单一进度文件而让核心状态、Gate 记录和日志长期互相矛盾。
