@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R083",
+  "state_revision": "R084",
   "last_updated": "2026-09-26",
   "session_status": "P0.3 IN PROGRESS / STORY_SHOT LIBRARY + N01 CANONICAL REGISTRATION IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -49,8 +49,8 @@
     }
   ],
   "current_task": "P0.3｜OPENING AUDIO-COMIC PROOF",
-  "blocker": "No hard content blocker. Story Shot library/index and N01 canonical registration are complete. N01 GitHub byte size and exact Git blob preservation are verified; SHA-256 binary recheck remains a non-blocking local verification item.",
-  "next_action": "Continue N03 using the locked formal image-generation delivery chain: GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation.",
+  "blocker": "N03 formal generation is temporarily blocked at Reference Delivery Artifact creation because the latest GitHub Actions runner failed before executing steps (runner_id=0 / steps=[]). This is an infrastructure delivery blocker, not a content/reference-selection blocker.",
+  "next_action": "Restore/retry the standard GitHub Actions Reference Delivery Artifact path for N03; once artifact is successfully published, instruct Work to auto-download/revalidate it and generate N03 Candidate 01.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -113,17 +113,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-26-P03-WORK-IMAGE-DELIVERY-RULE-LOCKED",
-    "status": "P0.3 IN PROGRESS / FORMAL WORK IMAGE DELIVERY PIPELINE LOCKED / N03 NEXT",
+    "id": "2026-09-26-P03-AUTOMATED-DELIVERY-IMPLEMENTATION-CLARIFIED",
+    "status": "P0.3 IN PROGRESS / RC-022 IMPLEMENTATION CLARIFIED BY RC-023 / N03 DELIVERY ARTIFACT RUNNER BLOCKED",
     "completed": [
-      "Product Owner locked the formal Work image-generation transport chain under BL-D-070 / RC-022.",
-      "Formal chain: GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation.",
-      "Direct private-GitHub PNG browsing/fetching and Product Owner routine manual reference packaging are not formal production baselines.",
-      "Delivery failure is fail-closed; generation may not proceed without required verified reference binaries.",
-      "Story Shot system remains active; N01 is formally registered and N02 is Product Owner-approved pending consolidated canonical naming/registration."
+      "Product Owner corrected the implementation interpretation: no Codex and no Product Owner manual ZIP upload are part of the standard Work image-generation path.",
+      "Historical AO-05/P1 implementation confirmed: GitHub Actions builds a short-lived delivery artifact from canonical references; Work automatically downloads and revalidates it; manual Product Owner reference upload target is 0.",
+      "Candidate D-071 local ZIP task was never executed and is not allocated.",
+      "Governance and P0.3 documentation were clarified accordingly."
     ],
-    "resume_from": "Continue N03 through the locked Reference Delivery Bundle → Work image generation path.",
-    "blockers": []
+    "resume_from": "Retry/restore N03 GitHub Actions Delivery Artifact creation, then Work automatic artifact download → N03 Candidate 01.",
+    "blockers": [
+      "P03-N03-DELIVERY-ARTIFACT-RUNNER"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -327,9 +328,9 @@
       "approval_status": "PRODUCT_OWNER_APPROVED_2026-09-22"
     },
     "work_image_generation_delivery_rule": {
-      "status": "LOCKED / ACTIVE / PRODUCT OWNER APPROVED 2026-09-26",
-      "rule_id": "RC-022",
-      "decision_id": "BL-D-070",
+      "status": "LOCKED / ACTIVE / PRODUCT OWNER APPROVED / IMPLEMENTATION CLARIFIED 2026-09-26",
+      "rule_id": "RC-022 + RC-023",
+      "decision_id": "BL-D-070 + BL-D-071",
       "pipeline": [
         "GitHub canonical assets",
         "Resolver / Registry validation",
@@ -341,7 +342,11 @@
       "fail_closed": true,
       "direct_private_github_png_read": "NOT A FORMAL BASELINE",
       "product_owner_manual_reference_packaging": "NOT NORMAL PRODUCTION RESPONSIBILITY",
-      "exception_rule": "Any temporary fallback must preserve provenance/integrity checks and require explicit Product Owner authorization."
+      "exception_rule": "Any temporary fallback must preserve provenance/integrity checks and require explicit Product Owner authorization.",
+      "standard_transport_implementation": "GitHub Actions / repo-native runner → short-lived workflow artifact → Work automatic artifact download/revalidation",
+      "product_owner_manual_reference_upload_target": 0,
+      "codex_role": "NOT PART OF STANDARD REFERENCE DELIVERY BUNDLE PATH",
+      "local_zip_upload": "NOT PART OF STANDARD PATH"
     }
   },
   "visual_asset_audit_preliminary": {
@@ -516,7 +521,13 @@
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
   "stage_goal": "Validate a practical P0.3 cinematic audio-comic production path from canonical story/audio + approved Story Shots to an acceptable representative audiovisual result.",
-  "blockers": [],
+  "blockers": [
+    {
+      "id": "P03-N03-DELIVERY-ARTIFACT-RUNNER",
+      "status": "TEMPORARY INFRASTRUCTURE BLOCKER",
+      "detail": "GitHub Actions runner failed before executing the N03 delivery workflow; restore/retry automated artifact delivery. Do not substitute Codex/local ZIP or manual PO reference upload without explicit PO fallback approval."
+    }
+  ],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
