@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "render": "remotion render src/index.ts P03-Opening-Audio-Comic-Proof-V001 out/P03_OPENING_AUDIO_COMIC_PROOF_V001/P03_OPENING_AUDIO_COMIC_PROOF_V001.mp4 --codec=h264 --pixel-format=yuv420p --crf=18 --audio-codec=aac --audio-bitrate=192k --concurrency=2"
+    "render": "remotion render src/index.ts P03-Opening-Audio-Comic-Proof-V001 out/P03_OPENING_AUDIO_COMIC_PROOF_V001/P03_OPENING_AUDIO_COMIC_PROOF_V001.mp4 --codec=h264 --pixel-format=yuv420p --crf=18 --audio-codec=aac --audio-bitrate=192k --concurrency=2 --color-space=bt709 --image-format=png"
   },
   "dependencies": {
     "@remotion/cli": "4.0.506",

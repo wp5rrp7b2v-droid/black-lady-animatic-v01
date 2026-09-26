@@ -44,6 +44,12 @@ Output QC probes stream properties, counts decoded frames, verifies audio
 coverage, fully decodes video and audio with FFmpeg, verifies MP4 faststart and
 calculates SHA-256. Only a successful QC run uploads the seven-day artifact:
 
+Encoding explicitly uses Remotion's BT.709 limited-range conversion and PNG
+intermediate render frames. The initial run `36234977560` was rejected because
+default full-range encoding was reported as `yuvj420p` despite the requested
+`yuv420p` flag. The explicit color-space setting enforces the locked output
+pixel format without changing source binaries, timing, motion or audio.
+
 ```text
 P03_OPENING_AUDIO_COMIC_PROOF_V001/
   P03_OPENING_AUDIO_COMIC_PROOF_V001.mp4
