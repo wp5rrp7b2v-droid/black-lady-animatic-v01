@@ -1,0 +1,303 @@
+name: P03 N10 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n10-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N10 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import shutil
+          import struct
+
+          ROOT = pathlib.Path.cwd().resolve()
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID = "N10_REFERENCE_DELIVERY_BUNDLE_V001"
+          OUT = ROOT / BUNDLE_ID
+          REFS = OUT / "visual_refs"
+
+          REGISTRY_PATH = ROOT / "production/asset_registry/asset_registry.jsonl"
+          STORY_INDEX_PATH = ROOT / "production/story_shots/story_shot_index.jsonl"
+
+          ASSETS = {
+              "AST_IMG_000027": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_3Q_LEFT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "approval_status": "APPROVED",
+                  "lifecycle": "CURRENT",
+                  "sha256": "252f18eff4511a6b1255c751448a7fb667ad68ea2f9ebae49824ce3f453ea037",
+                  "byte_size": 2529346,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+                  "git_blob_sha": "0d2638f02caa2697220f0073109fedac50e68246",
+                  "responsibility": "NEIL_3Q_IDENTITY_AUTHORITY",
+              },
+              "AST_IMG_000028": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_FRONT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "approval_status": "APPROVED",
+                  "lifecycle": "CURRENT",
+                  "sha256": "e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939",
+                  "byte_size": 2517908,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "git_blob_sha": "f3e74a06562d8751dd84c0d228b486769abdd254",
+                  "responsibility": "NEIL_FACE_IDENTITY_AUTHORITY",
+              },
+              "AST_IMG_000052": {
+                  "entity_id": "SCENE_CASTLE_ENTRANCE",
+                  "role": "SCENE_MASTER",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "CONDITIONAL",
+                  "approval_status": "APPROVED",
+                  "lifecycle": "CURRENT",
+                  "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+                  "byte_size": 2305753,
+                  "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+                  "git_blob_sha": "e4dafe096f5c5c8782257030a5a659aeec7808f9",
+                  "responsibility": "SCENE_FACT_AUTHORITY",
+              },
+          }
+
+          N04 = {
+              "shot_id": "N04",
+              "approval_status": "APPROVED",
+              "lifecycle": "CURRENT",
+              "byte_size": 2286766,
+              "path": "production/image_library/approved/story_shots/N04_NEIL_WELCOME_CLOSING_APPROVED_V001.png",
+              "git_blob_sha": "f071e169c776b16c050d615aa39e445aff1f5e71",
+              "sha256": "183a409864b2c58186cfa34896e459cd6491e67098c0810614205eca9b534e02",
+              "responsibility": "OPENING_NEIL_COSTUME_AND_PRE_SMILE_CONTINUITY",
+          }
+
+          def sha256_bytes(data):
+              return hashlib.sha256(data).hexdigest()
+
+          def git_blob_sha(data):
+              return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+
+          def png_dimensions(data):
+              if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit("Invalid PNG signature")
+              return struct.unpack(">II", data[16:24])
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          REFS.mkdir(parents=True)
+
+          registry_rows = [
+              json.loads(line)
+              for line in REGISTRY_PATH.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+
+          refs = []
+
+          for aid, exp in ASSETS.items():
+              rows = [row for row in registry_rows if row.get("asset_id") == aid]
+              if len(rows) != 1:
+                  raise SystemExit(f"{aid} registry cardinality mismatch: {len(rows)}")
+              row = rows[0]
+              checks = {
+                  "entity_id": row.get("entity_id") == exp["entity_id"],
+                  "role": row.get("role") == exp["role"],
+                  "authority_class": row.get("authority_class") == exp["authority_class"],
+                  "resolver_usage": row.get("resolver_usage") == exp["resolver_usage"],
+                  "approval_status": row.get("approval_status") == exp["approval_status"],
+                  "lifecycle": row.get("lifecycle") == exp["lifecycle"],
+                  "sha256": row.get("sha256") == exp["sha256"],
+                  "byte_size": row.get("byte_size") == exp["byte_size"],
+                  "storage_uri": row.get("storage_uri") == exp["path"],
+              }
+              if not all(checks.values()):
+                  raise SystemExit(f"{aid} registry validation failed: {checks}")
+
+              src = ROOT / exp["path"]
+              if not src.is_file() or src.is_symlink():
+                  raise SystemExit(f"Missing or redirected canonical binary: {src}")
+
+              data = src.read_bytes()
+              actual_sha = sha256_bytes(data)
+              actual_blob = git_blob_sha(data)
+              width, height = png_dimensions(data)
+              if actual_sha != exp["sha256"]:
+                  raise SystemExit(f"{aid} SHA-256 mismatch")
+              if len(data) != exp["byte_size"]:
+                  raise SystemExit(f"{aid} byte-size mismatch")
+              if actual_blob != exp["git_blob_sha"]:
+                  raise SystemExit(f"{aid} Git blob mismatch")
+
+              dst = REFS / f"{aid}__{src.name}"
+              shutil.copyfile(src, dst)
+              if dst.read_bytes() != data:
+                  raise SystemExit(f"{aid} byte-identical copy failed")
+
+              refs.append({
+                  "asset_id": aid,
+                  "shot_id": None,
+                  "role": exp["role"],
+                  "responsibility": exp["responsibility"],
+                  "authority_class": exp["authority_class"],
+                  "approval_status": exp["approval_status"],
+                  "lifecycle": exp["lifecycle"],
+                  "canonical_path": exp["path"],
+                  "filename": src.name,
+                  "bundle_path": dst.relative_to(OUT).as_posix(),
+                  "sha256": actual_sha,
+                  "byte_size": len(data),
+                  "git_blob_sha": actual_blob,
+                  "width": width,
+                  "height": height,
+                  "source_commit": SOURCE_COMMIT,
+              })
+
+          story_rows = [
+              json.loads(line)
+              for line in STORY_INDEX_PATH.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          n04_rows = [row for row in story_rows if row.get("shot_id") == "N04"]
+          if len(n04_rows) != 1:
+              raise SystemExit(f"N04 Story Shot index cardinality mismatch: {len(n04_rows)}")
+          n04 = n04_rows[0]
+          n04_checks = {
+              "approval_status": n04.get("approval_status") == N04["approval_status"],
+              "lifecycle": n04.get("lifecycle") == N04["lifecycle"],
+              "canonical_path": n04.get("canonical_path") == N04["path"],
+              "byte_size": n04.get("byte_size") == N04["byte_size"],
+              "github_blob_sha": n04.get("github_blob_sha") == N04["git_blob_sha"],
+              "locked_sha256": n04.get("sha256_locked_identity") == N04["sha256"],
+          }
+          if not all(n04_checks.values()):
+              raise SystemExit(f"N04 Story Shot index validation failed: {n04_checks}")
+
+          n04_src = ROOT / N04["path"]
+          if not n04_src.is_file() or n04_src.is_symlink():
+              raise SystemExit("Missing or redirected N04 binary")
+          n04_data = n04_src.read_bytes()
+          n04_sha = sha256_bytes(n04_data)
+          n04_blob = git_blob_sha(n04_data)
+          n04_w, n04_h = png_dimensions(n04_data)
+          if n04_sha != N04["sha256"]:
+              raise SystemExit("N04 SHA-256 mismatch")
+          if len(n04_data) != N04["byte_size"]:
+              raise SystemExit("N04 byte-size mismatch")
+          if n04_blob != N04["git_blob_sha"]:
+              raise SystemExit("N04 Git blob mismatch")
+
+          n04_dst = REFS / f"N04__{n04_src.name}"
+          shutil.copyfile(n04_src, n04_dst)
+          if n04_dst.read_bytes() != n04_data:
+              raise SystemExit("N04 byte-identical copy failed")
+
+          refs.append({
+              "asset_id": None,
+              "shot_id": "N04",
+              "role": "STORY_SHOT_CONTINUITY",
+              "responsibility": N04["responsibility"],
+              "authority_class": "CONTINUITY",
+              "approval_status": N04["approval_status"],
+              "lifecycle": N04["lifecycle"],
+              "canonical_path": N04["path"],
+              "filename": n04_src.name,
+              "bundle_path": n04_dst.relative_to(OUT).as_posix(),
+              "sha256": n04_sha,
+              "byte_size": len(n04_data),
+              "git_blob_sha": n04_blob,
+              "width": n04_w,
+              "height": n04_h,
+              "source_commit": SOURCE_COMMIT,
+          })
+
+          if len(refs) != 4:
+              raise SystemExit(f"Reference count mismatch: {len(refs)}")
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": "N10",
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": 4,
+              "reference_policy": "MINIMUM_NECESSARY_REFERENCES",
+              "authority_precedence": [
+                  "NEIL_FACE_IDENTITY_AUTHORITY",
+                  "NEIL_3Q_IDENTITY_AUTHORITY",
+                  "OPENING_NEIL_COSTUME_AND_PRE_SMILE_CONTINUITY",
+                  "SCENE_FACT_AUTHORITY",
+              ],
+              "manual_product_owner_reference_upload": 0,
+              "references": refs,
+              "overall_result": "PASS",
+          }
+
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# N10 Reference Delivery Bundle V001\n\n"
+              "Purpose: formal binary transport for ChatGPT Work N10 subtle-smile Story Shot generation.\n\n"
+              "Locked chain: GitHub canonical assets -> Resolver / Registry validation -> "
+              "Reference Delivery Bundle -> Work automatic PNG acquisition -> image generation.\n\n"
+              "Rules:\n"
+              "1. Revalidate all 4 PNGs against delivery_manifest.json before generation.\n"
+              "2. Do not re-encode, resize, screenshot, rename, or modify reference PNGs.\n"
+              "3. Neil FACE_FRONT and FACE_3Q_LEFT are identity authority.\n"
+              "4. N04 is Opening costume and pre-smile continuity only; do not copy its composition.\n"
+              "5. Scene Master controls castle-entrance architectural facts and door-open state.\n"
+              "6. N10 is a micro-expression shot: only a restrained closed-mouth slight smile changes.\n"
+              "7. Do not turn, step, speak, grin, show teeth, or create a sinister/exaggerated smile.\n"
+              "8. If any reference fails SHA/byte/blob verification, fail closed.\n"
+              "9. Product Owner manual reference upload count = 0.\n"
+              "10. This artifact is transport evidence only, not a formal Asset.\n",
+              encoding="utf-8",
+          )
+
+          print("PASS: 4/4 exact canonical reference binaries verified")
+          for ref in refs:
+              print(f"{ref.get('asset_id') or ref.get('shot_id')} SHA256={ref['sha256']}")
+          print(f"BUNDLE_ID={BUNDLE_ID}")
+          print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+
+      - name: Upload N10 reference delivery artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N10_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N10_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
