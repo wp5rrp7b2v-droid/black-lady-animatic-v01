@@ -1,0 +1,239 @@
+name: P03 N04 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n04-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N04 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import shutil
+          import struct
+
+          ROOT = pathlib.Path.cwd().resolve()
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID = "N04_REFERENCE_DELIVERY_BUNDLE_V001"
+          OUT = ROOT / BUNDLE_ID
+          REFS = OUT / "visual_refs"
+          REGISTRY_PATH = ROOT / "production/asset_registry/asset_registry.jsonl"
+
+          expected_assets = {
+              "AST_IMG_000028": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_FRONT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939",
+                  "byte_size": 2517908,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000027": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_3Q_LEFT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "252f18eff4511a6b1255c751448a7fb667ad68ea2f9ebae49824ce3f453ea037",
+                  "byte_size": 2529346,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000026": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "BODY_FRONT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "f78ccfc252d2ed0cb31117ce1dae4c84893c5e52611a27fac161c8e6d014cf3d",
+                  "byte_size": 2605161,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000052": {
+                  "entity_id": "SCENE_CASTLE_ENTRANCE",
+                  "role": "SCENE_MASTER",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "CONDITIONAL",
+                  "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+                  "byte_size": 2305753,
+                  "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+                  "responsibility": "SCENE_AUTHORITY",
+              },
+          }
+
+          def sha256(path):
+              h = hashlib.sha256()
+              with path.open("rb") as f:
+                  for block in iter(lambda: f.read(1024 * 1024), b""):
+                      h.update(block)
+              return h.hexdigest()
+
+          def png_dimensions(path):
+              data = path.read_bytes()
+              if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit(f"Not a valid PNG: {path}")
+              return struct.unpack(">II", data[16:24])
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          REFS.mkdir(parents=True)
+
+          rows = {}
+          for line in REGISTRY_PATH.read_text(encoding="utf-8").splitlines():
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              aid = row.get("asset_id")
+              if aid in expected_assets:
+                  rows[aid] = row
+
+          if set(rows) != set(expected_assets):
+              raise SystemExit(
+                  f"Registry asset set mismatch: got={sorted(rows)} expected={sorted(expected_assets)}"
+              )
+
+          references = []
+          for aid, exp in expected_assets.items():
+              row = rows[aid]
+              checks = {
+                  "entity_id": row.get("entity_id") == exp["entity_id"],
+                  "role": row.get("role") == exp["role"],
+                  "approval_status": row.get("approval_status") == "APPROVED",
+                  "lifecycle": row.get("lifecycle") == "CURRENT",
+                  "resolver_usage": row.get("resolver_usage") == exp["resolver_usage"],
+                  "authority_class": row.get("authority_class") == exp["authority_class"],
+                  "registry_sha256": row.get("sha256") == exp["sha256"],
+                  "registry_byte_size": row.get("byte_size") == exp["byte_size"],
+                  "storage_uri": row.get("storage_uri") == exp["path"],
+              }
+              if not all(checks.values()):
+                  raise SystemExit(f"{aid} Registry validation failed: {checks}")
+
+              src = ROOT / exp["path"]
+              if not src.is_file() or src.is_symlink():
+                  raise SystemExit(f"Missing or redirected canonical binary: {src}")
+
+              actual_sha = sha256(src)
+              actual_bytes = src.stat().st_size
+              width, height = png_dimensions(src)
+              if actual_sha != exp["sha256"] or actual_bytes != exp["byte_size"]:
+                  raise SystemExit(f"{aid} canonical binary mismatch")
+
+              dst = REFS / f"{aid}__{src.name}"
+              shutil.copyfile(src, dst)
+              if sha256(dst) != actual_sha or dst.stat().st_size != actual_bytes:
+                  raise SystemExit(f"{aid} copied binary mismatch")
+
+              references.append({
+                  "asset_id": aid,
+                  "entity_id": exp["entity_id"],
+                  "role": exp["role"],
+                  "responsibility": exp["responsibility"],
+                  "authority_class": exp["authority_class"],
+                  "approval_status": "APPROVED",
+                  "lifecycle": "CURRENT",
+                  "resolver_usage": exp["resolver_usage"],
+                  "canonical_path": exp["path"],
+                  "filename": src.name,
+                  "bundle_path": dst.relative_to(OUT).as_posix(),
+                  "sha256": actual_sha,
+                  "byte_size": actual_bytes,
+                  "width": width,
+                  "height": height,
+                  "source_commit": SOURCE_COMMIT,
+              })
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": "N04",
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": len(references),
+              "edit_base": {
+                  "project_file": "BRIDGE_A01_A02_TIGHT_CANDIDATE.png",
+                  "classification": "EXPLICIT_EDIT_BASE / NON_AUTHORITY / EXPERIMENTAL_RETAINED",
+                  "expected_width": 941,
+                  "expected_height": 1672,
+                  "expected_byte_size": 2407156,
+                  "historical_sha256": "57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316",
+                  "authority_note": "Composition/edit base only. Identity and scene authority remain the verified canonical references in this bundle."
+              },
+              "authority_precedence": [
+                  "CHARACTER_IDENTITY",
+                  "SCENE_AUTHORITY",
+                  "EXPLICIT_EDIT_BASE_NON_AUTHORITY"
+              ],
+              "manual_product_owner_reference_upload": 0,
+              "references": references,
+              "overall_result": "PASS",
+          }
+
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# N04 Reference Delivery Bundle V001\n\n"
+              "Purpose: canonical identity/scene reference transport for ChatGPT Work N04 generation.\n\n"
+              "N04 direct edit base is the existing Project file BRIDGE_A01_A02_TIGHT_CANDIDATE.png.\n"
+              "It is an explicit edit base only, not identity authority and not a formal Asset.\n"
+              "Its historical recorded SHA-256 is 57f960184441c21ae3f881f8efe47ef858d3c87b13824ba689eeb6d3d282c316.\n\n"
+              "Rules:\n"
+              "1. Verify all 4 canonical PNGs against delivery_manifest.json before generation.\n"
+              "2. Load the Project Tight image as the sole direct edit base.\n"
+              "3. Preserve Tight camera/framing/background; perform targeted local edit only.\n"
+              "4. Neil identity authority = FACE_FRONT + FACE_3Q_LEFT + BODY_FRONT.\n"
+              "5. Scene Master = scene factual authority.\n"
+              "6. N04 narrative state = Neil concludes welcome; slight professional smile, stable gaze, relaxed shoulders, hands more closed/formal.\n"
+              "7. Do not turn, step, enter doorway, or pre-empt N05.\n"
+              "8. Do not redraw Neil face to imitate anchors; anchors prevent identity drift.\n"
+              "9. If required canonical references fail verification, fail closed.\n"
+              "10. Product Owner manual reference upload count = 0.\n",
+              encoding="utf-8",
+          )
+
+          for ref in references:
+              delivered = OUT / ref["bundle_path"]
+              if sha256(delivered) != ref["sha256"]:
+                  raise SystemExit(f"Final SHA validation failed: {ref['filename']}")
+              if delivered.stat().st_size != ref["byte_size"]:
+                  raise SystemExit(f"Final byte-size validation failed: {ref['filename']}")
+              png_dimensions(delivered)
+
+          if len(references) != 4:
+              raise SystemExit(f"Reference count mismatch: {len(references)}")
+
+          print("PASS: 4/4 exact canonical N04 references verified")
+          print(f"BUNDLE_ID={BUNDLE_ID}")
+          print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+
+      - name: Upload N04 reference delivery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N04_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N04_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
