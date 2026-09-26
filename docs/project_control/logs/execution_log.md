@@ -1,5 +1,19 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-26｜P0.3 Daily Closeout
+
+- End-of-day status: `PAUSED FOR DAY / P0.3 IN PROGRESS / OPENING V2 STORY-SHOT EXPANSION ACTIVE / N06-N07 NEXT`.
+- Opening V1 30-second proof achieved technical render PASS but was not artistically approved; insufficient visual coverage and narration/action timing mismatch triggered the 12-shot Opening V2 expansion.
+- N08 Candidate 01, N09 Candidate 03 and N10 Candidate 01 are Product Owner approved, exact-source verified and formally registered as approved/current Story Shots.
+- Formal Work delivery chain was executed for N08/N09/N10 with manual Product Owner reference upload = 0.
+- Additional end-of-day verification run `36248526501` independently passed all three canonical PNGs at 941×1672 with SHA-256 / byte-size / Git-blob checks.
+- Approved Story Shot count: `15` = A01–A07 + N01–N05 + N08–N10.
+- Opening V2 planned sequence: `A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`.
+- N06 / N07 remain pending and are the next production task.
+- PR #16 remains OPEN / NOT MERGED as historical Opening V1 technical-proof evidence; P0.3 remains NOT YET VALIDATED.
+- Full daily closeout: `docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-26.md`.
+- Temporary N08/N09/N10 delivery and verification workflows were removed after evidence capture.
+
 ## 2026-09-26｜N08-N10 Story Shot Final Registration
 
 - Product Owner approved N08 Candidate 01, N09 Candidate 03, and N10 Candidate 01 for Opening V2.
