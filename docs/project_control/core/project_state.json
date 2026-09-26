@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R082",
+  "state_revision": "R083",
   "last_updated": "2026-09-26",
   "session_status": "P0.3 IN PROGRESS / STORY_SHOT LIBRARY + N01 CANONICAL REGISTRATION IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -50,7 +50,7 @@
   ],
   "current_task": "P0.3｜OPENING AUDIO-COMIC PROOF",
   "blocker": "No hard content blocker. Story Shot library/index and N01 canonical registration are complete. N01 GitHub byte size and exact Git blob preservation are verified; SHA-256 binary recheck remains a non-blocking local verification item.",
-  "next_action": "Build the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio; review pacing, visual-reading flow and slideshow risk before generating additional Story Shots.",
+  "next_action": "Continue N03 using the locked formal image-generation delivery chain: GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -113,18 +113,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-26-P03-STORY-SHOT-INDEX-N01-REGISTERED",
-    "status": "P0.3 IN PROGRESS / STORY_SHOT SYSTEM IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
+    "id": "2026-09-26-P03-WORK-IMAGE-DELIVERY-RULE-LOCKED",
+    "status": "P0.3 IN PROGRESS / FORMAL WORK IMAGE DELIVERY PIPELINE LOCKED / N03 NEXT",
     "completed": [
-      "2026-09-25 route pivot retained: character-shot single-image 2.5D is not the current main production route.",
-      "Unified STORY_SHOT model implemented without renaming or duplicating legacy A01–A07 binaries.",
-      "Machine-readable Story Shot index created at production/story_shots/story_shot_index.jsonl with 8 approved records: A01–A07 + N01.",
-      "N01 canonically published at production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png.",
-      "N01 canonical rename reused the exact uploaded Git blob d55d2c218926c0b916c67d34979887315c351a1c; byte size remains 2,687,303.",
-      "Locked N01 SHA-256 identity remains a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b; direct GitHub-binary SHA-256 recheck is pending local verification after the temporary Actions verifier failed before executing any step.",
-      "Stale AO-06 / D-069 current-state fields corrected: AO-06 is COMPLETE / VERIFIED / PRODUCT OWNER APPROVED and P0.2 remains PASS / PRODUCT OWNER APPROVED."
+      "Product Owner locked the formal Work image-generation transport chain under BL-D-070 / RC-022.",
+      "Formal chain: GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation.",
+      "Direct private-GitHub PNG browsing/fetching and Product Owner routine manual reference packaging are not formal production baselines.",
+      "Delivery failure is fail-closed; generation may not proceed without required verified reference binaries.",
+      "Story Shot system remains active; N01 is formally registered and N02 is Product Owner-approved pending consolidated canonical naming/registration."
     ],
-    "resume_from": "Build and review the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.",
+    "resume_from": "Continue N03 through the locked Reference Delivery Bundle → Work image generation path.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -327,6 +325,23 @@
       "registry_relations_audit_counts": "83 / 44 / 120 unchanged",
       "uses_reference_created": "NO / intentionally not applicable to non-production validation output",
       "approval_status": "PRODUCT_OWNER_APPROVED_2026-09-22"
+    },
+    "work_image_generation_delivery_rule": {
+      "status": "LOCKED / ACTIVE / PRODUCT OWNER APPROVED 2026-09-26",
+      "rule_id": "RC-022",
+      "decision_id": "BL-D-070",
+      "pipeline": [
+        "GitHub canonical assets",
+        "Resolver / Registry validation",
+        "Reference Delivery Bundle",
+        "Work automatic PNG acquisition",
+        "image generation"
+      ],
+      "baseline": "FORMAL WORK-BASED IMAGE GENERATION",
+      "fail_closed": true,
+      "direct_private_github_png_read": "NOT A FORMAL BASELINE",
+      "product_owner_manual_reference_packaging": "NOT NORMAL PRODUCTION RESPONSIBILITY",
+      "exception_rule": "Any temporary fallback must preserve provenance/integrity checks and require explicit Product Owner authorization."
     }
   },
   "visual_asset_audit_preliminary": {
