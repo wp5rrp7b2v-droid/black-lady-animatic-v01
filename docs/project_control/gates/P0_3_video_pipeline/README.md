@@ -70,6 +70,10 @@ Operational boundary:
 - GitHub remains canonical binary authority.
 - Resolver / Registry selects and validates the minimum necessary CURRENT / APPROVED references.
 - A traceable Reference Delivery Bundle transports the exact PNG binaries and their manifest to Work.
+- Standard implementation = GitHub Actions / repo-native automated runner builds the bundle from canonical repo inputs and publishes a short-lived workflow artifact.
+- Work automatically downloads that artifact through the connected GitHub capability, unpacks and revalidates it, then supplies the PNGs to image generation.
+- The Product Owner does not locally build or upload the ZIP; normal manual reference upload count is 0.
+- Codex / Local Terminal are not part of this standard delivery path and must not be introduced merely to build the Bundle.
 - Work generates only after the Bundle PNGs are materially available and validated.
 - Direct private-GitHub PNG browsing/fetching is not the production baseline.
 - Product Owner is not expected to routinely hand-pick, download, ZIP or re-upload canonical references.
