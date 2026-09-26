@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R081",
-  "last_updated": "2026-09-25",
-  "session_status": "P0.3 IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE + STORY_SHOT MODEL APPROVED / IMPLEMENTATION DEFERRED TO NEXT SESSION",
+  "state_revision": "R082",
+  "last_updated": "2026-09-26",
+  "session_status": "P0.3 IN PROGRESS / STORY_SHOT LIBRARY + N01 CANONICAL REGISTRATION IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-25: Product Owner rejected character-shot single-image 2.5D after visible deformation in the A01→Wide→Tight→A02 sequence; current main validation route is cinematic audio comic. Product Owner also approved the unified STORY_SHOT concept: legacy A and later N IDs are the same narrative composition asset class, with approved-only admission. The Story Shot library/index implementation and N01 canonical publication are explicitly deferred to the next work session. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-26: Cinematic audio-comic remains the active P0.3 route. The unified STORY_SHOT model approved on 2026-09-25 is now implemented: A01–A07 remain at their legacy canonical paths and are unified through production/story_shots/story_shot_index.jsonl; N01 is canonically published and formally registered. N01 byte size and exact Git blob preservation are verified; direct SHA-256 recheck of the GitHub binary remains a non-blocking local verification item because the temporary GitHub Actions verifier failed before executing steps. P0.3 remains NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜NEXT SESSION: STORY_SHOT REGISTRATION → OPENING AUDIO-COMIC PROOF",
-  "blocker": "No hard content blocker. Story Shot model is approved; its library/index implementation and N01 canonical binary publication are intentionally deferred to the next work session.",
-  "next_action": "Next session: implement the approved unified Story Shot library/index and publish the exact PO-approved N01 binary without regeneration/re-encoding; verify identity; then build the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.",
+  "current_task": "P0.3｜OPENING AUDIO-COMIC PROOF",
+  "blocker": "No hard content blocker. Story Shot library/index and N01 canonical registration are complete. N01 GitHub byte size and exact Git blob preservation are verified; SHA-256 binary recheck remains a non-blocking local verification item.",
+  "next_action": "Build the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio; review pacing, visual-reading flow and slideshow risk before generating additional Story Shots.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -113,17 +113,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-25-P03-AUDIO-COMIC-STORY-SHOT-DESIGN-APPROVED",
-    "status": "P0.3 IN PROGRESS / ROUTE + STORY_SHOT MODEL APPROVED / IMPLEMENTATION DEFERRED",
+    "id": "2026-09-26-P03-STORY-SHOT-INDEX-N01-REGISTERED",
+    "status": "P0.3 IN PROGRESS / STORY_SHOT SYSTEM IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
     "completed": [
-      "A01→Wide→Tight→A02 4-shot 2.5D sequence reviewed; Product Owner rejected character-shot 2.5D because of visible character deformation.",
-      "Current P0.3 main validation route changed to cinematic audio comic: canonical audio/story beats + approved narrative compositions + normal cuts + restrained crop/zoom.",
-      "AI video remains optional for selected key shots and is not the current production blocker.",
-      "Product Owner approved the unified STORY_SHOT concept: A/N prefixes are historical IDs only and do not define separate asset systems.",
-      "Approved-only admission rule confirmed: candidate / rejected / WIP outputs are not formally stored or registered.",
-      "N01 final image approved by Product Owner after Ning Qiushui identity, Jun Luyuan identity and Jun Luyuan pose corrections."
+      "2026-09-25 route pivot retained: character-shot single-image 2.5D is not the current main production route.",
+      "Unified STORY_SHOT model implemented without renaming or duplicating legacy A01–A07 binaries.",
+      "Machine-readable Story Shot index created at production/story_shots/story_shot_index.jsonl with 8 approved records: A01–A07 + N01.",
+      "N01 canonically published at production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png.",
+      "N01 canonical rename reused the exact uploaded Git blob d55d2c218926c0b916c67d34979887315c351a1c; byte size remains 2,687,303.",
+      "Locked N01 SHA-256 identity remains a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b; direct GitHub-binary SHA-256 recheck is pending local verification after the temporary Actions verifier failed before executing any step.",
+      "Stale AO-06 / D-069 current-state fields corrected: AO-06 is COMPLETE / VERIFIED / PRODUCT OWNER APPROVED and P0.2 remains PASS / PRODUCT OWNER APPROVED."
     ],
-    "resume_from": "Implement the approved STORY_SHOT library/index and publish N01 exact approved binary; then build the Opening Audio-Comic Proof.",
+    "resume_from": "Build and review the Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -385,7 +386,7 @@
     "audit_record": "docs/project_control/gates/P0_2_visual_assets/asset_authority_audit.md"
   },
   "approved_open_tasks": {
-    "status": "LOCKED / MANDATORY PRE-WAVE2",
+    "status": "COMPLETE / HISTORICAL P0.2 CLOSEOUT SET",
     "decision_id": "BL-D-027",
     "path": "docs/project_control/gates/P0_2_visual_assets/approved_open_tasks_v1.md",
     "count": 7,
@@ -407,11 +408,11 @@
     "ao03_merge_sha": "b16ffdd5f1c57f0b2c28acdee3caac656afb91a3",
     "ao07_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao07_decision_id": "BL-D-030",
-    "next_task": "D-070 formal Character Core adoption is complete on PR #11; after merge, resume AO-06 / D-069 as the only mandatory P0.2 system-closeout track.",
-    "resume_lock": "P1 sequencing HOLD was superseded by BL-D-039 / RC-020 on 2026-09-19. AO-06 no longer blocks P1 production but remains mandatory before P0.2 READY_FOR_APPROVAL.",
+    "next_task": "NONE / P0.2 COMPLETE / P0.3 ACTIVE",
+    "resume_lock": "SATISFIED / AO-06 completed and Product Owner approved on 2026-09-22; P0.2 is closed and approved.",
     "ao04_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
     "ao05_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
-    "ao06_status": "D-069 OPEN / STILL REQUIRED BEFORE P0.2 FINAL CLOSEOUT / NO LONGER BLOCKS P1 PRODUCTION"
+    "ao06_status": "COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22"
   },
   "risk_register": {
     "path": "docs/project_control/logs/risk_register.md",
@@ -484,15 +485,15 @@
     "codex_engineering_tasks": "D-###",
     "last_known_codex_task": "D-070",
     "next_codex_task_when_needed": "NOT ALLOCATED",
-    "next_codex_task_status": "D-070 engineering result reconstructed for real GitHub publication; D-069 remains OPEN for AO-06 final validation.",
+    "next_codex_task_status": "NO CODEX TASK ALLOCATED. D-069 AO-06 is complete/verified/PO-approved; D-070 is complete. Chat-led Story Shot registration on 2026-09-26 did not consume a D-number.",
     "routing_rule": "Only tasks actually executed by Codex consume D-###. Chat and Terminal work do not. TEMP_CLOUD_ONLY_MODE_V1 temporarily routes required repo multi-file engineering to Codex Cloud without changing RC-015; Cloud workflow drills do not consume D-###."
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V049",
+    "version": "V055",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R073 / D-070 MERGED + VERIFIED / AO-06 NEXT"
+    "status": "CURRENT / DERIVED FROM R082 / STORY_SHOT INDEX + N01 REGISTERED / OPENING AUDIO-COMIC PROOF NEXT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -555,7 +556,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "DESIGN APPROVED / IMPLEMENTATION DEFERRED TO NEXT SESSION",
+    "status": "IMPLEMENTED / ACTIVE / N01 FORMALLY REGISTERED",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -564,15 +565,22 @@
       "REJECTED",
       "WIP"
     ],
-    "implementation_status": "NOT IMPLEMENTED TODAY / CREATE FORMAL LIBRARY + INDEX NEXT SESSION",
+    "implementation_status": "IMPLEMENTED 2026-09-26 / INDEX = production/story_shots/story_shot_index.jsonl / 8 APPROVED RECORDS",
     "legacy_path_principle": "Do not rename or duplicate A01-A07 merely to normalize the new model; preserve historical IDs and references.",
     "n01": {
       "shot_id": "N01",
-      "status": "PRODUCT_OWNER_APPROVED / EXACT SOURCE LOCKED / FORMAL REGISTRATION DEFERRED",
+      "status": "PRODUCT_OWNER_APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / SHA256 LOCAL RECHECK PENDING_NON_BLOCKING",
       "width": 941,
       "height": 1672,
       "byte_size": 2687303,
-      "sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b"
-    }
+      "sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+      "canonical_path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+      "github_blob_sha": "d55d2c218926c0b916c67d34979887315c351a1c",
+      "byte_size_verification": "MATCH / 2687303",
+      "rename_integrity": "EXACT SAME GIT BLOB / NO RE-ENCODE",
+      "sha256_verification_status": "LOCKED APPROVED IDENTITY / GITHUB BINARY RECHECK PENDING LOCAL VERIFICATION"
+    },
+    "index_path": "production/story_shots/story_shot_index.jsonl",
+    "registered_story_shot_count": 8
   }
 }
