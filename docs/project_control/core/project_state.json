@@ -3,13 +3,13 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R084",
+  "state_revision": "R085",
   "last_updated": "2026-09-26",
-  "session_status": "P0.3 IN PROGRESS / STORY_SHOT LIBRARY + N01 CANONICAL REGISTRATION IMPLEMENTED / OPENING AUDIO-COMIC PROOF NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / OPENING STORY-SHOT SET COMPLETE / OPENING AUDIO-COMIC PROOF ASSEMBLY NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
-  "repo_visibility": "private",
+  "repo_visibility": "public",
   "project_control_root": "docs/project_control/",
   "project_control_layout": "1.1",
   "local_working_copy": "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/docs/project_control/",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-26: Cinematic audio-comic remains the active P0.3 route. The unified STORY_SHOT model approved on 2026-09-25 is now implemented: A01–A07 remain at their legacy canonical paths and are unified through production/story_shots/story_shot_index.jsonl; N01 is canonically published and formally registered. N01 byte size and exact Git blob preservation are verified; direct SHA-256 recheck of the GitHub binary remains a non-blocking local verification item because the temporary GitHub Actions verifier failed before executing steps. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-26: Opening Story Shot production set is complete and formally registered. Canonical sequence is A01 → A02 → N02 → N03 → N04 → N05 → N01. A01–A07 remain at legacy canonical paths; N01–N05 are registered through production/story_shots/story_shot_index.jsonl. N01 SHA-256 recheck is now verified by GitHub Actions. N02–N05 exact uploaded binaries were independently verified by GitHub Actions run 36232083006 and canonically renamed by exact Git blob reuse. P0.3 remains NOT YET VALIDATED until the real Opening Audio-Comic Proof is assembled and reviewed."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING AUDIO-COMIC PROOF",
-  "blocker": "N03 formal generation is temporarily blocked at Reference Delivery Artifact creation because the latest GitHub Actions runner failed before executing steps (runner_id=0 / steps=[]). This is an infrastructure delivery blocker, not a content/reference-selection blocker.",
-  "next_action": "Restore/retry the standard GitHub Actions Reference Delivery Artifact path for N03; once artifact is successfully published, instruct Work to auto-download/revalidate it and generate N03 Candidate 01.",
+  "current_task": "P0.3｜OPENING AUDIO-COMIC PROOF ASSEMBLY",
+  "blocker": null,
+  "next_action": "Assemble the real 30-second Opening Audio-Comic Proof using canonical audio and the locked Story Shot sequence A01 → A02 → N02 → N03 → N04 → N05 → N01; validate cut rhythm, restrained crop/zoom, audio alignment, narrative readability, and overall result before any P0.3 approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,9 +61,9 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-09-25 EOD / SYNC AFTER CLOSEOUT MERGE",
+    "status": "PENDING USER LOCAL PULL AFTER R085 CLOSEOUT",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
-    "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git pull --ff-only origin main",
+    "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
     "temporary_exception": {
       "mode": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -76,9 +76,10 @@
     "completed_head": "d3a62f05c3c47c83d4b0583f591a9d61b308f4e8",
     "local_untracked_preserved": [
       "black_lady_character_asset_migration_v1.zip",
-      "production/audio/"
+      "production/audio/",
+      "production/image_library/working/"
     ],
-    "target": "POST-2026-09-25 CLOSEOUT GITHUB MAIN"
+    "target": "POST-N02-N05 STORY_SHOT REGISTRATION GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -113,18 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-26-P03-AUTOMATED-DELIVERY-IMPLEMENTATION-CLARIFIED",
-    "status": "P0.3 IN PROGRESS / RC-022 IMPLEMENTATION CLARIFIED BY RC-023 / N03 DELIVERY ARTIFACT RUNNER BLOCKED",
+    "id": "2026-09-26-P03-N02-N05-STORY-SHOTS-REGISTERED",
+    "status": "P0.3 IN PROGRESS / OPENING STORY-SHOT SET COMPLETE / OPENING PROOF ASSEMBLY NEXT",
     "completed": [
-      "Product Owner corrected the implementation interpretation: no Codex and no Product Owner manual ZIP upload are part of the standard Work image-generation path.",
-      "Historical AO-05/P1 implementation confirmed: GitHub Actions builds a short-lived delivery artifact from canonical references; Work automatically downloads and revalidates it; manual Product Owner reference upload target is 0.",
-      "Candidate D-071 local ZIP task was never executed and is not allocated.",
-      "Governance and P0.3 documentation were clarified accordingly."
+      "Product Owner approved and locked N02, N03 Candidate 02, N04 Candidate 01, and N05 Candidate 01.",
+      "Opening Story Shot sequence locked: A01 → A02 → N02 → N03 → N04 → N05 → N01.",
+      "N02–N05 exact uploaded PNGs verified by GitHub Actions run 36232083006 at 941×1672 with SHA-256 and byte-size receipts.",
+      "N02–N05 UUID uploads canonically renamed by exact Git blob reuse with no binary re-encode.",
+      "Story Shot index now contains 12 approved records: A01–A07 + N01–N05.",
+      "N01 locked SHA-256 recheck is verified; prior pending SHA item is closed.",
+      "GitHub Actions / Work Reference Delivery Artifact path recovered after repository visibility changed to public; no current delivery blocker remains."
     ],
-    "resume_from": "Retry/restore N03 GitHub Actions Delivery Artifact creation, then Work automatic artifact download → N03 Candidate 01.",
-    "blockers": [
-      "P03-N03-DELIVERY-ARTIFACT-RUNNER"
-    ]
+    "resume_from": "Assemble the 30-second Opening Audio-Comic Proof from canonical audio + locked Story Shots.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -510,10 +512,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V055",
+    "version": "V057",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R082 / STORY_SHOT INDEX + N01 REGISTERED / OPENING AUDIO-COMIC PROOF NEXT"
+    "status": "CURRENT / DERIVED FROM R082 / STORY_SHOT INDEX + N01 REGISTERED / OPENING AUDIO-COMIC PROOF NEXT",
+    "derived_from_revision": "R085",
+    "last_updated": "2026-09-26",
+    "current_task": "OPENING AUDIO-COMIC PROOF ASSEMBLY"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -521,13 +526,7 @@
     "P0.3": "docs/project_control/gates/P0_3_video_pipeline/"
   },
   "stage_goal": "Validate a practical P0.3 cinematic audio-comic production path from canonical story/audio + approved Story Shots to an acceptable representative audiovisual result.",
-  "blockers": [
-    {
-      "id": "P03-N03-DELIVERY-ARTIFACT-RUNNER",
-      "status": "TEMPORARY INFRASTRUCTURE BLOCKER",
-      "detail": "GitHub Actions runner failed before executing the N03 delivery workflow; restore/retry automated artifact delivery. Do not substitute Codex/local ZIP or manual PO reference upload without explicit PO fallback approval."
-    }
-  ],
+  "blockers": [],
   "project_control_closeout": {
     "status": "LOCKED / MANDATORY",
     "important_step_rule": "After each important Step/formal task/engineering completion/PO decision/rule change, update all affected Project Control files before moving to the next important Step.",
@@ -582,7 +581,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "IMPLEMENTED / ACTIVE / N01 FORMALLY REGISTERED",
+    "status": "IMPLEMENTED / ACTIVE / N01-N05 FORMALLY REGISTERED / OPENING SET COMPLETE",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -591,11 +590,11 @@
       "REJECTED",
       "WIP"
     ],
-    "implementation_status": "IMPLEMENTED 2026-09-26 / INDEX = production/story_shots/story_shot_index.jsonl / 8 APPROVED RECORDS",
+    "implementation_status": "IMPLEMENTED 2026-09-26 / INDEX = production/story_shots/story_shot_index.jsonl / 12 APPROVED RECORDS",
     "legacy_path_principle": "Do not rename or duplicate A01-A07 merely to normalize the new model; preserve historical IDs and references.",
     "n01": {
       "shot_id": "N01",
-      "status": "PRODUCT_OWNER_APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / SHA256 LOCAL RECHECK PENDING_NON_BLOCKING",
+      "status": "PRODUCT_OWNER_APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / SHA256 VERIFIED",
       "width": 941,
       "height": 1672,
       "byte_size": 2687303,
@@ -604,9 +603,48 @@
       "github_blob_sha": "d55d2c218926c0b916c67d34979887315c351a1c",
       "byte_size_verification": "MATCH / 2687303",
       "rename_integrity": "EXACT SAME GIT BLOB / NO RE-ENCODE",
-      "sha256_verification_status": "LOCKED APPROVED IDENTITY / GITHUB BINARY RECHECK PENDING LOCAL VERIFICATION"
+      "sha256_verification_status": "VERIFIED_MATCH_BY_GITHUB_ACTIONS_2026-09-26",
+      "verification_runs": [
+        36226979025,
+        36231114046
+      ]
     },
     "index_path": "production/story_shots/story_shot_index.jsonl",
-    "registered_story_shot_count": 8
+    "registered_story_shot_count": 12,
+    "opening_sequence": [
+      "A01",
+      "A02",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N01"
+    ],
+    "opening_set_status": "COMPLETE / PRODUCT OWNER APPROVED / FORMALLY REGISTERED",
+    "n02_n05": {
+      "status": "PRODUCT_OWNER_APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED",
+      "binary_verification_run": 36232083006,
+      "dimensions": "941x1672",
+      "canonical_files": {
+        "N02": "production/image_library/approved/story_shots/N02_NEIL_CONTINUED_EXPLANATION_APPROVED_V001.png",
+        "N03": "production/image_library/approved/story_shots/N03_VISITOR_REACTION_APPROVED_V001.png",
+        "N04": "production/image_library/approved/story_shots/N04_NEIL_WELCOME_CLOSING_APPROVED_V001.png",
+        "N05": "production/image_library/approved/story_shots/N05_NEIL_TURN_THRESHOLD_ACTION_APPROVED_V001.png"
+      },
+      "sha256": {
+        "N02": "56ff80f51b38c05c0305c40b6a97947d992a544f2454e4a339684b80783c8e50",
+        "N03": "0e5022a59d7e33e30e0fdea74c966ff8e84a3084ca869fcbc4d76052e8ec6c22",
+        "N04": "183a409864b2c58186cfa34896e459cd6491e67098c0810614205eca9b534e02",
+        "N05": "0b9690739e63d253ac643ae66acb4653818f4c45898c3b5db83e9de0236536ab"
+      },
+      "byte_size": {
+        "N02": 2514132,
+        "N03": 2321221,
+        "N04": 2286766,
+        "N05": 2383088
+      },
+      "rename_integrity": "EXACT GIT BLOB REUSE / NO RE-ENCODE",
+      "scene_scope_note": "N05 interior decorative details are shot-background expression only and are not canonical Scene Facts."
+    }
   }
 }
