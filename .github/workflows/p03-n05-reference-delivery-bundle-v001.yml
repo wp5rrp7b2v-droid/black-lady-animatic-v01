@@ -1,0 +1,299 @@
+name: P03 N05 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n05-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N05 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import shutil
+          import struct
+
+          ROOT = pathlib.Path.cwd().resolve()
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID = "N05_REFERENCE_DELIVERY_BUNDLE_V001"
+          OUT = ROOT / BUNDLE_ID
+          REFS = OUT / "visual_refs"
+          REGISTRY_PATH = ROOT / "production/asset_registry/asset_registry.jsonl"
+          STORY_INDEX_PATH = ROOT / "production/story_shots/story_shot_index.jsonl"
+
+          expected_assets = {
+              "AST_IMG_000028": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_FRONT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939",
+                  "byte_size": 2517908,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000027": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "FACE_3Q_LEFT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "252f18eff4511a6b1255c751448a7fb667ad68ea2f9ebae49824ce3f453ea037",
+                  "byte_size": 2529346,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000026": {
+                  "entity_id": "CHAR_NEIL",
+                  "role": "BODY_FRONT",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "DEFAULT",
+                  "sha256": "f78ccfc252d2ed0cb31117ce1dae4c84893c5e52611a27fac161c8e6d014cf3d",
+                  "byte_size": 2605161,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "responsibility": "CHARACTER_IDENTITY",
+              },
+              "AST_IMG_000052": {
+                  "entity_id": "SCENE_CASTLE_ENTRANCE",
+                  "role": "SCENE_MASTER",
+                  "authority_class": "MASTER",
+                  "resolver_usage": "CONDITIONAL",
+                  "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+                  "byte_size": 2305753,
+                  "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+                  "responsibility": "SCENE_AUTHORITY",
+              },
+          }
+
+          N01_EXPECTED = {
+              "shot_id": "N01",
+              "approval_status": "APPROVED",
+              "lifecycle": "CURRENT",
+              "canonical_path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+              "byte_size": 2687303,
+              "sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+              "width": 941,
+              "height": 1672,
+          }
+
+          def sha256(path):
+              h = hashlib.sha256()
+              with path.open("rb") as f:
+                  for block in iter(lambda: f.read(1024 * 1024), b""):
+                      h.update(block)
+              return h.hexdigest()
+
+          def png_dimensions(path):
+              data = path.read_bytes()
+              if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit(f"Not a valid PNG: {path}")
+              return struct.unpack(">II", data[16:24])
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          REFS.mkdir(parents=True)
+
+          rows = {}
+          for line in REGISTRY_PATH.read_text(encoding="utf-8").splitlines():
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              aid = row.get("asset_id")
+              if aid in expected_assets:
+                  rows[aid] = row
+
+          if set(rows) != set(expected_assets):
+              raise SystemExit(
+                  f"Registry asset set mismatch: got={sorted(rows)} expected={sorted(expected_assets)}"
+              )
+
+          references = []
+          for aid, exp in expected_assets.items():
+              row = rows[aid]
+              checks = {
+                  "entity_id": row.get("entity_id") == exp["entity_id"],
+                  "role": row.get("role") == exp["role"],
+                  "approval_status": row.get("approval_status") == "APPROVED",
+                  "lifecycle": row.get("lifecycle") == "CURRENT",
+                  "resolver_usage": row.get("resolver_usage") == exp["resolver_usage"],
+                  "authority_class": row.get("authority_class") == exp["authority_class"],
+                  "registry_sha256": row.get("sha256") == exp["sha256"],
+                  "registry_byte_size": row.get("byte_size") == exp["byte_size"],
+                  "storage_uri": row.get("storage_uri") == exp["path"],
+              }
+              if not all(checks.values()):
+                  raise SystemExit(f"{aid} Registry validation failed: {checks}")
+
+              src = ROOT / exp["path"]
+              if not src.is_file() or src.is_symlink():
+                  raise SystemExit(f"Missing or redirected canonical binary: {src}")
+
+              actual_sha = sha256(src)
+              actual_bytes = src.stat().st_size
+              width, height = png_dimensions(src)
+              if actual_sha != exp["sha256"] or actual_bytes != exp["byte_size"]:
+                  raise SystemExit(f"{aid} canonical binary mismatch")
+
+              dst = REFS / f"{aid}__{src.name}"
+              shutil.copyfile(src, dst)
+              if sha256(dst) != actual_sha or dst.stat().st_size != actual_bytes:
+                  raise SystemExit(f"{aid} copied binary mismatch")
+
+              references.append({
+                  "asset_id": aid,
+                  "entity_id": exp["entity_id"],
+                  "role": exp["role"],
+                  "responsibility": exp["responsibility"],
+                  "authority_class": exp["authority_class"],
+                  "approval_status": "APPROVED",
+                  "lifecycle": "CURRENT",
+                  "resolver_usage": exp["resolver_usage"],
+                  "canonical_path": exp["path"],
+                  "filename": src.name,
+                  "bundle_path": dst.relative_to(OUT).as_posix(),
+                  "sha256": actual_sha,
+                  "byte_size": actual_bytes,
+                  "width": width,
+                  "height": height,
+                  "source_commit": SOURCE_COMMIT,
+              })
+
+          story_rows = [
+              json.loads(line)
+              for line in STORY_INDEX_PATH.read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          n01_rows = [row for row in story_rows if row.get("shot_id") == "N01"]
+          if len(n01_rows) != 1:
+              raise SystemExit(f"N01 Story Shot index cardinality mismatch: {len(n01_rows)}")
+          n01 = n01_rows[0]
+          checks = {
+              "approval_status": n01.get("approval_status") == N01_EXPECTED["approval_status"],
+              "lifecycle": n01.get("lifecycle") == N01_EXPECTED["lifecycle"],
+              "canonical_path": n01.get("canonical_path") == N01_EXPECTED["canonical_path"],
+              "byte_size": n01.get("byte_size") == N01_EXPECTED["byte_size"],
+              "width": (n01.get("dimensions") or {}).get("width") == N01_EXPECTED["width"],
+              "height": (n01.get("dimensions") or {}).get("height") == N01_EXPECTED["height"],
+              "locked_sha256": n01.get("sha256_locked_identity") == N01_EXPECTED["sha256"],
+          }
+          if not all(checks.values()):
+              raise SystemExit(f"N01 Story Shot index validation failed: {checks}")
+
+          n01_src = ROOT / N01_EXPECTED["canonical_path"]
+          if not n01_src.is_file() or n01_src.is_symlink():
+              raise SystemExit(f"Missing or redirected N01 binary: {n01_src}")
+
+          n01_sha = sha256(n01_src)
+          n01_bytes = n01_src.stat().st_size
+          n01_w, n01_h = png_dimensions(n01_src)
+          if n01_sha != N01_EXPECTED["sha256"] or n01_bytes != N01_EXPECTED["byte_size"]:
+              raise SystemExit("N01 canonical binary mismatch")
+          if (n01_w, n01_h) != (N01_EXPECTED["width"], N01_EXPECTED["height"]):
+              raise SystemExit("N01 dimensions mismatch")
+
+          n01_dst = REFS / f"N01__{n01_src.name}"
+          shutil.copyfile(n01_src, n01_dst)
+          if sha256(n01_dst) != n01_sha or n01_dst.stat().st_size != n01_bytes:
+              raise SystemExit("N01 copied binary mismatch")
+
+          references.append({
+              "asset_id": None,
+              "shot_id": "N01",
+              "role": "STORY_SHOT_CONTINUITY",
+              "responsibility": "CUT_ON_ACTION_ENDPOINT_CONTINUITY",
+              "authority_class": "CONTINUITY",
+              "approval_status": "APPROVED",
+              "lifecycle": "CURRENT",
+              "canonical_path": N01_EXPECTED["canonical_path"],
+              "filename": n01_src.name,
+              "bundle_path": n01_dst.relative_to(OUT).as_posix(),
+              "sha256": n01_sha,
+              "byte_size": n01_bytes,
+              "width": n01_w,
+              "height": n01_h,
+              "source_commit": SOURCE_COMMIT,
+          })
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": "N05",
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": len(references),
+              "generation_mode": "NEW_STORY_SHOT",
+              "narrative_function": "NEIL_TURN_THRESHOLD_ACTION",
+              "authority_precedence": [
+                  "CHARACTER_IDENTITY",
+                  "SCENE_AUTHORITY",
+                  "CUT_ON_ACTION_ENDPOINT_CONTINUITY",
+              ],
+              "manual_product_owner_reference_upload": 0,
+              "references": references,
+              "overall_result": "PASS",
+          }
+
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# N05 Reference Delivery Bundle V001\n\n"
+              "Purpose: formal binary transport for ChatGPT Work N05 generation.\n\n"
+              "N05 is NEW STORY SHOT GENERATION, not an edit of N04 or N01.\n"
+              "Narrative function: Neil begins turning and crossing the castle threshold after finishing his welcome speech.\n"
+              "Camera: exterior / three-quarter exterior view, preserving readable doorway geometry.\n"
+              "Action: 45-90 degree turn plus one believable step toward/across threshold.\n"
+              "N01 is endpoint continuity only: N05 must cut naturally into N01 interior/threshold reverse shot.\n"
+              "Do not copy N01 camera position or composition.\n"
+              "Neil canonical atomic references remain identity authority.\n"
+              "Scene Master remains environment factual authority.\n"
+              "No crowd hero shot; Neil action is the primary visual event.\n"
+              "Do not complete the whole entry action: preserve continuation energy for the cut to N01.\n"
+              "Fail closed if any of the 5 delivered PNGs fails SHA/byte verification.\n"
+              "Product Owner manual reference upload count = 0.\n",
+              encoding="utf-8",
+          )
+
+          for ref in references:
+              delivered = OUT / ref["bundle_path"]
+              if sha256(delivered) != ref["sha256"]:
+                  raise SystemExit(f"Final SHA validation failed: {ref['filename']}")
+              if delivered.stat().st_size != ref["byte_size"]:
+                  raise SystemExit(f"Final byte-size validation failed: {ref['filename']}")
+              png_dimensions(delivered)
+
+          if len(references) != 5:
+              raise SystemExit(f"Reference count mismatch: {len(references)}")
+
+          print("PASS: 5/5 exact canonical N05 references verified")
+          print("N01_SHA_MATCH=YES")
+          print(f"BUNDLE_ID={BUNDLE_ID}")
+          print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+
+      - name: Upload N05 reference delivery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N05_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N05_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
