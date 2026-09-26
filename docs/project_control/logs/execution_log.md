@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-26｜Story Shot Registration + Project Control Consistency Repair
+
+- Unified `STORY_SHOT` implementation completed in Chat-led GitHub work; no Codex task number consumed.
+- Machine-readable index created at `production/story_shots/story_shot_index.jsonl` with 8 approved records: A01–A07 + N01.
+- Legacy A01–A07 binaries remain unchanged at `production/image_library/approved/A_Series/`; no duplicate normalization copy was created.
+- N01 canonical publication completed at `production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png`.
+- N01 canonical rename reused the exact uploaded Git blob `d55d2c218926c0b916c67d34979887315c351a1c`; byte size remains 2,687,303.
+- Locked approved N01 SHA-256 remains `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`; direct GitHub-binary SHA-256 recheck is pending local verification because the temporary Actions verifier failed before executing steps. This is recorded as non-blocking.
+- Project Control advanced to R082.
+- Corrected stale current-state fields that incorrectly left AO-06 / D-069 open. AO-06 remains `COMPLETE / VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`; P0.2 remains `PASS / PRODUCT OWNER APPROVED`.
+- Dashboard metadata/body aligned to `V055 / Derived from R082 / Updated 2026-09-26`.
+- Next active production step: Opening Audio-Comic Proof using A01 + A02 + N01 + canonical audio.
+
 ## 2026-09-25｜P0.3 Route Pivot + N01 Story Shot Approval
 
 - Product Owner rejected the real `A01 → Wide → Tight → A02` 2.5D sequence as a production path because characters visibly deformed; character-shot single-image 2.5D is no longer the P0.3 main route.
