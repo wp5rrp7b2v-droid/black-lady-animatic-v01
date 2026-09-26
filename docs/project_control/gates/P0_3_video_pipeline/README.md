@@ -76,6 +76,19 @@ Implementation boundary for 2026-09-25:
 
 No formal Story Shot index or N01 canonical registration is created as part of today's closeout.
 
+Implementation status as of 2026-09-26:
+
+`IMPLEMENTED / ACTIVE / N01 FORMALLY REGISTERED`
+
+- machine-readable index: `production/story_shots/story_shot_index.jsonl`;
+- registered approved Story Shots: A01–A07 + N01 = 8;
+- A01–A07 remain at their legacy `production/image_library/approved/A_Series/` paths and are not duplicated;
+- N01 canonical path: `production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png`;
+- N01 canonical rename reused the exact uploaded Git blob `d55d2c218926c0b916c67d34979887315c351a1c`;
+- N01 byte size = 2,687,303, matching the approved identity;
+- locked approved SHA-256 remains `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`;
+- direct SHA-256 recheck of the GitHub binary remains a non-blocking local verification item because the temporary GitHub Actions verifier failed before executing steps.
+
 ## Current approved addition
 
 `N01` = Product Owner approved.
@@ -95,15 +108,14 @@ Approved source identity:
 - 2,687,303 bytes
 - SHA-256: `a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b`
 
-N01 is visually approved and its exact source identity is locked. Formal Story Shot registration / canonical publication is intentionally deferred to the next work session.
+N01 is visually approved, canonically published and formally registered. Its approved source identity remains locked; GitHub byte size and exact Git-blob preservation are verified. Direct SHA-256 recheck remains pending local verification and is non-blocking for the Opening Audio-Comic Proof.
 
 ## Immediate next step
 
-1. next session, implement the approved unified Story Shot library / index model;
-2. publish the exact approved N01 binary without regeneration, re-encoding, resizing or screenshotting, then verify SHA / byte size;
-3. build the Opening Audio-Comic Proof using existing approved A01 + A02 + N01 + canonical audio;
-4. judge pacing, visual-reading flow and slideshow risk before generating more Story Shots;
-5. only then expand full-chapter visual coverage.
+1. build the Opening Audio-Comic Proof using existing approved A01 + A02 + N01 + canonical audio;
+2. judge pacing, visual-reading flow and slideshow risk before generating more Story Shots;
+3. identify only the additional Story Shots actually required by the proof;
+4. expand full-chapter visual coverage only after the representative proof is reviewed.
 
 See:
 
