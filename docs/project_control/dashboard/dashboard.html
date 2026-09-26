@@ -3,16 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V058</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V059</title>
 <style>
 :root{
-  --bg:#111317;--panel:#1a1e24;--panel2:#15191e;--border:#2b323b;
-  --text:#eef1f4;--muted:#9aa3ad;--soft:#cbd1d8;--strong:#ffffff;
+  --bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;
+  --text:#f1f3f5;--muted:#98a2ad;--soft:#c9d0d7;--accent:#e7eaee;
+  --ok:#dfe5eb;--next:#ffffff;--pending:#8e98a3;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:1040px;margin:0 auto;padding:28px}
-h1{font-size:26px;margin:0 0 6px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+main{max-width:1120px;margin:0 auto;padding:28px}
+h1{font-size:28px;margin:0 0 6px}
 h2{font-size:18px;margin:0 0 12px}
 h3{font-size:15px;margin:0 0 8px}
 p,li{line-height:1.6}
@@ -20,116 +24,173 @@ p,li{line-height:1.6}
 .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;min-width:0}
-.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
-.big{font-size:30px;font-weight:750;line-height:1.1;margin:8px 0 4px}
+.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+.big{font-size:30px;font-weight:760;line-height:1.1;margin:8px 0 4px}
 .tag{display:inline-block;padding:4px 9px;border:1px solid #46505c;border-radius:999px;font-size:12px;color:var(--soft)}
-.bar{height:10px;background:#2a3038;border-radius:999px;overflow:hidden;margin-top:12px}
-.bar span{display:block;height:100%;width:67%;background:#89939f}
-.focus{background:var(--panel2);border-left:3px solid #9aa4b0;padding:14px 16px;border-radius:9px}
-.steps{margin:0;padding-left:22px}
-.steps li{margin:8px 0}
-.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gatebox{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:14px}
-.gatebox strong{display:block;margin-bottom:6px}
-.pass{color:var(--strong)}
-.ready{color:var(--soft)}
-.metric{font-size:13px;color:var(--muted);margin-top:6px}
+.hero{background:var(--panel2);border:1px solid #353d47;border-radius:16px;padding:20px;margin:18px 0 14px}
+.hero-title{font-size:22px;font-weight:760;margin:4px 0 8px}
+.hero-next{font-size:17px;font-weight:700;margin-top:12px}
+.pipeline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.step{padding:7px 10px;border:1px solid var(--border);border-radius:9px;background:#151a20;font-size:13px;color:var(--soft)}
+.step.active{border-color:#7f8994;color:#fff;background:#20262d;font-weight:700}
+.shot-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:14px}
+.shot{border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--panel2);min-height:88px}
+.shot .id{font-size:18px;font-weight:760}
+.shot .state{font-size:12px;margin-top:8px;color:var(--muted)}
+.shot.approved{border-color:#3a424c}
+.shot.next{border:2px solid #d6dbe0;background:#20252b}
+.shot.next .state{color:#fff;font-weight:700}
+.shot.pending{opacity:.72}
+.focus{background:var(--panel2);border-left:3px solid #aeb7c1;padding:14px 16px;border-radius:9px}
 details{border-top:1px solid var(--border);padding-top:12px;margin-top:12px}
-summary{cursor:pointer;color:var(--soft);font-weight:600}
+summary{cursor:pointer;color:var(--soft);font-weight:650}
 ul.compact{margin:8px 0 0;padding-left:20px}
 ul.compact li{margin:4px 0}
 .notice{font-size:13px;color:var(--soft)}
-@media(max-width:760px){
-  .span-3,.span-4,.span-6,.span-8,.span-12{grid-column:span 12}
-  .gates{grid-template-columns:1fr}
+.footer{font-size:12px;color:var(--muted);margin-top:18px}
+@media(max-width:820px){
+  .span-3,.span-4,.span-8,.span-12{grid-column:span 12}
+  .shot-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V058 · 派生可视化，非事实源 · Derived from R087 · Updated 2026-09-26</p>
+  <p class="muted">Project Dashboard V059 · Product Owner 驾驶舱 · Derived from R087 · Updated 2026-09-26</p>
+
+  <section class="hero">
+    <div class="kicker">Current State</div>
+    <div class="hero-title">P0.3｜Opening V2 Story-Shot Completion</div>
+    <p><span class="tag">IN PROGRESS</span> <span class="tag">NO HARD BLOCKER</span> <span class="tag">15 STORY SHOTS APPROVED</span></p>
+    <div class="hero-next">下一步：先完成 N06，再完成 N07；两张正式登记后，立即重组 12 镜 Opening V2 Proof。</div>
+    <div class="pipeline">
+      <span class="step active">N06 导演设计</span>
+      <span class="step">Reference Bundle</span>
+      <span class="step">Work 制图</span>
+      <span class="step">PO 审核</span>
+      <span class="step">正式登记</span>
+      <span class="step">N07 同流程</span>
+      <span class="step">V2 Proof</span>
+    </div>
+  </section>
 
   <div class="grid">
     <section class="card span-3">
-      <div class="kicker">P0 Restart Progress</div>
+      <div class="kicker">P0 Restart</div>
       <div class="big">2 / 3</div>
       <strong>Gate PASS</strong>
-      <div class="bar"><span></span></div>
-      <p class="metric">67% 仅代表 P0 重启 Gate 进度，不代表整部成片完成度。</p>
+      <p class="muted">P0.1 / P0.2 已通过；P0.3 正在验证。</p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Gate</div>
       <div class="big">P0.3</div>
-      <strong>视频制作与剪辑 Pipeline 再验证</strong>
-      <p><span class="tag">IN PROGRESS</span></p>
+      <strong>视频制作与剪辑 Pipeline</strong>
+      <p class="muted">电影化有声漫画路线，尚未最终验证。</p>
     </section>
 
     <section class="card span-3">
-      <div class="kicker">Current Task</div>
-      <div class="big" style="font-size:24px">Opening V2 Story-Shot Completion</div>
-      <strong>N08–N10 已正式登记 → N06 / N07 NEXT</strong>
-      <p class="metric">当前 approved Story Shot = 15；Opening V2 计划序列 A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01。N06 / N07 尚待制作。</p>
+      <div class="kicker">Approved Story Shots</div>
+      <div class="big">15</div>
+      <strong>A01–A07 + N01–N05 + N08–N10</strong>
+      <p class="muted">N06 / N07 尚未制作与登记。</p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Blockers</div>
       <div class="big">0</div>
-      <strong>No hard content blocker</strong>
-      <p class="metric">无当前硬阻塞；N08–N10 已完成 canonical binary 校验与正式登记。当前仅剩 N06 / N07 视觉生产任务。</p>
+      <strong>No hard blocker</strong>
+      <p class="muted">当前是正常生产缺口，不是工程阻塞。</p>
     </section>
 
     <section class="card span-12">
-      <div class="kicker">What To Do Now</div>
-      <h2>P0.3 当前唯一主线</h2>
-      <p><strong>2026-09-26 最新结论：</strong>Opening V1 30 秒 Proof 已技术 PASS，但艺术审核确认视觉 coverage 不足且叙述动作时序不理想，因此进入 Opening V2 12 镜扩展；P0.3 仍未通过。</p>
-      <ul>
-        <li><strong>当前主线：</strong>canonical audio / story beat → approved Story Shot → 正常 CUT + 必要裁切/轻微缩放 → Remotion 剪辑/音频/输出。</li>
-        <li><strong>当前完成：</strong>N08 Candidate 01、N09 Candidate 03、N10 Candidate 01 已 PO APPROVED，并完成 exact-source canonical 登记。</li>
-        <li><strong>Story Shot 总数：</strong>15 = A01–A07 + N01–N05 + N08–N10。</li>
-        <li><strong>Opening V2：</strong>A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01。</li>
-        <li><strong>下一步：</strong>完成 N06 / N07 的导演设计、Reference Delivery Bundle、Work 制图、PO 审核和正式登记，然后重组 V2 Proof。</li>
-      </ul>
-      <div class="kicker">What P0.3 Still Must Prove</div>
-      <h2>不能提前假设成立的能力</h2>
+      <div class="kicker">Opening V2 Shot Progress</div>
+      <h2>12 镜结构｜现在只缺 N06 / N07</h2>
+      <div class="shot-grid">
+        <div class="shot approved"><div class="id">A01</div><div>古堡门外建立</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">A02</div><div>Neil 门外近景</div><div class="state">APPROVED</div></div>
+        <div class="shot next"><div class="id">N06</div><div>Neil speaking state A</div><div class="state">NEXT</div></div>
+        <div class="shot approved"><div class="id">N02</div><div>继续说明</div><div class="state">APPROVED</div></div>
+        <div class="shot pending"><div class="id">N07</div><div>Neil speaking state C</div><div class="state">PENDING</div></div>
+        <div class="shot approved"><div class="id">N03</div><div>来客反应</div><div class="state">APPROVED</div></div>
+
+        <div class="shot approved"><div class="id">N04</div><div>欢迎词收尾</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">N08</div><div>古堡建筑强调</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">N09</div><div>西装笔挺的管家</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">N10</div><div>微微一笑</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">N05</div><div>旋身迈入古堡</div><div class="state">APPROVED</div></div>
+        <div class="shot approved"><div class="id">N01</div><div>动作完成 / 后续</div><div class="state">APPROVED</div></div>
+      </div>
+    </section>
+
+    <section class="card span-8">
+      <div class="kicker">What To Do Next</div>
+      <h2>明天从这里继续</h2>
+      <div class="focus">
+        <strong>Step 1｜N06</strong>
+        <p>N06 导演设计 → Reference Delivery Bundle → Work 制图 → PO 审核 → 正式登记。</p>
+        <strong>Step 2｜N07</strong>
+        <p>按同一正式流程完成 N07。</p>
+        <strong>Step 3｜Opening V2 Proof</strong>
+        <p>使用 12 镜结构重新组装 Opening，重点审核音频/动作对齐、镜头节奏、叙事可读性和克制 2D 运动。</p>
+      </div>
+    </section>
+
+    <section class="card span-4">
+      <div class="kicker">Today Locked</div>
+      <h2>2026-09-26</h2>
       <ul class="compact">
-        <li>Story Shot + 剪辑是否能形成持续的视觉阅读流，而不是“有声音的幻灯片”。</li>
-        <li>Approved Story Shot 的人物一致性、剧情构图与连续性是否稳定可控。</li>
-        <li>原音能否按剧情自动检索、完整提取并正确放入时间线。</li>
-        <li>对白不会截断，旁白 / 对白不会误配。</li>
-        <li>Remotion / 剪辑职责边界是否合理。</li>
-        <li>最终能否产出一个代表性的真实有声漫画 / 影视化结果。</li>
+        <li>N08 Candidate 01：正式批准并登记。</li>
+        <li>N09 Candidate 03：正式批准并登记。</li>
+        <li>N10 Candidate 01：正式批准并登记。</li>
+        <li>RC-022 / RC-023：正式 Work 制图交付链生效。</li>
+        <li>PR #16：保留为 V1 技术证据，不 merge。</li>
       </ul>
-    </section>
-
-    <section class="card span-12">
-      <div class="kicker">Current Operating Boundary</div>
-      <h2>当前不要做什么</h2>
-      <p class="notice">不要把单张 Story Shot 的视觉通过等同于 P0.3 通过。当前必须先补齐 N06 / N07，再组装 Opening V2 Proof，验证 12 镜 coverage、动作/旁白对齐、切换节奏和原音整体叙事是否真正成立。</p>
-    </section>
-
-    <section class="card span-12">
-      <div class="kicker">Risks</div>
-      <h2>当前风险状态</h2>
-      <p><strong>RISK-001｜GitHub Connectivity：</strong>CONTROLLED / MITIGATION VERIFIED。</p>
-      <p><strong>RISK-002｜Service Input SHA Receipt：</strong>ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT。</p>
     </section>
 
     <section class="card span-12">
       <div class="kicker">History & Evidence</div>
+      <h2>历史原因、规则和技术证据</h2>
+
       <details>
-        <summary>展开历史 closeout / 技术证据</summary>
+        <summary>Opening V1 为什么没有通过</summary>
         <ul class="compact">
-          <li>AO-01～AO-07：P0.2 mandatory closeout set 已全部满足。</li>
-          <li>D-070：21 张新增 Character Core PNG 已正式 ingest，Character Core 达 63/63。</li>
-          <li>AO-06 / D-069：A04 Real Shot Spec → Resolver → Reference Package → Actual Production Use → immutable use record → reverse audit 已验证。</li>
-          <li>Asset Registry / Relations / Audit Event Log：83 / 44 / 120。</li>
-          <li>P0.2 已由 Product Owner 于 2026-09-22 正式批准。</li>
+          <li>技术渲染 PASS，但视觉 coverage 不足。</li>
+          <li>N05 / N01 相对旁白动作出现得过早。</li>
+          <li>N05 静止动作状态停留过久。</li>
+          <li>轻微 push-in 可以使用，但重复使用会产生模板感。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2.5D / DepthFlow 历史结论</summary>
+        <p class="notice">A01→Wide→Tight→A02 连续 proof 出现明显人物形变，因此人物镜头单图 2.5D 不再作为当前主生产路线。历史技术证据保留，不删除。</p>
+      </details>
+
+      <details>
+        <summary>当前工程规则</summary>
+        <ul class="compact">
+          <li>RC-022：GitHub canonical assets → Resolver / Registry → Reference Delivery Bundle → Work 自动取得 PNG → image generation。</li>
+          <li>RC-023：Bundle 默认由 GitHub Actions 生成并通过 artifact 交给 Work；manual PO reference upload = 0；不得仅为 Bundle 构建引入 Codex / Local Terminal。</li>
+          <li>只有 Product Owner APPROVED Story Shot 才进入正式库；candidate / rejected / WIP 不登记。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>技术证据 / GitHub</summary>
+        <ul class="compact">
+          <li>Project Control：R087。</li>
+          <li>N08–N10 canonical verification：PASS。</li>
+          <li>End-of-day independent verification run：36248526501。</li>
+          <li>PR #16：OPEN / NOT MERGED，作为 Opening V1 technical-proof evidence。</li>
+          <li>P0.3：IN PROGRESS / NOT YET VALIDATED。</li>
         </ul>
       </details>
     </section>
   </div>
+
+  <p class="footer">Dashboard 是派生可视化，不是事实源。正式状态以 GitHub main 下 Project Control、Decision / Execution / Rules logs、Story Shot index 与 canonical binaries 为准。</p>
 </main>
 </body>
 </html>
