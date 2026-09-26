@@ -59,6 +59,25 @@ Rules:
 - AI video remains an optional enhancement for selected key shots, not the current blocker;
 - Remotion remains compositor / timing / canonical-audio / SFX / output layer.
 
+## Locked Work image-generation delivery chain
+
+For formal Story Shot / visual generation executed in Work, the production path is locked as:
+
+`GitHub canonical assets → Resolver / Registry validation → Reference Delivery Bundle → Work automatic PNG acquisition → image generation`
+
+Operational boundary:
+
+- GitHub remains canonical binary authority.
+- Resolver / Registry selects and validates the minimum necessary CURRENT / APPROVED references.
+- A traceable Reference Delivery Bundle transports the exact PNG binaries and their manifest to Work.
+- Work generates only after the Bundle PNGs are materially available and validated.
+- Direct private-GitHub PNG browsing/fetching is not the production baseline.
+- Product Owner is not expected to routinely hand-pick, download, ZIP or re-upload canonical references.
+- Delivery failure is fail-closed: no formal generation proceeds without the required verified references.
+- Any temporary exception requires explicit provenance and Product Owner authorization.
+
+This rule is project-level governance under RC-022 / BL-D-070 and applies to N03 and subsequent formal Work-based image generation.
+
 ## Story Shot model
 
 Product Owner approved the following model on 2026-09-25:
