@@ -1,5 +1,26 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-26｜N02–N05 Story Shot Final Registration
+
+- Product Owner approved and locked N02, N03 Candidate 02, N04 Candidate 01, and N05 Candidate 01.
+- Opening 30-second Story Shot chain is now locked as `A01 → A02 → N02 → N03 → N04 → N05 → N01`.
+- Product Owner uploaded the four final PNGs into `production/image_library/approved/story_shots/`; temporary UUID filenames were mapped by exact byte size and then verified by GitHub Actions run `36232083006`.
+- Registration verifier result: `PASS`; all four files are PNG 941×1672 and their SHA-256 / byte sizes were independently calculated on the GitHub runner.
+- Canonical SHA-256:
+  - N02: `56ff80f51b38c05c0305c40b6a97947d992a544f2454e4a339684b80783c8e50` / 2,514,132 bytes.
+  - N03: `0e5022a59d7e33e30e0fdea74c966ff8e84a3084ca869fcbc4d76052e8ec6c22` / 2,321,221 bytes.
+  - N04: `183a409864b2c58186cfa34896e459cd6491e67098c0810614205eca9b534e02` / 2,286,766 bytes.
+  - N05: `0b9690739e63d253ac643ae66acb4653818f4c45898c3b5db83e9de0236536ab` / 2,383,088 bytes.
+- UUID uploads were canonically renamed by Git tree blob reuse, preserving exact Git blobs with no PNG re-encode:
+  - `N02_NEIL_CONTINUED_EXPLANATION_APPROVED_V001.png`
+  - `N03_VISITOR_REACTION_APPROVED_V001.png`
+  - `N04_NEIL_WELCOME_CLOSING_APPROVED_V001.png`
+  - `N05_NEIL_TURN_THRESHOLD_ACTION_APPROVED_V001.png`
+- `production/story_shots/story_shot_index.jsonl` now contains 12 approved Story Shots: A01–A07 + N01–N05.
+- N01 locked SHA-256 was also rechecked successfully by GitHub Actions; the previous pending-SHA note is closed.
+- N05 interior decorative details remain shot-background expression only and are not promoted to canonical Scene Facts.
+- Next production step: assemble and review the real 30-second Opening Audio-Comic Proof using canonical audio and the locked seven-shot sequence.
+
 ## 2026-09-26｜Story Shot Registration + Project Control Consistency Repair
 
 - Unified `STORY_SHOT` implementation completed in Chat-led GitHub work; no Codex task number consumed.
