@@ -1,0 +1,20 @@
+{
+  "name": "p03-opening-audio-comic-proof-v001",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts P03-Opening-Audio-Comic-Proof-V001 out/P03_OPENING_AUDIO_COMIC_PROOF_V001/P03_OPENING_AUDIO_COMIC_PROOF_V001.mp4 --codec=h264 --pixel-format=yuv420p --crf=18 --audio-codec=aac --audio-bitrate=192k --concurrency=2"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.506",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.506"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}
