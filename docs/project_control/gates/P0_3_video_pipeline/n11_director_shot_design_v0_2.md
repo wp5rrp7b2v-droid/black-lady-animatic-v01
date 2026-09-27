@@ -1,6 +1,6 @@
 # N11｜Neil Abnormal Portrait｜Director Shot Design V0.2
 
-Status: `DRAFT / PRODUCT OWNER REVIEW REQUIRED / REBUILD FROM SCRATCH`
+Status: `PRODUCT OWNER APPROVED / REBUILD FROM SCRATCH / BUNDLE V002 BUILT`
 
 Date: 2026-09-27
 
@@ -222,9 +222,20 @@ A rebuilt N11 candidate is acceptable only if:
 9. image feels like quiet scrutiny rather than formal portraiture;
 10. N12 still has room to escalate.
 
-## 14. Current boundary
+## 14. Bundle V002 result
 
-No Bundle V002 build or image generation is authorized until Product Owner approves V0.2.
+- Product Owner approved V0.2 and the V002 bundle design.
+- Bundle: `N11_REFERENCE_DELIVERY_BUNDLE_V002`
+- Source commit: `e2b8568f20ba8ee4e044a725d56624e6cbd9b733`
+- Run: `36305485637`
+- Artifact ID: `10927315457`
+- Artifact digest: `sha256:a00cb07e9875afd5f63b1303c8722955d8cf25800aab4990946c5dc9f2df2b7e`
+- Exact verification: `5/5 PASS`
 
-Next:
-`Product Owner review → N11 Bundle V002 design/build → fresh N11 Rebuild Candidate 01`
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_v002_build_record_2026-09-27.md`
+
+## 15. Current boundary
+
+Bundle V002 is complete. Authorized next step: Work generates exactly one fresh N11 Rebuild Candidate 01 from Bundle V002. No N12 work or Story Shot registration before Product Owner review.

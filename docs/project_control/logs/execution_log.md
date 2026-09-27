@@ -1,5 +1,19 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Reference Delivery Bundle V002 Built
+
+- Product Owner approved N11 Director Shot Design V0.2 and V002 bundle construction.
+- Chat followed the already-locked Story Shot reference-delivery process directly; no Codex handoff was used.
+- Added temporary workflow `.github/workflows/p03-n11-reference-delivery-bundle-v002.yml`.
+- Source commit: `e2b8568f20ba8ee4e044a725d56624e6cbd9b733`.
+- Run `36305485637`, job `108581173489`: SUCCESS.
+- Artifact `N11_REFERENCE_DELIVERY_BUNDLE_V002`, ID `10927315457`, digest `sha256:a00cb07e9875afd5f63b1303c8722955d8cf25800aab4990946c5dc9f2df2b7e`.
+- Five of five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy validation.
+- V002 reference set: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01.
+- A03, N05, N09 and all failed N11 candidates are explicitly excluded.
+- Next: Work automatically acquires the artifact, revalidates 5/5, and generates one fresh N11 Rebuild Candidate 01.
+- No N12 work or N11 Story Shot registration yet.
+
 ## 2026-09-27｜N11 Redesign V0.2 Start
 
 - Product Owner rejected the two newest N11 correction outputs and requested a restart of the shot.

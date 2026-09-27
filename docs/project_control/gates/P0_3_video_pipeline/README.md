@@ -583,3 +583,30 @@ Design:
 `docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0_2.md`
 
 No Bundle V002 or generation authorized yet.
+
+## N11 Reference Delivery Bundle V002｜Built 2026-09-27
+
+Status: `BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
+
+Product Owner approved N11 Director Shot Design V0.2 and Bundle V002.
+
+Chat executed the locked RC-022 / RC-023 path directly; Codex and Local Terminal were not introduced.
+
+- workflow: `.github/workflows/p03-n11-reference-delivery-bundle-v002.yml`
+- source commit: `e2b8568f20ba8ee4e044a725d56624e6cbd9b733`
+- run: `36305485637`
+- job: `108581173489`
+- artifact: `N11_REFERENCE_DELIVERY_BUNDLE_V002`
+- artifact ID: `10927315457`
+- artifact digest: `sha256:a00cb07e9875afd5f63b1303c8722955d8cf25800aab4990946c5dc9f2df2b7e`
+- exact verification: `5/5 PASS`
+- manual Product Owner reference upload: `0`
+- explicit exclusions: A03 / N05 / N09 / all failed N11 candidates
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_v002_build_record_2026-09-27.md`
+
+Next:
+
+`Work automatic artifact acquisition + revalidation → fresh N11 Rebuild Candidate 01 → Product Owner review`
