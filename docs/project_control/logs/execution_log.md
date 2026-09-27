@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Opening V2 Contextual Proof Review V001
+
+- Product Owner rejected isolated 3-second cut-point listening as the primary approval method because the perceived pauses felt unnatural and timing must be judged with the images.
+- Clarification: the 3-second clips were centered review windows, not equal-duration final segmentation.
+- Review method changed to full-context audiovisual proof first.
+- GitHub Actions run `36294677578` rendered the complete 12-shot Opening V2 sequence against one uninterrupted canonical audio track.
+- Artifact `P03_OPENING_V2_PROOF_REVIEW_V001`, ID `10923721767`, digest `sha256:e928f8f91f578159e16711c64f6fa215a347603563901d13bee332b2981d3af2`.
+- Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio, full decode PASS.
+- MP4 SHA-256: `d538c87e8da781aec61401b2c7a01ce5e25a4ad0de038299d598685d376e771e`.
+- Internal cut points remain provisional; no timing lock and no P0.3 PASS claimed.
+- Next: Product Owner full-sequence artistic review, then targeted timing / motion / shot-order revision if needed.
+
 ## 2026-09-27｜Opening V2 Audio Alignment Analysis V001
 
 - Chat created and executed a GitHub Actions analysis workflow against the exact canonical audio binary.
