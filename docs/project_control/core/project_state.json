@@ -73,7 +73,7 @@
       "override": "LOCAL_SYNC_DEFERRED / GITHUB_MAIN_CANONICAL",
       "resume_rule": "Before any local formal production resumes, run git status, connectivity preflight, git pull --ff-only origin main, then local-vs-remote truth check."
     },
-    "completed_head": "d3a62f05c3c47c83d4b0583f591a9d61b308f4e8",
+    "completed_head": "4ba4cd1ab1652bdb4e8157a231ce774f5a40e774",
     "local_untracked_preserved": [
       "black_lady_character_asset_migration_v1.zip",
       "production/audio/",
@@ -770,7 +770,8 @@
       "reference upload = 0 versus approved output PNG publication",
       "stale private-repo wording",
       "stale hardcoded D-number",
-      "historical P0 boundary versus representative P0.3 Story Shot production"
+      "historical P0 boundary versus representative P0.3 Story Shot production",
+      "stale P0.2 pre-approval / not-yet-validated status text in current baseline documents"
     ]
   }
 }
