@@ -360,3 +360,38 @@ Technical evidence:
 - full decode QC: PASS.
 
 This proof is not an Opening V2 edit, does not alter canonical Story Shots, and does not claim P0.3 PASS. Full Opening V2 migration is blocked on Product Owner review of whether the motion is meaningfully more cinematic than Remotion V003.
+
+## Opening V2 libopenshot Full Proof V001｜2026-09-27
+
+Status: `TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED`
+
+Chat designed the complete 12-shot cinematic motion plan and directly wrote the executable libopenshot spec/workflow. GitHub Actions rendered the complete Opening V2 proof.
+
+Preserved:
+
+- approved/current canonical Story Shot binaries;
+- sequence: A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01;
+- Draft 01 timing: 991 frames / 30 fps / 33.033333 sec;
+- continuous canonical source audio without speed change.
+
+Director motion design:
+
+- A01/N08: spatial attraction with hold → push → settle / overshoot;
+- A02/N06/N07/N04/N09/N10: varied dialogue/portrait focus movement rather than one repeated template;
+- N03: reaction pull-back + lateral drift + settle;
+- N05: action peak using push + directional reframe + brief settle-shake + micro rotation;
+- N01: quiet pull-back and fade.
+
+Technical evidence:
+
+- source commit: `f4fc68678fc52d71d0e82773f5f3372b67b9c01b`;
+- successful run: `36299431486`;
+- artifact: `P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001`;
+- artifact ID: `10925078297`;
+- artifact digest: `sha256:4f6545e1094344919330823e34d2e088bf78c2eabbf1d89d4e686547f6d1a6ab`;
+- MP4 SHA-256: `e821b8a76af3bd5f6e7c776e81cc907f1873a3a7dc4f96173b2ceefe16972385`;
+- MP4 byte size: `19,750,380`;
+- output: 1080×1920 / H.264 yuv420p / 30 fps / 991 decoded frames / continuous AAC audio;
+- full decode QC: PASS.
+
+This remains a contextual review build. No final timing lock and no P0.3 Gate PASS are claimed.
