@@ -1,0 +1,275 @@
+{
+  "source_baseline": "e16fb7789519cb74a2204c1b0f24c3d24bdf7167",
+  "composition_id": "P03-Opening-V2-Proof-Review-V002",
+  "status": "TRANSITION_MOTION_ENRICHED / CONTEXTUAL_REVIEW_ONLY / TIMING_NOT_LOCKED",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration_frames": 991,
+  "final_fade_out_frames": 10,
+  "audio_alignment_evidence": {
+    "workflow_run": 36293571350,
+    "artifact_id": 10922898643,
+    "rule": "Draft 01 timing retained for contextual review; no final timing lock."
+  },
+  "editorial_rule": "Preserve sequence/audio/timing; enrich only 2D transition, motion, focus and one restrained N05 shake.",
+  "shots": [
+    {
+      "shot_id": "A01",
+      "canonical_path": "production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png",
+      "start_frame": 0,
+      "duration_frames": 98,
+      "scale": [
+        1,
+        1.018
+      ],
+      "anchor": "50% 50%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.1,
+      "transition_in": {
+        "type": "fade_black",
+        "frames": 10
+      },
+      "motion_note": "very subtle establishing push"
+    },
+    {
+      "shot_id": "A02",
+      "canonical_path": "production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png",
+      "start_frame": 98,
+      "duration_frames": 99,
+      "scale": [
+        1,
+        1.004
+      ],
+      "anchor": "50% 50%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.045,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 4
+      },
+      "motion_note": "mostly static Neil hold"
+    },
+    {
+      "shot_id": "N06",
+      "canonical_path": "production/image_library/approved/story_shots/N06_NEIL_SPEAKING_STATE_A_APPROVED_V001.png",
+      "start_frame": 197,
+      "duration_frames": 71,
+      "scale": [
+        1,
+        1.018
+      ],
+      "anchor": "50% 48%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.055,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion_note": "subtle speaking-state push"
+    },
+    {
+      "shot_id": "N02",
+      "canonical_path": "production/image_library/approved/story_shots/N02_NEIL_CONTINUED_EXPLANATION_APPROVED_V001.png",
+      "start_frame": 268,
+      "duration_frames": 68,
+      "scale": [
+        1,
+        1.002
+      ],
+      "anchor": "50% 50%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.04,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion_note": "focus hold / nearly static"
+    },
+    {
+      "shot_id": "N07",
+      "canonical_path": "production/image_library/approved/story_shots/N07_NEIL_SPEAKING_STATE_C_APPROVED_V001.png",
+      "start_frame": 336,
+      "duration_frames": 60,
+      "scale": [
+        1.002,
+        1.016
+      ],
+      "anchor": "52% 48%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.055,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 3
+      },
+      "motion_note": "micro push distinct from N06"
+    },
+    {
+      "shot_id": "N03",
+      "canonical_path": "production/image_library/approved/story_shots/N03_VISITOR_REACTION_APPROVED_V001.png",
+      "start_frame": 396,
+      "duration_frames": 63,
+      "scale": [
+        1.012,
+        1
+      ],
+      "anchor": "50% 55%",
+      "drift_x_px": [
+        -3,
+        3
+      ],
+      "vignette": 0.025,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion_note": "reaction pull-back + slight horizontal drift"
+    },
+    {
+      "shot_id": "N04",
+      "canonical_path": "production/image_library/approved/story_shots/N04_NEIL_WELCOME_CLOSING_APPROVED_V001.png",
+      "start_frame": 459,
+      "duration_frames": 132,
+      "scale": [
+        1,
+        1.003
+      ],
+      "anchor": "50% 50%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.05,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 4
+      },
+      "motion_note": "stable line-ending landing"
+    },
+    {
+      "shot_id": "N08",
+      "canonical_path": "production/image_library/approved/story_shots/N08_CASTLE_ENTRANCE_ARCHITECTURE_APPROVED_V001.png",
+      "start_frame": 591,
+      "duration_frames": 58,
+      "scale": [
+        1,
+        1.028
+      ],
+      "anchor": "50% 48%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.08,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 6
+      },
+      "motion_note": "architectural emphasis push"
+    },
+    {
+      "shot_id": "N09",
+      "canonical_path": "production/image_library/approved/story_shots/N09_NEIL_FORMAL_BUTLER_DESCRIPTOR_APPROVED_V001.png",
+      "start_frame": 649,
+      "duration_frames": 84,
+      "scale": [
+        1,
+        1.006
+      ],
+      "anchor": "50% 48%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.05,
+      "transition_in": {
+        "type": "blur_dissolve",
+        "frames": 4
+      },
+      "motion_note": "stable descriptor hold"
+    },
+    {
+      "shot_id": "N10",
+      "canonical_path": "production/image_library/approved/story_shots/N10_NEIL_SUBTLE_SMILE_APPROVED_V001.png",
+      "start_frame": 733,
+      "duration_frames": 82,
+      "scale": [
+        1,
+        1.02
+      ],
+      "anchor": "50% 46%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.06,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 4
+      },
+      "motion_note": "micro push to reveal subtle smile"
+    },
+    {
+      "shot_id": "N05",
+      "canonical_path": "production/image_library/approved/story_shots/N05_NEIL_TURN_THRESHOLD_ACTION_APPROVED_V001.png",
+      "start_frame": 815,
+      "duration_frames": 86,
+      "scale": [
+        1,
+        1.026
+      ],
+      "anchor": "50% 100%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.035,
+      "transition_in": {
+        "type": "blur_dissolve",
+        "frames": 3
+      },
+      "shake": {
+        "start_offset_frame": 46,
+        "duration_frames": 7,
+        "amplitude_px": 4
+      },
+      "motion_note": "strongest push + one restrained settle/shake"
+    },
+    {
+      "shot_id": "N01",
+      "canonical_path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+      "start_frame": 901,
+      "duration_frames": 90,
+      "scale": [
+        1.018,
+        1
+      ],
+      "anchor": "50% 75%",
+      "drift_x_px": [
+        0,
+        0
+      ],
+      "vignette": 0.035,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 4
+      },
+      "motion_note": "quiet pull-back and fade to black"
+    }
+  ]
+}
