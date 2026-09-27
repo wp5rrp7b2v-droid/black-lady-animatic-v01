@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R106",
+  "state_revision": "R107",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / N11 REBUILD CANDIDATE 01 PRODUCT OWNER APPROVED / BATCH ARCHIVAL DEFERRED / N12 DIRECTOR SHOT DESIGN V0.1 IN REVIEW",
+  "session_status": "P0.3 IN PROGRESS / N11 APPROVED PENDING BATCH ARCHIVAL / N12 DIRECTOR DESIGN APPROVED / N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 IN REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner clarified that N11 Rebuild Candidate 01 is approved overall. The prior R105 targeted-edit interpretation was incorrect and is superseded. N11 is APPROVED / PENDING S02-A BATCH ARCHIVAL; no Candidate 02 is required. Production now advances to N12 Director Shot Design V0.1 (cross + rigid smile detail)."
+    "note": "2026-09-27: Product Owner approved N12 Director Shot Design V0.1. N12 Bundle Design V0.1 now proposes five canonical references: Neil FACE_FRONT, FACE_3Q_LEFT, BODY_FRONT, Castle Entrance Scene Master, and N01 post-Opening continuity. N11 is not used because its binary publication/registration is intentionally deferred for batch archival. N09/N10 are excluded to avoid exterior-state and smile-shape bias."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N12 DIRECTOR SHOT DESIGN V0.1 REVIEW",
+  "current_task": "P0.3｜S02-A｜N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW",
   "blocker": null,
-  "next_action": "Product Owner reviews N12 Director Shot Design V0.1. If approved, design and build the formal N12 Reference Delivery Bundle, then generate N12 in Work. N11 remains Product Owner approved and pending later S02-A batch archival; no N11 Candidate 02.",
+  "next_action": "Product Owner reviews N12 Reference Delivery Bundle Design V0.1. Proposed set: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01 continuity. N11 remains excluded because it is approved but not yet canonically published; N09/N10 excluded due exterior-state bias.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,15 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N12-DESIGN-R106",
-    "status": "P0.3 IN PROGRESS / N11 APPROVED PENDING BATCH ARCHIVAL / N12 DESIGN IN REVIEW",
+    "id": "2026-09-27-P03-S02A-N12-BUNDLE-DESIGN-R107",
+    "status": "P0.3 IN PROGRESS / N12 DESIGN APPROVED / N12 BUNDLE DESIGN IN REVIEW",
     "completed": [
-      "Product Owner clarified N11 Rebuild Candidate 01 is approved overall.",
-      "R105 targeted-edit interpretation is superseded; N11 Candidate 02 is not required.",
-      "N11 archival/registration is intentionally deferred for later S02-A batch closeout.",
-      "N12 Director Shot Design V0.1 drafted for cross + rigid closed-mouth smile detail."
+      "Product Owner approved N12 Director Shot Design V0.1.",
+      "N12 Bundle Design V0.1 drafted with five canonical references.",
+      "N11 intentionally excluded because its binary publication is deferred for batch archival.",
+      "N09 and N10 excluded to avoid exterior continuity and smile-shape bias.",
+      "Cross will be generated under director narrative instruction; no standalone prop asset is required at this stage."
     ],
-    "resume_from": "Product Owner review of N12 Director Shot Design V0.1.",
+    "resume_from": "Product Owner review of N12 Reference Delivery Bundle Design V0.1.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -510,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V078",
+    "version": "V079",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R106 / N11 APPROVED BATCH ARCHIVAL LATER / N12 DESIGN REVIEW",
-    "derived_from_revision": "R106",
+    "status": "CURRENT / DERIVED FROM R107 / N12 BUNDLE DESIGN REVIEW",
+    "derived_from_revision": "R107",
     "last_updated": "2026-09-27",
-    "current_task": "N12 DIRECTOR SHOT DESIGN V0.1 REVIEW"
+    "current_task": "N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1149,11 +1150,31 @@
     "batch_archival_policy": "DEFER UNTIL LATER S02-A SHOTS ARE COMPLETED AND APPROVED"
   },
   "n12_director_shot_design_v0_1": {
-    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / BUNDLE DESIGN NEXT",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n12_director_shot_design_v0_1.md",
     "narrative_function": "CROSS + RIGID CLOSED-MOUTH SMILE DETAIL",
     "shot_scale": "MEDIUM CLOSE-UP / HEAD + UPPER CHEST",
     "continuity": "NEIL INSIDE ENTRANCE / FACING OUTWARD / WAITING",
     "generation_authorized": false
+  },
+  "n12_reference_delivery_bundle_design_v0_1": {
+    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_design_v0_1.md",
+    "target_bundle_id": "N12_REFERENCE_DELIVERY_BUNDLE_V001",
+    "reference_count": 5,
+    "references": [
+      "AST_IMG_000028 FACE_FRONT",
+      "AST_IMG_000027 FACE_3Q_LEFT",
+      "AST_IMG_000026 BODY_FRONT",
+      "AST_IMG_000052 CASTLE_ENTRANCE SCENE_MASTER",
+      "N01 POST_OPENING INSIDE_THRESHOLD CONTINUITY"
+    ],
+    "excluded": [
+      "N11 unpublished approved candidate",
+      "N09 exterior-platform state",
+      "N10 exterior subtle-smile state"
+    ],
+    "separate_cross_asset_required": false,
+    "build_authorized": false
   }
 }

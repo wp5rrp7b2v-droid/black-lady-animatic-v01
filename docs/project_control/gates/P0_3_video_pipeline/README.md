@@ -667,3 +667,29 @@ Key director locks:
 Design:
 
 `docs/project_control/gates/P0_3_video_pipeline/n12_director_shot_design_v0_1.md`
+
+## N12 Reference Delivery Bundle Design V0.1｜2026-09-27
+
+Status: `DRAFT / PRODUCT OWNER REVIEW`
+
+Proposed reference set:
+
+- Neil FACE_FRONT;
+- Neil FACE_3Q_LEFT;
+- Neil BODY_FRONT;
+- Castle Entrance Scene Master;
+- N01 post-Opening inside-threshold continuity.
+
+Explicit exclusions:
+
+- N11 approved candidate: not yet canonically published because batch archival is deferred;
+- N09: exterior-platform state conflict;
+- N10: exterior subtle-smile state may bias both space and expression.
+
+No standalone cross Prop Asset is required for V001; source narration + Director lock authorizes a simple realistic metallic cross in this Story Shot.
+
+Bundle design:
+
+`docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_design_v0_1.md`
+
+No workflow, artifact build or N12 generation yet.

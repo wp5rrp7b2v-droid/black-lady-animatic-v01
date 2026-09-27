@@ -1,6 +1,6 @@
 # N12｜Cross + Rigid Smile Detail｜Director Shot Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / BUNDLE DESIGN NEXT`
 
 Date: 2026-09-27
 
@@ -268,7 +268,7 @@ N12 passes director review only if:
 ## 15. Current boundary
 
 Current stage:
-`Director Shot Design V0.1 / Product Owner review`
+`Director Shot Design V0.1 PRODUCT OWNER APPROVED / Bundle Design V0.1 in review`
 
 Not yet authorized:
 
@@ -277,5 +277,8 @@ Not yet authorized:
 - Story Shot registration;
 - batch archival.
 
+Bundle design:
+`docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_design_v0_1.md`
+
 Next:
-`Product Owner review → N12 Bundle Design → Work generation`
+`Product Owner reviews Bundle Design V0.1 → Bundle build → Work generation`

@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N12 Director Approval + Bundle Design Start
+
+- Product Owner approved N12 Director Shot Design V0.1.
+- Began N12 Reference Delivery Bundle Design V0.1.
+- Proposed minimum canonical set = 5: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01 post-Opening continuity.
+- N11 is deliberately not used because it is approved but awaiting later S02-A batch publication/registration.
+- N09 and N10 are excluded to avoid exterior spatial bias and earlier natural-smile bias.
+- No standalone cross Prop Asset is required for N12 V001; one simple realistic cross is authorized by source narration and the director lock.
+- No bundle workflow or image generation executed yet.
+
 ## 2026-09-27｜N11 Overall Approval Clarification + N12 Design Start
 
 - Product Owner clarified the prior "批准" meant N11 Rebuild Candidate 01 was approved overall, not approval of a targeted-edit plan.
