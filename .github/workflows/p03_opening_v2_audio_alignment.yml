@@ -169,7 +169,7 @@ jobs:
               for idx in range(lo, hi+1):
                   t = idx/100.0
                   e = smooth[idx]
-                  score = e + abs(t-target)*global_q["0.50"]*0.06
+                  score = e + abs(t-target)*global_q["0.5"]*0.06
                   if best is None or score < best[0]:
                       best=(score,t,e)
               return best[1],best[2]
