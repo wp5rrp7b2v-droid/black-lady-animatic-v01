@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Director Design V0.1 Approval + Bundle Design Start
+
+- Product Owner corrected and approved N11 spatial continuity: Neil has already crossed the threshold and is waiting on the interior side of the open entrance, facing outward.
+- Formalized `docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0_1.md` as PRODUCT OWNER APPROVED.
+- Began `N11 Reference Delivery Bundle Design V0.1`.
+- Proposed bundle count = 6: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01 immediate Opening end-state continuity + A03 interior-side entrance spatial continuity.
+- N09 excluded to avoid conflicting outside-threshold spatial authority.
+- N05 excluded from V001 baseline because N01 is the immediate post-action state; N05 remains an optional controlled fallback if generation regresses spatially.
+- No bundle workflow or image generation executed yet.
+- P0.3 remains IN PROGRESS / NOT YET VALIDATED.
+
 ## 2026-09-27｜S02-A Six-Shot Plan Approval + N11 Design Start
 
 - Product Owner approved the post-Opening S02-A visual structure.

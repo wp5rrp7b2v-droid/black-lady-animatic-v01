@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R100",
+  "state_revision": "R101",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / S02-A SIX-SHOT PLAN PRODUCT OWNER APPROVED / N11 DIRECTOR SHOT DESIGN V0 IN REVIEW / P0.3 NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / N11 DIRECTOR SHOT DESIGN V0.1 PRODUCT OWNER APPROVED / N11 REFERENCE DELIVERY BUNDLE DESIGN V0.1 IN REVIEW / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: After approving OPENING_V001, Product Owner approved S02-A as a six-visual-node sequence: N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE. A05 exclusively owns the 'Neil has no keys' reveal; N13/N15 may build waist/key suspense but may not reveal the absence early. N11 Director Shot Design V0 is now in PO review. P0.3 remains IN PROGRESS / NOT YET VALIDATED."
+    "note": "2026-09-27: Product Owner approved corrected N11 Director Shot Design V0.1. Spatial lock: Neil has already crossed the threshold and waits on the interior side of the open castle entrance, facing outward toward the guests. N11 Reference Delivery Bundle Design V0.1 now proposes six minimum-purpose references: Neil FACE_FRONT, FACE_3Q_LEFT, BODY_FRONT, Castle Entrance Scene Master, N01 immediate Opening end-state continuity, and A03 interior-side spatial continuity. Bundle is design-only pending PO review; no generation yet."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N11 DIRECTOR SHOT DESIGN V0 REVIEW",
+  "current_task": "P0.3｜S02-A｜N11 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW",
   "blocker": null,
-  "next_action": "Product Owner reviews N11 Neil Abnormal Portrait Director Shot Design V0. If approved, build the formal N11 Reference Delivery Bundle and proceed to one-candidate-at-a-time Story Shot generation. Do not start N12 before N11 design/generation review is settled.",
+  "next_action": "Product Owner reviews N11 Reference Delivery Bundle Design V0.1. If approved, Chat creates the temporary GitHub Actions bundle workflow, builds N11_REFERENCE_DELIVERY_BUNDLE_V001, verifies all exact binaries, and then prepares the formal Work generation handoff for N11 Candidate 01.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N11-DESIGN-R100",
-    "status": "P0.3 IN PROGRESS / S02-A PLAN APPROVED / N11 DIRECTOR DESIGN V0 IN REVIEW / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-S02A-N11-BUNDLE-DESIGN-R101",
+    "status": "P0.3 IN PROGRESS / N11 DESIGN APPROVED / BUNDLE DESIGN IN REVIEW / NOT YET VALIDATED",
     "completed": [
-      "Post-Opening source transcript was reviewed for the next narrative segment.",
-      "Product Owner approved S02-A six-shot visual structure.",
-      "S02-A locked sequence: N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE.",
-      "A05 retained exclusive reveal authority for Neil's empty waist/no keys.",
-      "N11 Director Shot Design V0 drafted from current approved Neil character references and Opening continuity."
+      "Product Owner approved corrected N11 Director Shot Design V0.1.",
+      "N11 spatial continuity locked: Neil already inside threshold, facing outward and waiting.",
+      "N11 Bundle Design V0.1 drafted with six references and authority precedence.",
+      "N09 deliberately excluded because its outside-threshold story state conflicts with N11.",
+      "N05 deliberately excluded from baseline because N01 is the immediate end-state continuity reference; N05 may be added only if spatial regression occurs."
     ],
-    "resume_from": "Product Owner review of N11 Director Shot Design V0; generation remains unauthorized until approval.",
+    "resume_from": "Product Owner review of N11 Reference Delivery Bundle Design V0.1.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V072",
+    "version": "V073",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R100 / S02-A PLAN APPROVED / N11 DIRECTOR DESIGN REVIEW",
-    "derived_from_revision": "R100",
+    "status": "CURRENT / DERIVED FROM R101 / N11 DESIGN APPROVED / BUNDLE DESIGN REVIEW",
+    "derived_from_revision": "R101",
     "last_updated": "2026-09-27",
-    "current_task": "S02-A｜N11 DIRECTOR SHOT DESIGN V0 REVIEW"
+    "current_task": "N11 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1052,5 +1052,30 @@
     "title": "Neil Abnormal Portrait",
     "narrative_function": "Shift from welcoming butler to scrutinized abnormal person; establish pallor and approximate age without new action.",
     "generation_authorized": false
+  },
+  "n11_director_shot_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0_1.md",
+    "spatial_lock": "NEIL INSIDE THRESHOLD / FACING OUTWARD / WAITING",
+    "generation_authorized": false
+  },
+  "n11_reference_delivery_bundle_design_v0_1": {
+    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_design_v0_1.md",
+    "target_bundle_id": "N11_REFERENCE_DELIVERY_BUNDLE_V001",
+    "reference_count": 6,
+    "references": [
+      "AST_IMG_000028 FACE_FRONT",
+      "AST_IMG_000027 FACE_3Q_LEFT",
+      "AST_IMG_000026 BODY_FRONT",
+      "AST_IMG_000052 CASTLE_ENTRANCE SCENE_MASTER",
+      "N01 IMMEDIATE PREVIOUS OPENING END STATE",
+      "A03 INTERIOR SIDE ENTRANCE SPATIAL REFERENCE"
+    ],
+    "excluded_baseline": [
+      "N09 due outside-threshold spatial conflict",
+      "N05 because movement history is not needed unless V001 regresses spatially"
+    ],
+    "build_authorized": false
   }
 }

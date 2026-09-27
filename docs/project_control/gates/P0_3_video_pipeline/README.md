@@ -484,3 +484,41 @@ Design path:
 `docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0.md`
 
 N11 generation is not authorized until Product Owner approves the Director Shot Design.
+
+## N11 Director Design V0.1 + Bundle Design V0.1｜2026-09-27
+
+N11 Director Shot Design V0.1 status:
+
+`PRODUCT OWNER APPROVED`
+
+Locked correction:
+
+- Neil has already crossed the threshold;
+- he waits on the interior side of the open entrance;
+- he faces outward toward the arriving guests;
+- N11 is an observational medium close-up, not another welcome/action shot.
+
+Approved design:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0_1.md`
+
+Reference Delivery Bundle Design V0.1 status:
+
+`DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT`
+
+Proposed six-reference set:
+
+- Neil FACE_FRONT;
+- Neil FACE_3Q_LEFT;
+- Neil BODY_FRONT;
+- Castle Entrance Scene Master DAY/DOOR_OPEN;
+- N01 immediate previous Opening end-state continuity;
+- A03 interior-side entrance spatial continuity.
+
+N09 is excluded because its story state places Neil outside the threshold. N05 is excluded from the baseline because N01 is the more immediate end-state reference; N05 may be added only if generation later shows spatial regression.
+
+Bundle design:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_design_v0_1.md`
+
+No temporary workflow, artifact build, Work generation, or N11 Story Shot registration has been authorized yet.
