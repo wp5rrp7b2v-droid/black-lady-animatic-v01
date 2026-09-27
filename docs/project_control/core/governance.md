@@ -122,15 +122,21 @@ Product Owner 可随时基于效率、风险或实际体验调整当次执行方
 - **P0.x**：重启阶段的项目 Gate / 专项，不等同于 Codex 工程任务。
 - **D-###**：只用于实际交给 Codex 执行的工程任务。
 - ChatGPT 的讨论、审核、项目控制、Prompt 设计、Gate Review、GitHub 直接写入和 Terminal 指导执行不占 D 编号。
-- 当前实际 Codex 工程编号已到 D-065；下一项新的实际 Codex 工程任务从 D-066 继续。
+- Governance 不硬编码“当前已到哪个 D-### / 下一编号”。实际下一 D-### 以 `core/project_state.json`、`logs/execution_log.md` 与已真实执行的 Codex 任务为准，避免项目推进后规则文档产生过期编号。
 
 ## 7. 当前重启边界
 
-P0 不继续生产 A08 或后续正式镜头；先重建：
+2026-09-11 启动 P0 时的原始边界是：先完成 P0.1 / P0.2 / P0.3，不直接恢复 A08 之后的全片量产。
 
-- P0.1｜故事与文本数据基线
-- P0.2｜人物锚定与 Scene Master 资产治理
-- P0.3｜视频制作与剪辑 Pipeline 再验证
+当前解释已随 P0.3 的真实验证推进而收敛为：
+
+- P0.1｜故事与文本数据基线；
+- P0.2｜人物锚定与 Scene Master 资产治理；
+- P0.3｜视频制作与剪辑 Pipeline 再验证；
+- **P0.3 允许为了代表性真实 Proof 制作、批准和登记必要的 Story Shots**，包括 Opening V2 所需补充镜头；
+- 这不等于恢复全章节 / 全片规模化生产。正式量产 Roadmap 仍须等 P0.3 形成代表性证据并由 Product Owner 明确批准后再决定。
+
+因此，“P0 不继续生产 A08 或后续正式镜头”只保留为 P0 启动时的历史边界，不再解释为禁止 P0.3 为验证目的制作必要 Story Shots。
 
 ## 8. 角色
 
@@ -141,7 +147,7 @@ P0 不继续生产 A08 或后续正式镜头；先重建：
 
 ## 9. Source Material Storage Boundary
 
-当前 canonical repo 已为 **Private**。文本型源数据可按 `source_material/` 的分类规则提交并版本化；大型原始音频、视频和高容量二进制资产不得无规则直接进入普通 Git，应在 P0.1 / P0.3 中决定 Git LFS、Release/Artifact 或其他私有存储方案。
+当前 canonical repo 的可见性以 `core/project_state.json` 为准；截至 2026-09-27 为 **public**。文本型源数据可按 `source_material/` 的分类规则提交并版本化；大型原始音频、视频和高容量二进制资产不得无规则直接进入普通 Git，应按已批准的 Git LFS、Release / Artifact 或其他受控存储方案处理。
 
 ## 10. Gate / Phase Approval Rule
 
@@ -204,6 +210,14 @@ P0 不继续生产 A08 或后续正式镜头；先重建：
 
 以上机械动作应由系统自动完成。人工只保留创意判断、异常处理与正式审批。
 
+**Story Shot 当前输出发布例外（RC-024 / RC-025）**：
+
+- “零手工资产管理”仍是 Entity / Asset Registry 的长期目标；
+- 当前 P0.3 `STORY_SHOT` 流程在 **Product Owner 已批准最终 Candidate 之后**，允许 Product Owner 执行一次“原始最终 PNG → canonical GitHub intake 目录”的二进制发布动作；
+- 该动作是 **final output publication**，不是 RC-022 / RC-023 所说的 reference upload；正式参考图交付仍保持 `manual Product Owner reference upload = 0`；
+- Product Owner 不负责正式命名、Asset ID、Story Shot Index 登记、hash 计算、版本关系或验证；这些机械步骤继续由 Chat / GitHub / Actions 完成；
+- 该例外只适用于当前已验证的 Story Shot 注册桥接，直到后续有经真实验证并由 Product Owner 批准的 automatic output ingest 规则取代。
+
 ### 11.6 Reference Resolver
 
 - 生产任务应优先从结构化 Shot / Task Spec 推导需要的人物、视角、场景、服装、道具及状态。
@@ -247,6 +261,22 @@ P0.2 的详细字段、人物标准视图、场景/服装/道具模板、存储�
 
 本规则锁定的是**正式制图的数据交付链路**，不改变 Product Owner-only approval，不改变 Asset Registry / Story Shot admission 规则，也不要求 Work 自行承担 GitHub canonical 状态判断；Reference Resolver / Registry 层负责先完成正式参考选择与校验。
 
+## 11.9 Story Shot Operational Layer / Precedence
+
+为避免 P0.2 Asset Registry 的 `asset_class = SHOT` 与 P0.3 的 `asset_class = STORY_SHOT` 混为同一数据层，正式边界如下：
+
+- **P0.2 Asset Registry `SHOT`**：属于 Entity / Asset Registry Schema V0.3，使用 `asset_id`、`SHOT_MASTER` 等受控 metadata，并遵循 `<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>` 命名与 Automatic Ingest 规则；
+- **P0.3 `STORY_SHOT`**：当前是服务叙事、构图、剪辑和连续性检索的正式 Story Shot operational layer，权威索引为 `production/story_shots/story_shot_index.jsonl`，由 RC-021 / RC-024 管理；
+- 两者不允许静默双重登记，也不允许因为名称相近而自动假定一条 Story Shot 记录已经是 Asset Registry `SHOT` 记录；
+- 当前已批准 N01–N10 Story Shot 的既有 canonical filename 不做追溯性大规模重命名；其正式 binary identity 由 canonical path + SHA-256 + byte size + Git blob + Story Shot Index 共同锁定；
+- P0.2 Naming Rule 中“文件名不得包含 approved”等限制，适用于 **Asset Registry-managed SHOT assets**，不追溯覆盖 RC-024 已锁定的 Story Shot operational filenames；
+- 若未来决定把某个 `STORY_SHOT` 正式提升 / 迁移为 Asset Registry `SHOT`，必须建立显式 migration / ingest 事务，分配 Asset ID、使用 P0.2 compliant filename、保留 source SHA / provenance，并记录 mapping；不得静默覆盖原 Story Shot identity。
+
+Story Shot 的当前操作权威为：
+
+`RC-024 + story_shot_production_registration_sop_v1.md`
+
+如通用 P0.2 资产规则与 Story Shot 专项 SOP 在 **Story Shot 操作步骤** 上发生表述差异，以较新且更具体的 RC-024 / RC-025 为准；P0.2 Schema 对 Entity / Asset Registry 本身继续有效。
 ## 12. Project Control Step Closeout / Daily Consistency Check
 
 Project Control 维护必须跟随实际项目推进，不允许只更新单一进度文件而让核心状态、Gate 记录和日志长期互相矛盾。
