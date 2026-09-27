@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Overall Approval Clarification + N12 Design Start
+
+- Product Owner clarified the prior "批准" meant N11 Rebuild Candidate 01 was approved overall, not approval of a targeted-edit plan.
+- R105's Candidate 02 interpretation is superseded.
+- N11 Rebuild Candidate 01 status is now `PRODUCT OWNER APPROVED / PENDING BATCH ARCHIVAL`.
+- Product Owner requested later S02-A Story Shots be produced first and archived/registered together afterward.
+- No N11 Candidate 02 is required.
+- Began `N12 Director Shot Design V0.1`.
+- N12 narrative function: clearly visible cross + small rigid closed-mouth smile, escalating unease without overt horror.
+- No N12 Bundle or generation yet.
+
 ## 2026-09-27｜N11 Rebuild Candidate 01 Review
 
 - Product Owner reviewed N11 Rebuild Candidate 01.

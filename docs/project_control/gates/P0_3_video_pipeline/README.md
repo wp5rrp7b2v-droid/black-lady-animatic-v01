@@ -638,3 +638,32 @@ Boundary:
 - do not move Neil deeper inside;
 - do not change expression, identity, costume or background structure;
 - do not reintroduce cross, hands, waist, floor, steps or full doorway.
+
+## N12 Director Shot Design V0.1｜2026-09-27
+
+Status: `DRAFT / PRODUCT OWNER REVIEW`
+
+Before N12:
+
+- Product Owner clarified N11 Rebuild Candidate 01 is **overall approved**.
+- The prior “targeted Candidate 02 edit” interpretation is superseded.
+- N11 will be archived / registered later together with the later S02-A approved shots.
+
+N12 function:
+
+`cross + rigid closed-mouth smile detail`
+
+Key director locks:
+
+- medium close-up / head + upper chest;
+- Neil remains inside the open entrance, facing outward and waiting;
+- cross is clearly visible but secondary to Neil's face;
+- smile is small, closed-mouth, socially polite but emotionally rigid;
+- no teeth / broad grin / villain smirk;
+- no hands / waist / action;
+- pallor remains continuous from N11;
+- no religious-symbol hero shot or horror-poster treatment.
+
+Design:
+
+`docs/project_control/gates/P0_3_video_pipeline/n12_director_shot_design_v0_1.md`
