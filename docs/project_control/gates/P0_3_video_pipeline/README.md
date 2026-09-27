@@ -719,3 +719,27 @@ Next:
 `Work automatic artifact acquisition + revalidation → generate N12 Candidate 01 only → Product Owner review`
 
 Do not register Story Shot or batch-archive before N12 Candidate 01 is explicitly approved.
+
+## S02-A N11 + N12 Approval Checkpoint｜2026-09-27
+
+Status: `PRODUCT OWNER APPROVED / BATCH ARCHIVAL DEFERRED`
+
+Final creative selections:
+
+- N11 = `Candidate 03`
+  - visible metal chain;
+  - cross pendant hidden by waistcoat/clothing;
+  - earlier N11 Candidate 01/02 are not final and must not be batch-archived.
+- N12 = `Candidate 02`
+  - rigid closed-mouth smile;
+  - one clearly readable metallic cross;
+  - Candidate 01 superseded.
+
+Formal binary publication / Story Shot registration is intentionally deferred until the later S02-A batch archival pass.
+
+Approval checkpoint:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md`
+
+Next:
+`N13 Director Shot Design`

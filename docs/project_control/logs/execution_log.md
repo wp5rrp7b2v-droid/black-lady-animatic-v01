@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Candidate 03 + N12 Candidate 02 Final Creative Approval
+
+- Product Owner approved `N11 Candidate 03` as the final N11 creative selection.
+- N11 Candidate 03 retains a visible metal chain while the cross pendant itself is hidden by the waistcoat/clothing, preserving N12 as the explicit cross-reveal shot.
+- N11 Rebuild Candidate 01 is superseded for final use.
+- N11 Candidate 02 is rejected for final use because its generated cross did not match the approved N12 cross design.
+- Product Owner had already approved `N12 Candidate 02` as the final N12 creative selection; N12 Candidate 01 is superseded.
+- Per Product Owner instruction, N11 and N12 are not individually published/registered yet. Formal binary publication and Story Shot registration are deferred to a later S02-A batch archival pass.
+- Next: N13 Director Shot Design.
+
 ## 2026-09-27｜N12 Reference Delivery Bundle V001 Built
 
 - Product Owner approved N12 Reference Delivery Bundle Design V0.1.

@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R108",
+  "state_revision": "R109",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / N11 APPROVED PENDING BATCH ARCHIVAL / N12 BUNDLE V001 BUILT + 5 OF 5 PASS / N12 CANDIDATE 01 WORK GENERATION NEXT",
+  "session_status": "P0.3 IN PROGRESS / N11 CANDIDATE 03 APPROVED FINAL / N12 CANDIDATE 02 APPROVED FINAL / BOTH PENDING S02-A BATCH ARCHIVAL / N13 DIRECTOR DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved N12 Bundle Design V0.1. Chat executed the locked GitHub Actions delivery path directly. Run 36307403582 succeeded; artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10927392671 / digest sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed was built from source commit 45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d. Five of five canonical references passed exact verification. Next: N12 Candidate 01 in Work."
+    "note": "2026-09-27: Product Owner approved N11 Candidate 03 as the final N11 selection; earlier N11 Candidate 01/02 are superseded/rejected for final use. Product Owner had already approved N12 Candidate 02 as the final N12 selection. Both approved binaries remain pending later S02-A batch publication/registration. Next production step: N13 Director Shot Design."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N12 CANDIDATE 01 FORMAL WORK GENERATION",
+  "current_task": "P0.3｜S02-A｜N13 DIRECTOR SHOT DESIGN",
   "blocker": null,
-  "next_action": "Use ChatGPT Work to automatically download artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 (run 36307403582 / artifact 10927392671), revalidate all 5 PNGs against delivery_manifest.json, and generate exactly one N12 Candidate 01 for Product Owner review. Do not register or batch-archive yet.",
+  "next_action": "Begin N13 Director Shot Design. N11 Candidate 03 and N12 Candidate 02 are both Product Owner approved and must remain unregistered until the later S02-A batch archival pass. Previous N11 candidates are invalid for final archival.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N12-BUNDLE-BUILT-R108",
-    "status": "P0.3 IN PROGRESS / N12 BUNDLE BUILT 5 OF 5 PASS / WORK GENERATION NEXT",
+    "id": "2026-09-27-P03-S02A-N11-N12-APPROVAL-R109",
+    "status": "P0.3 IN PROGRESS / N11 + N12 APPROVED / BATCH ARCHIVAL DEFERRED / N13 NEXT",
     "completed": [
-      "Product Owner approved N12 Reference Delivery Bundle Design V0.1.",
-      "Chat created and executed the temporary GitHub Actions bundle workflow directly under RC-022/RC-023.",
-      "Run 36307403582 completed successfully.",
-      "Artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10927392671 created.",
-      "All five references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy validation."
+      "Product Owner approved N11 Candidate 03 as the final N11 selection.",
+      "N11 Candidate 03 keeps chain visibility while hiding the cross pendant so N12 retains explicit cross-reveal authority.",
+      "N11 Rebuild Candidate 01 is superseded; N11 Candidate 02 is rejected for cross-design inconsistency.",
+      "Product Owner approved N12 Candidate 02 as final N12 selection.",
+      "N12 Candidate 01 is superseded.",
+      "N11 and N12 formal publication/registration are intentionally deferred to the later S02-A batch archival pass."
     ],
-    "resume_from": "Work automatic artifact acquisition + 5/5 revalidation → N12 Candidate 01 → Product Owner review.",
+    "resume_from": "N13 Director Shot Design.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +512,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V080",
+    "version": "V081",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R108 / N12 BUNDLE BUILT / WORK GENERATION NEXT",
-    "derived_from_revision": "R108",
+    "status": "CURRENT / DERIVED FROM R109 / N11+N12 APPROVED / N13 NEXT",
+    "derived_from_revision": "R109",
     "last_updated": "2026-09-27",
-    "current_task": "N12 CANDIDATE 01 FORMAL WORK GENERATION"
+    "current_task": "N13 DIRECTOR SHOT DESIGN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1191,5 +1192,30 @@
     "expires_at": "2026-10-04T08:49:27Z",
     "exact_reference_verification": "5/5 PASS",
     "manual_product_owner_reference_upload": 0
+  },
+  "n11_final_selection": {
+    "status": "PRODUCT OWNER APPROVED / FINAL SELECTED / PENDING BATCH ARCHIVAL",
+    "selected_candidate": "N11 Candidate 03",
+    "dimensions": "941x1672",
+    "binary_publication_status": "DEFERRED",
+    "story_shot_registration_status": "NOT YET REGISTERED",
+    "superseded_or_invalidated": [
+      "N11 Rebuild Candidate 01",
+      "N11 Candidate 02",
+      "ALL EARLIER FAILED N11 CANDIDATES"
+    ],
+    "final_continuity_rule": "VISIBLE METAL CHAIN / CROSS PENDANT HIDDEN BY WAISTCOAT; N12 OWNS EXPLICIT CROSS REVEAL",
+    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md"
+  },
+  "n12_final_selection": {
+    "status": "PRODUCT OWNER APPROVED / FINAL SELECTED / PENDING BATCH ARCHIVAL",
+    "selected_candidate": "N12 Candidate 02",
+    "dimensions": "941x1672",
+    "binary_publication_status": "DEFERRED",
+    "story_shot_registration_status": "NOT YET REGISTERED",
+    "superseded_or_invalidated": [
+      "N12 Candidate 01"
+    ],
+    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md"
   }
 }
