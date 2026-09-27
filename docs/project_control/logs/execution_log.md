@@ -1,5 +1,24 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜libopenshot Camera Motion Proof V001
+
+- Product Owner requested direct Chat + GitHub Actions execution of a libopenshot camera-motion test before any full Opening V2 migration.
+- Scope locked to approved canonical Story Shots N08, N03 and N05.
+- Built a new GitHub Actions path using Ubuntu + `python3-openshot` + Python bindings.
+- First run `36298583006` reached libopenshot rendering but crashed with SIGSEGV in `Timeline::find_intersecting_clips`.
+- Root cause: Timeline retained raw pointers while Python/SWIG reader/clip objects were garbage-collected after helper return.
+- Added explicit reader/clip keepalive references.
+- Run `36298639226` then completed successfully.
+- Motion design:
+  - N08: hold → architectural push → overshoot → settle
+  - N03: pull-back + lateral observation drift → settle
+  - N05: action push + reframe + settle-shake + micro rotation
+- Artifact `P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001`, ID `10923993594`, digest `sha256:b8986b111a523d2d036dc53cab88d22c7952e9d544c7540fad37f5d08b8871bf`.
+- Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 228 frames, 7.600 sec, full decode PASS.
+- MP4 SHA-256: `4582f00d89a4df65497be3c1f1ba34801671c9fc8bc1b802519d61f05f141a88`.
+- This is motion-only technical evidence; no Opening V2 migration, no final edit approval and no P0.3 PASS claimed.
+- Next: Product Owner compares libopenshot motion quality with Remotion V003.
+
 ## 2026-09-27｜Opening V2 Proof Review V003
 
 - Product Owner approved proceeding directly to a complete V003 using Chat + GitHub Actions.
