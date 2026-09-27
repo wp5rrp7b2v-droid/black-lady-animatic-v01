@@ -239,3 +239,40 @@ Formal technical evidence:
 - full decode QC: PASS
 
 The current internal cut positions remain Draft 01 candidates and are not director-locked. Product Owner must review the complete 33-second audio-image sequence before timing changes or P0.3 approval.
+
+## Opening V2 Proof Review V002｜2026-09-27
+
+Status: `TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED`
+
+V002 preserves the V001 12-shot sequence, uninterrupted canonical audio and Draft 01 timing map, while enriching only restrained 2D editorial language.
+
+Added treatment:
+
+- A01 fade in from black and N01 fade out to black;
+- selected 3–6 frame dissolves rather than dissolving every cut;
+- restrained blur/focus dissolves on N08→N09 and N10→N05;
+- differentiated static / push / pull / slight horizontal drift behavior;
+- light vignette-based focus guidance on selected shots;
+- one short N05 shake/settle event only.
+
+Explicit exclusions remain:
+
+- no 2.5D depth warp;
+- no character deformation;
+- no Story Shot replacement;
+- no canonical audio speed change;
+- no final timing lock.
+
+Technical evidence:
+
+- source commit: `3c90d484ebb958b3b1988ceb8ba8f0e6aa21bb4a`
+- workflow run: `36296689531`
+- artifact: `P03_OPENING_V2_PROOF_REVIEW_V002`
+- artifact ID: `10924430609`
+- artifact digest: `sha256:323a48034e45562b5153d635dbe565f51211d81a694c44202b6da92e4deba2ac`
+- output MP4 SHA-256: `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`
+- output byte size: `18,892,138`
+- output: 1080×1920 / H.264 yuv420p / 30 fps / 991 decoded frames / continuous AAC audio
+- full decode QC: PASS
+
+Next step is Product Owner contextual review. P0.3 remains IN PROGRESS and no final timing lock is claimed.
