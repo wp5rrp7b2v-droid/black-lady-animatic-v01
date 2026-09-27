@@ -1,0 +1,653 @@
+{
+  "project": "P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001",
+  "status": "CONTEXTUAL_REVIEW_ONLY / TIMING_NOT_LOCKED",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "total_frames": 991,
+  "final_fade_out_frames": 12,
+  "audio": {
+    "canonical_path": "staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a",
+    "sha256": "8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0",
+    "source_start_sec": 0,
+    "source_end_sec": 33.03333333333333,
+    "speed_change": false
+  },
+  "sequence": [
+    "A01",
+    "A02",
+    "N06",
+    "N02",
+    "N07",
+    "N03",
+    "N04",
+    "N08",
+    "N09",
+    "N10",
+    "N05",
+    "N01"
+  ],
+  "editorial_rule": "Director-designed multi-keyframe camera motion with hold→move→settle rhythm, varied by narrative function. Preserve canonical audio, 12-shot order, approved still binaries and Draft 01 timing.",
+  "shots": [
+    {
+      "shot_id": "A01",
+      "start_frame": 0,
+      "duration_frames": 98,
+      "transition_in": {
+        "type": "fade_black",
+        "frames": 12
+      },
+      "motion": "establishing hold→push→settle",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          36,
+          1.018,
+          0,
+          -0.005,
+          0
+        ],
+        [
+          72,
+          1.04,
+          -0.002,
+          -0.016,
+          0
+        ],
+        [
+          98,
+          1.048,
+          -0.002,
+          -0.018,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "A02",
+      "start_frame": 98,
+      "duration_frames": 99,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 10
+      },
+      "motion": "stable Neil focus push",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          45,
+          1.008,
+          0,
+          -0.003,
+          0
+        ],
+        [
+          80,
+          1.015,
+          0.001,
+          -0.007,
+          0
+        ],
+        [
+          99,
+          1.016,
+          0.001,
+          -0.007,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N06",
+      "start_frame": 197,
+      "duration_frames": 71,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion": "speaking hold→push→decelerate",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          28,
+          1.015,
+          0,
+          -0.004,
+          0
+        ],
+        [
+          54,
+          1.034,
+          0.001,
+          -0.01,
+          0
+        ],
+        [
+          71,
+          1.039,
+          0.001,
+          -0.011,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N02",
+      "start_frame": 268,
+      "duration_frames": 68,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion": "breathing hold",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          1.003,
+          0,
+          -0.001,
+          0
+        ],
+        [
+          44,
+          1.006,
+          0,
+          -0.002,
+          0
+        ],
+        [
+          68,
+          1.007,
+          0,
+          -0.002,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N07",
+      "start_frame": 336,
+      "duration_frames": 60,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 6
+      },
+      "motion": "speaking push + reframe",
+      "keyframes": [
+        [
+          1,
+          1.002,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          1.002,
+          0,
+          0,
+          0
+        ],
+        [
+          26,
+          1.016,
+          -0.003,
+          -0.003,
+          0
+        ],
+        [
+          46,
+          1.03,
+          -0.006,
+          -0.006,
+          0
+        ],
+        [
+          60,
+          1.034,
+          -0.006,
+          -0.006,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N03",
+      "start_frame": 396,
+      "duration_frames": 63,
+      "transition_in": {
+        "type": "hard",
+        "frames": 0
+      },
+      "motion": "reaction pull-back + lateral drift + settle",
+      "keyframes": [
+        [
+          1,
+          1.045,
+          -0.014,
+          0,
+          0
+        ],
+        [
+          14,
+          1.037,
+          -0.008,
+          0,
+          0
+        ],
+        [
+          34,
+          1.02,
+          0,
+          0,
+          0
+        ],
+        [
+          54,
+          1.003,
+          0.012,
+          0,
+          0
+        ],
+        [
+          63,
+          1.006,
+          0.009,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N04",
+      "start_frame": 459,
+      "duration_frames": 132,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 8
+      },
+      "motion": "stable line-ending push",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          60,
+          1.006,
+          0,
+          -0.002,
+          0
+        ],
+        [
+          102,
+          1.011,
+          0.001,
+          -0.005,
+          0
+        ],
+        [
+          132,
+          1.012,
+          0.001,
+          -0.005,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N08",
+      "start_frame": 591,
+      "duration_frames": 58,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 10
+      },
+      "motion": "architecture hold→push→overshoot→settle",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          1.02,
+          -0.001,
+          -0.006,
+          0
+        ],
+        [
+          40,
+          1.052,
+          -0.005,
+          -0.018,
+          0
+        ],
+        [
+          50,
+          1.068,
+          -0.007,
+          -0.024,
+          0
+        ],
+        [
+          58,
+          1.063,
+          -0.006,
+          -0.021,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N09",
+      "start_frame": 649,
+      "duration_frames": 84,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 12
+      },
+      "motion": "descriptor focus hold→push",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          36,
+          1.008,
+          0,
+          -0.002,
+          0
+        ],
+        [
+          66,
+          1.016,
+          0.001,
+          -0.005,
+          0
+        ],
+        [
+          84,
+          1.018,
+          0.001,
+          -0.005,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N10",
+      "start_frame": 733,
+      "duration_frames": 82,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 8
+      },
+      "motion": "smile hold→face push",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          32,
+          1.015,
+          0,
+          -0.004,
+          0
+        ],
+        [
+          62,
+          1.035,
+          0.001,
+          -0.01,
+          0
+        ],
+        [
+          82,
+          1.043,
+          0.001,
+          -0.011,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N05",
+      "start_frame": 815,
+      "duration_frames": 86,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 10
+      },
+      "motion": "action hold→push/reframe→shake/rotation→settle",
+      "keyframes": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          1.015,
+          0.001,
+          -0.003,
+          0.04
+        ],
+        [
+          42,
+          1.035,
+          0.004,
+          -0.008,
+          0.12
+        ],
+        [
+          50,
+          1.047,
+          0.006,
+          -0.011,
+          0.18
+        ],
+        [
+          52,
+          1.053,
+          0.015,
+          -0.015,
+          0.38
+        ],
+        [
+          54,
+          1.055,
+          -0.002,
+          -0.008,
+          -0.14
+        ],
+        [
+          56,
+          1.057,
+          0.013,
+          -0.014,
+          0.3
+        ],
+        [
+          58,
+          1.059,
+          0.001,
+          -0.009,
+          -0.08
+        ],
+        [
+          60,
+          1.06,
+          0.009,
+          -0.013,
+          0.16
+        ],
+        [
+          62,
+          1.061,
+          0.005,
+          -0.011,
+          0.1
+        ],
+        [
+          70,
+          1.061,
+          0.005,
+          -0.011,
+          0.08
+        ],
+        [
+          86,
+          1.058,
+          0.003,
+          -0.009,
+          0
+        ]
+      ]
+    },
+    {
+      "shot_id": "N01",
+      "start_frame": 901,
+      "duration_frames": 90,
+      "transition_in": {
+        "type": "dissolve",
+        "frames": 8
+      },
+      "motion": "quiet pull-back + fade",
+      "keyframes": [
+        [
+          1,
+          1.028,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          1.026,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          1.016,
+          0,
+          0.001,
+          0
+        ],
+        [
+          70,
+          1.006,
+          0,
+          0.002,
+          0
+        ],
+        [
+          90,
+          1,
+          0,
+          0.002,
+          0
+        ]
+      ]
+    }
+  ]
+}

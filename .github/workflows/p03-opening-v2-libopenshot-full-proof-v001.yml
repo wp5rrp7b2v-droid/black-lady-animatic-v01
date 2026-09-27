@@ -1,0 +1,79 @@
+name: P03 Opening V2 libopenshot Full Proof V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'openshot-opening-v2-full-proof-v001/**'
+      - '.github/workflows/p03-opening-v2-libopenshot-full-proof-v001.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p03-opening-v2-libopenshot-full-proof-v001-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - name: Checkout exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install libopenshot and FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common ffmpeg
+          sudo add-apt-repository -y ppa:openshot.developers/ppa
+          sudo apt-get update
+          sudo apt-get install -y python3-openshot
+          python3 - <<'PY'
+          import openshot
+          required = ["Timeline","Clip","QtImageReader","Keyframe","Fraction","BEZIER","LINEAR","SCALE_CROP","GRAVITY_CENTER"]
+          missing = [x for x in required if not hasattr(openshot, x)]
+          if missing:
+              raise SystemExit("Missing libopenshot symbols: " + ",".join(missing))
+          print("LIBOPENSHOT_IMPORT_AND_SYMBOLS=PASS")
+          PY
+
+      - name: Verify canonical inputs and audio
+        run: python3 openshot-opening-v2-full-proof-v001/scripts/prepare_inputs.py
+
+      - name: Render 991 motion frames with libopenshot
+        run: python3 openshot-opening-v2-full-proof-v001/scripts/build_proof.py
+
+      - name: Encode full proof with continuous canonical audio
+        run: |
+          mkdir -p openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001
+          ffmpeg -y             -framerate 30             -i openshot-opening-v2-full-proof-v001/work/frames/frame_%04d.png             -i openshot-opening-v2-full-proof-v001/work/opening_audio.m4a             -map 0:v:0 -map 1:a:0             -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -r 30             -c:a aac -b:a 192k             -t 33.0333333333             -movflags +faststart             openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001.mp4
+          cp openshot-opening-v2-full-proof-v001/work/input_manifest.json             openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001/input_manifest.json
+          cp openshot-opening-v2-full-proof-v001/work/motion_manifest.json             openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001/motion_manifest.json
+          cp openshot-opening-v2-full-proof-v001/shot_motion_spec.json             openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001/shot_motion_spec.json
+
+      - name: Technical QC
+        run: python3 openshot-opening-v2-full-proof-v001/scripts/qc_output.py
+
+      - name: Upload full proof
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001
+          path: openshot-opening-v2-full-proof-v001/out/P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
