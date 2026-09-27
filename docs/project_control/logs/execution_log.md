@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Editing Workflow Framework V1 Registration
+
+- Product Owner requested that the V002 production workflow be retained as a reference for future editing work.
+- Explicit boundary: this is a reusable process framework, not a fixed visual/timing template.
+- Registered RC-026 and added `docs/project_control/gates/P0_3_video_pipeline/editing_workflow_framework_v1.md`.
+- Reusable lifecycle: canonical story/audio context → Chat director/edit design → contextual timeline → canonical input verification → engine implementation → scene-specific motion/transition treatment → continuous source audio where appropriate → GitHub Actions render/QC → full-context PO review → targeted iteration.
+- V002's 12-shot count, 991-frame map, exact cut points, motion/transition parameters and Remotion implementation are not locked for future sequences.
+- Later edits must be redesigned from the actual plot, dialogue/narration, action, character performance, spatial continuity and emotional rhythm.
+- Rendering engine remains an execution choice, not the source of editorial decisions.
+- P0.3 remains IN PROGRESS / NOT YET VALIDATED.
+
 ## 2026-09-27｜Opening V2 libopenshot Full Proof V001
 
 - Product Owner confirmed Chat can directly design the complete 12-shot motion plan and communicate with GitHub Actions without a Codex handoff.

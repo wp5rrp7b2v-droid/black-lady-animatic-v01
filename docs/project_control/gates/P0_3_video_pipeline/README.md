@@ -395,3 +395,25 @@ Technical evidence:
 - full decode QC: PASS.
 
 This remains a contextual review build. No final timing lock and no P0.3 Gate PASS are claimed.
+
+## Editing Workflow Framework V1｜2026-09-27
+
+Status: `ACTIVE / REFERENCE FRAMEWORK / NON-TEMPLATE`
+
+Product Owner registered the V002 production logic as the reusable editing process reference under RC-026.
+
+Reusable workflow:
+
+`Canonical story/audio context → Chat director/edit design → contextual timeline → canonical input verification → engine implementation → scene-specific motion/transition treatment → continuous source-audio assembly where appropriate → GitHub Actions render/QC → full-context Product Owner review → targeted iteration`
+
+Formal reference:
+
+`docs/project_control/gates/P0_3_video_pipeline/editing_workflow_framework_v1.md`
+
+Important boundary:
+
+- V002 is a reference implementation, not a universal edit template;
+- its 12-shot count, 991-frame map, cut points, motion values, transitions and Remotion implementation are not inherited automatically;
+- every later edit must redesign timing, shot behavior and editorial treatment from the actual story/audio/action/space/emotional context;
+- the render engine is an execution layer and may change;
+- technical QC PASS never substitutes for full-context Product Owner artistic review or P0.3 approval.

@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R097",
+  "state_revision": "R098",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 LIBOPENSHOT FULL PROOF V001 TECHNICAL PASS / PRODUCT OWNER CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / EDITING WORKFLOW FRAMEWORK V1 REGISTERED / OPENING EDIT ROUTE REVIEW CONTINUES / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Opening V2 libopenshot Full Proof V001 completed technical QC in GitHub Actions. Chat designed all 12 shot motions and transitions, wrote the executable spec/workflow, and GitHub Actions rendered the complete 991-frame / 33.033333-second proof with continuous canonical audio. Successful run 36299431486 PASS; artifact 10925078297 ready for Product Owner contextual review. Sequence, approved Story Shot binaries and Draft 01 timing remain unchanged. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-27: Product Owner registered Editing Workflow Framework V1 (RC-026) based on the proven V002 process structure. The framework reuses the process—story/audio analysis → Chat director/edit design → contextual timeline → canonical input verification → engine execution → scene-specific editorial treatment → continuous source audio where appropriate → GitHub Actions render/QC → full-context PO review → targeted iteration—but explicitly does NOT lock V002 shot count, timing, transitions, motion parameters, Remotion, or any fixed visual template. Opening V2 route review remains active; P0.3 is NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING V2 LIBOPENSHOT FULL PROOF V001 REVIEW",
+  "current_task": "P0.3｜OPENING EDIT ROUTE REVIEW",
   "blocker": null,
-  "next_action": "Product Owner reviews the complete 33-second libopenshot full proof with continuous canonical audio and decides whether the director-designed multi-keyframe camera motion is materially more cinematic and suitable as the preferred Opening V2 motion route. No final timing lock or P0.3 PASS yet.",
+  "next_action": "Use Editing Workflow Framework V1 as the reusable process reference for the next Opening edit iteration: design timing, shot behavior and transitions from the actual story/audio context rather than copying V002 or the libopenshot proof as a fixed template. P0.3 remains not yet validated.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R097 LIBOPENSHOT FULL PROOF RECORD",
+    "status": "PENDING USER LOCAL PULL AFTER R098 EDITING WORKFLOW FRAMEWORK REGISTRATION",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-OPENING-V2-LIBOPENSHOT-FULL-PROOF-V001 GITHUB MAIN"
+    "target": "POST-EDITING-WORKFLOW-FRAMEWORK-V1 GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,21 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V2-LIBOPENSHOT-FULL-PROOF-R097",
-    "status": "P0.3 IN PROGRESS / LIBOPENSHOT FULL PROOF TECHNICAL PASS / PO CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-EDITING-WORKFLOW-FRAMEWORK-R098",
+    "status": "P0.3 IN PROGRESS / EDITING WORKFLOW FRAMEWORK V1 REGISTERED / ROUTE REVIEW CONTINUES / NOT YET VALIDATED",
     "completed": [
-      "Chat completed a director-designed 12-shot Cinematic Motion Spec for the full Opening V2.",
-      "The full sequence remains A01→A02→N06→N02→N07→N03→N04→N08→N09→N10→N05→N01.",
-      "Draft 01 frame map remains unchanged at 991 frames / 30 fps / 33.033333 sec.",
-      "Approved/current canonical Story Shot binaries were verified before render.",
-      "Canonical source audio remained continuous and unsped.",
-      "libopenshot rendered all 991 frames with varied multi-keyframe motion by narrative function: spatial attraction, dialogue focus, reaction drift, action peak and quiet resolution.",
-      "GitHub Actions run 36299431486 completed successfully.",
-      "Artifact P03_OPENING_V2_LIBOPENSHOT_FULL_PROOF_V001 published as artifact ID 10925078297.",
-      "Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio, full decode PASS.",
-      "Output MP4 SHA-256 e821b8a76af3bd5f6e7c776e81cc907f1873a3a7dc4f96173b2ceefe16972385."
+      "Product Owner requested the successful V002 production logic be retained as a reusable editing workflow reference.",
+      "Registered Editing Workflow Framework V1 under RC-026.",
+      "Locked the distinction between reusable workflow and non-reusable template: later edits must redesign timing, shot behavior and transitions from the actual story/audio context.",
+      "V002 is retained only as a reference implementation of the process.",
+      "Framework keeps Chat as director/editor design layer and GitHub Actions / selected engine as execution + QC layer."
     ],
-    "resume_from": "Product Owner watches the complete libopenshot full proof and compares overall cinematic feel, motion naturalness, transition rhythm and N05 action emphasis against Remotion V003.",
+    "resume_from": "Design the next Opening iteration using Editing Workflow Framework V1, with scene-specific editorial decisions rather than copying V002 or libopenshot motion parameters.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -516,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V069",
+    "version": "V070",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R097 / OPENING V2 LIBOPENSHOT FULL PROOF TECHNICAL PASS / PO CONTEXTUAL REVIEW NEXT",
-    "derived_from_revision": "R097",
+    "status": "CURRENT / DERIVED FROM R098 / EDITING WORKFLOW FRAMEWORK V1 REGISTERED / OPENING EDIT ROUTE REVIEW CONTINUES",
+    "derived_from_revision": "R098",
     "last_updated": "2026-09-27",
-    "current_task": "OPENING V2 LIBOPENSHOT FULL PROOF V001 REVIEW"
+    "current_task": "OPENING EDIT ROUTE REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -979,5 +974,15 @@
     ],
     "final_timing_lock": "PENDING PRODUCT OWNER REVIEW",
     "gate_pass": "NOT CLAIMED"
+  },
+  "editing_workflow_framework_v1": {
+    "status": "ACTIVE / REFERENCE FRAMEWORK / NON-TEMPLATE",
+    "rule_id": "RC-026",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/editing_workflow_framework_v1.md",
+    "reference_implementation": "P03_OPENING_V2_PROOF_REVIEW_V002",
+    "reusable_process": "Canonical story/audio context → Chat director/edit design → contextual timeline → canonical input verification → engine implementation → scene-specific motion/transition treatment → continuous source-audio assembly where appropriate → GitHub Actions render/QC → full-context PO review → targeted iteration",
+    "non_template_rule": "Do not copy V002 shot count, timing, motion parameters, transition values, or Remotion implementation by default. Every sequence must be redesigned from its actual story, audio, action, character, space and rhythm.",
+    "engine_policy": "Rendering engine is an execution layer and may vary by sequence; it does not replace director/editor judgment.",
+    "approval_boundary": "Technical PASS does not equal artistic approval or P0.3 Gate PASS."
   }
 }
