@@ -1,5 +1,23 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N06-N07 Story Shot Final Registration
+
+- Product Owner approved N06 Candidate 02 and N07 Candidate 01 for Opening V2.
+- Product Owner uploaded the two final PNGs into `production/image_library/approved/story_shots/`; upload verification workflow run `36289949835` independently verified the exact uploaded binaries.
+- Verification result: `PASS`; both files are PNG 941×1672 and their SHA-256 / byte sizes / Git blob SHAs matched the repository binaries.
+- Upload UUID → formal canonical mapping:
+  - `6ef6a4b1-e823-40f4-be98-e7d658fdaddc.png` → `N06_NEIL_SPEAKING_STATE_A_APPROVED_V001.png`
+  - `33e88fb0-a959-4ab1-937c-bdd1269d7bc1.png` → `N07_NEIL_SPEAKING_STATE_C_APPROVED_V001.png`
+- Canonical rename commit: `af88935298cc25b0f153b6824cf4719326762745`; exact Git blobs were reused with no PNG re-encode.
+- Canonical identities:
+  - N06: SHA-256 `50f17c152477cef2fcdc8e1a61e5a7c42f5d32512e19c92bdbed544d465effc5` / 1,851,865 bytes / Git blob `aa43a519fe7953a9626d47f71acf76908ed40389`.
+  - N07: SHA-256 `fc2d4f7f09a1c7cc8012176ef885d3f4b3ae449741b3bd2d4ad075fb91188dd9` / 1,983,362 bytes / Git blob `379b8a209a8d6da709dc15bcb645972016176169`.
+- Story Shot index now contains 17 approved records: A01–A07 + N01–N10.
+- Opening V2 planned sequence is now fully covered by approved Story Shots: `A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`.
+- N06 performance lock: restrained speaking gesture kept close to the body; no smile, turn, or step.
+- N07 performance/composition lock: right-front 25°–35° speaking state, figure biased right, gaze to off-screen visitors at frame left, hands quiet; no smile, turn, or step.
+- Next production step: assemble and review the revised 12-shot Opening V2 proof; P0.3 remains NOT YET VALIDATED.
+
 ## 2026-09-26｜P0.3 Daily Closeout
 
 - End-of-day status: `PAUSED FOR DAY / P0.3 IN PROGRESS / OPENING V2 STORY-SHOT EXPANSION ACTIVE / N06-N07 NEXT`.
