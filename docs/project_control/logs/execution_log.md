@@ -9,6 +9,7 @@
 - Reconciled the long-term Automatic Ingest goal with the currently verified Story Shot publication bridge. PO does not perform canonical naming, index registration, hashes, version relations, or registration verification.
 - Corrected stale Governance statements: repository visibility is public, D-### progression is no longer hardcoded, and the historical P0 'no A08/later shots' boundary no longer blocks representative Story Shot production required for P0.3 validation.
 - Added Project Control rule-precedence guidance so Gate summaries do not become parallel rule authorities.
+- Removed stale pre-approval / not-yet-validated wording from the current P0.2 Visual Asset baseline, Naming Rules, and Registry Schema while preserving their historical sequence as historical notes.
 - Consistency result: `PASS / CONFLICTS RESOLVED`.
 ## 2026-09-27｜RC-024 Story Shot Production + Registration SOP
 
