@@ -215,3 +215,27 @@ Important interpretation:
 - therefore the internal points above are low-energy-valley candidates refined around transcript-semantic targets, not final edit boundaries;
 - the next step is director review / semantic alignment, with targeted human-listening or stronger speech-text alignment only where a candidate is ambiguous;
 - no source-audio speed change and no destructive audio edit occurred.
+
+## Opening V2 Contextual Proof Review V001｜2026-09-27
+
+Status: `TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED`
+
+Review-method correction:
+
+- the seven 3-second files were only local listening windows around candidate cut points;
+- they were never intended as equal 3-second final segmentation;
+- isolated pause review proved insufficient because edit quality depends on picture + uninterrupted speech + narrative rhythm;
+- therefore Draft 01 timing is now judged in the complete audiovisual proof first.
+
+Formal technical evidence:
+
+- sequence: `A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`
+- workflow run: `36294677578`
+- artifact: `P03_OPENING_V2_PROOF_REVIEW_V001`
+- artifact ID: `10923721767`
+- artifact digest: `sha256:e928f8f91f578159e16711c64f6fa215a347603563901d13bee332b2981d3af2`
+- output MP4 SHA-256: `d538c87e8da781aec61401b2c7a01ce5e25a4ad0de038299d598685d376e771e`
+- output: 1080×1920 / H.264 yuv420p / 30 fps / 991 decoded frames / continuous AAC audio
+- full decode QC: PASS
+
+The current internal cut positions remain Draft 01 candidates and are not director-locked. Product Owner must review the complete 33-second audio-image sequence before timing changes or P0.3 approval.
