@@ -18,6 +18,17 @@
 4. 必要时读取 `logs/` 与 `core/acceptance_matrix.md`
 5. 若 `project_state.json` 存在 active risk，读取 `logs/risk_register.md` 后再开始相关工程任务
 
+## Rule Authority / Precedence
+
+为避免同一规则在多个文件重复后产生漂移，当前解释顺序固定为：
+
+1. `core/governance.md`：项目级通用治理；
+2. `logs/rules_change_log.md`：规则变更历史与新旧优先级；同一 scope 下较新的 ACTIVE / superseding rule 优先；
+3. 当前 Gate 的专项 SOP / locked spec：在其明确 scope 内，较具体的专项规则优先于较早的通用表述；
+4. Gate README / Dashboard：摘要与派生显示，不应另行创造与正式 SOP 冲突的新规则。
+
+当前 Story Shot 的操作权威为 `RC-024 + RC-025 + gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md`。P0.2 的 Asset Registry `SHOT` Schema / Naming Rule 继续有效，但不自动等同于 P0.3 `STORY_SHOT` operational layer。
+
 ## Project Control Closeout
 
 - 每完成一个会改变正式项目事实的重要 Step / 正式任务 / 工程任务 / Product Owner 决策 / 规则变更，必须检查并同步所有受影响的 Project Control 文件，不能只更新单一 progress 文件。
