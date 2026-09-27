@@ -82,6 +82,25 @@ Operational boundary:
 
 This rule is project-level governance under RC-022 / BL-D-070 and applies to N03 and subsequent formal Work-based image generation.
 
+## Locked Story Shot production + registration SOP
+
+RC-024 standardizes the complete formal Story Shot lifecycle as:
+
+`Director Design → Reference Delivery Bundle → Work Generation → Product Owner Approval → Original PNG Upload → Binary Verification → Exact-Blob Canonical Rename → Story Shot Index Registration → Registration Verification → Project Control Closeout`
+
+Formal SOP:
+
+`docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md`
+
+Hard completion gates:
+
+1. Product Owner approved;
+2. canonical binary published;
+3. Story Shot Index registered;
+4. registration verification PASS.
+
+Approval alone, upload alone, or index registration without binary identity verification does not constitute formal completion.
+
 ## Story Shot model
 
 Product Owner approved the following model on 2026-09-25:
@@ -95,7 +114,7 @@ Product Owner approved the following model on 2026-09-25:
 
 Implementation boundary for 2026-09-25 was historical and is now superseded by the implemented Story Shot system.
 
-Implementation status as of 2026-09-26:
+Implementation status as of 2026-09-27:
 
 `IMPLEMENTED / ACTIVE / 17 APPROVED STORY SHOTS / OPENING V2 STORY-SHOT SET COMPLETE`
 
@@ -141,6 +160,7 @@ Opening V2 Story-Shot Set is now complete and fully covered by approved Story Sh
 
 See:
 
+- `story_shot_production_registration_sop_v1.md`
 - `p0_3_progress_closeout_2026-09-23.md`
 - `p0_3_progress_closeout_2026-09-25.md`
 
