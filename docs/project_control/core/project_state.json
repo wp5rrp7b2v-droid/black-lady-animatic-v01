@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R091",
+  "state_revision": "R092",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / 17 APPROVED STORY SHOTS / REVISED OPENING V2 PROOF ASSEMBLY NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / OPENING V2 CONTEXTUAL PROOF TECHNICAL PASS / PRODUCT OWNER ARTISTIC REVIEW NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Opening V2 Story-Shot expansion is complete. Product Owner approved N06 Candidate 02 and N07 Candidate 01. GitHub Actions run 36289949835 independently verified both exact uploaded PNGs at 941×1672 with SHA-256 / byte-size / Git-blob receipts; both were canonically renamed by exact Git blob reuse and formally registered. The full approved Opening V2 sequence is A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01. Approved Story Shot count is now 17 (A01–A07 + N01–N10). P0.3 remains NOT YET VALIDATED until the revised Opening V2 proof is assembled and reviewed."
+    "note": "2026-09-27: Opening V2 contextual proof review build completed technical QC. GitHub Actions run 36294677578 rendered the full 12-shot sequence against uninterrupted canonical audio. Artifact 10923721767 is ready for Product Owner artistic review. Internal cut points remain provisional; P0.3 is NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING V2 AUDIO ALIGNMENT / CUT-POINT REVIEW",
+  "current_task": "P0.3｜OPENING V2 CONTEXTUAL PROOF REVIEW",
   "blocker": null,
-  "next_action": "Review the successful GitHub Actions Opening V2 audio analysis candidates against transcript semantics and shot functions; lock or revise the seven internal cut points before assembling the 12-shot Opening V2 proof. Do not auto-lock N03→N04=15.310s without targeted review.",
+  "next_action": "Product Owner watches the complete 33-second Opening V2 proof with uninterrupted canonical audio and 12 approved Story Shots, then identifies any timing / shot-order / motion issues. Internal cut points remain provisional until this contextual review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R091 OPENING V2 AUDIO ANALYSIS RECORD",
+    "status": "PENDING USER LOCAL PULL AFTER R092 OPENING V2 CONTEXTUAL PROOF RECORD",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-OPENING-V2-AUDIO-ALIGNMENT-V001 GITHUB MAIN"
+    "target": "POST-OPENING-V2-CONTEXTUAL-PROOF-V001 GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,18 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V2-AUDIO-ALIGNMENT-R091",
-    "status": "P0.3 IN PROGRESS / OPENING V2 AUDIO ANALYSIS PASS / INTERNAL CUT-POINT DIRECTOR REVIEW NEXT / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-OPENING-V2-CONTEXTUAL-PROOF-R092",
+    "status": "P0.3 IN PROGRESS / OPENING V2 CONTEXTUAL PROOF TECHNICAL RENDER PASS / PO ARTISTIC REVIEW NEXT / NOT YET VALIDATED",
     "completed": [
-      "Canonical audio identity independently revalidated in GitHub Actions: SHA-256 8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0; 4,957,338 bytes; 359.141995 sec.",
-      "Opening V2 0.000–33.020 sec analysis completed in GitHub Actions run 36293571350.",
-      "Artifact P03_OPENING_V2_AUDIO_ALIGNMENT_ANALYSIS_V001 published as artifact ID 10922898643.",
-      "Fixed verified transcript boundaries retained at 3.250, 6.550, 19.700, 30.030 and 33.020 sec.",
-      "Seven internal acoustic candidates generated: 8.940, 11.200, 13.200, 15.310, 21.620, 24.420 and 27.160 sec.",
-      "No true silence interval was detected in the opening window across the tested thresholds; internal points remain candidates rather than locked edit boundaries.",
-      "N03→N04=15.310 sec is explicitly weak because the selected valley hit the edge of the search window."
+      "Stopped isolated 3-second cut-point approval as the primary review method; those clips were review windows only, not equal 3-second final segmentation.",
+      "Built a contextual 12-shot Opening V2 proof using one uninterrupted canonical audiobook track.",
+      "Sequence: A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01.",
+      "Draft 01 internal cut candidates from audio analysis are used provisionally so timing can be judged together with the images.",
+      "GitHub Actions run 36294677578 completed successfully.",
+      "Artifact P03_OPENING_V2_PROOF_REVIEW_V001 published as artifact ID 10923721767.",
+      "Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio, full decode PASS.",
+      "Output MP4 SHA-256 d538c87e8da781aec61401b2c7a01ce5e25a4ad0de038299d598685d376e771e.",
+      "Motion treatment deliberately avoids applying the same push-in to every shot; some shots are static and selected shots use restrained push/pull."
     ],
-    "resume_from": "Director review of the seven internal audio cut candidates, followed by targeted listening / stronger alignment only for ambiguous boundaries, then lock the 12-shot Opening V2 timeline.",
+    "resume_from": "Product Owner watches P03_OPENING_V2_PROOF_REVIEW_V001 and reviews the complete audio-image rhythm. Do not lock internal cut points or claim P0.3 PASS before that review.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -513,13 +515,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V063",
+    "version": "V064",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R091 / OPENING V2 AUDIO ANALYSIS PASS / CUT REVIEW NEXT",
-    "derived_from_revision": "R091",
+    "status": "CURRENT / DERIVED FROM R092 / OPENING V2 CONTEXTUAL PROOF TECHNICAL PASS / PO REVIEW NEXT",
+    "derived_from_revision": "R092",
     "last_updated": "2026-09-27",
-    "current_task": "OPENING V2 AUDIO ALIGNMENT / CUT-POINT REVIEW"
+    "current_task": "OPENING V2 CONTEXTUAL PROOF REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -775,7 +777,7 @@
     ]
   },
   "opening_v2_audio_alignment": {
-    "status": "ANALYSIS PASS / DIRECTOR LOCK PENDING",
+    "status": "ANALYSIS PASS / CANDIDATES FED INTO CONTEXTUAL PROOF / FINAL LOCK PENDING PO REVIEW",
     "analysis_scope_sec": [
       0,
       33.02
@@ -804,6 +806,33 @@
     },
     "weak_candidate": "N03_to_N04 = 15.310 sec / edge of ±0.90 sec search window",
     "silence_detection": "NO TRUE SILENCE INTERVAL FOUND AT TESTED THRESHOLDS",
-    "final_cut_lock": "PENDING DIRECTOR REVIEW"
+    "final_cut_lock": "PENDING PRODUCT OWNER CONTEXTUAL PROOF REVIEW"
+  },
+  "opening_v2_proof_review": {
+    "status": "TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED",
+    "sequence": [
+      "A01",
+      "A02",
+      "N06",
+      "N02",
+      "N07",
+      "N03",
+      "N04",
+      "N08",
+      "N09",
+      "N10",
+      "N05",
+      "N01"
+    ],
+    "source_commit": "56e88fe18207c56a311f85baf958850b6ede575c",
+    "workflow_run": 36294677578,
+    "artifact_name": "P03_OPENING_V2_PROOF_REVIEW_V001",
+    "artifact_id": 10923721767,
+    "artifact_digest": "sha256:e928f8f91f578159e16711c64f6fa215a347603563901d13bee332b2981d3af2",
+    "output_sha256": "d538c87e8da781aec61401b2c7a01ce5e25a4ad0de038299d598685d376e771e",
+    "output_byte_size": 15409831,
+    "output_spec": "1080x1920 / H.264 yuv420p / 30fps / 991 frames / 33.033333s video / AAC continuous audio",
+    "timing_rule": "Draft 01 uses audio-analysis candidates only for contextual review; internal cuts are not director-locked.",
+    "review_rule": "Judge full audiovisual sequence first; revise timing in context rather than approving isolated 3-second clips."
   }
 }
