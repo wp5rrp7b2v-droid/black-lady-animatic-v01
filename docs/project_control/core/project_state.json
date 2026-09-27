@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R093",
+  "state_revision": "R094",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 V002 TRANSITION+MOTION ENRICHED TECHNICAL PASS / PRODUCT OWNER CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / OPENING V2 V002 PO REVIEW: ARTISTIC CHANGE TOO SUBTLE / V003 STRONGER EDITORIAL ENRICHMENT NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Opening V2 Proof Review V002 completed technical QC. V002 preserves the 12-shot sequence, uninterrupted canonical audio and Draft 01 timing while enriching 2D transitions, varied push/pull/static motion, light focus/vignette treatment, selected blur dissolves and one restrained N05 shake/settle. GitHub Actions run 36296689531 PASS; artifact 10924430609 ready for Product Owner contextual review. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-27: Product Owner reviewed Opening V2 Proof V002 and reported no perceptible difference versus V001. Technical QC remains valid, but V002 did not achieve its artistic objective. Next step is V003 with stronger, clearly visible yet controlled 2D editorial enrichment. P0.3 remains NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING V2 V002 CONTEXTUAL REVIEW",
+  "current_task": "P0.3｜OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT DESIGN",
   "blocker": null,
-  "next_action": "Product Owner reviews the full 33-second V002 proof for transition richness, focus guidance, restrained motion and overall narrative feel. Sequence, canonical audio and Draft 01 timing remain unchanged; do not lock timing or mark P0.3 PASS before PO review.",
+  "next_action": "Design and render V003 with clearly perceptible but still restrained editorial changes. Preserve the working audio/story alignment and 12-shot order; increase transition duration, motion amplitude, focus shifts and N05 action emphasis enough to be visibly distinguishable from V001/V002.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R093 OPENING V2 V002 RECORD",
+    "status": "PENDING USER LOCAL PULL AFTER R094 V002 PO REVIEW RECORD",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-OPENING-V2-PROOF-REVIEW-V002 GITHUB MAIN"
+    "target": "POST-V002-PO-REVIEW-R094 GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,20 +114,14 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V2-V002-R093",
-    "status": "P0.3 IN PROGRESS / OPENING V2 V002 TECHNICAL RENDER PASS / PO CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-OPENING-V2-V002-PO-REVIEW-R094",
+    "status": "P0.3 IN PROGRESS / V002 TECHNICAL PASS BUT ARTISTIC OBJECTIVE NOT MET / V003 NEXT / NOT YET VALIDATED",
     "completed": [
-      "Kept the approved 12-shot sequence unchanged.",
-      "Kept canonical source audio continuous and unsped.",
-      "Kept Draft 01 shot timing unchanged.",
-      "Added restrained 2D editorial enrichment: selective dissolves, two blur/focus dissolves, varied static/push/pull motion, light vignette focus guidance and one brief N05 shake/settle event.",
-      "No 2.5D depth warp, no character deformation and no Story Shot replacement.",
-      "GitHub Actions run 36296689531 completed successfully.",
-      "Artifact P03_OPENING_V2_PROOF_REVIEW_V002 published as artifact ID 10924430609.",
-      "Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio and full decode PASS.",
-      "Output MP4 SHA-256 70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a."
+      "Product Owner reviewed V002 in full context.",
+      "PO feedback: the difference from V001 was not perceptible.",
+      "V002 is retained as technical evidence only; it is not accepted as the desired editorial enrichment baseline."
     ],
-    "resume_from": "Product Owner watches P03_OPENING_V2_PROOF_REVIEW_V002 and reviews transition/motion richness in full context. Any next change should be targeted from PO feedback; no timing lock and no P0.3 PASS yet.",
+    "resume_from": "Create V003 with visibly stronger but still controlled transitions, motion and focus effects while preserving the successful audio-story alignment.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -515,13 +509,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V065",
+    "version": "V066",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R093 / OPENING V2 V002 TECHNICAL PASS / PO CONTEXTUAL REVIEW NEXT",
-    "derived_from_revision": "R093",
+    "status": "CURRENT / DERIVED FROM R094 / V002 ARTISTIC CHANGE TOO SUBTLE / V003 NEXT",
+    "derived_from_revision": "R094",
     "last_updated": "2026-09-27",
-    "current_task": "OPENING V2 V002 CONTEXTUAL REVIEW"
+    "current_task": "OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT DESIGN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -874,6 +868,8 @@
       "Story Shot binaries"
     ],
     "final_timing_lock": "PENDING PRODUCT OWNER REVIEW",
-    "gate_pass": "NOT CLAIMED"
+    "gate_pass": "NOT CLAIMED",
+    "product_owner_review": "NOT APPROVED AS ARTISTIC ENRICHMENT / DIFFERENCE NOT PERCEPTIBLE",
+    "artistic_result": "INSUFFICIENTLY DISTINCT FROM V001"
   }
 }
