@@ -5,6 +5,7 @@
 - Product Owner approved N06 Candidate 02 and N07 Candidate 01 for Opening V2.
 - Product Owner uploaded the two final PNGs into `production/image_library/approved/story_shots/`; upload verification workflow run `36289949835` independently verified the exact uploaded binaries.
 - Verification result: `PASS`; both files are PNG 941×1672 and their SHA-256 / byte sizes / Git blob SHAs matched the repository binaries.
+- Post-registration verification run `36290165666` independently returned `N06_PASS`, `N07_PASS`, `INDEX_MATCH=YES` for both files and `OVERALL_RESULT=PASS`; evidence artifact `10921183606`, digest `sha256:2c9ac4376f9532b87920aedb093eccc9b7d3226040f8ec49669acd464ef3e5dc`.
 - Upload UUID → formal canonical mapping:
   - `6ef6a4b1-e823-40f4-be98-e7d658fdaddc.png` → `N06_NEIL_SPEAKING_STATE_A_APPROVED_V001.png`
   - `33e88fb0-a959-4ab1-937c-bdd1269d7bc1.png` → `N07_NEIL_SPEAKING_STATE_C_APPROVED_V001.png`
