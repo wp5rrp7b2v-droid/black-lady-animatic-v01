@@ -1,10 +1,10 @@
 # P0.2-02｜Entity / Asset Registry Schema V0.3
 
-Status: `LOCKED / PRODUCT OWNER APPROVED 2026-09-13`
+Status: `LOCKED / SCHEMA APPROVED 2026-09-13 / IMPLEMENTATION VERIFIED UNDER P0.2 / P0.2 PRODUCT OWNER APPROVED 2026-09-22`
 
 本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的 Entity / Asset Registry 正式数据模型。Schema V0.3 已通过宁秋水真实 Character 资产、A04 Shot Asset 与 Derived Character Reference Sheet 逻辑 Walkthrough，并由 Product Owner 于 2026-09-13 明确批准。
 
-本文件锁定 Schema，不代表 P0.2 Gate 已 PASS。P0.2 仍需完成角色 Tier Assignment、Gap Analysis、Scene / Costume / Prop / State / Variant 规范、Storage、Resolver、Automatic Ingest、真实迁移与工程核对，并最终提交 Product Owner Gate 审批。
+Schema V0.3 于 2026-09-13 先行锁定；其后 Tier / Gap、Storage、Resolver、Automatic Ingest、真实迁移与工程核对均已完成。P0.2 已于 2026-09-22由 Product Owner 明确批准。本文继续作为 Asset Registry 正式 Schema。
 
 ## 0. Scope Clarification｜RC-025
 
@@ -474,16 +474,14 @@ A04 中出现多个 Character 不影响 Shot Asset 归属；人物/场景关系�
 6. Canonical Shot ID 移除历史 `REBOOT` 标记；
 7. 多人物 Shot 的人物组成由 Shot Register / Shot Spec 表达，不进入 Shot filename。
 
-## 20. Gate Boundary
+## 20. Gate Boundary｜Historical Sequence
 
-Schema V0.3 已 LOCK，但 P0.2 Gate 仍为 ACTIVE。
+Schema V0.3 的原实施顺序为：
 
-下一阶段：
+`Schema V0.3 LOCK → Character Tier Assignment → Gap Analysis → historical asset mapping → Resolver / Automatic Ingest validation → Gate Review`
 
-`Schema V0.3 LOCK → 9 Character Tier Assignment → Gap Analysis → historical asset mapping / remaining engineering checks → downstream Resolver / Automatic Ingest validation`
+该顺序已经完成。P0.2 于 2026-09-22由 Product Owner 明确批准，当前状态为：
 
-P0.2 技术与治理条件满足后只能进入：
+`PASS / PRODUCT OWNER APPROVED`
 
-`READY_FOR_APPROVAL / WAITING_PO_APPROVAL`
-
-最终 `PASS` 必须由 Product Owner 明确审批。
+本 Schema 后续继续作为已批准 Asset Registry 数据模型；任何 Schema 变更必须通过新的规则 / version 记录，不得在本文中静默改写历史。
