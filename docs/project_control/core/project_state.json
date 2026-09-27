@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R094",
+  "state_revision": "R095",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 V002 PO REVIEW: ARTISTIC CHANGE TOO SUBTLE / V003 STRONGER EDITORIAL ENRICHMENT NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT TECHNICAL PASS / PRODUCT OWNER CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner reviewed Opening V2 Proof V002 and reported no perceptible difference versus V001. Technical QC remains valid, but V002 did not achieve its artistic objective. Next step is V003 with stronger, clearly visible yet controlled 2D editorial enrichment. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-27: Opening V2 Proof Review V003 completed technical QC after one dependency-version retry. V003 preserves the 12-shot sequence, uninterrupted canonical audio and Draft 01 timing while making 2D editorial changes clearly perceptible: longer dissolves, stronger but controlled push/pull/drift, stronger focus/vignette cues, 5.5px blur/focus dissolves and one 9px/10-frame N05 settle-shake. GitHub Actions run 36297467856 PASS; artifact 10924960913 is ready for Product Owner contextual review. P0.3 remains NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT DESIGN",
+  "current_task": "P0.3｜OPENING V2 V003 CONTEXTUAL REVIEW",
   "blocker": null,
-  "next_action": "Design and render V003 with clearly perceptible but still restrained editorial changes. Preserve the working audio/story alignment and 12-shot order; increase transition duration, motion amplitude, focus shifts and N05 action emphasis enough to be visibly distinguishable from V001/V002.",
+  "next_action": "Product Owner reviews the full 33-second V003 proof and decides whether the stronger transitions, focus shifts, push/pull/drift motion and N05 action emphasis are now visibly effective without becoming excessive. Sequence, canonical audio and Draft 01 timing remain unchanged; no final timing lock or P0.3 PASS yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R094 V002 PO REVIEW RECORD",
+    "status": "PENDING USER LOCAL PULL AFTER R095 OPENING V2 V003 RECORD",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-V002-PO-REVIEW-R094 GITHUB MAIN"
+    "target": "POST-OPENING-V2-PROOF-REVIEW-V003 GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,14 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V2-V002-PO-REVIEW-R094",
-    "status": "P0.3 IN PROGRESS / V002 TECHNICAL PASS BUT ARTISTIC OBJECTIVE NOT MET / V003 NEXT / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-OPENING-V2-V003-R095",
+    "status": "P0.3 IN PROGRESS / OPENING V2 V003 TECHNICAL RENDER PASS / PO CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
     "completed": [
-      "Product Owner reviewed V002 in full context.",
-      "PO feedback: the difference from V001 was not perceptible.",
-      "V002 is retained as technical evidence only; it is not accepted as the desired editorial enrichment baseline."
+      "V003 kept the approved 12-shot order unchanged.",
+      "Canonical source audio remains one continuous, unsped track.",
+      "Draft 01 shot timing remains unchanged.",
+      "V003 strengthened editorial treatment relative to V002: 6–12 frame dissolves, 12-frame blur/focus dissolves up to 5.5px blur, 3–5% character pushes, 6.5% N08 architectural push, 4% N03 pull-back with 16px drift, stronger focus/vignette cues, and one 9px / 10-frame N05 settle-shake.",
+      "Initial run 36297396556 failed at render because react-dom was 19.2.3 while react was 19.2.4; dependency versions were aligned and the workflow was rerun.",
+      "GitHub Actions run 36297467856 completed successfully.",
+      "Artifact P03_OPENING_V2_PROOF_REVIEW_V003 published as artifact ID 10924960913.",
+      "Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio and full decode PASS.",
+      "Output MP4 SHA-256 b6914ca1910ef0078876fc8063d079870df6927a4f1f2a7291ddf6d43ab4968f."
     ],
-    "resume_from": "Create V003 with visibly stronger but still controlled transitions, motion and focus effects while preserving the successful audio-story alignment.",
+    "resume_from": "Product Owner watches P03_OPENING_V2_PROOF_REVIEW_V003 and judges perceptibility versus excess. Any next changes should be targeted from PO feedback; no final timing lock and no P0.3 PASS yet.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -509,13 +515,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V066",
+    "version": "V067",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R094 / V002 ARTISTIC CHANGE TOO SUBTLE / V003 NEXT",
-    "derived_from_revision": "R094",
+    "status": "CURRENT / DERIVED FROM R095 / OPENING V2 V003 TECHNICAL PASS / PO CONTEXTUAL REVIEW NEXT",
+    "derived_from_revision": "R095",
     "last_updated": "2026-09-27",
-    "current_task": "OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT DESIGN"
+    "current_task": "OPENING V2 V003 CONTEXTUAL REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -871,5 +877,50 @@
     "gate_pass": "NOT CLAIMED",
     "product_owner_review": "NOT APPROVED AS ARTISTIC ENRICHMENT / DIFFERENCE NOT PERCEPTIBLE",
     "artistic_result": "INSUFFICIENTLY DISTINCT FROM V001"
+  },
+  "opening_v2_proof_review_v003": {
+    "status": "TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED",
+    "sequence": [
+      "A01",
+      "A02",
+      "N06",
+      "N02",
+      "N07",
+      "N03",
+      "N04",
+      "N08",
+      "N09",
+      "N10",
+      "N05",
+      "N01"
+    ],
+    "source_commit": "fea029bc29b44f7c4c0424ec9ccc08ef65d03149",
+    "workflow_run": 36297467856,
+    "prior_failed_run": 36297396556,
+    "prior_failed_run_cause": "React version mismatch: react 19.2.4 vs react-dom 19.2.3; corrected to 19.2.4 / 19.2.4",
+    "artifact_name": "P03_OPENING_V2_PROOF_REVIEW_V003",
+    "artifact_id": 10924960913,
+    "artifact_digest": "sha256:cdafde226070f8eec26c71eec628d2107e1fca39fb4acd0d33ed952292d1dce4",
+    "output_sha256": "b6914ca1910ef0078876fc8063d079870df6927a4f1f2a7291ddf6d43ab4968f",
+    "output_byte_size": 21326666,
+    "output_spec": "1080x1920 / H.264 yuv420p / 30fps / 991 frames / 33.033333s video / AAC continuous audio",
+    "editorial_changes": [
+      "12-frame opening/closing fades",
+      "selected 6–12 frame dissolves",
+      "12-frame blur/focus dissolves up to 5.5px blur",
+      "3–5% human-shot pushes where appropriate",
+      "N08 architecture push to 6.5%",
+      "N03 4% pull-back + 16px horizontal drift",
+      "stronger focus/vignette guidance",
+      "one N05 9px / 10-frame settle-shake"
+    ],
+    "unchanged": [
+      "12-shot sequence",
+      "canonical source audio",
+      "Draft 01 timing",
+      "Story Shot binaries"
+    ],
+    "final_timing_lock": "PENDING PRODUCT OWNER REVIEW",
+    "gate_pass": "NOT CLAIMED"
   }
 }
