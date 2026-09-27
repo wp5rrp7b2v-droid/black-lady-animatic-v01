@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R089",
+  "state_revision": "R090",
   "last_updated": "2026-09-27",
   "session_status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / 17 APPROVED STORY SHOTS / REVISED OPENING V2 PROOF ASSEMBLY NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R089 RULE STANDARDIZATION",
+    "status": "PENDING USER LOCAL PULL AFTER R090 RULE CONSISTENCY AUDIT",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-RC-024 STORY_SHOT SOP GITHUB MAIN"
+    "target": "POST-RC-025 RULE CONSISTENCY GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,15 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-STORY-SHOT-SOP-R089",
-    "status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / RC-024 SOP ACTIVE / REVISED PROOF ASSEMBLY NEXT",
+    "id": "2026-09-27-P03-RULE-CONSISTENCY-R090",
+    "status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / RC-024+RC-025 CONSISTENCY LOCKED / REVISED PROOF ASSEMBLY NEXT",
     "completed": [
-      "N06 and N07 are Product Owner approved, formally registered, and independently verified.",
-      "Approved Story Shot count remains 17: A01–A07 + N01–N10.",
-      "Opening V2 12-shot sequence is fully covered by approved Story Shots.",
-      "RC-024 standardized the formal Story Shot production + registration lifecycle.",
-      "Story Shot Production & Registration SOP V1 is now the active project standard.",
-      "Formal Story Shot completion requires PO approval, canonical binary publication, Story Shot Index registration, and registration verification PASS."
+      "Story Shot Production & Registration SOP V1 remains ACTIVE.",
+      "RC-025 reconciled Story Shot operational rules with P0.2 Asset Registry SHOT / Naming / Automatic Ingest rules.",
+      "P0.2 asset_class=SHOT and P0.3 asset_class=STORY_SHOT are explicitly separate data layers; no silent dual registration is allowed.",
+      "Product Owner final PNG upload is defined as approved-output publication, not reference upload; manual PO reference upload remains 0.",
+      "Existing N01–N10 Story Shot canonical filenames are preserved; any future migration to Asset Registry SHOT requires explicit ingest, Asset ID assignment, P0.2-compliant naming, and source identity mapping.",
+      "Governance stale fields were corrected: repo visibility is public, D-number is no longer hardcoded, and P0 boundary now permits representative Story Shot production for P0.3 validation.",
+      "Project Control rule precedence is documented to prevent future duplicated-rule drift."
     ],
     "resume_from": "Assemble and review the revised 12-shot Opening V2 proof from canonical audio + approved Story Shots.",
     "blockers": []
@@ -158,7 +159,7 @@
       "AST_IMG_000051"
     ],
     "asset_registry_record_count": 83,
-    "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail",
+    "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail (P0.2 long-term Asset Registry model; P0.3 STORY_SHOT operational layer is governed separately by RC-024/RC-025)",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
     "media_codes": [
@@ -241,7 +242,7 @@
     "archived_shot_rule": "APPROVED locked A-Series shot assets may remain lifecycle=ARCHIVED and resolver_usage=CONDITIONAL for continuity / previous-shot / explicit-shot reference use.",
     "scene_master_rule": "Scene Master locks scene facts, not shot photography. Changes to locked scene facts require controlled Scene Variant / State.",
     "derived_dependency_rule": "If a DERIVED_REFERENCE upstream dependency becomes superseded/deprecated/invalid, compute DEPENDENCY_STALE; do not add it to Lifecycle and do not allow DEFAULT Resolver use until regenerated and approved.",
-    "normal_user_role": "creative judgment, exception handling, formal approval; no routine manual reference picking/naming/storage/registration",
+    "normal_user_role": "creative judgment, exception handling, formal approval; no routine manual reference picking/naming/registry registration. RC-024 permits one approved Story Shot final-output PNG publication step; this is not reference upload.",
     "required_capabilities": [
       "tiered standardized Character Core Set",
       "Scene / Costume / Prop / State / Variant specification",
@@ -348,7 +349,8 @@
       "product_owner_manual_reference_upload_target": 0,
       "codex_role": "NOT PART OF STANDARD REFERENCE DELIVERY BUNDLE PATH",
       "local_zip_upload": "NOT PART OF STANDARD PATH"
-    }
+    },
+    "story_shot_scope_boundary": "P0.2 asset_class=SHOT is Asset Registry-managed; P0.3 asset_class=STORY_SHOT is indexed in production/story_shots/story_shot_index.jsonl. No silent dual registration; migration requires explicit ingest/mapping."
   },
   "visual_asset_audit_preliminary": {
     "characters": 9,
@@ -511,11 +513,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V061",
+    "version": "V062",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R089 / OPENING V2 STORY-SHOT SET COMPLETE / RC-024 SOP ACTIVE / REVISED PROOF NEXT",
-    "derived_from_revision": "R089",
+    "status": "CURRENT / DERIVED FROM R090 / RC-024+RC-025 CONSISTENCY LOCKED / OPENING V2 PROOF NEXT",
+    "derived_from_revision": "R090",
     "last_updated": "2026-09-27",
     "current_task": "OPENING V2 PROOF ASSEMBLY"
   },
@@ -732,7 +734,7 @@
     },
     "production_registration_sop": {
       "status": "ACTIVE / PROJECT STANDARD",
-      "rule_change_id": "RC-024",
+      "rule_change_id": "RC-024 + RC-025",
       "path": "docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md",
       "standard_flow": "Director Design → Reference Delivery Bundle → Work Generation → Product Owner Approval → Original PNG Upload → Binary Verification → Exact-Blob Canonical Rename → Story Shot Index Registration → Registration Verification → Project Control Closeout",
       "formal_completion_gates": [
@@ -743,7 +745,32 @@
       ],
       "fail_closed_on_identity_mismatch": true,
       "normal_manual_po_reference_upload": 0,
-      "exact_binary_preservation_required": true
+      "exact_binary_preservation_required": true,
+      "scope_boundary": "STORY_SHOT operational layer only; not automatically an Asset Registry asset_class=SHOT record",
+      "reference_upload_rule": "manual Product Owner reference upload = 0",
+      "final_output_publication_rule": "after PO approval, exact original PNG may be manually published to canonical GitHub intake; canonical naming/index/verification remain system-managed"
     }
+  },
+  "rule_consistency_audit": {
+    "date": "2026-09-27",
+    "status": "PASS / CONFLICTS RESOLVED",
+    "rule_change_id": "RC-025",
+    "reviewed_files": [
+      "docs/project_control/core/governance.md",
+      "docs/project_control/gates/P0_2_visual_assets/visual_asset_management_system_v1.md",
+      "docs/project_control/gates/P0_2_visual_assets/asset_naming_rules_v1.md",
+      "docs/project_control/gates/P0_2_visual_assets/entity_asset_registry_schema_v0_3.md",
+      "docs/project_control/gates/P0_3_video_pipeline/README.md",
+      "docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md",
+      "docs/project_control/logs/rules_change_log.md"
+    ],
+    "resolved": [
+      "P0.2 SHOT naming versus P0.3 STORY_SHOT naming scope",
+      "Automatic Ingest zero-manual target versus current Story Shot final-output publication bridge",
+      "reference upload = 0 versus approved output PNG publication",
+      "stale private-repo wording",
+      "stale hardcoded D-number",
+      "historical P0 boundary versus representative P0.3 Story Shot production"
+    ]
   }
 }
