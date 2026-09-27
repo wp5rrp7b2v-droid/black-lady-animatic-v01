@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Opening V2 Audio Alignment Analysis V001
+
+- Chat created and executed a GitHub Actions analysis workflow against the exact canonical audio binary.
+- Canonical audio identity passed: SHA-256 `8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0`, byte size `4,957,338`, duration `359.141995 sec`.
+- Successful run: `36293571350`.
+- Artifact: `P03_OPENING_V2_AUDIO_ALIGNMENT_ANALYSIS_V001`, artifact ID `10922898643`, digest `sha256:2da55ec3eaec37038642ad27a39e3e77e59dcc9a6b62eeb93c5d3847455764b0`.
+- Analysis scope: `00:00.000–00:33.020`.
+- Fixed VERIFIED transcript boundaries retained: `3.250 / 6.550 / 19.700 / 30.030 / 33.020 sec`.
+- Internal acoustic candidates produced: `8.940 / 11.200 / 13.200 / 15.310 / 21.620 / 24.420 / 27.160 sec`.
+- Multi-threshold silence detection did not find true silence intervals in the opening window; candidates therefore use transcript-semantic rough targets refined by local low-energy valleys.
+- `N03→N04 = 15.310s` hit the edge of its ±0.90s search window and remains specifically untrusted until director / listening review.
+- No final internal cut point was auto-approved; director lock remains pending.
 ## 2026-09-27｜RC-025 Rule Consistency Audit
 
 - Reviewed current rule-bearing documents across Project Control after RC-024 Story Shot SOP standardization.
