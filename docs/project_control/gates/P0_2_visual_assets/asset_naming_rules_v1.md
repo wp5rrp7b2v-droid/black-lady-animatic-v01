@@ -1,10 +1,10 @@
 # P0.2-02｜Asset Naming Rules V1
 
-Status: `LOCKED / UPDATED FOR REGISTRY SCHEMA V0.3 / IMPLEMENTATION NOT YET VALIDATED`
+Status: `LOCKED / IMPLEMENTED + VALIDATED / P0.2 PRODUCT OWNER APPROVED 2026-09-22`
 
 本文件定义《诡舍·黑衣夫人》Visual Asset Management System V1 的正式资产命名与永久 ID 规则。基础规则由 Product Owner 于 2026-09-12 批准；2026-09-13 随 Entity / Asset Registry Schema V0.3 正式修订并再次纳入锁定基线。
 
-本规则不代表 P0.2 Gate 已通过；后续仍需完成 Automatic Ingest、Storage 与真实资产迁移验证。
+本规则最初在 P0.2 Gate 内锁定；Automatic Ingest、Storage / canonical publication 与真实资产迁移随后已完成验证，P0.2 已于 2026-09-22由 Product Owner 明确批准。
 
 ## 0. Scope Clarification｜RC-025
 
