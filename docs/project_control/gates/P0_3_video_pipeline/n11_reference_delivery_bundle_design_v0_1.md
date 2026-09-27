@@ -1,6 +1,6 @@
 # N11｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / BUILT / 6 OF 6 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Target bundle ID: `N11_REFERENCE_DELIVERY_BUNDLE_V001`
 
@@ -223,17 +223,31 @@ Retention:
 Manual Product Owner reference upload:
 `0`
 
-## 9. Build boundary
+## 9. Build result
 
-Current stage is Bundle **design only**.
+- Product Owner approved Bundle Design V0.1 on 2026-09-27.
+- Workflow source commit: `ac83d41398f8fe7d6f3ef0ef24ca1921e8804909`
+- Successful run: `36303103682`
+- Artifact ID: `10925624760`
+- Artifact digest: `sha256:f2bba3b9dcb3a064c20b4cdc2267d8bc7862ec9c8d9f20d700ae6b5715aa2c4f`
+- Exact reference verification: `6/6 PASS`
+- A03 computed SHA-256: `5dc075a6f917fb7fdc05cf299315675bfdd5db4a0d737518ef4aafeacc78ee1e`
 
-Not yet authorized in this document:
+Formal build record:
 
-- creating the temporary GitHub Actions workflow;
-- running the bundle build;
-- Work image generation;
-- Story Shot registration;
-- Project Control closeout for N11.
+`docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_v001_build_record_2026-09-27.md`
 
-Next gate:
-Product Owner reviews this Bundle Design V0.1.
+## 10. Production boundary
+
+Bundle design and build are complete.
+
+Authorized next step:
+
+- ChatGPT Work may use `N11_REFERENCE_DELIVERY_BUNDLE_V001` to generate exactly one `N11 Candidate 01`.
+
+Still not authorized:
+
+- N12 generation;
+- N11 Story Shot registration before Product Owner approval;
+- S02-A final timeline lock;
+- P0.3 Gate PASS.

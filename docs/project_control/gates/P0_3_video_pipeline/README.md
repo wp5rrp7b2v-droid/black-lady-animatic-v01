@@ -522,3 +522,29 @@ Bundle design:
 `docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_design_v0_1.md`
 
 No temporary workflow, artifact build, Work generation, or N11 Story Shot registration has been authorized yet.
+
+## N11 Reference Delivery Bundle V001｜Built 2026-09-27
+
+Status: `BUILT / 6 OF 6 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
+
+Product Owner approved Bundle Design V0.1. Chat then executed the existing locked RC-022 / RC-023 delivery path directly through GitHub Actions.
+
+- workflow: `.github/workflows/p03-n11-reference-delivery-bundle-v001.yml`
+- source commit: `ac83d41398f8fe7d6f3ef0ef24ca1921e8804909`
+- run: `36303103682`
+- job: `108574387646`
+- artifact: `N11_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact ID: `10925624760`
+- artifact digest: `sha256:f2bba3b9dcb3a064c20b4cdc2267d8bc7862ec9c8d9f20d700ae6b5715aa2c4f`
+- exact verification: `6/6 PASS`
+- Product Owner manual reference upload: `0`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+Next:
+
+`Work automatic artifact acquisition + revalidation → generate N11 Candidate 01 only → Product Owner review`
+
+Do not start N12 or register N11 before N11 Candidate 01 is explicitly approved.
