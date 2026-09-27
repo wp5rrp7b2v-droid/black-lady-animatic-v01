@@ -6,6 +6,17 @@ Status: `LOCKED / PRODUCT OWNER APPROVED 2026-09-13`
 
 本文件锁定 Schema，不代表 P0.2 Gate 已 PASS。P0.2 仍需完成角色 Tier Assignment、Gap Analysis、Scene / Costume / Prop / State / Variant 规范、Storage、Resolver、Automatic Ingest、真实迁移与工程核对，并最终提交 Product Owner Gate 审批。
 
+## 0. Scope Clarification｜RC-025
+
+Schema V0.3 中的 `asset_class = SHOT` 专指 **Asset Registry-managed Shot Asset**。
+
+它与 P0.3 自 2026-09-25 起建立的 `asset_class = STORY_SHOT` / `production/story_shots/story_shot_index.jsonl` 不是同一个数据表或自动同义类。`STORY_SHOT` 是当前叙事构图 / 剪辑 operational layer；只有通过显式 migration / ingest 才能成为本 Schema 的 `SHOT` Asset Registry record。
+
+因此：
+
+- 本 Schema 的 Asset ID、filename、Automatic Ingest、Relations 与 Audit Trail 规则继续完全有效；
+- RC-024 / RC-025 只在 Story Shot operational workflow 范围内提供更具体的新规则；
+- 不允许因 shot_id 相同而静默认为 Story Shot 已进入 Asset Registry，也不允许反向覆盖。
 ## 1. 长期数据模型
 
 正式系统保持四个长期数据层：
