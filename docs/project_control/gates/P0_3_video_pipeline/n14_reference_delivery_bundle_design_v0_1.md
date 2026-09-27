@@ -1,6 +1,6 @@
 # N14｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-27
 
@@ -215,17 +215,36 @@ Expected build log:
 
 `PASS: 5/5 exact canonical reference binaries verified`
 
-## 8. Current boundary
+## 8. Build result
 
-This document designs the Bundle only.
+- Source commit: `ae34a3a5722473f1888d23db2f1f9a596f6978bb`
+- Run: `36317403211`
+- Job: `108614612409`
+- Artifact ID: `10931321832`
+- Artifact digest: `sha256:40236e5e4d33f1d0a5b76eef455ff51ca688238fef42fdb054987ecc60bc317a`
+- Artifact size: `12618491` bytes
+- Exact verification: `5/5 PASS`
+- A04 computed SHA-256: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`
 
-Not yet authorized:
+Build prep:
 
-- GitHub Actions build;
-- artifact creation;
-- Work generation;
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_prep.md`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+## 9. Current boundary
+
+The Product Owner approved the Bundle design and authorized real construction.
+
+The Bundle has now been built and verified.
+
+Authorized next step:
+
+`Work automatic artifact acquisition + 5/5 revalidation → N14 Candidate 01`
+
+Not authorized yet:
+
+- N15 generation;
 - Story Shot registration.
-
-Next:
-
-`Product Owner review → Build Prep → Product Owner build authorization`

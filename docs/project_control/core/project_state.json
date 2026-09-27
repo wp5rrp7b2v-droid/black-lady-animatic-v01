@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R113",
+  "state_revision": "R114",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N14 DIRECTOR DESIGN APPROVED / N14 BUNDLE DESIGN V0.1 IN REVIEW",
+  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N14 BUNDLE V001 BUILT + 5 OF 5 PASS / N14 CANDIDATE 01 WORK GENERATION NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved the N14 Director Shot Design direction: Ning Qiushui clear in a tight/medium close-up, Neil only as a soft referent, shallow depth of field, calm experienced analytical state. N14 Reference Delivery Bundle Design V0.1 is now in Product Owner review; no artifact has been built."
+    "note": "2026-09-27: Product Owner approved N14 Bundle Design and authorized real construction. Chat executed the locked GitHub Actions path directly. Run 36317403211 / job 108614612409 succeeded from source commit ae34a3a5722473f1888d23db2f1f9a596f6978bb. Artifact N14_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10931321832 / digest sha256:40236e5e4d33f1d0a5b76eef455ff51ca688238fef42fdb054987ecc60bc317a was produced. Five of five canonical references passed exact verification. Next: N14 Candidate 01 in Work."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N14 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW",
+  "current_task": "P0.3｜S02-A｜N14 CANDIDATE 01 FORMAL WORK GENERATION",
   "blocker": null,
-  "next_action": "Product Owner reviews N14 Reference Delivery Bundle Design V0.1. Proposed bundle uses 5 canonical references: A04 continuity, Ning FACE_FRONT, Ning BODY_FRONT, Neil BODY_FRONT as a subordinate referent, and Castle Entrance Scene Master. No build yet.",
+  "next_action": "Use ChatGPT Work to automatically acquire N14_REFERENCE_DELIVERY_BUNDLE_V001 (run 36317403211 / artifact 10931321832), revalidate all 5 PNGs against delivery_manifest.json, and generate exactly one N14 Candidate 01. Do not begin N15 or Story Shot registration before Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,15 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N14-BUNDLE-DESIGN-R113",
-    "status": "N14 DIRECTOR DESIGN APPROVED / BUNDLE DESIGN V0.1 IN REVIEW",
+    "id": "2026-09-27-P03-S02A-N14-BUNDLE-BUILT-R114",
+    "status": "N14 BUNDLE BUILT / 5 OF 5 PASS / WORK GENERATION NEXT",
     "completed": [
-      "Product Owner approved N14 Director Shot Design V0.1.",
-      "Locked N14 visual strategy: Ning primary, Neil soft referent, shallow depth of field, quiet analytical state.",
-      "Drafted N14 Reference Delivery Bundle Design V0.1 with five canonical references.",
-      "Excluded A05, N13, unpublished N11/N12 finals, future N15 and key/waist imagery."
+      "Product Owner approved N14 Reference Delivery Bundle Design V0.1.",
+      "Product Owner authorized N14_REFERENCE_DELIVERY_BUNDLE_V001 construction.",
+      "Chat created and executed the GitHub Actions workflow directly under the locked Story Shot route.",
+      "Run 36317403211 / job 108614612409 completed successfully.",
+      "Artifact N14_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10931321832 created.",
+      "All five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy verification."
     ],
-    "resume_from": "Product Owner review of N14 Reference Delivery Bundle Design V0.1.",
+    "resume_from": "Work automatic artifact acquisition + 5/5 revalidation → N14 Candidate 01 → Product Owner review.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -510,13 +512,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V085",
+    "version": "V086",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R113 / N14 BUNDLE DESIGN REVIEW",
-    "derived_from_revision": "R113",
+    "status": "CURRENT / DERIVED FROM R114 / N14 BUNDLE BUILT / WORK GENERATION NEXT",
+    "derived_from_revision": "R114",
     "last_updated": "2026-09-27",
-    "current_task": "N14 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW"
+    "current_task": "N14 CANDIDATE 01 FORMAL WORK GENERATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1305,12 +1307,12 @@
     "generation_authorized": false
   },
   "n14_reference_delivery_bundle_design_v0_1": {
-    "status": "DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT",
+    "status": "PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS / READY FOR WORK",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_design_v0_1.md",
     "bundle_id": "N14_REFERENCE_DELIVERY_BUNDLE_V001",
     "target_candidate": "N14 Candidate 01",
-    "proposed_reference_count": 5,
-    "proposed_references": [
+    "reference_count": 5,
+    "references": [
       "A04",
       "AST_IMG_000034",
       "AST_IMG_000032",
@@ -1318,6 +1320,23 @@
       "AST_IMG_000052"
     ],
     "manual_product_owner_reference_upload": 0,
-    "build_authorized": false
+    "build_authorized": true
+  },
+  "n14_reference_delivery_bundle_v001": {
+    "status": "BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION",
+    "build_prep_path": "docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_prep.md",
+    "build_record_path": "docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_record_2026-09-27.md",
+    "workflow_path": ".github/workflows/p03-n14-reference-delivery-bundle-v001.yml",
+    "source_commit": "ae34a3a5722473f1888d23db2f1f9a596f6978bb",
+    "workflow_run_id": 36317403211,
+    "job_id": 108614612409,
+    "artifact_id": 10931321832,
+    "artifact_name": "N14_REFERENCE_DELIVERY_BUNDLE_V001",
+    "artifact_digest": "sha256:40236e5e4d33f1d0a5b76eef455ff51ca688238fef42fdb054987ecc60bc317a",
+    "artifact_size_bytes": 12618491,
+    "expires_at": "2026-10-04T11:57:56Z",
+    "exact_reference_verification": "5/5 PASS",
+    "a04_computed_sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
+    "manual_product_owner_reference_upload": 0
   }
 }

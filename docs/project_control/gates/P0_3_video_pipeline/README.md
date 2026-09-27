@@ -855,3 +855,31 @@ Document:
 
 Next:
 `Product Owner review → Build Prep`
+
+## N14 Reference Delivery Bundle V001｜Built 2026-09-27
+
+Status: `BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
+
+- workflow: `.github/workflows/p03-n14-reference-delivery-bundle-v001.yml`
+- source commit: `ae34a3a5722473f1888d23db2f1f9a596f6978bb`
+- run: `36317403211`
+- job: `108614612409`
+- artifact: `N14_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact ID: `10931321832`
+- artifact digest: `sha256:40236e5e4d33f1d0a5b76eef455ff51ca688238fef42fdb054987ecc60bc317a`
+- artifact size: `12618491` bytes
+- exact verification: `5/5 PASS`
+- A04 computed SHA-256: `8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398`
+- Product Owner manual reference upload: `0`
+
+Build prep:
+
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_prep.md`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+Next:
+
+`Work automatic artifact acquisition + revalidation → N14 Candidate 01 → Product Owner review`
