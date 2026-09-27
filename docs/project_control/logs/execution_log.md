@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Opening V2 Proof Review V002
+
+- Product Owner requested richer image transitions and context-sensitive 2D motion while preserving the now-working audio/story alignment.
+- Chat implemented V002 directly in GitHub and triggered GitHub Actions; no Codex handoff was required.
+- V002 preserves the 12-shot sequence, uninterrupted canonical source audio and Draft 01 timing.
+- Added selective dissolves, two blur/focus dissolves, varied static/push/pull/light-drift motion, light focus/vignette treatment and one restrained N05 shake/settle event.
+- GitHub Actions run `36296689531` completed successfully.
+- Artifact `P03_OPENING_V2_PROOF_REVIEW_V002`, ID `10924430609`, digest `sha256:323a48034e45562b5153d635dbe565f51211d81a694c44202b6da92e4deba2ac`.
+- Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio, full decode PASS.
+- MP4 SHA-256: `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`.
+- No P0.3 PASS and no final timing lock claimed.
+- Next: Product Owner full-sequence contextual review.
+
 ## 2026-09-27｜Opening V2 Contextual Proof Review V001
 
 - Product Owner rejected isolated 3-second cut-point listening as the primary approval method because the perceived pauses felt unnatural and timing must be judged with the images.
