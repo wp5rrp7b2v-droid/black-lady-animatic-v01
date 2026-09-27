@@ -101,6 +101,13 @@ Hard completion gates:
 
 Approval alone, upload alone, or index registration without binary identity verification does not constitute formal completion.
 
+### Authority / precedence
+
+- This README is a Gate summary, not the primary operational SOP.
+- Story Shot operational authority: `story_shot_production_registration_sop_v1.md` + RC-024 / RC-025.
+- P0.2 Asset Registry `SHOT` rules continue to govern Asset Registry records; they do not retroactively rename or auto-register P0.3 `STORY_SHOT` records.
+- Product Owner upload in the Story Shot SOP is final approved-output publication only; normal reference delivery remains automated with manual PO reference upload = 0.
+
 ## Story Shot model
 
 Product Owner approved the following model on 2026-09-25:
