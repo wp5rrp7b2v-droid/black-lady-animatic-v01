@@ -1,0 +1,318 @@
+name: P03 N12 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n12-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N12 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, shutil, struct
+
+          ROOT = pathlib.Path.cwd().resolve()
+          SOURCE_COMMIT = os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID = "N12_REFERENCE_DELIVERY_BUNDLE_V001"
+          OUT = ROOT / BUNDLE_ID
+          VISUAL = OUT / "visual_refs"
+          CONTINUITY = OUT / "continuity_refs"
+          REGISTRY_PATH = ROOT / "production/asset_registry/asset_registry.jsonl"
+          STORY_INDEX_PATH = ROOT / "production/story_shots/story_shot_index.jsonl"
+
+          ASSETS = {
+              "AST_IMG_000028": {
+                  "entity_id": "CHAR_NEIL", "role": "FACE_FRONT",
+                  "authority_class": "MASTER", "resolver_usage": "DEFAULT",
+                  "approval_status": "APPROVED", "lifecycle": "CURRENT",
+                  "sha256": "e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939",
+                  "byte_size": 2517908,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "git_blob_sha": "f3e74a06562d8751dd84c0d228b486769abdd254",
+                  "responsibility": "NEIL_FACE_IDENTITY_AUTHORITY",
+              },
+              "AST_IMG_000027": {
+                  "entity_id": "CHAR_NEIL", "role": "FACE_3Q_LEFT",
+                  "authority_class": "MASTER", "resolver_usage": "DEFAULT",
+                  "approval_status": "APPROVED", "lifecycle": "CURRENT",
+                  "sha256": "252f18eff4511a6b1255c751448a7fb667ad68ea2f9ebae49824ce3f453ea037",
+                  "byte_size": 2529346,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+                  "git_blob_sha": "0d2638f02caa2697220f0073109fedac50e68246",
+                  "responsibility": "NEIL_3Q_IDENTITY_AND_CAMERA_ANGLE_AUTHORITY",
+              },
+              "AST_IMG_000026": {
+                  "entity_id": "CHAR_NEIL", "role": "BODY_FRONT",
+                  "authority_class": "MASTER", "resolver_usage": "DEFAULT",
+                  "approval_status": "APPROVED", "lifecycle": "CURRENT",
+                  "sha256": "f78ccfc252d2ed0cb31117ce1dae4c84893c5e52611a27fac161c8e6d014cf3d",
+                  "byte_size": 2605161,
+                  "path": "production/image_library/character_references/neil/CHAR_NEIL_BODY_FRONT_DEFAULT_DEFAULT_V001.png",
+                  "git_blob_sha": "59939fba0a02b9364dbdc2d9ff8203fb57efa7f4",
+                  "responsibility": "NEIL_BODY_AND_COSTUME_STRUCTURE_AUTHORITY",
+              },
+              "AST_IMG_000052": {
+                  "entity_id": "SCENE_CASTLE_ENTRANCE", "role": "SCENE_MASTER",
+                  "authority_class": "MASTER", "resolver_usage": "CONDITIONAL",
+                  "approval_status": "APPROVED", "lifecycle": "CURRENT",
+                  "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+                  "byte_size": 2305753,
+                  "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+                  "git_blob_sha": "e4dafe096f5c5c8782257030a5a659aeec7808f9",
+                  "responsibility": "SCENE_FACT_AUTHORITY",
+              },
+          }
+
+          N01 = {
+              "approval_status": "APPROVED", "lifecycle": "CURRENT",
+              "byte_size": 2687303,
+              "path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+              "git_blob_sha": "d55d2c218926c0b916c67d34979887315c351a1c",
+              "sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+              "responsibility": "POST_OPENING_INSIDE_THRESHOLD_CONTINUITY",
+          }
+
+          def sha256_bytes(data):
+              return hashlib.sha256(data).hexdigest()
+
+          def git_blob_sha(data):
+              return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+
+          def png_dimensions(data):
+              if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit("Invalid PNG signature")
+              return struct.unpack(">II", data[16:24])
+
+          def require_file(path):
+              if not path.is_file() or path.is_symlink():
+                  raise SystemExit(f"Missing or redirected canonical binary: {path}")
+              if path.resolve() != path:
+                  raise SystemExit(f"Canonical path resolution mismatch: {path}")
+
+          if OUT.exists() or OUT.is_symlink():
+              raise SystemExit(f"Refusing to overwrite bundle path: {OUT}")
+          VISUAL.mkdir(parents=True)
+          CONTINUITY.mkdir()
+
+          registry_rows = [json.loads(line) for line in REGISTRY_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
+          story_rows = [json.loads(line) for line in STORY_INDEX_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
+          refs = []
+
+          for aid, exp in ASSETS.items():
+              rows = [row for row in registry_rows if row.get("asset_id") == aid]
+              if len(rows) != 1:
+                  raise SystemExit(f"{aid} registry cardinality mismatch: {len(rows)}")
+              row = rows[0]
+              checks = {
+                  "entity_id": row.get("entity_id") == exp["entity_id"],
+                  "role": row.get("role") == exp["role"],
+                  "authority_class": row.get("authority_class") == exp["authority_class"],
+                  "resolver_usage": row.get("resolver_usage") == exp["resolver_usage"],
+                  "approval_status": row.get("approval_status") == exp["approval_status"],
+                  "lifecycle": row.get("lifecycle") == exp["lifecycle"],
+                  "sha256": row.get("sha256") == exp["sha256"],
+                  "byte_size": row.get("byte_size") == exp["byte_size"],
+                  "storage_uri": row.get("storage_uri") == exp["path"],
+              }
+              if not all(checks.values()):
+                  raise SystemExit(f"{aid} registry validation failed: {checks}")
+
+              src = ROOT / exp["path"]
+              require_file(src)
+              data = src.read_bytes()
+              actual_sha = sha256_bytes(data)
+              actual_blob = git_blob_sha(data)
+              width, height = png_dimensions(data)
+              if actual_sha != exp["sha256"] or len(data) != exp["byte_size"] or actual_blob != exp["git_blob_sha"]:
+                  raise SystemExit(f"{aid} binary identity mismatch")
+
+              dst = VISUAL / f"{aid}__{src.name}"
+              shutil.copyfile(src, dst)
+              if dst.read_bytes() != data:
+                  raise SystemExit(f"{aid} byte-identical copy failed")
+
+              refs.append({
+                  "asset_id": aid,
+                  "shot_id": None,
+                  "role": exp["role"],
+                  "responsibility": exp["responsibility"],
+                  "authority_class": exp["authority_class"],
+                  "approval_status": exp["approval_status"],
+                  "lifecycle": exp["lifecycle"],
+                  "canonical_path": exp["path"],
+                  "filename": src.name,
+                  "bundle_path": dst.relative_to(OUT).as_posix(),
+                  "sha256": actual_sha,
+                  "byte_size": len(data),
+                  "git_blob_sha": actual_blob,
+                  "width": width,
+                  "height": height,
+                  "source_commit": SOURCE_COMMIT,
+              })
+
+          rows = [row for row in story_rows if row.get("shot_id") == "N01"]
+          if len(rows) != 1:
+              raise SystemExit(f"N01 Story Shot index cardinality mismatch: {len(rows)}")
+          row = rows[0]
+          checks = {
+              "approval_status": row.get("approval_status") == N01["approval_status"],
+              "lifecycle": row.get("lifecycle") == N01["lifecycle"],
+              "canonical_path": row.get("canonical_path") == N01["path"],
+              "byte_size": row.get("byte_size") == N01["byte_size"],
+              "github_blob_sha": row.get("github_blob_sha") == N01["git_blob_sha"],
+              "locked_sha256": row.get("sha256_locked_identity") == N01["sha256"],
+          }
+          if not all(checks.values()):
+              raise SystemExit(f"N01 Story Shot index validation failed: {checks}")
+
+          src = ROOT / N01["path"]
+          require_file(src)
+          data = src.read_bytes()
+          actual_sha = sha256_bytes(data)
+          actual_blob = git_blob_sha(data)
+          width, height = png_dimensions(data)
+          if actual_sha != N01["sha256"] or len(data) != N01["byte_size"] or actual_blob != N01["git_blob_sha"]:
+              raise SystemExit("N01 binary identity mismatch")
+
+          dst = CONTINUITY / f"N01__{src.name}"
+          shutil.copyfile(src, dst)
+          if dst.read_bytes() != data:
+              raise SystemExit("N01 byte-identical copy failed")
+
+          refs.append({
+              "asset_id": None,
+              "shot_id": "N01",
+              "role": "STORY_SHOT_CONTINUITY",
+              "responsibility": N01["responsibility"],
+              "authority_class": "CONTINUITY",
+              "approval_status": N01["approval_status"],
+              "lifecycle": N01["lifecycle"],
+              "canonical_path": N01["path"],
+              "filename": src.name,
+              "bundle_path": dst.relative_to(OUT).as_posix(),
+              "sha256": actual_sha,
+              "byte_size": len(data),
+              "git_blob_sha": actual_blob,
+              "width": width,
+              "height": height,
+              "source_commit": SOURCE_COMMIT,
+          })
+
+          if len(refs) != 5:
+              raise SystemExit(f"Reference count mismatch: {len(refs)}")
+
+          manifest = {
+              "bundle_id": BUNDLE_ID,
+              "working_shot_id": "N12",
+              "target_candidate": "N12_CANDIDATE_01",
+              "source_commit": SOURCE_COMMIT,
+              "reference_count": 5,
+              "reference_policy": "MINIMUM_CANONICAL_REFERENCES",
+              "authority_precedence": [
+                  "NEIL_FACE_IDENTITY_AUTHORITY",
+                  "NEIL_3Q_IDENTITY_AND_CAMERA_ANGLE_AUTHORITY",
+                  "NEIL_BODY_AND_COSTUME_STRUCTURE_AUTHORITY",
+                  "SCENE_FACT_AUTHORITY",
+                  "POST_OPENING_INSIDE_THRESHOLD_CONTINUITY",
+                  "DIRECTOR_NARRATIVE_INSTRUCTION_FOR_CROSS_AND_RIGID_SMILE",
+              ],
+              "excluded_references": [
+                  "N11_UNPUBLISHED_APPROVED_CANDIDATE",
+                  "N09_EXTERIOR_PLATFORM_STATE",
+                  "N10_EXTERIOR_SUBTLE_SMILE_STATE",
+              ],
+              "standalone_cross_asset_required": False,
+              "manual_product_owner_reference_upload": 0,
+              "director_lock": {
+                  "shot_scale": "MEDIUM_CLOSE_UP_HEAD_AND_UPPER_CHEST",
+                  "face_priority": "PRIMARY",
+                  "cross": "VISIBLE_BUT_SECONDARY_SIMPLE_METALLIC",
+                  "smile": "SMALL_CLOSED_MOUTH_RIGID_POLITE_NOT_WARM",
+                  "eyes": "DO_NOT_FULLY_PARTICIPATE_IN_SMILE",
+                  "neil_position": "INSIDE_THRESHOLD_FACING_OUTWARD_WAITING",
+                  "forbid_teeth": True,
+                  "forbid_hands_waist_lower_torso": True,
+                  "forbid_horror_or_religious_iconography": True,
+              },
+              "references": refs,
+              "overall_result": "PASS",
+          }
+
+          (OUT / "delivery_manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          (OUT / "WORK_HANDOFF.md").write_text(
+              "# N12 Reference Delivery Bundle V001\n\n"
+              "Purpose: formal binary transport for N12｜Cross + Rigid Smile Detail｜Candidate 01 generation.\n\n"
+              "Director lock:\n"
+              "- 9:16 vertical; medium close-up showing head + upper chest.\n"
+              "- Neil's face is the primary subject.\n"
+              "- One simple realistic metallic cross is clearly visible on the upper chest but remains secondary to the face.\n"
+              "- The cross must not glow, enlarge, dominate, or become a religious-symbol hero composition.\n"
+              "- Smile is small, closed-mouth, visibly rigid, socially polite but emotionally unconvincing.\n"
+              "- Mouth corners lift only slightly; lips closed; cheeks/mouth slightly tense; eyes do not fully participate in the smile.\n"
+              "- No teeth, broad grin, sinister smirk, sneer, horror-face distortion, vampire styling, or monsterization.\n"
+              "- Neil remains pale, around fifty, same identity, same formal black butler clothing and white shirt.\n"
+              "- Neil remains INSIDE the open castle entrance, facing outward and waiting.\n"
+              "- No turn, step, speaking, greeting gesture, hands, waist, or lower torso.\n"
+              "- Background remains darker castle interior, soft and subordinate.\n"
+              "- N01 proves post-Opening inside-threshold continuity only and must not dictate composition.\n"
+              "- Do not use N11, N09 or N10 as generation references for this bundle.\n"
+              "- No standalone Prop Asset is being created for the cross.\n\n"
+              "Validation:\n"
+              "1. Revalidate all 5 PNGs against delivery_manifest.json before generation.\n"
+              "2. Do not re-encode, resize, screenshot, rename, or modify reference PNGs.\n"
+              "3. If any reference fails SHA/byte/blob verification, fail closed.\n"
+              "4. Product Owner manual reference upload count = 0.\n"
+              "5. This artifact is transport evidence only, not a formal Asset.\n",
+              encoding="utf-8",
+          )
+
+          for ref in refs:
+              delivered = OUT / ref["bundle_path"]
+              data = delivered.read_bytes()
+              if sha256_bytes(data) != ref["sha256"] or len(data) != ref["byte_size"] or git_blob_sha(data) != ref["git_blob_sha"]:
+                  raise SystemExit(f"Final bundle revalidation failed: {ref['canonical_path']}")
+
+          print("PASS: 5/5 exact canonical reference binaries verified")
+          for ref in refs:
+              print(f"{ref.get('asset_id') or ref.get('shot_id')} SHA256={ref['sha256']} BYTES={ref['byte_size']} BLOB={ref['git_blob_sha']}")
+          print(f"BUNDLE_ID={BUNDLE_ID}")
+          print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+
+      - name: Upload N12 reference delivery artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N12_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N12_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
