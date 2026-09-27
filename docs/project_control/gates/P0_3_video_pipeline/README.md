@@ -693,3 +693,29 @@ Bundle design:
 `docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_design_v0_1.md`
 
 No workflow, artifact build or N12 generation yet.
+
+## N12 Reference Delivery Bundle V001｜Built 2026-09-27
+
+Status: `BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
+
+Product Owner approved Bundle Design V0.1. Chat executed the existing locked RC-022 / RC-023 delivery path directly through GitHub Actions.
+
+- workflow: `.github/workflows/p03-n12-reference-delivery-bundle-v001.yml`
+- source commit: `45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d`
+- run: `36307403582`
+- job: `108586621481`
+- artifact: `N12_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact ID: `10927392671`
+- artifact digest: `sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed`
+- exact verification: `5/5 PASS`
+- Product Owner manual reference upload: `0`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+Next:
+
+`Work automatic artifact acquisition + revalidation → generate N12 Candidate 01 only → Product Owner review`
+
+Do not register Story Shot or batch-archive before N12 Candidate 01 is explicitly approved.

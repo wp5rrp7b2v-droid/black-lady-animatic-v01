@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R107",
+  "state_revision": "R108",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / N11 APPROVED PENDING BATCH ARCHIVAL / N12 DIRECTOR DESIGN APPROVED / N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 IN REVIEW",
+  "session_status": "P0.3 IN PROGRESS / N11 APPROVED PENDING BATCH ARCHIVAL / N12 BUNDLE V001 BUILT + 5 OF 5 PASS / N12 CANDIDATE 01 WORK GENERATION NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved N12 Director Shot Design V0.1. N12 Bundle Design V0.1 now proposes five canonical references: Neil FACE_FRONT, FACE_3Q_LEFT, BODY_FRONT, Castle Entrance Scene Master, and N01 post-Opening continuity. N11 is not used because its binary publication/registration is intentionally deferred for batch archival. N09/N10 are excluded to avoid exterior-state and smile-shape bias."
+    "note": "2026-09-27: Product Owner approved N12 Bundle Design V0.1. Chat executed the locked GitHub Actions delivery path directly. Run 36307403582 succeeded; artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10927392671 / digest sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed was built from source commit 45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d. Five of five canonical references passed exact verification. Next: N12 Candidate 01 in Work."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW",
+  "current_task": "P0.3｜S02-A｜N12 CANDIDATE 01 FORMAL WORK GENERATION",
   "blocker": null,
-  "next_action": "Product Owner reviews N12 Reference Delivery Bundle Design V0.1. Proposed set: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01 continuity. N11 remains excluded because it is approved but not yet canonically published; N09/N10 excluded due exterior-state bias.",
+  "next_action": "Use ChatGPT Work to automatically download artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 (run 36307403582 / artifact 10927392671), revalidate all 5 PNGs against delivery_manifest.json, and generate exactly one N12 Candidate 01 for Product Owner review. Do not register or batch-archive yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N12-BUNDLE-DESIGN-R107",
-    "status": "P0.3 IN PROGRESS / N12 DESIGN APPROVED / N12 BUNDLE DESIGN IN REVIEW",
+    "id": "2026-09-27-P03-S02A-N12-BUNDLE-BUILT-R108",
+    "status": "P0.3 IN PROGRESS / N12 BUNDLE BUILT 5 OF 5 PASS / WORK GENERATION NEXT",
     "completed": [
-      "Product Owner approved N12 Director Shot Design V0.1.",
-      "N12 Bundle Design V0.1 drafted with five canonical references.",
-      "N11 intentionally excluded because its binary publication is deferred for batch archival.",
-      "N09 and N10 excluded to avoid exterior continuity and smile-shape bias.",
-      "Cross will be generated under director narrative instruction; no standalone prop asset is required at this stage."
+      "Product Owner approved N12 Reference Delivery Bundle Design V0.1.",
+      "Chat created and executed the temporary GitHub Actions bundle workflow directly under RC-022/RC-023.",
+      "Run 36307403582 completed successfully.",
+      "Artifact N12_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10927392671 created.",
+      "All five references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy validation."
     ],
-    "resume_from": "Product Owner review of N12 Reference Delivery Bundle Design V0.1.",
+    "resume_from": "Work automatic artifact acquisition + 5/5 revalidation → N12 Candidate 01 → Product Owner review.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V079",
+    "version": "V080",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R107 / N12 BUNDLE DESIGN REVIEW",
-    "derived_from_revision": "R107",
+    "status": "CURRENT / DERIVED FROM R108 / N12 BUNDLE BUILT / WORK GENERATION NEXT",
+    "derived_from_revision": "R108",
     "last_updated": "2026-09-27",
-    "current_task": "N12 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW"
+    "current_task": "N12 CANDIDATE 01 FORMAL WORK GENERATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1158,7 +1158,7 @@
     "generation_authorized": false
   },
   "n12_reference_delivery_bundle_design_v0_1": {
-    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_design_v0_1.md",
     "target_bundle_id": "N12_REFERENCE_DELIVERY_BUNDLE_V001",
     "reference_count": 5,
@@ -1175,6 +1175,21 @@
       "N10 exterior subtle-smile state"
     ],
     "separate_cross_asset_required": false,
-    "build_authorized": false
+    "build_authorized": true
+  },
+  "n12_reference_delivery_bundle_v001": {
+    "status": "BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION",
+    "build_record_path": "docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_v001_build_record_2026-09-27.md",
+    "workflow_path": ".github/workflows/p03-n12-reference-delivery-bundle-v001.yml",
+    "source_commit": "45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d",
+    "workflow_run_id": 36307403582,
+    "job_id": 108586621481,
+    "artifact_id": 10927392671,
+    "artifact_name": "N12_REFERENCE_DELIVERY_BUNDLE_V001",
+    "artifact_digest": "sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed",
+    "artifact_size_bytes": 12637154,
+    "expires_at": "2026-10-04T08:49:27Z",
+    "exact_reference_verification": "5/5 PASS",
+    "manual_product_owner_reference_upload": 0
   }
 }

@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N12 Reference Delivery Bundle V001 Built
+
+- Product Owner approved N12 Reference Delivery Bundle Design V0.1.
+- Chat followed the locked P0.3 Story Shot reference-delivery path directly; no Codex handoff was used.
+- Added temporary workflow `.github/workflows/p03-n12-reference-delivery-bundle-v001.yml`.
+- Source commit: `45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d`.
+- GitHub Actions run `36307403582`, job `108586621481`: SUCCESS.
+- Artifact `N12_REFERENCE_DELIVERY_BUNDLE_V001`, ID `10927392671`, digest `sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed`.
+- Five of five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy validation.
+- Product Owner manual reference upload = 0.
+- Next: Work automatically acquires the artifact, revalidates manifest, and generates N12 Candidate 01 only.
+- No Story Shot registration or S02-A batch archival yet.
+
 ## 2026-09-27｜N12 Director Approval + Bundle Design Start
 
 - Product Owner approved N12 Director Shot Design V0.1.

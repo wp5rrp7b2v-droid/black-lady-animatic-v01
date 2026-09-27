@@ -1,6 +1,6 @@
 # N12｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-27
 
@@ -234,17 +234,29 @@ Retention:
 Manual Product Owner reference upload:
 `0`
 
-## 10. Build boundary
+## 10. Build result
 
-Current stage is Bundle design only.
+- Product Owner approved Bundle Design V0.1 on 2026-09-27.
+- Workflow source commit: `45d1dd4da22f1c30f4131d57cafa9a51f6d6b42d`
+- Successful run: `36307403582`
+- Artifact ID: `10927392671`
+- Artifact digest: `sha256:e035ffc7d0f965b389e6e21054d5b7a63c1b31e5ef1e13f0242eb810320e70ed`
+- Exact reference verification: `5/5 PASS`
 
-Not yet authorized:
+Formal build record:
 
-- creating the temporary GitHub Actions workflow;
-- building the artifact;
-- Work image generation;
+`docs/project_control/gates/P0_3_video_pipeline/n12_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+## 11. Production boundary
+
+Bundle design and build are complete.
+
+Authorized next step:
+
+- ChatGPT Work may use `N12_REFERENCE_DELIVERY_BUNDLE_V001` to generate exactly one `N12 Candidate 01`.
+
+Still not authorized:
+
 - Story Shot registration;
-- batch archival.
-
-Next:
-`Product Owner review → Bundle build → Work generation`
+- S02-A batch archival;
+- N13 production before N12 Product Owner review.
