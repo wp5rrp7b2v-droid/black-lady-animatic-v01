@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R095",
+  "state_revision": "R096",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING V2 V003 STRONGER EDITORIAL ENRICHMENT TECHNICAL PASS / PRODUCT OWNER CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / LIBOPENSHOT CAMERA MOTION PROOF V001 TECHNICAL PASS / PRODUCT OWNER MOTION REVIEW NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Opening V2 Proof Review V003 completed technical QC after one dependency-version retry. V003 preserves the 12-shot sequence, uninterrupted canonical audio and Draft 01 timing while making 2D editorial changes clearly perceptible: longer dissolves, stronger but controlled push/pull/drift, stronger focus/vignette cues, 5.5px blur/focus dissolves and one 9px/10-frame N05 settle-shake. GitHub Actions run 36297467856 PASS; artifact 10924960913 is ready for Product Owner contextual review. P0.3 remains NOT YET VALIDATED."
+    "note": "2026-09-27: libopenshot Camera Motion Proof V001 completed technical QC in GitHub Actions. The 3-shot motion-only spike uses approved canonical N08/N03/N05 PNGs with curve-based multi-keyframe motion: N08 hold→push→overshoot→settle, N03 pull-back+lateral drift→settle, N05 action push+reframe+settle-shake+micro-rotation. First run 36298583006 hit a libopenshot SIGSEGV caused by Python/SWIG object lifetime; keepalive handling fixed it. Successful run 36298639226 PASS; artifact 10923993594 ready for Product Owner motion review. This is not an Opening V2 edit and P0.3 remains NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜OPENING V2 V003 CONTEXTUAL REVIEW",
+  "current_task": "P0.3｜LIBOPENSHOT CAMERA MOTION PROOF V001 REVIEW",
   "blocker": null,
-  "next_action": "Product Owner reviews the full 33-second V003 proof and decides whether the stronger transitions, focus shifts, push/pull/drift motion and N05 action emphasis are now visibly effective without becoming excessive. Sequence, canonical audio and Draft 01 timing remain unchanged; no final timing lock or P0.3 PASS yet.",
+  "next_action": "Product Owner reviews the 7.6-second libopenshot motion-only proof (N08→N03→N05) and decides whether curve-based multi-keyframe camera motion is meaningfully more cinematic than the current Remotion V003 approach. Do not migrate the full Opening V2 until this comparison is approved.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R095 OPENING V2 V003 RECORD",
+    "status": "PENDING USER LOCAL PULL AFTER R096 LIBOPENSHOT MOTION PROOF RECORD",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-OPENING-V2-PROOF-REVIEW-V003 GITHUB MAIN"
+    "target": "POST-LIBOPENSHOT-CAMERA-MOTION-PROOF-V001 GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,20 +114,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V2-V003-R095",
-    "status": "P0.3 IN PROGRESS / OPENING V2 V003 TECHNICAL RENDER PASS / PO CONTEXTUAL REVIEW NEXT / NOT YET VALIDATED",
+    "id": "2026-09-27-P03-LIBOPENSHOT-CAMERA-MOTION-PROOF-R096",
+    "status": "P0.3 IN PROGRESS / LIBOPENSHOT MOTION SPIKE TECHNICAL PASS / PO MOTION REVIEW NEXT / NOT YET VALIDATED",
     "completed": [
-      "V003 kept the approved 12-shot order unchanged.",
-      "Canonical source audio remains one continuous, unsped track.",
-      "Draft 01 shot timing remains unchanged.",
-      "V003 strengthened editorial treatment relative to V002: 6–12 frame dissolves, 12-frame blur/focus dissolves up to 5.5px blur, 3–5% character pushes, 6.5% N08 architectural push, 4% N03 pull-back with 16px drift, stronger focus/vignette cues, and one 9px / 10-frame N05 settle-shake.",
-      "Initial run 36297396556 failed at render because react-dom was 19.2.3 while react was 19.2.4; dependency versions were aligned and the workflow was rerun.",
-      "GitHub Actions run 36297467856 completed successfully.",
-      "Artifact P03_OPENING_V2_PROOF_REVIEW_V003 published as artifact ID 10924960913.",
-      "Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio and full decode PASS.",
-      "Output MP4 SHA-256 b6914ca1910ef0078876fc8063d079870df6927a4f1f2a7291ddf6d43ab4968f."
+      "Built a new GitHub Actions libopenshot execution path using Ubuntu + python3-openshot + Python bindings.",
+      "Validated approved/current canonical N08, N03 and N05 PNG identities before render.",
+      "Rendered 228 frames at 1080×1920 / 30 fps using libopenshot curve-based multi-keyframe motion.",
+      "N08 motion: brief hold → accelerating architectural push → slight overshoot → settle.",
+      "N03 motion: pull-back + lateral observation drift → settle.",
+      "N05 motion: action push + directional reframe + brief settle-shake + micro rotation.",
+      "Initial run 36298583006 failed with SIGSEGV because libopenshot Timeline kept raw pointers while Python/SWIG objects were garbage-collected; explicit keepalive references fixed the issue.",
+      "Successful GitHub Actions run 36298639226 completed all steps and technical QC.",
+      "Artifact P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001 published as artifact ID 10923993594.",
+      "Technical QC PASS: H.264/yuv420p, 1080×1920, 30 fps, 228 frames, 7.600 sec, full decode PASS.",
+      "Output MP4 SHA-256 4582f00d89a4df65497be3c1f1ba34801671c9fc8bc1b802519d61f05f141a88."
     ],
-    "resume_from": "Product Owner watches P03_OPENING_V2_PROOF_REVIEW_V003 and judges perceptibility versus excess. Any next changes should be targeted from PO feedback; no final timing lock and no P0.3 PASS yet.",
+    "resume_from": "Product Owner watches P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001 and judges whether the motion is visibly more cinematic than Remotion V003. If yes, design a controlled Opening V2 migration path; if not, do not expand libopenshot usage.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -515,13 +517,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V067",
+    "version": "V068",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R095 / OPENING V2 V003 TECHNICAL PASS / PO CONTEXTUAL REVIEW NEXT",
-    "derived_from_revision": "R095",
+    "status": "CURRENT / DERIVED FROM R096 / LIBOPENSHOT CAMERA MOTION PROOF TECHNICAL PASS / PO MOTION REVIEW NEXT",
+    "derived_from_revision": "R096",
     "last_updated": "2026-09-27",
-    "current_task": "OPENING V2 V003 CONTEXTUAL REVIEW"
+    "current_task": "LIBOPENSHOT CAMERA MOTION PROOF V001 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -921,6 +923,28 @@
       "Story Shot binaries"
     ],
     "final_timing_lock": "PENDING PRODUCT OWNER REVIEW",
+    "gate_pass": "NOT CLAIMED"
+  },
+  "libopenshot_camera_motion_proof_v001": {
+    "status": "TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_MOTION_REVIEW / MOTION-ONLY SPIKE",
+    "engine": "libopenshot Python bindings",
+    "source_commit": "3af53554c74cab4550230140a028a09a652dc1ee",
+    "workflow_run": 36298639226,
+    "prior_failed_run": 36298583006,
+    "prior_failed_run_cause": "libopenshot Timeline retained raw clip pointers while Python/SWIG reader/clip objects were garbage-collected, causing SIGSEGV in Timeline::find_intersecting_clips; fixed by explicit keepalive references",
+    "artifact_name": "P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001",
+    "artifact_id": 10923993594,
+    "artifact_digest": "sha256:b8986b111a523d2d036dc53cab88d22c7952e9d544c7540fad37f5d08b8871bf",
+    "output_sha256": "4582f00d89a4df65497be3c1f1ba34801671c9fc8bc1b802519d61f05f141a88",
+    "output_byte_size": 5279475,
+    "output_spec": "1080x1920 / H.264 yuv420p / 30fps / 228 frames / 7.600000s / motion-only (no program audio)",
+    "shots": [
+      "N08",
+      "N03",
+      "N05"
+    ],
+    "purpose": "Compare curve-based multi-keyframe camera motion against current Remotion V003 before any full Opening V2 migration.",
+    "full_opening_migration": "NOT STARTED / PENDING PRODUCT OWNER REVIEW",
     "gate_pass": "NOT CLAIMED"
   }
 }
