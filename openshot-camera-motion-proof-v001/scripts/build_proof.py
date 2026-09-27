@@ -13,6 +13,7 @@ for p in FRAMES.glob("frame_*.png"):
 FPS = 30
 W, H = 1080, 1920
 TOTAL_FRAMES = 228
+KEEPALIVE = []  # libopenshot Timeline stores raw pointers; keep SWIG reader/clip objects alive through render
 
 def kf(points):
     k = openshot.Keyframe()
@@ -39,6 +40,7 @@ def add_clip(timeline, sid, start_frame, duration, layer, curves, alpha_points):
     clip.alpha = kf(alpha_points)
 
     timeline.AddClip(clip)
+    KEEPALIVE.extend([reader, clip])
     return clip
 
 timeline = openshot.Timeline(W, H, openshot.Fraction(FPS,1), 44100, 2, openshot.LAYOUT_STEREO)
