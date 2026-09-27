@@ -124,7 +124,8 @@
       "Approved Story Shot count is now 17: A01–A07 + N01–N10.",
       "Opening V2 12-shot sequence is fully covered by approved Story Shots: A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01.",
       "N06 performance lock: restrained speaking gesture close to body; no smile, turn, or step.",
-      "N07 performance/composition lock: right-front 25°–35° speaking state, figure biased right, gaze to frame-left off-screen visitors, hands quiet; no smile, turn, or step."
+      "N07 performance/composition lock: right-front 25°–35° speaking state, figure biased right, gaze to frame-left off-screen visitors, hands quiet; no smile, turn, or step.",
+      "Post-registration verification run 36290165666 returned PASS for N06/N07 canonical binaries and Story Shot index identity matches; evidence artifact 10921183606."
     ],
     "resume_from": "Assemble and review the revised 12-shot Opening V2 proof from canonical audio + approved Story Shots.",
     "blockers": []
@@ -726,7 +727,11 @@
       },
       "rename_integrity": "EXACT GIT BLOB REUSE / NO RE-ENCODE",
       "n06_performance_lock": "RESTRAINED SPEAKING GESTURE CLOSE TO BODY / NO SMILE / NO TURN / NO STEP",
-      "n07_performance_lock": "RIGHT-FRONT 25-35 DEG SPEAKING STATE / FIGURE RIGHT / GAZE FRAME LEFT / HANDS QUIET / NO SMILE / NO TURN / NO STEP"
+      "n07_performance_lock": "RIGHT-FRONT 25-35 DEG SPEAKING STATE / FIGURE RIGHT / GAZE FRAME LEFT / HANDS QUIET / NO SMILE / NO TURN / NO STEP",
+      "registration_verification_run": 36290165666,
+      "registration_verification_artifact_id": 10921183606,
+      "registration_verification_result": "PASS / BOTH INDEX_MATCH=YES",
+      "registration_verification_artifact_digest": "sha256:2c9ac4376f9532b87920aedb093eccc9b7d3226040f8ec49669acd464ef3e5dc"
     }
   }
 }
