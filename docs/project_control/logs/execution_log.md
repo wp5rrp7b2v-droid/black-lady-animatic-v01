@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜RC-025 Rule Consistency Audit
+
+- Reviewed current rule-bearing documents across Project Control after RC-024 Story Shot SOP standardization.
+- Resolved the main scope conflict between P0.2 Asset Registry `asset_class=SHOT` and P0.3 `asset_class=STORY_SHOT`: they are now explicitly separate data layers and may not be silently dual-registered.
+- Clarified that P0.2 SHOT naming (`<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###`) applies to Asset Registry-managed SHOT assets; existing Story Shot operational filenames N01–N10 remain unchanged under RC-024/RC-025.
+- Clarified that Product Owner upload of an approved final Story Shot PNG is final-output publication, not reference upload. RC-022/RC-023 manual PO reference upload baseline remains `0`.
+- Reconciled the long-term Automatic Ingest goal with the currently verified Story Shot publication bridge. PO does not perform canonical naming, index registration, hashes, version relations, or registration verification.
+- Corrected stale Governance statements: repository visibility is public, D-### progression is no longer hardcoded, and the historical P0 'no A08/later shots' boundary no longer blocks representative Story Shot production required for P0.3 validation.
+- Added Project Control rule-precedence guidance so Gate summaries do not become parallel rule authorities.
+- Consistency result: `PASS / CONFLICTS RESOLVED`.
 ## 2026-09-27｜RC-024 Story Shot Production + Registration SOP
 
 - Product Owner requested the proven Story Shot generation and registration process be standardized as a formal project rule.
