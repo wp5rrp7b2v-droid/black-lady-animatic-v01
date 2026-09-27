@@ -172,3 +172,46 @@ See:
 - `p0_3_progress_closeout_2026-09-25.md`
 
 No P0.3 PASS claim is permitted until representative production evidence is sufficient and Product Owner explicitly approves the Gate.
+
+## Opening V2 Audio Alignment Analysis V001｜2026-09-27
+
+Status: `GITHUB ACTIONS ANALYSIS PASS / INTERNAL CUTS CANDIDATE ONLY / DIRECTOR LOCK PENDING`
+
+Canonical input:
+
+- `staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a`
+- SHA-256: `8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0`
+- duration: `359.141995 sec`
+- Opening analysis scope: `00:00.000–00:33.020`
+
+Successful GitHub Actions evidence:
+
+- workflow run: `36293571350`
+- artifact: `P03_OPENING_V2_AUDIO_ALIGNMENT_ANALYSIS_V001`
+- artifact ID: `10922898643`
+- artifact digest: `sha256:2da55ec3eaec37038642ad27a39e3e77e59dcc9a6b62eeb93c5d3847455764b0`
+
+Verified fixed transcript boundaries:
+
+- `A01→A02 = 3.250s`
+- `A02→N06 = 6.550s`
+- `N04→N08 = 19.700s`
+- `N05→N01 = 30.030s`
+- `N01→END = 33.020s`
+
+Acoustic candidate internal boundaries:
+
+- `N06→N02 = 8.940s`
+- `N02→N07 = 11.200s`
+- `N07→N03 = 13.200s`
+- `N03→N04 = 15.310s` — weak / edge-of-search-window candidate; do not lock yet
+- `N08→N09 = 21.620s`
+- `N09→N10 = 24.420s`
+- `N10→N05 = 27.160s`
+
+Important interpretation:
+
+- multi-threshold `silencedetect` found no true silence interval in the 0–33.020s opening window; the source contains continuous underlying audio energy;
+- therefore the internal points above are low-energy-valley candidates refined around transcript-semantic targets, not final edit boundaries;
+- the next step is director review / semantic alignment, with targeted human-listening or stronger speech-text alignment only where a candidate is ambiguous;
+- no source-audio speed change and no destructive audio edit occurred.
