@@ -328,3 +328,35 @@ Technical execution:
 - full decode QC: PASS.
 
 Next step is Product Owner contextual review. P0.3 remains IN PROGRESS; no final timing lock or Gate PASS is claimed.
+
+## libopenshot Camera Motion Proof V001｜2026-09-27
+
+Status: `TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_MOTION_REVIEW / MOTION-ONLY SPIKE`
+
+Purpose: compare libopenshot curve-based multi-keyframe camera motion against the current Remotion V003 approach before any full Opening V2 migration.
+
+Scope:
+
+- N08 — brief hold → accelerating architectural push → slight overshoot → settle
+- N03 — pull-back + lateral observation drift → settle
+- N05 — action push + directional reframe + brief settle-shake + micro rotation
+
+Execution path:
+
+`approved canonical PNGs → libopenshot Python bindings / Bezier keyframes → PNG frame sequence → FFmpeg H.264 MP4`
+
+Technical evidence:
+
+- first run `36298583006` failed with SIGSEGV because libopenshot Timeline stores raw clip pointers while Python/SWIG objects were garbage-collected;
+- explicit keepalive references fixed the object lifetime issue;
+- successful run: `36298639226`;
+- artifact: `P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001`;
+- artifact ID: `10923993594`;
+- artifact digest: `sha256:b8986b111a523d2d036dc53cab88d22c7952e9d544c7540fad37f5d08b8871bf`;
+- output MP4 SHA-256: `4582f00d89a4df65497be3c1f1ba34801671c9fc8bc1b802519d61f05f141a88`;
+- output byte size: `5,279,475`;
+- output: 1080×1920 / H.264 yuv420p / 30 fps / 228 decoded frames / 7.600 sec;
+- audio: NONE / motion-only spike;
+- full decode QC: PASS.
+
+This proof is not an Opening V2 edit, does not alter canonical Story Shots, and does not claim P0.3 PASS. Full Opening V2 migration is blocked on Product Owner review of whether the motion is meaningfully more cinematic than Remotion V003.
