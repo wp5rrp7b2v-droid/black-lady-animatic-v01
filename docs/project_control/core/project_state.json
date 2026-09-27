@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R110",
+  "state_revision": "R111",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N13 DIRECTOR + BUNDLE DESIGN APPROVED / N13 BUNDLE V001 BUILD PREP READY / NOT YET BUILT",
+  "session_status": "P0.3 IN PROGRESS / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N13 BUNDLE V001 BUILT + 5 OF 5 PASS / N13 CANDIDATE 01 WORK GENERATION NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: N13 Director Shot Design V0.1 and N13 Reference Delivery Bundle Design V0.1 are approved. Build design/execution preparation is complete. Locked Bundle set remains Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01. N11/N12 are excluded until batch archival; N09/N10 excluded for exterior bias; A05 excluded because it owns the no-keys reveal. Bundle is NOT YET BUILT."
+    "note": "2026-09-27: Product Owner authorized N13 bundle construction. Chat executed the locked GitHub Actions path directly. Run 36314032099 succeeded; artifact N13_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10930326122 / digest sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7 was built from source commit bdd2480fb995462f89ea51400d02b0135912ce42. Five of five canonical references passed exact verification. Next: N13 Candidate 01 in Work."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N13_REFERENCE_DELIVERY_BUNDLE_V001 BUILD AUTHORIZATION",
+  "current_task": "P0.3｜S02-A｜N13 CANDIDATE 01 FORMAL WORK GENERATION",
   "blocker": null,
-  "next_action": "Product Owner authorizes actual N13_REFERENCE_DELIVERY_BUNDLE_V001 construction. Then Chat creates the temporary GitHub Actions workflow, runs the 5-reference exact validation/build, records artifact identity, and advances to N13 Candidate 01 Work generation.",
+  "next_action": "Use ChatGPT Work to automatically download N13_REFERENCE_DELIVERY_BUNDLE_V001 (run 36314032099 / artifact 10930326122), revalidate all 5 PNGs against delivery_manifest.json, and generate exactly one N13 Candidate 01. Do not begin N15 or register Story Shots before N13 Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N13-BUILD-PREP-R110",
-    "status": "N13 BUNDLE DESIGN APPROVED / BUILD PREP READY / NOT YET BUILT",
+    "id": "2026-09-27-P03-S02A-N13-BUNDLE-BUILT-R111",
+    "status": "N13 BUNDLE BUILT / 5 OF 5 PASS / WORK GENERATION NEXT",
     "completed": [
-      "N13 Director Shot Design V0.1 formalized as approved.",
-      "N13 Reference Delivery Bundle Design V0.1 formalized as approved.",
-      "Five-reference canonical set locked.",
-      "A05 explicitly excluded to protect reveal authority.",
-      "Build workflow design and fail-closed validation contract prepared."
+      "Product Owner authorized N13_REFERENCE_DELIVERY_BUNDLE_V001 construction.",
+      "Chat created and executed the temporary GitHub Actions workflow directly.",
+      "Run 36314032099 completed successfully.",
+      "Artifact N13_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10930326122 created.",
+      "All five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy verification."
     ],
-    "resume_from": "Product Owner authorization to construct N13_REFERENCE_DELIVERY_BUNDLE_V001.",
+    "resume_from": "Work automatic artifact acquisition + 5/5 revalidation → N13 Candidate 01 → Product Owner review.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V082",
+    "version": "V083",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R110 / N13 BUNDLE BUILD PREP READY",
-    "derived_from_revision": "R110",
+    "status": "CURRENT / DERIVED FROM R111 / N13 BUNDLE BUILT / WORK GENERATION NEXT",
+    "derived_from_revision": "R111",
     "last_updated": "2026-09-27",
-    "current_task": "N13 BUNDLE V001 BUILD AUTHORIZATION"
+    "current_task": "N13 CANDIDATE 01 FORMAL WORK GENERATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1224,7 +1224,7 @@
     "reveal_owner": "A05"
   },
   "n13_reference_delivery_bundle_design_v0_1": {
-    "status": "PRODUCT OWNER APPROVED / BUILD PREP COMPLETE / NOT YET BUILT",
+    "status": "PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS / READY FOR WORK",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_design_v0_1.md",
     "build_prep_path": "docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_prep.md",
     "target_bundle_id": "N13_REFERENCE_DELIVERY_BUNDLE_V001",
@@ -1244,6 +1244,21 @@
       "A05",
       "ALL_REJECTED_OR_SUPERSEDED_CANDIDATES"
     ],
-    "build_authorized": false
+    "build_authorized": true
+  },
+  "n13_reference_delivery_bundle_v001": {
+    "status": "BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION",
+    "build_record_path": "docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_record_2026-09-27.md",
+    "workflow_path": ".github/workflows/p03-n13-reference-delivery-bundle-v001.yml",
+    "source_commit": "bdd2480fb995462f89ea51400d02b0135912ce42",
+    "workflow_run_id": 36314032099,
+    "job_id": 108605228883,
+    "artifact_id": 10930326122,
+    "artifact_name": "N13_REFERENCE_DELIVERY_BUNDLE_V001",
+    "artifact_digest": "sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7",
+    "artifact_size_bytes": 12637035,
+    "expires_at": "2026-10-04T10:54:44Z",
+    "exact_reference_verification": "5/5 PASS",
+    "manual_product_owner_reference_upload": 0
   }
 }

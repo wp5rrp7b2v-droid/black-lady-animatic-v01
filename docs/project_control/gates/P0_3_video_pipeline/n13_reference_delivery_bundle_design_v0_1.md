@@ -1,6 +1,6 @@
 # N13｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / BUILD PREP ACTIVE / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-27
 
@@ -166,10 +166,21 @@ Retention:
 Manual Product Owner reference upload:
 `0`
 
-## 9. Current boundary
+## 9. Build result
+
+- Source commit: `bdd2480fb995462f89ea51400d02b0135912ce42`
+- Run: `36314032099`
+- Job: `108605228883`
+- Artifact ID: `10930326122`
+- Artifact digest: `sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7`
+- Exact verification: `5/5 PASS`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+## 10. Current boundary
 
 Reference set and design are approved.
 
-The bundle has not yet been built.
-
-Build execution must use the separate build-prep contract.
+The bundle has been built and verified. The next authorized step is Work generation of exactly one N13 Candidate 01.

@@ -1,6 +1,6 @@
 # N13_REFERENCE_DELIVERY_BUNDLE_V001｜Build Design + Execution Prep
 
-Status: `READY FOR PRODUCT OWNER BUILD AUTHORIZATION / NOT YET EXECUTED`
+Status: `EXECUTED / BUILD SUCCESS / 5 OF 5 PASS`
 
 Date: 2026-09-27
 
@@ -107,10 +107,22 @@ Then write:
 
 and advance Project Control to Work generation.
 
-## 7. Boundary
+## 7. Execution result
 
-This document prepares execution only.
+- Product Owner authorized construction.
+- Workflow created: `.github/workflows/p03-n13-reference-delivery-bundle-v001.yml`
+- Source commit: `bdd2480fb995462f89ea51400d02b0135912ce42`
+- Run: `36314032099`
+- Job: `108605228883`
+- Result: `SUCCESS`
+- Artifact ID: `10930326122`
+- Digest: `sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7`
+- Verification: `5/5 exact canonical reference binaries verified`
 
-No artifact has been built yet.
+Build record:
 
-No Work generation is authorized until the real GitHub Actions build succeeds and the 5/5 evidence is recorded.
+`docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+## 8. Boundary
+
+Execution is complete. Work generation of N13 Candidate 01 is now authorized. No N15 work or Story Shot registration before N13 Product Owner review.

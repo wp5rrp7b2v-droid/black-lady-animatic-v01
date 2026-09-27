@@ -776,3 +776,34 @@ Documents:
 
 Next:
 `Product Owner build authorization → GitHub Actions real build → 5/5 verification → Work N13 Candidate 01`
+
+## N13 Reference Delivery Bundle V001｜Built 2026-09-27
+
+Status: `BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
+
+- workflow: `.github/workflows/p03-n13-reference-delivery-bundle-v001.yml`
+- source commit: `bdd2480fb995462f89ea51400d02b0135912ce42`
+- run: `36314032099`
+- job: `108605228883`
+- artifact: `N13_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact ID: `10930326122`
+- artifact digest: `sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7`
+- artifact size: `12637035` bytes
+- exact verification: `5/5 PASS`
+- Product Owner manual reference upload: `0`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_record_2026-09-27.md`
+
+Narrative protection remains locked:
+
+- N13 guides attention toward the waist;
+- no keys;
+- no obvious "no keys";
+- no clean full-waist answer-zone;
+- A05 owns the reveal.
+
+Next:
+
+`Work automatic artifact acquisition + revalidation → N13 Candidate 01 → Product Owner review`

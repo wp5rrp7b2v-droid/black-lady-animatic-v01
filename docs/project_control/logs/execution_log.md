@@ -1,5 +1,19 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N13 Reference Delivery Bundle V001 Built
+
+- Product Owner authorized real N13 Bundle construction.
+- Chat followed the locked Story Shot path directly; no Codex handoff was used.
+- Added workflow `.github/workflows/p03-n13-reference-delivery-bundle-v001.yml`.
+- Source commit: `bdd2480fb995462f89ea51400d02b0135912ce42`.
+- GitHub Actions run `36314032099`, job `108605228883`: SUCCESS.
+- Artifact `N13_REFERENCE_DELIVERY_BUNDLE_V001`, ID `10930326122`, digest `sha256:0b40fd3e34b18297c679c2e307f2e4d6480e90c2eef1697adcbdd8b15d8d6fb7`.
+- Artifact size: `12637035` bytes; expires 2026-10-04.
+- Five of five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy verification.
+- Product Owner manual reference upload = 0.
+- A05 remains excluded to preserve exclusive no-keys reveal authority.
+- Next: Work generates N13 Candidate 01 only; no N15 or Story Shot registration before review.
+
 ## 2026-09-27｜N13 Bundle Design Approved + Build Prep
 
 - Product Owner advanced N13 into Reference Delivery Bundle design, then into N13_REFERENCE_DELIVERY_BUNDLE_V001 build design / execution preparation.
