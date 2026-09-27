@@ -6,6 +6,17 @@ Status: `LOCKED / UPDATED FOR REGISTRY SCHEMA V0.3 / IMPLEMENTATION NOT YET VALI
 
 本规则不代表 P0.2 Gate 已通过；后续仍需完成 Automatic Ingest、Storage 与真实资产迁移验证。
 
+## 0. Scope Clarification｜RC-025
+
+本命名规则适用于 **Entity / Asset Registry 管理的 ATOMIC / DERIVED_REFERENCE / SHOT assets**。
+
+P0.3 的 `STORY_SHOT` operational layer 是独立的叙事 / 剪辑索引层，当前由 RC-024 SOP 管理。已批准 N01–N10 的 Story Shot canonical filenames 不做追溯性重命名，也不因为包含 `APPROVED` 等 Story Shot 业务标记而被判定违反本文件。
+
+边界：
+
+- Asset Registry `SHOT`：继续使用 `<SHOT_ID>_<ROLE>_<VARIANT>_<STATE>_V###.<ext>`，不得包含 `approved / final / current / lock` 等状态词；
+- P0.3 `STORY_SHOT`：当前 filename / canonical path 由 Story Shot SOP + Story Shot Index 管理；
+- 两者不得静默互相转换。未来如把 Story Shot 迁入 Asset Registry，必须显式分配 Asset ID、生成本规则合规 filename，并记录 source mapping / SHA / provenance。
 ## 1. 核心原则
 
 资产永久 ID、Entity / Shot ID 与文件名承担不同职责，不得混用：
