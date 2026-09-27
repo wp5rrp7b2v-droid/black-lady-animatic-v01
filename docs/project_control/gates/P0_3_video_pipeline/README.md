@@ -289,3 +289,42 @@ Implication:
 - do not revert to 2.5D or character-warp techniques;
 - V003 should make transitions, motion amplitude, focus shifts and the N05 action accent clearly visible while remaining controlled;
 - P0.3 remains IN PROGRESS and no final timing lock or gate PASS is claimed.
+
+## Opening V2 Proof Review V003｜2026-09-27
+
+Status: `TECHNICAL_RENDER_PASS / READY_FOR_PRODUCT_OWNER_CONTEXTUAL_REVIEW / TIMING NOT LOCKED`
+
+V003 is the stronger editorial-enrichment build after Product Owner found V002 too subtle to perceive.
+
+Preserved:
+
+- 12-shot sequence unchanged;
+- uninterrupted canonical source audio unchanged;
+- Draft 01 timing unchanged;
+- approved Story Shot binaries unchanged.
+
+Stronger but controlled treatment:
+
+- 12-frame opening fade-in and closing fade-out;
+- selected 6–12 frame dissolves;
+- 12-frame blur/focus dissolves up to about 5.5 px blur;
+- character pushes generally 3–5% where appropriate;
+- N08 architectural push to 6.5%;
+- N03 4% pull-back plus 16 px horizontal drift;
+- stronger focus/vignette guidance;
+- one N05 9 px / 10-frame settle-shake.
+
+Technical execution:
+
+- initial run `36297396556` failed at render because `react=19.2.4` and `react-dom=19.2.3` were mismatched;
+- dependency versions were aligned to 19.2.4 / 19.2.4;
+- successful run: `36297467856`;
+- artifact: `P03_OPENING_V2_PROOF_REVIEW_V003`;
+- artifact ID: `10924960913`;
+- artifact digest: `sha256:cdafde226070f8eec26c71eec628d2107e1fca39fb4acd0d33ed952292d1dce4`;
+- output MP4 SHA-256: `b6914ca1910ef0078876fc8063d079870df6927a4f1f2a7291ddf6d43ab4968f`;
+- output byte size: `21,326,666`;
+- output: 1080×1920 / H.264 yuv420p / 30 fps / 991 decoded frames / continuous AAC audio;
+- full decode QC: PASS.
+
+Next step is Product Owner contextual review. P0.3 remains IN PROGRESS; no final timing lock or Gate PASS is claimed.
