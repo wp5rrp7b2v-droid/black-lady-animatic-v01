@@ -4,6 +4,19 @@ Status: `ACTIVE / CHARACTER RULE + NAMING + AUTHORITY + REGISTRY SCHEMA LOCKED`
 
 本文件记录《诡舍·黑衣夫人》P0.2 已由 Product Owner 确认的视觉资产管理方向。它不是 P0.2 Gate PASS，也不代表自动化已实现；P0.2 后续仍需完成角色 Tier Assignment、Gap Analysis、场景/服装/道具规范、存储、Resolver、Automatic Ingest、真实迁移与工程核对，并最终提交 Product Owner 审批。
 
+## 0. Scope Clarification｜RC-025
+
+本文件继续作为 **P0.2 Entity / Asset Registry** 的正式设计基线；其中 `asset_class = SHOT`、Automatic Ingest 与命名规则均指 **Asset Registry-managed SHOT assets**。
+
+2026-09-27 起，P0.3 另有已验证的 `STORY_SHOT` operational layer，用于剧情构图、剪辑与连续性检索：
+
+- 权威索引：`production/story_shots/story_shot_index.jsonl`；
+- 操作 SOP：`docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md`；
+- 规则：RC-021 / RC-024 / RC-025；
+- `STORY_SHOT` 不自动等同于本文件的 Asset Registry `SHOT`，不得静默双重登记；
+- 若未来将 Story Shot 纳入 Asset Registry `SHOT`，必须走显式 migration / ingest，并保留原 binary identity 与 provenance。
+
+因此，本文件的 Automatic Ingest 仍是资产系统长期目标；当前 Story Shot 的 approved-output GitHub publication bridge 不视为本文件失效。
 ## 1. 目标
 
 把当前依赖人工找图、挑图、下载、命名、登记的方式升级为可规模化的 Production Asset System。
