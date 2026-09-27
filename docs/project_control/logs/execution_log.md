@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜S02-A Six-Shot Plan Approval + N11 Design Start
+
+- Product Owner approved the post-Opening S02-A visual structure.
+- Formal sequence: N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE.
+- New production count = 4 Story Shots; reused approved shots = 2.
+- A05 retains exclusive reveal authority for "Neil's waist is empty / no keys"; N13/N15 may create suspense but may not reveal the answer early.
+- Added `docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_1.md`.
+- Began `N11｜Neil Abnormal Portrait｜Director Shot Design V0`.
+- N11 design uses current/approved Neil character authority and Opening entrance continuity.
+- No N11 image generation or registration has been authorized yet.
+- P0.3 remains IN PROGRESS / NOT YET VALIDATED.
+
 ## 2026-09-27｜Opening V001 Product Owner Approval + Canonical Archive
 
 - Product Owner explicitly approved uploaded `P03_OPENING_V2_PROOF_REVIEW_V002.mp4` as the formal Opening video.

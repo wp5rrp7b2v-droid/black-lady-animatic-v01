@@ -451,3 +451,36 @@ Formal closeout:
 Important: this selection is specific to the Opening result. RC-026 remains active: future edits reuse the process framework, not V002's exact timing/effects/template.
 
 P0.3 remains `IN PROGRESS / NOT YET VALIDATED`; the next task is post-Opening story/audio breakdown and sequence-specific production design.
+
+## S02-A Shot Plan V0.1｜2026-09-27
+
+Status: `PRODUCT OWNER APPROVED / STORY SHOT PRODUCTION NEXT`
+
+Approved structure:
+
+`N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE`
+
+Production count:
+
+- 4 new Story Shots: N11 / N12 / N13 / N15
+- 2 reused approved Story Shots: A04 / A05
+
+Narrative lock:
+
+- A05 owns the explicit reveal that Neil's waist is empty / no keys are present.
+- N13 and N15 may build visual attention and suspense around the waist/key-holder hypothesis but must not reveal the answer early.
+- Shot functions are approved; final cut frames are not yet locked.
+
+Formal plan:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_1.md`
+
+Current task:
+
+`N11｜Neil Abnormal Portrait｜Director Shot Design V0`
+
+Design path:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0.md`
+
+N11 generation is not authorized until Product Owner approves the Director Shot Design.

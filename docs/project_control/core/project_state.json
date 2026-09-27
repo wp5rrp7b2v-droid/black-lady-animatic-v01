@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R099",
+  "state_revision": "R100",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / OPENING_V001 PRODUCT OWNER APPROVED + CANONICAL MASTER ARCHIVED / NEXT SEQUENCE PRODUCTION DESIGN NEXT / P0.3 NOT YET VALIDATED",
+  "session_status": "P0.3 IN PROGRESS / S02-A SIX-SHOT PLAN PRODUCT OWNER APPROVED / N11 DIRECTOR SHOT DESIGN V0 IN REVIEW / P0.3 NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner explicitly approved the uploaded P03_OPENING_V2_PROOF_REVIEW_V002 MP4 as the formal Opening video. The uploaded attachment was independently verified in Chat runtime as SHA-256 70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a, 18,892,138 bytes, 1080×1920, H.264/yuv420p, 30fps, 991 frames, AAC stereo, full decode PASS; this exactly matches historical V002 output. GitHub Actions run 36300993520 re-downloaded source artifact 10924430609, revalidated the exact MP4, published the unchanged binary as canonical Opening V001, and remote-verification PASSed. Opening segment is APPROVED / LOCKED; P0.3 overall remains IN PROGRESS and NOT YET VALIDATED."
+    "note": "2026-09-27: After approving OPENING_V001, Product Owner approved S02-A as a six-visual-node sequence: N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE. A05 exclusively owns the 'Neil has no keys' reveal; N13/N15 may build waist/key suspense but may not reveal the absence early. N11 Director Shot Design V0 is now in PO review. P0.3 remains IN PROGRESS / NOT YET VALIDATED."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜POST-OPENING NEXT SEQUENCE STORY/AUDIO BREAKDOWN",
+  "current_task": "P0.3｜S02-A｜N11 DIRECTOR SHOT DESIGN V0 REVIEW",
   "blocker": null,
-  "next_action": "Begin the next narrative segment using Editing Workflow Framework V1: read the canonical story/audio immediately after the approved Opening V001, identify the next story beat and required Story Shots, then design a sequence-specific timeline and production plan. Do not reuse Opening timing/effects as a fixed template.",
+  "next_action": "Product Owner reviews N11 Neil Abnormal Portrait Director Shot Design V0. If approved, build the formal N11 Reference Delivery Bundle and proceed to one-candidate-at-a-time Story Shot generation. Do not start N12 before N11 design/generation review is settled.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-OPENING-V001-APPROVAL-ARCHIVE-R099",
-    "status": "P0.3 IN PROGRESS / OPENING_V001 APPROVED + ARCHIVED / NEXT SEQUENCE DESIGN NEXT / P0.3 NOT YET VALIDATED",
+    "id": "2026-09-27-P03-S02A-N11-DESIGN-R100",
+    "status": "P0.3 IN PROGRESS / S02-A PLAN APPROVED / N11 DIRECTOR DESIGN V0 IN REVIEW / NOT YET VALIDATED",
     "completed": [
-      "Product Owner explicitly approved the uploaded P03_OPENING_V2_PROOF_REVIEW_V002 as the formal Opening video.",
-      "Uploaded attachment independently matched the historical V002 binary: SHA-256 70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a / 18,892,138 bytes.",
-      "Attachment media check: 1080×1920, H.264/yuv420p, 30fps, 991 video frames, AAC stereo; full decode PASS.",
-      "Archive workflow 36300993520 re-downloaded historical V002 artifact 10924430609 and independently revalidated the exact source binary.",
-      "Exact unchanged MP4 archived to production/video/approved/opening/P03_OPENING_V2_APPROVED_V001.mp4.",
-      "Canonical Git blob 9b4ef42d9eceb5d7f1eb190d508d6749ccf4b70e; publication commit 208566291a5531cb34ad05e50e56e0a9fcc51c02.",
-      "Remote binary verification PASS and video_index.jsonl registration created.",
-      "Opening V001 is now APPROVED / LOCKED; V003 and libopenshot proofs remain historical technical/artistic experiments, not selected masters.",
-      "RC-026 remains the reusable editing-process reference; future sequences must receive sequence-specific design."
+      "Post-Opening source transcript was reviewed for the next narrative segment.",
+      "Product Owner approved S02-A six-shot visual structure.",
+      "S02-A locked sequence: N11 NEW → N12 NEW → A04 REUSE → N13 NEW → N15 NEW → A05 REUSE.",
+      "A05 retained exclusive reveal authority for Neil's empty waist/no keys.",
+      "N11 Director Shot Design V0 drafted from current approved Neil character references and Opening continuity."
     ],
-    "resume_from": "Start the post-Opening story/audio breakdown from the canonical source after the approved Opening endpoint, then design the next sequence's Story Shot needs and edit structure.",
+    "resume_from": "Product Owner review of N11 Director Shot Design V0; generation remains unauthorized until approval.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -515,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V071",
+    "version": "V072",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R099 / OPENING_V001 APPROVED + ARCHIVED / NEXT SEQUENCE DESIGN NEXT",
-    "derived_from_revision": "R099",
+    "status": "CURRENT / DERIVED FROM R100 / S02-A PLAN APPROVED / N11 DIRECTOR DESIGN REVIEW",
+    "derived_from_revision": "R100",
     "last_updated": "2026-09-27",
-    "current_task": "POST-OPENING NEXT SEQUENCE STORY/AUDIO BREAKDOWN"
+    "current_task": "S02-A｜N11 DIRECTOR SHOT DESIGN V0 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1015,5 +1011,46 @@
     "status": "SELECTED / PRODUCT_OWNER APPROVED AS OPENING_V001",
     "source_proof": "P03_OPENING_V2_PROOF_REVIEW_V002",
     "rationale_boundary": "Selection is specific to this Opening result. RC-026 forbids treating V002's exact timing/effects as a mandatory template for later sequences."
+  },
+  "s02_a": {
+    "status": "SHOT PLAN V0.1 PRODUCT OWNER APPROVED / N11 DESIGN NEXT",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_1.md",
+    "narrative_scope": "post-Opening Neil scrutiny and key-holder inference through waist-empty reveal",
+    "approximate_source_audio_scope": "00:33.020–00:01:18.750",
+    "timing_status": "SHOT FUNCTIONS LOCKED / FINAL CUT FRAMES NOT YET LOCKED",
+    "shot_order": [
+      "N11",
+      "N12",
+      "A04",
+      "N13",
+      "N15",
+      "A05"
+    ],
+    "new_story_shots": [
+      "N11",
+      "N12",
+      "N13",
+      "N15"
+    ],
+    "reused_story_shots": [
+      "A04",
+      "A05"
+    ],
+    "reveal_rule": "A05 owns explicit no-keys reveal; N13/N15 must not reveal absence early.",
+    "production_order": [
+      "N11",
+      "N12",
+      "N13",
+      "N15",
+      "S02-A Timeline V0.1",
+      "full-context edit proof"
+    ]
+  },
+  "n11_director_shot_design_v0": {
+    "status": "DRAFT / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0.md",
+    "title": "Neil Abnormal Portrait",
+    "narrative_function": "Shift from welcoming butler to scrutinized abnormal person; establish pallor and approximate age without new action.",
+    "generation_authorized": false
   }
 }
