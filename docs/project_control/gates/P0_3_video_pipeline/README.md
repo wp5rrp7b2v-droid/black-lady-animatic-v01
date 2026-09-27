@@ -417,3 +417,37 @@ Important boundary:
 - every later edit must redesign timing, shot behavior and editorial treatment from the actual story/audio/action/space/emotional context;
 - the render engine is an execution layer and may change;
 - technical QC PASS never substitutes for full-context Product Owner artistic review or P0.3 approval.
+
+## Opening V001 Product Owner Approval + Canonical Archive｜2026-09-27
+
+Status: `PRODUCT_OWNER APPROVED / CANONICAL MASTER ARCHIVED / LOCKED`
+
+The Product Owner explicitly approved the uploaded `P03_OPENING_V2_PROOF_REVIEW_V002.mp4` as the formal Opening video.
+
+Canonical master:
+
+- video ID: `OPENING_V001`
+- path: `production/video/approved/opening/P03_OPENING_V2_APPROVED_V001.mp4`
+- SHA-256: `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`
+- byte size: `18892138`
+- Git blob: `9b4ef42d9eceb5d7f1eb190d508d6749ccf4b70e`
+- publication commit: `208566291a5531cb34ad05e50e56e0a9fcc51c02`
+- archive verification run: `36300993520`
+- archive receipt artifact ID: `10925990918`
+- exact V002 binary / no re-encode
+- remote binary verification: PASS
+
+The uploaded attachment independently matched the historical V002 output and passed full media decode.
+
+Selection result:
+
+- V002 = selected / approved Opening master;
+- V003 and libopenshot variants = retained as historical technical/artistic evidence, not selected masters.
+
+Formal closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/opening_v001_approval_closeout_2026-09-27.md`
+
+Important: this selection is specific to the Opening result. RC-026 remains active: future edits reuse the process framework, not V002's exact timing/effects/template.
+
+P0.3 remains `IN PROGRESS / NOT YET VALIDATED`; the next task is post-Opening story/audio breakdown and sequence-specific production design.

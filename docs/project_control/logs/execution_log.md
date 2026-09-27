@@ -1,5 +1,23 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Opening V001 Product Owner Approval + Canonical Archive
+
+- Product Owner explicitly approved uploaded `P03_OPENING_V2_PROOF_REVIEW_V002.mp4` as the formal Opening video.
+- Chat runtime independently inspected the uploaded attachment: SHA-256 `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`, `18892138` bytes, 1080×1920, H.264/yuv420p, 30fps, 991 frames, AAC 48kHz stereo, full decode PASS.
+- Attachment identity exactly matched the historical V002 render.
+- One-off archive workflow first run `36300965829` failed only because FFmpeg was not preinstalled on the clean runner; no publication occurred.
+- Workflow was corrected to install FFmpeg.
+- Archive verification run `36300993520` then PASSed all steps: historical artifact download, SHA/bytes/media identity, full decode, exact-binary copy, Git publication, remote blob/size verification, receipt publication.
+- Canonical master: `production/video/approved/opening/P03_OPENING_V2_APPROVED_V001.mp4`.
+- Canonical SHA-256: `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`; byte size: `18892138`; Git blob: `9b4ef42d9eceb5d7f1eb190d508d6749ccf4b70e`.
+- Publication commit: `208566291a5531cb34ad05e50e56e0a9fcc51c02`.
+- Approval/archive receipt artifact ID: `10925990918`.
+- Registered `OPENING_V001` in `production/video/video_index.jsonl`.
+- Opening V001 is now APPROVED / LOCKED. V003 and libopenshot proofs remain retained evidence and are not selected Opening masters.
+- RC-026 remains the editing-process framework: future sequences reuse the workflow, not V002's exact visual/timing template.
+- P0.3 remains IN PROGRESS / NOT YET VALIDATED.
+- Next: post-Opening story/audio breakdown and sequence-specific production design.
+
 ## 2026-09-27｜Editing Workflow Framework V1 Registration
 
 - Product Owner requested that the V002 production workflow be retained as a reference for future editing work.
