@@ -1,8 +1,8 @@
 # Visual Asset Management System V1｜P0.2 Design Baseline
 
-Status: `ACTIVE / CHARACTER RULE + NAMING + AUTHORITY + REGISTRY SCHEMA LOCKED`
+Status: `ACTIVE BASELINE / P0.2 IMPLEMENTED + VERIFIED / PRODUCT OWNER APPROVED 2026-09-22`
 
-本文件记录《诡舍·黑衣夫人》P0.2 已由 Product Owner 确认的视觉资产管理方向。它不是 P0.2 Gate PASS，也不代表自动化已实现；P0.2 后续仍需完成角色 Tier Assignment、Gap Analysis、场景/服装/道具规范、存储、Resolver、Automatic Ingest、真实迁移与工程核对，并最终提交 Product Owner 审批。
+本文件最初作为 P0.2 视觉资产管理设计基线；相关 Schema、Resolver、Automatic Ingest、真实迁移与端到端验证随后已完成。P0.2 已于 2026-09-22 经 Product Owner 明确批准。本文继续作为已实现系统的设计 / 治理基线；当前状态以 `gates/P0_2_visual_assets/README.md`、`p0_2_closeout_2026-09-22.md` 与 `core/project_state.json` 为准。
 
 ## 0. Scope Clarification｜RC-025
 
@@ -245,25 +245,18 @@ Manifest 至少保留 legacy asset id / filename / path / role / status，以及
 
 ## 13. Storage Boundary
 
-GitHub 作为 Project Control、Registry、规则、版本关系和 Audit Trail 的 canonical 管理入口；高容量图片、视频等二进制资产不应无规则堆入普通 Git。
+GitHub 作为 Project Control、Registry、规则、版本关系、Audit Trail 与当前正式视觉资产 binary 的 canonical 管理入口；高容量视频、长期大体量媒体仍不得无规则堆入普通 Git，其存储策略由对应后续 Gate 单独治理。
 
-P0.2 仍需决定实际 Storage strategy，并验证 Reference Resolver 能按 Registry 地址取得真实文件。
+P0.2 已验证 Resolver / Reference Package 能从 canonical repo 取得真实正式视觉输入，并已通过真实 Automatic Ingest / migration / actual-use audit。
 
-## 14. P0.2 后续必须补齐
+## 14. P0.2 Historical Implementation Checklist
 
-在 Gate Review 前至少需要完成：
+本节原先用于记录 Gate Review 前的待完成清单。该清单现已完成并由 2026-09-22 P0.2 Product Owner approval 收口，不再作为当前 NEXT。
 
-1. Entity / Asset Registry Schema：**COMPLETE / LOCKED，见 `entity_asset_registry_schema_v0_3.md`**；
-2. Character Core Set 精确定义：**COMPLETE / LOCKED，见 `character_asset_rules_v1.md`**；
-3. 9 Character Tier Assignment + Gap Analysis；
-4. Scene / Costume / Prop / State / Variant 规范；
-5. Naming / Version / Authority rules：**Naming + Authority baseline LOCKED；实现验证仍待完成**；
-6. Storage strategy；
-7. Reference Sheet template；
-8. Reference Resolver selection rules / implementation contract；
-9. Automatic Ingest contract；
-10. Production Readiness / Completeness 计算规则；
-11. 旧 Register / 实际图库实体工程核对与真实迁移；
-12. 自动选图验证。
+当前权威完成证据见：
 
-完成上述工作后，P0.2 只能进入 `READY_FOR_APPROVAL / WAITING_PO_APPROVAL`；最终 PASS 仍由 Product Owner 审批。
+- `gates/P0_2_visual_assets/README.md`；
+- `gates/P0_2_visual_assets/p0_2_closeout_2026-09-22.md`；
+- `core/project_state.json`。
+
+P0.2 当前状态：`PASS / PRODUCT OWNER APPROVED`。
