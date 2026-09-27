@@ -1,0 +1,115 @@
+name: P03 N07 Reference Delivery Bundle V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n07-reference-delivery-bundle-v001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-delivery-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Verify canonical N07 references and build bundle
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, shutil, struct
+          ROOT=pathlib.Path.cwd().resolve(); SOURCE_COMMIT=os.environ["SOURCE_COMMIT"]
+          BUNDLE_ID="N07_REFERENCE_DELIVERY_BUNDLE_V001"; OUT=ROOT/BUNDLE_ID; REFS=OUT/"visual_refs"
+          REGISTRY_PATH=ROOT/"production/asset_registry/asset_registry.jsonl"
+          STORY_INDEX_PATH=ROOT/"production/story_shots/story_shot_index.jsonl"
+          ASSETS={
+            "AST_IMG_000028":{"entity_id":"CHAR_NEIL","role":"FACE_FRONT","authority_class":"MASTER","resolver_usage":"DEFAULT","approval_status":"APPROVED","lifecycle":"CURRENT","sha256":"e75f0cba8f48d948069b978d86d46e96f7f5f0abd7a40341a5f92e006cb18939","byte_size":2517908,"path":"production/image_library/character_references/neil/CHAR_NEIL_FACE_FRONT_DEFAULT_DEFAULT_V001.png","responsibility":"NEIL_FACE_IDENTITY_AUTHORITY"},
+            "AST_IMG_000073":{"entity_id":"CHAR_NEIL","role":"FACE_3Q_RIGHT","authority_class":"AUXILIARY","resolver_usage":"DEFAULT","approval_status":"APPROVED","lifecycle":"CURRENT","sha256":"92ef0fc973093c7cc99f3b70f3aab1fabd09d2d82c29921e72065f0d7b9ac366","byte_size":1738212,"path":"production/image_library/character_references/neil/CHAR_NEIL_FACE_3Q_RIGHT_DEFAULT_DEFAULT_V001.png","responsibility":"NEIL_3Q_RIGHT_IDENTITY_AND_CAMERA_ANGLE_AUTHORITY"},
+            "AST_IMG_000052":{"entity_id":"SCENE_CASTLE_ENTRANCE","role":"SCENE_MASTER","authority_class":"MASTER","resolver_usage":"CONDITIONAL","approval_status":"APPROVED","lifecycle":"CURRENT","sha256":"d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961","byte_size":2305753,"path":"production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png","responsibility":"SCENE_FACT_AUTHORITY"}}
+          N02={"shot_id":"N02","approval_status":"APPROVED","lifecycle":"CURRENT","byte_size":2514132,"path":"production/image_library/approved/story_shots/N02_NEIL_CONTINUED_EXPLANATION_APPROVED_V001.png","git_blob_sha":"97a37fc8f3b6e932bece6d86cf719f4fbd24f7b2","sha256":"56ff80f51b38c05c0305c40b6a97947d992a544f2454e4a339684b80783c8e50","responsibility":"OPENING_NEIL_SPEAKING_COSTUME_AND_EXPLANATION_CONTINUITY"}
+          def sha(d): return hashlib.sha256(d).hexdigest()
+          def blob(d): return hashlib.sha1(b"blob "+str(len(d)).encode()+b"\0"+d).hexdigest()
+          def dims(d):
+            if len(d)<24 or d[:8]!=b"\x89PNG\r\n\x1a\n": raise SystemExit("Invalid PNG")
+            return struct.unpack(">II",d[16:24])
+          if OUT.exists() or OUT.is_symlink(): raise SystemExit("Refusing to overwrite bundle")
+          REFS.mkdir(parents=True)
+          rr=[json.loads(x) for x in REGISTRY_PATH.read_text().splitlines() if x.strip()]; refs=[]
+          for aid,e in ASSETS.items():
+            rows=[x for x in rr if x.get("asset_id")==aid]
+            if len(rows)!=1: raise SystemExit(f"{aid} cardinality mismatch")
+            row=rows[0]
+            for k,v in [("entity_id",e["entity_id"]),("role",e["role"]),("authority_class",e["authority_class"]),("resolver_usage",e["resolver_usage"]),("approval_status",e["approval_status"]),("lifecycle",e["lifecycle"]),("sha256",e["sha256"]),("byte_size",e["byte_size"]),("storage_uri",e["path"])]:
+              if row.get(k)!=v: raise SystemExit(f"{aid} registry mismatch: {k}")
+            src=ROOT/e["path"]; d=src.read_bytes(); w,h=dims(d)
+            if sha(d)!=e["sha256"] or len(d)!=e["byte_size"]: raise SystemExit(f"{aid} binary mismatch")
+            actual_blob=blob(d)
+            dst=REFS/f"{aid}__{src.name}"; shutil.copyfile(src,dst)
+            if dst.read_bytes()!=d: raise SystemExit(f"{aid} copy mismatch")
+            refs.append({"asset_id":aid,"shot_id":None,"role":e["role"],"responsibility":e["responsibility"],"authority_class":e["authority_class"],"approval_status":e["approval_status"],"lifecycle":e["lifecycle"],"canonical_path":e["path"],"filename":src.name,"bundle_path":dst.relative_to(OUT).as_posix(),"sha256":sha(d),"byte_size":len(d),"git_blob_sha":actual_blob,"width":w,"height":h,"source_commit":SOURCE_COMMIT})
+          sr=[json.loads(x) for x in STORY_INDEX_PATH.read_text().splitlines() if x.strip()]
+          rows=[x for x in sr if x.get("shot_id")=="N02"]
+          if len(rows)!=1: raise SystemExit("N02 cardinality mismatch")
+          row=rows[0]
+          for k,v in [("approval_status",N02["approval_status"]),("lifecycle",N02["lifecycle"]),("canonical_path",N02["path"]),("byte_size",N02["byte_size"]),("github_blob_sha",N02["git_blob_sha"]),("sha256_locked_identity",N02["sha256"])]:
+            if row.get(k)!=v: raise SystemExit(f"N02 index mismatch: {k}")
+          src=ROOT/N02["path"]; d=src.read_bytes(); w,h=dims(d)
+          if sha(d)!=N02["sha256"] or len(d)!=N02["byte_size"] or blob(d)!=N02["git_blob_sha"]: raise SystemExit("N02 binary mismatch")
+          dst=REFS/f"N02__{src.name}"; shutil.copyfile(src,dst)
+          refs.append({"asset_id":None,"shot_id":"N02","role":"STORY_SHOT_CONTINUITY","responsibility":N02["responsibility"],"authority_class":"CONTINUITY","approval_status":"APPROVED","lifecycle":"CURRENT","canonical_path":N02["path"],"filename":src.name,"bundle_path":dst.relative_to(OUT).as_posix(),"sha256":sha(d),"byte_size":len(d),"git_blob_sha":blob(d),"width":w,"height":h,"source_commit":SOURCE_COMMIT})
+          if len(refs)!=4: raise SystemExit("Reference count mismatch")
+          manifest={"bundle_id":BUNDLE_ID,"working_shot_id":"N07","source_commit":SOURCE_COMMIT,"reference_count":4,"reference_policy":"MINIMUM_NECESSARY_REFERENCES","authority_precedence":["NEIL_FACE_IDENTITY_AUTHORITY","NEIL_3Q_RIGHT_IDENTITY_AND_CAMERA_ANGLE_AUTHORITY","OPENING_NEIL_SPEAKING_COSTUME_AND_EXPLANATION_CONTINUITY","SCENE_FACT_AUTHORITY"],"manual_product_owner_reference_upload":0,"references":refs,"overall_result":"PASS"}
+          (OUT/"delivery_manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
+          (OUT/"WORK_HANDOFF.md").write_text("""# N07 Reference Delivery Bundle V001
+
+Purpose: formal binary transport for ChatGPT Work N07 Neil Speaking State C Story Shot generation.
+
+Director lock:
+- Beat: Neil continues/finalizes the spoken explanation before cut to visitor reaction N03.
+- Medium Shot, eye-level, Neil seen from right-front about 25-35 degrees.
+- Neil placed slightly right of frame; gaze toward off-screen visitors to frame left.
+- Natural speaking mouth; polite, calm, professional; no smile.
+- Hands mostly quiet near body; no N06-style open explanatory gesture.
+- Stable standing posture; no turn, no step.
+- Castle entrance/open-door exterior context remains legible.
+
+Rules:
+1. Revalidate all 4 PNGs against delivery_manifest.json before generation.
+2. Do not modify reference binaries.
+3. FACE_FRONT controls core identity; FACE_3Q_RIGHT controls right-front directional identity.
+4. N02 is costume/speaking continuity only; do not copy its composition.
+5. Scene Master controls architecture and open-door state.
+6. No smile, turn, step, pointing, invitation gesture, broad gesture, or direct camera gaze.
+7. Do not anticipate N05 action or N10 smile.
+8. Fail closed on any identity mismatch.
+9. Product Owner manual reference upload count = 0.
+10. Artifact is transport evidence only, not a formal Asset.
+""")
+          print("PASS: 4/4 exact canonical reference binaries verified")
+          for x in refs: print(f"{x.get('asset_id') or x.get('shot_id')} SHA256={x['sha256']}")
+          print(f"BUNDLE_ID={BUNDLE_ID}"); print(f"SOURCE_COMMIT={SOURCE_COMMIT}")
+          PY
+      - name: Upload N07 reference delivery artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N07_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N07_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
