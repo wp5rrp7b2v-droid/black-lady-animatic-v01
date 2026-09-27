@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N13 Bundle Design Approved + Build Prep
+
+- Product Owner advanced N13 into Reference Delivery Bundle design, then into N13_REFERENCE_DELIVERY_BUNDLE_V001 build design / execution preparation.
+- Formalized N13 Director Shot Design V0.1 as approved.
+- Formalized N13 Reference Delivery Bundle Design V0.1 as approved.
+- Locked minimum canonical set = 5: Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01 continuity.
+- N11 Candidate 03 and N12 Candidate 02 remain creatively approved but unpublished, therefore excluded from formal Bundle inputs.
+- N09/N10 excluded for exterior-state bias.
+- A05 explicitly excluded because it owns the "waist empty / no keys" reveal and could leak the answer into N13.
+- Prepared fail-closed GitHub Actions build contract; no workflow or artifact build executed yet.
+- Next: Product Owner authorizes real Bundle construction.
+
 ## 2026-09-27｜N11 Candidate 03 + N12 Candidate 02 Final Creative Approval
 
 - Product Owner approved `N11 Candidate 03` as the final N11 creative selection.

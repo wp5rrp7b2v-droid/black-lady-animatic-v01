@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R109",
+  "state_revision": "R110",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / N11 CANDIDATE 03 APPROVED FINAL / N12 CANDIDATE 02 APPROVED FINAL / BOTH PENDING S02-A BATCH ARCHIVAL / N13 DIRECTOR DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N13 DIRECTOR + BUNDLE DESIGN APPROVED / N13 BUNDLE V001 BUILD PREP READY / NOT YET BUILT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved N11 Candidate 03 as the final N11 selection; earlier N11 Candidate 01/02 are superseded/rejected for final use. Product Owner had already approved N12 Candidate 02 as the final N12 selection. Both approved binaries remain pending later S02-A batch publication/registration. Next production step: N13 Director Shot Design."
+    "note": "2026-09-27: N13 Director Shot Design V0.1 and N13 Reference Delivery Bundle Design V0.1 are approved. Build design/execution preparation is complete. Locked Bundle set remains Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01. N11/N12 are excluded until batch archival; N09/N10 excluded for exterior bias; A05 excluded because it owns the no-keys reveal. Bundle is NOT YET BUILT."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N13 DIRECTOR SHOT DESIGN",
+  "current_task": "P0.3｜S02-A｜N13_REFERENCE_DELIVERY_BUNDLE_V001 BUILD AUTHORIZATION",
   "blocker": null,
-  "next_action": "Begin N13 Director Shot Design. N11 Candidate 03 and N12 Candidate 02 are both Product Owner approved and must remain unregistered until the later S02-A batch archival pass. Previous N11 candidates are invalid for final archival.",
+  "next_action": "Product Owner authorizes actual N13_REFERENCE_DELIVERY_BUNDLE_V001 construction. Then Chat creates the temporary GitHub Actions workflow, runs the 5-reference exact validation/build, records artifact identity, and advances to N13 Candidate 01 Work generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N11-N12-APPROVAL-R109",
-    "status": "P0.3 IN PROGRESS / N11 + N12 APPROVED / BATCH ARCHIVAL DEFERRED / N13 NEXT",
+    "id": "2026-09-27-P03-S02A-N13-BUILD-PREP-R110",
+    "status": "N13 BUNDLE DESIGN APPROVED / BUILD PREP READY / NOT YET BUILT",
     "completed": [
-      "Product Owner approved N11 Candidate 03 as the final N11 selection.",
-      "N11 Candidate 03 keeps chain visibility while hiding the cross pendant so N12 retains explicit cross-reveal authority.",
-      "N11 Rebuild Candidate 01 is superseded; N11 Candidate 02 is rejected for cross-design inconsistency.",
-      "Product Owner approved N12 Candidate 02 as final N12 selection.",
-      "N12 Candidate 01 is superseded.",
-      "N11 and N12 formal publication/registration are intentionally deferred to the later S02-A batch archival pass."
+      "N13 Director Shot Design V0.1 formalized as approved.",
+      "N13 Reference Delivery Bundle Design V0.1 formalized as approved.",
+      "Five-reference canonical set locked.",
+      "A05 explicitly excluded to protect reveal authority.",
+      "Build workflow design and fail-closed validation contract prepared."
     ],
-    "resume_from": "N13 Director Shot Design.",
+    "resume_from": "Product Owner authorization to construct N13_REFERENCE_DELIVERY_BUNDLE_V001.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -512,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V081",
+    "version": "V082",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R109 / N11+N12 APPROVED / N13 NEXT",
-    "derived_from_revision": "R109",
+    "status": "CURRENT / DERIVED FROM R110 / N13 BUNDLE BUILD PREP READY",
+    "derived_from_revision": "R110",
     "last_updated": "2026-09-27",
-    "current_task": "N13 DIRECTOR SHOT DESIGN"
+    "current_task": "N13 BUNDLE V001 BUILD AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1217,5 +1216,34 @@
       "N12 Candidate 01"
     ],
     "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md"
+  },
+  "n13_director_shot_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / BUNDLE DESIGN AUTHORIZED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n13_director_shot_design_v0_1.md",
+    "function": "SHIFT ATTENTION TOWARD WAIST WITHOUT REVEAL",
+    "reveal_owner": "A05"
+  },
+  "n13_reference_delivery_bundle_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / BUILD PREP COMPLETE / NOT YET BUILT",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_design_v0_1.md",
+    "build_prep_path": "docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_prep.md",
+    "target_bundle_id": "N13_REFERENCE_DELIVERY_BUNDLE_V001",
+    "reference_count": 5,
+    "references": [
+      "AST_IMG_000028",
+      "AST_IMG_000027",
+      "AST_IMG_000026",
+      "AST_IMG_000052",
+      "N01"
+    ],
+    "exclusions": [
+      "N11 unpublished final candidate",
+      "N12 unpublished final candidate",
+      "N09",
+      "N10",
+      "A05",
+      "ALL_REJECTED_OR_SUPERSEDED_CANDIDATES"
+    ],
+    "build_authorized": false
   }
 }

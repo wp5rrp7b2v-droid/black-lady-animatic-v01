@@ -743,3 +743,36 @@ Approval checkpoint:
 
 Next:
 `N13 Director Shot Design`
+
+## N13 Bundle Build Preparation｜2026-09-27
+
+Status: `DESIGN APPROVED / BUILD PREP READY / NOT YET BUILT`
+
+Narrative lock:
+
+`move attention toward Neil's waist without revealing that it is empty`
+
+Reference set:
+
+- Neil FACE_FRONT;
+- Neil FACE_3Q_LEFT;
+- Neil BODY_FRONT;
+- Castle Entrance Scene Master;
+- N01 inside-threshold continuity.
+
+Excluded:
+
+- unpublished N11 Candidate 03;
+- unpublished N12 Candidate 02;
+- N09 / N10;
+- A05 reveal shot;
+- all rejected / superseded candidates.
+
+Documents:
+
+- `docs/project_control/gates/P0_3_video_pipeline/n13_director_shot_design_v0_1.md`
+- `docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_design_v0_1.md`
+- `docs/project_control/gates/P0_3_video_pipeline/n13_reference_delivery_bundle_v001_build_prep.md`
+
+Next:
+`Product Owner build authorization → GitHub Actions real build → 5/5 verification → Work N13 Candidate 01`
