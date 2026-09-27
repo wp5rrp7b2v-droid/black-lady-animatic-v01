@@ -1,5 +1,15 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜RC-024 Story Shot Production + Registration SOP
+
+- Product Owner requested the proven Story Shot generation and registration process be standardized as a formal project rule.
+- Added `docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md`.
+- Locked standard lifecycle: `Director Design → Reference Delivery Bundle → Work Generation → Product Owner Approval → Original PNG Upload → Binary Verification → Exact-Blob Canonical Rename → Story Shot Index Registration → Registration Verification → Project Control Closeout`.
+- Formal completion requires four gates: PO APPROVED + canonical binary published + Story Shot Index registered + registration verification PASS.
+- SOP operationalizes RC-021 / RC-022 / RC-023 and RC-014; binary identity mismatches remain FAIL CLOSED.
+- Normal Work reference delivery remains automated through canonical GitHub / Resolver / Bundle; manual Product Owner reference upload baseline remains 0.
+- Codex is not part of the normal Story Shot image production / registration baseline.
+
 ## 2026-09-27｜N06-N07 Story Shot Final Registration
 
 - Product Owner approved N06 Candidate 02 and N07 Candidate 01 for Opening V2.
