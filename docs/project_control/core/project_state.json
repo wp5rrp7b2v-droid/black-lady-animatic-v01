@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R088",
+  "state_revision": "R089",
   "last_updated": "2026-09-27",
   "session_status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / 17 APPROVED STORY SHOTS / REVISED OPENING V2 PROOF ASSEMBLY NEXT / NOT YET VALIDATED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER LOCAL PULL AFTER R088 REGISTRATION CLOSEOUT",
+    "status": "PENDING USER LOCAL PULL AFTER R089 RULE STANDARDIZATION",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "POST-N06-N07 STORY_SHOT REGISTRATION GITHUB MAIN"
+    "target": "POST-RC-024 STORY_SHOT SOP GITHUB MAIN"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,18 +114,15 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-N06-N07-STORY-SHOTS-REGISTERED",
-    "status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / REVISED PROOF ASSEMBLY NEXT",
+    "id": "2026-09-27-P03-STORY-SHOT-SOP-R089",
+    "status": "P0.3 IN PROGRESS / OPENING V2 STORY-SHOT SET COMPLETE / RC-024 SOP ACTIVE / REVISED PROOF ASSEMBLY NEXT",
     "completed": [
-      "Product Owner approved N06 Candidate 02 and N07 Candidate 01.",
-      "GitHub Actions run 36289949835 verified both exact uploaded PNGs at 941×1672 with SHA-256 / byte-size / Git-blob checks.",
-      "N06 and N07 UUID uploads were canonically renamed by exact Git blob reuse with no binary re-encode.",
-      "N06 and N07 were added to production/story_shots/story_shot_index.jsonl as APPROVED / CURRENT Story Shots.",
-      "Approved Story Shot count is now 17: A01–A07 + N01–N10.",
-      "Opening V2 12-shot sequence is fully covered by approved Story Shots: A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01.",
-      "N06 performance lock: restrained speaking gesture close to body; no smile, turn, or step.",
-      "N07 performance/composition lock: right-front 25°–35° speaking state, figure biased right, gaze to frame-left off-screen visitors, hands quiet; no smile, turn, or step.",
-      "Post-registration verification run 36290165666 returned PASS for N06/N07 canonical binaries and Story Shot index identity matches; evidence artifact 10921183606."
+      "N06 and N07 are Product Owner approved, formally registered, and independently verified.",
+      "Approved Story Shot count remains 17: A01–A07 + N01–N10.",
+      "Opening V2 12-shot sequence is fully covered by approved Story Shots.",
+      "RC-024 standardized the formal Story Shot production + registration lifecycle.",
+      "Story Shot Production & Registration SOP V1 is now the active project standard.",
+      "Formal Story Shot completion requires PO approval, canonical binary publication, Story Shot Index registration, and registration verification PASS."
     ],
     "resume_from": "Assemble and review the revised 12-shot Opening V2 proof from canonical audio + approved Story Shots.",
     "blockers": []
@@ -514,11 +511,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V060",
+    "version": "V061",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R088 / OPENING V2 STORY-SHOT SET COMPLETE / 17 APPROVED / REVISED PROOF NEXT",
-    "derived_from_revision": "R088",
+    "status": "CURRENT / DERIVED FROM R089 / OPENING V2 STORY-SHOT SET COMPLETE / RC-024 SOP ACTIVE / REVISED PROOF NEXT",
+    "derived_from_revision": "R089",
     "last_updated": "2026-09-27",
     "current_task": "OPENING V2 PROOF ASSEMBLY"
   },
@@ -732,6 +729,21 @@
       "registration_verification_artifact_id": 10921183606,
       "registration_verification_result": "PASS / BOTH INDEX_MATCH=YES",
       "registration_verification_artifact_digest": "sha256:2c9ac4376f9532b87920aedb093eccc9b7d3226040f8ec49669acd464ef3e5dc"
+    },
+    "production_registration_sop": {
+      "status": "ACTIVE / PROJECT STANDARD",
+      "rule_change_id": "RC-024",
+      "path": "docs/project_control/gates/P0_3_video_pipeline/story_shot_production_registration_sop_v1.md",
+      "standard_flow": "Director Design → Reference Delivery Bundle → Work Generation → Product Owner Approval → Original PNG Upload → Binary Verification → Exact-Blob Canonical Rename → Story Shot Index Registration → Registration Verification → Project Control Closeout",
+      "formal_completion_gates": [
+        "PRODUCT_OWNER_APPROVED",
+        "CANONICAL_BINARY_PUBLISHED",
+        "STORY_SHOT_INDEX_REGISTERED",
+        "REGISTRATION_VERIFICATION_PASS"
+      ],
+      "fail_closed_on_identity_mismatch": true,
+      "normal_manual_po_reference_upload": 0,
+      "exact_binary_preservation_required": true
     }
   }
 }
