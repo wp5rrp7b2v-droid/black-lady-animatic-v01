@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V067</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V068</title>
 <style>
 :root{
   --bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;
@@ -57,7 +57,7 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V067 · Product Owner 驾驶舱 · Derived from R095 · Updated 2026-09-27</p>
+  <p class="muted">Project Dashboard V068 · Product Owner 驾驶舱 · Derived from R096 · Updated 2026-09-27</p>
 
   <section class="hero">
     <div class="kicker">Current State</div>
@@ -243,6 +243,17 @@ ul.compact li{margin:4px 0}
       <li>V003 明显增强：6–12 帧溶解、12 帧 blur/focus dissolve（最高约 5.5px）、3–5% 人物推进、N08 6.5% 建筑推进、N03 4% 拉远+16px 横移、N05 9px/10f settle-shake。</li>
       <li>技术规格：1080×1920 / H.264 yuv420p / 30fps / 991 frames / continuous AAC audio / full decode PASS。</li>
       <li>下一步：Product Owner 观看完整 V003，判断是否达到“明显一档但不过度”。</li>
+    </ul>
+  </section>
+  <section>
+    <h2>libopenshot Camera Motion Proof V001</h2>
+    <ul>
+      <li>GitHub Actions run 36298639226：TECHNICAL RENDER PASS。</li>
+      <li>Artifact 10923993594：P03_LIBOPENSHOT_CAMERA_MOTION_PROOF_V001。</li>
+      <li>测试范围：N08 → N03 → N05，7.6 秒 motion-only 技术 Spike。</li>
+      <li>N08：hold → push → overshoot → settle；N03：pull-back + lateral drift → settle；N05：action push + reframe + settle-shake + micro rotation。</li>
+      <li>技术规格：1080×1920 / H.264 yuv420p / 30fps / 228 frames / full decode PASS。</li>
+      <li>下一步：Product Owner 判断 libopenshot 多关键帧运镜是否明显优于当前 Remotion V003；未批准前不迁移完整 Opening V2。</li>
     </ul>
   </section>
 </body>
