@@ -1,6 +1,6 @@
 # S02-A｜N14 Product Owner Approval Checkpoint
 
-Status: `N14 CANDIDATE 01 PRODUCT OWNER APPROVED / FINAL CREATIVE SELECTION / PENDING BATCH ARCHIVAL`
+Status: `N14 PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED`
 
 Date: 2026-09-27
 
@@ -39,8 +39,19 @@ Per current S02-A batch-archival plan:
 - retain this exact approved binary identity for later batch publication;
 - no alternative N14 candidate may replace this selection without a new Product Owner decision.
 
-## 4. Next step
+## 4. Formal archival
 
-Proceed to:
+Completed on 2026-09-27.
 
-`N15 Director Shot Design V0.1`
+- canonical publication commit: `caff3cef027366b75e2ced5b04f363ed6a89b5f6`
+- Story Shot Index registration commit: `f301eff807434552e52d78070a8d06e492c1ae06`
+- registration verification run: `36324545377`
+- result: `N14_PASS / INDEX_MATCH=YES / OVERALL_RESULT=PASS`
+
+See:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_n14_story_shot_registration_closeout_2026-09-27.md`
+
+## 5. Next step
+
+Before continuing N15, complete the Product Owner-requested source-novel fact check for the key / final escape-door chain.

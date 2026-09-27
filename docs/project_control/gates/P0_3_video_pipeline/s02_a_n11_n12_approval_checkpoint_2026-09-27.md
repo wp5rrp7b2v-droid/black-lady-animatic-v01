@@ -2,7 +2,7 @@
 
 Date: 2026-09-27
 
-Status: `PRODUCT OWNER APPROVED / BATCH ARCHIVAL DEFERRED`
+Status: `PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED`
 
 ## N11 final selection
 
@@ -62,4 +62,13 @@ Per Product Owner instruction:
 - batch archival must still follow RC-024:
   original PNG upload → binary verification → exact-blob canonical rename → Story Shot Index registration → registration verification → Project Control closeout.
 
-This checkpoint records creative approval only. It does not substitute for formal binary publication or Story Shot registration.
+Formal archival completed on 2026-09-27.
+
+- canonical publication commit: `caff3cef027366b75e2ced5b04f363ed6a89b5f6`
+- Story Shot Index registration commit: `f301eff807434552e52d78070a8d06e492c1ae06`
+- registration verification run: `36324545377`
+- result: `N11_PASS / N12_PASS / INDEX_MATCH=YES / OVERALL_RESULT=PASS`
+
+See:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_n14_story_shot_registration_closeout_2026-09-27.md`

@@ -918,3 +918,26 @@ Critical boundary:
 - no clean waist exposure;
 - no empty-waist conclusion;
 - A05 retains exclusive reveal authority.
+
+## N11 / N12 / N14 Story Shot Registration Closeout｜2026-09-27
+
+Status: `COMPLETE / RC-024 FOUR GATES PASS`
+
+- correct source upload commit: `ebe1361664f27dd1fa17b866e0d529f7128abf46`
+- upload verification run: `36324358350` / PASS
+- upload verification artifact: `10933591429`
+- canonical exact-blob publication commit: `caff3cef027366b75e2ced5b04f363ed6a89b5f6`
+- Story Shot Index registration commit: `f301eff807434552e52d78070a8d06e492c1ae06`
+- registration verification run: `36324545377` / PASS
+- registration verification artifact: `10933043856`
+- result: `N11_PASS / N12_PASS / N14_PASS / INDEX_MATCH=YES / STAGING_CLEANUP_PASS / OVERALL_RESULT=PASS`
+- registered Story Shot count: `20`
+- N13: `CANCELLED / NOT REGISTERED`
+
+Closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_n14_story_shot_registration_closeout_2026-09-27.md`
+
+Next session:
+
+`source novel key / escape-door fact check → revise N15 Director Shot Design`

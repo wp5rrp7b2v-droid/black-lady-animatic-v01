@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R115",
+  "state_revision": "R116",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12+N14 PRODUCT OWNER APPROVED PENDING BATCH ARCHIVAL / N15 DIRECTOR SHOT DESIGN V0.1 IN REVIEW",
+  "session_status": "PAUSED FOR DAY / P0.3 IN PROGRESS / S02-A V0.2 / N11+N12+N14 FORMALLY REGISTERED / N13 CANCELLED / N15 DESIGN PAUSED FOR SOURCE-NOVEL KEY-EXIT FACT CHECK",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved N14 Candidate 01 as the final creative selection (941x1672 / 2500282 bytes / SHA-256 0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1), pending the planned S02-A batch archival. N15 Director Shot Design V0.1 is now in review. N15 carries the role inference + likely key-holder hypothesis while A05 retains exclusive no-keys reveal authority."
+    "note": "2026-09-27 EOD: N11 Candidate 03, N12 Candidate 02 and N14 Candidate 01 completed the full RC-024 lifecycle. Exact source uploads passed GitHub Actions verification run 36324358350; exact Git blobs were canonically published at commit caff3cef027366b75e2ced5b04f363ed6a89b5f6; Story Shot Index registration commit f301eff807434552e52d78070a8d06e492c1ae06 added N11/N12/N14; post-registration verification run 36324545377 returned N11/N12/N14 PASS + INDEX_MATCH=YES + STAGING_CLEANUP_PASS + OVERALL_RESULT=PASS. N13 remains cancelled. N15 is paused pending source-novel key/exit fact check."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N15 DIRECTOR SHOT DESIGN V0.1 REVIEW",
+  "current_task": "P0.3｜S02-A｜PAUSED FOR DAY / N15 SOURCE-NOVEL KEY-EXIT FACT CHECK NEXT",
   "blocker": null,
-  "next_action": "Product Owner reviews N15 Director Shot Design V0.1. N15 applies the prior-experience rule specifically to Neil: butler role → plausible key-holder. It must build expectation without showing keys or exposing the waist answer-zone.",
+  "next_action": "Next session: read the canonical full novel and verify which door ultimately requires the key for escape, how the key is obtained, and whether that target should be visually foreshadowed in N15. Do not continue the current Neil-focused N15 design until this fact check is complete.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N15-DESIGN-R115",
-    "status": "N14 APPROVED / N15 DIRECTOR DESIGN IN REVIEW",
+    "id": "2026-09-27-P03-S02A-N11-N12-N14-ARCHIVAL-R116",
+    "status": "EOD PAUSED / N11+N12+N14 RC-024 COMPLETE / N15 SOURCE FACT CHECK NEXT",
     "completed": [
-      "Product Owner approved N14 Candidate 01 as final creative selection.",
-      "Locked N14 source identity: 941x1672 / 2500282 bytes / SHA-256 0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1.",
-      "N14 remains pending the Product Owner-requested later batch archival and Story Shot registration.",
-      "Drafted N15 Director Shot Design V0.1 for butler-role inference + likely key-holder hypothesis.",
-      "A05 remains the exclusive no-keys / empty-waist reveal."
+      "N11 Candidate 03, N12 Candidate 02 and N14 Candidate 01 exact original PNGs were re-uploaded correctly.",
+      "GitHub Actions upload verification run 36324358350 passed exact SHA-256 / byte-size / Git-blob / PNG-dimension checks for all three.",
+      "Canonical publication reused the exact Git blobs at commit caff3cef027366b75e2ced5b04f363ed6a89b5f6 with no re-encode.",
+      "Story Shot Index registration commit f301eff807434552e52d78070a8d06e492c1ae06 added N11, N12 and N14.",
+      "Post-registration verification run 36324545377 passed N11/N12/N14 INDEX_MATCH=YES, STAGING_CLEANUP_PASS and OVERALL_RESULT=PASS.",
+      "Registered Story Shot count is now 20; N13 remains cancelled and unregistered."
     ],
-    "resume_from": "Product Owner review of N15 Director Shot Design V0.1.",
+    "resume_from": "Read canonical full novel: verify the final key/escape-door chain before redesigning N15.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +512,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V087",
+    "version": "V088",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R115 / N14 APPROVED / N15 DESIGN REVIEW",
-    "derived_from_revision": "R115",
+    "status": "CURRENT / DERIVED FROM R116 / EOD PAUSED / N11+N12+N14 FORMALLY REGISTERED",
+    "derived_from_revision": "R116",
     "last_updated": "2026-09-27",
-    "current_task": "N15 DIRECTOR SHOT DESIGN V0.1 REVIEW"
+    "current_task": "PAUSED FOR DAY / N15 SOURCE-NOVEL KEY-EXIT FACT CHECK NEXT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -580,7 +581,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "IMPLEMENTED / ACTIVE / N01-N10 FORMALLY REGISTERED / OPENING V2 SET COMPLETE",
+    "status": "IMPLEMENTED / ACTIVE / 20 FORMALLY REGISTERED STORY SHOTS",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -589,7 +590,7 @@
       "REJECTED",
       "WIP"
     ],
-    "implementation_status": "IMPLEMENTED 2026-09-27 / INDEX = production/story_shots/story_shot_index.jsonl / 17 APPROVED RECORDS",
+    "implementation_status": "IMPLEMENTED 2026-09-27 / INDEX = production/story_shots/story_shot_index.jsonl / 20 APPROVED RECORDS",
     "legacy_path_principle": "Do not rename or duplicate A01-A07 merely to normalize the new model; preserve historical IDs and references.",
     "n01": {
       "shot_id": "N01",
@@ -609,7 +610,7 @@
       ]
     },
     "index_path": "production/story_shots/story_shot_index.jsonl",
-    "registered_story_shot_count": 17,
+    "registered_story_shot_count": 20,
     "opening_sequence": [
       "A01",
       "A02",
@@ -747,6 +748,41 @@
       "scope_boundary": "STORY_SHOT operational layer only; not automatically an Asset Registry asset_class=SHOT record",
       "reference_upload_rule": "manual Product Owner reference upload = 0",
       "final_output_publication_rule": "after PO approval, exact original PNG may be manually published to canonical GitHub intake; canonical naming/index/verification remain system-managed"
+    },
+    "n11_n12_n14": {
+      "status": "PRODUCT_OWNER_APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED",
+      "upload_commit": "ebe1361664f27dd1fa17b866e0d529f7128abf46",
+      "binary_verification_run": 36324358350,
+      "binary_verification_artifact_id": 10933591429,
+      "binary_verification_artifact_digest": "sha256:363db1043e92ef5e14c59a4bc9fe57b93c7875d190be23567334b51cc08cca3b",
+      "canonical_publication_commit": "caff3cef027366b75e2ced5b04f363ed6a89b5f6",
+      "registration_commit": "f301eff807434552e52d78070a8d06e492c1ae06",
+      "registration_verification_run": 36324545377,
+      "registration_verification_artifact_id": 10933043856,
+      "registration_verification_artifact_digest": "sha256:f0ec1acc11572c3127067af58d0cdedafe21f672118a8c29da16d168b5bdf3e1",
+      "registration_verification_result": "PASS / N11+N12+N14 INDEX_MATCH=YES / STAGING_CLEANUP_PASS",
+      "canonical_files": {
+        "N11": "production/image_library/approved/story_shots/N11_NEIL_ABNORMAL_PORTRAIT_APPROVED_V001.png",
+        "N12": "production/image_library/approved/story_shots/N12_NEIL_CROSS_RIGID_SMILE_APPROVED_V001.png",
+        "N14": "production/image_library/approved/story_shots/N14_FIRST_ENCOUNTER_IMPORTANCE_APPROVED_V001.png"
+      },
+      "sha256": {
+        "N11": "09d45c1b27fbd2aea68c818677d9656a2ae7f39296f80f6db622118312aebcc5",
+        "N12": "d94dc3623ba1abc55aa86c8b646d7876d097433bfadb70291bfa9c68cffc030b",
+        "N14": "0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1"
+      },
+      "byte_size": {
+        "N11": 2538801,
+        "N12": 2434337,
+        "N14": 2500282
+      },
+      "git_blob_sha": {
+        "N11": "f5efde465dcadd1490f2064c6db39e1d5f194dc6",
+        "N12": "853d04f5ed8a2e1845ce1dfa9cef5c02f123124b",
+        "N14": "e32c03bc21efcd0eda98d2e9868a64915583b19f"
+      },
+      "rename_integrity": "EXACT GIT BLOB REUSE / NO RE-ENCODE",
+      "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_n14_story_shot_registration_closeout_2026-09-27.md"
     }
   },
   "rule_consistency_audit": {
@@ -1193,29 +1229,37 @@
     "manual_product_owner_reference_upload": 0
   },
   "n11_final_selection": {
-    "status": "PRODUCT OWNER APPROVED / FINAL SELECTED / PENDING BATCH ARCHIVAL",
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED",
     "selected_candidate": "N11 Candidate 03",
     "dimensions": "941x1672",
-    "binary_publication_status": "DEFERRED",
-    "story_shot_registration_status": "NOT YET REGISTERED",
+    "binary_publication_status": "COMPLETE",
+    "story_shot_registration_status": "REGISTERED / VERIFIED",
     "superseded_or_invalidated": [
       "N11 Rebuild Candidate 01",
       "N11 Candidate 02",
       "ALL EARLIER FAILED N11 CANDIDATES"
     ],
     "final_continuity_rule": "VISIBLE METAL CHAIN / CROSS PENDANT HIDDEN BY WAISTCOAT; N12 OWNS EXPLICIT CROSS REVEAL",
-    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md"
+    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md",
+    "canonical_path": "production/image_library/approved/story_shots/N11_NEIL_ABNORMAL_PORTRAIT_APPROVED_V001.png",
+    "byte_size": 2538801,
+    "sha256": "09d45c1b27fbd2aea68c818677d9656a2ae7f39296f80f6db622118312aebcc5",
+    "github_blob_sha": "f5efde465dcadd1490f2064c6db39e1d5f194dc6"
   },
   "n12_final_selection": {
-    "status": "PRODUCT OWNER APPROVED / FINAL SELECTED / PENDING BATCH ARCHIVAL",
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED",
     "selected_candidate": "N12 Candidate 02",
     "dimensions": "941x1672",
-    "binary_publication_status": "DEFERRED",
-    "story_shot_registration_status": "NOT YET REGISTERED",
+    "binary_publication_status": "COMPLETE",
+    "story_shot_registration_status": "REGISTERED / VERIFIED",
     "superseded_or_invalidated": [
       "N12 Candidate 01"
     ],
-    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md"
+    "checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n11_n12_approval_checkpoint_2026-09-27.md",
+    "canonical_path": "production/image_library/approved/story_shots/N12_NEIL_CROSS_RIGID_SMILE_APPROVED_V001.png",
+    "byte_size": 2434337,
+    "sha256": "d94dc3623ba1abc55aa86c8b646d7876d097433bfadb70291bfa9c68cffc030b",
+    "github_blob_sha": "853d04f5ed8a2e1845ce1dfa9cef5c02f123124b"
   },
   "n13_director_shot_design_v0_1": {
     "status": "PRODUCT OWNER APPROVED / BUNDLE DESIGN AUTHORIZED",
@@ -1339,14 +1383,16 @@
     "manual_product_owner_reference_upload": 0
   },
   "n14_candidate_01": {
-    "status": "PRODUCT OWNER APPROVED / FINAL CREATIVE SELECTION / PENDING BATCH ARCHIVAL",
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED",
     "approval_checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n14_approval_checkpoint_2026-09-27.md",
     "dimensions": "941x1672",
     "byte_size": 2500282,
     "sha256": "0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1",
     "bundle_artifact_id": 10931321832,
-    "canonical_published": false,
-    "story_shot_registered": false
+    "canonical_published": true,
+    "story_shot_registered": true,
+    "canonical_path": "production/image_library/approved/story_shots/N14_FIRST_ENCOUNTER_IMPORTANCE_APPROVED_V001.png",
+    "github_blob_sha": "e32c03bc21efcd0eda98d2e9868a64915583b19f"
   },
   "n15_director_shot_design_v0_1": {
     "status": "DRAFT / PRODUCT OWNER REVIEW",

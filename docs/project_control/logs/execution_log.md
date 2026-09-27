@@ -1,5 +1,29 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 N12 N14 Story Shot Final Registration
+
+- Product Owner requested end-of-day archival for N11 / N12 / N14 under the locked RC-024 process.
+- Correct original PNGs were published in commit `ebe1361664f27dd1fa17b866e0d529f7128abf46`.
+- Upload verification workflow run `36324358350`, job `108634127720`: SUCCESS / OVERALL_RESULT=PASS.
+- Upload verification artifact `10933591429`, digest `sha256:363db1043e92ef5e14c59a4bc9fe57b93c7875d190be23567334b51cc08cca3b`.
+- Exact identities:
+  - N11: SHA-256 `09d45c1b27fbd2aea68c818677d9656a2ae7f39296f80f6db622118312aebcc5` / 2,538,801 bytes / blob `f5efde465dcadd1490f2064c6db39e1d5f194dc6`.
+  - N12: SHA-256 `d94dc3623ba1abc55aa86c8b646d7876d097433bfadb70291bfa9c68cffc030b` / 2,434,337 bytes / blob `853d04f5ed8a2e1845ce1dfa9cef5c02f123124b`.
+  - N14: SHA-256 `0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1` / 2,500,282 bytes / blob `e32c03bc21efcd0eda98d2e9868a64915583b19f`.
+- Exact-blob canonical publication commit: `caff3cef027366b75e2ced5b04f363ed6a89b5f6`; no PNG re-encode.
+- Formal canonical filenames:
+  - `N11_NEIL_ABNORMAL_PORTRAIT_APPROVED_V001.png`
+  - `N12_NEIL_CROSS_RIGID_SMILE_APPROVED_V001.png`
+  - `N14_FIRST_ENCOUNTER_IMPORTANCE_APPROVED_V001.png`
+- Story Shot Index registration commit: `f301eff807434552e52d78070a8d06e492c1ae06`.
+- Registration verification run `36324545377`, job `108634649651`: SUCCESS.
+- Registration verification artifact `10933043856`, digest `sha256:f0ec1acc11572c3127067af58d0cdedafe21f672118a8c29da16d168b5bdf3e1`.
+- Verification result: N11/N12/N14 PASS, INDEX_MATCH=YES, STAGING_CLEANUP_PASS, OVERALL_RESULT=PASS.
+- The earlier incorrect upload batch from commit `1e91d5f33017122e78196ed573a8f4d80e3aca9d` was never registered and its temporary binaries were removed from the current tree.
+- Story Shot Index now contains 20 APPROVED/CURRENT records.
+- N13 remains cancelled / rejected / unregistered.
+- EOD pause: do not continue the existing Neil-focused N15 design before checking the canonical novel for the actual key → escape-door chain.
+
 ## 2026-09-27｜N14 Candidate 01 PO Approval + N15 Design Start
 
 - N14 Candidate 01 generated from verified N14_REFERENCE_DELIVERY_BUNDLE_V001; Work reported 5/5 MATCH.
