@@ -831,3 +831,27 @@ Documents:
 
 Next:
 `Product Owner review of N14 Director Shot Design V0.1`
+
+## N14 Reference Delivery Bundle Design V0.1｜2026-09-27
+
+Status: `DIRECTOR DESIGN PRODUCT OWNER APPROVED / BUNDLE DESIGN IN REVIEW / NOT YET BUILT`
+
+Director lock:
+
+- Ning Qiushui primary;
+- tight / medium close-up;
+- shallow depth of field;
+- calm / experienced / analytical;
+- Neil only as a soft out-of-focus referent;
+- no keys / waist / key-holder inference.
+
+Proposed five-reference bundle:
+
+`A04 + AST_IMG_000034 + AST_IMG_000032 + AST_IMG_000026 + AST_IMG_000052`
+
+Document:
+
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_design_v0_1.md`
+
+Next:
+`Product Owner review → Build Prep`

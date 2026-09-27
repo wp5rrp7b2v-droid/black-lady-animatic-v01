@@ -1,5 +1,14 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N14 Director Approval + Bundle Design Start
+
+- Product Owner approved N14 Director Shot Design V0.1.
+- Locked visual strategy: Ning Qiushui as clear primary subject; tight / medium close-up; shallow depth of field; calm experienced analytical state; Neil only as a soft out-of-focus referent.
+- Began N14 Reference Delivery Bundle Design V0.1.
+- Proposed minimum canonical reference set: A04 continuity + Ning FACE_FRONT + Ning BODY_FRONT + Neil BODY_FRONT + Castle Entrance Scene Master.
+- Explicitly excluded N13, A05, unpublished N11/N12 final candidates, future N15 and key/waist imagery.
+- No Bundle build or Work generation yet.
+
 ## 2026-09-27｜S02-A V0.2 Restructure + N14 Design Start
 
 - Product Owner rejected the original N13 structural concept after reviewing Candidate 01.

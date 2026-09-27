@@ -1,6 +1,6 @@
 # N14｜First-Encounter Importance｜Director Shot Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / REFERENCE DELIVERY BUNDLE DESIGN AUTHORIZED`
 
 Date: 2026-09-27
 
@@ -162,7 +162,7 @@ N14 passes if:
 ## 12. Current boundary
 
 Current stage:
-`Director Shot Design V0.1 / Product Owner review`
+`Director Shot Design V0.1 / PRODUCT OWNER APPROVED`
 
 Not yet authorized:
 
@@ -171,4 +171,7 @@ Not yet authorized:
 - Story Shot registration.
 
 Next:
-`Product Owner review → N14 Reference Delivery Bundle Design`
+`N14 Reference Delivery Bundle Design V0.1`
+
+Bundle design path:
+`docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_design_v0_1.md`

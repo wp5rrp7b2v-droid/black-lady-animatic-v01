@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R112",
+  "state_revision": "R113",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / S02-A SHOT PLAN V0.2 APPROVED / N13 CANCELLED AS FORMAL SHOT / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N14 DIRECTOR DESIGN V0.1 IN REVIEW",
+  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N14 DIRECTOR DESIGN APPROVED / N14 BUNDLE DESIGN V0.1 IN REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner revised S02-A structure to V0.2. N13 is cancelled as an independent formal shot; its function is absorbed into the A05 waist-check/reveal beat. The long reasoning passage is split into N14 (first-person-encounter importance from prior experience) and N15 (butler-role + likely key-holder inference); no N16. N14 Director Shot Design V0.1 is now in Product Owner review."
+    "note": "2026-09-27: Product Owner approved the N14 Director Shot Design direction: Ning Qiushui clear in a tight/medium close-up, Neil only as a soft referent, shallow depth of field, calm experienced analytical state. N14 Reference Delivery Bundle Design V0.1 is now in Product Owner review; no artifact has been built."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N14 DIRECTOR SHOT DESIGN V0.1 REVIEW",
+  "current_task": "P0.3｜S02-A｜N14 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW",
   "blocker": null,
-  "next_action": "Product Owner reviews N14 Director Shot Design V0.1. If approved, proceed to N14 Reference Delivery Bundle Design. N13 is cancelled as a formal Story Shot and its bundle/candidate remain historical evidence only.",
+  "next_action": "Product Owner reviews N14 Reference Delivery Bundle Design V0.1. Proposed bundle uses 5 canonical references: A04 continuity, Ning FACE_FRONT, Ning BODY_FRONT, Neil BODY_FRONT as a subordinate referent, and Castle Entrance Scene Master. No build yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,16 +114,15 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N14-DESIGN-R112",
-    "status": "S02-A V0.2 APPROVED / N13 CANCELLED / N14 DESIGN IN REVIEW",
+    "id": "2026-09-27-P03-S02A-N14-BUNDLE-DESIGN-R113",
+    "status": "N14 DIRECTOR DESIGN APPROVED / BUNDLE DESIGN V0.1 IN REVIEW",
     "completed": [
-      "Product Owner revised S02-A to N11 → N12 → A04 → N14 → N15 → A05.",
-      "N13 cancelled as an independent formal Story Shot; N13 Bundle and Candidate 01 retained only as historical evidence.",
-      "N15 and proposed N16 merged into one role-inference + key-holder-hypothesis beat.",
-      "S02-A Shot Plan V0.2 formalized.",
-      "N14 Director Shot Design V0.1 drafted."
+      "Product Owner approved N14 Director Shot Design V0.1.",
+      "Locked N14 visual strategy: Ning primary, Neil soft referent, shallow depth of field, quiet analytical state.",
+      "Drafted N14 Reference Delivery Bundle Design V0.1 with five canonical references.",
+      "Excluded A05, N13, unpublished N11/N12 finals, future N15 and key/waist imagery."
     ],
-    "resume_from": "Product Owner review of N14 Director Shot Design V0.1.",
+    "resume_from": "Product Owner review of N14 Reference Delivery Bundle Design V0.1.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -511,13 +510,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V084",
+    "version": "V085",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R112 / S02-A V0.2 / N14 DESIGN REVIEW",
-    "derived_from_revision": "R112",
+    "status": "CURRENT / DERIVED FROM R113 / N14 BUNDLE DESIGN REVIEW",
+    "derived_from_revision": "R113",
     "last_updated": "2026-09-27",
-    "current_task": "N14 DIRECTOR SHOT DESIGN V0.1 REVIEW"
+    "current_task": "N14 REFERENCE DELIVERY BUNDLE DESIGN V0.1 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1298,11 +1297,27 @@
     "further_generation": false
   },
   "n14_director_shot_design_v0_1": {
-    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / REFERENCE DELIVERY BUNDLE DESIGN AUTHORIZED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n14_director_shot_design_v0_1.md",
     "narrative_function": "PRIOR-EXPERIENCE RULE: FIRST PERSON ENCOUNTERED IS OFTEN IMPORTANT",
     "primary_subject": "NING_QIUSHUI",
     "secondary_referent": "NEIL_SOFT_OUT_OF_FOCUS",
     "generation_authorized": false
+  },
+  "n14_reference_delivery_bundle_design_v0_1": {
+    "status": "DRAFT / PRODUCT OWNER REVIEW / NOT YET BUILT",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n14_reference_delivery_bundle_design_v0_1.md",
+    "bundle_id": "N14_REFERENCE_DELIVERY_BUNDLE_V001",
+    "target_candidate": "N14 Candidate 01",
+    "proposed_reference_count": 5,
+    "proposed_references": [
+      "A04",
+      "AST_IMG_000034",
+      "AST_IMG_000032",
+      "AST_IMG_000026",
+      "AST_IMG_000052"
+    ],
+    "manual_product_owner_reference_upload": 0,
+    "build_authorized": false
   }
 }
