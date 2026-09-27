@@ -1,5 +1,19 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜Opening V2 Proof Review V003
+
+- Product Owner approved proceeding directly to a complete V003 using Chat + GitHub Actions.
+- V003 preserves the now-working 12-shot sequence, uninterrupted canonical audio and Draft 01 timing.
+- Editorial treatment was strengthened one perceptible tier above V002: longer dissolves, stronger push/pull/drift, stronger focus/vignette cues, blur/focus transitions, and a clearer but still restrained N05 action accent.
+- Initial run `36297396556` failed because React dependencies were mismatched (`react 19.2.4` / `react-dom 19.2.3`).
+- Dependency versions were corrected to `19.2.4 / 19.2.4`.
+- GitHub Actions run `36297467856` then completed successfully.
+- Artifact `P03_OPENING_V2_PROOF_REVIEW_V003`, ID `10924960913`, digest `sha256:cdafde226070f8eec26c71eec628d2107e1fca39fb4acd0d33ed952292d1dce4`.
+- Technical QC PASS: 1080×1920, H.264/yuv420p, 30 fps, 991 decoded frames, continuous AAC audio, full decode PASS.
+- MP4 SHA-256: `b6914ca1910ef0078876fc8063d079870df6927a4f1f2a7291ddf6d43ab4968f`.
+- No P0.3 PASS and no final timing lock claimed.
+- Next: Product Owner full-sequence contextual review.
+
 ## 2026-09-27｜V002 Product Owner Review
 
 - Product Owner reviewed `P03_OPENING_V2_PROOF_REVIEW_V002`.
