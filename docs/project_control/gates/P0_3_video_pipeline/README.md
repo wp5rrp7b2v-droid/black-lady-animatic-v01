@@ -610,3 +610,31 @@ Build record:
 Next:
 
 `Work automatic artifact acquisition + revalidation → fresh N11 Rebuild Candidate 01 → Product Owner review`
+
+## N11 Rebuild Candidate 01 Review｜2026-09-27
+
+Status: `NOT FINAL APPROVED / TARGETED EDIT TO CANDIDATE 02 AUTHORIZED`
+
+Product Owner review:
+
+Accepted and must be preserved:
+
+- Neil identity;
+- inside-door spatial relationship;
+- single-side doorway cue;
+- closed-mouth waiting state;
+- no cross emphasis;
+- dark subordinate interior background.
+
+Needs correction:
+
+1. tighten to true upper-chest-up framing;
+2. reduce warm/red healthy skin tone and establish natural pallor.
+
+Boundary:
+
+- Candidate 02 is a targeted edit of Candidate 01;
+- do not fully regenerate;
+- do not move Neil deeper inside;
+- do not change expression, identity, costume or background structure;
+- do not reintroduce cross, hands, waist, floor, steps or full doorway.

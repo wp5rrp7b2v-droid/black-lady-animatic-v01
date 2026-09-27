@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Rebuild Candidate 01 Review
+
+- Product Owner reviewed N11 Rebuild Candidate 01.
+- Candidate 01 is not final-approved.
+- PASS/preserve: Neil identity, inside-door spatial relation, closed-mouth waiting state, single-side doorway cue, dark subordinate background, no cross emphasis.
+- Targeted corrections authorized for Candidate 02:
+  1. crop/recompose to true upper-chest-up framing;
+  2. reduce warm/red healthy skin tone to natural pale low-blood-color complexion.
+- Full regeneration is explicitly not authorized.
+- Do not alter spatial blocking, identity, costume, expression or background structure.
+- Next: Work targeted edit → N11 Rebuild Candidate 02 → Product Owner review.
+
 ## 2026-09-27｜N11 Reference Delivery Bundle V002 Built
 
 - Product Owner approved N11 Director Shot Design V0.2 and V002 bundle construction.
