@@ -1,5 +1,17 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N11 Redesign V0.2 Start
+
+- Product Owner rejected the two newest N11 correction outputs and requested a restart of the shot.
+- Review determined the failure is compositional, not identity/governance: doorway proof became dominant, framing widened, and the cross became too prominent.
+- Began `N11 Director Shot Design V0.2`.
+- V0.2 hard-locks an upper-chest-up observational portrait with only a subtle one-sided door-edge foreground cue.
+- Neil must remain clearly inside the entrance, but architecture is subordinate.
+- Cross should preferably not appear.
+- Proposed Bundle V002 removes A03 and retains Neil FACE_FRONT / FACE_3Q_LEFT / BODY_FRONT + Castle Entrance Scene Master + N01.
+- Failed N11 candidates are explicitly excluded as future image references.
+- No Bundle V002 build or image generation yet.
+
 ## 2026-09-27｜N11 Reference Delivery Bundle V001 Built
 
 - Product Owner approved N11 Reference Delivery Bundle Design V0.1.

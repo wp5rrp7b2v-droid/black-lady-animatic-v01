@@ -548,3 +548,38 @@ Next:
 `Work automatic artifact acquisition + revalidation → generate N11 Candidate 01 only → Product Owner review`
 
 Do not start N12 or register N11 before N11 Candidate 01 is explicitly approved.
+
+## N11 Redesign V0.2｜2026-09-27
+
+Status: `DIRECTOR SHOT DESIGN V0.2 / PRODUCT OWNER REVIEW`
+
+Reason for redesign:
+
+- prior N11 attempts over-weighted the “inside doorway” constraint;
+- composition widened into doorway / architectural portraiture;
+- Neil became too formal / ceremonial;
+- cross emphasis increased and consumed N12's narrative function.
+
+V0.2 resets the composition while preserving the narrative beat.
+
+Key locks:
+
+- upper-chest-up tight medium close-up;
+- Neil face is dominant;
+- Neil is inside the threshold, but the spatial proof is subtle;
+- use one-sided door-edge foreground occlusion, not a full doorway;
+- cross preferably not visible;
+- no hands / waist / floor / steps / full threshold;
+- no failed N11 candidate may be used as reference.
+
+Proposed Bundle V002:
+
+Neil FACE_FRONT + FACE_3Q_LEFT + BODY_FRONT + Castle Entrance Scene Master + N01.
+
+A03 is removed from the baseline.
+
+Design:
+
+`docs/project_control/gates/P0_3_video_pipeline/n11_director_shot_design_v0_2.md`
+
+No Bundle V002 or generation authorized yet.
