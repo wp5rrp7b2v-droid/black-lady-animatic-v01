@@ -254,7 +254,7 @@ P0.2 的详细字段、人物标准视图、场景/服装/道具模板、存储�
 - **Reference Delivery Bundle** 是 GitHub canonical binary 到 Work 图像输入层之间的正式 transport layer。标准实现为：GitHub Actions / repo-native automated runner 在 canonical repo 内完成 checkout、Resolver / Registry 校验、exact-binary copy、manifest 生成，并通过 `actions/upload-artifact` 发布短期 workflow artifact。Bundle 必须记录实际输入的 canonical path、asset / role identity、SHA-256、byte size、source commit 与必要的 authority / continuity responsibility。
 - **Work automatic PNG acquisition** 的标准实现为：Work 通过已连接 GitHub 能力自动定位并下载该 workflow artifact，在 Work 环境内解包、重新校验 manifest / SHA / byte size 后，将实际 PNG 直接送入 image generation。Product Owner manual reference upload 的正常目标为 `0`。
 - Reference Delivery Bundle 的 ZIP 是 GitHub Actions 内部 transport artifact，不是要求 Product Owner 本地制作或上传到 ChatGPT Project 的交付文件；不得仅为了建立 Bundle 而把任务升级给 Codex / Local Terminal。
-- 不得把“直接通过 private GitHub raw URL / browser 打开 PNG”作为正式 baseline，也不得要求 Product Owner 例行手工逐张挑选、下载、打包或上传 canonical references。
+- 不得把“直接通过 GitHub raw URL / browser 打开 PNG”作为正式 baseline，也不得要求 Product Owner 例行手工逐张挑选、下载、打包或上传 canonical references。
 - **image generation** 只有在 Bundle 的实际 PNG 已成功物化并完成必要校验后才允许开始。若 binary materialization / delivery 失败，必须 fail closed，明确报告失败层级，不得在缺少正式参考图时继续生成。
 - 用户直接上传的非 canonical 源图仅可在任务明确要求“以该用户提供原图为直接编辑底图”时作为显式 intake；它不得绕过正式身份 / 场景 authority，也不得被误登记为 canonical asset。
 - 任何偏离该正式链路的临时 fallback，必须明确记录原因、输入来源、完整性校验和 Product Owner 授权；fallback 不能静默升级为新的默认生产模式。
