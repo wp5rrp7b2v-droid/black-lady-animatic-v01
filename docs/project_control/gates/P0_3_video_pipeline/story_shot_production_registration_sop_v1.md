@@ -4,7 +4,7 @@ Status: **ACTIVE / PROJECT STANDARD**
 
 Effective date: 2026-09-27
 
-Rule change: **RC-024**
+Rule changes: **RC-024 + RC-025**
 
 Scope: all new formal `STORY_SHOT` image production and registration in 《诡舍·黑衣夫人》.
 
@@ -58,7 +58,7 @@ Only an explicit Product Owner approval may promote a Candidate to formal Story 
 - do not enter Story Shot Index;
 - do not become canonical production references.
 
-### Step 5｜Original PNG Upload
+### Step 5｜Original PNG Output Publication
 After approval, Product Owner uploads the exact final source PNG to:
 
 `production/image_library/approved/story_shots/`
@@ -70,6 +70,12 @@ Requirements:
 - no manual quality conversion.
 
 Temporary UUID filename is allowed at upload stage.
+
+This is **final-output publication, not reference upload**.
+
+- RC-022 / RC-023 still require normal manual Product Owner **reference** upload = 0;
+- Product Owner does not manually choose the canonical filename or register the Story Shot;
+- the upload is only the current verified bridge for publishing the approved output binary into canonical GitHub before exact-binary registration.
 
 ### Step 6｜Binary Verification
 Before canonical rename, GitHub-side verification must check:
@@ -84,7 +90,13 @@ The verification result must be retained as run / artifact / log evidence.
 ### Step 7｜Canonical Rename by Exact Git Blob Reuse
 Formal naming follows the approved Story Shot naming rule.
 
-Example:
+Story Shot naming is intentionally scoped separately from P0.2 Asset Registry `SHOT` naming. Current approved Story Shots may retain the established operational convention such as:
+
+`N07_NEIL_SPEAKING_STATE_C_APPROVED_V001.png`
+
+This does **not** redefine the P0.2 Asset Registry naming rule. If a Story Shot is later migrated into Asset Registry `SHOT`, that migration must generate a P0.2-compliant filename and Asset ID while preserving source SHA / provenance.
+
+Example canonicalization:
 `<UUID>.png → N07_NEIL_SPEAKING_STATE_C_APPROVED_V001.png`
 
 Rename must reuse the exact uploaded Git blob.
@@ -184,3 +196,12 @@ This SOP operationalizes and combines:
 - RC-012｜local sync reminder after canonical GitHub writes.
 
 If a later rule changes this SOP, retain this file as historical evidence and record the replacement in Rules Change Log.
+
+## 6.1 Relationship to P0.2 Asset Registry SHOT
+
+- `STORY_SHOT` in `production/story_shots/story_shot_index.jsonl` is the current P0.3 narrative / composition / edit operational layer.
+- P0.2 `asset_class = SHOT` is an Asset Registry class governed by Schema V0.3 and Asset Naming Rules V1.
+- The two layers are related but are **not automatically identical records**.
+- No silent dual registration is allowed.
+- A future Story Shot → Asset Registry SHOT promotion requires an explicit migration / ingest transaction, Asset ID assignment, P0.2-compliant naming, source identity preservation, and audit mapping.
+- For Story Shot operational steps, RC-024 / RC-025 + this SOP are the more specific current authority.
