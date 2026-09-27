@@ -97,14 +97,15 @@ Implementation boundary for 2026-09-25 was historical and is now superseded by t
 
 Implementation status as of 2026-09-26:
 
-`IMPLEMENTED / ACTIVE / 15 APPROVED STORY SHOTS / OPENING V2 EXPANSION IN PROGRESS`
+`IMPLEMENTED / ACTIVE / 17 APPROVED STORY SHOTS / OPENING V2 STORY-SHOT SET COMPLETE`
 
 - machine-readable index: `production/story_shots/story_shot_index.jsonl`;
-- registered approved Story Shots: A01–A07 + N01–N05 + N08–N10 = 15;
+- registered approved Story Shots: A01–A07 + N01–N10 = 17;
 - A01–A07 remain at their legacy `production/image_library/approved/A_Series/` paths and are not duplicated;
-- N01–N05 and N08–N10 are canonically published under `production/image_library/approved/story_shots/`;
+- N01–N10 are canonically published under `production/image_library/approved/story_shots/`;
 - exact upload-to-canonical renames reuse the original Git blobs with no PNG re-encode;
 - N08–N10 upload verification run: `36247789055`;
+- N06–N07 upload verification run: `36289949835`;
 - N08 SHA-256: `6bda5a8cb4d04d15071f95c6b3fdce09b10230ac95100d59aabf5bad4aef1bb4`;
 - N09 SHA-256: `5e76be2c9815a6caa2d8688d1879bb5ddaad78352b6440ed220dd08332a5e0ac`;
 - N10 SHA-256: `14dbf276dbf9ef6c7de84570d46f40230daa3ba53a304ccdc05645c58e9f6e54`.
@@ -113,6 +114,8 @@ Implementation status as of 2026-09-26:
 
 Product Owner-approved / formally registered additions now include:
 
+- N06 = Neil Speaking State A / Candidate 02;
+- N07 = Neil Speaking State C / Candidate 01;
 - N08 = Castle Entrance Architecture / Candidate 01;
 - N09 = Neil Formal Butler Descriptor / Candidate 03;
 - N10 = Neil Subtle Smile / Candidate 01.
@@ -128,15 +131,13 @@ Opening V2 planned sequence:
 
 `A01 → A02 → N06 → N02 → N07 → N03 → N04 → N08 → N09 → N10 → N05 → N01`
 
-N06 and N07 remain pending, so the Opening V2 Story-Shot Set is not yet complete.
+Opening V2 Story-Shot Set is now complete and fully covered by approved Story Shots.
 
 ## Immediate next step
 
-1. design and produce N06 and N07 through the locked Reference Delivery Bundle → Work image-generation pipeline;
-2. Product Owner review and formally register N06 / N07 if approved;
-3. assemble the revised 12-shot Opening V2 proof;
-4. re-review audio/action alignment, cut rhythm, narrative readability, slideshow risk and restrained 2D motion;
-5. do not claim P0.3 PASS until representative production evidence is sufficient and Product Owner explicitly approves the Gate.
+1. assemble the revised 12-shot Opening V2 proof from canonical source audio + approved Story Shots;
+2. re-review audio/action alignment, cut rhythm, narrative readability, slideshow risk and restrained 2D motion;
+3. do not claim P0.3 PASS until representative production evidence is sufficient and Product Owner explicitly approves the Gate.
 
 See:
 
