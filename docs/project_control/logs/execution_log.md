@@ -1,5 +1,16 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜N14 Candidate 01 PO Approval + N15 Design Start
+
+- N14 Candidate 01 generated from verified N14_REFERENCE_DELIVERY_BUNDLE_V001; Work reported 5/5 MATCH.
+- Product Owner explicitly approved N14 Candidate 01.
+- Approved source identity recorded: 941×1672 / 2500282 bytes / SHA-256 `0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1`.
+- N14 is the final creative selection but remains unpublished/unregistered pending the planned S02-A batch archival.
+- Began N15 Director Shot Design V0.1.
+- N15 narrative function: apply N14's general experience rule specifically to Neil — butler role → plausible key-holder.
+- N15 design uses a restrained reverse observation / role-establishing shot of Neil; no keys, no clean waist exposure, no empty-waist answer.
+- A05 remains exclusive reveal owner.
+
 ## 2026-09-27｜N14 Reference Delivery Bundle V001 Built
 
 - Product Owner approved N14 Bundle Design and authorized real construction.

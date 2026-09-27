@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R114",
+  "state_revision": "R115",
   "last_updated": "2026-09-27",
-  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12 APPROVED PENDING BATCH ARCHIVAL / N14 BUNDLE V001 BUILT + 5 OF 5 PASS / N14 CANDIDATE 01 WORK GENERATION NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-A V0.2 / N13 CANCELLED / N11+N12+N14 PRODUCT OWNER APPROVED PENDING BATCH ARCHIVAL / N15 DIRECTOR SHOT DESIGN V0.1 IN REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27: Product Owner approved N14 Bundle Design and authorized real construction. Chat executed the locked GitHub Actions path directly. Run 36317403211 / job 108614612409 succeeded from source commit ae34a3a5722473f1888d23db2f1f9a596f6978bb. Artifact N14_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10931321832 / digest sha256:40236e5e4d33f1d0a5b76eef455ff51ca688238fef42fdb054987ecc60bc317a was produced. Five of five canonical references passed exact verification. Next: N14 Candidate 01 in Work."
+    "note": "2026-09-27: Product Owner approved N14 Candidate 01 as the final creative selection (941x1672 / 2500282 bytes / SHA-256 0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1), pending the planned S02-A batch archival. N15 Director Shot Design V0.1 is now in review. N15 carries the role inference + likely key-holder hypothesis while A05 retains exclusive no-keys reveal authority."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N14 CANDIDATE 01 FORMAL WORK GENERATION",
+  "current_task": "P0.3｜S02-A｜N15 DIRECTOR SHOT DESIGN V0.1 REVIEW",
   "blocker": null,
-  "next_action": "Use ChatGPT Work to automatically acquire N14_REFERENCE_DELIVERY_BUNDLE_V001 (run 36317403211 / artifact 10931321832), revalidate all 5 PNGs against delivery_manifest.json, and generate exactly one N14 Candidate 01. Do not begin N15 or Story Shot registration before Product Owner review.",
+  "next_action": "Product Owner reviews N15 Director Shot Design V0.1. N15 applies the prior-experience rule specifically to Neil: butler role → plausible key-holder. It must build expectation without showing keys or exposing the waist answer-zone.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-27-P03-S02A-N14-BUNDLE-BUILT-R114",
-    "status": "N14 BUNDLE BUILT / 5 OF 5 PASS / WORK GENERATION NEXT",
+    "id": "2026-09-27-P03-S02A-N15-DESIGN-R115",
+    "status": "N14 APPROVED / N15 DIRECTOR DESIGN IN REVIEW",
     "completed": [
-      "Product Owner approved N14 Reference Delivery Bundle Design V0.1.",
-      "Product Owner authorized N14_REFERENCE_DELIVERY_BUNDLE_V001 construction.",
-      "Chat created and executed the GitHub Actions workflow directly under the locked Story Shot route.",
-      "Run 36317403211 / job 108614612409 completed successfully.",
-      "Artifact N14_REFERENCE_DELIVERY_BUNDLE_V001 / ID 10931321832 created.",
-      "All five canonical references passed exact SHA-256 / byte-size / Git-blob / byte-identical-copy verification."
+      "Product Owner approved N14 Candidate 01 as final creative selection.",
+      "Locked N14 source identity: 941x1672 / 2500282 bytes / SHA-256 0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1.",
+      "N14 remains pending the Product Owner-requested later batch archival and Story Shot registration.",
+      "Drafted N15 Director Shot Design V0.1 for butler-role inference + likely key-holder hypothesis.",
+      "A05 remains the exclusive no-keys / empty-waist reveal."
     ],
-    "resume_from": "Work automatic artifact acquisition + 5/5 revalidation → N14 Candidate 01 → Product Owner review.",
+    "resume_from": "Product Owner review of N15 Director Shot Design V0.1.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -512,13 +511,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V086",
+    "version": "V087",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R114 / N14 BUNDLE BUILT / WORK GENERATION NEXT",
-    "derived_from_revision": "R114",
+    "status": "CURRENT / DERIVED FROM R115 / N14 APPROVED / N15 DESIGN REVIEW",
+    "derived_from_revision": "R115",
     "last_updated": "2026-09-27",
-    "current_task": "N14 CANDIDATE 01 FORMAL WORK GENERATION"
+    "current_task": "N15 DIRECTOR SHOT DESIGN V0.1 REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -1338,5 +1337,24 @@
     "exact_reference_verification": "5/5 PASS",
     "a04_computed_sha256": "8111a2d80bb68efe99bc723d197a580b5bfed3d64a1ffeb3848db9260bb50398",
     "manual_product_owner_reference_upload": 0
+  },
+  "n14_candidate_01": {
+    "status": "PRODUCT OWNER APPROVED / FINAL CREATIVE SELECTION / PENDING BATCH ARCHIVAL",
+    "approval_checkpoint_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_n14_approval_checkpoint_2026-09-27.md",
+    "dimensions": "941x1672",
+    "byte_size": 2500282,
+    "sha256": "0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1",
+    "bundle_artifact_id": 10931321832,
+    "canonical_published": false,
+    "story_shot_registered": false
+  },
+  "n15_director_shot_design_v0_1": {
+    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n15_director_shot_design_v0_1.md",
+    "narrative_function": "BUTLER_ROLE_INFERENCE_PLUS_LIKELY_KEY_HOLDER_HYPOTHESIS",
+    "primary_subject": "NEIL",
+    "shot_strategy": "REVERSE_OBSERVATION_ROLE_ESTABLISHING_MEDIUM_CLOSE_UP",
+    "reveal_owner": "A05",
+    "generation_authorized": false
   }
 }

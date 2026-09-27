@@ -883,3 +883,38 @@ Build record:
 Next:
 
 `Work automatic artifact acquisition + revalidation → N14 Candidate 01 → Product Owner review`
+
+## N14 Candidate 01 Approval + N15 Director Design｜2026-09-27
+
+N14 status:
+
+`PRODUCT OWNER APPROVED / FINAL CREATIVE SELECTION / PENDING BATCH ARCHIVAL`
+
+Approved binary identity:
+
+- dimensions: `941 × 1672`
+- bytes: `2500282`
+- SHA-256: `0474003a1d6d48a652935033f17560d0ee1d689caadbdb7d4af72560477844f1`
+
+Approval checkpoint:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_a_n14_approval_checkpoint_2026-09-27.md`
+
+N15 status:
+
+`DIRECTOR SHOT DESIGN V0.1 / PRODUCT OWNER REVIEW`
+
+Narrative function:
+
+`butler role → plausible key-holder hypothesis`
+
+Design path:
+
+`docs/project_control/gates/P0_3_video_pipeline/n15_director_shot_design_v0_1.md`
+
+Critical boundary:
+
+- no visible keys;
+- no clean waist exposure;
+- no empty-waist conclusion;
+- A05 retains exclusive reveal authority.
