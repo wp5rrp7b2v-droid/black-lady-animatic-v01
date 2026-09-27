@@ -1,5 +1,18 @@
 # Execution Log｜BLACK-LADY-001
 
+## 2026-09-27｜S02-A V0.2 Restructure + N14 Design Start
+
+- Product Owner rejected the original N13 structural concept after reviewing Candidate 01.
+- Product Owner determined N13 should not remain an independent formal Story Shot; its waist-observation function is absorbed into A05.
+- The long reasoning narration is restructured:
+  - N14 = prior-experience rule: first person encountered after entering a Blood Door is often important;
+  - N15 = butler as important manor role + likely key-holder inference;
+  - no N16.
+- Formal S02-A V0.2 sequence: `N11 → N12 → A04 → N14 → N15 → A05`.
+- N13_REFERENCE_DELIVERY_BUNDLE_V001 and N13 Candidate 01 are retained only as historical process evidence; N13 Candidate 01 is rejected and must not be registered.
+- Began N14 Director Shot Design V0.1 with Ning Qiushui as primary subject and Neil only as a soft secondary referent.
+- No N14 Bundle or generation yet.
+
 ## 2026-09-27｜N13 Reference Delivery Bundle V001 Built
 
 - Product Owner authorized real N13 Bundle construction.

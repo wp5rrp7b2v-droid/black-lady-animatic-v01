@@ -807,3 +807,27 @@ Narrative protection remains locked:
 Next:
 
 `Work automatic artifact acquisition + revalidation → N13 Candidate 01 → Product Owner review`
+
+## S02-A Shot Plan V0.2 + N14 Design｜2026-09-27
+
+Status: `SHOT PLAN V0.2 PRODUCT OWNER APPROVED / N14 DESIGN IN REVIEW`
+
+Revised sequence:
+
+`N11 → N12 → A04 → N14 → N15 → A05`
+
+Changes:
+
+- N13 cancelled as a formal Story Shot; its Bundle/Candidate remain historical evidence only and must not be registered.
+- N14 = prior-experience judgment: the first person encountered after entering a Blood Door is often important.
+- N15 = butler-role inference + likely key-holder hypothesis.
+- no N16.
+- A05 retains the waist-check / no-keys reveal.
+
+Documents:
+
+- `docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_2.md`
+- `docs/project_control/gates/P0_3_video_pipeline/n14_director_shot_design_v0_1.md`
+
+Next:
+`Product Owner review of N14 Director Shot Design V0.1`
