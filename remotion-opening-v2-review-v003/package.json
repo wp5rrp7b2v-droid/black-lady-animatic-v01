@@ -1,0 +1,20 @@
+{
+  "name": "p03-opening-v2-proof-review-v003",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts P03-Opening-V2-Proof-Review-V003 out/P03_OPENING_V2_PROOF_REVIEW_V003/P03_OPENING_V2_PROOF_REVIEW_V003.mp4 --codec=h264 --pixel-format=yuv420p --crf=18 --audio-codec=aac --audio-bitrate=192k --concurrency=2 --color-space=bt709 --image-format=png"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.506",
+    "react": "19.2.4",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.506"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}
