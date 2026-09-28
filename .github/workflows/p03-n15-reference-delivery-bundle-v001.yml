@@ -1,6 +1,6 @@
 name: N15 Reference Delivery Bundle V001
 
-'on':
+on:
   push:
     branches:
       - main
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
 
       - name: Verify 2 canonical references and build bundle
         shell: bash
