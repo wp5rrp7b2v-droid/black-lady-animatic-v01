@@ -61,7 +61,7 @@ jobs:
               "responsibility": "EXTERIOR_CINEMATIC_CONTINUITY",
           }
 
-          def sha256(data): return hashlib.sha256(data).hexdigest()
+          def sha256(data):\n              return hashlib.sha256(data).hexdigest()
           def blob(data): return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
           def dims(data):
               if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
