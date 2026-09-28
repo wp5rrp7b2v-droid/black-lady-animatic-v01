@@ -941,3 +941,58 @@ Closeout:
 Next session:
 
 `source novel key / escape-door fact check → revise N15 Director Shot Design`
+
+## S02-A Assembly V001 Formal Closeout｜2026-09-28
+
+Status: `PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED`
+
+Final sequence:
+
+`N11 → N12 → A04 → N14 → N15 → A05`
+
+Canonical audio:
+
+`00:33.020 → 01:18.750` / `45.730s`
+
+Canonical video:
+
+`production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4`
+
+Formal identity:
+
+- Video ID: `S02_A_ASSEMBLY_V001`
+- SHA-256: `937008e11d20892ea0a17be64719a19cb131d174871930bc29004a678bb58ed1`
+- Git blob: `bcd3fef7a8d600c95cb4d7242d411cc0df41859c`
+- byte size: `6822004`
+- media: `942×1672 / 30fps / H.264 yuv420p / AAC 48kHz stereo / 45.730s`
+
+Completion evidence:
+
+- Exact Binary Verification run `36427746113`: PASS
+- Canonical Publication run `36428710030`: PASS
+- Publication commit `e577cd09c5ba333b7659dc08bc0898a5596edbb5`
+- Video Index registration commit `ed99eba7b780f6455323d035fdb4148f5c465dc1`
+- Registration Verification run `36430256742`: PASS
+- Decision `BL-D-077`
+- Formal closeout: `s02_a_assembly_v001_formal_closeout_2026-09-28.md`
+
+Current P0.3 boundary:
+
+- S02-A is complete and no longer active.
+- N13 remains cancelled / historical evidence only.
+- P0.3 remains `IN PROGRESS / NOT YET VALIDATED`.
+- No P0.3 PASS is claimed.
+- Next sequence starts after canonical audio `01:18.750`, only after Product Owner authorization.
+
+## EOD Resume Point｜2026-09-28
+
+Daily closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-09-28.md`
+
+Resume next session from:
+
+`post-01:18.750 narrative/audio breakdown → next sequence Director Design`
+
+Do not reopen S02-A unless Product Owner explicitly authorizes a revision.
+
