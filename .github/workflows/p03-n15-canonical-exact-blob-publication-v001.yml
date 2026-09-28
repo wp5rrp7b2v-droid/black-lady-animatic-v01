@@ -1,0 +1,41 @@
+name: N15 Canonical Exact-Blob Publication V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/p03-n15-canonical-exact-blob-publication-v001.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify source and publish exact blob
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="N15_Candidate_01_APPROVED.png"
+          DST="production/image_library/approved/story_shots/N15_LOCKED_GATE_FORESHADOWING_APPROVED_V001.png"
+          EXPECT_SHA="2712321ca6348cc39234f8ae65bcdb0fd2e6b2faf0b56dcc94a51235011d1191"
+          EXPECT_BLOB="4d9ca2dcd33df32294ff9b928bf3ab88d63c7487"
+          test -f "$SRC"
+          test ! -e "$DST"
+          test "$(sha256sum "$SRC" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$SRC")" = "$EXPECT_BLOB"
+          mkdir -p "$(dirname "$DST")"
+          git mv "$SRC" "$DST"
+          test "$(sha256sum "$DST" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$DST")" = "$EXPECT_BLOB"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "P0.3 N15 canonical exact-blob publication"
+          git push origin HEAD:main
+          echo "SOURCE_SHA256=$EXPECT_SHA"
+          echo "SOURCE_GIT_BLOB=$EXPECT_BLOB"
+          echo "CANONICAL_PATH=$DST"
+          echo "EXACT_BLOB_PRESERVED=YES"
+          echo "OVERALL_RESULT=PASS"
