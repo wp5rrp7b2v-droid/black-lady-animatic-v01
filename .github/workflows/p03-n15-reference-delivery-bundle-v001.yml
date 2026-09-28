@@ -1,0 +1,112 @@
+name: N15 Reference Delivery Bundle V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n15-reference-delivery-bundle-v001.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Verify 2 canonical references and build bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,struct,subprocess,shutil
+          root=pathlib.Path.cwd()
+          out=root/"N15_REFERENCE_DELIVERY_BUNDLE_V001"
+          (out/"scene_authority").mkdir(parents=True)
+          (out/"continuity_refs").mkdir(parents=True)
+
+          def inspect(rel, expected_size, expected_blob, expected_dims=None, expected_sha=None):
+              p=root/rel
+              if not p.is_file() or p.is_symlink(): raise SystemExit("INVALID_FILE:"+rel)
+              b=p.read_bytes()
+              if len(b)!=expected_size: raise SystemExit("SIZE_MISMATCH:"+rel)
+              if b[:8]!=b"\x89PNG\r\n\x1a\n": raise SystemExit("PNG_FAIL:"+rel)
+              w,h=struct.unpack(">II",b[16:24])
+              if expected_dims and (w,h)!=expected_dims: raise SystemExit(f"DIMS_MISMATCH:{rel}:{w}x{h}")
+              sha=hashlib.sha256(b).hexdigest()
+              if expected_sha and sha!=expected_sha: raise SystemExit("SHA_MISMATCH:"+rel)
+              blob=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+              if blob!=expected_blob: raise SystemExit("BLOB_MISMATCH:"+rel)
+              return p,b,sha,w,h
+
+          # Registry authority check
+          reg=[json.loads(x) for x in (root/"production/asset_registry/asset_registry.jsonl").read_text().splitlines() if x.strip()]
+          rr=[x for x in reg if x.get("asset_id")=="AST_IMG_000084"]
+          if len(rr)!=1: raise SystemExit("AST_IMG_000084_CARDINALITY_FAIL")
+          r=rr[0]
+          required={"entity_id":"SCENE_MANOR_GATE","role":"SCENE_MASTER","approval_status":"APPROVED","lifecycle":"CURRENT","authority_class":"MASTER"}
+          for k,v in required.items():
+              if r.get(k)!=v: raise SystemExit(f"REGISTRY_FAIL:{k}")
+
+          # A01 index check
+          idx=[json.loads(x) for x in (root/"production/story_shots/story_shot_index.jsonl").read_text().splitlines() if x.strip()]
+          aa=[x for x in idx if x.get("shot_id")=="A01" and x.get("approval_status")=="APPROVED" and x.get("lifecycle")=="CURRENT"]
+          if len(aa)!=1: raise SystemExit("A01_INDEX_FAIL")
+
+          mp,mb,msha,mw,mh=inspect(
+            "production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png",
+            3279563,"ac1dfb7be2069848917afb9749de6c8ebc54d3e5",(941,1671),
+            "95b3bebce1b2e9be72d5a2bc99665a4a99719eb0f4146e40a562210bd982e278")
+          ap,ab,asha,aw,ah=inspect(
+            "production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png",
+            3399726,"35769a40dc1fd559d97908235f6a6024562b71b7")
+
+          targets=[
+            (mp,out/"scene_authority"/"AST_IMG_000084__SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png",mb),
+            (ap,out/"continuity_refs"/"A01__A01_REBOOT_approved_v001.png",ab)]
+          for src,dst,b in targets:
+              shutil.copyfile(src,dst)
+              if dst.read_bytes()!=b: raise SystemExit("COPY_IDENTITY_FAIL:"+str(dst))
+
+          manifest={
+            "bundle_id":"N15_REFERENCE_DELIVERY_BUNDLE_V001","target":"N15 Candidate 01",
+            "source_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
+            "reference_count":2,"manual_product_owner_reference_upload":0,
+            "references":[
+              {"id":"AST_IMG_000084","entity_id":"SCENE_MANOR_GATE","authority":"SCENE_IDENTITY_GEOMETRY_MASTER","sha256":msha,"byte_size":len(mb),"dimensions":f"{mw}x{mh}","git_blob":"ac1dfb7be2069848917afb9749de6c8ebc54d3e5"},
+              {"id":"A01","authority":"WORLD_EXTERIOR_CINEMATIC_CONTINUITY_ONLY","sha256":asha,"byte_size":len(ab),"dimensions":f"{aw}x{ah}","git_blob":"35769a40dc1fd559d97908235f6a6024562b71b7"}],
+            "authority_precedence":["N15_DIRECTOR_SHOT_DESIGN","AST_IMG_000084","A01"],
+            "excluded":["AST_IMG_000052","ALL_CHARACTER_REFERENCES","N14","A05","KEY_LOCK_IMAGERY","HISTORICAL_MANOR_GATE_CANDIDATES","INTERNET_REFERENCES"]
+          }
+          (out/"delivery_manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
+          handoff="""# N15 WORK HANDOFF
+Generate exactly one N15 Candidate 01.
+9:16 vertical. View from inside estate toward the outer manor gate.
+AST_IMG_000084 is the sole MANOR_GATE identity/geometry authority. Preserve Gate + Boundary + Road and the internal-road → gate → external-road relationship.
+A01 is world/exterior cinematic continuity only and must never override gate geometry.
+Make the shot more cinematic than the neutral Scene Master; do not simply copy its 3/4 reference composition. Prefer distance, depth and a distant-final-endpoint feeling.
+Gate closed. Gate is the sole narrative subject.
+ZERO characters, Neil, keys, chains, padlock emphasis, opening action, character POV, or evidence the characters have discovered the gate.
+Tone: quiet spatial foreshadowing / restrained unease / distant endpoint. Not horror poster, ruin, fantasy gate or castle entrance.
+Stop after Candidate 01 and return it for Product Owner review. Do not register or formalize it.
+"""
+          (out/"WORK_HANDOFF.md").write_text(handoff)
+
+          # final artifact revalidation
+          for _,dst,b in targets:
+              if dst.read_bytes()!=b: raise SystemExit("FINAL_REVALIDATION_FAIL")
+          print("PASS: 2/2 exact canonical reference binaries verified")
+          print("A01_SHA256="+asha)
+          print("MANOR_GATE_SHA256="+msha)
+          PY
+
+      - name: Upload N15 bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: N15_REFERENCE_DELIVERY_BUNDLE_V001
+          path: N15_REFERENCE_DELIVERY_BUNDLE_V001
+          retention-days: 7
