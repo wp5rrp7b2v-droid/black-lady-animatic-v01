@@ -79,6 +79,8 @@
 | BL-D-004 | 2026-09-11 | 项目重启首先处理三项专项：P0.1 故事与文本数据基线；P0.2 人物锚定与 Scene Master 资产治理；P0.3 视频制作与剪辑 Pipeline 再验证。 | ACTIVE / P0 RESTART |
 | BL-D-005 | 2026-09-11 | 小说数据未来至少包含：完整《诡舍》用于上下文检索；单独《黑衣夫人》用于改编；有声小说转文字用于与实际音频校对、验证和定位。 | ACTIVE / P0.1 INPUT |
 
+| BL-D-075 | 2026-09-28 | Product Owner 批准 MANOR_GATE Scene Reference Candidate 02，并将其正式化为 SCENE_MANOR_GATE / AST_IMG_000084。N15 旧 Neil key-holder hypothesis 因 canonical story fact correction 失效；N15 正式改为 audience-only manor-gate foreshadowing。AST_IMG_000084 成为 N15 的正式 Scene Authority，SCENE_CASTLE_ENTRANCE / AST_IMG_000052 不得替代其 Gate Identity。下一步仅进入 N15 Reference Delivery Bundle Design。 | LOCKED / PRODUCT OWNER APPROVED / N15 SCENE AUTHORITY FORMALIZED |
+
 ## 当前边界
 
 - P0.1 = `PASS / PRODUCT OWNER APPROVED`; S1 / S2 / canonical audio / MVP1 S3 searchable index remain the formal story/audio factual baseline.
