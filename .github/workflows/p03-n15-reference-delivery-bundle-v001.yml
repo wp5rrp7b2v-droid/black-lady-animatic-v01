@@ -2,7 +2,8 @@ name: N15 Reference Delivery Bundle V001
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - ".github/workflows/p03-n15-reference-delivery-bundle-v001.yml"
   workflow_dispatch:
