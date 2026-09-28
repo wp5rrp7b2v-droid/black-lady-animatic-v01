@@ -33,12 +33,12 @@ jobs:
               if not p.is_file() or p.is_symlink(): raise SystemExit("INVALID_FILE:"+rel)
               b=p.read_bytes()
               if len(b)!=expected_size: raise SystemExit("SIZE_MISMATCH:"+rel)
-              if b[:8]!=b"\x89PNG\r\n\x1a\n": raise SystemExit("PNG_FAIL:"+rel)
+              if b[:8].hex()!="89504e470d0a1a0a": raise SystemExit("PNG_FAIL:"+rel)
               w,h=struct.unpack(">II",b[16:24])
               if expected_dims and (w,h)!=expected_dims: raise SystemExit(f"DIMS_MISMATCH:{rel}:{w}x{h}")
               sha=hashlib.sha256(b).hexdigest()
               if expected_sha and sha!=expected_sha: raise SystemExit("SHA_MISMATCH:"+rel)
-              blob=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+              blob=hashlib.sha1(b"blob "+str(len(b)).encode()+bytes([0])+b).hexdigest()
               if blob!=expected_blob: raise SystemExit("BLOB_MISMATCH:"+rel)
               return p,b,sha,w,h
 
