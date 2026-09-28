@@ -159,33 +159,33 @@ jobs:
           }
           (OUT/"delivery_manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
           (OUT/"WORK_HANDOFF.md").write_text("""# MANOR_GATE_SCENE_REFERENCE_V001 — Work Handoff
-
-Generate exactly one MANOR_GATE_SCENE_REFERENCE_V001 Candidate 01.
-
-This is a reusable Scene Reference, not N15 final Story Shot.
-
-Identity lock:
-- detached estate perimeter gate, NOT castle building entrance;
-- 9:16 vertical, neutral 3/4 establishing view from estate interior, about 30–45 degrees;
-- show Gate + lateral boundary + internal road + external road;
-- two-leaf wrought-iron gate, old masonry piers, continuing perimeter wall/iron fencing;
-- mature vegetation, old European estate visual language, maintained but aged, not ruins.
-
-Base state: DEFAULT_DAY_CLOSED_V001.
-DAY / DRY / CLOSED / NO RAIN / NO PEOPLE / NO VEHICLES / NO KEY / NO ACTION.
-Do not emphasize LOCKED; no padlock or chain narrative cue.
-
-Authority:
-- AST_IMG_000052 controls world/material/period/environment continuity ONLY.
-- A01 controls exterior cinematic continuity.
-- Gate geometry is RECONSTRUCTED_VISUAL_DESIGN.
-- DO NOT COPY CASTLE ENTRANCE DOOR AS MANOR GATE.
-- Do not embed the manor gate in the castle facade or reproduce the castle entrance steps/threshold as the gate.
-
-Use only the two delivered PNG references. No internet images and no manual Product Owner reference upload.
-
-Before generation, revalidate both delivered PNGs against delivery_manifest.json. Fail closed on any SHA/byte/blob mismatch.
-""",encoding="utf-8")
+          
+          Generate exactly one MANOR_GATE_SCENE_REFERENCE_V001 Candidate 01.
+          
+          This is a reusable Scene Reference, not N15 final Story Shot.
+          
+          Identity lock:
+          - detached estate perimeter gate, NOT castle building entrance;
+          - 9:16 vertical, neutral 3/4 establishing view from estate interior, about 30–45 degrees;
+          - show Gate + lateral boundary + internal road + external road;
+          - two-leaf wrought-iron gate, old masonry piers, continuing perimeter wall/iron fencing;
+          - mature vegetation, old European estate visual language, maintained but aged, not ruins.
+          
+          Base state: DEFAULT_DAY_CLOSED_V001.
+          DAY / DRY / CLOSED / NO RAIN / NO PEOPLE / NO VEHICLES / NO KEY / NO ACTION.
+          Do not emphasize LOCKED; no padlock or chain narrative cue.
+          
+          Authority:
+          - AST_IMG_000052 controls world/material/period/environment continuity ONLY.
+          - A01 controls exterior cinematic continuity.
+          - Gate geometry is RECONSTRUCTED_VISUAL_DESIGN.
+          - DO NOT COPY CASTLE ENTRANCE DOOR AS MANOR GATE.
+          - Do not embed the manor gate in the castle facade or reproduce the castle entrance steps/threshold as the gate.
+          
+          Use only the two delivered PNG references. No internet images and no manual Product Owner reference upload.
+          
+          Before generation, revalidate both delivered PNGs against delivery_manifest.json. Fail closed on any SHA/byte/blob mismatch.
+          """,encoding="utf-8")
 
           for ref in refs:
               data=(OUT/ref["bundle_path"]).read_bytes()
