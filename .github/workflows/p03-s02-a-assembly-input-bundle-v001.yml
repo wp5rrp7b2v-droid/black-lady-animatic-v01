@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/p03-s02-a-assembly-input-bundle-v001.yml
+      - scripts/build_s02_a_assembly_input_bundle_v001.py
   workflow_dispatch:
 permissions:
   contents: read
