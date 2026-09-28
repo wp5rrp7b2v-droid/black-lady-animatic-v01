@@ -1,0 +1,133 @@
+name: MANOR GATE Scene Master Formalization V001
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  formalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify uploaded Candidate 02 and formalize exact bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, pathlib, struct, shutil, subprocess
+
+          root=pathlib.Path.cwd()
+          src=root/"林间斜视铁艺双门.png"
+          if not src.is_file() or src.is_symlink():
+              raise SystemExit("SOURCE_NOT_REGULAR_FILE")
+          data=src.read_bytes()
+          if len(data)!=3279563:
+              raise SystemExit(f"BYTE_SIZE_MISMATCH:{len(data)}")
+          if data[:8] != b"\x89PNG\r\n\x1a\n":
+              raise SystemExit("PNG_SIGNATURE_FAIL")
+          w,h=struct.unpack(">II",data[16:24])
+          if (w,h)!=(941,1672):
+              raise SystemExit(f"DIMENSIONS_MISMATCH:{w}x{h}")
+          sha=hashlib.sha256(data).hexdigest()
+          blob=hashlib.sha1(b"blob "+str(len(data)).encode()+b"\0"+data).hexdigest()
+          if blob!="ac1dfb7be2069848917afb9749de6c8ebc54d3e5":
+              raise SystemExit(f"GIT_BLOB_MISMATCH:{blob}")
+
+          canonical_rel="production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png"
+          dst=root/canonical_rel
+          dst.parent.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(src,dst)
+          out=dst.read_bytes()
+          if out!=data:
+              raise SystemExit("BYTE_IDENTICAL_COPY_FAIL")
+
+          registry=root/"production/asset_registry/asset_registry.jsonl"
+          rows=[json.loads(x) for x in registry.read_text(encoding="utf-8").splitlines() if x.strip()]
+          if any(r.get("asset_id")=="AST_IMG_000084" for r in rows):
+              raise SystemExit("AST_IMG_000084_ALREADY_EXISTS")
+          if any(r.get("entity_id")=="SCENE_MANOR_GATE" and r.get("role")=="SCENE_MASTER" and r.get("lifecycle")=="CURRENT" for r in rows):
+              raise SystemExit("CURRENT_MANOR_GATE_MASTER_ALREADY_EXISTS")
+          rec={
+            "asset_id":"AST_IMG_000084","entity_id":"SCENE_MANOR_GATE","shot_id":None,"media_code":"IMG",
+            "asset_class":"ATOMIC","role":"SCENE_MASTER","variant":"DEFAULT","state":"DAY_CLOSED","version_no":1,
+            "approval_status":"APPROVED","lifecycle":"CURRENT","authority_class":"MASTER","resolver_usage":"CONDITIONAL",
+            "provenance_status":"COMPLETE","filename":dst.name,"storage_uri":canonical_rel,"sha256":sha,
+            "mime_type":"image/png","byte_size":len(data),"approved_at":"2026-09-28T00:00:00Z",
+            "ingested_at":"2026-09-28T00:00:00Z","task_id":"P0.3/MANOR_GATE_SCENE_REFERENCE_V001",
+            "source_reference":"MANOR_GATE_SCENE_REFERENCE_V001 Candidate 02 / Product Owner approved 2026-09-28 / exact-byte formalization",
+            "controller_version":"0.1","approval_time_precision":"DATE_ONLY"
+          }
+          with registry.open("a",encoding="utf-8") as fh:
+              fh.write(json.dumps(rec,ensure_ascii=False,separators=(",",":"))+"\n")
+
+          entp=root/"production/asset_registry/entity_registry.jsonl"
+          ents=[json.loads(x) for x in entp.read_text(encoding="utf-8").splitlines() if x.strip()]
+          if any(e.get("entity_id")=="SCENE_MANOR_GATE" for e in ents):
+              raise SystemExit("SCENE_MANOR_GATE_ALREADY_EXISTS")
+          ent={"character_tier":None,"created_at":"2026-09-28T00:00:00Z","display_name":"莫妮卡庄园外围大门",
+               "entity_id":"SCENE_MANOR_GATE","entity_status":"ACTIVE","entity_type":"SCENE",
+               "legacy_aliases":["MANOR_GATE_SCENE_REFERENCE_V001"],"primary_side":None,"updated_at":"2026-09-28T00:00:00Z"}
+          with entp.open("a",encoding="utf-8") as fh:
+              fh.write(json.dumps(ent,ensure_ascii=False,separators=(",",":"))+"\n")
+
+          spp=root/"production/asset_registry/scene_state_profiles.json"
+          sp=json.loads(spp.read_text(encoding="utf-8"))
+          if any(s.get("scene_id")=="SCENE_MANOR_GATE" for s in sp["scene_entities"]):
+              raise SystemExit("SCENE_PROFILE_ALREADY_EXISTS")
+          sp["scene_entities"].append({
+            "scene_id":"SCENE_MANOR_GATE","scene_name":"莫妮卡庄园外围大门","entity_status":"ACTIVE","variant":"DEFAULT",
+            "legacy_aliases":["MANOR_GATE_SCENE_REFERENCE_V001"],
+            "stable_facts":{
+              "spatial_topology":["庄园内部道路通向外围大门","庄园大门位于庄园内外空间边界","大门外继续连接外部道路"],
+              "fixed_architecture":["独立于古堡建筑的庄园外围双开铁艺大门","两侧石质门柱","与大门连续的外围石墙 / 铁栏围界"],
+              "key_objects":[],
+              "object_relationships":["庄园内部道路 → 庄园大门 → 外部道路","庄园大门属于庄园外围边界，不属于古堡主入口建筑构件"],
+              "core_materials":["旧石材门柱 / 围界","黑色铁艺双开门"]
+            },
+            "state_profiles":[{
+              "profile_id":"DAY_CLOSED","facts":{"time_of_day":"DAY","gate_state":"CLOSED","rain":False},
+              "source_master_asset_id":"AST_IMG_000084",
+              "evidence":"MANOR_GATE_SCENE_REFERENCE_V001 Candidate 02 / Product Owner approved 2026-09-28",
+              "status":"APPROVED"
+            }]
+          })
+          spp.write_text(json.dumps(sp,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          # remove root intake only after byte-identical canonical copy exists
+          src.unlink()
+
+          evidence={
+            "source_upload":"林间斜视铁艺双门.png","source_byte_size":len(data),"source_sha256":sha,
+            "source_git_blob_sha":"ac1dfb7be2069848917afb9749de6c8ebc54d3e5","dimensions":f"{w}x{h}",
+            "canonical_path":canonical_rel,"asset_id":"AST_IMG_000084","entity_id":"SCENE_MANOR_GATE",
+            "exact_byte_identity":True
+          }
+          pathlib.Path("manor_gate_formalization_evidence.json").write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print("FORMALIZATION_PRECOMMIT_PASS")
+          print(json.dumps(evidence,ensure_ascii=False))
+          PY
+
+      - name: Commit formalized Scene Master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png
+          git add production/asset_registry/asset_registry.jsonl production/asset_registry/entity_registry.jsonl production/asset_registry/scene_state_profiles.json
+          git rm -- "林间斜视铁艺双门.png"
+          git commit -m "Formalize MANOR_GATE Scene Master Candidate 02"
+          git push origin HEAD:main
+
+      - name: Upload formalization evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: MANOR_GATE_SCENE_MASTER_FORMALIZATION_V001
+          path: manor_gate_formalization_evidence.json
+          retention-days: 7
