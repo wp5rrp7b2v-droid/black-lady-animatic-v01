@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R119",
+  "state_revision": "R120",
   "last_updated": "2026-09-28",
-  "session_status": "ACTIVE / P0.3 IN PROGRESS / S02-A ASSEMBLY V001 FORMALLY CLOSED / NEXT SEQUENCE NOT YET AUTHORIZED",
+  "session_status": "EOD CLOSED / P0.3 IN PROGRESS / S02-A ASSEMBLY V001 FORMALLY CLOSED / NEXT SEQUENCE NOT YET AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A ASSEMBLY V001 FORMAL CLOSEOUT COMPLETE",
+  "current_task": "P0.3｜2026-09-28 EOD CLOSEOUT COMPLETE",
   "blocker": "NONE",
-  "next_action": "Under Product Owner direction, design the next narrative/audio sequence beginning after canonical audio 01:18.750. Do not treat S02-A as active and do not mark P0.3 PASS yet.",
+  "next_action": "Next session: under Product Owner direction, begin narrative/audio breakdown for the next sequence immediately after canonical audio 01:18.750. Do not reopen S02-A unless Product Owner explicitly authorizes a revision. Do not mark P0.3 PASS.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-28-P03-S02A-ASSEMBLY-CLOSEOUT-R119",
-    "status": "S02-A ASSEMBLY V001 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
+    "id": "2026-09-28-P03-EOD-CLOSEOUT-R120",
+    "status": "EOD CLOSEOUT COMPLETE / S02-A FORMALLY CLOSED / P0.3 REMAINS IN PROGRESS",
     "completed": [
-      "Product Owner approved corrected S02-A audio boundary 00:33.020→01:18.750 after Audio-Only QC.",
-      "Product Owner approved the S02-A six-shot assembly N11→N12→A04→N14→N15→A05.",
-      "Compatibility master exact binary verified by GitHub Actions run 36427746113.",
-      "Canonical exact-blob publication completed at e577cd09c5ba333b7659dc08bc0898a5596edbb5 with no further re-encode.",
-      "Video Index registration commit ed99eba7b780f6455323d035fdb4148f5c465dc1 added S02_A_ASSEMBLY_V001.",
-      "Registration verification run 36430256742 passed SHA/BLOB/INDEX/metadata/approval/decode/staging checks."
+      "S02-A assembly V001 remains PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED.",
+      "P0.3 README updated with the S02-A closeout and post-01:18.750 resume point.",
+      "Acceptance Matrix updated to current S02-A-complete / P0.3-not-yet-validated status.",
+      "Dashboard refreshed to V090 and corrected to current Story Shot count, S02-A sequence and next-action state.",
+      "Decision Log cross-checked: BL-D-077 already records the S02-A approval; no duplicate decision added.",
+      "Rules Change Log cross-checked: no new RC rule required.",
+      "Execution Log updated with 2026-09-28 EOD closeout.",
+      "Daily closeout record created at docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-09-28.md."
     ],
-    "resume_from": "S02-A is complete. Begin next sequence design from canonical story/audio after 01:18.750 only when Product Owner authorizes it.",
+    "resume_from": "Next production sequence design begins after canonical audio 01:18.750 only when Product Owner authorizes it.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -512,13 +514,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V089",
+    "version": "V090",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R118 / N15 FORMALLY ARCHIVED",
-    "derived_from_revision": "R118",
+    "status": "CURRENT / DERIVED FROM R120 / S02-A FORMALLY CLOSED",
+    "derived_from_revision": "R120",
     "last_updated": "2026-09-28",
-    "current_task": "N15 COMPLETE / A05 REUSE OR S02-A ASSEMBLY NEXT"
+    "current_task": "EOD CLOSED / AWAIT NEXT SEQUENCE AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -533,8 +535,8 @@
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-25.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R081",
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-09-28.md",
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R120",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_v001_formal_closeout_2026-09-28.md",
     "last_formal_closeout_status": "COMPLETE / S02-A ASSEMBLY V001 / R119"
   },
