@@ -2,6 +2,11 @@ name: MANOR GATE Scene Master Formalization V001
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/manor-gate-scene-master-formalization-v001.yml"
 
 permissions:
   contents: write
