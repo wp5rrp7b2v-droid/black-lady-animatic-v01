@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - N15_Candidate_01_APPROVED.png
+      - .github/workflows/p03-n15-approved-upload-verification-v001.yml
   workflow_dispatch:
 jobs:
   verify:
