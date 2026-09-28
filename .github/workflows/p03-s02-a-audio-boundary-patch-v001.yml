@@ -1,0 +1,26 @@
+name: S02-A Audio Boundary Patch V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/p03-s02-a-audio-boundary-patch-v001.yml
+      - scripts/build_s02_a_audio_boundary_patch_v001.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Build boundary evidence
+        run: python3 scripts/build_s02_a_audio_boundary_patch_v001.py
+      - name: Upload patch evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_A_AUDIO_BOUNDARY_PATCH_V001
+          path: S02_A_AUDIO_BOUNDARY_PATCH_V001/
+          if-no-files-found: error
+          retention-days: 7
