@@ -91,3 +91,5 @@
 - All Gate / Phase approvals remain Product Owner-only under BL-D-017.
 - `RISK-001` remains `CONTROLLED / MITIGATION VERIFIED`; `RISK-002` remains `ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT`.
 - GitHub `main/docs/project_control/` remains the canonical Project Control SSOT.
+
+| BL-D-076 | 2026-09-28 | Product Owner approved N15 dense-fog final candidate and authorized formal archival. N15 is locked as `Locked Gate Foreshadowing`: canonical binary `production/image_library/approved/story_shots/N15_LOCKED_GATE_FORESHADOWING_APPROVED_V001.png`, 941x1672, 2583010 bytes, SHA-256=`2712321ca6348cc39234f8ae65bcdb0fd2e6b2faf0b56dcc94a51235011d1191`, Git blob=`4d9ca2dcd33df32294ff9b928bf3ab88d63c7487`. Exact-blob publication preserved the binary; Story Shot Index registration and post-registration verification run 36374770242 both passed. | LOCKED / APPROVED / CANONICAL / REGISTERED / VERIFIED |
