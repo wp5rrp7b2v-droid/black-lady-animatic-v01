@@ -1,246 +1,170 @@
-# N15｜Butler Key-Holder Hypothesis｜Director Shot Design V0.1
+# N15｜Locked Gate Foreshadowing｜Director Shot Design V0.1
 
-Status: `DRAFT / PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / SCENE AUTHORITY FORMALIZED / REFERENCE DELIVERY BUNDLE DESIGN NEXT`
 
-Date: 2026-09-27
+Date: 2026-09-28
 
-## 1. Source narration
+## 1. Supersession
 
-N15 corresponds to the second logical half of the reasoning passage:
+This 2026-09-28 revision supersedes the earlier Neil-focused draft stored at this same path.
 
-`而管家作为庄园里的重要角色，似乎是掌管钥匙的不二人选。`
+Canonical story fact correction:
 
-Approximate source context:
-`00:58–01:11` overall reasoning passage.
+- the final escape target is the **Monica Manor outer gate**, not the castle entrance;
+- the characters do not yet know the gate location at this point;
+- the later story obtains the manor-gate key and ultimately opens this gate;
+- therefore N15 is redesigned as audience-only spatial foreshadowing rather than a Neil key-holder inference shot.
 
-The exact N14 / N15 internal audio cut is not frame-locked yet.
+The earlier Neil-focused N15 concept is historical only and must not drive generation.
 
 ## 2. Narrative function
 
-N14 established the general experience rule:
+N15 function:
 
-`the first person encountered in a Blood Door is often important.`
+`AUDIENCE-ONLY FORESHADOWING OF THE TRUE FINAL EXIT`
 
-N15 now applies that rule specifically to Neil:
+Core idea:
 
-`Neil is the butler → the butler is an important manor role → he is a plausible person to control the keys.`
+`The audience sees the eventual exit before the characters discover it.`
 
-This is still a hypothesis.
+This is not character POV and does not establish that Ning Qiushui or the group has found the gate.
 
-N15 must build expectation but must not answer whether Neil actually has keys.
+## 3. Formal Scene Authority
 
-A05 exclusively owns the reveal:
+N15 no longer relies on an inferred / reconstructed scene identity.
 
-`管家尼尔的腰间空空如也。`
+Formal authority:
 
-## 3. Preferred visual strategy
+- Entity: `SCENE_MANOR_GATE`
+- Asset: `AST_IMG_000084`
+- Role: `SCENE_MASTER`
+- Variant / State: `DEFAULT / DAY_CLOSED`
+- Lifecycle: `CURRENT`
+- Authority class: `MASTER`
+- Canonical file: `production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png`
+- SHA-256: `95b3bebce1b2e9be72d5a2bc99665a4a99719eb0f4146e40a562210bd982e278`
+- Git blob: `ac1dfb7be2069848917afb9749de6c8ebc54d3e5`
+- Dimensions: `941x1671`
+- Byte size: `3279563`
 
-Use a restrained reverse observation shot from Ning Qiushui's point of view toward Neil.
+Authority rule:
 
-Recommended form:
+`AST_IMG_000084 owns MANOR_GATE scene identity and geometry for N15.`
 
-`medium close-up / medium role-establishing shot of Neil, viewed from Ning's side`
+It must not be substituted by `AST_IMG_000052 / SCENE_CASTLE_ENTRANCE`.
 
-The image should make Neil read primarily as:
+## 4. Scene identity lock
 
-`the castle's formal butler / gatekeeping staff figure`
+N15 must preserve the formal MANOR_GATE identity:
 
-rather than as another facial portrait.
+- detached manor-perimeter double wrought-iron gate;
+- old stone gateposts;
+- continuous boundary wall / iron fencing;
+- internal estate road leading to the gate;
+- external road continuing beyond the gate;
+- mature wooded estate environment;
+- gate is physically and visually distinct from the castle main entrance.
 
-Suggested composition:
+Spatial identity:
 
-- Neil in focus, standing just inside the open castle entrance;
-- framing from approximately upper chest / chest to above the waist;
-- enough formal black butler clothing is visible to make his role immediately readable;
-- the waist answer-zone remains outside frame or naturally blocked;
-- part of the entrance / door frame remains visible as contextual evidence of his role at the threshold;
-- an extremely soft, partial Ning shoulder / head edge may appear in the foreground if needed to preserve the observation relationship;
-- background remains subordinate.
+`estate internal road → MANOR_GATE → external road`
 
-## 4. Why this differs from N12
+## 5. Shot strategy
 
-N12 already owns:
+Format: `9:16 vertical`.
 
-`cross + rigid smile`
+Camera:
 
-Therefore N15 must not become another Neil face / cross close-up.
+- from inside the estate looking outward;
+- N15 may derive a more cinematic composition from the Scene Master;
+- the gate remains the sole narrative subject;
+- use distance, closure, road depth and boundary separation to establish an inaccessible-looking endpoint without literal lock inspection.
 
-N15 should be:
+The N15 composition must not simply duplicate the neutral 3/4 Scene Master reference.
 
-- slightly wider than N12;
-- more environmental;
-- more role-oriented;
-- less about expression;
-- more about Neil's position and status as the castle butler.
+## 6. Character boundary
 
-The cross may remain naturally visible for continuity, but it is not a visual subject.
+Preferred: **no characters**.
 
-## 5. Key-holder hypothesis without showing keys
+Hard rules:
 
-The narration carries the explicit thought that Neil may manage the keys.
+- no Neil;
+- no Ning Qiushui;
+- no Jun Luyuan;
+- no visible group discovering the gate;
+- no character POV implication;
+- no one approaching, touching, inspecting or opening the gate.
 
-The image should support that thought through role and spatial context, not literal props.
+## 7. Key / lock boundary
 
-Preferred cues:
+N15 foreshadows the exit, not the solution.
 
-- formal butler clothing;
-- controlled, composed posture;
-- his station just inside the main entrance;
-- visible door-frame / entrance context;
-- calm authority / staff-role presence.
+Do not show:
 
-Do NOT add:
-
-- visible keys;
+- key;
 - key ring;
-- key chain;
-- keys hanging from belt;
 - key in hand;
-- keyhole close-up;
+- chain;
+- padlock emphasis;
 - lock close-up;
-- symbolic floating key imagery.
+- character testing the gate;
+- symbolic key imagery.
 
-The viewer should think:
+The gate may be visibly closed, but the image must not claim that the characters already know it is locked.
 
-`He is the butler; of course Ning would suspect he manages access / keys.`
-
-Not:
-
-`The picture is already telling me whether he has keys.`
-
-## 6. Framing and waist protection
-
-Critical rule:
-
-`N15 may approach the key-holder idea, but must not inspect or expose the answer-zone.`
-
-Therefore:
-
-- no clean full waist;
-- no belt-line inspection;
-- no pocket emphasis;
-- no hip crop designed to search for keys;
-- no empty-waist visual evidence.
-
-Preferred lower crop:
-
-`above the waist / upper abdomen`
-
-or use natural coat overlap / foreground occlusion if the frame approaches lower torso.
-
-A05 must remain visually necessary.
-
-## 7. Neil performance
-
-Neil remains:
-
-- already inside the entrance;
-- facing outward toward the guests;
-- still;
-- formal;
-- restrained;
-- not speaking in this reasoning beat.
-
-No new action:
-
-- no reaching;
-- no touching pockets;
-- no adjusting coat;
-- no hand behind waist designed to imply keys;
-- no turning;
-- no stepping;
-- no presenting the door.
-
-Hands are preferably out of frame.
-
-## 8. Relationship to N14
-
-N14:
-
-`Ning thinks: the first person encountered is often important.`
-
-N15:
-
-`Cut to the person being evaluated: Neil, whose butler role makes him a plausible key-holder.`
-
-This should feel like a clean mental inference cut:
-
-`general rule → specific target`
-
-N14 is psychologically internal.
-
-N15 externalizes the object of that reasoning.
-
-## 9. Relationship to A05
-
-N15 must hand directly into A05.
-
-The logic is:
-
-`he is likely to control the keys → check the waist → disappointment: empty`
-
-Therefore N15 must create expectation, not reveal.
-
-A05 remains the first shot allowed to make the absence of keys visually explicit.
-
-## 10. Visual tone
+## 8. Visual tone
 
 Target:
 
-`quiet role inference / restrained suspicion / plausible access authority`
+`quiet spatial foreshadowing / distant final endpoint / restrained unease`
 
-Not:
+Avoid:
 
-- villain portrait;
-- religious portrait;
-- detective cliché;
-- key symbolism montage;
-- heroic butler poster;
-- threatening gatekeeper;
-- literal clue insert.
+- exaggerated horror gate;
+- ruined / abandoned estate;
+- giant fantasy gate;
+- castle-door visual language;
+- overt supernatural effects;
+- theatrical key symbolism.
 
-## 11. Hard negatives
+## 9. Hard negatives
 
 N15 fails if:
 
-- keys are visible;
-- Neil's waist is clearly exposed;
-- empty waist is readable;
-- the shot duplicates N12;
-- the cross becomes the subject again;
-- Neil performs a new action;
-- the image becomes a full-body portrait;
-- the door / architecture overwhelms Neil;
-- symbolic locks / keys are added;
-- the image makes the hypothesis look like confirmed fact.
+1. the manor gate is confused with the castle entrance;
+2. `AST_IMG_000084` Gate Identity is materially changed;
+3. characters appear to have discovered the gate;
+4. Neil is used as the subject;
+5. keys / chains / lock close-ups are introduced;
+6. the shot becomes a character POV;
+7. the scene reads as a building entrance rather than estate perimeter;
+8. the road/boundary/gate spatial relationship is lost.
 
-## 12. Acceptance criteria
+## 10. Acceptance criteria
 
 N15 passes if:
 
-1. Neil is clearly readable as the castle butler;
-2. the shot feels like Ning applying his general experience rule to this specific person;
-3. formal role / entrance context supports the key-holder hypothesis;
-4. N12 is not visually repeated;
-5. no keys are visible;
-6. the waist answer-zone is not cleanly exposed;
-7. no empty-waist conclusion can be drawn;
-8. Neil remains static and continuity-safe;
-9. the shot naturally hands into A05;
-10. A05 retains full reveal value.
+1. `AST_IMG_000084` is clearly preserved as the scene authority;
+2. Gate + Boundary + Road remain readable;
+3. the viewer understands this is a separate manor-perimeter exit;
+4. the gate is closed;
+5. no character knowledge is implied;
+6. no solution/key information is revealed;
+7. the image functions as audience-only anticipatory foreshadowing;
+8. it remains reusable in continuity with the later gate-search / unlock payoff.
 
-## 13. Current boundary
+## 11. Current boundary
 
 Current stage:
 
-`Director Shot Design V0.1 / Product Owner review`
+`DIRECTOR SHOT DESIGN APPROVED / FORMAL SCENE AUTHORITY LOCKED`
+
+Authorized next step:
+
+`N15 REFERENCE DELIVERY BUNDLE DESIGN`
 
 Not yet authorized:
 
-- N15 Reference Delivery Bundle design/build;
+- Bundle build;
 - N15 image generation;
 - Story Shot registration.
-
-Next:
-
-`Product Owner review → N15 Reference Delivery Bundle Design`
