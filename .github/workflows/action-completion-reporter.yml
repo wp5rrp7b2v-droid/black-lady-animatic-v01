@@ -4,6 +4,9 @@ on:
   workflow_run:
     workflows:
       - "S02-A Assembly Input Bundle V001"
+      - "S02-A Audio Boundary Patch V001"
+      - "S02-A Audio Boundary Analysis V001"
+      - "S02-A Speech Boundary Alignment V001"
     types:
       - completed
 
