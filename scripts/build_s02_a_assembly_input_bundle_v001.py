@@ -21,7 +21,7 @@ contract="docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_executio
 idx=[json.loads(x) for x in (ROOT/"production/story_shots/story_shot_index.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
 records=[]
 def gitblob(b):
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+bytes([0])+b).hexdigest()
 for sid,rel,size,blob,locked_sha in shots:
     rr=[x for x in idx if x.get("shot_id")==sid and x.get("approval_status")=="APPROVED" and x.get("lifecycle")=="CURRENT"]
     if len(rr)!=1: raise SystemExit(f"INDEX_CARDINALITY_FAIL {sid}")
