@@ -1,0 +1,80 @@
+name: S02-A Approved Assembly Exact Binary Verification V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - S02_A_ASSEMBLY_PROOF_V002_COMPAT.mp4
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Verify approved S02-A binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          F="S02_A_ASSEMBLY_PROOF_V002_COMPAT.mp4"
+          EXPECT_SHA="937008e11d20892ea0a17be64719a19cb131d174871930bc29004a678bb58ed1"
+          EXPECT_BLOB="bcd3fef7a8d600c95cb4d7242d411cc0df41859c"
+          EXPECT_BYTES="6822004"
+          test -f "$F"
+          ACTUAL_BYTES="$(stat -c%s "$F")"
+          ACTUAL_SHA="$(sha256sum "$F" | awk '{print $1}')"
+          ACTUAL_BLOB="$(git hash-object "$F")"
+          test "$ACTUAL_BYTES" = "$EXPECT_BYTES"
+          test "$ACTUAL_SHA" = "$EXPECT_SHA"
+          test "$ACTUAL_BLOB" = "$EXPECT_BLOB"
+
+          WIDTH="$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$F")"
+          HEIGHT="$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$F")"
+          PIX_FMT="$(ffprobe -v error -select_streams v:0 -show_entries stream=pix_fmt -of csv=p=0 "$F")"
+          FPS="$(ffprobe -v error -select_streams v:0 -show_entries stream=r_frame_rate -of csv=p=0 "$F")"
+          VCODEC="$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of csv=p=0 "$F")"
+          ACODEC="$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$F")"
+          ASR="$(ffprobe -v error -select_streams a:0 -show_entries stream=sample_rate -of csv=p=0 "$F")"
+          ACH="$(ffprobe -v error -select_streams a:0 -show_entries stream=channels -of csv=p=0 "$F")"
+          DUR="$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$F")"
+
+          test "$WIDTH" = "942"
+          test "$HEIGHT" = "1672"
+          test "$PIX_FMT" = "yuv420p"
+          test "$FPS" = "30/1"
+          test "$VCODEC" = "h264"
+          test "$ACODEC" = "aac"
+          test "$ASR" = "48000"
+          test "$ACH" = "2"
+          python3 - <<PY
+          d=float("${DUR}")
+          assert abs(d-45.730) <= 0.002, d
+          PY
+
+          ffmpeg -v error -i "$F" -map 0:v:0 -f null -
+          ffmpeg -v error -i "$F" -map 0:a:0 -f null -
+
+          {
+            echo "FILENAME=$F"
+            echo "BYTE_SIZE=$ACTUAL_BYTES"
+            echo "SHA256=$ACTUAL_SHA"
+            echo "GIT_BLOB=$ACTUAL_BLOB"
+            echo "RESOLUTION=${WIDTH}x${HEIGHT}"
+            echo "PIX_FMT=$PIX_FMT"
+            echo "FPS=$FPS"
+            echo "VIDEO_CODEC=$VCODEC"
+            echo "AUDIO_CODEC=$ACODEC"
+            echo "AUDIO_SAMPLE_RATE=$ASR"
+            echo "AUDIO_CHANNELS=$ACH"
+            echo "DURATION=$DUR"
+            echo "FULL_VIDEO_DECODE=PASS"
+            echo "FULL_AUDIO_DECODE=PASS"
+            echo "OVERALL_RESULT=PASS"
+          } | tee S02_A_APPROVED_UPLOAD_VERIFICATION_V001.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02_A_APPROVED_UPLOAD_VERIFICATION_V001
+          path: S02_A_APPROVED_UPLOAD_VERIFICATION_V001.txt
+          retention-days: 30
