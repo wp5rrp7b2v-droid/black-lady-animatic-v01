@@ -1676,3 +1676,47 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED`
 - N15 is formally archived and no longer an active generation task.
 - Project State advanced to `R118`.
 - Next: continue S02-A from A05 reuse / sequence assembly planning under Product Owner direction.
+
+## 2026-09-28｜S02-A Assembly V001 Formal Closeout
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED`
+
+- Corrected S02-A audio boundary confirmed by Product Owner after Audio-Only QC: `00:33.020 → 01:18.750` / `45.730s`.
+- Locked sequence: `N11 → N12 → A04 → N14 → N15 → A05`.
+- Product Owner approved `S02_A_ASSEMBLY_PROOF_V002` after full-context review.
+- Original V002 render was technically decodable but had low desktop compatibility (H.264 4:4:4 / 100fps / ALAC) and was not selected as canonical delivery binary.
+- Compatibility master selected for canonical archival:
+  - source name: `S02_A_ASSEMBLY_PROOF_V002_COMPAT.mp4`
+  - 942×1672 / 30fps / H.264 yuv420p / AAC 48kHz stereo
+  - duration: 45.730s
+  - byte size: 6,822,004
+  - SHA-256: `937008e11d20892ea0a17be64719a19cb131d174871930bc29004a678bb58ed1`
+  - Git blob: `bcd3fef7a8d600c95cb4d7242d411cc0df41859c`
+- Exact Binary Verification:
+  - workflow run `36427746113`
+  - job `108945798299`
+  - result `SUCCESS / OVERALL_RESULT=PASS`
+  - artifact `S02_A_APPROVED_UPLOAD_VERIFICATION_V001`
+  - artifact ID `10972091936`
+- Canonical Publication:
+  - workflow run `36428710030`
+  - job `108949038095`
+  - canonical path `production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4`
+  - publication commit `e577cd09c5ba333b7659dc08bc0898a5596edbb5`
+  - `EXACT_BLOB_PRESERVED=YES`
+- Video Index Registration:
+  - `production/video/video_index.jsonl`
+  - registration commit `ed99eba7b780f6455323d035fdb4148f5c465dc1`
+  - video ID `S02_A_ASSEMBLY_V001`
+  - approval `PRODUCT_OWNER / APPROVED`
+  - lifecycle `CURRENT`
+- Registration Verification:
+  - run `36430256742`
+  - job `108954308923`
+  - `SHA_MATCH=YES / BLOB_MATCH=YES / INDEX_MATCH=YES / BYTE_SIZE_MATCH=YES / MEDIA_METADATA_MATCH=YES / APPROVAL_LIFECYCLE_MATCH=YES / FULL_VIDEO_DECODE=PASS / FULL_AUDIO_DECODE=PASS / STAGING_CLEANUP_PASS / OVERALL_RESULT=PASS`.
+- Formal closeout record:
+  `docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_v001_formal_closeout_2026-09-28.md`.
+- Final disposition:
+  `S02_A_ASSEMBLY_V001 = PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED`.
+- P0.3 remains `IN PROGRESS`; this is a sequence-level closeout, not a Gate PASS.
+
