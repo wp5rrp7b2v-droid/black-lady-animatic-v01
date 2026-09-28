@@ -82,7 +82,7 @@ jobs:
             "excluded":["AST_IMG_000052","ALL_CHARACTER_REFERENCES","N14","A05","KEY_LOCK_IMAGERY","HISTORICAL_MANOR_GATE_CANDIDATES","INTERNET_REFERENCES"]
           }
           (out/"delivery_manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
-          handoff="""# N15 WORK HANDOFF
+          handoff = """# N15 WORK HANDOFF
 Generate exactly one N15 Candidate 01.
 9:16 vertical. View from inside estate toward the outer manor gate.
 AST_IMG_000084 is the sole MANOR_GATE identity/geometry authority. Preserve Gate + Boundary + Road and the internal-road → gate → external-road relationship.
@@ -93,7 +93,7 @@ ZERO characters, Neil, keys, chains, padlock emphasis, opening action, character
 Tone: quiet spatial foreshadowing / restrained unease / distant endpoint. Not horror poster, ruin, fantasy gate or castle entrance.
 Stop after Candidate 01 and return it for Product Owner review. Do not register or formalize it.
 """
-          (out/"WORK_HANDOFF.md").write_text(handoff)
+          (out/"WORK_HANDOFF.md").write_text(handoff, encoding="utf-8")
 
           # final artifact revalidation
           for _,dst,b in targets:
