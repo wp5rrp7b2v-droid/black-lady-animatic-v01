@@ -1720,3 +1720,31 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED`
   `S02_A_ASSEMBLY_V001 = PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED`.
 - P0.3 remains `IN PROGRESS`; this is a sequence-level closeout, not a Gate PASS.
 
+## 2026-09-28｜P0.3 Daily Closeout / S02-A EOD
+
+Status: `COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R120`
+
+- S02-A formal asset chain was already completed before EOD closeout:
+  - exact binary verification run `36427746113`: PASS;
+  - canonical publication run `36428710030`: PASS;
+  - publication commit `e577cd09c5ba333b7659dc08bc0898a5596edbb5`;
+  - Video Index registration commit `ed99eba7b780f6455323d035fdb4148f5c465dc1`;
+  - registration verification run `36430256742`: PASS.
+- Final sequence: `N11 → N12 → A04 → N14 → N15 → A05`.
+- Canonical audio: `00:33.020 → 01:18.750` / `45.730s`.
+- Canonical video: `production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4`.
+- P0.3 README updated with S02-A formal closeout and resume point.
+- Acceptance Matrix updated from Opening-proof wording to current S02-A-complete / P0.3-not-yet-validated state.
+- Dashboard refreshed to `V090`, derived from `R120`.
+- Dashboard current production segment corrected:
+  - N13 cancelled / not registered;
+  - N14 and N15 included;
+  - Story Shot registered count = `21`;
+  - next sequence not yet authorized.
+- Rules Change Log cross-checked; no new RC rule required by this EOD closeout.
+- Decision Log cross-checked; `BL-D-077` already contains the Product Owner S02-A approval decision, so no duplicate decision entry was added.
+- Daily closeout record:
+  `docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-09-28.md`.
+- P0.3 remains `IN PROGRESS / NOT YET VALIDATED`.
+- Resume next work from canonical audio immediately after `01:18.750`, only when Product Owner authorizes the next sequence.
+
