@@ -1,0 +1,38 @@
+name: S02-A Audio Only QC Proof V001
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/p03-s02-a-audio-only-qc-proof-v001.yml
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Build exact PCM QC proof
+        run: |
+          mkdir -p S02_A_AUDIO_ONLY_QC_PROOF_V001
+          SRC="staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a"
+          test "$(stat -c%s "$SRC")" = "4957338"
+          test "$(sha256sum "$SRC" | cut -d' ' -f1)" = "8d0d12d3af5e2c15032912605c0d1b3f3e892fe24918a7064864b136987737a0"
+          ffmpeg -hide_banner -loglevel error -i "$SRC" -af "atrim=start=33.020:end=78.750,asetpts=PTS-STARTPTS" -c:a pcm_s16le -ar 44100 -ac 2 S02_A_AUDIO_ONLY_QC_PROOF_V001/S02_A_AUDIO_ONLY_QC_PROOF_V001.wav
+          ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 S02_A_AUDIO_ONLY_QC_PROOF_V001/S02_A_AUDIO_ONLY_QC_PROOF_V001.wav | tee S02_A_AUDIO_ONLY_QC_PROOF_V001/duration.txt
+          sha256sum S02_A_AUDIO_ONLY_QC_PROOF_V001/S02_A_AUDIO_ONLY_QC_PROOF_V001.wav | tee S02_A_AUDIO_ONLY_QC_PROOF_V001/sha256.txt
+          ffmpeg -v error -i S02_A_AUDIO_ONLY_QC_PROOF_V001/S02_A_AUDIO_ONLY_QC_PROOF_V001.wav -f null -
+          echo "SOURCE_SHA_MATCH=YES" | tee S02_A_AUDIO_ONLY_QC_PROOF_V001/qc.txt
+          echo "BOUNDARY=00:33.020-->01:18.750" >> S02_A_AUDIO_ONLY_QC_PROOF_V001/qc.txt
+          echo "TARGET_DURATION=45.730" >> S02_A_AUDIO_ONLY_QC_PROOF_V001/qc.txt
+          echo "FULL_DECODE=PASS" >> S02_A_AUDIO_ONLY_QC_PROOF_V001/qc.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02_A_AUDIO_ONLY_QC_PROOF_V001
+          path: S02_A_AUDIO_ONLY_QC_PROOF_V001/
+          retention-days: 7
+          if-no-files-found: error
