@@ -1661,3 +1661,18 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / REMOTE VERIFIED`
 - N15 Scene Authority is formally bound to `AST_IMG_000084`; `AST_IMG_000052` cannot substitute for manor-gate geometry/identity.
 - Project State advanced to `R117`.
 - Next step: `N15 Reference Delivery Bundle Design`; Bundle build and generation are not yet authorized.
+
+## 2026-09-28｜N15 Locked Gate Foreshadowing Formal Archival
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED`
+
+- Final selected version: dense-fog N15 Candidate 01.
+- Exact upload verification run `36374095043`: PASS.
+- Final identity: 941x1672 / 2583010 bytes / SHA-256 `2712321ca6348cc39234f8ae65bcdb0fd2e6b2faf0b56dcc94a51235011d1191` / Git blob `4d9ca2dcd33df32294ff9b928bf3ab88d63c7487`.
+- Canonical publication commit `deee18697dd79cd041d37c2725ee15028440dee5`; exact Git blob preserved, no re-encode.
+- Canonical path: `production/image_library/approved/story_shots/N15_LOCKED_GATE_FORESHADOWING_APPROVED_V001.png`.
+- Story Shot Index registration commit `a9fc6bb0eea41634777241d3dbbad83e3f867368`.
+- Registration verification run `36374770242`: `SHA_MATCH=YES / BLOB_MATCH=YES / INDEX_MATCH=YES / DIMENSIONS_MATCH=YES / STAGING_CLEANUP_PASS / OVERALL_RESULT=PASS`.
+- N15 is formally archived and no longer an active generation task.
+- Project State advanced to `R118`.
+- Next: continue S02-A from A05 reuse / sequence assembly planning under Product Owner direction.
