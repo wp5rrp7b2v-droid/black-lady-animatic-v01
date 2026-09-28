@@ -1,0 +1,36 @@
+name: S02-A Speech Boundary Alignment V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/p03-s02a-speech-boundary-alignment-v001.yml
+  workflow_dispatch:
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install alignment runtime
+        run: pip install -q faster-whisper
+      - name: Align canonical S02-A speech boundaries
+        shell: python
+        run: |
+          from faster_whisper import WhisperModel
+          import json, re, hashlib, pathlib
+          src="staging/p0_3_a01_a02_transition_validation/AUDIO_MVP1_CANONICAL_V001.m4a"
+          model=WhisperModel("small",device="cpu",compute_type="int8")
+          segs,info=model.transcribe(src,language="zh",word_timestamps=True,vad_filter=False,beam_size=5)
+          words=[]
+          for s in segs:
+            for w in (s.words or []):
+              if w.start is not None and 30 <= w.start <= 72:
+                words.append({"start":round(w.start,3),"end":round(w.end,3),"word":w.word})
+          pathlib.Path("out").mkdir(exist_ok=True)
+          pathlib.Path("out/words.json").write_text(json.dumps(words,ensure_ascii=False,indent=2),encoding="utf-8")
+          for x in words: print(f'{x["start"]:07.3f}-{x["end"]:07.3f} {x["word"]}')
+          print("WORD_TIMESTAMP_ALIGNMENT_COMPLETE")
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02_A_SPEECH_BOUNDARY_ALIGNMENT_V001
+          path: out/words.json
+          retention-days: 7
