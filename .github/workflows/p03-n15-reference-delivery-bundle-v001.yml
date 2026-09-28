@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ".github/workflows/p03-n15-reference-delivery-bundle-v001.yml"
   workflow_dispatch:
 
 permissions:
