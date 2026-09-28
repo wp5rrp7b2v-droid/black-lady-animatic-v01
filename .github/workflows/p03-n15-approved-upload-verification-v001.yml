@@ -1,0 +1,27 @@
+name: N15 Approved Story Shot Exact Binary Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - N15_Candidate_01_APPROVED.png
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify N15 uploaded binary
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, struct
+          p=Path("N15_Candidate_01_APPROVED.png")
+          b=p.read_bytes()
+          assert b[:8] == b"\x89PNG\r\n\x1a\n", "PNG_SIGNATURE_FAIL"
+          w,h=struct.unpack(">II", b[16:24])
+          print(f"FILENAME={p.name}")
+          print(f"BYTE_SIZE={len(b)}")
+          print(f"SHA256={hashlib.sha256(b).hexdigest()}")
+          print(f"DIMENSIONS={w}x{h}")
+          print("PNG_SIGNATURE=PASS")
+          print("OVERALL_RESULT=PASS")
