@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R118",
+  "state_revision": "R119",
   "last_updated": "2026-09-28",
-  "session_status": "ACTIVE / P0.3 IN PROGRESS / S02-A V0.2 / N11+N12+N14+N15 FORMALLY REGISTERED / N13 CANCELLED",
+  "session_status": "ACTIVE / P0.3 IN PROGRESS / S02-A ASSEMBLY V001 FORMALLY CLOSED / NEXT SEQUENCE NOT YET AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -29,7 +29,7 @@
     "id": "P0.3",
     "name": "视频制作与剪辑 Pipeline 再验证",
     "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED",
-    "note": "2026-09-27 EOD: N11 Candidate 03, N12 Candidate 02 and N14 Candidate 01 completed the full RC-024 lifecycle. Exact source uploads passed GitHub Actions verification run 36324358350; exact Git blobs were canonically published at commit caff3cef027366b75e2ced5b04f363ed6a89b5f6; Story Shot Index registration commit f301eff807434552e52d78070a8d06e492c1ae06 added N11/N12/N14; post-registration verification run 36324545377 returned N11/N12/N14 PASS + INDEX_MATCH=YES + STAGING_CLEANUP_PASS + OVERALL_RESULT=PASS. N13 remains cancelled. N15 is paused pending source-novel key/exit fact check."
+    "note": "2026-09-28: S02-A assembly completed its full approval/archive lifecycle. Corrected canonical audio boundary 00:33.020→01:18.750 was PO auditory-QC approved; sequence N11→N12→A04→N14→N15→A05 was PO approved in full-context review. Compatibility master S02_A_ASSEMBLY_V001 was exact-binary verified (run 36427746113), canonically published without further re-encode (publication commit e577cd09c5ba333b7659dc08bc0898a5596edbb5), registered in production/video/video_index.jsonl (commit ed99eba7b780f6455323d035fdb4148f5c465dc1), and registration-verified (run 36430256742). P0.3 remains IN PROGRESS; this is sequence-level closeout only."
   },
   "restart_tasks": [
     {
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜N15 FORMAL ARCHIVAL COMPLETE",
+  "current_task": "P0.3｜S02-A ASSEMBLY V001 FORMAL CLOSEOUT COMPLETE",
   "blocker": "NONE",
-  "next_action": "Proceed from the locked S02-A sequence N11 → N12 → A04 → N14 → N15 → A05. N15 is complete; next production action is A05 reuse / sequence assembly planning under Product Owner direction.",
+  "next_action": "Under Product Owner direction, design the next narrative/audio sequence beginning after canonical audio 01:18.750. Do not treat S02-A as active and do not mark P0.3 PASS yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,15 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-28-P03-S02A-N15-ARCHIVAL-R118",
-    "status": "N15 FORMAL ARCHIVAL COMPLETE / REGISTRATION VERIFIED",
+    "id": "2026-09-28-P03-S02A-ASSEMBLY-CLOSEOUT-R119",
+    "status": "S02-A ASSEMBLY V001 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
     "completed": [
-      "N15 dense-fog final upload exact binary verified by GitHub Actions run 36374095043.",
-      "Canonical exact-blob publication completed at deee18697dd79cd041d37c2725ee15028440dee5 with no PNG re-encode.",
-      "Story Shot Index registration commit a9fc6bb0eea41634777241d3dbbad83e3f867368 added N15.",
-      "Registration verification run 36374770242 passed SHA_MATCH, BLOB_MATCH, INDEX_MATCH, DIMENSIONS_MATCH and STAGING_CLEANUP."
+      "Product Owner approved corrected S02-A audio boundary 00:33.020→01:18.750 after Audio-Only QC.",
+      "Product Owner approved the S02-A six-shot assembly N11→N12→A04→N14→N15→A05.",
+      "Compatibility master exact binary verified by GitHub Actions run 36427746113.",
+      "Canonical exact-blob publication completed at e577cd09c5ba333b7659dc08bc0898a5596edbb5 with no further re-encode.",
+      "Video Index registration commit ed99eba7b780f6455323d035fdb4148f5c465dc1 added S02_A_ASSEMBLY_V001.",
+      "Registration verification run 36430256742 passed SHA/BLOB/INDEX/metadata/approval/decode/staging checks."
     ],
-    "resume_from": "N15 complete. Continue S02-A from A05 reuse / sequence assembly planning under Product Owner direction.",
+    "resume_from": "S02-A is complete. Begin next sequence design from canonical story/audio after 01:18.750 only when Product Owner authorizes it.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -532,7 +534,9 @@
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-25.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R081"
+    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R081",
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_v001_formal_closeout_2026-09-28.md",
+    "last_formal_closeout_status": "COMPLETE / S02-A ASSEMBLY V001 / R119"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -1047,38 +1051,47 @@
     "rationale_boundary": "Selection is specific to this Opening result. RC-026 forbids treating V002's exact timing/effects as a mandatory template for later sequences."
   },
   "s02_a": {
-    "status": "SHOT PLAN V0.1 PRODUCT OWNER APPROVED / N11 DESIGN NEXT",
-    "path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_1.md",
+    "status": "PRODUCT OWNER APPROVED / ASSEMBLY V001 CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_shot_plan_v0_2.md",
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_v001_formal_closeout_2026-09-28.md",
     "narrative_scope": "post-Opening Neil scrutiny and key-holder inference through waist-empty reveal",
-    "approximate_source_audio_scope": "00:33.020–00:01:18.750",
-    "timing_status": "SHOT FUNCTIONS LOCKED / FINAL CUT FRAMES NOT YET LOCKED",
+    "canonical_audio_scope": "00:33.020–01:18.750",
+    "duration_sec": 45.73,
     "shot_order": [
       "N11",
       "N12",
       "A04",
-      "N13",
+      "N14",
       "N15",
       "A05"
     ],
     "new_story_shots": [
       "N11",
       "N12",
-      "N13",
+      "N14",
       "N15"
     ],
     "reused_story_shots": [
       "A04",
       "A05"
     ],
-    "reveal_rule": "A05 owns explicit no-keys reveal; N13/N15 must not reveal absence early.",
-    "production_order": [
-      "N11",
-      "N12",
-      "N13",
-      "N15",
-      "S02-A Timeline V0.1",
-      "full-context edit proof"
-    ]
+    "cancelled_story_shots": [
+      "N13"
+    ],
+    "reveal_rule": "A05 owns explicit no-keys reveal.",
+    "canonical_video_id": "S02_A_ASSEMBLY_V001",
+    "canonical_video_path": "production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4",
+    "canonical_video_sha256": "937008e11d20892ea0a17be64719a19cb131d174871930bc29004a678bb58ed1",
+    "canonical_video_git_blob": "bcd3fef7a8d600c95cb4d7242d411cc0df41859c",
+    "canonical_video_byte_size": 6822004,
+    "canonical_video_media_spec": "942x1672 / 30fps / H.264 yuv420p / AAC 48kHz stereo / 45.730s",
+    "exact_binary_verification_run": 36427746113,
+    "canonical_publication_commit": "e577cd09c5ba333b7659dc08bc0898a5596edbb5",
+    "video_index_registration_commit": "ed99eba7b780f6455323d035fdb4148f5c465dc1",
+    "registration_verification_run": 36430256742,
+    "lifecycle": "CURRENT",
+    "approval_status": "PRODUCT_OWNER_APPROVED",
+    "p0_3_gate_effect": "SEQUENCE COMPLETE / DOES NOT CONSTITUTE P0.3 PASS"
   },
   "n11_director_shot_design_v0": {
     "status": "DRAFT / PRODUCT OWNER REVIEW REQUIRED",
@@ -1438,5 +1451,31 @@
     "registration_verification_run": 36374770242,
     "story_shot_registered": true,
     "canonical_published": true
+  },
+  "s02_a_assembly_v001": {
+    "status": "PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED",
+    "approved_on": "2026-09-28",
+    "approved_by": "PRODUCT_OWNER",
+    "selected_source": "S02_A_ASSEMBLY_PROOF_V002_COMPAT",
+    "canonical_path": "production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4",
+    "sha256": "937008e11d20892ea0a17be64719a19cb131d174871930bc29004a678bb58ed1",
+    "byte_size": 6822004,
+    "git_blob": "bcd3fef7a8d600c95cb4d7242d411cc0df41859c",
+    "publication_commit": "e577cd09c5ba333b7659dc08bc0898a5596edbb5",
+    "registration_commit": "ed99eba7b780f6455323d035fdb4148f5c465dc1",
+    "exact_binary_verification_run": 36427746113,
+    "registration_verification_run": 36430256742,
+    "media_spec": "942x1672 / H.264 yuv420p / 30fps / 45.730s / AAC 48kHz stereo",
+    "canonical_audio_boundary": "00:33.020→01:18.750",
+    "shot_sequence": [
+      "N11",
+      "N12",
+      "A04",
+      "N14",
+      "N15",
+      "A05"
+    ],
+    "binary_publication": "EXACT COMPATIBILITY MASTER BINARY / NO FURTHER RE-ENCODE",
+    "revision_rule": "S02_A_ASSEMBLY_V001 remains locked unless Product Owner explicitly authorizes a later revision."
   }
 }
