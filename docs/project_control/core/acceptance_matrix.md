@@ -10,7 +10,7 @@
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
 | P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / CINEMATIC AUDIO-COMIC OPENING PROOF / NOT YET VALIDATED** |
+| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / S02-A ASSEMBLY V001 FORMALLY CLOSED / NOT YET VALIDATED** |
 
 ## P0.3 Current Validation Note｜2026-09-25
 
@@ -241,3 +241,17 @@ Final state:
 - P0.2 = `PASS / PRODUCT OWNER APPROVED`.
 
 P0.3 is now eligible to start its own validation work, but remains unvalidated until new P0.3 evidence is produced.
+
+## P0.3 Current Validation Note｜2026-09-28
+
+- Opening V001 remains Product Owner-approved and canonically archived.
+- S02-A completed the full image-to-video production lifecycle.
+- Final S02-A sequence: `N11 → N12 → A04 → N14 → N15 → A05`.
+- Canonical audio boundary: `00:33.020 → 01:18.750`.
+- Canonical video: `S02_A_ASSEMBLY_V001`.
+- Exact Binary Verification, Canonical Publication, Video Index Registration and Registration Verification all passed.
+- S02-A is `PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED`.
+- This sequence-level completion does **not** satisfy or auto-approve the whole P0.3 Gate.
+- P0.3 remains `IN PROGRESS / NOT YET VALIDATED`.
+- Next production work begins after canonical audio `01:18.750` only after Product Owner authorization.
+
