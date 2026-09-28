@@ -3,8 +3,8 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R116",
-  "last_updated": "2026-09-27",
+  "state_revision": "R117",
+  "last_updated": "2026-09-28",
   "session_status": "PAUSED FOR DAY / P0.3 IN PROGRESS / S02-A V0.2 / N11+N12+N14 FORMALLY REGISTERED / N13 CANCELLED / N15 DESIGN PAUSED FOR SOURCE-NOVEL KEY-EXIT FACT CHECK",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-A｜PAUSED FOR DAY / N15 SOURCE-NOVEL KEY-EXIT FACT CHECK NEXT",
-  "blocker": null,
-  "next_action": "Next session: read the canonical full novel and verify which door ultimately requires the key for escape, how the key is obtained, and whether that target should be visually foreshadowed in N15. Do not continue the current Neil-focused N15 design until this fact check is complete.",
+  "current_task": "P0.3｜S02-A｜N15 REFERENCE DELIVERY BUNDLE DESIGN",
+  "blocker": "NONE",
+  "next_action": "Design N15 Reference Delivery Bundle using formal SCENE_MANOR_GATE / AST_IMG_000084 as Scene Authority. Do not build the Bundle or generate N15 until Product Owner approves the Bundle Design.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -1395,12 +1395,26 @@
     "github_blob_sha": "e32c03bc21efcd0eda98d2e9868a64915583b19f"
   },
   "n15_director_shot_design_v0_1": {
-    "status": "DRAFT / PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / SOURCE-FACT CORRECTED / FORMAL SCENE AUTHORITY LOCKED / BUNDLE DESIGN NEXT",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n15_director_shot_design_v0_1.md",
-    "narrative_function": "BUTLER_ROLE_INFERENCE_PLUS_LIKELY_KEY_HOLDER_HYPOTHESIS",
-    "primary_subject": "NEIL",
-    "shot_strategy": "REVERSE_OBSERVATION_ROLE_ESTABLISHING_MEDIUM_CLOSE_UP",
-    "reveal_owner": "A05",
+    "narrative_function": "AUDIENCE-ONLY FORESHADOWING OF THE TRUE FINAL EXIT",
+    "primary_subject": "SCENE_MANOR_GATE",
+    "scene_authority_asset_id": "AST_IMG_000084",
+    "scene_authority_entity_id": "SCENE_MANOR_GATE",
+    "shot_strategy": "INSIDE-ESTATE LOOKING OUT / CLOSED MANOR GATE / NO CHARACTERS",
     "generation_authorized": false
+  },
+  "manor_gate_scene_reference_v001": {
+    "status": "PRODUCT OWNER APPROVED / FORMALIZED / REGISTRY VERIFIED",
+    "entity_id": "SCENE_MANOR_GATE",
+    "asset_id": "AST_IMG_000084",
+    "canonical_path": "production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png",
+    "dimensions": "941x1671",
+    "byte_size": 3279563,
+    "sha256": "95b3bebce1b2e9be72d5a2bc99665a4a99719eb0f4146e40a562210bd982e278",
+    "github_blob_sha": "ac1dfb7be2069848917afb9749de6c8ebc54d3e5",
+    "formalization_run_id": 36370354050,
+    "formalization_commit": "6d7b7b9b5b65ac9adaf191aa5fd2a953c8927d6a",
+    "evidence_artifact_id": 10948408214
   }
 }
