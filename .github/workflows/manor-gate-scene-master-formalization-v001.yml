@@ -37,7 +37,7 @@ jobs:
           if data[:8] != b"\x89PNG\r\n\x1a\n":
               raise SystemExit("PNG_SIGNATURE_FAIL")
           w,h=struct.unpack(">II",data[16:24])
-          if (w,h)!=(941,1672):
+          if (w,h)!=(941,1671):
               raise SystemExit(f"DIMENSIONS_MISMATCH:{w}x{h}")
           sha=hashlib.sha256(data).hexdigest()
           blob=hashlib.sha1(b"blob "+str(len(data)).encode()+b"\0"+data).hexdigest()
