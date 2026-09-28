@@ -3,9 +3,8 @@ name: MANOR GATE Scene Reference Delivery Bundle V001
 on:
   workflow_dispatch:
   push:
-    branches: [main]
-    paths:
-      - ".github/workflows/manor-gate-scene-reference-delivery-bundle-v001.yml"
+    branches:
+      - main
 
 permissions:
   contents: read
