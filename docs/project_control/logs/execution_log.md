@@ -1643,3 +1643,21 @@ Status: `IN PROGRESS / TECHNICAL PROOFS RECORDED / P0.3 NOT YET VALIDATED`
 - No formal Asset Registry / Audit / P0.3 PASS update was made from experimental outputs.
 - Detailed closeout:
   `docs/project_control/gates/P0_3_video_pipeline/p0_3_progress_closeout_2026-09-23.md`.
+
+
+## 2026-09-28｜MANOR_GATE Scene Master Formalization + N15 Authority Correction
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / REMOTE VERIFIED`
+
+- Product Owner approved MANOR_GATE Scene Reference Candidate 02.
+- Formalized Entity: `SCENE_MANOR_GATE`.
+- Formalized Asset: `AST_IMG_000084` / `SCENE_MASTER / DEFAULT / DAY_CLOSED`.
+- Canonical PNG: `production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V001.png`.
+- Exact binary: 941x1671 / 3279563 bytes / SHA-256 `95b3bebce1b2e9be72d5a2bc99665a4a99719eb0f4146e40a562210bd982e278` / Git blob `ac1dfb7be2069848917afb9749de6c8ebc54d3e5`.
+- Formalization run `36370354050`: SUCCESS; formalization commit `6d7b7b9b5b65ac9adaf191aa5fd2a953c8927d6a`; evidence artifact `10948408214`.
+- Scene profile locks `estate internal road → MANOR_GATE → external road` and explicitly separates the manor gate from `SCENE_CASTLE_ENTRANCE`.
+- N15 old Neil-focused key-holder hypothesis is superseded after canonical story fact correction.
+- N15 is now `Locked Gate Foreshadowing`: audience-only view of the true final exit before character discovery.
+- N15 Scene Authority is formally bound to `AST_IMG_000084`; `AST_IMG_000052` cannot substitute for manor-gate geometry/identity.
+- Project State advanced to `R117`.
+- Next step: `N15 Reference Delivery Bundle Design`; Bundle build and generation are not yet authorized.
