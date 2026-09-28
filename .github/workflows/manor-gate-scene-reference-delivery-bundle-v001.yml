@@ -1,6 +1,6 @@
 name: MANOR GATE Scene Reference Delivery Bundle V001
 
-on:
+'on':
   workflow_dispatch:
   push:
     branches: [main]
