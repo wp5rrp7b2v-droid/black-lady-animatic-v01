@@ -131,5 +131,7 @@
       "direct camera gaze",
       "posed two-person publicity-photo feeling"
     ]
-  }
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "V001-R1"
 }
