@@ -1904,3 +1904,16 @@ Status: `READY FOR PRODUCT OWNER REVIEW`
 - No Bundle spec created, no Artifact built, no Work generation authorized.
 - Design path: `docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_1.md`.
 
+## 2026-09-29｜N17 Scene Reference Design V0.2 — Close-up Revision
+
+Status: `READY FOR PRODUCT OWNER REVIEW`
+
+- Product Owner requested stronger visual differentiation from N16.
+- N17 Scene Reference Design V0.1 is superseded.
+- V0.2 changes framing from medium / medium-close two-shot to `Ning-dominant close-up / tight medium-close`.
+- Jun remains only as a secondary listener at screen-right, preferably partial cheek/shoulder edge or soft foreground 3/4 presence.
+- Immediate visual progression is now: `N16 balanced two-shot / Jun emphasis → N17 Ning close-up / survival-warning emphasis`.
+- The same six canonical references remain sufficient; no new reference asset is required.
+- No Bundle Spec created, no Artifact built, no Work generation authorized.
+- V0.2 path: `docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_2.md`.
+
