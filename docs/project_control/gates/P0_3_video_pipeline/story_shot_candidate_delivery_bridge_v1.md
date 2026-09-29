@@ -1,6 +1,6 @@
 # STORY_SHOT_CANDIDATE_DELIVERY_BRIDGE_V1
 
-Status: `IMPLEMENTED / N16 FIRST REAL VALIDATION ACTIVE / WAITING WORK ORIGINAL-BINARY DELIVERY`
+Status: `PAUSED / EXPERIMENTAL ONLY / NOT IN CURRENT S02-B PRODUCTION PATH`
 
 Date: 2026-09-29
 
@@ -139,3 +139,14 @@ Expected locked identity:
 - Git blob `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`
 
 No canonical publication is authorized until the intake verifier returns exact match.
+
+
+## 9. Product Owner disposition
+
+On 2026-09-29, Product Owner stopped the automatic candidate-upload experiment for the current S02-B production cycle.
+
+Current production rule:
+
+`Work generates candidate → Product Owner reviews → approved original PNG is manually uploaded once → Chat controls Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification`
+
+This bridge remains preserved as experimental infrastructure only and is not a blocker for N17–N22.
