@@ -1,6 +1,6 @@
 # Generic Story Shot Reference Bundle Builder V1
 
-Status: `PRODUCT OWNER APPROVED FOR IMPLEMENTATION`
+Status: `IMPLEMENTED / VERIFIED / N16 FIRST PRODUCTION PASS`
 
 Date: 2026-09-29
 
@@ -101,3 +101,23 @@ Artifact retention defaults to 7 days.
 - No Story Shot registration occurs inside the builder.
 - Existing N11–N15 workflows remain historical evidence; new shots should use this generic builder.
 - Global Story Shot ID and sequence ownership remain separate: e.g. `shot_id=N16`, `sequence_id=S02-B`.
+
+
+## Implementation verification
+
+Implementation completed on 2026-09-29.
+
+- workflow: `.github/workflows/story-shot-reference-bundle-builder.yml`
+- builder: `scripts/story_shot_reference_bundle_builder_v1.py`
+- first production spec: `production/bundle_specs/N16_REFERENCE_DELIVERY_BUNDLE_V001.json`
+- verification run: `36514238747`
+- first production artifact: `N16_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact ID: `11010505345`
+- artifact digest: `sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff`
+- exact reference result: `6/6 PASS`
+- post-artifact independent verification: `PASS`
+- manual Product Owner reference upload: `0`
+
+Operational rule from N17 onward:
+
+`Create / update Bundle Spec JSON only; do not create a new per-shot workflow unless the Generic Builder itself requires controlled revision.`
