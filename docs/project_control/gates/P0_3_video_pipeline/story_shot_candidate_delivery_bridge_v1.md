@@ -1,6 +1,6 @@
 # STORY_SHOT_CANDIDATE_DELIVERY_BRIDGE_V1
 
-Status: `PRODUCT OWNER APPROVED / IMPLEMENTATION ACTIVE / N16 FIRST REAL VALIDATION`
+Status: `IMPLEMENTED / N16 FIRST REAL VALIDATION ACTIVE / WAITING WORK ORIGINAL-BINARY DELIVERY`
 
 Date: 2026-09-29
 
@@ -108,3 +108,34 @@ For future Story Shots:
 - Product Owner only reviews and says approve/reject;
 - no routine manual GitHub PNG upload is required;
 - canonical promotion reuses the exact verified staging blob.
+
+
+## 8. Implementation status
+
+Implemented:
+
+- Candidate Delivery Spec root: `production/candidate_delivery_specs/`
+- Generic verifier: `scripts/story_shot_candidate_intake_verifier_v1.py`
+- Generic intake workflow: `.github/workflows/story-shot-candidate-intake-verifier.yml`
+- N16 validation spec: `production/candidate_delivery_specs/N16_CANDIDATE_01_DELIVERY_V001.json`
+
+Current N16 validation state:
+
+`WAITING_WORK_ORIGINAL_BINARY_DELIVERY`
+
+Required next event:
+
+The same Work execution context that generated N16 Candidate 01 must deliver its unmodified original PNG to:
+
+`staging/story_shot_candidates/N16/N16_Candidate_01_APPROVED.png`
+
+The GitHub push will trigger the fixed intake verifier automatically.
+
+Expected locked identity:
+
+- 941x1672
+- 1942422 bytes
+- SHA-256 `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406`
+- Git blob `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`
+
+No canonical publication is authorized until the intake verifier returns exact match.
