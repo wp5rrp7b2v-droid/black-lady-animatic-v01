@@ -1,6 +1,6 @@
 # N19｜Reference Delivery Bundle Design V0.1
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
 Date: 2026-09-29
 
@@ -437,7 +437,7 @@ and Work must not generate N19.
 
 Current disposition:
 
-`N19 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW`
+`N19 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
 Not authorized yet:
 
@@ -449,14 +449,15 @@ Not authorized yet:
 - N20 production;
 - Story Shot publication / registration.
 
-## 12. Product Owner decision requested
+## 12. Product Owner approval
 
-If approved, authorize exactly:
+On 2026-09-29, the Product Owner explicitly approved this Bundle Design V0.1 and authorized the Bundle build.
 
-1. lock this Bundle Design V0.1;
-2. create `production/bundle_specs/N19_REFERENCE_DELIVERY_BUNDLE_V001.json`;
-3. run the existing Generic Story Shot Reference Bundle Builder V1;
-4. verify the resulting Artifact and exact `5/5` canonical inputs.
+Authorized next steps:
+
+1. create `production/bundle_specs/N19_REFERENCE_DELIVERY_BUNDLE_V001.json`;
+2. run the existing Generic Story Shot Reference Bundle Builder V1;
+3. verify the resulting Artifact and exact `5/5` canonical inputs.
 
 Image generation remains blocked until Bundle verification returns:
 
