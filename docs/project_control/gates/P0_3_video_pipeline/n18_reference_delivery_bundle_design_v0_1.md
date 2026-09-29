@@ -1,6 +1,6 @@
 # N18｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
 
 Date: 2026-09-29
 
@@ -378,7 +378,7 @@ and Work must not generate N18.
 
 Current disposition:
 
-`N18 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW`
+`N18 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
 
 Not authorized yet:
 
@@ -387,4 +387,20 @@ Not authorized yet:
 - Artifact production;
 - Work acquisition;
 - N18 Candidate 01 generation;
+- Story Shot publication / registration.
+
+
+## 11. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved this Bundle Design.
+
+Authorized next step:
+
+- create `production/bundle_specs/N18_REFERENCE_DELIVERY_BUNDLE_V001.json`;
+- run the existing Generic Story Shot Reference Bundle Builder V1;
+- verify the resulting Artifact and exact 5/5 canonical inputs.
+
+Still not authorized by this approval:
+
+- N18 image generation before Bundle verification PASS;
 - Story Shot publication / registration.
