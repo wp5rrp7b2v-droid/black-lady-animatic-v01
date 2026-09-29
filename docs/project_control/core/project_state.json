@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R123",
+  "state_revision": "R124",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / N16 SCENE REFERENCE APPROVED + LOCKED / N16 BUNDLE DESIGN READY FOR REVIEW",
+  "session_status": "P0.3 IN PROGRESS / GENERIC STORY SHOT BUNDLE BUILDER VERIFIED / N16 BUNDLE 6 OF 6 PASS / READY FOR WORK",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜N16 Reference Delivery Bundle Design V0.1 READY FOR PRODUCT OWNER REVIEW",
+  "current_task": "P0.3｜N16_REFERENCE_DELIVERY_BUNDLE_V001 BUILT + VERIFIED",
   "blocker": "NONE",
-  "next_action": "Product Owner reviews N16 Reference Delivery Bundle Design V0.1. Do not construct N16_REFERENCE_DELIVERY_BUNDLE_V001 or start Work image generation until explicit authorization.",
+  "next_action": "Proceed one step only with Work automatic artifact acquisition and 6/6 revalidation for N16 Candidate 01 generation, after Product Owner authorization. Do not register or publish N16 before Product Owner image approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N16-BUNDLE-DESIGN-R123",
-    "status": "N16 SCENE REFERENCE APPROVED / BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-29-N16-BUNDLE-BUILT-R124",
+    "status": "GENERIC STORY SHOT BUNDLE BUILDER VERIFIED / N16 BUNDLE BUILT / 6 OF 6 PASS / READY FOR WORK",
     "completed": [
-      "N16 Scene Reference Design V0.1 explicitly approved and locked by Product Owner.",
-      "Six canonical N16 reference authorities locked.",
-      "N16 Reference Delivery Bundle Design V0.1 created with 6/6 fail-closed exact-binary verification contract.",
-      "Bundle transport remains GitHub Actions→Artifact→Work with manual reference upload=0.",
-      "Global shot_id N16 and sequence_id S02-B remain separate identifiers.",
-      "No Bundle build or Work image generation performed."
+      "Permanent Generic Story Shot Reference Bundle Builder implemented and verified.",
+      "Fixed workflow and fixed builder successfully executed against N16 Bundle Spec.",
+      "N16_REFERENCE_DELIVERY_BUNDLE_V001 built from source commit 4a9df630c36e2fc92ada929fcd80403ab57c74e3.",
+      "Workflow run 36514238747 and job 109232868440 succeeded.",
+      "Artifact ID 11010505345 published with digest sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff.",
+      "Six canonical references passed exact verification; A03 SHA-256 computed as 5dc075a6f917fb7fdc05cf299315675bfdd5db4a0d737518ef4aafeacc78ee1e.",
+      "Independent post-artifact download verification passed.",
+      "generation_allowed=true; Product Owner manual reference upload=0.",
+      "No Work image generation performed yet."
     ],
-    "resume_from": "Product Owner review of N16 Reference Delivery Bundle Design V0.1.",
+    "resume_from": "N16 Candidate 01 Work generation using Artifact ID 11010505345 only.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -1477,5 +1480,34 @@
     ],
     "binary_publication": "EXACT COMPATIBILITY MASTER BINARY / NO FURTHER RE-ENCODE",
     "revision_rule": "S02_A_ASSEMBLY_V001 remains locked unless Product Owner explicitly authorizes a later revision."
+  },
+  "generic_story_shot_reference_bundle_builder_v1": {
+    "status": "IMPLEMENTED / VERIFIED / PRODUCT OWNER APPROVED",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/generic_story_shot_reference_bundle_builder_v1.md",
+    "workflow_path": ".github/workflows/story-shot-reference-bundle-builder.yml",
+    "builder_path": "scripts/story_shot_reference_bundle_builder_v1.py",
+    "spec_root": "production/bundle_specs/",
+    "first_production_validation": "N16_REFERENCE_DELIVERY_BUNDLE_V001",
+    "validation_run_id": 36514238747,
+    "operational_rule": "N17 onward should normally add/update Bundle Spec JSON only; do not create per-shot workflow unless Generic Builder itself requires controlled revision."
+  },
+  "n16_reference_delivery_bundle_v001": {
+    "status": "BUILT / 6 OF 6 EXACT VERIFICATION PASS / READY FOR WORK GENERATION",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n16_reference_delivery_bundle_design_v0_1.md",
+    "build_record_path": "docs/project_control/gates/P0_3_video_pipeline/n16_reference_delivery_bundle_v001_build_record_2026-09-29.md",
+    "spec_path": "production/bundle_specs/N16_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "source_commit": "4a9df630c36e2fc92ada929fcd80403ab57c74e3",
+    "workflow_run_id": 36514238747,
+    "job_id": 109232868440,
+    "artifact_id": 11010505345,
+    "artifact_name": "N16_REFERENCE_DELIVERY_BUNDLE_V001",
+    "artifact_digest": "sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff",
+    "artifact_size_bytes": 11932780,
+    "expires_at": "2026-10-06T02:47:42Z",
+    "exact_reference_verification": "6/6 PASS",
+    "post_artifact_verification": "PASS",
+    "a03_computed_sha256": "5dc075a6f917fb7fdc05cf299315675bfdd5db4a0d737518ef4aafeacc78ee1e",
+    "generation_allowed": true,
+    "manual_product_owner_reference_upload": 0
   }
 }
