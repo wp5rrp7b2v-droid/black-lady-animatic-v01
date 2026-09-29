@@ -1765,3 +1765,18 @@ Status: `COMPLETE / PRODUCT OWNER AUDIO QC PASS / BOUNDARY LOCKED`
 - No Story Shot design, generation, registration, video assembly, or P0.3 Gate approval was performed in this step.
 - Next step: `S02-B Director Shot Design`.
 
+## 2026-09-29｜S02-B Director Shot Design V0.1 Approval
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / LOCKED`
+
+- Product Owner approved the complete S02-B Director Shot Design arrangement.
+- Locked source-audio authority remains `01:18.750 → 02:23.000` / `64.250s`.
+- Locked visual sequence: `N16 → N17 → N18 → N19 → N20 → N21 → A06 → N22`.
+- New Story Shots required: `N16–N22` (7).
+- Existing approved Story Shot reuse: `A06｜门不关` (1).
+- `A07｜大厅建立镜` is explicitly held for the following hall-introduction sequence.
+- Exterior Neil speaking shots N02/N06/N07 are excluded from N22 reuse because they carry the wrong spatial-temporal state.
+- N03 is excluded from N16/N17 reuse because it carries the exterior opening state.
+- No Bundle was built, no Work image generation was started, no Story Shot was registered, and no video assembly was performed in this step.
+- Next stage under the locked Story Shot workflow: `N16 Scene Reference Design`.
+
