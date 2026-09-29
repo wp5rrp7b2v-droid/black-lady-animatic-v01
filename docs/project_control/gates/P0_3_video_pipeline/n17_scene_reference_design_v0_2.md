@@ -1,6 +1,6 @@
 # N17｜Scene Reference Design V0.2
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-09-29
 
@@ -374,6 +374,25 @@ No Bundle has been built yet.
 
 Current disposition:
 
-`N17 SCENE REFERENCE DESIGN V0.2 = READY FOR PRODUCT OWNER REVIEW`
+`N17 SCENE REFERENCE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED`
 
 Product Owner approval is required before Bundle design/build or Work generation.
+
+
+## 11. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved V0.2.
+
+Locked framing:
+
+`Ning-dominant close-up / tight medium-close + Jun secondary listener edge / soft foreground`
+
+Locked reference set:
+
+`AST_IMG_000060 + AST_IMG_000033 + AST_IMG_000057 + AST_IMG_000072 + AST_IMG_000052 + N16`
+
+Next stage:
+
+`N17 Reference Delivery Bundle Design V0.1`
+
+This approval does not itself authorize Bundle construction or Work generation.
