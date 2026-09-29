@@ -1917,3 +1917,25 @@ Status: `READY FOR PRODUCT OWNER REVIEW`
 - No Bundle Spec created, no Artifact built, no Work generation authorized.
 - V0.2 path: `docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_2.md`.
 
+## 2026-09-29｜N17 Reference Delivery Bundle Design V0.1
+
+Status: `READY FOR PRODUCT OWNER REVIEW`
+
+- Product Owner approved `N17 Scene Reference Design V0.2`; it is now `PRODUCT OWNER APPROVED / LOCKED`.
+- Target Bundle: `N17_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Target generation: `N17 Candidate 01`.
+- Locked reference count: `6`.
+- References:
+  1. AST_IMG_000060 — Ning Character Reference Sheet
+  2. AST_IMG_000033 — Ning FACE_3Q_RIGHT
+  3. AST_IMG_000057 — Jun Character Reference Sheet
+  4. AST_IMG_000072 — Jun FACE_3Q_LEFT
+  5. AST_IMG_000052 — Castle Entrance Scene Master / DAY_DOOR_OPEN
+  6. N16 — immediate approved Story Shot continuity
+- N16 direct exact identity is available and must be verified by locked SHA-256 / byte_size / Git blob; no computed-SHA fallback is needed.
+- WORK_HANDOFF locks the N17 close-up strategy: Ning dominant, Jun secondary edge/soft foreground, visibly tighter than N16, shallow background.
+- Fixed Generic Story Shot Reference Bundle Builder V1 remains mandatory.
+- No new per-shot workflow is allowed.
+- No Bundle Spec created, no GitHub Actions build triggered, no Artifact produced, no Work generation authorized.
+- Design path: `docs/project_control/gates/P0_3_video_pipeline/n17_reference_delivery_bundle_design_v0_1.md`.
+
