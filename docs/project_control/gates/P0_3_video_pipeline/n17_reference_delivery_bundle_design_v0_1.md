@@ -1,6 +1,6 @@
 # N17｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
 
 Date: 2026-09-29
 
@@ -430,7 +430,7 @@ This document is Bundle Design only.
 
 Current disposition:
 
-`N17 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW`
+`N17 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
 
 Not authorized yet:
 
@@ -439,4 +439,20 @@ Not authorized yet:
 - Artifact production;
 - Work artifact acquisition;
 - N17 Candidate 01 generation;
+- Story Shot publication / registration.
+
+
+## 11. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved this Bundle Design.
+
+Authorized next step:
+
+- create `production/bundle_specs/N17_REFERENCE_DELIVERY_BUNDLE_V001.json`;
+- run the existing Generic Story Shot Reference Bundle Builder V1;
+- verify the resulting Artifact and exact 6/6 canonical inputs.
+
+Still not authorized by this approval:
+
+- N17 image generation before Bundle verification PASS;
 - Story Shot publication / registration.
