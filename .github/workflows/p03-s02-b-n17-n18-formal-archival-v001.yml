@@ -1,6 +1,10 @@
 name: S02-B N17 N18 Formal Archival Closeout V001
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-s02-b-n17-n18-formal-archival-v001.yml"
   workflow_dispatch:
 
 permissions:
