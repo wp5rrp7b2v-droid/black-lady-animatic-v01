@@ -1,6 +1,6 @@
 # CHAT_TO_GITHUB_BINARY_BRIDGE_V1
 
-Status: `REAL TEST BLOCKED / SOURCE BINARY VERIFIED / GITHUB FILE-HANDLE UPLOAD CAPABILITY MISSING`
+Status: `PAUSED / EXPERIMENTAL ONLY / SOURCE TEST EVIDENCE RETAINED`
 
 Date: 2026-09-29
 
@@ -75,3 +75,12 @@ Once connected, the target operation remains:
 `staging/story_shot_candidates/N16/N16_Candidate_01_APPROVED.png`
 
 and must verify against the locked SHA-256 / byte size / dimensions / Git blob before push.
+
+
+## Product Owner disposition
+
+The Chat-native binary upload experiment is paused for the current S02-B production cycle.
+
+The missing raw file-handle GitHub upload capability remains a recorded technical limitation, but it is no longer a production blocker.
+
+S02-B continues using the previously verified manual approved-PNG upload step followed by Chat-controlled exact-binary archival.
