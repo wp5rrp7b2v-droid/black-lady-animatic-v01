@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R126",
+  "state_revision": "R127",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / CANDIDATE DELIVERY BRIDGE V1 IMPLEMENTED / N16 FIRST REAL VALIDATION WAITING WORK DELIVERY",
+  "session_status": "P0.3 IN PROGRESS / N16 APPROVED / CHAT-TO-GITHUB BINARY BRIDGE REAL TEST BLOCKED ON FILE-HANDLE UPLOAD CAPABILITY",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜STORY_SHOT_CANDIDATE_DELIVERY_BRIDGE_V1｜N16 FIRST REAL VALIDATION",
-  "blocker": "WAITING_WORK_ORIGINAL_BINARY_DELIVERY",
-  "next_action": "In the same Work context that generated N16 Candidate 01, deliver the unmodified original PNG to staging/story_shot_candidates/N16/N16_Candidate_01_APPROVED.png. Then Chat verifies the automatically triggered Story Shot Candidate Intake Verifier run. Do not manually upload the PNG and do not canonically publish N16 yet.",
+  "current_task": "P0.3｜CHAT_TO_GITHUB_BINARY_BRIDGE_V1｜N16",
+  "blocker": "CHAT GITHUB CONNECTOR HAS NO RAW FILE-HANDLE BINARY UPLOAD ACTION",
+  "next_action": "Choose a supported zero-manual-upload transport. Preferred near-term option: keep Chat as control plane and make Work perform only the exact binary staging push after GitHub write permission is explicitly configured to avoid repeated approvals; alternative is add a dedicated file-transfer connector/custom integration that can accept Chat file references. Do not re-encode or manually reconstruct N16.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N16-CANDIDATE-BRIDGE-R126",
-    "status": "CANDIDATE DELIVERY BRIDGE V1 IMPLEMENTED / N16 FIRST REAL VALIDATION ACTIVE / WAITING WORK DELIVERY",
+    "id": "2026-09-29-N16-CHAT-BINARY-BRIDGE-R127",
+    "status": "SOURCE BINARY VERIFIED / CHAT-NATIVE GITHUB BINARY DELIVERY BLOCKED",
     "completed": [
-      "Bridge design recorded and approved for implementation.",
-      "N16 Candidate Delivery Spec created with exact locked identity.",
-      "Generic candidate intake verifier script implemented.",
-      "Generic candidate intake GitHub Actions workflow implemented.",
-      "No Product Owner manual GitHub PNG upload performed.",
-      "No canonical publication or Story Shot registration performed."
+      "Chat re-read and exact-verified the Product Owner-approved N16 Candidate 01 binary.",
+      "Verified 941x1672 / 1942422 bytes / expected SHA-256 / expected Git blob.",
+      "GitHub connector capabilities inspected.",
+      "No supported action accepts the Chat attachment or local file path as raw binary input.",
+      "GitHub app permission confirmed as Use my default → Allow low-risk actions.",
+      "No GitHub staging upload, canonical publication, or Story Shot registration performed."
     ],
-    "resume_from": "Work delivers original N16 Candidate 01 PNG to locked GitHub staging path; then inspect verifier run.",
+    "resume_from": "Resolve zero-manual binary transport; N16 approved source binary remains locked and unchanged.",
     "blockers": [
-      "WAITING_WORK_ORIGINAL_BINARY_DELIVERY"
+      "CHAT GITHUB CONNECTOR HAS NO RAW FILE-HANDLE BINARY UPLOAD ACTION"
     ]
   },
   "visual_asset_management_system": {
@@ -1531,5 +1531,14 @@
     "first_validation_shot": "N16",
     "first_validation_spec": "production/candidate_delivery_specs/N16_CANDIDATE_01_DELIVERY_V001.json",
     "target_manual_product_owner_github_upload": 0
+  },
+  "chat_to_github_binary_bridge_v1": {
+    "status": "REAL TEST BLOCKED",
+    "evidence_path": "docs/project_control/gates/P0_3_video_pipeline/chat_to_github_binary_bridge_v1.md",
+    "test_shot": "N16",
+    "source_binary_exact_verification": "PASS",
+    "github_file_handle_upload_capability": "MISSING",
+    "candidate_intake_verified": false,
+    "manual_product_owner_github_upload_performed": false
   }
 }
