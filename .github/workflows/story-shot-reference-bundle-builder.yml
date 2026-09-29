@@ -34,6 +34,9 @@ jobs:
             SPEC="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'production/bundle_specs/*.json' | tail -n 1)"
           fi
           if [ -z "$SPEC" ]; then
+            SPEC="$(git log -1 --name-only --pretty=format: -- 'production/bundle_specs/*.json' | tail -n 1)"
+          fi
+          if [ -z "$SPEC" ]; then
             echo "No bundle spec selected"
             exit 1
           fi
