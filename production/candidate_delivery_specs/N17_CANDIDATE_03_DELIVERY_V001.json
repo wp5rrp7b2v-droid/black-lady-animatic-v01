@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N17",
+  "sequence_id": "S02-B",
+  "candidate_id": "N17 Candidate 03",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "N17_Candidate_03_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 1671344,
+    "sha256": "bd31599978d927cbd3748dc77073503c78cf87ccc68b21458de08625ebbfa3a3",
+    "git_blob_sha1": "c5020af8fa61225f0e4a88104990c1663fddcec9"
+  },
+  "bundle": {
+    "bundle_id": "N17_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 36536227573,
+    "artifact_id": 11018019993,
+    "artifact_digest": "sha256:3074cdcbd91e07edd09967c9eb7190fec0d04bf3ab0760f33382da63b07e528e"
+  },
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N17_BLOOD_DOOR_WARNING_APPROVED_V001.png",
+  "constraints": {
+    "original_generator_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
