@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R122",
+  "state_revision": "R123",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / S02-B DIRECTOR SHOT DESIGN APPROVED + LOCKED / N16 SCENE REFERENCE NEXT",
+  "session_status": "P0.3 IN PROGRESS / N16 SCENE REFERENCE APPROVED + LOCKED / N16 BUNDLE DESIGN READY FOR REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B Director Shot Design V0.1 COMPLETE",
+  "current_task": "P0.3｜N16 Reference Delivery Bundle Design V0.1 READY FOR PRODUCT OWNER REVIEW",
   "blocker": "NONE",
-  "next_action": "Proceed one step only: N16 Scene Reference Design for Sister Question. Do not build the N16 Reference Delivery Bundle, start Work image generation, register Story Shots, or assemble S02-B video until subsequent Product Owner authorization.",
+  "next_action": "Product Owner reviews N16 Reference Delivery Bundle Design V0.1. Do not construct N16_REFERENCE_DELIVERY_BUNDLE_V001 or start Work image generation until explicit authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-S02B-DIRECTOR-DESIGN-R122",
-    "status": "S02-B DIRECTOR SHOT DESIGN V0.1 COMPLETE / PRODUCT OWNER APPROVED / LOCKED",
+    "id": "2026-09-29-N16-BUNDLE-DESIGN-R123",
+    "status": "N16 SCENE REFERENCE APPROVED / BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
     "completed": [
-      "S02-B Director Shot Design V0.1 approved and locked by Product Owner.",
-      "Locked sequence: N16→N17→N18→N19→N20→N21→A06→N22.",
-      "Seven new Story Shots N16–N22 required; A06 reused as approved Story Shot.",
-      "A07 reserved for the following hall-introduction sequence.",
-      "Wrong-state reuse exclusions locked for N02/N06/N07 and N03.",
-      "No Bundle construction, image generation, registration, or video assembly performed."
+      "N16 Scene Reference Design V0.1 explicitly approved and locked by Product Owner.",
+      "Six canonical N16 reference authorities locked.",
+      "N16 Reference Delivery Bundle Design V0.1 created with 6/6 fail-closed exact-binary verification contract.",
+      "Bundle transport remains GitHub Actions→Artifact→Work with manual reference upload=0.",
+      "Global shot_id N16 and sequence_id S02-B remain separate identifiers.",
+      "No Bundle build or Work image generation performed."
     ],
-    "resume_from": "N16 Scene Reference Design only.",
+    "resume_from": "Product Owner review of N16 Reference Delivery Bundle Design V0.1.",
     "blockers": []
   },
   "visual_asset_management_system": {
