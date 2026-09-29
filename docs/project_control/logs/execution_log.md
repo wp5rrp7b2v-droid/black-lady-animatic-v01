@@ -1883,3 +1883,24 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED /
 - Current S02-B production path returns to: Work generation → PO review → one manual approved-PNG upload → Chat exact verification/publication/registration.
 - N16 is closed. N17 has not started.
 
+## 2026-09-29｜N17 Scene Reference Design V0.1
+
+Status: `READY FOR PRODUCT OWNER REVIEW`
+
+- Parent authority: `S02-B Director Shot Design V0.1 / PRODUCT OWNER APPROVED + LOCKED`.
+- Shot: `N17｜Blood-Door Warning`.
+- Source TC: `01:28.120→01:40.700`.
+- Reference strategy intentionally differs from N16: use the formally closed N16 canonical Story Shot as immediate shot-to-shot continuity authority instead of A03.
+- Proposed minimum set = 6 canonical references:
+  1. AST_IMG_000060 — Ning Character Reference Sheet
+  2. AST_IMG_000033 — Ning FACE_3Q_RIGHT
+  3. AST_IMG_000057 — Jun Character Reference Sheet
+  4. AST_IMG_000072 — Jun FACE_3Q_LEFT
+  5. AST_IMG_000052 — Castle Entrance Scene Master / DAY_DOOR_OPEN
+  6. N16 — immediate approved Story Shot continuity
+- Visual progression locked for review: `Jun-speaking emphasis → Ning-speaking emphasis`.
+- Ning remains screen-left / Jun screen-right; framing becomes slightly tighter and more Ning-weighted.
+- Explicitly excluded: A03, N03, N14, A05, A07, all future N18–N22 imagery.
+- No Bundle spec created, no Artifact built, no Work generation authorized.
+- Design path: `docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_1.md`.
+
