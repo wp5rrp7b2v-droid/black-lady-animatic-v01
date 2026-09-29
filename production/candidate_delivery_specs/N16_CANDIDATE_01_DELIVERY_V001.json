@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "bridge_version": "STORY_SHOT_CANDIDATE_DELIVERY_BRIDGE_V1",
+  "shot_id": "N16",
+  "sequence_id": "S02-B",
+  "candidate_id": "N16 Candidate 01",
+  "candidate_filename": "N16_Candidate_01_APPROVED.png",
+  "product_owner_status": "APPROVED",
+  "bundle": {
+    "bundle_id": "N16_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 36514238747,
+    "artifact_id": 11010505345,
+    "artifact_digest": "sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff"
+  },
+  "target_staging_path": "staging/story_shot_candidates/N16/N16_Candidate_01_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 1942422,
+    "sha256": "b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406",
+    "git_blob_sha1": "44971dd53e37cd1b582bcf5094b0f09cb8e0647d"
+  },
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N16_SISTER_QUESTION_APPROVED_V001.png",
+  "constraints": {
+    "original_generator_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": false
+  }
+}
