@@ -1748,3 +1748,20 @@ Status: `COMPLETE / CROSS-CHECKED / EOD CLOSEOUT / R120`
 - P0.3 remains `IN PROGRESS / NOT YET VALIDATED`.
 - Resume next work from canonical audio immediately after `01:18.750`, only when Product Owner authorizes the next sequence.
 
+## 2026-09-29｜S02-B Audio-Only Boundary QC
+
+Status: `COMPLETE / PRODUCT OWNER AUDIO QC PASS / BOUNDARY LOCKED`
+
+- S02-B resumes exactly after the formally closed S02-A endpoint at `01:18.750`.
+- Boundary-analysis workflow `S02-B Audio Boundary Analysis V001` run `36505933111`: SUCCESS.
+- Analysis artifact `S02_B_AUDIO_BOUNDARY_ANALYSIS_V001`, artifact ID `11006758193`, digest `sha256:0dc02d61ec623cd2ad2e1530e88a36b1d65d41696a0a21bfab00bff334b24f12`.
+- Word-level alignment placed “各位，请随我来” ending at approximately `02:22.560`, with the next narrative sentence beginning approximately `02:23.420`.
+- Formal Audio-Only QC proof workflow run `36506339712`: SUCCESS.
+- QC artifact `S02_B_AUDIO_ONLY_QC_PROOF_V001`, artifact ID `11007655729`, digest `sha256:74525589b498b6a5f47952b451d2d93ba7e22a7a1dfbcc2b7f48cfa2137496e0`.
+- QC WAV: `64.250s`, SHA-256 `90f40ed1eb1b708f200a2b030ffcdebeeb15375d38c88c37c8d682b199be4e27`; source SHA / byte size / duration / full decode all PASS.
+- Product Owner listened to the delivered QC WAV and explicitly confirmed: `音频OK`.
+- Locked S02-B canonical source-audio boundary: `01:18.750 → 02:23.000`.
+- Formal approval record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_audio_only_qc_v001_approval_2026-09-29.md`.
+- No Story Shot design, generation, registration, video assembly, or P0.3 Gate approval was performed in this step.
+- Next step: `S02-B Director Shot Design`.
+
