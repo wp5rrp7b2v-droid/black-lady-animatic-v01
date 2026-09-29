@@ -1,6 +1,6 @@
 # S02-B｜N16 Product Owner Approval Checkpoint
 
-Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY VERIFIED / CANONICAL PUBLISHED / REGISTRATION PENDING`
+Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY VERIFIED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED / CLOSED`
 
 Date: 2026-09-29
 
@@ -114,8 +114,32 @@ Current boundary:
 
 `Canonical Publication = COMPLETE`
 
-Still pending:
+Completed after publication:
 
 - Story Shot Registration
 - Registration Verification
 - N16 Closeout
+
+
+## 8. Story Shot Registration + Verification
+
+- Story Shot Index registration commit: `2de7c5eec0cf4223dbb04f12fb38f20dbe3860ca`
+- verification workflow: `.github/workflows/p03-n16-story-shot-registration-verification-v001.yml`
+- verification run ID: `36530978877`
+- verification job ID: `109284366914`
+- verification result:
+  - `N16_PASS`
+  - `SHA_MATCH=YES`
+  - `BLOB_MATCH=YES`
+  - `INDEX_MATCH=YES`
+  - `DIMENSIONS_MATCH=YES`
+  - `STAGING_CLEANUP_PASS`
+  - `OVERALL_RESULT=PASS`
+
+Formal closeout:
+
+`N16 = COMPLETE / CANONICAL / REGISTERED / VERIFIED / CLOSED`
+
+Closeout record:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_n16_story_shot_registration_closeout_2026-09-29.md`
