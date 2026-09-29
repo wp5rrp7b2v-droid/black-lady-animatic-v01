@@ -34,16 +34,7 @@ jobs:
           DURATION="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 S02_B_AUDIO_ONLY_QC_PROOF_V001/S02_B_AUDIO_ONLY_QC_PROOF_V001.wav)"
           printf '%s\n' "$DURATION" | tee S02_B_AUDIO_ONLY_QC_PROOF_V001/duration.txt
 
-          python - <<'PY'
-import subprocess
-d=float(subprocess.check_output([
-  "ffprobe","-v","error","-show_entries","format=duration",
-  "-of","default=nw=1:nk=1",
-  "S02_B_AUDIO_ONLY_QC_PROOF_V001/S02_B_AUDIO_ONLY_QC_PROOF_V001.wav"
-], text=True).strip())
-assert abs(d-64.250) <= 0.002, d
-print("DURATION_MATCH=YES")
-PY
+          python -c 'import subprocess; d=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=nw=1:nk=1","S02_B_AUDIO_ONLY_QC_PROOF_V001/S02_B_AUDIO_ONLY_QC_PROOF_V001.wav"], text=True).strip()); assert abs(d-64.250) <= 0.002, d; print("DURATION_MATCH=YES")'
 
           sha256sum S02_B_AUDIO_ONLY_QC_PROOF_V001/S02_B_AUDIO_ONLY_QC_PROOF_V001.wav             | tee S02_B_AUDIO_ONLY_QC_PROOF_V001/sha256.txt
 
