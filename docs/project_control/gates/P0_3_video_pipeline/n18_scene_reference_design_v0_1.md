@@ -1,6 +1,6 @@
 # N18｜Scene Reference Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-09-29
 
@@ -371,6 +371,25 @@ No Bundle has been built yet.
 
 Current disposition:
 
-`N18 SCENE REFERENCE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW`
+`N18 SCENE REFERENCE DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED`
 
 Product Owner approval is required before Bundle design/build or Work generation.
+
+
+## 11. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved N18 Scene Reference Design V0.1.
+
+Locked reference set:
+
+`AST_IMG_000057 + AST_IMG_000063 + AST_IMG_000072 + AST_IMG_000052 + N16`
+
+Locked visual direction:
+
+`Jun medium/profile-oriented shot looking toward calm daylight through the still-open castle entrance`
+
+Next stage:
+
+`N18 Reference Delivery Bundle Design V0.1`
+
+This approval does not itself authorize Bundle construction or Work generation.
