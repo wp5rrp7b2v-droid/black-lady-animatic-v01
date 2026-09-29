@@ -1800,3 +1800,26 @@ Status: `SCENE REFERENCE APPROVED + LOCKED / BUNDLE DESIGN READY FOR PRODUCT OWN
 - Story Shot ID remains globally unique as `N16`; sequence ownership is separate as `S02-B`.
 - No Bundle Artifact was built and no image generation was started in this step.
 
+## 2026-09-29｜Generic Story Shot Bundle Builder + N16 First Production Pass
+
+Status: `IMPLEMENTED / VERIFIED / N16 BUNDLE BUILT / READY FOR WORK`
+
+- Product Owner approved the permanent Generic Story Shot Reference Bundle Builder approach.
+- Fixed workflow: `.github/workflows/story-shot-reference-bundle-builder.yml`.
+- Fixed builder: `scripts/story_shot_reference_bundle_builder_v1.py`.
+- Per-shot control plane: `production/bundle_specs/*.json`.
+- N16 first production spec: `production/bundle_specs/N16_REFERENCE_DELIVERY_BUNDLE_V001.json`.
+- N16 source commit: `4a9df630c36e2fc92ada929fcd80403ab57c74e3`.
+- Generic Builder run: `36514238747`; job: `109232868440`; result: SUCCESS.
+- Artifact: `N16_REFERENCE_DELIVERY_BUNDLE_V001`; ID `11010505345`.
+- Artifact digest: `sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff`.
+- Artifact size: `11932780` bytes; expires `2026-10-06T02:47:42Z`.
+- Builder exact verification: `6/6 PASS`.
+- A03 build-computed SHA-256: `5dc075a6f917fb7fdc05cf299315675bfdd5db4a0d737518ef4aafeacc78ee1e`.
+- Chat downloaded the Artifact and independently revalidated all six delivered PNG SHA-256 / byte sizes: PASS.
+- Downloaded ZIP SHA-256 matches the GitHub Artifact digest exactly.
+- `GENERATION_ALLOWED=TRUE`.
+- Product Owner manual reference upload: 0.
+- No Work image generation was executed in this step.
+- From N17 onward, create/update Bundle Spec JSON and reuse the fixed Builder instead of creating another per-shot workflow.
+
