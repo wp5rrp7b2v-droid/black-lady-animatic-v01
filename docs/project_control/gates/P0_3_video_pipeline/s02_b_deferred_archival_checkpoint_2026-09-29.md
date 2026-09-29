@@ -31,3 +31,8 @@ Production rule for the remainder of this image-making session:
 Next image-production step:
 
 `N18 Scene Reference Design`
+
+
+## Evening closeout resolution
+
+N17 and N18 completed Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification in GitHub Actions run 36574163058. Deferred archival is resolved for these two shots.

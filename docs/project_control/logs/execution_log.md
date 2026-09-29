@@ -1939,3 +1939,5 @@ Status: `READY FOR PRODUCT OWNER REVIEW`
 - No Bundle Spec created, no GitHub Actions build triggered, no Artifact produced, no Work generation authorized.
 - Design path: `docs/project_control/gates/P0_3_video_pipeline/n17_reference_delivery_bundle_design_v0_1.md`.
 
+
+- 2026-09-29｜P0.3 S02-B｜N17/N18 formal archival closeout: exact verification PASS; exact-blob publication commit c211475b78a8a800ff55fbf76201707a5f1bf3f8; Story Shot registration commit 41e0a829419ff0f975e8bc6acce8e4f8c85ecb2e; registration verification PASS; archival run 36574163058.

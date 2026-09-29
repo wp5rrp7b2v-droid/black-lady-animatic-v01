@@ -3,7 +3,7 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R132",
+  "state_revision": "R133",
   "last_updated": "2026-09-29",
   "session_status": "P0.3 IN PROGRESS / N17 BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N17 Reference Delivery Bundle Design V0.1",
+  "current_task": "P0.3｜S02-B｜N19 Scene Reference Design",
   "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Product Owner reviews N17 Reference Delivery Bundle Design V0.1. If approved, create production/bundle_specs/N17_REFERENCE_DELIVERY_BUNDLE_V001.json and run the existing Generic Story Shot Reference Bundle Builder only.",
+  "next_action": "Design and lock N19 Scene Reference Design V0.1 before any N19 Reference Delivery Bundle construction.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N17-BUNDLE-DESIGN-R132",
-    "status": "N17 REFERENCE DELIVERY BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-29-N17-N18-ARCHIVAL-R133",
+    "status": "N17 + N18 FORMALLY CLOSED / N19 READY FOR SCENE REFERENCE DESIGN",
     "completed": [
-      "N17 Scene Reference Design V0.2 locked after Product Owner approval.",
-      "N17 six-reference Bundle design completed.",
-      "Work handoff and exclusions defined.",
-      "Generic Builder contract retained; no per-shot workflow permitted.",
-      "No Bundle Spec or Artifact build performed."
+      "N17 Candidate 03 exact source verified, canonically published, registered, and registration-verified.",
+      "N18 Candidate 04 Clean Regeneration exact source verified, canonically published, registered, and registration-verified.",
+      "Exact Git blobs preserved with no re-encode or resize.",
+      "Deferred archival checkpoint resolved for N17 and N18."
     ],
-    "resume_from": "Product Owner review of N17 Reference Delivery Bundle Design V0.1.",
-    "blockers": [
-      "PRODUCT OWNER REVIEW"
-    ]
+    "resume_from": "N19 Scene Reference Design V0.1.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1615,5 +1612,31 @@
     "bundle_spec_created": false,
     "build_authorized": false,
     "generation_authorized": false
+  },
+  "n17_candidate_03": {
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED / CLOSED",
+    "selected_candidate": "N17 Candidate 03",
+    "dimensions": "941x1672",
+    "byte_size": 1671344,
+    "sha256": "bd31599978d927cbd3748dc77073503c78cf87ccc68b21458de08625ebbfa3a3",
+    "github_blob_sha": "c5020af8fa61225f0e4a88104990c1663fddcec9",
+    "canonical_path": "production/image_library/approved/story_shots/N17_BLOOD_DOOR_WARNING_APPROVED_V001.png",
+    "archival_workflow_run": 36574163058,
+    "canonical_publication_commit": "c211475b78a8a800ff55fbf76201707a5f1bf3f8",
+    "registration_commit": "41e0a829419ff0f975e8bc6acce8e4f8c85ecb2e",
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n17_story_shot_registration_closeout_2026-09-29.md"
+  },
+  "n18_candidate_04": {
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED / CLOSED",
+    "selected_candidate": "N18 Candidate 04｜Clean Regeneration",
+    "dimensions": "941x1672",
+    "byte_size": 2158626,
+    "sha256": "18746fdde8a3b7699061fd6f4a8a6b666d50001250a2df902bb3b5995e7e2613",
+    "github_blob_sha": "039471efd721fa5f822c4fb8ec933b4893f91641",
+    "canonical_path": "production/image_library/approved/story_shots/N18_CLEAR_SKY_DOUBT_APPROVED_V001.png",
+    "archival_workflow_run": 36574163058,
+    "canonical_publication_commit": "c211475b78a8a800ff55fbf76201707a5f1bf3f8",
+    "registration_commit": "41e0a829419ff0f975e8bc6acce8e4f8c85ecb2e",
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n18_story_shot_registration_closeout_2026-09-29.md"
   }
 }
