@@ -1823,3 +1823,19 @@ Status: `IMPLEMENTED / VERIFIED / N16 BUNDLE BUILT / READY FOR WORK`
 - No Work image generation was executed in this step.
 - From N17 onward, create/update Bundle Spec JSON and reuse the fixed Builder instead of creating another per-shot workflow.
 
+## 2026-09-29｜N16 Candidate 01 Product Owner Approval + Exact Binary Verification
+
+Status: `PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL PUBLICATION PENDING`
+
+- Product Owner approved `N16 Candidate 01`.
+- Candidate 02 remains a non-selected revision attempt only.
+- Approved source dimensions: `941x1672`.
+- Approved source byte size: `1942422`.
+- Approved source SHA-256: `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406`.
+- Approved source Git blob: `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`.
+- PNG signature: PASS.
+- Bundle provenance remains `N16_REFERENCE_DELIVERY_BUNDLE_V001`, run `36514238747`, Artifact `11010505345`, 6/6 exact references PASS.
+- Approval checkpoint: `docs/project_control/gates/P0_3_video_pipeline/s02_b_n16_approval_checkpoint_2026-09-29.md`.
+- No canonical publication, Story Shot registration or registration verification has been performed yet.
+- Next step: N16 Canonical Publication using the exact approved binary identity only.
+
