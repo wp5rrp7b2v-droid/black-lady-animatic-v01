@@ -1839,3 +1839,17 @@ Status: `PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL PUBLICATION 
 - No canonical publication, Story Shot registration or registration verification has been performed yet.
 - Next step: N16 Canonical Publication using the exact approved binary identity only.
 
+## 2026-09-29｜CHAT_TO_GITHUB_BINARY_BRIDGE_V1｜N16 Real Test
+
+Status: `SOURCE BINARY VERIFIED / CHAT-NATIVE GITHUB BINARY DELIVERY BLOCKED`
+
+- Product Owner authorized a real N16 Candidate 01 test using Chat as GitHub delivery/control plane.
+- Chat re-read the approved original PNG from the conversation attachment.
+- Exact identity PASS: 941x1672 / 1942422 bytes / SHA-256 `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406` / Git blob `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`.
+- Current GitHub connector capabilities were inspected.
+- Connector can write UTF-8 files and Git objects from supplied text/base64 content, but exposes no supported action that accepts the existing Chat conversation attachment / local container path / file ID / file URI as a raw binary upload source.
+- GitHub app permission currently follows the ChatGPT default `Allow low-risk actions`; sensitive local-file upload operations may be denied under that mode.
+- Changing GitHub app permission alone would not create the missing Chat file-handle upload action.
+- No binary was uploaded, no candidate intake workflow was triggered, no canonical publication or Story Shot registration occurred.
+- Evidence path: `docs/project_control/gates/P0_3_video_pipeline/chat_to_github_binary_bridge_v1.md`.
+
