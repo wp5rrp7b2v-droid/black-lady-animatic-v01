@@ -1,6 +1,6 @@
 # N16｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW / NOT BUILT`
+Status: `PRODUCT OWNER APPROVED / BUILT / 6 OF 6 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-29
 
@@ -369,7 +369,7 @@ This document is Bundle Design only.
 
 Current disposition:
 
-`N16 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW / NOT BUILT`
+`N16 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILT / 6 OF 6 PASS / READY FOR WORK`
 
 Not authorized yet:
 
@@ -377,3 +377,32 @@ Not authorized yet:
 - Work automatic artifact acquisition;
 - N16 Candidate 01 generation;
 - Story Shot publication / registration.
+
+
+## 11. Build result
+
+Product Owner approved this Bundle Design and authorized construction.
+
+The approved Generic Story Shot Reference Bundle Builder was used.
+
+- source commit: `4a9df630c36e2fc92ada929fcd80403ab57c74e3`
+- workflow run ID: `36514238747`
+- job ID: `109232868440`
+- artifact ID: `11010505345`
+- artifact name: `N16_REFERENCE_DELIVERY_BUNDLE_V001`
+- artifact digest: `sha256:e44c4fc8e9b8d1499af8866ac601137dd315ac1f386a544eec19b709ac5cd0ff`
+- artifact size: `11932780` bytes
+- expires at: `2026-10-06T02:47:42Z`
+- exact canonical reference verification: `6/6 PASS`
+- A03 computed SHA-256: `5dc075a6f917fb7fdc05cf299315675bfdd5db4a0d737518ef4aafeacc78ee1e`
+- post-artifact independent verification: `PASS`
+- `GENERATION_ALLOWED=TRUE`
+- Product Owner manual reference upload: `0`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n16_reference_delivery_bundle_v001_build_record_2026-09-29.md`
+
+Current boundary:
+
+The Bundle is valid and ready for Work automatic acquisition. Work image generation has not yet been executed.
