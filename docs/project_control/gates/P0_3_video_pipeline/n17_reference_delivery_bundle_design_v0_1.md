@@ -1,6 +1,6 @@
 # N17｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
+Status: `PRODUCT OWNER APPROVED / BUILT / 6 OF 6 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-29
 
@@ -430,7 +430,7 @@ This document is Bundle Design only.
 
 Current disposition:
 
-`N17 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
+`N17 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILT / 6 OF 6 PASS / READY FOR WORK`
 
 Not authorized yet:
 
@@ -456,3 +456,25 @@ Still not authorized by this approval:
 
 - N17 image generation before Bundle verification PASS;
 - Story Shot publication / registration.
+
+
+## 12. Build result
+
+- source commit: `a5eff04c63df5e2e69e7e5e12db72a70dbb03343`
+- workflow run: `36536227573`
+- job: `109300794611`
+- artifact ID: `11018019993`
+- digest: `sha256:3074cdcbd91e07edd09967c9eb7190fec0d04bf3ab0760f33382da63b07e528e`
+- size: `10986284` bytes
+- expires: `2026-10-06T07:22:32Z`
+- exact reference verification: `6/6 PASS`
+- post-artifact independent verification: `PASS`
+- `GENERATION_ALLOWED=TRUE`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n17_reference_delivery_bundle_v001_build_record_2026-09-29.md`
+
+Current boundary:
+
+`READY FOR WORK GENERATION / NO N17 CANDIDATE GENERATED YET`
