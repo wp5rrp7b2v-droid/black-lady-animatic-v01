@@ -1780,3 +1780,23 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / LOCKED`
 - No Bundle was built, no Work image generation was started, no Story Shot was registered, and no video assembly was performed in this step.
 - Next stage under the locked Story Shot workflow: `N16 Scene Reference Design`.
 
+## 2026-09-29｜N16 Scene Reference Approval + Bundle Design V0.1
+
+Status: `SCENE REFERENCE APPROVED + LOCKED / BUNDLE DESIGN READY FOR PRODUCT OWNER REVIEW`
+
+- Product Owner approved N16 Scene Reference Design V0.1.
+- Locked six-reference set:
+  - AST_IMG_000057 Jun Character Reference Sheet;
+  - AST_IMG_000072 Jun FACE_3Q_LEFT;
+  - AST_IMG_000060 Ning Character Reference Sheet;
+  - AST_IMG_000033 Ning FACE_3Q_RIGHT;
+  - AST_IMG_000052 Castle Entrance Scene Master / DAY_DOOR_OPEN;
+  - A03 approved Story Shot / interior reverse continuity.
+- N16 Reference Delivery Bundle Design V0.1 created.
+- Target bundle: `N16_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Planned transport: GitHub Actions → short-lived Artifact → Work automatic acquisition.
+- Product Owner manual reference upload target: 0.
+- Build contract: fail closed unless 6/6 exact canonical binaries verify.
+- Story Shot ID remains globally unique as `N16`; sequence ownership is separate as `S02-B`.
+- No Bundle Artifact was built and no image generation was started in this step.
+
