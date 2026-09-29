@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N18",
+  "sequence_id": "S02-B",
+  "candidate_id": "N18 Candidate 04｜Clean Regeneration",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "城堡门外的晴天.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2158626,
+    "sha256": "18746fdde8a3b7699061fd6f4a8a6b666d50001250a2df902bb3b5995e7e2613",
+    "git_blob_sha1": "039471efd721fa5f822c4fb8ec933b4893f91641"
+  },
+  "bundle": {
+    "bundle_id": "N18_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 36552735960,
+    "artifact_id": 11025373622,
+    "artifact_digest": "sha256:d1affabe75a5bfd73788317ad8cb73b62dc1e8c559784f54e62a67356ff00ed8"
+  },
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N18_CLEAR_SKY_DOUBT_APPROVED_V001.png",
+  "constraints": {
+    "original_generator_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
