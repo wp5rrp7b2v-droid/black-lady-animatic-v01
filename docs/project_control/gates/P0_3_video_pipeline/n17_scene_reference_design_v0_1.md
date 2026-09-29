@@ -1,6 +1,6 @@
 # N17｜Scene Reference Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW`
+Status: `SUPERSEDED BY V0.2`
 
 Date: 2026-09-29
 
@@ -467,3 +467,18 @@ Product Owner approval is required before:
 - creating N17 Bundle Spec;
 - Generic Story Shot Bundle Builder execution;
 - Work generation.
+
+
+## Supersession note
+
+Product Owner requested a stronger visual change from N16.
+
+V0.1 medium / medium-close two-shot framing is superseded.
+
+Replacement authority:
+
+`N17 Scene Reference Design V0.2`
+
+Primary change:
+
+`Ning-dominant close-up / Jun reduced to secondary edge or soft foreground listener`
