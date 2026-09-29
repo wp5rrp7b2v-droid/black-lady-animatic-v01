@@ -1,6 +1,6 @@
 # S02-B Director Shot Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW / NOT LOCKED`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-09-29
 
@@ -362,4 +362,27 @@ Product Owner review is required before:
 
 Current disposition:
 
-`S02-B DIRECTOR SHOT DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW / NOT LOCKED`
+`S02-B DIRECTOR SHOT DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED`
+
+
+## 9. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved this complete Director Shot Design arrangement.
+
+Locked sequence:
+
+`N16 → N17 → N18 → N19 → N20 → N21 → A06 → N22`
+
+Locked production disposition:
+
+- new Story Shots: `N16–N22` (7)
+- approved Story Shot reuse: `A06` (1)
+- `A07` remains reserved for the next hall-introduction sequence
+- N02 / N06 / N07 are not reused for N22
+- N03 is not reused for N16 / N17
+
+Next workflow stage:
+
+`N16 Scene Reference Design`
+
+No Reference Delivery Bundle construction or image generation is authorized by this approval alone.
