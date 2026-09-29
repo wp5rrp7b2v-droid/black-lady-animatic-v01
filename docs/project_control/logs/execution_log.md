@@ -1868,3 +1868,18 @@ Status: `COMPLETE / EXACT BLOB PRESERVED / REGISTRATION PENDING`
 - Root upload source removed by exact rename.
 - No Story Shot Registration or Registration Verification performed in this step.
 
+## 2026-09-29｜N16 Story Shot Registration + Verification Closeout
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED`
+
+- N16 Story Shot Index registration commit: `2de7c5eec0cf4223dbb04f12fb38f20dbe3860ca`.
+- Registered canonical binary: `production/image_library/approved/story_shots/N16_SISTER_QUESTION_APPROVED_V001.png`.
+- Exact identity retained: 941x1672 / 1942422 bytes / SHA-256 `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406` / Git blob `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`.
+- Registration verification workflow run `36530978877`, job `109284366914`: SUCCESS.
+- Verification result: `N16_PASS / SHA_MATCH=YES / BLOB_MATCH=YES / INDEX_MATCH=YES / DIMENSIONS_MATCH=YES / STAGING_CLEANUP_PASS / OVERALL_RESULT=PASS`.
+- N16 formal closeout record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_n16_story_shot_registration_closeout_2026-09-29.md`.
+- Product Owner stopped the automatic final-candidate upload experiments for the current S02-B production cycle.
+- `STORY_SHOT_CANDIDATE_DELIVERY_BRIDGE_V1` and `CHAT_TO_GITHUB_BINARY_BRIDGE_V1` are retained as `PAUSED / EXPERIMENTAL ONLY`.
+- Current S02-B production path returns to: Work generation → PO review → one manual approved-PNG upload → Chat exact verification/publication/registration.
+- N16 is closed. N17 has not started.
+
