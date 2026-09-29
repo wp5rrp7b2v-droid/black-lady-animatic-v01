@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R129",
+  "state_revision": "R130",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / N16 FORMALLY CLOSED / N17 NOT STARTED",
+  "session_status": "P0.3 IN PROGRESS / N17 SCENE REFERENCE DESIGN READY FOR PRODUCT OWNER REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N16 COMPLETE",
-  "blocker": "NONE",
-  "next_action": "Begin N17 Scene Reference Design only when Product Owner authorizes the next Story Shot step. Keep the current S02-B final-approved-PNG manual upload flow; automatic candidate-upload bridges remain paused experimental infrastructure.",
+  "current_task": "P0.3｜S02-B｜N17 Scene Reference Design V0.1",
+  "blocker": "PRODUCT OWNER REVIEW",
+  "next_action": "Product Owner reviews N17 Scene Reference Design V0.1. If approved, lock the six-reference set and proceed to N17 Reference Delivery Bundle Design V0.1 only.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N16-FORMAL-CLOSEOUT-R129",
-    "status": "N16 PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED",
+    "id": "2026-09-29-N17-SCENE-REFERENCE-DESIGN-R130",
+    "status": "N17 SCENE REFERENCE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
     "completed": [
-      "N16 Candidate 01 Product Owner approval locked.",
-      "Exact Binary Verification run 36521093516 PASS.",
-      "Canonical Publication run 36521143839 PASS with exact blob preserved.",
-      "Story Shot Index registration commit 2de7c5eec0cf4223dbb04f12fb38f20dbe3860ca.",
-      "Registration Verification run 36530978877 PASS.",
-      "N16 closeout record written.",
-      "Automatic final-candidate upload experiments paused for current S02-B production."
+      "N17 parent Director Shot Design authority re-read and confirmed.",
+      "Current character and scene registry assets re-read.",
+      "N16 canonical Story Shot selected as immediate continuity authority.",
+      "Six-reference minimum set designed.",
+      "Explicit exclusions and authority precedence defined.",
+      "No Bundle build or Work generation performed."
     ],
-    "resume_from": "N17 Scene Reference Design.",
-    "blockers": []
+    "resume_from": "Product Owner review of N17 Scene Reference Design V0.1.",
+    "blockers": [
+      "PRODUCT OWNER REVIEW"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1557,5 +1558,23 @@
     "status": "ACTIVE",
     "rule": "After Product Owner approval, upload the exact approved original PNG once to GitHub; Chat then performs Exact Binary Verification, Canonical Publication, Story Shot Registration, and Registration Verification.",
     "automatic_candidate_upload_bridges": "PAUSED"
+  },
+  "n17_scene_reference_design_v0_1": {
+    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_1.md",
+    "shot_id": "N17",
+    "title": "Blood-Door Warning",
+    "timeline": "01:28.120-01:40.700",
+    "proposed_reference_count": 6,
+    "proposed_references": [
+      "AST_IMG_000060",
+      "AST_IMG_000033",
+      "AST_IMG_000057",
+      "AST_IMG_000072",
+      "AST_IMG_000052",
+      "N16"
+    ],
+    "bundle_authorized": false,
+    "generation_authorized": false
   }
 }
