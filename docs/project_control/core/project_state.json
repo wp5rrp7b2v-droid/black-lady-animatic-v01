@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R130",
+  "state_revision": "R131",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / N17 SCENE REFERENCE DESIGN READY FOR PRODUCT OWNER REVIEW",
+  "session_status": "P0.3 IN PROGRESS / N17 SCENE REFERENCE DESIGN V0.2 READY FOR PRODUCT OWNER REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N17 Scene Reference Design V0.1",
+  "current_task": "P0.3｜S02-B｜N17 Scene Reference Design V0.2",
   "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Product Owner reviews N17 Scene Reference Design V0.1. If approved, lock the six-reference set and proceed to N17 Reference Delivery Bundle Design V0.1 only.",
+  "next_action": "Product Owner reviews N17 Scene Reference Design V0.2 close-up revision. If approved, lock V0.2 and proceed to N17 Reference Delivery Bundle Design V0.1 only.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N17-SCENE-REFERENCE-DESIGN-R130",
-    "status": "N17 SCENE REFERENCE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-29-N17-SCENE-REFERENCE-V02-R131",
+    "status": "N17 SCENE REFERENCE DESIGN V0.2 READY FOR PRODUCT OWNER REVIEW",
     "completed": [
-      "N17 parent Director Shot Design authority re-read and confirmed.",
-      "Current character and scene registry assets re-read.",
-      "N16 canonical Story Shot selected as immediate continuity authority.",
-      "Six-reference minimum set designed.",
-      "Explicit exclusions and authority precedence defined.",
+      "V0.1 superseded.",
+      "N17 framing revised to Ning-dominant close-up / tight medium-close.",
+      "Jun reduced to secondary listener edge / soft foreground presence.",
+      "Six-reference authority set retained unchanged.",
       "No Bundle build or Work generation performed."
     ],
-    "resume_from": "Product Owner review of N17 Scene Reference Design V0.1.",
+    "resume_from": "Product Owner review of N17 Scene Reference Design V0.2.",
     "blockers": [
       "PRODUCT OWNER REVIEW"
     ]
@@ -1560,11 +1559,31 @@
     "automatic_candidate_upload_bridges": "PAUSED"
   },
   "n17_scene_reference_design_v0_1": {
-    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "status": "SUPERSEDED BY V0.2",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_1.md",
     "shot_id": "N17",
     "title": "Blood-Door Warning",
     "timeline": "01:28.120-01:40.700",
+    "proposed_reference_count": 6,
+    "proposed_references": [
+      "AST_IMG_000060",
+      "AST_IMG_000033",
+      "AST_IMG_000057",
+      "AST_IMG_000072",
+      "AST_IMG_000052",
+      "N16"
+    ],
+    "bundle_authorized": false,
+    "generation_authorized": false
+  },
+  "n17_scene_reference_design_v0_2": {
+    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n17_scene_reference_design_v0_2.md",
+    "shot_id": "N17",
+    "title": "Blood-Door Warning",
+    "timeline": "01:28.120-01:40.700",
+    "framing": "NING-DOMINANT CLOSE-UP / TIGHT MEDIUM-CLOSE",
+    "secondary_subject": "JUN EDGE / SOFT FOREGROUND LISTENER",
     "proposed_reference_count": 6,
     "proposed_references": [
       "AST_IMG_000060",
