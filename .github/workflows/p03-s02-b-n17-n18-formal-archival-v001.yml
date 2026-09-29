@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/p03-s02-b-n17-n18-formal-archival-v001.yml"
+      - "docs/project_control/triggers/n17_n18_formal_archival.trigger"
   workflow_dispatch:
 
 permissions:
