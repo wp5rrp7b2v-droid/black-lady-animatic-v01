@@ -1,0 +1,56 @@
+name: Story Shot Candidate Intake Verifier
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_path:
+        description: Candidate staging path under staging/story_shot_candidates
+        required: true
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - "staging/story_shot_candidates/**/*.png"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Resolve candidate path
+        id: candidate
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            CANDIDATE="${{ inputs.candidate_path }}"
+          else
+            CANDIDATE="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'staging/story_shot_candidates/**/*.png' | tail -n 1)"
+          fi
+          if [ -z "$CANDIDATE" ]; then
+            echo "No candidate staging PNG selected"
+            exit 1
+          fi
+          case "$CANDIDATE" in
+            staging/story_shot_candidates/*.png|staging/story_shot_candidates/*/*.png|staging/story_shot_candidates/*/*/*.png) ;;
+            *) echo "Invalid candidate path: $CANDIDATE"; exit 1 ;;
+          esac
+          echo "candidate_path=$CANDIDATE" >> "$GITHUB_OUTPUT"
+
+      - name: Verify exact candidate intake
+        run: |
+          python3 scripts/story_shot_candidate_intake_verifier_v1.py --candidate "${{ steps.candidate.outputs.candidate_path }}"
+
+      - name: Upload verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: STORY_SHOT_CANDIDATE_INTAKE_VERIFICATION
+          path: _candidate_intake_evidence/
+          retention-days: 30
+          if-no-files-found: error
