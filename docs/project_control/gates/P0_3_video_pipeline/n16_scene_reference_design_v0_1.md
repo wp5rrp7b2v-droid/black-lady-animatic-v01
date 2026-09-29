@@ -1,6 +1,6 @@
 # N16 Scene Reference Design V0.1
 
-Status: `DRAFT / READY FOR PRODUCT OWNER REVIEW / NOT LOCKED`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-09-29
 
@@ -422,4 +422,20 @@ It would not by itself authorize:
 
 Current disposition:
 
-`N16 SCENE REFERENCE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW / NOT LOCKED`
+`N16 SCENE REFERENCE DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED`
+
+
+## 9. Product Owner approval
+
+On 2026-09-29, the Product Owner explicitly approved this Scene Reference Design and authorized progression into N16 Reference Delivery Bundle Design.
+
+Locked reference set:
+
+1. AST_IMG_000057 — Jun Luyuan Character Reference Sheet
+2. AST_IMG_000072 — Jun Luyuan FACE_3Q_LEFT
+3. AST_IMG_000060 — Ning Qiushui Character Reference Sheet
+4. AST_IMG_000033 — Ning Qiushui FACE_3Q_RIGHT
+5. AST_IMG_000052 — Castle Entrance Scene Master / DAY_DOOR_OPEN
+6. A03 — approved Story Shot interior-reverse continuity reference
+
+This approval does not authorize Bundle construction or Work image generation.
