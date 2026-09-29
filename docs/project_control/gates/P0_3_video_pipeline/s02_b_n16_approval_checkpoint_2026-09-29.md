@@ -1,6 +1,6 @@
 # S02-B｜N16 Product Owner Approval Checkpoint
 
-Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY VERIFIED / CANONICAL PUBLICATION PENDING`
+Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY VERIFIED / CANONICAL PUBLISHED / REGISTRATION PENDING`
 
 Date: 2026-09-29
 
@@ -78,3 +78,44 @@ Next step:
 `N16 Canonical Publication using exact approved binary identity above`
 
 No re-encode, resize, screenshot, regeneration or binary substitution is permitted.
+
+
+## 6. Exact Binary Verification
+
+Formal GitHub Actions verification completed:
+
+- workflow: `.github/workflows/p03-n16-approved-upload-verification-v001.yml`
+- run ID: `36521093516`
+- job ID: `109253896090`
+- result: `SUCCESS`
+- dimensions: `941x1672`
+- byte_size: `1942422`
+- SHA-256: `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406`
+- Git blob: `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`
+- `SHA_MATCH=YES`
+- `BLOB_MATCH=YES`
+- `OVERALL_RESULT=PASS`
+
+## 7. Canonical Publication
+
+Canonical exact-blob publication completed:
+
+- workflow: `.github/workflows/p03-n16-canonical-exact-blob-publication-v001.yml`
+- run ID: `36521143839`
+- job ID: `109254056898`
+- publication commit: `c8fa5dc9f8b75ce7cb7c6f01899cbf45745558eb`
+- canonical path: `production/image_library/approved/story_shots/N16_SISTER_QUESTION_APPROVED_V001.png`
+- canonical Git blob: `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`
+- source staging filename removed after exact rename: `YES`
+- `EXACT_BLOB_PRESERVED=YES`
+- `OVERALL_RESULT=PASS`
+
+Current boundary:
+
+`Canonical Publication = COMPLETE`
+
+Still pending:
+
+- Story Shot Registration
+- Registration Verification
+- N16 Closeout
