@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R136",
+  "state_revision": "R137",
   "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / N19 REFERENCE DELIVERY BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+  "session_status": "P0.3 IN PROGRESS / N19 BUNDLE V001 VERIFIED / READY FOR WORK GENERATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N19 Reference Delivery Bundle Design V0.1",
+  "current_task": "P0.3｜S02-B｜N19 Candidate 01 Work Generation",
   "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Product Owner reviews N19 Reference Delivery Bundle Design V0.1. If approved, lock the design, create production/bundle_specs/N19_REFERENCE_DELIVERY_BUNDLE_V001.json, and run the existing Generic Story Shot Reference Bundle Builder V1.",
+  "next_action": "Work automatically downloads and verifies N19_REFERENCE_DELIVERY_BUNDLE_V001, then generates exactly N19 Candidate 01 for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-N19-BUNDLE-DESIGN-R136",
-    "status": "N19 REFERENCE DELIVERY BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-29-N19-BUNDLE-BUILT-R137",
+    "status": "N19 REFERENCE DELIVERY BUNDLE V001 BUILT / 5 OF 5 PASS / GENERATION_ALLOWED=TRUE",
     "completed": [
-      "N19 five-reference canonical Bundle design completed.",
-      "Both character identity authorities included.",
-      "N17 canonical two-person relationship continuity included.",
-      "N18 canonical direct preceding-shot outward-gaze / clear-weather continuity included.",
-      "Castle Entrance DAY_DOOR_OPEN Scene Master included.",
-      "Optional shoulder-contact fail-safe defined.",
-      "Generic Builder contract retained; no N19-specific Bundle workflow permitted."
+      "N19 Reference Delivery Bundle Design V0.1 Product Owner approved and locked.",
+      "N19 Bundle Spec created at source commit 214af57acd778a208361cc5a73a2bd68052736ff.",
+      "Generic Story Shot Reference Bundle Builder V1 completed successfully.",
+      "5/5 exact canonical reference binaries verified.",
+      "Downloaded Artifact independently re-hashed and verified.",
+      "Artifact 11037987128 is ready for Work automatic acquisition."
     ],
-    "resume_from": "Product Owner review of N19 Reference Delivery Bundle Design V0.1.",
-    "blockers": [
-      "PRODUCT OWNER REVIEW"
-    ]
+    "resume_from": "N19 Candidate 01 Work Generation.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1688,7 +1685,7 @@
     "production_order": "AFTER N19"
   },
   "n19_reference_delivery_bundle_design_v0_1": {
-    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / BUILT / 5 OF 5 PASS / READY FOR WORK GENERATION",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n19_reference_delivery_bundle_design_v0_1.md",
     "bundle_id": "N19_REFERENCE_DELIVERY_BUNDLE_V001",
     "target_candidate": "N19 Candidate 01",
@@ -1702,8 +1699,18 @@
     ],
     "fixed_builder": ".github/workflows/story-shot-reference-bundle-builder.yml",
     "per_shot_workflow_allowed": false,
-    "bundle_spec_created": false,
-    "build_authorized": false,
-    "generation_authorized": false
+    "bundle_spec_created": true,
+    "build_authorized": true,
+    "generation_authorized": true,
+    "source_commit": "214af57acd778a208361cc5a73a2bd68052736ff",
+    "workflow_run": 36576705556,
+    "job_id": 109434070260,
+    "artifact_id": 11037987128,
+    "artifact_digest": "sha256:b6aa9142bbeded26909c84faacbf69e93dde63f8ba0d3508df54d44402674276",
+    "artifact_size": 8182280,
+    "artifact_expires_at": "2026-10-06T13:39:40Z",
+    "exact_reference_verification": "5/5 PASS",
+    "independent_artifact_verification": "PASS",
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n19_reference_delivery_bundle_v001_build_record_2026-09-29.md"
   }
 }
