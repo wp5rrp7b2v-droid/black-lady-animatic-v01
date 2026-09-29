@@ -1,6 +1,6 @@
 # P0.3 Daily Closeout｜2026-09-29
 
-Status: `COMPLETE / EOD CLOSEOUT / S02-B ACTIVE / N19 CREATIVE REDESIGN PENDING`
+Status: `COMPLETE / EOD CLOSEOUT / S02-B ACTIVE / N19 CREATIVE REDESIGN PENDING / R138`
 
 ## 1. End-of-day authoritative state
 
@@ -285,7 +285,13 @@ Not completed:
 - S02-B assembly;
 - P0.3 Gate approval.
 
-## 11. Resume point
+## 11. Project Control checkpoint
+
+- Project State: `R138`
+- Decision records: `BL-D-083 / BL-D-084`
+- N19 review checkpoint: `docs/project_control/gates/P0_3_video_pipeline/n19_candidate_review_checkpoint_2026-09-29.md`
+
+## 12. Resume point
 
 Next session must resume from:
 
