@@ -1853,3 +1853,18 @@ Status: `SOURCE BINARY VERIFIED / CHAT-NATIVE GITHUB BINARY DELIVERY BLOCKED`
 - No binary was uploaded, no candidate intake workflow was triggered, no canonical publication or Story Shot registration occurred.
 - Evidence path: `docs/project_control/gates/P0_3_video_pipeline/chat_to_github_binary_bridge_v1.md`.
 
+## 2026-09-29｜N16 Exact Binary Verification + Canonical Publication
+
+Status: `COMPLETE / EXACT BLOB PRESERVED / REGISTRATION PENDING`
+
+- Product Owner-approved source was uploaded to GitHub as `古堡门内的低声交谈.png`.
+- GitHub blob matched the locked approved source exactly: `44971dd53e37cd1b582bcf5094b0f09cb8e0647d`.
+- Formal exact-binary verification workflow run `36521093516`, job `109253896090`: SUCCESS.
+- Verification result: 941x1672 / 1942422 bytes / SHA-256 `b26fb7d64a60fbd28d39b0ae22f7c85df18d4f947f31a3591c847dd5e1acf406` / Git blob `44971dd53e37cd1b582bcf5094b0f09cb8e0647d` / OVERALL_RESULT=PASS.
+- Canonical exact-blob publication workflow run `36521143839`, job `109254056898`: SUCCESS.
+- Publication commit: `c8fa5dc9f8b75ce7cb7c6f01899cbf45745558eb`.
+- Canonical path: `production/image_library/approved/story_shots/N16_SISTER_QUESTION_APPROVED_V001.png`.
+- Exact Git blob preserved: YES.
+- Root upload source removed by exact rename.
+- No Story Shot Registration or Registration Verification performed in this step.
+
