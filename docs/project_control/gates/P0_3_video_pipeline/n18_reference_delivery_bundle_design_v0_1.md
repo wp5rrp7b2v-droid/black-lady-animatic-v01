@@ -1,6 +1,6 @@
 # N18｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
+Status: `PRODUCT OWNER APPROVED / BUILT / 5 OF 5 EXACT VERIFICATION PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-29
 
@@ -378,7 +378,7 @@ and Work must not generate N18.
 
 Current disposition:
 
-`N18 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILD AUTHORIZED`
+`N18 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS / READY FOR WORK`
 
 Not authorized yet:
 
@@ -404,3 +404,25 @@ Still not authorized by this approval:
 
 - N18 image generation before Bundle verification PASS;
 - Story Shot publication / registration.
+
+
+## 12. Build result
+
+- source commit: `e182577159876d71377cc705db5dda7aea8d05c7`
+- workflow run: `36552735960`
+- job: `109354560969`
+- artifact ID: `11025373622`
+- artifact digest: `sha256:d1affabe75a5bfd73788317ad8cb73b62dc1e8c559784f54e62a67356ff00ed8`
+- artifact size: `9104001` bytes
+- expires: `2026-10-06T09:59:52Z`
+- exact canonical reference verification: `5/5 PASS`
+- post-artifact independent verification: `PASS`
+- `GENERATION_ALLOWED=TRUE`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n18_reference_delivery_bundle_v001_build_record_2026-09-29.md`
+
+Current boundary:
+
+`READY FOR WORK GENERATION / NO N18 CANDIDATE GENERATED YET`
