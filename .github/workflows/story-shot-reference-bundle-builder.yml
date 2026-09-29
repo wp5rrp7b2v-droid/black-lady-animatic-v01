@@ -1,0 +1,63 @@
+name: Story Shot Reference Bundle Builder
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec_path:
+        description: Bundle spec path under production/bundle_specs
+        required: true
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - "production/bundle_specs/*.json"
+      - "scripts/story_shot_reference_bundle_builder_v1.py"
+      - ".github/workflows/story-shot-reference-bundle-builder.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering commit
+        uses: actions/checkout@v4
+
+      - name: Resolve bundle spec
+        id: spec
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SPEC="${{ inputs.spec_path }}"
+          else
+            SPEC="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'production/bundle_specs/*.json' | tail -n 1)"
+          fi
+          if [ -z "$SPEC" ]; then
+            echo "No bundle spec selected"
+            exit 1
+          fi
+          case "$SPEC" in
+            production/bundle_specs/*.json) ;;
+            *) echo "Invalid spec path: $SPEC"; exit 1 ;;
+          esac
+          echo "spec_path=$SPEC" >> "$GITHUB_OUTPUT"
+
+      - name: Build verified reference bundle
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py --spec "${{ steps.spec.outputs.spec_path }}"
+
+      - name: Read bundle ID
+        id: bundle
+        shell: bash
+        run: |
+          BUNDLE_ID="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["bundle_id"])' "${{ steps.spec.outputs.spec_path }}")"
+          echo "bundle_id=$BUNDLE_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Upload verified bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.bundle.outputs.bundle_id }}
+          path: ${{ steps.bundle.outputs.bundle_id }}/
+          retention-days: 7
+          if-no-files-found: error
