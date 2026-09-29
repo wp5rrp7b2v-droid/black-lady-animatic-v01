@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R120",
-  "last_updated": "2026-09-28",
-  "session_status": "EOD CLOSED / P0.3 IN PROGRESS / S02-A ASSEMBLY V001 FORMALLY CLOSED / NEXT SEQUENCE NOT YET AUTHORIZED",
+  "state_revision": "R121",
+  "last_updated": "2026-09-29",
+  "session_status": "P0.3 IN PROGRESS / S02-B AUDIO BOUNDARY LOCKED / DIRECTOR SHOT DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜2026-09-28 EOD CLOSEOUT COMPLETE",
+  "current_task": "P0.3｜S02-B Audio-Only Boundary QC COMPLETE",
   "blocker": "NONE",
-  "next_action": "Next session: under Product Owner direction, begin narrative/audio breakdown for the next sequence immediately after canonical audio 01:18.750. Do not reopen S02-A unless Product Owner explicitly authorizes a revision. Do not mark P0.3 PASS.",
+  "next_action": "Proceed one step only: S02-B Director Shot Design using locked canonical audio boundary 01:18.750→02:23.000 (64.250s). Do not build Reference Delivery Bundles, generate Story Shots, assemble video, or mark P0.3 PASS without subsequent Product Owner authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-28-P03-EOD-CLOSEOUT-R120",
-    "status": "EOD CLOSEOUT COMPLETE / S02-A FORMALLY CLOSED / P0.3 REMAINS IN PROGRESS",
+    "id": "2026-09-29-S02B-AUDIO-QC-R121",
+    "status": "S02-B AUDIO-ONLY QC COMPLETE / PRODUCT OWNER AUDIO QC PASS / BOUNDARY LOCKED",
     "completed": [
-      "S02-A assembly V001 remains PRODUCT_OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED.",
-      "P0.3 README updated with the S02-A closeout and post-01:18.750 resume point.",
-      "Acceptance Matrix updated to current S02-A-complete / P0.3-not-yet-validated status.",
-      "Dashboard refreshed to V090 and corrected to current Story Shot count, S02-A sequence and next-action state.",
-      "Decision Log cross-checked: BL-D-077 already records the S02-A approval; no duplicate decision added.",
-      "Rules Change Log cross-checked: no new RC rule required.",
-      "Execution Log updated with 2026-09-28 EOD closeout.",
-      "Daily closeout record created at docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-09-28.md."
+      "Canonical source AUDIO_MVP1_CANONICAL_V001 identity reverified by SHA-256 and byte size.",
+      "Boundary-analysis run 36505933111 succeeded and produced S02_B_AUDIO_BOUNDARY_ANALYSIS_V001.",
+      "Audio-only QC proof run 36506339712 succeeded and produced S02_B_AUDIO_ONLY_QC_PROOF_V001.",
+      "Product Owner listened to the QC WAV and explicitly confirmed 音频OK.",
+      "S02-B canonical source-audio boundary locked at 01:18.750→02:23.000 / 64.250s.",
+      "Formal approval record created at docs/project_control/gates/P0_3_video_pipeline/s02_b_audio_only_qc_v001_approval_2026-09-29.md."
     ],
-    "resume_from": "Next production sequence design begins after canonical audio 01:18.750 only when Product Owner authorizes it.",
+    "resume_from": "S02-B Director Shot Design only.",
     "blockers": []
   },
   "visual_asset_management_system": {
