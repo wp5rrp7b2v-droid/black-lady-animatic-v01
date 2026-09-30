@@ -214,8 +214,10 @@ Before generation, N21 must undergo node-level Director Shot Design and Scene Re
 
 `S02-B DIRECTOR SHOT DESIGN V0.3 + REVIEW PATCH 01 = PRODUCT OWNER APPROVED / LOCKED`
 
-Next production step:
+The originally listed next step was subsequently completed through N21 Node-Level Design, Scene Reference V0.3 and Bundle V002 construction.
 
-`N21 NODE-LEVEL DIRECTOR SHOT DESIGN → SCENE REFERENCE / BUNDLE DISPOSITION REVIEW`
+Current 2026-09-30 EOD resume point:
 
-No N21 Work generation is authorized by this approval alone.
+`N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
+
+Candidate 04 is not authorized. The eight high-level rules remain active while N21's single-frame responsibility is reconsidered.
