@@ -1,6 +1,6 @@
 # N20｜Reference Delivery Bundle Design V0.2
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
 Date: 2026-09-30
 
@@ -421,17 +421,32 @@ then:
 
 Current disposition:
 
-`N20 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = READY FOR PRODUCT OWNER REVIEW`
+`N20 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
-Not authorized yet:
+Authorized next:
 
-- V002 Bundle Spec creation;
-- V002 GitHub Actions build;
-- Artifact production;
-- Candidate 04 generation;
+- create V002 Bundle Spec;
+- run Generic Story Shot Reference Bundle Builder V1;
+- verify 5/5 canonical inputs;
+- if and only if `GENERATION_ALLOWED=TRUE`, hand off to Work for N20 Candidate 04.
+
+Still not authorized:
+
+- Candidate 04 generation before verification;
 - N21 production;
-- Story Shot publication / registration.
+- Story Shot publication / registration before Product Owner approves a candidate.
 
-Next decision:
 
-`PRODUCT OWNER APPROVAL OF N20 REFERENCE DELIVERY BUNDLE DESIGN V0.2`
+## 14. Product Owner approval
+
+On 2026-09-30, the Product Owner explicitly approved N20 Reference Delivery Bundle Design V0.2.
+
+Authorized next steps:
+
+1. create `production/bundle_specs/N20_REFERENCE_DELIVERY_BUNDLE_V002.json`;
+2. run the existing Generic Story Shot Reference Bundle Builder V1;
+3. verify all 5 canonical inputs exactly.
+
+Image generation remains blocked until Bundle verification returns:
+
+`GENERATION_ALLOWED=TRUE`
