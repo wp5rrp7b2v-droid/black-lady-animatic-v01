@@ -1975,3 +1975,19 @@ Status: `READY FOR PRODUCT OWNER REVIEW`
 - Hard performance lock: N19 shoulder contact ends before / as N20 movement begins; no camera-facing turn for facial visibility.
 - No Bundle Spec created; no GitHub Actions build triggered; no Work generation authorized.
 - Design path: `docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_design_v0_1.md`.
+
+## 2026-09-30｜N20 Reference Delivery Bundle V001 Build
+
+Status: `PASS / READY FOR WORK GENERATION`
+
+- Product Owner approved N20 Reference Delivery Bundle Design V0.1.
+- Bundle Spec commit: `c3ac5d3d848a8823a13770636a033eb2636e68e9`.
+- Generic Builder run `36654654071`, job `109696257939`: SUCCESS.
+- Artifact: `N20_REFERENCE_DELIVERY_BUNDLE_V001` / ID `11072080675`.
+- Artifact size: `8701679` bytes.
+- Artifact digest: `sha256:203f866487808d99aeb7a408a91e5c599c919b889372444e78e1fbc3d11b3230`.
+- Builder exact canonical verification: `5/5 PASS`.
+- Chat independently downloaded and revalidated the Artifact ZIP: digest MATCH; all 5 PNG byte sizes / SHA-256 / Git blobs / PNG signatures MATCH.
+- `GENERATION_ALLOWED=TRUE`.
+- Product Owner manual reference upload: `0`.
+- No N20 candidate was generated in this step.
