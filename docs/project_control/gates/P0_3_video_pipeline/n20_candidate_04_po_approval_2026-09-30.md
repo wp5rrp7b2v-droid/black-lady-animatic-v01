@@ -1,6 +1,6 @@
 # N20 Candidate 04｜Product Owner Approval Checkpoint
 
-Status: `PRODUCT OWNER APPROVED / SELECTED FINAL CANDIDATE / FORMAL ARCHIVAL PENDING`
+Status: `PRODUCT OWNER APPROVED / SELECTED FINAL CANDIDATE / FORMALLY CLOSED`
 
 Date: 2026-09-30
 
@@ -59,3 +59,14 @@ Target canonical filename:
 Target canonical path:
 
 `production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png`
+
+
+## Final lifecycle resolution
+
+The archival steps that were pending at the moment of this approval checkpoint were subsequently completed.
+
+Formal closeout authority:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_n20_story_shot_registration_closeout_2026-09-30.md`
+
+This checkpoint is retained as approval-time evidence; the closeout record controls final lifecycle status.
