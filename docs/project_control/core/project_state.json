@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R139",
+  "state_revision": "R140",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N19 C04 PRODUCT OWNER APPROVED / FORMAL ARCHIVAL PENDING",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N19 C04 PO APPROVED / EXACT-BINARY VERIFICATION READY / WAITING APPROVED PNG UPLOAD",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N19 Candidate 04 Exact Binary Verification + Formal Archival",
-  "blocker": "FORMAL APPROVED-BINARY INTAKE / EXACT VERIFICATION",
-  "next_action": "Materialize the exact Product Owner-approved N19 Candidate 04 binary into the GitHub formal intake, verify SHA/byte-size/dimensions/Git-blob identity, then complete Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout before N20 generation.",
+  "current_task": "P0.3｜S02-B｜N19 Candidate 04 Approved Binary Intake",
+  "blocker": "APPROVED PNG BINARY NOT YET MATERIALIZED IN GITHUB",
+  "next_action": "Upload the exact approved PNG once to main as 门前轻触肩头.png. GitHub Actions workflow p03-n19-approved-upload-verification-v001.yml will automatically verify dimensions, byte size, SHA-256 and Git blob identity. After PASS, continue Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,16 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-N19-C04-PO-APPROVED-R139",
-    "status": "N19 CANDIDATE 04 PRODUCT OWNER APPROVED / FORMAL ARCHIVAL PENDING",
+    "id": "2026-09-30-N19-C04-VERIFY-READY-R140",
+    "status": "N19 C04 PRODUCT OWNER APPROVED / EXACT-BINARY VERIFICATION WORKFLOW READY / WAITING ONE-TIME PNG UPLOAD",
     "completed": [
-      "N19 Candidate 03 Clean Regeneration generated with corrected inside-castle / through-doorway / exterior-gaze geometry.",
-      "N19 Candidate 04 localized shoulder gesture edit completed.",
-      "Product Owner explicitly approved N19 Candidate 04 on 2026-09-30.",
-      "Approved source PNG preflight identity recorded: 941x1672 / 2052606 bytes / SHA-256 5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a / Git blob c842ad1a0b84b2d504b1e681dd327b01bb57c159."
+      "N19 Candidate 04 explicitly approved by Product Owner.",
+      "Approved source PNG preflight identity locked: 941x1672 / 2052606 bytes / SHA-256 5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a / Git blob c842ad1a0b84b2d504b1e681dd327b01bb57c159.",
+      "N19 approved-upload exact-binary verification workflow published to main at commit 1df12292f67dde33c61fab8f5f9f0bba6f9a49ff."
     ],
-    "resume_from": "N19 approved-binary formal intake and Exact Binary Verification.",
+    "resume_from": "One-time exact approved PNG upload to GitHub main as 门前轻触肩头.png.",
     "blockers": [
-      "APPROVED BINARY NOT YET FORMALLY VERIFIED IN GITHUB"
+      "CHAT-NATIVE BINARY FILE-HANDLE UPLOAD STILL UNAVAILABLE"
     ]
   },
   "visual_asset_management_system": {
@@ -1749,7 +1748,9 @@
       "git_blob_preflight": "c842ad1a0b84b2d504b1e681dd327b01bb57c159",
       "approval_date": "2026-09-30",
       "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n19_candidate_04_po_approval_2026-09-30.md",
-      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout"
+      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout",
+      "verification_workflow": ".github/workflows/p03-n19-approved-upload-verification-v001.yml",
+      "verification_workflow_commit": "1df12292f67dde33c61fab8f5f9f0bba6f9a49ff"
     }
   },
   "daily_closeout_2026_09_29": {
