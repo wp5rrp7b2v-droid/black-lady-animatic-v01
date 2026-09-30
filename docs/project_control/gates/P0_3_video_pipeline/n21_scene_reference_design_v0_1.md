@@ -1,6 +1,6 @@
 # N21｜Sixteen Guests Enter｜Scene Reference Design V0.1
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `SUPERSEDED BY V0.2 / RETAINED AS DESIGN HISTORY`
 
 Date: 2026-09-30
 
@@ -402,3 +402,10 @@ Not authorized yet:
 Next required decision:
 
 `PRODUCT OWNER APPROVAL OF N21 SCENE REFERENCE DESIGN V0.1`
+
+
+## Supersession note
+
+V0.1 is superseded by `N21 Scene Reference Design V0.2｜Named Character Seeding`.
+
+Reason: Product Owner requested that several later-important participants be naturally seeded inside the sixteen-person cohort, with Su Xiaoxiao explicitly included, while preserving the original story fact that the group is introduced first as sixteen guests rather than as a formal cast lineup.
