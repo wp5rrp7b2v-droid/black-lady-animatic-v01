@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R138",
-  "last_updated": "2026-09-29",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N19 C01+C02 REJECTED / EOD CLOSEOUT",
+  "state_revision": "R139",
+  "last_updated": "2026-09-30",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N19 C04 PRODUCT OWNER APPROVED / FORMAL ARCHIVAL PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N19 Candidate 03 Clean Regeneration Redesign",
-  "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Next session: review and lock a formal N19 Candidate 03 spatial-composition execution patch, then send Work to generate. Do not start N20 before N19 has an approved candidate.",
+  "current_task": "P0.3｜S02-B｜N19 Candidate 04 Exact Binary Verification + Formal Archival",
+  "blocker": "FORMAL APPROVED-BINARY INTAKE / EXACT VERIFICATION",
+  "next_action": "Materialize the exact Product Owner-approved N19 Candidate 04 binary into the GitHub formal intake, verify SHA/byte-size/dimensions/Git-blob identity, then complete Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout before N20 generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,23 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-29-EOD-N19-REDESIGN-R138",
-    "status": "EOD CLOSEOUT / N16-N18 FORMALLY CLOSED / N19 C01+C02 REJECTED / C03 NOT GENERATED",
+    "id": "2026-09-30-N19-C04-PO-APPROVED-R139",
+    "status": "N19 CANDIDATE 04 PRODUCT OWNER APPROVED / FORMAL ARCHIVAL PENDING",
     "completed": [
-      "N16 formally closed.",
-      "N17 Candidate 03 formally closed.",
-      "N18 Candidate 04 formally closed.",
-      "S02-B Director Design V0.2 approved and locked.",
-      "N19 Scene Reference Design V0.2 approved and locked.",
-      "N20 Scene Reference Design V0.1 approved and locked.",
-      "N19 Reference Delivery Bundle V001 built and independently verified 5/5.",
-      "N19 Candidate 01 rejected.",
-      "N19 Candidate 02 rejected.",
-      "2026-09-29 daily closeout recorded."
+      "N19 Candidate 03 Clean Regeneration generated with corrected inside-castle / through-doorway / exterior-gaze geometry.",
+      "N19 Candidate 04 localized shoulder gesture edit completed.",
+      "Product Owner explicitly approved N19 Candidate 04 on 2026-09-30.",
+      "Approved source PNG preflight identity recorded: 941x1672 / 2052606 bytes / SHA-256 5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a / Git blob c842ad1a0b84b2d504b1e681dd327b01bb57c159."
     ],
-    "resume_from": "N19 Candidate 03 Clean Regeneration design + execution patch.",
+    "resume_from": "N19 approved-binary formal intake and Exact Binary Verification.",
     "blockers": [
-      "CREATIVE COMPOSITION / SPATIAL INTEGRATION"
+      "APPROVED BINARY NOT YET FORMALLY VERIFIED IN GITHUB"
     ]
   },
   "visual_asset_management_system": {
@@ -1720,7 +1714,7 @@
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n19_reference_delivery_bundle_v001_build_record_2026-09-29.md"
   },
   "n19_candidate_review_2026_09_29": {
-    "status": "CANDIDATE 01 REJECTED / CANDIDATE 02 REJECTED / CANDIDATE 03 NOT YET GENERATED",
+    "status": "CANDIDATE 01 REJECTED / CANDIDATE 02 REJECTED / CANDIDATE 03 SUPERSEDED BY LOCALIZED EDIT / CANDIDATE 04 PRODUCT OWNER APPROVED",
     "review_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n19_candidate_review_checkpoint_2026-09-29.md",
     "candidate_01": {
       "status": "REJECTED BY PRODUCT OWNER",
@@ -1741,10 +1735,21 @@
       ]
     },
     "candidate_03": {
-      "status": "NOT GENERATED",
+      "status": "GENERATED / ARTISTICALLY ACCEPTABLE BASE / SUPERSEDED BY CANDIDATE 04 LOCALIZED SHOULDER EDIT",
       "mode": "CLEAN REGENERATION",
-      "bundle_reuse": "N19_REFERENCE_DELIVERY_BUNDLE_V001 remains valid unless reference strategy changes",
-      "required_next_step": "Formal spatial-composition execution patch before Work generation"
+      "bundle_reuse": "N19_REFERENCE_DELIVERY_BUNDLE_V001",
+      "note": "Spatial geometry and exterior gaze problem resolved; shoulder gesture was refined in Candidate 04."
+    },
+    "candidate_04": {
+      "status": "PRODUCT OWNER APPROVED / SELECTED FINAL CANDIDATE / FORMAL ARCHIVAL PENDING",
+      "mode": "LOCALIZED SHOULDER GESTURE EDIT",
+      "dimensions": "941x1672",
+      "byte_size": 2052606,
+      "sha256_preflight": "5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a",
+      "git_blob_preflight": "c842ad1a0b84b2d504b1e681dd327b01bb57c159",
+      "approval_date": "2026-09-30",
+      "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n19_candidate_04_po_approval_2026-09-30.md",
+      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout"
     }
   },
   "daily_closeout_2026_09_29": {
