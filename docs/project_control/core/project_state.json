@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R145",
+  "state_revision": "R146",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 C01-C03 REJECTED / BUNDLE V002 VERIFIED / READY FOR C04 WORK GENERATION",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 C04 PRODUCT OWNER APPROVED / EXACT-BINARY VERIFICATION READY / WAITING APPROVED PNG UPLOAD",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N20 Candidate 04 Clean Regeneration",
-  "blocker": "NONE",
-  "next_action": "Work automatically downloads N20_REFERENCE_DELIVERY_BUNDLE_V002 Artifact 11073610356, revalidates delivery_manifest.json and all five PNGs, then generates exactly one N20 Candidate 04 Clean Regeneration and stops for Product Owner review.",
+  "current_task": "P0.3｜S02-B｜N20 Candidate 04 Approved Binary Intake",
+  "blocker": "APPROVED PNG BINARY NOT YET MATERIALIZED IN GITHUB",
+  "next_action": "Upload the exact approved PNG once to main as 烛光下并肩走入城堡.png. GitHub Actions workflow p03-n20-approved-upload-verification-v001.yml will automatically verify dimensions, byte size, SHA-256 and Git blob identity. After PASS, continue Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-N20-BUNDLE-V002-BUILT-R145",
-    "status": "N20 BUNDLE V002 PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS / GENERATION_ALLOWED=TRUE",
+    "id": "2026-09-30-N20-C04-VERIFY-READY-R146",
+    "status": "N20 C04 PRODUCT OWNER APPROVED / EXACT-BINARY VERIFICATION WORKFLOW READY / WAITING ONE-TIME PNG UPLOAD",
     "completed": [
-      "N20 Bundle V0.2 Product Owner approved and locked.",
-      "Bundle V002 spec committed at 67c316246fd76b5d039148d524c587ef67899617.",
-      "Generic Story Shot Reference Bundle Builder run 36658459273 / job 109707734342 completed successfully.",
-      "Artifact N20_REFERENCE_DELIVERY_BUNDLE_V002 / ID 11073610356 produced.",
-      "GitHub exact canonical verification: 5/5 PASS.",
-      "Chat independently downloaded Artifact ZIP and verified digest plus all five reference PNG identities: 5/5 PASS.",
-      "GENERATION_ALLOWED=TRUE."
+      "N20 Candidate 04 explicitly approved by Product Owner.",
+      "Approved source PNG preflight identity locked: 941x1672 / 2022630 bytes / SHA-256 a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e / Git blob 58e145a51c3f993827e5e47964ad0e7f9dd9f0aa.",
+      "N20 approved-upload exact-binary verification workflow published to main at commit 828b26583d7334e92b9052dae4d637c9390d9dba."
     ],
-    "resume_from": "N20 Candidate 04 Clean Regeneration in Work.",
-    "blockers": []
+    "resume_from": "One-time exact approved PNG upload to GitHub main as 烛光下并肩走入城堡.png.",
+    "blockers": [
+      "CHAT-NATIVE BINARY FILE-HANDLE UPLOAD STILL UNAVAILABLE"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1812,9 +1810,22 @@
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_v001_build_record_2026-09-30.md"
   },
   "n20_candidate_review": {
-    "status": "C01 REJECTED / C02 REJECTED / C03 REJECTED",
+    "status": "C01 REJECTED / C02 REJECTED / C03 REJECTED / C04 PRODUCT OWNER APPROVED",
     "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n20_candidate_review_checkpoint_2026-09-30.md",
-    "next": "N20_REFERENCE_DELIVERY_BUNDLE_V002 DESIGN REVIEW"
+    "next": "N20_REFERENCE_DELIVERY_BUNDLE_V002 DESIGN REVIEW",
+    "candidate_04": {
+      "status": "PRODUCT OWNER APPROVED / SELECTED FINAL CANDIDATE / FORMAL ARCHIVAL PENDING",
+      "mode": "CLEAN REGENERATION / BUNDLE V002",
+      "dimensions": "941x1672",
+      "byte_size": 2022630,
+      "sha256_preflight": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+      "git_blob_preflight": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+      "approval_date": "2026-09-30",
+      "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n20_candidate_04_po_approval_2026-09-30.md",
+      "verification_workflow": ".github/workflows/p03-n20-approved-upload-verification-v001.yml",
+      "verification_workflow_commit": "828b26583d7334e92b9052dae4d637c9390d9dba",
+      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout"
+    }
   },
   "n20_bundle_design_v0_2": {
     "status": "PRODUCT OWNER APPROVED / LOCKED / BUILT / 5 OF 5 PASS / READY FOR WORK GENERATION",
