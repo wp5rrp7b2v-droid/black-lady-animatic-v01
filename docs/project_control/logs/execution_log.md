@@ -1991,3 +1991,16 @@ Status: `PASS / READY FOR WORK GENERATION`
 - `GENERATION_ALLOWED=TRUE`.
 - Product Owner manual reference upload: `0`.
 - No N20 candidate was generated in this step.
+
+## 2026-09-30｜N20 Candidate 03 Rejection + Bundle V002 Redesign
+
+Status: `C01-C03 REJECTED / BUNDLE V002 DESIGN READY FOR PRODUCT OWNER REVIEW`
+
+- Candidate 03 successfully improved slow同行 walking, gait separation, warm interior lighting and transition-zone scale.
+- Product Owner rejected Candidate 03 because both characters had visibly changed and no longer matched approved Ning Qiushui / Jun Luyuan identities.
+- Root corrective decision: stop further generation from Bundle V001.
+- Proposed V002 reference set: AST_IMG_000060 / AST_IMG_000057 / N19 canonical / AST_IMG_000037 / AST_IMG_000064.
+- Scene Master AST_IMG_000052 remains canonical scene authority in design, but is removed from the five-image generation input set.
+- N19 is authorized only as actual on-screen appearance / wardrobe / body proportion / render-language continuity; N19 pose, shoulder contact, outward gaze and composition must not carry into N20.
+- Candidate 04 remains NOT AUTHORIZED until V002 is Product Owner approved, built and verified.
+- Design: `docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_design_v0_2.md`.
