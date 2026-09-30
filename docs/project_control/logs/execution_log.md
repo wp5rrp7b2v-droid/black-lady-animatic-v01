@@ -2021,3 +2021,18 @@ Status: `PASS / READY FOR N20 CANDIDATE 04 WORK GENERATION`
 - V002 supersedes V001 for subsequent N20 generation.
 - Candidate 01–03 remain rejected and are not generation references.
 - No Candidate 04 generated in this step.
+
+## 2026-09-30｜N20 Story Shot Formal Archival Closeout
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED`
+
+- Selected final: `N20 Candidate 04｜Clean Regeneration / Bundle V002`.
+- Source upload commit: `390f8c837a66f166dc98c98ff88f2906aa160b14`.
+- Exact binary verification run `36663290811`, job `109722497256`: PASS.
+- Exact identity: 941x1672 / 2022630 bytes / SHA-256 `a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e` / Git blob `58e145a51c3f993827e5e47964ad0e7f9dd9f0aa`.
+- Canonical exact-blob publication commit: `230cdbd8e3e78e4211a287eaffe5073f5231485e`.
+- Canonical path: `production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png`.
+- Story Shot registration commit: `6381aa74cd7f959b65798d1eb21db5fa8ee99f96`.
+- Registration verification run `36663515652`, job `109723183583`: SUCCESS.
+- N20 is formally closed.
+- Next: `N21｜Sixteen Guests Enter｜Scene Reference Design V0.1`.
