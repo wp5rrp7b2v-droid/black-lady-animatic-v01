@@ -2036,3 +2036,44 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED /
 - Registration verification run `36663515652`, job `109723183583`: SUCCESS.
 - N20 is formally closed.
 - Next: `N21｜Sixteen Guests Enter｜Scene Reference Design V0.1`.
+
+
+## 2026-09-30｜S02-B V0.3 + N21 Responsibility Redesign
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- S02-B V0.3 + Review Patch 01 approved.
+- N16–N20 remain locked / no rework.
+- Revised downstream sequence: `N21 → N22 → N23 → N24 → A06 → N25 → N26 → N27`.
+- Named-character seeding redistributed: N21 group-scale function first; N22 owns most named-character seeding.
+- Eight high-level cinematic rules locked, including generation-stage color/look continuity and deferred exact composition.
+- N21 Node-Level Director Shot Design V0.1 approved.
+- N21 Scene Reference V0.3 approved.
+- N21 Bundle V002 reduced generation inputs to exactly `AST_IMG_000052 + N20`.
+
+## 2026-09-30｜N21 Reference Delivery Bundle V002 Build
+
+Status: `PASS / TECHNICALLY VALID / FURTHER USE NOW PAUSED`
+
+- Spec commit: `26aebca839ec5016762bed92bc9b52a5aa430b99`.
+- Generic Builder run `36699004641`, job `109833744730`: SUCCESS.
+- Artifact: `N21_REFERENCE_DELIVERY_BUNDLE_V002`, ID `11088797193`.
+- Artifact digest: `sha256:e3ec3be6f1a75eae6507801a776bcf2a6e07312d2a26a91909466a73b805f4dc`.
+- Exact canonical verification: `2/2 PASS`.
+- Independent downloaded-artifact verification: `2/2 PASS`.
+- Builder emitted `GENERATION_ALLOWED=TRUE`.
+- Product Owner manual reference upload: `0`.
+- After C01–C03 review, further use of V002 is paused pending N21 task-scope simplification.
+
+## 2026-09-30｜N21 Candidate 01–03 Review + EOD Pause
+
+Status: `NO CANDIDATE APPROVED / C04 NOT AUTHORIZED`
+
+- Candidate 01: not accepted; frontal ensemble, hero-duo dominance, over-choreographed crowd, excessive face readability, over-bright entrance.
+- Candidate 02: not accepted; entry-space geometry / adventure-threat read failed; crowd read too much like ordinary commuter flow.
+- Candidate 03: not accepted; atmosphere improved, but Jun posture drifted, Ning identity drifted, protagonist weight remained too strong, residual orderly-flow feeling remained.
+- Product Owner explicitly questioned further rule accumulation as a solution; current observed pattern is a multi-person generation tradeoff among crowd composition, atmosphere, character identity and body performance.
+- Root cause is NOT proven as model degradation.
+- Candidate 04 is NOT authorized.
+- N22 is NOT started.
+- Resume point: `N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`.
