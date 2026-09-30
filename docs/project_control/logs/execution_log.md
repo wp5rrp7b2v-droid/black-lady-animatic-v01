@@ -1956,3 +1956,22 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED /
 - Registration verification run `36651939930`, job `109687829876`: SUCCESS / SHA_MATCH / BLOB_MATCH / INDEX_MATCH / DIMENSIONS_MATCH / STAGING_CLEANUP_PASS.
 - N19 is formally closed.
 - Next: `N20 Reference Delivery Bundle Design V0.1`.
+
+## 2026-09-30｜N20 Reference Delivery Bundle Design V0.1
+
+Status: `READY FOR PRODUCT OWNER REVIEW`
+
+- Parent N20 Scene Reference Design V0.1 remains Product Owner approved / locked.
+- Spatial execution clarified to `INTERIOR-SIDE REAR-3Q OBLIQUE FOLLOWING VIEW` so inward walking and receding doorway light can coexist without contradictory camera geometry.
+- N19 was formally evaluated as a possible direct image reference after its closeout.
+- Decision: do NOT include N19 in the N20 generation Bundle because its static shared-outward-gaze / shoulder-contact / doorway-pause composition creates a strong carryover risk precisely where N20 must introduce a new movement state.
+- Proposed 5-reference set:
+  1. AST_IMG_000060 — Ning Character Reference Sheet
+  2. AST_IMG_000037 — Ning REAR_3Q_RIGHT V002
+  3. AST_IMG_000057 — Jun Character Reference Sheet
+  4. AST_IMG_000064 — Jun REAR_3Q_LEFT V001
+  5. AST_IMG_000052 — Castle Entrance Scene Master / DAY_DOOR_OPEN
+- N19 remains narrative continuity predecessor only.
+- Hard performance lock: N19 shoulder contact ends before / as N20 movement begins; no camera-facing turn for facial visibility.
+- No Bundle Spec created; no GitHub Actions build triggered; no Work generation authorized.
+- Design path: `docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_design_v0_1.md`.
