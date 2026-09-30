@@ -1,6 +1,6 @@
 # S02-B Director Shot Design V0.3｜Audience-Retention Revision
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED WITH REVIEW PATCH 01`
 
 Date: 2026-09-30
 
@@ -19,6 +19,41 @@ Canonical S02-B audio boundary:
 Revision scope:
 
 `N21 ONWARD ONLY`
+
+
+
+## 0. Product Owner-approved governance clarification
+
+Review Patch 01:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_01_high_level_rules_2026-09-30.md`
+
+is authoritative for the governance level of N21 onward.
+
+Locked at V0.3 level:
+
+- node narrative function;
+- audience-retention purpose;
+- continuity requirements;
+- high-level cinematic rules;
+- color / look continuity.
+
+Not locked at V0.3 level:
+
+- exact shot size;
+- exact camera position / height / direction;
+- exact foreground / midground / background arrangement;
+- exact character positions;
+- exact body action;
+- exact occlusion;
+- exact face direction;
+- mandatory POV / OTS choice.
+
+Any concrete composition language below is therefore interpreted as:
+
+`PROVISIONAL DIRECTOR EXAMPLE / NON-BINDING UNTIL NODE-LEVEL DIRECTOR SHOT DESIGN`
+
+The node's narrative function remains authoritative.
 
 ## 1. Revision trigger
 
@@ -762,7 +797,7 @@ Proceed one node at a time:
 
 Current disposition:
 
-`S02-B DIRECTOR SHOT DESIGN V0.3 = READY FOR PRODUCT OWNER REVIEW`
+`S02-B DIRECTOR SHOT DESIGN V0.3 + REVIEW PATCH 01 = PRODUCT OWNER APPROVED / LOCKED`
 
 Not authorized yet:
 
@@ -772,6 +807,8 @@ Not authorized yet:
 - Candidate generation;
 - S02-B assembly.
 
-Next required decision:
+Next production step:
 
-`PRODUCT OWNER APPROVAL OF S02-B DIRECTOR SHOT DESIGN V0.3`
+`N21 NODE-LEVEL DIRECTOR SHOT DESIGN → SCENE REFERENCE / BUNDLE DISPOSITION REVIEW`
+
+N21 Work generation remains unauthorized until that node-level design and Bundle disposition review are completed.
