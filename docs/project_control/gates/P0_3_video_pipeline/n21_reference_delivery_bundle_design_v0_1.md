@@ -1,6 +1,6 @@
 # N21｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 6 OF 6 PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-30
 
@@ -481,3 +481,63 @@ Authorized next:
 Work generation remains blocked until:
 
 `GENERATION_ALLOWED=TRUE`
+
+
+## 17. Build result
+
+Bundle:
+
+`N21_REFERENCE_DELIVERY_BUNDLE_V001`
+
+Spec:
+
+`production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V001.json`
+
+Spec commit:
+
+`a3058fe38b2fca462094fbe4df38b41e9ecf5b7b`
+
+Generic builder:
+
+`.github/workflows/story-shot-reference-bundle-builder.yml`
+
+Workflow run:
+
+`36669436051`
+
+Job:
+
+`109741045220`
+
+Result:
+
+`SUCCESS`
+
+Builder verification:
+
+`PASS: 6/6 exact canonical reference binaries verified`
+
+Generation gate:
+
+`GENERATION_ALLOWED=TRUE`
+
+Artifact:
+
+- name: `N21_REFERENCE_DELIVERY_BUNDLE_V001`
+- Artifact ID: `11076819801`
+- ZIP size: `6762818 bytes`
+- digest: `sha256:a141ad98c50538c470901ef40ff7a9baa9e0ae8586703c6e82b617ad346308c1`
+- expires: `2026-10-07T04:34:26Z`
+
+Independent Chat verification:
+
+- downloaded Artifact ZIP SHA-256 = GitHub Artifact digest: `MATCH`
+- bundle_id: `MATCH`
+- reference_count: `6`
+- generation_allowed: `true`
+- overall_result: `PASS`
+- all six PNGs independently checked for byte size / SHA-256 / Git blob / PNG signature: `6/6 PASS`
+
+Formal disposition:
+
+`READY FOR WORK GENERATION / N21 CANDIDATE 01`
