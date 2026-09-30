@@ -1,6 +1,6 @@
 # N21｜Reference Delivery Bundle Design V0.2
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / READY FOR WORK GENERATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / TECHNICALLY VALID / FURTHER USE PAUSED`
 
 Date: 2026-09-30
 
@@ -246,7 +246,7 @@ Its exact verification history is preserved.
 
 ## 11. Current boundary
 
-`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / READY FOR WORK GENERATION`
+`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / TECHNICALLY VALID`
 
 Build result:
 
@@ -261,11 +261,16 @@ Build result:
 - generation gate: `GENERATION_ALLOWED=TRUE`
 - build record: `docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v002_build_record_2026-09-30.md`
 
-Authorized next:
+Post-build production history:
 
-- N21 Candidate 01 Work generation using V002 only.
+- Candidate 01 generated / not accepted;
+- Candidate 02 generated / not accepted;
+- Candidate 03 generated / not accepted.
 
-Still not authorized:
+Current disposition:
 
-- N22 production;
-- Story Shot publication / registration before Product Owner candidate approval.
+`FURTHER BUNDLE USE PAUSED PENDING N21 TASK-SCOPE SIMPLIFICATION REVIEW`
+
+- Candidate 04: `NOT AUTHORIZED`;
+- N22: `NOT STARTED`;
+- do not send V002 to Work again until N21's revised single-frame responsibility is locked and Bundle compatibility is re-reviewed.
