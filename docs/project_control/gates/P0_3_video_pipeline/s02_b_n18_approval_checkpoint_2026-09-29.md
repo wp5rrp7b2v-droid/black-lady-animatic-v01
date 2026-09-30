@@ -1,6 +1,6 @@
 # S02-B｜N18 Product Owner Approval Checkpoint
 
-Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY LOCKED / GITHUB APPROVED-BINARY ARCHIVAL DEFERRED`
+Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY LOCKED / FORMALLY CLOSED`
 
 Date: 2026-09-29
 
@@ -77,3 +77,14 @@ Until those steps complete, N18 Candidate 04 is Product Owner approved but is no
 Next image-production step:
 
 `N19 Scene Reference Design`
+
+
+## Final lifecycle resolution
+
+The archival steps that were pending at the moment of this approval checkpoint were subsequently completed.
+
+Formal closeout authority:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_n18_story_shot_registration_closeout_2026-09-29.md`
+
+This checkpoint is retained as approval-time evidence; the closeout record controls final lifecycle status.
