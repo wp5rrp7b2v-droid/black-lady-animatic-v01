@@ -1,0 +1,57 @@
+name: N19 Approved Story Shot Exact Binary Verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "门前轻触肩头.png"
+      - ".github/workflows/p03-n19-approved-upload-verification-v001.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify N19 approved binary
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, struct, subprocess
+
+          p = Path("门前轻触肩头.png")
+          assert p.is_file(), "APPROVED_SOURCE_NOT_FOUND"
+
+          b = p.read_bytes()
+          assert b[:8] == b"\x89PNG\r\n\x1a\n", "PNG_SIGNATURE_FAIL"
+
+          w, h = struct.unpack(">II", b[16:24])
+
+          expected_size = 2052606
+          expected_sha = "5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a"
+          expected_blob = "c842ad1a0b84b2d504b1e681dd327b01bb57c159"
+
+          actual_size = len(b)
+          actual_sha = hashlib.sha256(b).hexdigest()
+          actual_blob = subprocess.check_output(
+              ["git", "hash-object", str(p)], text=True
+          ).strip()
+
+          assert (w, h) == (941, 1672), "DIMENSIONS_FAIL"
+          assert actual_size == expected_size, "BYTE_SIZE_FAIL"
+          assert actual_sha == expected_sha, "SHA256_FAIL"
+          assert actual_blob == expected_blob, "GIT_BLOB_FAIL"
+
+          print(f"FILENAME={p.name}")
+          print(f"BYTE_SIZE={actual_size}")
+          print(f"SHA256={actual_sha}")
+          print(f"GIT_BLOB={actual_blob}")
+          print(f"DIMENSIONS={w}x{h}")
+          print("PNG_SIGNATURE=PASS")
+          print("SHA_MATCH=YES")
+          print("BLOB_MATCH=YES")
+          print("OVERALL_RESULT=PASS")
