@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R144",
+  "state_revision": "R145",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 C01-C03 REJECTED / BUNDLE V002 DESIGN READY FOR PO REVIEW",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 C01-C03 REJECTED / BUNDLE V002 VERIFIED / READY FOR C04 WORK GENERATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N20 Reference Delivery Bundle Design V0.2 Review",
-  "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Review N20 Reference Delivery Bundle Design V0.2. If approved, create N20_REFERENCE_DELIVERY_BUNDLE_V002 spec, run Generic Story Shot Reference Bundle Builder, verify 5/5, then generate N20 Candidate 04 Clean Regeneration.",
+  "current_task": "P0.3｜S02-B｜N20 Candidate 04 Clean Regeneration",
+  "blocker": "NONE",
+  "next_action": "Work automatically downloads N20_REFERENCE_DELIVERY_BUNDLE_V002 Artifact 11073610356, revalidates delivery_manifest.json and all five PNGs, then generates exactly one N20 Candidate 04 Clean Regeneration and stops for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-N20-BUNDLE-V002-DESIGN-R144",
-    "status": "N20 C01-C03 REJECTED / BUNDLE V002 CHARACTER CONTINUITY REINFORCEMENT READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-30-N20-BUNDLE-V002-BUILT-R145",
+    "status": "N20 BUNDLE V002 PRODUCT OWNER APPROVED / BUILT / 5 OF 5 PASS / GENERATION_ALLOWED=TRUE",
     "completed": [
-      "N20 Candidate 01 rejected for walking-direction/spatial-axis failure.",
-      "N20 Candidate 02 rejected for relational-walking, character-continuity and interior-lighting failure.",
-      "N20 Candidate 03 rejected for character identity / visual continuity failure.",
-      "N20 Bundle V002 design prepared: replace Scene Master generation input with N19 canonical Story Shot.",
-      "V002 keeps 5 references: AST_IMG_000060, AST_IMG_000057, N19, AST_IMG_000037, AST_IMG_000064.",
-      "N19 is constrained to appearance / wardrobe / body proportion / render-language continuity only; its pose/composition/shoulder contact/outward gaze are explicitly non-authoritative."
+      "N20 Bundle V0.2 Product Owner approved and locked.",
+      "Bundle V002 spec committed at 67c316246fd76b5d039148d524c587ef67899617.",
+      "Generic Story Shot Reference Bundle Builder run 36658459273 / job 109707734342 completed successfully.",
+      "Artifact N20_REFERENCE_DELIVERY_BUNDLE_V002 / ID 11073610356 produced.",
+      "GitHub exact canonical verification: 5/5 PASS.",
+      "Chat independently downloaded Artifact ZIP and verified digest plus all five reference PNG identities: 5/5 PASS.",
+      "GENERATION_ALLOWED=TRUE."
     ],
-    "resume_from": "Product Owner review of N20 Reference Delivery Bundle Design V0.2.",
-    "blockers": [
-      "PRODUCT OWNER REVIEW"
-    ]
+    "resume_from": "N20 Candidate 04 Clean Regeneration in Work.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1818,7 +1817,7 @@
     "next": "N20_REFERENCE_DELIVERY_BUNDLE_V002 DESIGN REVIEW"
   },
   "n20_bundle_design_v0_2": {
-    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / BUILT / 5 OF 5 PASS / READY FOR WORK GENERATION",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_design_v0_2.md",
     "commit": "852a59d152943c118ad53ef6f1c6fdd65ec56706",
     "target_bundle": "N20_REFERENCE_DELIVERY_BUNDLE_V002",
@@ -1832,6 +1831,19 @@
     ],
     "removed_generation_reference": "AST_IMG_000052",
     "change_reason": "CHARACTER CONTINUITY REINFORCEMENT",
-    "n19_scope": "APPEARANCE / WARDROBE / BODY PROPORTION / RENDER STYLE ONLY; NOT POSE OR COMPOSITION"
+    "n19_scope": "APPEARANCE / WARDROBE / BODY PROPORTION / RENDER STYLE ONLY; NOT POSE OR COMPOSITION",
+    "approval_date": "2026-09-30",
+    "spec_path": "production/bundle_specs/N20_REFERENCE_DELIVERY_BUNDLE_V002.json",
+    "spec_commit": "67c316246fd76b5d039148d524c587ef67899617",
+    "workflow_run": 36658459273,
+    "job": 109707734342,
+    "artifact_id": 11073610356,
+    "artifact_digest": "sha256:ff3ab2ba9b22bad988cd201972a27236b2a9f7c2730d4109680664ebabcfd4bd",
+    "artifact_size": 8448179,
+    "expires_at": "2026-10-07T02:08:51Z",
+    "exact_verification": "5/5 PASS",
+    "independent_artifact_verification": "5/5 PASS",
+    "generation_allowed": true,
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_v002_build_record_2026-09-30.md"
   }
 }
