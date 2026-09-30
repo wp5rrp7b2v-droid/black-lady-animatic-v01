@@ -1,6 +1,6 @@
 # N21｜Sixteen Guests Enter｜Scene Reference Design V0.2
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-09-30
 
@@ -505,17 +505,24 @@ A future N21 candidate passes only if:
 
 Current disposition:
 
-`N21 SCENE REFERENCE DESIGN V0.2 = READY FOR PRODUCT OWNER REVIEW`
+`N21 SCENE REFERENCE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized yet:
+Authorized next:
 
-- N21 Reference Delivery Bundle Design;
+- N21 Reference Delivery Bundle Design.
+
+Still not authorized:
+
 - Bundle Spec;
 - GitHub Actions Bundle build;
 - Work generation;
 - N22;
 - Story Shot publication / registration.
 
-Next decision:
+## 19. Product Owner approval
 
-`PRODUCT OWNER APPROVAL OF N21 SCENE REFERENCE DESIGN V0.2`
+On 2026-09-30, the Product Owner explicitly authorized proceeding from N21 Scene Reference Design V0.2 into Bundle Design.
+
+Current status:
+
+`PRODUCT OWNER APPROVED / LOCKED`
