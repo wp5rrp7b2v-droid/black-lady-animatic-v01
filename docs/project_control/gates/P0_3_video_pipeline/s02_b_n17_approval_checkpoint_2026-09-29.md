@@ -1,6 +1,6 @@
 # S02-B｜N17 Product Owner Approval Checkpoint
 
-Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY LOCKED / MANUAL GITHUB UPLOAD PENDING`
+Status: `PRODUCT OWNER APPROVED / EXACT SOURCE BINARY LOCKED / FORMALLY CLOSED`
 
 Date: 2026-09-29
 
@@ -70,3 +70,14 @@ Pending:
 - N17 closeout.
 
 No N18 production is authorized by this checkpoint.
+
+
+## Final lifecycle resolution
+
+The archival steps that were pending at the moment of this approval checkpoint were subsequently completed.
+
+Formal closeout authority:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_n17_story_shot_registration_closeout_2026-09-29.md`
+
+This checkpoint is retained as approval-time evidence; the closeout record controls final lifecycle status.
