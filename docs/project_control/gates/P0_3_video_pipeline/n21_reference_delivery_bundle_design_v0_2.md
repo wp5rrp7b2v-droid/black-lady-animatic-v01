@@ -1,6 +1,6 @@
 # N21｜Reference Delivery Bundle Design V0.2
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / READY FOR WORK GENERATION`
 
 Date: 2026-09-30
 
@@ -246,16 +246,26 @@ Its exact verification history is preserved.
 
 ## 11. Current boundary
 
-`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED / NOT YET BUILT`
+`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.2 = PRODUCT OWNER APPROVED / LOCKED / BUILT / 2 OF 2 PASS / READY FOR WORK GENERATION`
 
-Not authorized yet:
+Build result:
 
-- Bundle Spec creation;
-- GitHub Actions build;
-- Work generation;
-- Candidate generation;
-- N22 production.
+- spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V002.json`
+- spec commit: `26aebca839ec5016762bed92bc9b52a5aa430b99`
+- workflow run: `36699004641`
+- job: `109833744730`
+- artifact id: `11088797193`
+- artifact digest: `sha256:e3ec3be6f1a75eae6507801a776bcf2a6e07312d2a26a91909466a73b805f4dc`
+- exact verification: `2/2 PASS`
+- independent artifact verification: `2/2 PASS`
+- generation gate: `GENERATION_ALLOWED=TRUE`
+- build record: `docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v002_build_record_2026-09-30.md`
 
-Next complete step:
+Authorized next:
 
-`CREATE N21_REFERENCE_DELIVERY_BUNDLE_V002 SPEC → RUN GENERIC BUILDER → VERIFY 2/2`
+- N21 Candidate 01 Work generation using V002 only.
+
+Still not authorized:
+
+- N22 production;
+- Story Shot publication / registration before Product Owner candidate approval.
