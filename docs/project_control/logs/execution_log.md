@@ -2004,3 +2004,20 @@ Status: `C01-C03 REJECTED / BUNDLE V002 DESIGN READY FOR PRODUCT OWNER REVIEW`
 - N19 is authorized only as actual on-screen appearance / wardrobe / body proportion / render-language continuity; N19 pose, shoulder contact, outward gaze and composition must not carry into N20.
 - Candidate 04 remains NOT AUTHORIZED until V002 is Product Owner approved, built and verified.
 - Design: `docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_design_v0_2.md`.
+
+## 2026-09-30｜N20 Reference Delivery Bundle V002 Build
+
+Status: `PASS / READY FOR N20 CANDIDATE 04 WORK GENERATION`
+
+- Product Owner approved N20 Reference Delivery Bundle Design V0.2.
+- Bundle Spec commit: `67c316246fd76b5d039148d524c587ef67899617`.
+- Generic Builder run `36658459273`, job `109707734342`: SUCCESS.
+- Artifact: `N20_REFERENCE_DELIVERY_BUNDLE_V002` / ID `11073610356`.
+- Artifact size: `8448179` bytes.
+- Artifact digest: `sha256:ff3ab2ba9b22bad988cd201972a27236b2a9f7c2730d4109680664ebabcfd4bd`.
+- GitHub exact verification: `5/5 PASS`.
+- Chat independent Artifact verification: ZIP digest MATCH; all five PNG byte sizes / SHA-256 / Git blobs / PNG signatures MATCH.
+- `GENERATION_ALLOWED=TRUE`.
+- V002 supersedes V001 for subsequent N20 generation.
+- Candidate 01–03 remain rejected and are not generation references.
+- No Candidate 04 generated in this step.
