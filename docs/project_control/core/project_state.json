@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R146",
+  "state_revision": "R147",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 C04 PRODUCT OWNER APPROVED / EXACT-BINARY VERIFICATION READY / WAITING APPROVED PNG UPLOAD",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N20 FORMALLY CLOSED / N21 SCENE REFERENCE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N20 Candidate 04 Approved Binary Intake",
-  "blocker": "APPROVED PNG BINARY NOT YET MATERIALIZED IN GITHUB",
-  "next_action": "Upload the exact approved PNG once to main as 烛光下并肩走入城堡.png. GitHub Actions workflow p03-n20-approved-upload-verification-v001.yml will automatically verify dimensions, byte size, SHA-256 and Git blob identity. After PASS, continue Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout.",
+  "current_task": "P0.3｜S02-B｜N21 Sixteen Guests Enter｜Scene Reference Design V0.1",
+  "blocker": "NONE",
+  "next_action": "Begin N21 Scene Reference Design V0.1 from the locked S02-B Director Shot Design V0.2. N21 source TC is 01:54.700→02:04.300 and corresponds to the former V0.1 N20 'Sixteen Guests Enter' beat.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,17 +114,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-N20-C04-VERIFY-READY-R146",
-    "status": "N20 C04 PRODUCT OWNER APPROVED / EXACT-BINARY VERIFICATION WORKFLOW READY / WAITING ONE-TIME PNG UPLOAD",
+    "id": "2026-09-30-N20-FORMAL-CLOSEOUT-R147",
+    "status": "N20 PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED",
     "completed": [
-      "N20 Candidate 04 explicitly approved by Product Owner.",
-      "Approved source PNG preflight identity locked: 941x1672 / 2022630 bytes / SHA-256 a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e / Git blob 58e145a51c3f993827e5e47964ad0e7f9dd9f0aa.",
-      "N20 approved-upload exact-binary verification workflow published to main at commit 828b26583d7334e92b9052dae4d637c9390d9dba."
+      "N20 Candidate 04 Product Owner approved.",
+      "Exact approved binary verified by GitHub Actions run 36663290811.",
+      "Exact Git blob canonically published at production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png in commit 230cdbd8e3e78e4211a287eaffe5073f5231485e.",
+      "N20 Story Shot registered in commit 6381aa74cd7f959b65798d1eb21db5fa8ee99f96.",
+      "Registration verification run 36663515652 PASS.",
+      "N20 formal closeout recorded."
     ],
-    "resume_from": "One-time exact approved PNG upload to GitHub main as 烛光下并肩走入城堡.png.",
-    "blockers": [
-      "CHAT-NATIVE BINARY FILE-HANDLE UPLOAD STILL UNAVAILABLE"
-    ]
+    "resume_from": "N21｜Sixteen Guests Enter｜Scene Reference Design V0.1.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1810,11 +1811,11 @@
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_v001_build_record_2026-09-30.md"
   },
   "n20_candidate_review": {
-    "status": "C01 REJECTED / C02 REJECTED / C03 REJECTED / C04 PRODUCT OWNER APPROVED",
+    "status": "N20 COMPLETE / C01-C03 REJECTED / C04 PRODUCT OWNER APPROVED + CANONICAL + REGISTERED + VERIFIED",
     "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n20_candidate_review_checkpoint_2026-09-30.md",
     "next": "N20_REFERENCE_DELIVERY_BUNDLE_V002 DESIGN REVIEW",
     "candidate_04": {
-      "status": "PRODUCT OWNER APPROVED / SELECTED FINAL CANDIDATE / FORMAL ARCHIVAL PENDING",
+      "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED / CLOSED",
       "mode": "CLEAN REGENERATION / BUNDLE V002",
       "dimensions": "941x1672",
       "byte_size": 2022630,
@@ -1824,7 +1825,17 @@
       "checkpoint": "docs/project_control/gates/P0_3_video_pipeline/n20_candidate_04_po_approval_2026-09-30.md",
       "verification_workflow": ".github/workflows/p03-n20-approved-upload-verification-v001.yml",
       "verification_workflow_commit": "828b26583d7334e92b9052dae4d637c9390d9dba",
-      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout"
+      "required_next_step": "Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout",
+      "sha256": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+      "github_blob_sha": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+      "exact_binary_verification_run": 36663290811,
+      "exact_binary_verification_job": 109722497256,
+      "canonical_path": "production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png",
+      "canonical_publication_commit": "230cdbd8e3e78e4211a287eaffe5073f5231485e",
+      "registration_commit": "6381aa74cd7f959b65798d1eb21db5fa8ee99f96",
+      "registration_verification_run": 36663515652,
+      "registration_verification_job": 109723183583,
+      "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n20_story_shot_registration_closeout_2026-09-30.md"
     }
   },
   "n20_bundle_design_v0_2": {
@@ -1856,5 +1867,19 @@
     "independent_artifact_verification": "5/5 PASS",
     "generation_allowed": true,
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n20_reference_delivery_bundle_v002_build_record_2026-09-30.md"
+  },
+  "n20_candidate_04": {
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / FORMALLY REGISTERED / REGISTRATION VERIFIED / CLOSED",
+    "selected_candidate": "N20 Candidate 04｜Clean Regeneration / Bundle V002",
+    "dimensions": "941x1672",
+    "byte_size": 2022630,
+    "sha256": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+    "github_blob_sha": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+    "exact_binary_verification_run": 36663290811,
+    "canonical_path": "production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png",
+    "canonical_publication_commit": "230cdbd8e3e78e4211a287eaffe5073f5231485e",
+    "registration_commit": "6381aa74cd7f959b65798d1eb21db5fa8ee99f96",
+    "registration_verification_run": 36663515652,
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n20_story_shot_registration_closeout_2026-09-30.md"
   }
 }
