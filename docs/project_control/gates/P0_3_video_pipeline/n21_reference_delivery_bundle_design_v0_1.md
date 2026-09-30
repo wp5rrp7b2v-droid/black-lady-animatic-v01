@@ -1,6 +1,6 @@
 # N21｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 6 OF 6 PASS / READY FOR WORK GENERATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUILT / 6 OF 6 PASS / WORK GENERATION SUSPENDED PENDING S02-B V0.3`
 
 Date: 2026-09-30
 
@@ -541,3 +541,22 @@ Independent Chat verification:
 Formal disposition:
 
 `READY FOR WORK GENERATION / N21 CANDIDATE 01`
+
+
+## 18. V0.3 suspension note
+
+On 2026-09-30, before Work generation began, Product Owner required an Audience-Retention revision of S02-B from N21 onward.
+
+The Artifact remains technically valid:
+
+- `N21_REFERENCE_DELIVERY_BUNDLE_V001`
+- 6/6 exact reference verification PASS
+- Artifact ID `11076819801`
+
+However, its existing Work handoff was authored for the pre-V0.3 single-shot N21 concept.
+
+Disposition:
+
+`VERIFIED ARTIFACT RETAINED / WORK GENERATION SUSPENDED`
+
+Do NOT generate N21 Candidate 01 from this handoff until S02-B Director Shot Design V0.3 is Product Owner approved and the N21/N22 reference responsibilities are reassessed.
