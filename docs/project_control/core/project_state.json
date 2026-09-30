@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R150",
+  "state_revision": "R151",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 SCENE DESIGN V0.2 LOCKED / BUNDLE DESIGN V0.1 READY FOR PO REVIEW",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 BUNDLE V001 VERIFIED / READY FOR CANDIDATE 01 WORK GENERATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Reference Delivery Bundle Design V0.1 Review",
-  "blocker": "PRODUCT OWNER REVIEW",
-  "next_action": "Review N21 Reference Delivery Bundle Design V0.1. If approved, create N21_REFERENCE_DELIVERY_BUNDLE_V001 spec, run Generic Story Shot Reference Bundle Builder, verify 6/6, then hand off to Work for N21 Candidate 01.",
+  "current_task": "P0.3｜S02-B｜N21 Candidate 01 Work Generation",
+  "blocker": "NONE",
+  "next_action": "Work automatically downloads N21_REFERENCE_DELIVERY_BUNDLE_V001, revalidates all 6 references, generates exactly one N21 Candidate 01 PNG, and stops for Product Owner review. Do not start N22.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-N21-BUNDLE-DESIGN-R150",
-    "status": "N21 SCENE DESIGN V0.2 PRODUCT OWNER APPROVED / BUNDLE DESIGN V0.1 READY FOR PRODUCT OWNER REVIEW",
+    "id": "2026-09-30-N21-BUNDLE-V001-READY-R151",
+    "status": "N21 BUNDLE V001 BUILT / 6 OF 6 PASS / GENERATION_ALLOWED TRUE / READY FOR WORK",
     "completed": [
-      "N21 Scene Reference Design V0.2 locked after Product Owner authorization.",
-      "N21 Bundle Design V0.1 prepared with six formal references.",
-      "Reference set: AST_IMG_000052, N20 canonical, AST_IMG_000061, AST_IMG_000058, AST_IMG_000062, AST_IMG_000056.",
-      "Ning / Jun Character Sheets intentionally excluded from V001 to avoid reference overload; N20 canonical carries immediate Ning / Jun continuity.",
-      "A03 remains composition/spatial review authority only and is excluded from formal Bundle inputs.",
-      "Generic Story Shot Reference Bundle Builder remains the only authorized builder."
+      "N21 Reference Delivery Bundle Design V0.1 Product Owner approved and locked.",
+      "Bundle spec created at production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V001.json.",
+      "Generic Story Shot Reference Bundle Builder run 36669436051 succeeded.",
+      "Builder exact verification: 6/6 PASS.",
+      "Artifact ID 11076819801 published with digest sha256:a141ad98c50538c470901ef40ff7a9baa9e0ae8586703c6e82b617ad346308c1.",
+      "Chat independently downloaded the Artifact and verified ZIP digest plus all six PNGs by byte size, SHA-256, Git blob and PNG signature: 6/6 PASS.",
+      "GENERATION_ALLOWED=TRUE."
     ],
-    "resume_from": "Product Owner review of N21 Reference Delivery Bundle Design V0.1.",
-    "blockers": [
-      "PRODUCT OWNER REVIEW"
-    ]
+    "resume_from": "Issue N21 Candidate 01 formal Work generation instruction using N21_REFERENCE_DELIVERY_BUNDLE_V001.",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -1938,7 +1937,7 @@
     "lock_commit": "669f00046faf62608ac6b21d9a0902d28370b8ab"
   },
   "n21_reference_delivery_bundle_design_v0_1": {
-    "status": "READY FOR PRODUCT OWNER REVIEW",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / BUILT / 6 OF 6 PASS / READY FOR WORK GENERATION",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_design_v0_1.md",
     "commit": "8f97822cc9ece5f7d9b4c2ae67bfaeff97a4f4c0",
     "bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V001",
@@ -1965,6 +1964,20 @@
     "per_shot_workflow_allowed": false,
     "bundle_spec_created": false,
     "build_authorized": false,
-    "generation_authorized": false
+    "generation_authorized": false,
+    "approval_date": "2026-09-30",
+    "design_lock_commit": "2d663b0fc4749b2a0302a8dc2f25c2fbee5aebe8",
+    "spec_path": "production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "spec_commit": "a3058fe38b2fca462094fbe4df38b41e9ecf5b7b",
+    "workflow_run": 36669436051,
+    "job": 109741045220,
+    "artifact_id": 11076819801,
+    "artifact_digest": "sha256:a141ad98c50538c470901ef40ff7a9baa9e0ae8586703c6e82b617ad346308c1",
+    "artifact_size": 6762818,
+    "expires_at": "2026-10-07T04:34:26Z",
+    "exact_verification": "6/6 PASS",
+    "independent_artifact_verification": "6/6 PASS",
+    "generation_allowed": true,
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v001_build_record_2026-09-30.md"
   }
 }
