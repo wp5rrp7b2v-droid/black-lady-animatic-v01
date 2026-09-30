@@ -255,3 +255,21 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - P0.3 remains `IN PROGRESS / NOT YET VALIDATED`.
 - Next production work begins after canonical audio `01:18.750` only after Product Owner authorization.
 
+
+
+## P0.3 Current Validation Note｜2026-09-30 EOD
+
+- P0.3 remains `IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED`.
+- S02-A remains `FORMALLY CLOSED`.
+- S02-B remains `ACTIVE`.
+- N16 / N17 / N18 / N19 / N20 are all `PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED`.
+- Current registered Story Shot count = `26`.
+- S02-B Director Shot Design V0.3 + Review Patch 01 is `PRODUCT OWNER APPROVED / LOCKED`.
+- N21 Node-Level Director Shot Design V0.1 and Scene Reference Design V0.3 are approved but their further production use is paused pending task-scope simplification review.
+- `N21_REFERENCE_DELIVERY_BUNDLE_V002` remains technically valid with `2/2 PASS`, Artifact ID `11088797193`; further generation use is paused.
+- N21 Candidate 01 / 02 / 03 are not approved.
+- N21 Candidate 04 is `NOT AUTHORIZED`.
+- Current hard blocker is creative/generation stability in multi-person imagery, tracked as `RISK-003`.
+- Resume point: `N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`.
+- N22 remains `NOT STARTED`.
+- No P0.3 Gate PASS is claimed.
