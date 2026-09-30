@@ -1,6 +1,6 @@
 # N19 Candidate Review Checkpoint｜2026-09-29
 
-Status: `CANDIDATE 01 REJECTED / CANDIDATE 02 REJECTED / CANDIDATE 03 NOT YET GENERATED`
+Status: `HISTORICAL REVIEW / C01-C02 REJECTED / C03 SUPERSEDED / C04 PRODUCT OWNER APPROVED / FORMALLY CLOSED`
 
 Shot:
 
@@ -110,3 +110,23 @@ Not authorized / not performed:
 Resume point:
 
 `N19 Candidate 03 Clean Regeneration — redesigned spatial composition`
+
+
+## Final resolution
+
+This checkpoint records the state at the end of 2026-09-29 only.
+
+Subsequent 2026-09-30 work completed:
+
+- Candidate 03 Clean Regeneration resolved the spatial geometry and became the base for a localized shoulder edit;
+- Candidate 04 was explicitly Product Owner approved;
+- exact binary verification passed;
+- canonical exact-blob publication completed;
+- Story Shot registration completed;
+- registration verification passed.
+
+Formal closeout authority:
+
+`docs/project_control/gates/P0_3_video_pipeline/s02_b_n19_story_shot_registration_closeout_2026-09-30.md`
+
+The old “Candidate 03 not yet generated / resume from Candidate 03” wording is historical and is not a current NEXT action.
