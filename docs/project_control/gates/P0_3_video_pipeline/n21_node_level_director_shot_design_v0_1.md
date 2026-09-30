@@ -316,13 +316,16 @@ Current disposition:
 
 `N21 NODE-LEVEL DIRECTOR SHOT DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized yet:
+Subsequent production history:
 
-- Work generation;
-- reuse of Bundle V001 handoff;
-- N22 production;
-- candidate generation.
+- Scene Reference V0.3 approved;
+- Bundle V002 built and verified 2/2 PASS;
+- Candidate 01 / 02 / 03 generated and not accepted.
 
-Next step:
+Current production use:
 
-`N21 SCENE REFERENCE / BUNDLE DISPOSITION REVIEW`
+`PAUSED PENDING N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
+
+Candidate 04 is not authorized. N22 is not started.
+
+The approved V0.1 document remains design history and authority for the already-tested group-scale concept, but its exact single-frame burden is under review before further generation.
