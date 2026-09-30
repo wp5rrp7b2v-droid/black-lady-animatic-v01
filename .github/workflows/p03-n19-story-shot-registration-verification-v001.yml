@@ -1,0 +1,57 @@
+name: N19 Story Shot Registration Verification V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/story_shots/story_shot_index.jsonl"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify N19 canonical binary and index
+        shell: python
+        run: |
+          from pathlib import Path
+          import json, hashlib, subprocess, struct
+
+          path = "production/image_library/approved/story_shots/N19_CONDITIONS_CAN_CHANGE_APPROVED_V001.png"
+          sha = "5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a"
+          blob = "c842ad1a0b84b2d504b1e681dd327b01bb57c159"
+          expected_size = 2052606
+
+          b = Path(path).read_bytes()
+          assert len(b) == expected_size
+          assert hashlib.sha256(b).hexdigest() == sha
+          assert subprocess.check_output(["git","hash-object",path], text=True).strip() == blob
+          assert struct.unpack(">II", b[16:24]) == (941,1672)
+
+          rows = [json.loads(x) for x in Path("production/story_shots/story_shot_index.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          hits = [x for x in rows if x.get("shot_id") == "N19"]
+          assert len(hits) == 1
+
+          r = hits[0]
+          assert r["canonical_path"] == path
+          assert r["sha256_locked_identity"] == sha
+          assert r["github_blob_sha"] == blob
+          assert r["byte_size"] == expected_size
+          assert r["dimensions"] == {"width":941,"height":1672}
+          assert r["approval_status"] == "APPROVED"
+          assert r["lifecycle"] == "CURRENT"
+          assert r["title"] == "Conditions Can Change — Entrance Response"
+          assert r["scene"] == "CASTLE_ENTRANCE"
+          assert r["characters"] == ["NING_QIUSHUI","JUN_LUYUAN"]
+          assert r["timeline"] == "01:46.720-01:54.700 / N19→N20 micro-cut deferred"
+
+          assert not Path("门前轻触肩头.png").exists()
+
+          print("N19_PASS SHA_MATCH=YES BLOB_MATCH=YES INDEX_MATCH=YES DIMENSIONS_MATCH=YES")
+          print("STAGING_CLEANUP_PASS")
+          print("OVERALL_RESULT=PASS")
