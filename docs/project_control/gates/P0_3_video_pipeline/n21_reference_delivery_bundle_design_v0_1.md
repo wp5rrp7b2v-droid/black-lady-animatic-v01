@@ -1,6 +1,6 @@
 # N21｜Reference Delivery Bundle Design V0.1
 
-Status: `READY FOR PRODUCT OWNER REVIEW`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
 Date: 2026-09-30
 
@@ -453,18 +453,31 @@ Do not include in V001:
 
 Current disposition:
 
-`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = READY FOR PRODUCT OWNER REVIEW`
+`N21 REFERENCE DELIVERY BUNDLE DESIGN V0.1 = PRODUCT OWNER APPROVED / LOCKED / BUNDLE BUILD AUTHORIZED`
 
-Not authorized yet:
+Authorized next:
 
 - Bundle Spec creation;
-- GitHub Actions Bundle build;
-- Artifact publication;
-- Work generation;
-- Candidate 01;
+- Generic Story Shot Reference Bundle Builder execution;
+- 6/6 exact reference verification.
+
+Still not authorized:
+
+- Work generation before `GENERATION_ALLOWED=TRUE`;
+- Candidate 02;
 - N22;
-- Story Shot publication / registration.
+- Story Shot publication / registration before Product Owner candidate approval.
 
-Next decision:
+## 16. Product Owner approval
 
-`PRODUCT OWNER APPROVAL OF N21 REFERENCE DELIVERY BUNDLE DESIGN V0.1`
+On 2026-09-30, the Product Owner explicitly approved N21 Reference Delivery Bundle Design V0.1.
+
+Authorized next:
+
+1. create `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V001.json`;
+2. run `.github/workflows/story-shot-reference-bundle-builder.yml`;
+3. independently verify the generated Artifact.
+
+Work generation remains blocked until:
+
+`GENERATION_ALLOWED=TRUE`
