@@ -996,3 +996,39 @@ Resume next session from:
 
 Do not reopen S02-A unless Product Owner explicitly authorizes a revision.
 
+
+
+## S02-B Current Active State｜2026-09-30 EOD
+
+Status:
+
+`S02-B ACTIVE / N21 TASK-SCOPE SIMPLIFICATION PENDING / C04 NOT AUTHORIZED`
+
+Formally closed Story Shots:
+
+`N16 / N17 / N18 / N19 / N20`
+
+Current registered Story Shot count:
+
+`26`
+
+N21 current facts:
+
+- Director Shot Design V0.1: Product Owner approved / locked;
+- Scene Reference Design V0.3: Product Owner approved / locked, production use paused pending scope review;
+- Bundle V002: technically valid `2/2 PASS`, Artifact ID `11088797193`, further use paused;
+- Candidate 01: not accepted;
+- Candidate 02: not accepted;
+- Candidate 03: not accepted;
+- Candidate 04: not authorized;
+- N22: not started.
+
+Current blocker:
+
+`RISK-003 / MULTI-PERSON GENERATION TRADEOFF: CROWD COMPOSITION / ATMOSPHERE / CHARACTER IDENTITY / BODY PERFORMANCE`
+
+Resume next session from:
+
+`N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
+
+Do not generate Candidate 04 before the revised N21 single-frame responsibility is explicitly locked.
