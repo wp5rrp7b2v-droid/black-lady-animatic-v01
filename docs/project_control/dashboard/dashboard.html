@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V088</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V091</title>
 <style>
 :root{
   --bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;
@@ -57,19 +57,20 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V090 · Product Owner 驾驶舱 · Derived from R120 · Updated 2026-09-28</p>
+  <p class="muted">Project Dashboard V091 · Product Owner 驾驶舱 · Derived from R141 · Updated 2026-09-30</p>
 
   <section class="hero">
     <div class="kicker">Current State</div>
-    <div class="hero-title">P0.3｜S02-A 已正式收口</div>
-    <p><span class="tag">OPENING APPROVED</span> <span class="tag">CANONICAL MASTER ARCHIVED</span> <span class="tag">P0.3 IN PROGRESS</span></p>
-    <div class="hero-next">今日收口：S02-A 六镜头已完成图片正式化、音频边界 QC、Assembly、视频 Canonical Publication、Video Index Registration 与 Registration Verification；Project Control 收口至 R120。下一段从 canonical audio 01:18.750 之后开始，尚未授权。</div>
+    <div class="hero-title">P0.3｜S02-B ACTIVE｜N19 已正式收口</div>
+    <p><span class="tag">S02-A CLOSED</span> <span class="tag">N19 CLOSED</span> <span class="tag">S02-B ACTIVE</span> <span class="tag">P0.3 IN PROGRESS</span></p>
+    <div class="hero-next">N19 Candidate 04 已完成 Product Owner Approval → Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout；Project Control 已推进至 R141。下一步进入已批准 N20 Scene Reference Design V0.1 的 Reference Delivery Bundle Design。</div>
     <div class="pipeline">
-      <span class="step">OPENING_V001 已归档</span>
-      <span class="step">S02-A Story Shots 已登记</span>
-      <span class="step">S02_A_ASSEMBLY_V001 已归档</span>
-      <span class="step">R120 EOD Closeout</span><span class="step active">Await Next Sequence Authorization</span>
-      <span class="step">P0.3 Validation Continues</span>
+      <span class="step">S02-A FORMALLY CLOSED</span>
+      <span class="step">N16 FORMALLY CLOSED</span>
+      <span class="step">N17 FORMALLY CLOSED</span>
+      <span class="step">N18 FORMALLY CLOSED</span>
+      <span class="step">N19 FORMALLY CLOSED</span>
+      <span class="step active">N20 Bundle Design NEXT</span>
     </div>
   </section>
 
@@ -90,16 +91,16 @@ ul.compact li{margin:4px 0}
 
     <section class="card span-3">
       <div class="kicker">Approved Story Shots</div>
-      <div class="big">21</div>
+      <div class="big">25</div>
       <strong>Current registered Story Shots</strong>
-      <p class="muted">包含 S02-A 正式 Story Shots N11 / N12 / N14 / N15；N13 已取消且未登记。</p>
+      <p class="muted">N19 已完成 canonical publication、Story Shot registration 与 verification；N13 仍为 CANCELLED / NOT REGISTERED。</p>
     </section>
 
     <section class="card span-3">
       <div class="kicker">Current Blockers</div>
       <div class="big">0</div>
       <strong>No hard blocker</strong>
-      <p class="muted">当前无硬阻塞；下一制作段尚未授权。恢复时从 canonical audio 01:18.750 之后开始。</p>
+      <p class="muted">当前无硬阻塞；N20 Scene Reference Design V0.1 已批准，下一步为 N20 Reference Delivery Bundle Design。</p>
     </section>
 
     <section class="card span-12">
@@ -126,24 +127,24 @@ ul.compact li{margin:4px 0}
       <div class="kicker">What To Do Next</div>
       <h2>当前下一步</h2>
       <div class="focus">
-        <strong>Step 1｜Opening V2 Proof Assembly</strong>
-        <p>使用完整 12 镜结构与 canonical source audio 重新组装 Opening。</p>
-        <strong>Step 2｜PO Review</strong>
-        <p>重点审核音频/动作对齐、镜头节奏、叙事可读性和克制 2D 运动。</p>
-        <strong>Step 3｜P0.3 Decision</strong>
-        <p>只有代表性 proof 通过并得到 Product Owner 明确批准后，才能进入 P0.3 PASS。</p>
+        <strong>Step 1｜N20 Reference Delivery Bundle Design V0.1</strong>
+        <p>基于已批准 N20 Scene Reference Design V0.1 设计正式参考集合，并评估刚刚正式关闭的 N19 是否作为 immediate continuity reference。</p>
+        <strong>Step 2｜Bundle Build + Verification</strong>
+        <p>继续使用固定 Generic Story Shot Reference Bundle Builder；GitHub Actions 构建并核验后交 Work。</p>
+        <strong>Step 3｜N20 Work Generation</strong>
+        <p>只生成 N20 候选图，等待 Product Owner 审核，不提前进入 N21。</p>
       </div>
     </section>
 
     <section class="card span-4">
       <div class="kicker">Today Locked</div>
-      <h2>2026-09-27</h2>
+      <h2>2026-09-30</h2>
       <ul class="compact">
-        <li>N06 Candidate 02：正式批准并登记。</li>
-        <li>N07 Candidate 01：正式批准并登记。</li>
-        <li>Opening V2 12-shot Story Shot Set：完整。</li>
-        <li>Approved Story Shot 总数：17。</li>
-        <li>PR #16：继续保留为 V1 技术证据，不 merge。</li>
+        <li>N19 Candidate 04：Product Owner APPROVED。</li>
+        <li>Exact Binary Verification：run 36651718484 PASS。</li>
+        <li>Canonical Publication：commit 95d2bda461e74e0c3c5c6852684e5ca3d3bbb92a。</li>
+        <li>Story Shot Registration：commit 4185a567341f29adcbb40f8d3d089e5db60b784c。</li>
+        <li>Registration Verification：run 36651939930 PASS；N19 FORMALLY CLOSED。</li>
       </ul>
     </section>
 
@@ -215,6 +216,17 @@ ul.compact li{margin:4px 0}
       <li>Canonical video：production/video/approved/s02_a/S02_A_ASSEMBLY_APPROVED_V001.mp4</li>
       <li>Status：PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / FORMALLY CLOSED</li>
       <li>Next：post-01:18.750 narrative/audio breakdown after Product Owner authorization.</li>
+    </ul>
+  </section>
+  <section class="card span-12">
+    <div class="kicker">Current Production Segment</div>
+    <h2>S02-B｜ACTIVE / N19 FORMALLY CLOSED</h2>
+    <ul class="compact">
+      <li>Formally closed Story Shots：N16 / N17 / N18 / N19</li>
+      <li>N19 canonical：production/image_library/approved/story_shots/N19_CONDITIONS_CAN_CHANGE_APPROVED_V001.png</li>
+      <li>N19 exact identity：941×1672 / 2052606 bytes / SHA-256 5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a</li>
+      <li>N20 Scene Reference Design V0.1：PRODUCT OWNER APPROVED / LOCKED</li>
+      <li>Next：N20 Reference Delivery Bundle Design V0.1</li>
     </ul>
   </section>
 </main>
