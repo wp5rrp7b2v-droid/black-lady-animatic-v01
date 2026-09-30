@@ -1941,3 +1941,18 @@ Status: `READY FOR PRODUCT OWNER REVIEW`
 
 
 - 2026-09-29｜P0.3 S02-B｜N17/N18 formal archival closeout: exact verification PASS; exact-blob publication commit c211475b78a8a800ff55fbf76201707a5f1bf3f8; Story Shot registration commit 41e0a829419ff0f975e8bc6acce8e4f8c85ecb2e; registration verification PASS; archival run 36574163058.
+
+## 2026-09-30｜N19 Story Shot Formal Archival Closeout
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED`
+
+- Selected final: `N19 Candidate 04｜Localized Shoulder Gesture Edit`.
+- Source upload commit: `a8c75f200b72ccf2a06b2e4d47b7b217005c1536`.
+- Exact binary verification run `36651718484`, job `109687128829`: PASS.
+- Exact identity: 941x1672 / 2052606 bytes / SHA-256 `5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a` / Git blob `c842ad1a0b84b2d504b1e681dd327b01bb57c159`.
+- Canonical exact-blob publication commit: `95d2bda461e74e0c3c5c6852684e5ca3d3bbb92a`.
+- Canonical path: `production/image_library/approved/story_shots/N19_CONDITIONS_CAN_CHANGE_APPROVED_V001.png`.
+- Story Shot registration commit: `4185a567341f29adcbb40f8d3d089e5db60b784c`.
+- Registration verification run `36651939930`, job `109687829876`: SUCCESS / SHA_MATCH / BLOB_MATCH / INDEX_MATCH / DIMENSIONS_MATCH / STAGING_CLEANUP_PASS.
+- N19 is formally closed.
+- Next: `N20 Reference Delivery Bundle Design V0.1`.
