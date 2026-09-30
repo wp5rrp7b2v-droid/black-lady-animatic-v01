@@ -799,16 +799,22 @@ Current disposition:
 
 `S02-B DIRECTOR SHOT DESIGN V0.3 + REVIEW PATCH 01 = PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized yet:
+Subsequent N21 work completed after this design approval:
 
-- N21 Work generation;
-- reuse of N21 Bundle V001 Work handoff;
-- N22+ Bundle construction;
-- Candidate generation;
-- S02-B assembly.
+- N21 Node-Level Director Shot Design V0.1 approved;
+- N21 Scene Reference Design V0.3 approved;
+- N21 Bundle V002 built and independently verified 2/2 PASS;
+- N21 Candidate 01 / 02 / 03 generated and not accepted.
 
-Next production step:
+Current EOD production boundary:
 
-`N21 NODE-LEVEL DIRECTOR SHOT DESIGN → SCENE REFERENCE / BUNDLE DISPOSITION REVIEW`
+- Candidate 04: `NOT AUTHORIZED`;
+- N22: `NOT STARTED`;
+- N21 Bundle V002: technically valid, further use paused;
+- current blocker: `RISK-003`.
 
-N21 Work generation remains unauthorized until that node-level design and Bundle disposition review are completed.
+Resume point:
+
+`N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
+
+The V0.3 high-level rules remain authoritative; the exact N21 single-frame responsibility may be simplified before any further generation.
