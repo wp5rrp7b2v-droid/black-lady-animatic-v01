@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R153",
+  "state_revision": "R154",
   "last_updated": "2026-09-30",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / V0.3 + REVIEW PATCH 01 PO APPROVED / N21 NODE-LEVEL DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 NODE-LEVEL DIRECTOR DESIGN PO APPROVED / BUNDLE DISPOSITION REVIEW NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Node-Level Director Shot Design / Scene Reference + Bundle Disposition Review",
-  "blocker": "NONE / NEXT STEP NOT YET STARTED",
-  "next_action": "Begin N21 node-level Director Shot Design under the approved 8 high-level rules. Lock narrative function, not exact composition in advance. Then reassess Scene Reference and existing N21 Bundle V001 before any Work generation.",
+  "current_task": "P0.3｜S02-B｜N21 Scene Reference / Bundle Disposition Review",
+  "blocker": "NONE / REVIEW NOT YET STARTED",
+  "next_action": "Review N21 Scene Reference Design V0.2 and N21_REFERENCE_DELIVERY_BUNDLE_V001 against the approved N21 Node-Level Director Shot Design V0.1. Remove old named-character-seeding burden from N21 and determine the minimum reference set before any Work generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-09-30-S02B-V03-PATCH01-PO-APPROVAL-R153",
-    "status": "S02-B DIRECTOR SHOT DESIGN V0.3 + REVIEW PATCH 01 PRODUCT OWNER APPROVED / LOCKED",
+    "id": "2026-09-30-N21-NODE-DIRECTOR-V01-PO-APPROVAL-R154",
+    "status": "N21 NODE-LEVEL DIRECTOR SHOT DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED",
     "completed": [
-      "N16-N20 remain APPROVED / LOCKED / NO REWORK.",
-      "N21 onward high-level cinematic governance approved as 8 rules.",
-      "Node narrative function may be locked at sequence level; exact composition is deferred to node-level Director Shot Design.",
-      "Characters must feel inside ongoing story action rather than posed for still photography.",
-      "Ning Qiushui remains the sequence observational anchor without mandatory POV/OTS templates.",
-      "Spatial depth is required as a quality goal but foreground/midground/background geometry is not pre-prescribed.",
-      "Color/look continuity elevated to a generation-stage rule covering warmth family, exposure, black level, saturation, contrast and light direction.",
-      "Existing N21 Bundle V001 remains technically valid 6/6 PASS but Work generation remains suspended pending N21 node-level redesign and Bundle disposition review."
+      "N21 narrowed to GROUP SCALE + CASTLE ENTRY continuity only.",
+      "N21 no longer owns Su Xiaoxiao / Liao Jian / Wen Qingya / Guang Yong named-character seeding; that responsibility moves to N22.",
+      "Crowd Complexity Control approved: sixteen-person story truth without forcing sixteen equally clear faces/bodies.",
+      "Crowd Motion & Staging Rule approved: one global movement direction with local asynchrony; posed or cloned crowd motion is a Director FAIL.",
+      "Ning / Jun remain continuity anchors but do not dominate the frame.",
+      "N21 must preserve N20 color/look continuity.",
+      "Exact camera / blocking details remain flexible within the approved node function.",
+      "Existing N21 Bundle V001 remains technically valid 6/6 PASS but Work generation remains suspended pending disposition review."
     ],
-    "resume_from": "N21 node-level Director Shot Design, followed by Scene Reference / Bundle disposition review.",
+    "resume_from": "N21 Scene Reference / Bundle Disposition Review.",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -1905,7 +1905,7 @@
     "generation_authorized": false
   },
   "n21_scene_reference_design_v0_2": {
-    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "status": "PRODUCT OWNER APPROVED HISTORY / REQUIRES DISPOSITION REVIEW AGAINST N21 NODE-LEVEL V0.1",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n21_scene_reference_design_v0_2.md",
     "commit": "82705c17bc90c93853ca91b7f226891b87d8ce0a",
     "shot_id": "N21",
@@ -1938,7 +1938,7 @@
     "lock_commit": "669f00046faf62608ac6b21d9a0902d28370b8ab"
   },
   "n21_reference_delivery_bundle_design_v0_1": {
-    "status": "PRODUCT OWNER APPROVED / LOCKED / BUILT / 6 OF 6 PASS / WORK GENERATION SUSPENDED PENDING N21 NODE-LEVEL DESIGN",
+    "status": "BUILT / 6 OF 6 PASS / ARTIFACT RETAINED / WORK GENERATION SUSPENDED / DISPOSITION REVIEW REQUIRED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_design_v0_1.md",
     "commit": "8f97822cc9ece5f7d9b4c2ae67bfaeff97a4f4c0",
     "bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V001",
@@ -1981,7 +1981,7 @@
     "generation_allowed": false,
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v001_build_record_2026-09-30.md",
     "artifact_technical_status": "VALID / 6 OF 6 PASS",
-    "suspension_reason": "V0.3 + REVIEW PATCH 01 APPROVED; EXISTING HANDOFF PREDATES NODE-LEVEL COMPOSITION REDESIGN"
+    "suspension_reason": "N21 NODE-LEVEL DIRECTOR V0.1 REMOVED NAMED-CHARACTER-SEEDING DUTY; REFERENCE SET MUST BE REASSESSED"
   },
   "s02_b_director_shot_design_v0_3": {
     "status": "PRODUCT OWNER APPROVED / LOCKED WITH REVIEW PATCH 01",
@@ -2037,5 +2037,20 @@
     "exact_composition_policy": "DEFER TO EACH NODE DIRECTOR SHOT DESIGN",
     "color_look_continuity": "LOCKED AS HIGH-LEVEL RULE",
     "next_step": "N21 NODE-LEVEL DIRECTOR SHOT DESIGN → SCENE REFERENCE / BUNDLE DISPOSITION REVIEW"
+  },
+  "n21_node_level_director_shot_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_1.md",
+    "approval_date": "2026-09-30",
+    "shot_id": "N21",
+    "title": "Cohort Enters — Scale Reveal",
+    "core_function": "GROUP SCALE + CASTLE ENTRY CONTINUITY",
+    "crowd_complexity_control": "APPROVED",
+    "crowd_motion_rule": "ONE GLOBAL MOVEMENT DIRECTION / LOCAL ASYNCHRONY",
+    "named_character_seeding": "REMOVED FROM N21 / MOVED TO N22",
+    "exact_composition_policy": "FLEXIBLE / NODE FUNCTION LOCKED",
+    "color_continuity": "MATCH N20 VISUAL WORLD",
+    "generation_authorized": false,
+    "next_step": "SCENE REFERENCE / BUNDLE DISPOSITION REVIEW"
   }
 }
