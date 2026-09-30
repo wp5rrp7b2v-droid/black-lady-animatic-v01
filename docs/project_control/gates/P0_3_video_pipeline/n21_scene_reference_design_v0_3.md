@@ -225,8 +225,12 @@ A future N21 candidate passes only if:
 
 `N21 SCENE REFERENCE DESIGN V0.3 = PRODUCT OWNER APPROVED / LOCKED`
 
-Next:
+Bundle V002 was subsequently designed, built and independently verified 2/2 PASS.
 
-`N21_REFERENCE_DELIVERY_BUNDLE_V002 DESIGN / LOCK`
+After Candidate 01–03 failed Product Owner review, current production use is:
 
-No Work generation is authorized by this document alone.
+`PAUSED PENDING N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
+
+Candidate 04 is not authorized.
+
+If N21's single-frame responsibility changes, this Scene Reference Design must be disposition-reviewed before reuse; do not silently treat the existing acceptance test as Candidate 04 authority.
