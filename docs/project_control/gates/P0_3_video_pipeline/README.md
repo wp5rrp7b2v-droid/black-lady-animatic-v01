@@ -1247,3 +1247,31 @@ Design:
 Next:
 
 `Product Owner authorization → CONTROLLED_REFERENCE Builder Support + N21 Bundle V004 Spec / Build Preparation`
+
+
+## N21 Reference Delivery Bundle V004｜Support + Spec｜2026-10-01
+
+Status:
+
+`CONTROLLED_REFERENCE SUPPORT COMPLETE / SPEC LOCKED / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED`
+
+- spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json`
+- spec revision: `V004-R2`
+- build gate: `build_authorized=false`
+- formal refs: `AST_IMG_000052 + CHARACTER_VISUAL_STYLE_REFERENCE_V001`
+- validation-only run: `36826494510`
+- job: `110253232876`
+- result: `2/2 PASS`
+- generation: `GENERATION_ALLOWED=FALSE`
+- build: `SKIPPED`
+- Artifact upload: `SKIPPED`
+- historical pre-gate Artifact `11144634603`: `DO NOT USE`
+- Candidate 05: `NOT AUTHORIZED`
+
+Corrected boundary record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_prep_2026-10-01.md`
+
+Next:
+
+`Product Owner authorization → Formal N21 V004 Build + Exact Verification`
