@@ -2285,3 +2285,15 @@ Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / REVIEW REQUIRED`
 - Core visual read: threshold transition + unknown-space mood; approximately 4–6 readable people is sufficient.
 - Style Reference authority is visual-language only; copying specific panel identity/outfit/grouping is a hard FAIL.
 - Candidate 06 remains NOT AUTHORIZED; N22 NOT STARTED; RISK-003 ACTIVE.
+
+
+## 2026-10-01｜N21 Candidate 05 / 06 Review
+
+Status: `C05 NOT APPROVED / C06 NOT APPROVED / C07 NOT AUTHORIZED`
+
+- Candidate 05: Style Reference mitigation improved human rendering stability and avoided obvious content leakage, but queue / expedition-team feel and body-performance issues remained.
+- Candidate 06: entrance scale increased and bags were removed, but the frame shifted to an over-monumental cathedral-like entrance; daylight flooded the threshold; color / light continuity remained off; crowd still read sequentially.
+- Product Owner rejected Candidate 06.
+- V004 remains technically valid; no new Bundle build is authorized by this review.
+- RISK-003 remains ACTIVE.
+- Next: Director Strategy Review before any Candidate 07.
