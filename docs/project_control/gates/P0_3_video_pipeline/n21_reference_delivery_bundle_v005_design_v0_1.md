@@ -4,7 +4,7 @@ Date: 2026-10-01
 
 Status:
 
-`DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED / BUILD NOT AUTHORIZED / CANDIDATE 07 NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC CREATED / VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED / CANDIDATE 07 NOT AUTHORIZED`
 
 Target:
 
@@ -380,15 +380,15 @@ This design does NOT authorize:
 - canonical Story Shot publication;
 - Story Shot registration.
 
-If Product Owner approves this design, the next step is:
+Product Owner approved this design on 2026-10-01.
 
-`N21_REFERENCE_DELIVERY_BUNDLE_V005 SPEC + VALIDATION-ONLY PREP`
+V005 Spec was then created and validation-only executed successfully.
 
 Formal build remains a separate authorization.
 
 ## 15. Current recommendation
 
-`APPROVE V005 TWO-CONTROLLED-REFERENCE STRUCTURE`
+`V005 TWO-CONTROLLED-REFERENCE STRUCTURE APPROVED / LOCKED`
 
 Reason:
 
