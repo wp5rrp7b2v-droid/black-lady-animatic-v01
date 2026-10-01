@@ -4,7 +4,7 @@ Date: 2026-10-01
 
 Status:
 
-`BUILDER SUPPORT FORMALLY AUTHORIZED / SPEC LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED`
+`FORMAL BUILD AUTHORIZED / BUILD PASS / 2 OF 2 EXACT VERIFIED / READY FOR SEPARATE CANDIDATE 05 AUTHORIZATION`
 
 Target:
 
@@ -80,17 +80,17 @@ Path:
 
 `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json`
 
-Current revision:
+Formal build revision:
 
-`V004-R2`
+`V004-R3`
 
-Current build gate:
+Formal build gate:
 
-`build_authorized=false`
+`build_authorized=true`
 
 Authorization note:
 
-`PRODUCT_OWNER_AUTHORIZED_BUILDER_SUPPORT_AND_SPEC_ONLY / BUNDLE_BUILD_NOT_AUTHORIZED / CANDIDATE_05_NOT_AUTHORIZED`
+`PRODUCT_OWNER_AUTHORIZED_FORMAL_V004_BUILD_AND_EXACT_VERIFICATION / CANDIDATE_05_NOT_AUTHORIZED / N22_NOT_STARTED`
 
 Formal reference set remains exactly two references.
 
@@ -207,3 +207,21 @@ Not authorized:
 Next:
 
 `Product Owner authorization → Formal N21_REFERENCE_DELIVERY_BUNDLE_V004 Build + Exact Verification`
+
+
+## 10. Formal Build Result
+
+- Run: `36826967264`
+- Job: `110254694293`
+- Artifact: `11145497260`
+- Artifact digest: `sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d`
+- Artifact size: `3596063 bytes`
+- `PASS: 2/2 exact canonical reference binaries verified`
+- `GENERATION_ALLOWED=TRUE`
+- independent ZIP / manifest / PNG / SHA / bytes / Git blob verification: `PASS`
+
+Formal build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_record_2026-10-01.md`
+
+Candidate 05 remains `NOT YET AUTHORIZED` pending a separate Product Owner decision.
