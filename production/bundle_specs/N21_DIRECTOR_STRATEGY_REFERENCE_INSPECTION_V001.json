@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.1",
+  "bundle_id": "N21_DIRECTOR_STRATEGY_REFERENCE_INSPECTION_V001",
+  "target_shot_id": "N21",
+  "sequence_id": "S02-B",
+  "target_candidate": "DIRECTOR_STRATEGY_INSPECTION_ONLY",
+  "build_authorized": true,
+  "retention_days": 3,
+  "manual_product_owner_reference_upload": 0,
+  "references": [
+    {
+      "reference_id": "N01_INSPECTION",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N01",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+      "expected_sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+      "expected_byte_size": 2687303,
+      "expected_git_blob": "d55d2c218926c0b916c67d34979887315c351a1c",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "director_inspection",
+      "authority_purpose": "DIRECTOR_INSPECTION_ONLY"
+    },
+    {
+      "reference_id": "N08_INSPECTION",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N08",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N08_CASTLE_ENTRANCE_ARCHITECTURE_APPROVED_V001.png",
+      "expected_sha256": "6bda5a8cb4d04d15071f95c6b3fdce09b10230ac95100d59aabf5bad4aef1bb4",
+      "expected_byte_size": 2794372,
+      "expected_git_blob": "58b41dff1993455dcaac263a1275b973c131ba5b",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "director_inspection",
+      "authority_purpose": "DIRECTOR_INSPECTION_ONLY"
+    },
+    {
+      "reference_id": "N19_INSPECTION",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N19",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N19_CONDITIONS_CAN_CHANGE_APPROVED_V001.png",
+      "expected_sha256": "5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a",
+      "expected_byte_size": 2052606,
+      "expected_git_blob": "c842ad1a0b84b2d504b1e681dd327b01bb57c159",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "director_inspection",
+      "authority_purpose": "DIRECTOR_INSPECTION_ONLY"
+    },
+    {
+      "reference_id": "N20_INSPECTION",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N20",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png",
+      "expected_sha256": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+      "expected_byte_size": 2022630,
+      "expected_git_blob": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "director_inspection",
+      "authority_purpose": "DIRECTOR_INSPECTION_ONLY"
+    }
+  ],
+  "work_handoff": {
+    "title": "N21 Director Strategy Reference Inspection Only",
+    "requirements": [
+      "Director inspection only.",
+      "Do not use this Artifact for generation.",
+      "Do not send to Work.",
+      "Do not authorize Candidate 07 from this artifact."
+    ],
+    "exclusions": [
+      "image generation",
+      "Candidate 07",
+      "Story Shot registration",
+      "canonical publication"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1_CONTROLLED_REFERENCE",
+  "spec_revision": "INSPECTION-V001",
+  "authorization_note": "DIRECTOR_STRATEGY_INSPECTION_ONLY / NOT A GENERATION BUNDLE"
+}
