@@ -1303,3 +1303,29 @@ Build record:
 Next:
 
 `Product Owner authorization → N21 Candidate 05 Work generation`
+
+
+## N21 Candidate 05｜Work Generation Authorization｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / PRODUCT OWNER REVIEW NEXT`
+
+- mode: `CLEAN REGENERATION`
+- formal Bundle: `N21_REFERENCE_DELIVERY_BUNDLE_V004`
+- formal Artifact: `11145497260`
+- Bundle exact verification: `2/2 PASS`
+- Bundle-level `GENERATION_ALLOWED=TRUE`
+- Work must independently revalidate before generation.
+- Candidate 01–04 are not generation inputs.
+- Generate exactly one PNG and stop.
+- Candidate 06: `NOT AUTHORIZED`
+- N22: `NOT STARTED`
+
+Authorization:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_candidate_05_work_generation_authorization_2026-10-01.md`
+
+Next:
+
+`N21 Candidate 05 Product Owner Review`
