@@ -1497,3 +1497,27 @@ Authorization record:
 Next:
 
 `Work generation → Product Owner review`
+
+
+## N21 Crowd Body/Wardrobe Reference V001｜Human-Only Route｜2026-10-01
+
+Status:
+
+`DESIGN LOCKED / INPUT SPEC CREATED / VALIDATION 4 OF 4 PASS / FORMAL BUILD NOT AUTHORIZED`
+
+- target: `N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01`
+- input bundle: `N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001`
+- inputs: `AST_IMG_000051 / AST_IMG_000064 / AST_IMG_000068 / AST_IMG_000075`
+- validation run: `36865944026`
+- validation job: `110381336287`
+- exact validation: `4/4 PASS`
+- Artifact count: `0`
+- formal build: `NOT AUTHORIZED`
+- Work generation: `NOT AUTHORIZED`
+- N21 Candidate 07: `NOT APPROVED / REVIEW CLOSED`
+- N21 Candidate 08: `NOT STARTED`
+- N22: `NOT STARTED`
+
+Next:
+
+`Product Owner authorization → Formal human-only input Bundle build`
