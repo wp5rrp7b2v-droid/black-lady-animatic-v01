@@ -31,7 +31,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             SPEC="${{ inputs.spec_path }}"
           else
-            SPEC="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'production/bundle_specs/*.json' | tail -n 1)"
+            SPEC="$(git show --pretty=format: --name-only "${{ github.sha }}" -- 'production/bundle_specs/*.json' | sed '/^$/d' | tail -n 1)"
           fi
           if [ -z "$SPEC" ]; then
             SPEC="$(git log -1 --name-only --pretty=format: -- 'production/bundle_specs/*.json' | tail -n 1)"
