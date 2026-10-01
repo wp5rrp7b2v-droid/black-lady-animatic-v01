@@ -1564,3 +1564,31 @@ Status:
 Next:
 
 `Work generation → Product Owner review`
+
+
+## N21 Crowd Body/Wardrobe Reference V001｜Closeout｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / CLOSED`
+
+- approved candidate: `Candidate 03`
+- canonical PNG: `production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.png`
+- manifest: `production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.manifest.json`
+- dimensions: `1536×1024`
+- mode: `RGBA`
+- bytes: `1418940`
+- SHA-256: `73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6`
+- Git blob: `2b86ab207ee60ba0cd2de277bb55900b8854099c`
+- intake verify: `36873981603 / 110408581874 / PASS`
+- canonical publication: `e1d3a82da4b96eb0f20f2a629ef1140d4668b650`
+- canonical verify: `36874219371 / 110409384685 / PASS`
+- temporary staging / verifiers: `CLEANED`
+- N21 Candidate 08: `NOT STARTED`
+- N22: `NOT STARTED`
+
+Next proposed design:
+
+`N21_REFERENCE_DELIVERY_BUNDLE_V006 = Threshold Environment Reference + Crowd Body/Wardrobe Reference`
+
+Do not build or generate until separate Product Owner approval.
