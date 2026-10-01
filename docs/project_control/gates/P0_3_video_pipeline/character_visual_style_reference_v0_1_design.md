@@ -1,6 +1,6 @@
 # Character Visual Style Reference V0.1｜Design
 
-Status: `DIRECTOR DESIGN LOCK / PRODUCT OWNER REVIEW REQUIRED / NOT YET BUILT`
+Status: `PRODUCT OWNER APPROVED / LOCKED / EXACT CROP PLAN COMPLETE / NOT YET BUILT`
 
 Date: 2026-10-01
 
@@ -399,18 +399,23 @@ The board passes Director / Product Owner review only if:
 
 ## 14. Current boundary
 
-`CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN = DIRECTOR LOCK / PRODUCT OWNER REVIEW REQUIRED`
+`CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN = PRODUCT OWNER APPROVED / LOCKED`
+
+Completed after Product Owner authorization:
+
+- source inspection;
+- crop-coordinate finalization;
+- deterministic build preparation.
 
 Not authorized yet:
 
 - build script implementation;
-- crop-coordinate finalization;
 - GitHub Actions build;
 - formal PNG publication;
 - N21 Bundle V004;
 - Candidate 05;
 - N22.
 
-Next after Product Owner approval:
+Next after separate Product Owner authorization:
 
-`Character Visual Style Reference V001｜Exact Crop Plan + Deterministic Build Preparation`
+`Character Visual Style Reference V001｜Deterministic Builder Implementation + Two-Run Proof`
