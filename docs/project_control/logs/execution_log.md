@@ -2234,3 +2234,22 @@ Status: `PRODUCT OWNER APPROVED / LOCKED / IMPLEMENTATION NOT YET AUTHORIZED`
 - Product Owner manual reference upload remains `0`.
 - Candidate 05 remains `NOT AUTHORIZED` pending V004 implementation/build/exact verification.
 - RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜CONTROLLED_REFERENCE Builder Support + N21 V004 Spec
+
+Status: `COMPLETE / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED`
+
+- Product Owner authorization scope: Builder Support + V004 Spec only.
+- Initial CONTROLLED_REFERENCE support commit: `2afef948bd396dd418a7d6289124c7811f616e09`.
+- Builder validation/build gate hardening: `b636a2de2a63ddfb119c9c795b002e8a322650bd`.
+- Workflow authorization gate: `4c124dad017cbc05ad6604098b7f28f35e1d0529`.
+- V004 gated spec commit: `81d3ca4d80f745f6cf370f18567df2d9cb6460c5`.
+- Current spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json` / `build_authorized=false` / revision `V004-R2`.
+- Validation-only run: `36826494510`; job: `110253232876`; conclusion SUCCESS.
+- Result: `VALIDATION_PASS: 2/2 exact canonical references verified`.
+- Gate result: `BUILD_AUTHORIZED=FALSE / GENERATION_ALLOWED=FALSE`.
+- Bundle build step: SKIPPED; Artifact upload step: SKIPPED; Artifact count: 0.
+- Historical pre-gate auto-trigger: run `36825856946` / Artifact `11144634603`; disposition `DO NOT USE / NOT FORMALLY AUTHORIZED`.
+- Candidate 05 remains NOT AUTHORIZED.
+- Next: separate Product Owner authorization for formal V004 Build + exact verification.
