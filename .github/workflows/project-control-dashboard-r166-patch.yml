@@ -1,0 +1,49 @@
+name: Project Control Dashboard R166 Patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/control_requests/dashboard_r166_patch.json"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch dashboard to R166
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("docs/project_control/dashboard/dashboard.html")
+          s = p.read_text(encoding="utf-8")
+          replacements = [
+              ("Project Dashboard V100", "Project Dashboard V101"),
+              ("Derived from R165 · Updated 2026-10-01", "Derived from R166 · Updated 2026-10-01"),
+              ("P0.3｜S02-B ACTIVE｜Style Reference PO 已批准", "P0.3｜S02-B ACTIVE｜Style Reference 已正式发布"),
+              ("Character Visual Style Reference V001 已由 Product Owner 视觉批准，精确二进制已锁定：1536×1024 / 1,301,730 bytes / SHA 8d650483…7ce41。下一步 exact-binary canonical publication；Candidate 05 仍未授权。",
+               "Character Visual Style Reference V001 已 Product Owner 批准、canonical publication、远端 exact-binary verification PASS。下一步设计 CONTROLLED_REFERENCE delivery + N21 Bundle V004；Candidate 05 仍未授权。"),
+              ("Style Reference Canonical Publication NEXT", "N21 Bundle V004 Design NEXT"),
+              ("恢复点：CHARACTER_VISUAL_STYLE_REFERENCE_V001 exact-binary canonical publication；Candidate 05 未授权。",
+               "恢复点：CONTROLLED_REFERENCE Delivery Support + N21 Bundle V004 Design；Candidate 05 未授权。"),
+              ("Project Control：R165。", "Project Control：R166。"),
+          ]
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f"missing expected dashboard text: {old}")
+              s = s.replace(old, new)
+          p.write_text(s, encoding="utf-8")
+          PY
+
+      - name: Commit dashboard sync
+        run: |
+          git config user.name "black-lady-project-control-bot"
+          git config user.email "actions@github.com"
+          git add docs/project_control/dashboard/dashboard.html
+          git diff --cached --quiet && { echo "no dashboard change"; exit 1; }
+          git commit -m "project-control: sync dashboard to R166"
+          git push origin HEAD:main
