@@ -2219,3 +2219,18 @@ Status: `PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / REMOTE VERIFIED`
 - RISK-003 remains ACTIVE.
 - N21 Candidate 05 remains NOT AUTHORIZED.
 - Next design step: `CONTROLLED_REFERENCE delivery support + N21 Bundle V004 Design`.
+
+
+## 2026-10-01｜CONTROLLED_REFERENCE + N21 Bundle V004 Design Lock
+
+Status: `PRODUCT OWNER APPROVED / LOCKED / IMPLEMENTATION NOT YET AUTHORIZED`
+
+- New P0.3 source type design: `CONTROLLED_REFERENCE`.
+- N21 V004 formal input set locked to exactly two references:
+  1. `AST_IMG_000052` — scene / architecture / open-door threshold facts only;
+  2. `CHARACTER_VISUAL_STYLE_REFERENCE_V001` — character visual-style authority only.
+- N03, N20, all named-character Character Sheets, A07, and N21 Candidate 01–04 are excluded.
+- CONTROLLED_REFERENCE validation must fail closed on manifest / approval / lifecycle / authority / path / SHA / bytes / Git blob / PNG-readability / copied-binary mismatch.
+- Product Owner manual reference upload remains `0`.
+- Candidate 05 remains `NOT AUTHORIZED` pending V004 implementation/build/exact verification.
+- RISK-003 remains ACTIVE.
