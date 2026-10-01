@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
+  "product_owner_approved": true,
+  "approval_decision_id": "BL-D-096",
+  "approval_date": "2026-10-01",
+  "expected_sha256": "8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41",
+  "expected_byte_size": 1301730,
+  "canonical_publication_authorized": true,
+  "canonical_path": "production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png",
+  "manifest_path": "production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.manifest.json",
+  "source_proof_run_id": 36822615026,
+  "source_proof_artifact_id": 11143724172,
+  "downstream_bundle_v004_authorized": false,
+  "n21_candidate_05_authorized": false
+}
