@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R173",
+  "state_revision": "R174",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 THRESHOLD ENVIRONMENT REFERENCE V001 FORMALLY CLOSED / V005 DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 BUNDLE V005 DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Reference Delivery Bundle V005 Design",
+  "current_task": "P0.3｜S02-B｜N21 Reference Delivery Bundle V005 Design Product Owner Review",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Design N21_REFERENCE_DELIVERY_BUNDLE_V005 using exactly two proposed controlled references: N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 for threshold environment / lighting / tonal control and CHARACTER_VISUAL_STYLE_REFERENCE_V001 for human visual-style control. Do not generate Candidate 07 or start N22 before separate Product Owner authorization.",
+  "next_action": "Product Owner review of N21_REFERENCE_DELIVERY_BUNDLE_V005 Design V0.1. Proposed formal inputs are exactly two controlled references: N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 and CHARACTER_VISUAL_STYLE_REFERENCE_V001. Do not create V005 spec, trigger build, generate Candidate 07, or start N22 before explicit approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-THRESHOLD-ENVIRONMENT-REFERENCE-CLOSEOUT-R173",
-    "status": "PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / CONTROLLED REFERENCE REGISTERED / CLOSED",
+    "id": "2026-10-01-N21-BUNDLE-V005-DESIGN-R174",
+    "status": "DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED / BUILD NOT AUTHORIZED / CANDIDATE 07 NOT AUTHORIZED",
     "completed": [
-      "Product Owner approved N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.",
-      "Approved source uploaded at commit 5ecc61e112180fa55b5b8b7a15f093b17e075b08.",
-      "Canonical publication reused the exact approved Git blob at commit 7108530b3bbed4bf01aac73c164978210545e4a9.",
-      "Canonical identity: 941x1672 / RGBA PNG / 3394494 bytes / SHA-256 dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13 / Git blob 358057948ec222bbe63a47a07022de4453e20fc8.",
-      "Post-publication verification run 36857195935 / job 110352417813 passed all 10 checks with EXACT_BINARY_MATCH=YES.",
-      "Controlled-reference registration is canonical PNG + sidecar manifest; no P0.2 Asset Registry schema extension was made.",
-      "Staging intake and one-time verifier were cleaned after verification.",
-      "Candidate 07 remains not generated; N22 remains not started; RISK-003 remains active."
+      "V005 Design V0.1 created.",
+      "Formal reference count proposed as exactly 2.",
+      "REF-01 = N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 / environment authority only.",
+      "REF-02 = CHARACTER_VISUAL_STYLE_REFERENCE_V001 / human visual-style authority only.",
+      "AST_IMG_000052, N20 and all complete Story Shots / Scene Masters are excluded from direct generation input.",
+      "Candidate 07 remains Clean Regeneration only if separately authorized later.",
+      "Crowd blocking lock: staggered threshold cluster / upright bodies / no bags / no single-file queue.",
+      "Build and Candidate 07 generation remain unauthorized.",
+      "RISK-003 remains active."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_threshold_transition_environment_reference_v001_closeout_2026-10-01.md",
-    "resume_from": "N21_REFERENCE_DELIVERY_BUNDLE_V005 DESIGN",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_design_v0_1.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF N21 BUNDLE V005 DESIGN V0.1",
     "blockers": [
       "RISK-003"
     ]
@@ -2257,5 +2258,20 @@
     "verification_job": 110352417813,
     "asset_registry_record": false,
     "boundary": "CONTROLLED ENVIRONMENT REFERENCE ONLY / NOT STORY SHOT / NOT PRIMARY SCENE MASTER / NOT STRICT REVERSE-ANGLE RECONSTRUCTION / DOES NOT REPLACE AST_IMG_000052"
+  },
+  "n21_reference_delivery_bundle_v005_design": {
+    "status": "DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_design_v0_1.md",
+    "commit": "208ad2aeedd4abed28adf8583a2b34f398ff2647",
+    "target_bundle": "N21_REFERENCE_DELIVERY_BUNDLE_V005",
+    "target_candidate": "N21 Candidate 07",
+    "proposed_reference_count": 2,
+    "proposed_references": [
+      "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001",
+      "CHARACTER_VISUAL_STYLE_REFERENCE_V001"
+    ],
+    "build_authorized": false,
+    "candidate_07_authorized": false,
+    "n22_started": false
   }
 }
