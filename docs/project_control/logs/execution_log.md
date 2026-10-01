@@ -2253,3 +2253,20 @@ Status: `COMPLETE / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED`
 - Historical pre-gate auto-trigger: run `36825856946` / Artifact `11144634603`; disposition `DO NOT USE / NOT FORMALLY AUTHORIZED`.
 - Candidate 05 remains NOT AUTHORIZED.
 - Next: separate Product Owner authorization for formal V004 Build + exact verification.
+
+
+## 2026-10-01｜N21 Reference Delivery Bundle V004 Formal Build + Exact Verification
+
+Status: `FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 05 NOT YET AUTHORIZED`
+
+- Product Owner authorized formal V004 Build + Exact Verification.
+- Spec revision: `V004-R3`; build gate `true`; authorization commit `b0dd5dc00b70b953974e3580d6e4cb671c836848`.
+- Workflow run: `36826967264`; job: `110254694293`; conclusion SUCCESS.
+- Builder result: `PASS: 2/2 exact canonical reference binaries verified` / `GENERATION_ALLOWED=TRUE`.
+- Formal Artifact: `11145497260`; size `3596063`; digest `sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d`.
+- Independent downloaded ZIP SHA: exact digest MATCH.
+- delivery_manifest: 2 refs / all_reference_checks_pass=true / generation_allowed=true / overall_result=PASS.
+- AST_IMG_000052 copy: 941×1672 / 2305753 bytes / SHA d49af6a5...3961 / blob e4dafe09...08f9 / EXACT MATCH.
+- Style Reference copy: 1536×1024 / 1301730 bytes / SHA 8d650483...7ce41 / blob 216b1739...88e2 / EXACT MATCH.
+- Historical pre-gate Artifact `11144634603`: DO NOT USE.
+- Candidate 05 remains NOT YET AUTHORIZED; RISK-003 remains ACTIVE.
