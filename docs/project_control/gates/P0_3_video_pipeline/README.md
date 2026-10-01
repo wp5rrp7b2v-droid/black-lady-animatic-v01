@@ -1329,3 +1329,24 @@ Authorization:
 Next:
 
 `N21 Candidate 05 Product Owner Review`
+
+
+## N21 Candidate 05 / 06 Review｜2026-10-01
+
+Status:
+
+`CANDIDATE 05 NOT APPROVED / CANDIDATE 06 NOT APPROVED / CANDIDATE 07 NOT AUTHORIZED`
+
+- C05: style mitigation improved; queue / expedition-team feel remained.
+- C06: entrance larger and bags removed, but became over-monumental / too brightly daylit; color-light continuity and crowd staging still failed.
+- V004: remains technically valid.
+- RISK-003: `ACTIVE`.
+- N22: `NOT STARTED`.
+
+Review:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_candidate_05_06_review_2026-10-01.md`
+
+Next:
+
+`Director Strategy Review before Candidate 07`
