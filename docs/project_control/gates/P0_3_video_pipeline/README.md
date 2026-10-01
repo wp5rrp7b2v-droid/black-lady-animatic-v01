@@ -1186,3 +1186,32 @@ Approval record:
 Next:
 
 `Exact-binary canonical publication + post-publication verification`
+
+
+## Character Visual Style Reference V001｜Canonical Publication｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / REMOTE EXACT-BINARY VERIFIED`
+
+- canonical PNG: `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png`
+- canonical manifest: `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.manifest.json`
+- publication run: `36823958149`
+- publication job: `110245367477`
+- publication commit: `36f146655fa9334d399fd3369f267dd406963ab2`
+- dimensions: `1536×1024`
+- bytes: `1301730`
+- SHA-256: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`
+- Git blob: `216b1739db17cb3b183d613e4aefa6374d1088e2`
+- post-publication remote verification: `PASS`
+- proof Artifact: `11144775274`
+- RISK-003: `ACTIVE`
+- Candidate 05: `NOT AUTHORIZED`
+
+Closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_canonical_publication_closeout_2026-10-01.md`
+
+Next:
+
+`CONTROLLED_REFERENCE Delivery Support + N21 Bundle V004 Design`
