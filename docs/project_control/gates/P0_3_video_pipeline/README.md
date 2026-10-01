@@ -1108,3 +1108,27 @@ Status:
 Review record:
 
 `docs/project_control/gates/P0_3_video_pipeline/n21_candidate_04_review_2026-10-01.md`
+
+
+## Character Visual Style Reference V001｜Exact Crop Plan｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / EXACT 6-PANEL CROP PLAN LOCKED / BUILD PREP READY / NOT YET BUILT`
+
+- Source inspection: run `36820797772` / Artifact `11143985053` / 6 of 6 PASS.
+- Machine crop plan: `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.crop_plan.json`.
+- Board: `1536×1024` landscape / 3×2 / neutral gray / no labels.
+- Sources: Guang Yong, Su Xiaoxiao, Liao Jian, Wen Qingya Atomic assets only.
+- Ning / Jun, complete Story Shots and Character Reference Sheets remain excluded.
+- No generative processing is permitted.
+- Formal builder must be deterministic and prove identical SHA-256 across two runs before publication.
+- Candidate 05 remains `NOT AUTHORIZED`.
+
+Build-prep record:
+
+`docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_exact_crop_plan_and_build_prep_2026-10-01.md`
+
+Next:
+
+`Product Owner authorization → deterministic builder implementation + two-run proof`
