@@ -2356,3 +2356,19 @@ Status: `APPROVED / SPEC CREATED / 2 OF 2 PASS / NO ARTIFACT / FORMAL BUILD NOT 
 - `GENERATION_ALLOWED=FALSE`.
 - Artifact count: `0`.
 - Next: Product Owner authorization for formal V005 build + exact verification.
+
+
+## 2026-10-01｜N21 Reference Delivery Bundle V005 Formal Build + Exact Verification
+
+Status: `FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / C07 NOT AUTHORIZED`
+
+- Spec revision: `V005-R2`.
+- Authorization commit: `5dcb51deb9f00b01ee36a1e9290a23dbb60c6e8f`.
+- Formal run: `36859705482` / job `110360617971` / SUCCESS.
+- Builder: `PASS: 2/2 exact canonical reference binaries verified`.
+- Bundle-level: `GENERATION_ALLOWED=TRUE`.
+- Artifact: `11161920411` / `4697710 bytes` / `sha256:358ea894249d88e93047eabbfeb760196a34c29afdfa2a82277fc875560ecb58`.
+- Independent Artifact ZIP digest: MATCH.
+- Artifact file count: 4; image-input count: 2.
+- Both image inputs independently exact-match canonical binaries.
+- Candidate 07 remains NOT AUTHORIZED; N22 NOT STARTED.
