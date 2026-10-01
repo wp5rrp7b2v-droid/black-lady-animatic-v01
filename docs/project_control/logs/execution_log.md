@@ -2165,3 +2165,24 @@ Status: `LOCKED / BUILD PREP READY / FORMAL BOARD NOT YET BUILT`
 - During source inspection, the generic Bundle Builder exposed a shallow-checkout spec-selection bug. Final fix: checkout fetch-depth=2 and fail-closed HEAD^→HEAD single-spec selection. Successful verification occurred on run `36820797772`.
 - Formal Style Board builder implementation / build / publication remain NOT AUTHORIZED.
 - N21 Candidate 05 remains NOT AUTHORIZED; RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜Character Visual Style Reference V001 Deterministic Builder + Two-Run Proof
+
+Status: `TECHNICAL DETERMINISM PASS / DIRECTOR VISUAL PREFLIGHT PASS / PO VISUAL REVIEW REQUIRED`
+
+- Product Owner authorized builder implementation + two-run proof.
+- Workflow: `.github/workflows/character-visual-style-reference-v001-determinism.yml`.
+- Builder: `scripts/build_character_visual_style_reference_v001.py`.
+- Proof source commit: `a38a4471f521c3008dc32edb6cf6eaa069bf0f22`.
+- Run: `36822615026`; Job: `110241244661`; conclusion SUCCESS.
+- Environment: Python `3.12.14`; Pillow `11.3.0`.
+- Run A SHA: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`; bytes `1301730`.
+- Run B SHA: same; bytes `1301730`.
+- SHA equality / byte-size equality / direct byte comparison: PASS.
+- Artifact: `CHARACTER_VISUAL_STYLE_REFERENCE_V001_TWO_RUN_PROOF`; ID `11143724172`; digest `sha256:91d93bcccceafb5ef47eca5dd6d8f91054e84f87f755785ee2581638f4af55ef`.
+- Independent Artifact ZIP digest verification: MATCH.
+- Independent Run A / B PNG verification: `1536×1024 / RGB / PNG / byte-identical`.
+- Director visual preflight: PASS / partial style fragments only / no full Story Shot, complete person, complete outfit, Ning/Jun, group composition or labels.
+- Canonical publication is NOT AUTHORIZED.
+- Candidate 05 remains NOT AUTHORIZED; RISK-003 remains ACTIVE.
