@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R177",
+  "state_revision": "R178",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 CANDIDATE 07 WORK GENERATION AUTHORIZED / WAITING WORK OUTPUT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 C07 NOT APPROVED / HUMAN-ONLY REFERENCE ROUTE ACTIVE / INPUT BUNDLE VALIDATION 4 OF 4 PASS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Candidate 07 Work Generation",
+  "current_task": "P0.3｜S02-B｜N21 Crowd Body/Wardrobe Reference Input Bundle Formal Build Authorization",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Work must automatically acquire formal verified N21_REFERENCE_DELIVERY_BUNDLE_V005 Artifact 11161920411, verify 2/2 exact references, generate exactly one N21 Candidate 07 PNG by Clean Regeneration, then stop for Product Owner review. Do not start N22.",
+  "next_action": "Await Product Owner authorization for formal N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001 build. After formal exact verification, Work may be separately authorized to generate exactly one N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01 PNG. Do not generate N21 Candidate 08 or start N22.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-CANDIDATE-07-WORK-AUTHORIZATION-R177",
-    "status": "PRODUCT OWNER AUTHORIZED / WORK GENERATION ALLOWED / ONE PNG ONLY / WAITING WORK OUTPUT",
+    "id": "2026-10-01-N21-HUMAN-ONLY-REFERENCE-VALIDATION-R178",
+    "status": "HUMAN-ONLY REFERENCE ROUTE ACTIVE / INPUT BUNDLE VALIDATION 4 OF 4 PASS / FORMAL BUILD NOT AUTHORIZED",
     "completed": [
-      "Product Owner explicitly authorized N21 Candidate 07 Work generation.",
-      "Formal authorization file created at docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md.",
-      "Formal Bundle = N21_REFERENCE_DELIVERY_BUNDLE_V005 / Artifact 11161920411.",
-      "Generation mode = CLEAN REGENERATION.",
-      "Generation count limit = 1 PNG.",
-      "Candidate 08 not authorized; N22 not started.",
-      "No publication / registration / closeout authorized."
+      "N21 Candidate 07 is not approved; full-scene crowd route abandoned for the next iteration.",
+      "Human-only controlled reference route selected.",
+      "Four CURRENT approved rear-3/4 character anchors selected: AST_IMG_000051 / 000064 / 000068 / 000075.",
+      "Input bundle spec created.",
+      "Validation-only run 36865944026 / job 110381336287 completed SUCCESS.",
+      "4/4 exact canonical references verified.",
+      "BUILD_AUTHORIZED=FALSE / GENERATION_ALLOWED=FALSE / Artifact count 0.",
+      "No environment image, Story Shot or Style Board included in this input bundle."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md",
-    "resume_from": "WAITING FOR N21 CANDIDATE 07 WORK OUTPUT / PRODUCT OWNER REVIEW",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_input_bundle_v001_validation_2026-10-01.md",
+    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR FORMAL HUMAN-ONLY INPUT BUNDLE BUILD",
     "blockers": [
       "RISK-003"
     ]
@@ -2304,7 +2305,7 @@
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_build_record_2026-10-01.md"
   },
   "n21_candidate_07": {
-    "status": "PRODUCT OWNER AUTHORIZED / WORK GENERATION PENDING",
+    "status": "NOT APPROVED / REVIEW CLOSED / FULL-SCENE CROWD ROUTE ABANDONED",
     "mode": "CLEAN REGENERATION",
     "formal_bundle": "N21_REFERENCE_DELIVERY_BUNDLE_V005",
     "artifact_id": 11161920411,
@@ -2313,6 +2314,31 @@
     "authorization_commit": "4b6e3b58b2b2a07895bccb1ee3c484681e211f58",
     "generation_count_limit": 1,
     "candidate_08_authorized": false,
-    "n22_started": false
+    "n22_started": false,
+    "review_issues": [
+      "DEPTH / SPATIAL READ DRIFT",
+      "COLOR / TONAL DRIFT",
+      "REPEATED FORWARD-HEAD / HUNCHED-BACK WALKING POSTURE",
+      "WARDROBE / HUMAN-WORLD DRIFT TOWARD OLD-FASHIONED 1970S-1980S FEEL"
+    ]
+  },
+  "n21_crowd_body_wardrobe_reference_v001": {
+    "status": "DESIGN LOCKED / INPUT SPEC CREATED / VALIDATION-ONLY 4 OF 4 PASS / FORMAL BUILD NOT AUTHORIZED",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_v001_design_2026-10-01.md",
+    "input_bundle_spec": "production/bundle_specs/N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001.json",
+    "input_references": [
+      "AST_IMG_000051",
+      "AST_IMG_000064",
+      "AST_IMG_000068",
+      "AST_IMG_000075"
+    ],
+    "validation_run": 36865944026,
+    "validation_job": 110381336287,
+    "validation_result": "4/4 PASS",
+    "build_authorized": false,
+    "generation_allowed": false,
+    "artifact_count": 0,
+    "work_generation_authorized": false,
+    "target_output": "N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01"
   }
 }
