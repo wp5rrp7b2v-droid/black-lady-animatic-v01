@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V004",
   "target_shot_id": "N21",
   "sequence_id": "S02-B",
@@ -88,5 +88,7 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1_CONTROLLED_REFERENCE",
-  "spec_revision": "V004-R1"
+  "spec_revision": "V004-R2",
+  "build_authorized": false,
+  "authorization_note": "PRODUCT_OWNER_AUTHORIZED_BUILDER_SUPPORT_AND_SPEC_ONLY / BUNDLE_BUILD_NOT_AUTHORIZED / CANDIDATE_05_NOT_AUTHORIZED"
 }
