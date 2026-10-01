@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R168",
+  "state_revision": "R169",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / CONTROLLED_REFERENCE SUPPORT + N21 V004 SPEC LOCKED / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 V004 FORMAL BUILD 2 OF 2 PASS / READY FOR CANDIDATE 05 AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21_REFERENCE_DELIVERY_BUNDLE_V004 Formal Build Authorization",
+  "current_task": "P0.3｜S02-B｜N21 Candidate 05 Product Owner Generation Authorization",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Await Product Owner authorization for the formal N21_REFERENCE_DELIVERY_BUNDLE_V004 build. Current spec is build_authorized=false. On authorization, change the gate to true, build through GitHub Actions, independently verify Artifact digest + delivery_manifest + both enclosed PNG identities, and only then consider Candidate 05 authorization. N22 remains not started.",
+  "next_action": "Await Product Owner authorization to send N21 Candidate 05 Clean Regeneration instruction to Work using formal Artifact 11145497260. Work must independently revalidate the V004 delivery_manifest and both PNG identities before generation. Generate exactly one PNG and stop for Product Owner review. N22 remains not started.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-V004-SUPPORT-SPEC-R168",
-    "status": "CONTROLLED_REFERENCE SUPPORT + V004 SPEC COMPLETE / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED",
+    "id": "2026-10-01-N21-V004-FORMAL-BUILD-R169",
+    "status": "FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / GENERATION_ALLOWED TRUE / CANDIDATE 05 AUTHORIZATION NEXT",
     "completed": [
-      "Product Owner authorized CONTROLLED_REFERENCE Builder Support + N21 Bundle V004 Spec only.",
-      "CONTROLLED_REFERENCE fail-closed validation is present in the generic builder.",
-      "Builder-level and workflow-level build_authorized gates added.",
-      "V004 spec locked at production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json with build_authorized=false.",
-      "Validation-only run 36826494510 / job 110253232876 succeeded: 2/2 exact canonical references verified.",
-      "Validation-only run reported BUILD_AUTHORIZED=FALSE and GENERATION_ALLOWED=FALSE; build/upload steps skipped; zero Artifact produced.",
-      "Historical pre-gate auto-trigger run 36825856946 / Artifact 11144634603 is explicitly non-authoritative and DO NOT USE.",
-      "Candidate 05 remains unauthorized; RISK-003 remains active."
+      "Product Owner authorized formal N21_REFERENCE_DELIVERY_BUNDLE_V004 Build + Exact Verification.",
+      "Spec advanced to V004-R3 with build_authorized=true at commit b0dd5dc00b70b953974e3580d6e4cb671c836848.",
+      "Formal workflow run 36826967264 / job 110254694293 succeeded.",
+      "Builder reported PASS: 2/2 exact canonical reference binaries verified and GENERATION_ALLOWED=TRUE.",
+      "Formal Artifact 11145497260 created; size 3596063 bytes; digest sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d.",
+      "Independent ZIP SHA matched GitHub Artifact digest.",
+      "delivery_manifest independently verified: 2 references / all checks pass / generation_allowed true / overall_result PASS.",
+      "AST_IMG_000052 Artifact copy exact-matched SHA / bytes / Git blob / dimensions.",
+      "CHARACTER_VISUAL_STYLE_REFERENCE_V001 Artifact copy exact-matched SHA / bytes / Git blob / dimensions.",
+      "Historical pre-gate Artifact 11144634603 remains DO NOT USE.",
+      "Candidate 05 remains separately gated; RISK-003 remains active."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_prep_2026-10-01.md",
-    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR FORMAL N21 V004 BUILD + EXACT VERIFICATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_record_2026-10-01.md",
+    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N21 CANDIDATE 05 WORK GENERATION",
     "blockers": [
       "RISK-003"
     ]
@@ -2187,14 +2190,15 @@
     "publication_job": 110245367477,
     "publication_commit": "36f146655fa9334d399fd3369f267dd406963ab2",
     "publication_proof_artifact_id": 11144775274,
-    "downstream_bundle_v004_authorized": false,
+    "downstream_bundle_v004_authorized": true,
     "candidate_05_authorized": false
   },
   "n21_reference_delivery_bundle_v004": {
-    "status": "SPEC LOCKED / VALIDATION-ONLY 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED",
+    "status": "FORMAL / BUILT / 2 OF 2 PASS / INDEPENDENTLY VERIFIED / GENERATION_ALLOWED TRUE / READY FOR WORK AFTER PO GENERATION AUTHORIZATION",
     "spec_path": "production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json",
-    "spec_revision": "V004-R2",
-    "build_authorized": false,
+    "spec_revision": "V004-R3",
+    "spec_authorization_commit": "b0dd5dc00b70b953974e3580d6e4cb671c836848",
+    "build_authorized": true,
     "formal_reference_count": 2,
     "formal_references": [
       "AST_IMG_000052",
@@ -2202,10 +2206,19 @@
     ],
     "validation_run": 36826494510,
     "validation_job": 110253232876,
-    "validation_result": "2/2 PASS / GENERATION_ALLOWED=FALSE / NO ARTIFACT",
+    "formal_build_run": 36826967264,
+    "formal_build_job": 110254694293,
+    "artifact_id": 11145497260,
+    "artifact_size": 3596063,
+    "artifact_digest": "sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d",
+    "expires_at": "2026-10-08T06:50:53Z",
+    "exact_verification": "2/2 PASS",
+    "independent_artifact_verification": "2/2 PASS",
+    "generation_allowed": true,
     "historical_pre_gate_run": 36825856946,
     "historical_pre_gate_artifact_id": 11144634603,
     "historical_pre_gate_disposition": "DO NOT USE / PRE-GATE AUTO-TRIGGER / NOT FORMAL AUTHORIZATION",
-    "candidate_05_authorized": false
+    "candidate_05_authorized": false,
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_record_2026-10-01.md"
   }
 }
