@@ -2434,3 +2434,16 @@ Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
 - No N21 Candidate 08.
 - No N22.
 - No publication / controlled-reference closeout yet.
+
+
+## 2026-10-01｜N21 Crowd Body/Wardrobe Reference V001 Candidate 03 Approval
+
+Status: `PRODUCT OWNER APPROVED / EXACT BINARY INTAKE PENDING`
+
+- approved candidate: `Candidate 03`
+- source binary: `1536×1024 RGBA PNG`
+- byte size: `1418940`
+- SHA-256: `73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6`
+- staging intake prepared.
+- no re-encode / resize / export allowed.
+- N21 Candidate 08 / N22 not started.
