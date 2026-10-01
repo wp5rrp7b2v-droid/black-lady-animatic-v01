@@ -1350,3 +1350,27 @@ Review:
 Next:
 
 `Director Strategy Review before Candidate 07`
+
+
+## N21 Director Strategy Review｜Before Candidate 07｜2026-10-01
+
+Status:
+
+`DIRECTOR RECOMMENDATION LOCK / PRODUCT OWNER REVIEW REQUIRED / CANDIDATE 07 NOT AUTHORIZED`
+
+Key finding:
+
+- N20 = preferred tonal / lighting continuity authority.
+- AST_IMG_000052 remains canonical scene-fact authority but is not recommended as a direct C07 generation image because its centered bright-sky doorway can overdrive monumental / daylight-heavy results.
+- Do not keep adding prompt rules to V004.
+- Recommended next asset: `N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001` built deterministically from environment-only Scene Master + N20 crops.
+- Future C07: partial off-axis large doorway, interior-side oblique camera, dim warm N20-like world, staggered non-queue crowd, upright bodies, no bags.
+- V004 remains technically valid; Candidate 07 remains `NOT AUTHORIZED`.
+
+Review:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_director_strategy_review_before_candidate_07_2026-10-01.md`
+
+Next:
+
+`Product Owner review → N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001 Design`
