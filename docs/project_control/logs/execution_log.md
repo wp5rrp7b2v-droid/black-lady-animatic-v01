@@ -2342,3 +2342,17 @@ Status: `DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED / BUILD NOT AU
 - Crowd lock: staggered threshold cluster / upright bodies / no bags / no single-file queue.
 - No V005 spec created; no Actions build; no Artifact; no Work generation.
 - RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜N21 Reference Delivery Bundle V005 Spec + Validation-Only
+
+Status: `APPROVED / SPEC CREATED / 2 OF 2 PASS / NO ARTIFACT / FORMAL BUILD NOT AUTHORIZED`
+
+- Spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V005.json`.
+- Spec commit: `e05b5cefb1be29b5724c4bf782f149a99d2c040c`.
+- Validation run: `36859052785` / job `110358458769`.
+- Result: `VALIDATION_PASS: 2/2 exact canonical references verified`.
+- `BUILD_AUTHORIZED=FALSE`.
+- `GENERATION_ALLOWED=FALSE`.
+- Artifact count: `0`.
+- Next: Product Owner authorization for formal V005 build + exact verification.
