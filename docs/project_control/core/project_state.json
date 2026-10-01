@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R171",
+  "state_revision": "R172",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 CANDIDATE 05-06 NOT APPROVED / DIRECTOR STRATEGY REVIEW NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 DIRECTOR STRATEGY REVIEW COMPLETE / ENVIRONMENT CONTINUITY REFERENCE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Director Strategy Review before Candidate 07",
+  "current_task": "P0.3｜S02-B｜N21 Environment Continuity Reference V001 Product Owner Review / Design Authorization",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Do not generate Candidate 07 yet. Reassess N21 around three remaining failure clusters: entrance scale without cathedral overstatement, lighting/color continuity with prior entrance shots, and non-queue crowd staging/body performance. V004 remains technically valid. N22 remains not started.",
+  "next_action": "Review the Director recommendation to create N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001 from environment-only deterministic crops of the canonical Scene Master plus N20 tonal/lighting continuity. Do not generate Candidate 07, build a new Bundle, or start N22 before Product Owner approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-CANDIDATE-05-06-REVIEW-R171",
-    "status": "CANDIDATE 05 NOT APPROVED / CANDIDATE 06 NOT APPROVED / CANDIDATE 07 NOT AUTHORIZED",
+    "id": "2026-10-01-N21-DIRECTOR-STRATEGY-R172",
+    "status": "DIRECTOR STRATEGY REVIEW COMPLETE / PRODUCT OWNER REVIEW REQUIRED / CANDIDATE 07 NOT AUTHORIZED",
     "completed": [
-      "Candidate 05 rejected: style mitigation improved, but queue / expedition-team feel and body-performance issues remained.",
-      "Candidate 06 rejected: larger entrance achieved, but image became over-monumental and too brightly daylit; color/lighting continuity and crowd staging still failed.",
-      "No backpacks/shoulder bags issue was improved in Candidate 06, but that was not sufficient for approval.",
-      "Style Reference V001 remains useful as a mitigation asset but does not by itself solve N21.",
-      "RISK-003 remains active.",
-      "Candidate 07 remains unauthorized.",
-      "N22 remains not started."
+      "Director inspected approved N01, N08, N19 and N20 plus the canonical Scene Master.",
+      "Scene Master remains valid scene-fact authority but its centered bright-sky composition is not recommended as a direct Candidate 07 image input.",
+      "N20 identified as primary tonal / lighting continuity authority for the next N21 attempt.",
+      "Recommended new controlled reference: N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001.",
+      "Recommended future C07 camera: interior-side oblique, doorway partial/off-axis, no architecture-hero framing.",
+      "Recommended future crowd state: staggered threshold cluster, upright bodies, no bags, no single-file leader axis.",
+      "V004 remains technically valid but is not recommended for direct C07 reuse.",
+      "Candidate 07 remains unauthorized; RISK-003 remains active."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_05_06_review_2026-10-01.md",
-    "resume_from": "DIRECTOR STRATEGY REVIEW BEFORE CANDIDATE 07",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_director_strategy_review_before_candidate_07_2026-10-01.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF ENVIRONMENT CONTINUITY REFERENCE STRATEGY",
     "blockers": [
       "RISK-003"
     ]
