@@ -1427,3 +1427,25 @@ Next:
 `Product Owner review → V005 Spec + validation-only prep`
 
 Candidate 07 remains `NOT AUTHORIZED`.
+
+
+## N21 Reference Delivery Bundle V005｜Approval + Validation-Only｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / SPEC CREATED / VALIDATION 2 OF 2 PASS / FORMAL BUILD NOT AUTHORIZED`
+
+- spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V005.json`
+- spec commit: `e05b5cefb1be29b5724c4bf782f149a99d2c040c`
+- validation run: `36859052785`
+- job: `110358458769`
+- exact validation: `2/2 PASS`
+- `BUILD_AUTHORIZED=FALSE`
+- `GENERATION_ALLOWED=FALSE`
+- Artifact count: `0`
+- Candidate 07: `NOT AUTHORIZED`
+- N22: `NOT STARTED`
+
+Next:
+
+`Product Owner authorization → Formal V005 Build + Exact Verification`
