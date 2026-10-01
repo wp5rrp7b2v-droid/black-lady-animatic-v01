@@ -56,5 +56,24 @@
       "crowd pose",
       "Story Shot composition outside explicit N21 use"
     ]
+  },
+  "publication": {
+    "request_path": "production/publication_requests/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.json",
+    "publication_commit": "7108530b3bbed4bf01aac73c164978210545e4a9",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "post_publication_verification": {
+    "workflow_run_id": 36857195935,
+    "job_id": 110352417813,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13",
+    "verified_git_blob": "358057948ec222bbe63a47a07022de4453e20fc8",
+    "verified_byte_size": 3394494,
+    "verified_dimensions": "941x1672",
+    "verified_mode": "RGBA"
   }
 }
