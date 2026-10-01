@@ -2200,3 +2200,22 @@ Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / CANONICAL PUBLICATION NE
 - Canonical publication must preserve exact binary bytes; no image rewrite or re-encode is allowed.
 - RISK-003 remains ACTIVE pending real N21 generation evidence.
 - Candidate 05 remains NOT AUTHORIZED.
+
+
+## 2026-10-01｜Character Visual Style Reference V001 Canonical Publication
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / REMOTE VERIFIED`
+
+- Publication request commit: `abb3ac4d74ac670550bb1aea5228ff73b7aa55cd`.
+- Publication run: `36823958149`; job: `110245367477`; SUCCESS.
+- Publication commit: `36f146655fa9334d399fd3369f267dd406963ab2`.
+- Canonical PNG: `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png`.
+- Canonical manifest: `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.manifest.json`.
+- Exact binary: `1536×1024 / RGB / PNG / 1301730 bytes`.
+- SHA-256: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`.
+- Git blob: `216b1739db17cb3b183d613e4aefa6374d1088e2`.
+- Post-publication remote SHA / bytes / Git blob / manifest verification: PASS.
+- Publication proof Artifact: `11144775274`; digest `sha256:ceb87ff5a65d83bd2b0b4bacbccd657c4de987ccc5ce33ebdf0b53202ec18b43`.
+- RISK-003 remains ACTIVE.
+- N21 Candidate 05 remains NOT AUTHORIZED.
+- Next design step: `CONTROLLED_REFERENCE delivery support + N21 Bundle V004 Design`.
