@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R165",
+  "state_revision": "R166",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / STYLE REFERENCE V001 PRODUCT OWNER VISUALLY APPROVED / CANONICAL PUBLICATION NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / STYLE REFERENCE V001 CANONICAL + REMOTE VERIFIED / CONTROLLED_REFERENCE DELIVERY DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V001 Canonical Publication",
-  "blocker": "RISK-003 / CREATIVE / ACTIVE: V0.4 TASK SIMPLIFICATION HELPED, BUT N03 COMPLETE-STORY-SHOT STYLE INPUT CAUSED REFERENCE CONTENT LEAKAGE",
-  "next_action": "Prepare exact-binary canonical publication of the Product Owner-approved Style Board. Preserve SHA-256 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41 and byte size 1301730. Do not add CONTROLLED_REFERENCE bundle support, build N21 Bundle V004, generate Candidate 05, or start N22 until publication and verification complete.",
+  "current_task": "P0.3｜S02-B｜CONTROLLED_REFERENCE Delivery Support + N21 Bundle V004 Design",
+  "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
+  "next_action": "Design explicit CONTROLLED_REFERENCE delivery semantics and N21_REFERENCE_DELIVERY_BUNDLE_V004 using the canonical CHARACTER_VISUAL_STYLE_REFERENCE_V001 plus the approved scene authority. Do not implement/build V004 or generate Candidate 05 until that design is reviewed and authorized. N22 remains not started.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,18 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-CHARACTER-VISUAL-STYLE-REFERENCE-PO-APPROVAL-R165",
-    "status": "PRODUCT OWNER APPROVED / VISUALLY ACCEPTED / EXACT BINARY IDENTITY LOCKED",
+    "id": "2026-10-01-CHARACTER-VISUAL-STYLE-REFERENCE-CANONICAL-R166",
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / REMOTE EXACT-BINARY VERIFIED",
     "completed": [
-      "Product Owner visually approved CHARACTER_VISUAL_STYLE_REFERENCE_V001.",
-      "Approved exact binary: 1536x1024 RGB PNG / 1301730 bytes / SHA-256 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41.",
-      "Approval is anchored to two-run proof run 36822615026 / artifact 11143724172.",
-      "Style Board authority remains style-only: human rendering language, not named identity, complete outfit, pose, group composition or scene.",
-      "Future publication must preserve exact bytes; no re-encode or image rewrite is permitted.",
+      "Canonical PNG published at production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png.",
+      "Canonical provenance manifest published alongside the PNG.",
+      "Publication run 36823958149 / job 110245367477 succeeded.",
+      "Publication commit 36f146655fa9334d399fd3369f267dd406963ab2.",
+      "Remote main was verified to equal the publication commit at verification time.",
+      "Remote canonical PNG exact identity: 1536x1024 RGB PNG / 1301730 bytes / SHA-256 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41 / Git blob 216b1739db17cb3b183d613e4aefa6374d1088e2.",
+      "Publication proof Artifact 11144775274 generated.",
       "RISK-003 remains active pending real N21 candidate evidence."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_po_visual_approval_2026-10-01.md",
-    "resume_from": "CHARACTER_VISUAL_STYLE_REFERENCE_V001 CANONICAL PUBLICATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_canonical_publication_closeout_2026-10-01.md",
+    "resume_from": "CONTROLLED_REFERENCE DELIVERY SUPPORT + N21 BUNDLE V004 DESIGN",
     "blockers": [
       "RISK-003"
     ]
@@ -2168,5 +2170,24 @@
     ],
     "drift_corrected": true,
     "current_resume_point": "N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW"
+  },
+  "character_visual_style_reference_v001": {
+    "status": "PRODUCT OWNER APPROVED / CANONICAL PUBLISHED / REMOTE VERIFIED",
+    "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+    "authority_scope": "CHARACTER_VISUAL_STYLE_ONLY",
+    "canonical_path": "production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png",
+    "manifest_path": "production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.manifest.json",
+    "dimensions": "1536x1024",
+    "byte_size": 1301730,
+    "sha256": "8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41",
+    "github_blob_sha": "216b1739db17cb3b183d613e4aefa6374d1088e2",
+    "determinism_run": 36822615026,
+    "determinism_artifact_id": 11143724172,
+    "publication_run": 36823958149,
+    "publication_job": 110245367477,
+    "publication_commit": "36f146655fa9334d399fd3369f267dd406963ab2",
+    "publication_proof_artifact_id": 11144775274,
+    "downstream_bundle_v004_authorized": false,
+    "candidate_05_authorized": false
   }
 }
