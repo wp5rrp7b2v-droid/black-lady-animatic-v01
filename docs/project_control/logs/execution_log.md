@@ -2097,3 +2097,23 @@ Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE V003 DESIGN NEXT`
 - Candidate 04 remains NOT AUTHORIZED.
 - N22 remains NOT STARTED.
 - Next step: `N21_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN` only.
+
+
+## 2026-10-01｜N21 Reference Delivery Bundle V003 Build + Independent Verification
+
+Status: `PASS / GENERATION_ALLOWED=TRUE / READY FOR WORK GENERATION`
+
+- Spec commit: `6a03dc80fb7cf75ca5908d5ed364fed45fd988a8`.
+- Workflow run: `36817339701`.
+- Job: `110225166295`.
+- Builder result: `PASS: 2/2 exact canonical reference binaries verified`.
+- Artifact: `N21_REFERENCE_DELIVERY_BUNDLE_V003` / ID `11141917821`.
+- Artifact size: `4606668` bytes.
+- Artifact digest: `sha256:8be16a3538394046d1a875ff6a5e4802dd097bd52c44e8efd863af8807d9eaa0`.
+- Independent ZIP digest: MATCH.
+- `AST_IMG_000052`: 2305753 bytes / 941×1672 / SHA MATCH / PNG PASS.
+- `N03`: 2321221 bytes / 941×1672 / SHA MATCH / PNG PASS.
+- Product Owner manual reference upload: `0`.
+- Candidate 04 may proceed as `CLEAN REGENERATION` through Work.
+- RISK-003 remains ACTIVE until candidate evidence exists.
+- N22 remains NOT STARTED.
