@@ -1215,3 +1215,35 @@ Closeout:
 Next:
 
 `CONTROLLED_REFERENCE Delivery Support + N21 Bundle V004 Design`
+
+
+## CONTROLLED_REFERENCE + N21 Bundle V004 Design｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / LOCKED / IMPLEMENTATION NOT YET AUTHORIZED`
+
+Formal V004 reference set:
+
+1. `AST_IMG_000052` — spatial authority only
+2. `CHARACTER_VISUAL_STYLE_REFERENCE_V001` — human visual-style authority only
+
+Explicitly excluded:
+
+- N03
+- N20
+- all named-character Character Sheets
+- A07
+- N21 Candidate 01–04
+
+CONTROLLED_REFERENCE must validate canonical PNG + sidecar manifest + approval/lifecycle/authority + SHA/bytes/Git blob + PNG readability + byte-identical artifact copy.
+
+Candidate 05 remains `NOT AUTHORIZED`.
+
+Design:
+
+`docs/project_control/gates/P0_3_video_pipeline/controlled_reference_delivery_and_n21_bundle_v004_design_v0_1.md`
+
+Next:
+
+`Product Owner authorization → CONTROLLED_REFERENCE Builder Support + N21 Bundle V004 Spec / Build Preparation`
