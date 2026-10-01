@@ -1,0 +1,50 @@
+name: Project Control Dashboard R172 Patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/control_requests/dashboard_r172_patch.json"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch dashboard to R172
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("docs/project_control/dashboard/dashboard.html")
+          s=p.read_text(encoding="utf-8")
+          replacements=[
+            ("Project Dashboard V106","Project Dashboard V107"),
+            ("Derived from R171 · Updated 2026-10-01","Derived from R172 · Updated 2026-10-01"),
+            ("P0.3｜S02-B ACTIVE｜N21 C05/C06 均未通过","P0.3｜S02-B ACTIVE｜N21 Strategy Review 已完成"),
+            ("N21 Candidate 05 与 Candidate 06 均未获批准。Style Reference 缓解有效，但入口尺度、色调/光位连续性与群体编排仍未解决；Candidate 07 未授权。",
+             "N21 Director Strategy Review 已完成：不建议继续用 V004 直接生 C07。下一步建议建立 N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001，锁定入口尺度与 N20 式色调/光位；Candidate 07 未授权。"),
+            ("Director Strategy Review","Environment Continuity Reference Review NEXT"),
+            ("恢复点：Director Strategy Review before Candidate 07；V004 仍技术有效。",
+             "恢复点：Product Owner review of N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001 strategy；Candidate 07 未授权。"),
+            ("Next：先重审入口尺度、光线/色调连续性与群体编排；Candidate 07 与 N22 均不启动。",
+             "Next：等待 Product Owner 批准 Environment Continuity Reference 设计；Candidate 07 与 N22 均不启动。"),
+            ("Project Control：R171。","Project Control：R172。"),
+            ("S02-B｜ACTIVE / C05-C06 NOT APPROVED / DIRECTOR STRATEGY REVIEW NEXT",
+             "S02-B｜ACTIVE / DIRECTOR STRATEGY REVIEW COMPLETE / ENVIRONMENT REFERENCE REVIEW NEXT")
+          ]
+          for old,new in replacements:
+              if old in s:
+                  s=s.replace(old,new)
+          p.write_text(s,encoding="utf-8")
+          PY
+      - name: Commit dashboard sync
+        run: |
+          git config user.name "black-lady-project-control-bot"
+          git config user.email "actions@github.com"
+          git add docs/project_control/dashboard/dashboard.html
+          git diff --cached --quiet && { echo "no dashboard change"; exit 1; }
+          git commit -m "project-control: sync dashboard to R172"
+          git push origin HEAD:main
