@@ -1275,3 +1275,31 @@ Corrected boundary record:
 Next:
 
 `Product Owner authorization → Formal N21 V004 Build + Exact Verification`
+
+
+## N21 Reference Delivery Bundle V004｜Formal Build｜2026-10-01
+
+Status:
+
+`FORMAL / 2 OF 2 PASS / INDEPENDENTLY VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 05 AUTHORIZATION NEXT`
+
+- spec: `V004-R3`
+- build gate: `true`
+- formal run: `36826967264`
+- job: `110254694293`
+- formal Artifact: `11145497260`
+- Artifact size: `3596063 bytes`
+- Artifact digest: `sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d`
+- builder result: `2/2 PASS / GENERATION_ALLOWED=TRUE`
+- independent ZIP digest: `MATCH`
+- independent manifest / both PNG exact identities: `PASS`
+- historical pre-gate Artifact `11144634603`: `DO NOT USE`
+- Candidate 05: `NOT YET AUTHORIZED`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v004_build_record_2026-10-01.md`
+
+Next:
+
+`Product Owner authorization → N21 Candidate 05 Work generation`
