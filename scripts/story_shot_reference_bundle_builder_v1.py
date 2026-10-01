@@ -62,6 +62,51 @@ def verify_ref(ref, registry_rows, story_rows):
             raise ValueError(f"{ref['reference_id']} index byte size mismatch")
         if row.get("github_blob_sha") != ref["expected_git_blob"]:
             raise ValueError(f"{ref['reference_id']} index blob mismatch")
+    elif source_type == "CONTROLLED_REFERENCE":
+        manifest_rel = ref.get("manifest_path")
+        if not manifest_rel:
+            raise ValueError(f"{ref['reference_id']} manifest_path missing")
+        manifest_path = safe_source(manifest_rel)
+        try:
+            controlled = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            raise ValueError(f"{ref['reference_id']} invalid controlled-reference manifest") from exc
+
+        required_manifest = {
+            "reference_id": ref["reference_id"],
+            "classification": ref["classification"],
+            "approval_status": ref["approval_status"],
+            "lifecycle": ref["lifecycle"],
+            "authority_scope": ref["authority_scope"],
+            "canonical_path": ref["canonical_path"],
+        }
+        for key, expected in required_manifest.items():
+            if controlled.get(key) != expected:
+                raise ValueError(f"{ref['reference_id']} manifest {key} mismatch")
+
+        output = controlled.get("output")
+        if not isinstance(output, dict):
+            raise ValueError(f"{ref['reference_id']} manifest output missing")
+
+        expected_output = {
+            "byte_size": ref["expected_byte_size"],
+            "sha256": ref["expected_sha256"],
+            "git_blob": ref["expected_git_blob"],
+        }
+        if ref.get("expected_width") is not None:
+            expected_output["width"] = ref["expected_width"]
+        if ref.get("expected_height") is not None:
+            expected_output["height"] = ref["expected_height"]
+        for key, expected in expected_output.items():
+            if output.get(key) != expected:
+                raise ValueError(f"{ref['reference_id']} manifest output {key} mismatch")
+
+        if output.get("format") != "PNG":
+            raise ValueError(f"{ref['reference_id']} manifest output format mismatch")
+        if controlled.get("approved_binary", {}).get("sha256") != ref["expected_sha256"]:
+            raise ValueError(f"{ref['reference_id']} approved binary SHA mismatch")
+        if controlled.get("approved_binary", {}).get("byte_size") != ref["expected_byte_size"]:
+            raise ValueError(f"{ref['reference_id']} approved binary byte size mismatch")
     else:
         raise ValueError(f"Unsupported source type: {source_type}")
 
@@ -77,6 +122,10 @@ def verify_ref(ref, registry_rows, story_rows):
         raise ValueError(f"{ref['reference_id']} Git blob mismatch")
     if ref.get("expected_sha256") and actual_sha != ref["expected_sha256"]:
         raise ValueError(f"{ref['reference_id']} SHA mismatch")
+    if ref.get("expected_width") is not None and width != ref["expected_width"]:
+        raise ValueError(f"{ref['reference_id']} width mismatch")
+    if ref.get("expected_height") is not None and height != ref["expected_height"]:
+        raise ValueError(f"{ref['reference_id']} height mismatch")
 
     return src, actual_sha, actual_size, actual_blob, width, height
 
