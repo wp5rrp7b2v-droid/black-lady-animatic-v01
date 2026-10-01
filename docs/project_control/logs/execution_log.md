@@ -2462,3 +2462,22 @@ Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOS
 - manifest finalized.
 - staging and one-time verifier workflows removed.
 - next design target: `N21_REFERENCE_DELIVERY_BUNDLE_V006` using Environment Reference + Crowd Body/Wardrobe Reference only, pending Product Owner approval.
+
+## 2026-10-01｜N21 Candidate 08 Review + EOD Hold
+
+Status: `NOT APPROVED / REVIEW CLOSED / HUMAN BODY-WARDROBE-DIRECTION IMPROVED / BLOCKING + ENVIRONMENT COMPOSITION FAIL / EOD HOLD`
+
+- V006 Design V0.2 approved / locked.
+- Validation-only run: `36878776156` / job `110424919156` / 2 of 2 exact / no Artifact.
+- Formal V006 build: run `36879153275` / job `110426184563` / SUCCESS.
+- Artifact: `11171365040` / `4813649 bytes` / `sha256:e9e718893de20d86e90352ba7bf2ece0c7fa4f242a3b22f436bf727e9760a0c0`.
+- Independent Artifact ZIP + both PNG exact identities: PASS.
+- Candidate 08 authorized for exactly one Clean Regeneration.
+- Observed output: `941×1672 RGBA PNG`.
+- Positive evidence: natural adult proportions improved; ordinary contemporary wardrobe; no obvious prohibited bags/luggage; movement direction correctly reads threshold → deeper castle interior; no obvious forced four-person cast; no hero-pair staging.
+- Failure evidence: crowd still too organized / central-axis; environment drifts to monumental symmetrical Gothic portal / architectural showcase; route ahead is too legible; unknown / threat / partial-concealment read remains insufficient.
+- Candidate 08: `NOT APPROVED`.
+- RISK-003 remains ACTIVE / hard creative blocker, but body/wardrobe/direction are now partially mitigated in real candidate evidence.
+- Candidate 09: `NOT AUTHORIZED`.
+- N22: `NOT STARTED`.
+- Resume point: narrow Candidate 09 strategy review only; preserve C08 gains and target blocking + environment composition.
