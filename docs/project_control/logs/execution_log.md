@@ -2328,3 +2328,17 @@ Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / CONTROLLED REFERE
 - Staging + one-time verifier cleaned.
 - Next: `N21_REFERENCE_DELIVERY_BUNDLE_V005 DESIGN`.
 - Candidate 07 remains NOT GENERATED; N22 NOT STARTED; RISK-003 ACTIVE.
+
+
+## 2026-10-01｜N21 Reference Delivery Bundle V005 Design V0.1
+
+Status: `DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED / BUILD NOT AUTHORIZED / C07 NOT AUTHORIZED`
+
+- Proposed formal reference count: 2.
+- REF-01: `N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001` / environment authority only.
+- REF-02: `CHARACTER_VISUAL_STYLE_REFERENCE_V001` / character visual-style authority only.
+- Direct `AST_IMG_000052`, N20, all complete Story Shots and all complete Scene Masters are excluded from V005 generation input.
+- Future C07 mode: Clean Regeneration only.
+- Crowd lock: staggered threshold cluster / upright bodies / no bags / no single-file queue.
+- No V005 spec created; no Actions build; no Artifact; no Work generation.
+- RISK-003 remains ACTIVE.
