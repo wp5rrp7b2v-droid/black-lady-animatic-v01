@@ -2312,3 +2312,19 @@ Status: `DIRECTOR RECOMMENDATION LOCK / PRODUCT OWNER REVIEW REQUIRED / C07 NOT 
 - Future C07 composition: interior-side oblique / partial off-axis doorway / staggered threshold cluster / upright bodies / no bags.
 - V004 remains technically valid but is not recommended for direct Candidate 07 reuse.
 - Candidate 07 remains NOT AUTHORIZED; N22 NOT STARTED; RISK-003 ACTIVE.
+
+
+## 2026-10-01｜N21 Threshold Transition Environment Reference V001 Formal Closeout
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / CONTROLLED REFERENCE REGISTERED / CLOSED`
+
+- Approved staging upload commit: `5ecc61e112180fa55b5b8b7a15f093b17e075b08`.
+- Canonical publication commit: `7108530b3bbed4bf01aac73c164978210545e4a9`.
+- Canonical PNG: `production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.png`.
+- Manifest: `production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.manifest.json`.
+- Exact identity: `941x1672 / RGBA / 3394494 bytes / SHA-256 dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13 / blob 358057948ec222bbe63a47a07022de4453e20fc8`.
+- Post-publication verification: run `36857195935` / job `110352417813` / all 10 checks PASS / `EXACT_BINARY_MATCH=YES`.
+- Registration model: P0.3 controlled canonical binary + manifest; no P0.2 Registry schema extension.
+- Staging + one-time verifier cleaned.
+- Next: `N21_REFERENCE_DELIVERY_BUNDLE_V005 DESIGN`.
+- Candidate 07 remains NOT GENERATED; N22 NOT STARTED; RISK-003 ACTIVE.
