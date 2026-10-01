@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R160",
+  "state_revision": "R161",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 BUNDLE V003 VERIFIED / WORK CANDIDATE 04 READY",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 C04 REJECTED / CHARACTER VISUAL STYLE REFERENCE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Candidate 04 Work Generation",
-  "blocker": "RISK-003 / CREATIVE / ACTIVE: MITIGATION DESIGN + V003 BUNDLE VERIFIED; REAL CANDIDATE EVIDENCE STILL REQUIRED",
-  "next_action": "Send Work the verified N21_REFERENCE_DELIVERY_BUNDLE_V003 and generate exactly one N21 Candidate 04 Clean Regeneration. Stop for Product Owner review. Do not start N22 or register/publish N21 before approval.",
+  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V0.1 Design",
+  "blocker": "RISK-003 / CREATIVE / ACTIVE: V0.4 TASK SIMPLIFICATION HELPED, BUT N03 COMPLETE-STORY-SHOT STYLE INPUT CAUSED REFERENCE CONTENT LEAKAGE",
+  "next_action": "Design CHARACTER_VISUAL_STYLE_REFERENCE_V001 from approved formal character assets only. Isolate human visual language without complete Story Shot composition, scene background, full cast grouping, or reusable outfit lineup. Do not generate N21 Candidate 05. N22 remains not started.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-BUNDLE-V003-VERIFIED-R160",
-    "status": "N21 REFERENCE DELIVERY BUNDLE V003 VERIFIED / READY FOR WORK GENERATION",
+    "id": "2026-10-01-N21-CANDIDATE-04-REJECTED-R161",
+    "status": "N21 CANDIDATE 04 NOT APPROVED / REFERENCE CONTENT LEAKAGE CONFIRMED AT CREATIVE REVIEW",
     "completed": [
-      "Bundle Design V0.3 Product Owner approved / locked.",
-      "Bundle spec V003 committed at 6a03dc80fb7cf75ca5908d5ed364fed45fd988a8.",
-      "Generic Story Shot Reference Bundle Builder run 36817339701 succeeded.",
-      "Builder returned 2/2 exact canonical reference binaries verified and GENERATION_ALLOWED=TRUE.",
-      "Artifact 11141917821 digest independently matched downloaded ZIP.",
-      "AST_IMG_000052 and N03 independently verified for SHA-256, bytes, PNG signature and 941x1672 dimensions.",
-      "Candidate 04 is authorized to proceed through Work as Clean Regeneration only.",
-      "RISK-003 remains active pending real candidate evidence and Product Owner approval."
+      "Candidate 04 generated from verified Bundle V003 and reviewed.",
+      "Human rendering quality and body stability improved relative to Candidate 03.",
+      "Candidate 04 rejected because N03 transmitted concrete wardrobe / figure configuration in addition to visual style.",
+      "Bundle V003 remains technically valid; its creative reference strategy failed for N21.",
+      "N03 must not be reused as N21 formal character-style generation input.",
+      "Product Owner approved creation of a dedicated CHARACTER_VISUAL_STYLE_REFERENCE_V001 design.",
+      "Candidate 05 remains unauthorized.",
+      "RISK-003 remains active."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v003_build_record_2026-10-01.md",
-    "resume_from": "N21 CANDIDATE 04 WORK GENERATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_04_review_2026-10-01.md",
+    "resume_from": "CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN",
     "blockers": [
       "RISK-003"
     ]
