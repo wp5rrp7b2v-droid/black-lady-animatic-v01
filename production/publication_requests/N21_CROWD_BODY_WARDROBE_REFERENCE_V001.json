@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N21_CROWD_BODY_WARDROBE_REFERENCE_V001",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "asset_role": "CONTROLLED_HUMAN_BODY_WARDROBE_REFERENCE",
+  "authority_scope": "N21_CROWD_BODY_WARDROBE_ONLY",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "approved_candidate": "Candidate 03",
+  "source_intake_path": "staging/n21_crowd_body_wardrobe_reference_v001_intake/N21_CROWD_BODY_WARDROBE_REFERENCE_V001_CANDIDATE_03_APPROVED.png",
+  "canonical_path": "production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.png",
+  "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+  "expected": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "bit_depth": 8,
+    "byte_size": 1418940,
+    "sha256": "73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6",
+    "git_blob": "2b86ab207ee60ba0cd2de277bb55900b8854099c"
+  },
+  "intake_verification": {
+    "workflow": "N21 Crowd Body Wardrobe Reference V001 Intake Verify",
+    "run_id": 36873981603,
+    "job_id": 110408581874,
+    "result": "PASS",
+    "exact_binary_match": true
+  },
+  "do_not_reencode": true
+}
