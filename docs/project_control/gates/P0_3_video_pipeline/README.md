@@ -1474,3 +1474,26 @@ Status:
 Next:
 
 `Product Owner authorization → N21 Candidate 07 Work generation`
+
+
+## N21 Candidate 07｜Work Generation Authorization｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
+
+- mode: `CLEAN REGENERATION`
+- Bundle: `N21_REFERENCE_DELIVERY_BUNDLE_V005`
+- Artifact: `11161920411`
+- pre-generation verification: `2/2 exact required`
+- generation count: `1 PNG`
+- Candidate 08: `NOT AUTHORIZED`
+- N22: `NOT STARTED`
+
+Authorization record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md`
+
+Next:
+
+`Work generation → Product Owner review`
