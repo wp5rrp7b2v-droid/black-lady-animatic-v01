@@ -2402,3 +2402,20 @@ Status: `INPUT SPEC CREATED / VALIDATION 4 OF 4 PASS / FORMAL BUILD NOT AUTHORIZ
 - Artifact count: `0`.
 - N21 Candidate 07: NOT APPROVED / review closed.
 - Next: Product Owner authorization for formal input Bundle build.
+
+
+## 2026-10-01｜N21 Human-Only Input Bundle Formal Build + Exact Verification
+
+Status: `FORMAL BUILD PASS / 4 OF 4 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / WORK GENERATION NOT AUTHORIZED`
+
+- Bundle: `N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001`.
+- Spec revision: `V001-R2`.
+- Authorization commit: `2dae9404d33730d332853923f3c995e538dd5c72`.
+- Run: `36866387094` / job `110382804693` / SUCCESS.
+- Artifact: `11163447680` / `7404683 bytes`.
+- Digest: `sha256:79c150bc3caf4648b4935a411585d155228fea4b0c2e85959c83a51c4d7a69e1`.
+- Independent ZIP digest: MATCH.
+- Four canonical input PNGs: 4/4 EXACT MATCH.
+- Bundle-level `GENERATION_ALLOWED=TRUE`.
+- Human-only Candidate 01: NOT AUTHORIZED.
+- N21 Candidate 08 / N22: NOT STARTED.
