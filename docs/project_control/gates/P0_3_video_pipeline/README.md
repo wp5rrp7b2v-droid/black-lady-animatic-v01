@@ -1132,3 +1132,32 @@ Build-prep record:
 Next:
 
 `Product Owner authorization → deterministic builder implementation + two-run proof`
+
+
+## Character Visual Style Reference V001｜Two-Run Proof｜2026-10-01
+
+Status:
+
+`TECHNICAL DETERMINISM PASS / DIRECTOR VISUAL PREFLIGHT PASS / PRODUCT OWNER VISUAL REVIEW REQUIRED`
+
+- workflow run: `36822615026`
+- job: `110241244661`
+- artifact: `CHARACTER_VISUAL_STYLE_REFERENCE_V001_TWO_RUN_PROOF`
+- artifact ID: `11143724172`
+- artifact digest: `sha256:91d93bcccceafb5ef47eca5dd6d8f91054e84f87f755785ee2581638f4af55ef`
+- Python: `3.12.14`
+- Pillow: `11.3.0`
+- Run A / B output SHA-256: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`
+- Run A / B bytes: `1301730`
+- SHA / byte-size / direct byte identity: `PASS`
+- independent verification: `PASS`
+- canonical publication: `NOT AUTHORIZED`
+- Candidate 05: `NOT AUTHORIZED`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_two_run_build_record_2026-10-01.md`
+
+Next:
+
+`Product Owner visual review of the deterministic Style Board`
