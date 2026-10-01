@@ -2117,3 +2117,20 @@ Status: `PASS / GENERATION_ALLOWED=TRUE / READY FOR WORK GENERATION`
 - Candidate 04 may proceed as `CLEAN REGENERATION` through Work.
 - RISK-003 remains ACTIVE until candidate evidence exists.
 - N22 remains NOT STARTED.
+
+
+## 2026-10-01｜N21 Candidate 04 Review
+
+Status: `NOT APPROVED / REFERENCE CONTENT LEAKAGE`
+
+- Candidate 04 was generated from verified `N21_REFERENCE_DELIVERY_BUNDLE_V003`.
+- Bundle integrity remained `2/2 PASS`; no transport or exact-binary failure occurred.
+- Human rendering style was broadly stable and body structure improved relative to Candidate 03.
+- Main failure: the complete N03 Story Shot leaked concrete wardrobe / figure configuration into the generated result rather than acting as a style-only authority.
+- Secondary issues: unknown/danger feeling remained weak; entrance daylight was strong; group flow retained some queue-like sequential movement.
+- Product Owner rejected Candidate 04.
+- Bundle V003 disposition: `TECHNICALLY VALID / CREATIVE REFERENCE STRATEGY FAILED`.
+- N03 disposition for future N21 generation: `DO NOT REUSE AS FORMAL STYLE INPUT`.
+- Product Owner approved next step: `Character Visual Style Reference V0.1｜Design`.
+- Candidate 05 remains NOT AUTHORIZED.
+- RISK-003 remains ACTIVE.
