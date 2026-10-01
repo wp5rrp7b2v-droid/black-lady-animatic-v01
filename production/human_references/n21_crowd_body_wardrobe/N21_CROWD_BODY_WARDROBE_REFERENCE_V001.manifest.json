@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N21_CROWD_BODY_WARDROBE_REFERENCE_V001",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "authority_scope": "N21_CROWD_BODY_WARDROBE_ONLY",
+  "canonical_path": "production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.png",
+  "output": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bit_depth": 8,
+    "byte_size": 1418940,
+    "sha256": "73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6",
+    "git_blob": "2b86ab207ee60ba0cd2de277bb55900b8854099c"
+  },
+  "approved_binary": {
+    "approved_candidate": "Candidate 03",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-01",
+    "byte_size": 1418940,
+    "sha256": "73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6",
+    "staging_path": "staging/n21_crowd_body_wardrobe_reference_v001_intake/N21_CROWD_BODY_WARDROBE_REFERENCE_V001_CANDIDATE_03_APPROVED.png",
+    "staging_git_blob": "2b86ab207ee60ba0cd2de277bb55900b8854099c"
+  },
+  "governance": {
+    "asset_role": "CONTROLLED_HUMAN_BODY_WARDROBE_REFERENCE",
+    "p0_2_asset_registry_record": false,
+    "reason": "P0.2 Registry Schema V0.3 does not define a controlled human body/wardrobe reference class; do not silently extend the locked schema.",
+    "not_story_shot": true,
+    "not_character_sheet": true,
+    "does_not_replace_atomic_character_anchors": true
+  },
+  "source_lineage": {
+    "input_bundle": "N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001",
+    "input_bundle_artifact_id": 11163447680,
+    "input_bundle_run_id": 36866387094,
+    "source_assets": [
+      "AST_IMG_000051",
+      "AST_IMG_000064",
+      "AST_IMG_000068",
+      "AST_IMG_000075"
+    ],
+    "generation_context": "WORK HUMAN-ONLY CONTROLLED REFERENCE / PRODUCT OWNER APPROVED CANDIDATE 03",
+    "note": "Source anchors establish project-consistent contemporary wardrobe era, body proportion and rear/side human-world language. The approved reference is not a named-character identity sheet."
+  },
+  "usage_boundary": {
+    "may_control": [
+      "N21 natural adult body proportions",
+      "upright walking posture",
+      "natural head / neck / shoulder relationship",
+      "contemporary everyday wardrobe era",
+      "project-consistent human silhouette",
+      "rear / side / rear-three-quarter body language",
+      "absence of backpack / shoulder bag / crossbody bag / luggage / expedition equipment"
+    ],
+    "must_not_control": [
+      "named-character identity",
+      "exact face",
+      "exact complete outfit",
+      "scene environment",
+      "scene lighting",
+      "Story Shot camera composition",
+      "complete crowd blocking outside explicit N21 use"
+    ]
+  },
+  "publication": {
+    "request_path": "production/publication_requests/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.json",
+    "request_commit": "3791888f5f063211d2e3268de44e4b327734d693",
+    "publication_commit": "e1d3a82da4b96eb0f20f2a629ef1140d4668b650",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "intake_verification": {
+    "workflow_run_id": 36873981603,
+    "job_id": 110408581874,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "post_publication_verification": {
+    "workflow_run_id": 36874219371,
+    "job_id": 110409384685,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6",
+    "verified_git_blob": "2b86ab207ee60ba0cd2de277bb55900b8854099c",
+    "verified_byte_size": 1418940,
+    "verified_dimensions": "1536x1024",
+    "verified_mode": "RGBA",
+    "verified_bit_depth": 8
+  }
+}
