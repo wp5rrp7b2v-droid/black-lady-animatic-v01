@@ -2270,3 +2270,18 @@ Status: `FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / GENERATION_ALLOWED=TRUE / C
 - Style Reference copy: 1536×1024 / 1301730 bytes / SHA 8d650483...7ce41 / blob 216b1739...88e2 / EXACT MATCH.
 - Historical pre-gate Artifact `11144634603`: DO NOT USE.
 - Candidate 05 remains NOT YET AUTHORIZED; RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜N21 Candidate 05 Work Generation Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / REVIEW REQUIRED`
+
+- Candidate: `N21 Candidate 05｜Clean Regeneration`.
+- Formal Bundle: `N21_REFERENCE_DELIVERY_BUNDLE_V004`.
+- Formal Artifact: `11145497260` / digest `sha256:0b3227f30d8156ed7be3f421f5b43d9233aba4fc609dedd09d76f4f1dc0ea27d`.
+- Historical Artifact `11144634603`: DO NOT USE.
+- Work must auto-download and revalidate 2/2 references before generation.
+- Generation limit: exactly 1 PNG, then stop for Product Owner review.
+- Core visual read: threshold transition + unknown-space mood; approximately 4–6 readable people is sufficient.
+- Style Reference authority is visual-language only; copying specific panel identity/outfit/grouping is a hard FAIL.
+- Candidate 06 remains NOT AUTHORIZED; N22 NOT STARTED; RISK-003 ACTIVE.
