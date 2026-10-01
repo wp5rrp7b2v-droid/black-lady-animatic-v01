@@ -1374,3 +1374,29 @@ Review:
 Next:
 
 `Product Owner review → N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001 Design`
+
+
+## N21 Threshold Transition Environment Reference V001｜Formal Closeout｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / CLOSED`
+
+- reference: `N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001`
+- classification: `P0.3_CONTROLLED_PRODUCTION_REFERENCE`
+- authority: `N21_THRESHOLD_TRANSITION_ENVIRONMENT_ONLY`
+- canonical PNG: `production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.png`
+- canonical manifest: `production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.manifest.json`
+- exact identity: `941x1672 / RGBA / 3394494 bytes / SHA-256 dd1b2dc6...9a4f13 / blob 35805794...20fc8`
+- publication commit: `7108530b3bbed4bf01aac73c164978210545e4a9`
+- verification run: `36857195935` / job `110352417813` / `EXACT_BINARY_MATCH=YES`
+- not a Story Shot; not a primary Scene Master; not a strict reverse-angle reconstruction; does not replace `AST_IMG_000052`.
+- no P0.2 Asset Registry schema extension.
+
+Closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_threshold_transition_environment_reference_v001_closeout_2026-10-01.md`
+
+Next:
+
+`N21_REFERENCE_DELIVERY_BUNDLE_V005 DESIGN`
