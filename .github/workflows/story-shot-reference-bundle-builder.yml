@@ -48,11 +48,32 @@ jobs:
           esac
           echo "spec_path=$SPEC" >> "$GITHUB_OUTPUT"
 
+      - name: Read build authorization
+        id: auth
+        shell: bash
+        run: |
+          AUTH="$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1])).get("build_authorized", True)).lower())' "${{ steps.spec.outputs.spec_path }}")"
+          case "$AUTH" in
+            true|false) ;;
+            *) echo "Invalid build_authorized: $AUTH"; exit 1 ;;
+          esac
+          echo "build_authorized=$AUTH" >> "$GITHUB_OUTPUT"
+          echo "BUILD_AUTHORIZED=$AUTH"
+
+      - name: Validate references without building
+        if: steps.auth.outputs.build_authorized != 'true'
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec "${{ steps.spec.outputs.spec_path }}" \
+            --validate-only
+
       - name: Build verified reference bundle
+        if: steps.auth.outputs.build_authorized == 'true'
         run: |
           python3 scripts/story_shot_reference_bundle_builder_v1.py --spec "${{ steps.spec.outputs.spec_path }}"
 
       - name: Read bundle ID
+        if: steps.auth.outputs.build_authorized == 'true'
         id: bundle
         shell: bash
         run: |
@@ -60,6 +81,7 @@ jobs:
           echo "bundle_id=$BUNDLE_ID" >> "$GITHUB_OUTPUT"
 
       - name: Upload verified bundle
+        if: steps.auth.outputs.build_authorized == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.bundle.outputs.bundle_id }}
