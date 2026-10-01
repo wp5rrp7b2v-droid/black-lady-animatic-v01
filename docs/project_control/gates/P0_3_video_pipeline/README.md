@@ -1449,3 +1449,28 @@ Status:
 Next:
 
 `Product Owner authorization → Formal V005 Build + Exact Verification`
+
+
+## N21 Reference Delivery Bundle V005｜Formal Build + Exact Verification｜2026-10-01
+
+Status:
+
+`FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED TRUE / C07 NOT AUTHORIZED`
+
+- spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V005.json`
+- revision: `V005-R2`
+- authorization commit: `5dcb51deb9f00b01ee36a1e9290a23dbb60c6e8f`
+- run: `36859705482`
+- job: `110360617971`
+- Artifact: `11161920411`
+- Artifact size: `4697710`
+- Artifact digest: `sha256:358ea894249d88e93047eabbfeb760196a34c29afdfa2a82277fc875560ecb58`
+- exact verification: `2/2 PASS`
+- independent ZIP verification: `MATCH`
+- bundle-level `GENERATION_ALLOWED=TRUE`
+- Candidate 07: `NOT AUTHORIZED`
+- N22: `NOT STARTED`
+
+Next:
+
+`Product Owner authorization → N21 Candidate 07 Work generation`
