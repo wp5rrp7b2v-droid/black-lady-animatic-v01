@@ -129,7 +129,7 @@ def verify_ref(ref, registry_rows, story_rows):
 
     return src, actual_sha, actual_size, actual_blob, width, height
 
-def build(spec_path):
+def load_spec(spec_path):
     spec_path = (ROOT / spec_path).resolve()
     if not spec_path.is_file() or spec_path.is_symlink():
         raise ValueError("Invalid spec path")
@@ -142,6 +142,43 @@ def build(spec_path):
         raise ValueError("Bundle spec missing required fields")
     if not isinstance(spec["references"], list) or not spec["references"]:
         raise ValueError("Reference set is empty")
+    if spec.get("build_authorized", True) not in (True, False):
+        raise ValueError("build_authorized must be boolean when present")
+    return spec
+
+
+def validate_only(spec_path):
+    spec = load_spec(spec_path)
+    registry_rows = rows(REGISTRY)
+    story_rows = rows(STORY_INDEX)
+    verified = []
+    for ref in spec["references"]:
+        src, actual_sha, actual_size, actual_blob, width, height = verify_ref(ref, registry_rows, story_rows)
+        verified.append({
+            "reference_id": ref["reference_id"],
+            "source_type": ref["source_type"],
+            "canonical_path": ref["canonical_path"],
+            "computed_sha256": actual_sha,
+            "actual_byte_size": actual_size,
+            "actual_git_blob": actual_blob,
+            "dimensions": {"width": width, "height": height},
+            "png_signature": "PASS",
+        })
+    print(f"VALIDATION_PASS: {len(verified)}/{len(spec['references'])} exact canonical references verified")
+    print("BUILD_AUTHORIZED=" + ("TRUE" if spec.get("build_authorized", True) else "FALSE"))
+    print("GENERATION_ALLOWED=FALSE")
+    print("BUNDLE_ID=" + spec["bundle_id"])
+    return verified
+
+
+def build(spec_path):
+    spec = load_spec(spec_path)
+    if spec.get("build_authorized", True) is not True:
+        print("BUILD_AUTHORIZED=FALSE")
+        print("GENERATION_ALLOWED=FALSE")
+        print("BUNDLE_BUILD_SKIPPED=TRUE")
+        print("BUNDLE_ID=" + spec["bundle_id"])
+        return None
 
     out = ROOT / spec["bundle_id"]
     if out.exists() or out.is_symlink():
@@ -212,8 +249,12 @@ def build(spec_path):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--spec", required=True)
+    p.add_argument("--validate-only", action="store_true")
     a = p.parse_args()
-    build(a.spec)
+    if a.validate_only:
+        validate_only(a.spec)
+    else:
+        build(a.spec)
 
 if __name__ == "__main__":
     main()
