@@ -2447,3 +2447,18 @@ Status: `PRODUCT OWNER APPROVED / EXACT BINARY INTAKE PENDING`
 - staging intake prepared.
 - no re-encode / resize / export allowed.
 - N21 Candidate 08 / N22 not started.
+
+
+## 2026-10-01｜N21 Crowd Body/Wardrobe Reference V001 Closeout
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+- approved candidate: `Candidate 03`.
+- canonical: `production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.png`.
+- exact identity: `1536×1024 RGBA / 1418940 bytes / SHA-256 73bb645e5a22cccb53faf8eb2d4b8fc0b876980e7520a2bc54daab1207439dc6 / blob 2b86ab207ee60ba0cd2de277bb55900b8854099c`.
+- intake exact verification: run `36873981603` / job `110408581874` / PASS.
+- canonical publication: exact Git blob reuse at `e1d3a82da4b96eb0f20f2a629ef1140d4668b650`.
+- canonical verification: run `36874219371` / job `110409384685` / PASS.
+- manifest finalized.
+- staging and one-time verifier workflows removed.
+- next design target: `N21_REFERENCE_DELIVERY_BUNDLE_V006` using Environment Reference + Crowd Body/Wardrobe Reference only, pending Product Owner approval.
