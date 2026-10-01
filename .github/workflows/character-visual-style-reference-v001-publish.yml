@@ -1,0 +1,289 @@
+name: Character Visual Style Reference V001 Exact Binary Publication
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/publication_requests/CHARACTER_VISUAL_STYLE_REFERENCE_V001.json"
+
+permissions:
+  contents: write
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    env:
+      REQUEST: production/publication_requests/CHARACTER_VISUAL_STYLE_REFERENCE_V001.json
+      CROP_PLAN: production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.crop_plan.json
+      CANONICAL_PNG: production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.png
+      CANONICAL_MANIFEST: production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.manifest.json
+      EXPECTED_SHA256: 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41
+      EXPECTED_BYTES: "1301730"
+      PILLOW_VERSION: "11.3.0"
+
+    steps:
+      - name: Checkout publication request commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install pinned Pillow
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "Pillow==${PILLOW_VERSION}"
+          python --version
+          python -c 'import PIL; print("Pillow", PIL.__version__)'
+
+      - name: Validate publication request
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          p = json.load(open(os.environ["REQUEST"], encoding="utf-8"))
+          required = {
+              "reference_id": "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
+              "product_owner_approved": True,
+              "expected_sha256": os.environ["EXPECTED_SHA256"],
+              "expected_byte_size": int(os.environ["EXPECTED_BYTES"]),
+              "canonical_publication_authorized": True,
+          }
+          for k, v in required.items():
+              if p.get(k) != v:
+                  raise SystemExit(f"FAIL request {k}: {p.get(k)!r} != {v!r}")
+          print("PUBLICATION_REQUEST=PASS")
+          PY
+
+      - name: Rebuild exact approved binary
+        run: |
+          mkdir -p "$(dirname "${CANONICAL_PNG}")" publication_proof
+          python scripts/build_character_visual_style_reference_v001.py \
+            --crop-plan "${CROP_PLAN}" \
+            --output "${CANONICAL_PNG}" \
+            --report "publication_proof/build_report.json"
+
+      - name: Verify approved binary identity before publication
+        id: preflight
+        shell: bash
+        run: |
+          ACTUAL_SHA="$(sha256sum "${CANONICAL_PNG}" | awk '{print $1}')"
+          ACTUAL_BYTES="$(wc -c < "${CANONICAL_PNG}" | tr -d ' ')"
+          ACTUAL_BLOB="$(git hash-object "${CANONICAL_PNG}")"
+
+          echo "PRE_PUBLISH_SHA256=$ACTUAL_SHA"
+          echo "PRE_PUBLISH_BYTES=$ACTUAL_BYTES"
+          echo "PRE_PUBLISH_GIT_BLOB=$ACTUAL_BLOB"
+
+          test "$ACTUAL_SHA" = "${EXPECTED_SHA256}"
+          test "$ACTUAL_BYTES" = "${EXPECTED_BYTES}"
+
+          echo "git_blob=$ACTUAL_BLOB" >> "$GITHUB_OUTPUT"
+
+      - name: Write canonical provenance manifest
+        env:
+          OUTPUT_GIT_BLOB: ${{ steps.preflight.outputs.git_blob }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import platform
+          from pathlib import Path
+          import PIL
+
+          request_path = Path(os.environ["REQUEST"])
+          crop_path = Path(os.environ["CROP_PLAN"])
+          build_report_path = Path("publication_proof/build_report.json")
+          png_path = Path(os.environ["CANONICAL_PNG"])
+
+          request = json.loads(request_path.read_text(encoding="utf-8"))
+          crop = json.loads(crop_path.read_text(encoding="utf-8"))
+          build_report = json.loads(build_report_path.read_text(encoding="utf-8"))
+          raw = png_path.read_bytes()
+
+          manifest = {
+              "schema_version": "1.0",
+              "reference_id": "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
+              "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+              "approval_status": "PRODUCT_OWNER_APPROVED",
+              "lifecycle": "CURRENT",
+              "authority_scope": "CHARACTER_VISUAL_STYLE_ONLY",
+              "canonical_path": os.environ["CANONICAL_PNG"],
+              "output": {
+                  "width": 1536,
+                  "height": 1024,
+                  "mode": "RGB",
+                  "format": "PNG",
+                  "byte_size": len(raw),
+                  "sha256": hashlib.sha256(raw).hexdigest(),
+                  "git_blob": os.environ["OUTPUT_GIT_BLOB"],
+              },
+              "approved_binary": {
+                  "byte_size": int(os.environ["EXPECTED_BYTES"]),
+                  "sha256": os.environ["EXPECTED_SHA256"],
+                  "proof_run_id": 36822615026,
+                  "proof_job_id": 110241244661,
+                  "proof_artifact_id": 11143724172,
+              },
+              "publication": {
+                  "request_path": request_path.as_posix(),
+                  "request_commit": os.environ["GITHUB_SHA"],
+                  "workflow_run_id": os.environ["GITHUB_RUN_ID"],
+                  "workflow_run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
+                  "canonical_publication_authorized": True,
+                  "exact_binary_required": True,
+              },
+              "build_environment": {
+                  "python_version": platform.python_version(),
+                  "pillow_version": PIL.__version__,
+                  "resize": "PIL.Image.Resampling.LANCZOS",
+                  "png_optimize": False,
+                  "png_compress_level": 9,
+                  "no_generative_processing": True,
+              },
+              "crop_plan": {
+                  "path": crop_path.as_posix(),
+                  "sha256": hashlib.sha256(crop_path.read_bytes()).hexdigest(),
+                  "panel_count": len(crop["panels"]),
+              },
+              "sources": build_report["sources"],
+              "usage_boundary": {
+                  "may_control": [
+                      "human facial rendering language",
+                      "skin treatment",
+                      "hair realism",
+                      "adult age variation",
+                      "cinematic human realism",
+                      "clothing and fabric material rendering",
+                  ],
+                  "must_not_control": [
+                      "named-character identity",
+                      "complete outfit",
+                      "complete body pose",
+                      "group composition",
+                      "scene",
+                      "Story Shot composition",
+                  ],
+              },
+          }
+
+          if manifest["output"]["sha256"] != os.environ["EXPECTED_SHA256"]:
+              raise SystemExit("FAIL manifest output SHA differs from approved binary")
+          if manifest["output"]["byte_size"] != int(os.environ["EXPECTED_BYTES"]):
+              raise SystemExit("FAIL manifest output bytes differ from approved binary")
+
+          Path(os.environ["CANONICAL_MANIFEST"]).write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit exact canonical PNG and manifest
+        id: commit
+        shell: bash
+        run: |
+          git config user.name "black-lady-production-bot"
+          git config user.email "actions@github.com"
+
+          git add "${CANONICAL_PNG}" "${CANONICAL_MANIFEST}"
+
+          mapfile -t CHANGED < <(git diff --cached --name-only)
+          printf 'PUBLISH_CHANGED=%s\n' "${CHANGED[*]}"
+          test "${#CHANGED[@]}" -eq 2
+          printf '%s\n' "${CHANGED[@]}" | grep -Fx "${CANONICAL_PNG}"
+          printf '%s\n' "${CHANGED[@]}" | grep -Fx "${CANONICAL_MANIFEST}"
+
+          git commit -m "production: publish character visual style reference V001"
+          PUB_COMMIT="$(git rev-parse HEAD)"
+          echo "publication_commit=$PUB_COMMIT" >> "$GITHUB_OUTPUT"
+          echo "PUBLICATION_COMMIT=$PUB_COMMIT"
+
+      - name: Push canonical publication to main
+        run: |
+          git push origin HEAD:main
+
+      - name: Post-publication remote verification
+        env:
+          PUBLICATION_COMMIT: ${{ steps.commit.outputs.publication_commit }}
+        shell: bash
+        run: |
+          REMOTE_MAIN="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          echo "REMOTE_MAIN=$REMOTE_MAIN"
+          echo "EXPECTED_PUBLICATION_COMMIT=$PUBLICATION_COMMIT"
+          test "$REMOTE_MAIN" = "$PUBLICATION_COMMIT"
+
+          git show "$REMOTE_MAIN:${CANONICAL_PNG}" > publication_proof/remote_canonical.png
+          git show "$REMOTE_MAIN:${CANONICAL_MANIFEST}" > publication_proof/remote_manifest.json
+
+          REMOTE_SHA="$(sha256sum publication_proof/remote_canonical.png | awk '{print $1}')"
+          REMOTE_BYTES="$(wc -c < publication_proof/remote_canonical.png | tr -d ' ')"
+          REMOTE_BLOB="$(git hash-object publication_proof/remote_canonical.png)"
+
+          echo "REMOTE_SHA256=$REMOTE_SHA"
+          echo "REMOTE_BYTES=$REMOTE_BYTES"
+          echo "REMOTE_GIT_BLOB=$REMOTE_BLOB"
+
+          test "$REMOTE_SHA" = "${EXPECTED_SHA256}"
+          test "$REMOTE_BYTES" = "${EXPECTED_BYTES}"
+
+          python - <<'PY'
+          import json, os
+          m = json.load(open("publication_proof/remote_manifest.json", encoding="utf-8"))
+          expected_sha = os.environ["EXPECTED_SHA256"]
+          expected_bytes = int(os.environ["EXPECTED_BYTES"])
+          if m["output"]["sha256"] != expected_sha:
+              raise SystemExit("FAIL remote manifest SHA")
+          if m["output"]["byte_size"] != expected_bytes:
+              raise SystemExit("FAIL remote manifest bytes")
+          if m["approval_status"] != "PRODUCT_OWNER_APPROVED":
+              raise SystemExit("FAIL remote manifest approval")
+          if m["classification"] != "P0.3_CONTROLLED_PRODUCTION_REFERENCE":
+              raise SystemExit("FAIL remote manifest classification")
+          print("REMOTE_MANIFEST=PASS")
+          PY
+
+          echo "POST_PUBLICATION_EXACT_BINARY_VERIFICATION=PASS"
+
+      - name: Write publication proof
+        env:
+          PUBLICATION_COMMIT: ${{ steps.commit.outputs.publication_commit }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          p = Path("publication_proof/remote_canonical.png")
+          raw = p.read_bytes()
+          proof = {
+              "schema_version": "1.0",
+              "reference_id": "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
+              "status": "CANONICAL_PUBLICATION_AND_REMOTE_VERIFICATION_PASS",
+              "publication_commit": os.environ["PUBLICATION_COMMIT"],
+              "remote_main_verified": True,
+              "canonical_path": os.environ["CANONICAL_PNG"],
+              "canonical_manifest_path": os.environ["CANONICAL_MANIFEST"],
+              "sha256": hashlib.sha256(raw).hexdigest(),
+              "byte_size": len(raw),
+              "expected_sha256": os.environ["EXPECTED_SHA256"],
+              "expected_byte_size": int(os.environ["EXPECTED_BYTES"]),
+              "workflow_run_id": os.environ["GITHUB_RUN_ID"],
+          }
+          Path("publication_proof/post_publication_verification.json").write_text(
+              json.dumps(proof, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload publication verification proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: CHARACTER_VISUAL_STYLE_REFERENCE_V001_PUBLICATION_PROOF
+          path: publication_proof/
+          retention-days: 7
+          if-no-files-found: error
