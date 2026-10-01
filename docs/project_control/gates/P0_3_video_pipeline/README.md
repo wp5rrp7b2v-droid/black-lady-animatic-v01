@@ -1088,3 +1088,23 @@ Status:
 Next:
 
 `Work → N21 Candidate 04 only → Product Owner review`
+
+
+## N21 Candidate 04 Review｜2026-10-01
+
+Status:
+
+`NOT APPROVED / REFERENCE CONTENT LEAKAGE`
+
+- Candidate 04 used verified Bundle V003; technical transport / exact-binary integrity remained valid.
+- Human visual quality and body stability improved relative to Candidate 03.
+- Main failure: N03 as a complete Story Shot style input leaked concrete wardrobe / figure configuration into the new render.
+- Bundle V003 is therefore `TECHNICALLY VALID / CREATIVE REFERENCE STRATEGY FAILED`.
+- N03 must not be reused as N21 formal style-generation input.
+- Candidate 05 remains `NOT AUTHORIZED`.
+- RISK-003 remains `ACTIVE`.
+- Product Owner approved next step: `Character Visual Style Reference V0.1｜Design`.
+
+Review record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_candidate_04_review_2026-10-01.md`
