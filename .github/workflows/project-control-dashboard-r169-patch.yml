@@ -1,0 +1,52 @@
+name: Project Control Dashboard R169 Patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/control_requests/dashboard_r169_patch.json"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch dashboard to R169
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("docs/project_control/dashboard/dashboard.html")
+          s=p.read_text(encoding="utf-8")
+          replacements=[
+            ("Project Dashboard V103","Project Dashboard V104"),
+            ("Derived from R168 · Updated 2026-10-01","Derived from R169 · Updated 2026-10-01"),
+            ("P0.3｜S02-B ACTIVE｜V004 Spec 已锁定 / Build 待授权","P0.3｜S02-B ACTIVE｜V004 Formal Build 2/2 PASS"),
+            ("CONTROLLED_REFERENCE Builder Support + N21 V004 Spec 已完成；validation-only 2/2 PASS，build_authorized=false，未生成正式 Artifact。下一步等待 Formal V004 Build + Exact Verification 授权；Candidate 05 仍未授权。",
+             "N21_REFERENCE_DELIVERY_BUNDLE_V004 已正式构建并完成独立 exact verification：2/2 PASS，GENERATION_ALLOWED=TRUE。下一步等待 Candidate 05 单独生成授权；N22 不启动。"),
+            ("V004 Formal Build Authorization NEXT","Candidate 05 Authorization NEXT"),
+            ("恢复点：授权 Formal N21_REFERENCE_DELIVERY_BUNDLE_V004 Build + Exact Verification；Candidate 05 未授权。",
+             "恢复点：Product Owner 授权 N21 Candidate 05 Work Generation；当前正式 Artifact 11145497260。"),
+            ("Next：等待 Formal N21 V004 Build + Exact Verification 授权；Candidate 05 与 N22 均不启动。",
+             "Next：等待 N21 Candidate 05 Work Generation 授权；N22 不启动。"),
+            ("Project Control：R168。","Project Control：R169。"),
+            ("S02-B｜ACTIVE / V004 SPEC LOCKED / FORMAL BUILD AUTHORIZATION NEXT",
+             "S02-B｜ACTIVE / V004 FORMAL 2 OF 2 PASS / CANDIDATE 05 AUTHORIZATION NEXT")
+          ]
+          for old,new in replacements:
+              if old in s:
+                  s=s.replace(old,new)
+          p.write_text(s,encoding="utf-8")
+          PY
+
+      - name: Commit dashboard sync
+        run: |
+          git config user.name "black-lady-project-control-bot"
+          git config user.email "actions@github.com"
+          git add docs/project_control/dashboard/dashboard.html
+          git diff --cached --quiet && { echo "no dashboard change"; exit 1; }
+          git commit -m "project-control: sync dashboard to R169"
+          git push origin HEAD:main
