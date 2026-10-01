@@ -2077,3 +2077,23 @@ Status: `NO CANDIDATE APPROVED / C04 NOT AUTHORIZED`
 - Candidate 04 is NOT authorized.
 - N22 is NOT started.
 - Resume point: `N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`.
+
+
+## 2026-10-01｜N21 Scene Reference Design V0.4 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE V003 DESIGN NEXT`
+
+- N21 single-frame responsibility was simplified from cohort-scale proof to `THRESHOLD TRANSITION + UNKNOWN-SPACE MOOD`.
+- Canonical fact `16 participants total` remains unchanged, but exact single-frame counting is no longer required.
+- Preferred visible complexity is approximately 4–6 readable people with crop / occlusion / silhouette / off-frame continuation allowed.
+- Ning Qiushui / Jun Luyuan are no longer mandatory identity targets in N21 and must not dominate the frame.
+- Character visual style continuity is now a hard Director gate; visible people must remain inside the established approved Story Shot human-rendering language.
+- Formal reference strategy approved for next Bundle design:
+  - `AST_IMG_000052` = space / architecture authority;
+  - `N03_VISITOR_REACTION_APPROVED_V001.png` = character visual-style / multi-person rendering-language authority.
+- `N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png` = Director continuity review only; not a proposed formal generation input.
+- `N21_REFERENCE_DELIVERY_BUNDLE_V002` = technically valid / creative scope superseded.
+- `RISK-003` remains ACTIVE; scope simplification alone does not prove generation stability.
+- Candidate 04 remains NOT AUTHORIZED.
+- N22 remains NOT STARTED.
+- Next step: `N21_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN` only.
