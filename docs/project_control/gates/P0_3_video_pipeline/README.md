@@ -1161,3 +1161,28 @@ Build record:
 Next:
 
 `Product Owner visual review of the deterministic Style Board`
+
+
+## Character Visual Style Reference V001｜PO Visual Approval｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / EXACT BINARY IDENTITY LOCKED / CANONICAL PUBLICATION NEXT`
+
+- dimensions: `1536×1024`
+- mode / format: `RGB / PNG`
+- byte size: `1301730`
+- SHA-256: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`
+- proof run: `36822615026`
+- proof Artifact: `11143724172`
+- authority: `STYLE ONLY / NO NAMED IDENTITY / NO SHOT CONTENT`
+- canonical publication: `PENDING`
+- Candidate 05: `NOT AUTHORIZED`
+
+Approval record:
+
+`docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_po_visual_approval_2026-10-01.md`
+
+Next:
+
+`Exact-binary canonical publication + post-publication verification`
