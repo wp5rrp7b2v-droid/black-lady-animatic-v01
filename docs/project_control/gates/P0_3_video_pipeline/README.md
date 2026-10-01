@@ -1032,3 +1032,37 @@ Resume next session from:
 `N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`
 
 Do not generate Candidate 04 before the revised N21 single-frame responsibility is explicitly locked.
+
+
+## N21 Scene Reference V0.4｜2026-10-01
+
+Status:
+
+`PRODUCT OWNER APPROVED / LOCKED`
+
+N21 responsibility is now simplified to:
+
+`THRESHOLD TRANSITION + UNKNOWN-SPACE MOOD`
+
+Current locks:
+
+- 16 participants remain a canonical story fact but are not a single-frame counting requirement;
+- approximately 4–6 readable figures are sufficient;
+- Ning / Jun are not mandatory identity targets and must not dominate;
+- character visual style continuity is a hard Director gate;
+- proposed next Bundle formal references are `AST_IMG_000052 + N03_VISITOR_REACTION_APPROVED_V001.png`;
+- N20 is Director continuity review only, not a proposed formal generation input;
+- Bundle V002 remains technically valid but its creative scope is superseded;
+- Candidate 04 remains NOT AUTHORIZED;
+- N22 remains NOT STARTED;
+- RISK-003 remains ACTIVE pending candidate evidence and Product Owner approval.
+
+Design authority:
+
+`docs/project_control/gates/P0_3_video_pipeline/n21_scene_reference_design_v0_4.md`
+
+Next:
+
+`N21_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN`
+
+Do not build Bundle V003 or generate Candidate 04 before separate Product Owner approval of the Bundle design.
