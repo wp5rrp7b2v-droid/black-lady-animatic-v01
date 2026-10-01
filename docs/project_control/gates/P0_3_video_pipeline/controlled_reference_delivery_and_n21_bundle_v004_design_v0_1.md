@@ -4,7 +4,7 @@ Date: 2026-10-01
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / IMPLEMENTATION NOT YET AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / BUILDER SUPPORT + SPEC COMPLETED / FORMAL BUILD NOT AUTHORIZED`
 
 Target:
 
@@ -285,17 +285,26 @@ Approved / locked now:
 - exclusion of N03 / N20 / all prior N21 candidates;
 - fail-closed validation contract.
 
+Completed after separate Product Owner authorization:
+
+- generic builder CONTROLLED_REFERENCE support;
+- builder/workflow build_authorization gate;
+- V004 bundle spec creation;
+- validation-only 2/2 canonical reference check.
+
 Not authorized yet:
 
-- generic builder implementation change;
-- V004 bundle spec creation;
-- V004 GitHub Actions build;
+- formal V004 GitHub Actions build;
 - Work generation;
 - Candidate 05;
 - N22.
 
+Current formal Spec: `production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V004.json` / `build_authorized=false`.
+
+Validation-only run: `36826494510` / `2/2 PASS` / `GENERATION_ALLOWED=FALSE` / no Artifact.
+
 Next:
 
-`CONTROLLED_REFERENCE Builder Support + N21 Bundle V004 Spec / Build Preparation`
+`Product Owner authorization → Formal N21_REFERENCE_DELIVERY_BUNDLE_V004 Build + Exact Verification`
 
-A separate Product Owner authorization is required before implementation/build.
+A separate Product Owner authorization is required before formal Build.
