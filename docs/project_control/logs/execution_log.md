@@ -2372,3 +2372,18 @@ Status: `FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFI
 - Artifact file count: 4; image-input count: 2.
 - Both image inputs independently exact-match canonical binaries.
 - Candidate 07 remains NOT AUTHORIZED; N22 NOT STARTED.
+
+
+## 2026-10-01｜N21 Candidate 07 Work Generation Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
+
+- Candidate: `N21 Candidate 07｜Clean Regeneration`.
+- Formal Bundle: `N21_REFERENCE_DELIVERY_BUNDLE_V005`.
+- Artifact: `11161920411`.
+- Work must auto-acquire Artifact and verify `2/2 exact` before generation.
+- Generation limit: exactly `1 PNG`.
+- After generation: STOP for Product Owner review.
+- Candidate 08: NOT AUTHORIZED.
+- N22: NOT STARTED.
+- Publication / registration / Project Control closeout: NOT AUTHORIZED.
