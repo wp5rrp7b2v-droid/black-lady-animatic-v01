@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R161",
+  "state_revision": "R162",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 C04 REJECTED / CHARACTER VISUAL STYLE REFERENCE DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN READY FOR PO REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V0.1 Design",
+  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V0.1 Product Owner Review",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: V0.4 TASK SIMPLIFICATION HELPED, BUT N03 COMPLETE-STORY-SHOT STYLE INPUT CAUSED REFERENCE CONTENT LEAKAGE",
-  "next_action": "Design CHARACTER_VISUAL_STYLE_REFERENCE_V001 from approved formal character assets only. Isolate human visual language without complete Story Shot composition, scene background, full cast grouping, or reusable outfit lineup. Do not generate N21 Candidate 05. N22 remains not started.",
+  "next_action": "Product Owner review of Character Visual Style Reference V0.1 Design. Do not implement crop coordinates/build script, build the style board, construct N21 Bundle V004, or generate Candidate 05 before approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-CANDIDATE-04-REJECTED-R161",
-    "status": "N21 CANDIDATE 04 NOT APPROVED / REFERENCE CONTENT LEAKAGE CONFIRMED AT CREATIVE REVIEW",
+    "id": "2026-10-01-CHARACTER-VISUAL-STYLE-REFERENCE-V0.1-DESIGN-R162",
+    "status": "DIRECTOR DESIGN LOCK / PRODUCT OWNER REVIEW REQUIRED",
     "completed": [
-      "Candidate 04 generated from verified Bundle V003 and reviewed.",
-      "Human rendering quality and body stability improved relative to Candidate 03.",
-      "Candidate 04 rejected because N03 transmitted concrete wardrobe / figure configuration in addition to visual style.",
-      "Bundle V003 remains technically valid; its creative reference strategy failed for N21.",
-      "N03 must not be reused as N21 formal character-style generation input.",
-      "Product Owner approved creation of a dedicated CHARACTER_VISUAL_STYLE_REFERENCE_V001 design.",
-      "Candidate 05 remains unauthorized.",
-      "RISK-003 remains active."
+      "Cross-character style reference classified as P0.3 CONTROLLED_PRODUCTION_REFERENCE rather than falsely binding to one P0.2 Entity.",
+      "Source set locked at design level to six approved CURRENT Atomic Character assets from Guang Yong, Liao Jian, Su Xiaoxiao and Wen Qingya.",
+      "Ning Qiushui, Jun Luyuan, complete Story Shots and Character Reference Sheets are excluded.",
+      "Construction method locked to deterministic crop/resize/contact-sheet assembly with no generative image processing.",
+      "Target board format set to 1536x1024 landscape 3x2 equal-weight panels.",
+      "Future delivery requires explicit CONTROLLED_REFERENCE support; no silent reuse of ASSET/STORY_SHOT semantics."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_04_review_2026-10-01.md",
-    "resume_from": "CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v0_1_design.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF CHARACTER VISUAL STYLE REFERENCE V0.1 DESIGN",
     "blockers": [
       "RISK-003"
     ]
