@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "authority_scope": "N21_THRESHOLD_TRANSITION_ENVIRONMENT_ONLY",
+  "canonical_path": "production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.png",
+  "output": {
+    "width": 941,
+    "height": 1672,
+    "mode": "RGBA",
+    "format": "PNG",
+    "byte_size": 3394494,
+    "sha256": "dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13",
+    "git_blob": "358057948ec222bbe63a47a07022de4453e20fc8"
+  },
+  "approved_binary": {
+    "byte_size": 3394494,
+    "sha256": "dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13",
+    "staging_path": "staging/n21_threshold_transition_environment_reference_v001_intake/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001_APPROVED.png",
+    "staging_git_blob": "358057948ec222bbe63a47a07022de4453e20fc8",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-01"
+  },
+  "governance": {
+    "asset_role": "CONTROLLED_ENVIRONMENT_REFERENCE",
+    "scene_scope": "CASTLE_ENTRANCE_THRESHOLD_TRANSITION",
+    "p0_2_asset_registry_record": false,
+    "reason": "P0.2 Registry Schema V0.3 has no controlled environment reference class; do not silently extend the locked schema.",
+    "not_story_shot": true,
+    "not_primary_scene_master": true,
+    "not_strict_reverse_angle_reconstruction": true,
+    "does_not_replace_asset_id": "AST_IMG_000052"
+  },
+  "source_lineage": {
+    "scene_fact_origin": "AST_IMG_000052",
+    "tonal_lighting_continuity": "N20_DO_NOT_TOUCH_THINGS_APPROVED_V001",
+    "generation_context": "WORK LIGHTWEIGHT ENVIRONMENT PROOF / PRODUCT OWNER APPROVED BINARY",
+    "note": "Source roles record production intent and continuity guidance; this reference is not claimed as an exact geometric reconstruction of AST_IMG_000052."
+  },
+  "usage_boundary": {
+    "may_control": [
+      "N21 threshold-transition spatial staging",
+      "doorway usable width and perceived scale",
+      "interior-to-interior threshold relationship",
+      "warm low-key interior lighting continuity",
+      "stone / wood / floor environmental language",
+      "partial deeper-space concealment"
+    ],
+    "must_not_control": [
+      "strict reverse-angle geometry of AST_IMG_000052",
+      "complete First Hall layout",
+      "character identity",
+      "character wardrobe",
+      "crowd pose",
+      "Story Shot composition outside explicit N21 use"
+    ]
+  }
+}

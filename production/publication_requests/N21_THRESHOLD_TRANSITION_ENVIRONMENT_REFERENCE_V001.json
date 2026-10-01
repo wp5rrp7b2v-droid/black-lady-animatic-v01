@@ -1,0 +1,16 @@
+{
+  "request_id": "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001_PUBLICATION",
+  "reference_id": "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001",
+  "requested_on": "2026-10-01",
+  "requested_by": "PRODUCT_OWNER",
+  "source_path": "staging/n21_threshold_transition_environment_reference_v001_intake/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001_APPROVED.png",
+  "source_sha256": "dd1b2dc6b831b2e22d8dc249859af1b4f65da6a20437cd8821627144e89a4f13",
+  "source_git_blob": "358057948ec222bbe63a47a07022de4453e20fc8",
+  "source_byte_size": 3394494,
+  "canonical_path": "production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.png",
+  "manifest_path": "production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.manifest.json",
+  "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+  "exact_binary_required": true,
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "authority_scope": "N21_THRESHOLD_TRANSITION_ENVIRONMENT_ONLY"
+}
