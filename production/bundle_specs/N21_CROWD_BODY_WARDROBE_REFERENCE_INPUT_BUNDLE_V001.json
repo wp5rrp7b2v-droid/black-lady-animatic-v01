@@ -118,7 +118,7 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-R1",
-  "build_authorized": false,
-  "authorization_note": "PRODUCT_OWNER_CONTINUE / SPEC_AND_VALIDATION_ONLY / FORMAL_BUILD_NOT_AUTHORIZED / WORK_GENERATION_NOT_AUTHORIZED"
+  "spec_revision": "V001-R2",
+  "build_authorized": true,
+  "authorization_note": "PRODUCT_OWNER_AUTHORIZED_FORMAL_BUILD_AND_EXACT_VERIFICATION / WORK_GENERATION_NOT_AUTHORIZED / N21_CANDIDATE_08_NOT_STARTED / N22_NOT_STARTED"
 }
