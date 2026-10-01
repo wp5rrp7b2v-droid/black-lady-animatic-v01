@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R179",
+  "state_revision": "R180",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / HUMAN-ONLY INPUT BUNDLE FORMAL BUILD PASS / 4 OF 4 EXACT VERIFIED / WORK GENERATION AUTHORIZATION REQUIRED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / HUMAN-ONLY REFERENCE CANDIDATE 01 WORK GENERATION AUTHORIZED / WAITING WORK OUTPUT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Crowd Body/Wardrobe Reference Candidate 01 Work Generation Authorization",
+  "current_task": "P0.3｜S02-B｜N21 Crowd Body/Wardrobe Reference V001 Candidate 01 Work Generation",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Await Product Owner authorization for Work generation of exactly one N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01 PNG using formal verified Artifact 11163447680. Do not generate N21 Candidate 08 or start N22.",
+  "next_action": "Work must automatically acquire Artifact 11163447680, verify 4/4 exact references, generate exactly one N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01 PNG, then stop for Product Owner review. Do not generate Candidate 02, N21 Candidate 08, or start N22.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-HUMAN-ONLY-BUNDLE-FORMAL-BUILD-R179",
-    "status": "FORMAL BUILD PASS / 4 OF 4 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / WORK GENERATION NOT AUTHORIZED",
+    "id": "2026-10-01-N21-HUMAN-ONLY-CANDIDATE-01-AUTH-R180",
+    "status": "PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT",
     "completed": [
-      "Product Owner authorized formal human-only input Bundle build.",
-      "Spec advanced to V001-R2 / build_authorized=true at commit 2dae9404d33730d332853923f3c995e538dd5c72.",
-      "Formal workflow run 36866387094 / job 110382804693 completed SUCCESS.",
-      "Builder verified 4/4 exact canonical Atomic references and reported GENERATION_ALLOWED=TRUE.",
-      "Artifact 11163447680 created with size 7404683 bytes and digest sha256:79c150bc3caf4648b4935a411585d155228fea4b0c2e85959c83a51c4d7a69e1.",
-      "Independent ZIP verification matched GitHub digest exactly.",
-      "Artifact contains exactly six files and exactly four image inputs.",
-      "All four Artifact PNG copies independently exact-match canonical SHA / bytes / Git blob / 941x1672 dimensions.",
-      "Human-only Candidate 01 remains not authorized; N21 Candidate 08 and N22 remain not started."
+      "Product Owner authorized Work generation of N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01.",
+      "Formal input Bundle = N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001 / Artifact 11163447680.",
+      "Generation limit = exactly one PNG.",
+      "No environment image is used.",
+      "Four approved CURRENT rear-3/4 anchors remain the only formal image inputs.",
+      "Candidate 02, N21 Candidate 08 and N22 remain unauthorized / not started.",
+      "Canonical publication remains unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_input_bundle_v001_build_record_2026-10-01.md",
-    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR HUMAN-ONLY CANDIDATE 01 WORK GENERATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_v001_candidate_01_work_authorization_2026-10-01.md",
+    "resume_from": "WAITING FOR HUMAN-ONLY REFERENCE CANDIDATE 01 WORK OUTPUT / PRODUCT OWNER REVIEW",
     "blockers": [
       "RISK-003"
     ]
@@ -2324,7 +2322,7 @@
     ]
   },
   "n21_crowd_body_wardrobe_reference_v001": {
-    "status": "INPUT BUNDLE FORMAL / 4 OF 4 PASS / INDEPENDENTLY VERIFIED / READY FOR WORK AFTER PO GENERATION AUTHORIZATION",
+    "status": "CANDIDATE 01 WORK GENERATION AUTHORIZED / WAITING OUTPUT",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_v001_design_2026-10-01.md",
     "input_bundle_spec": "production/bundle_specs/N21_CROWD_BODY_WARDROBE_REFERENCE_INPUT_BUNDLE_V001.json",
     "input_references": [
@@ -2339,7 +2337,7 @@
     "build_authorized": true,
     "generation_allowed": true,
     "artifact_count": 0,
-    "work_generation_authorized": false,
+    "work_generation_authorized": true,
     "target_output": "N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01",
     "spec_revision": "V001-R2",
     "formal_build_run": 36866387094,
@@ -2350,6 +2348,10 @@
     "expires_at": "2026-10-08T13:08:43Z",
     "exact_verification": "4/4 PASS",
     "independent_artifact_verification": "4/4 PASS",
-    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_input_bundle_v001_build_record_2026-10-01.md"
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_input_bundle_v001_build_record_2026-10-01.md",
+    "generation_count_limit": 1,
+    "authorization_path": "docs/project_control/gates/P0_3_video_pipeline/n21_crowd_body_wardrobe_reference_v001_candidate_01_work_authorization_2026-10-01.md",
+    "authorization_commit": "e2c7496b3318260644ee3ff4cf0f6b8fad7bc72b",
+    "candidate_02_authorized": false
   }
 }
