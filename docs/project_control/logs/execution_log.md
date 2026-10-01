@@ -2186,3 +2186,17 @@ Status: `TECHNICAL DETERMINISM PASS / DIRECTOR VISUAL PREFLIGHT PASS / PO VISUAL
 - Director visual preflight: PASS / partial style fragments only / no full Story Shot, complete person, complete outfit, Ning/Jun, group composition or labels.
 - Canonical publication is NOT AUTHORIZED.
 - Candidate 05 remains NOT AUTHORIZED; RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜Character Visual Style Reference V001 Product Owner Visual Approval
+
+Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / CANONICAL PUBLICATION NEXT`
+
+- Product Owner visually approved the deterministic Style Board.
+- Exact approved binary: `1536×1024 / RGB / PNG / 1301730 bytes`.
+- SHA-256: `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`.
+- Approval source: run `36822615026` / job `110241244661` / Artifact `11143724172`.
+- Authority scope: human visual-style language only; not named identity, full outfit, pose, group composition or scene.
+- Canonical publication must preserve exact binary bytes; no image rewrite or re-encode is allowed.
+- RISK-003 remains ACTIVE pending real N21 generation evidence.
+- Candidate 05 remains NOT AUTHORIZED.
