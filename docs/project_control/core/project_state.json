@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R163",
+  "state_revision": "R164",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / STYLE REFERENCE V001 EXACT CROP PLAN LOCKED / BUILD IMPLEMENTATION NOT YET AUTHORIZED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / STYLE REFERENCE V001 TWO-RUN DETERMINISM PASS / PO VISUAL REVIEW NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V001 deterministic builder authorization",
+  "current_task": "P0.3｜S02-B｜Character Visual Style Reference V001 Product Owner Visual Review",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: V0.4 TASK SIMPLIFICATION HELPED, BUT N03 COMPLETE-STORY-SHOT STYLE INPUT CAUSED REFERENCE CONTENT LEAKAGE",
-  "next_action": "Await Product Owner authorization to implement the pinned deterministic style-board builder and run two identical builds. Do not build/publish the formal Style Board, add CONTROLLED_REFERENCE bundle support, build N21 Bundle V004, generate Candidate 05, or start N22 before authorization.",
+  "next_action": "Product Owner visually review the deterministic Style Board candidate from Artifact 11143724172. Do not canonically publish it, add CONTROLLED_REFERENCE bundle support, build N21 Bundle V004, generate Candidate 05, or start N22 before explicit visual approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-CHARACTER-VISUAL-STYLE-REFERENCE-CROP-PLAN-R163",
-    "status": "V0.1 PRODUCT OWNER APPROVED / EXACT 6-PANEL CROP PLAN LOCKED / DETERMINISTIC BUILD PREP READY",
+    "id": "2026-10-01-CHARACTER-VISUAL-STYLE-REFERENCE-TWO-RUN-R164",
+    "status": "TECHNICAL DETERMINISM PASS / DIRECTOR VISUAL PREFLIGHT PASS / PRODUCT OWNER VISUAL REVIEW REQUIRED",
     "completed": [
-      "Character Visual Style Reference V0.1 design approved / locked.",
-      "Six approved CURRENT Atomic source assets independently inspected through source-only Artifact 11143985053; 6/6 exact verification PASS.",
-      "Exact source-pixel crop rectangles locked for all six panels.",
-      "1536x1024 RGB board geometry, RGB(144,144,144) canvas, 48px outer margin, 24px gutters, 3x2 layout and fixed paste positions locked.",
-      "No full Story Shot, complete person, complete outfit, Ning/Jun source or group composition is allowed.",
-      "Deterministic build contract prepared: pinned Python/Pillow, LANCZOS contain-fit, fixed rounding, no generative processing, two-run SHA equality required.",
-      "Generic Bundle Builder shallow-checkout spec-selection defect discovered during source inspection and corrected to fetch-depth 2 plus HEAD^→HEAD exact-spec selection.",
-      "Formal Style Board is not yet built or published; Candidate 05 remains unauthorized."
+      "Dedicated deterministic builder implemented and committed.",
+      "Dedicated GitHub Actions two-run proof workflow implemented.",
+      "Pinned environment verified: Python 3.12.14 / Pillow 11.3.0.",
+      "Build A and Build B both produced 1536x1024 RGB PNG, 1301730 bytes, SHA-256 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41.",
+      "SHA equality, byte-size equality and direct byte comparison all PASS.",
+      "Artifact 11143724172 independently downloaded; ZIP digest matched GitHub and both PNGs independently matched.",
+      "Director visual preflight PASS: partial style fragments only; no full Story Shot/person/outfit, no Ning/Jun, no group composition or labels.",
+      "Canonical publication remains unauthorized; Candidate 05 remains unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_exact_crop_plan_and_build_prep_2026-10-01.md",
-    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR DETERMINISTIC BUILDER IMPLEMENTATION + TWO-RUN PROOF",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/character_visual_style_reference_v001_two_run_build_record_2026-10-01.md",
+    "resume_from": "PRODUCT OWNER VISUAL REVIEW OF CHARACTER_VISUAL_STYLE_REFERENCE_V001",
     "blockers": [
       "RISK-003"
     ]
