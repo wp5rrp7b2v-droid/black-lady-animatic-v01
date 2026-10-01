@@ -2134,3 +2134,18 @@ Status: `NOT APPROVED / REFERENCE CONTENT LEAKAGE`
 - Product Owner approved next step: `Character Visual Style Reference V0.1｜Design`.
 - Candidate 05 remains NOT AUTHORIZED.
 - RISK-003 remains ACTIVE.
+
+
+## 2026-10-01｜Character Visual Style Reference V0.1 Design
+
+Status: `DIRECTOR DESIGN LOCK / PRODUCT OWNER REVIEW REQUIRED / NOT YET BUILT`
+
+- New controlled reference proposed: `CHARACTER_VISUAL_STYLE_REFERENCE_V001`.
+- Purpose: carry human visual language without carrying complete Story Shot composition, named-character showcase, scene background or reusable wardrobe/cast grouping.
+- Design source set: six approved CURRENT Atomic Character assets from Guang Yong, Liao Jian, Su Xiaoxiao and Wen Qingya.
+- Ning Qiushui / Jun Luyuan, all Story Shots and Character Reference Sheets are excluded.
+- Build method: deterministic crop + resize + contact-sheet composition only; no AI generation, retouch, relight, recolor or generative fill.
+- Proposed board: `1536x1024`, landscape, 3x2 equal-weight panels.
+- Governance: proposed as P0.3 `CONTROLLED_PRODUCTION_REFERENCE`; do not mis-register as a single P0.2 Entity DERIVED_REFERENCE.
+- Future Bundle integration will require an explicit `CONTROLLED_REFERENCE` source type rather than misusing `ASSET` or `STORY_SHOT`.
+- Candidate 05 remains NOT AUTHORIZED.
