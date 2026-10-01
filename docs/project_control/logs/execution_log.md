@@ -2297,3 +2297,18 @@ Status: `C05 NOT APPROVED / C06 NOT APPROVED / C07 NOT AUTHORIZED`
 - V004 remains technically valid; no new Bundle build is authorized by this review.
 - RISK-003 remains ACTIVE.
 - Next: Director Strategy Review before any Candidate 07.
+
+
+## 2026-10-01｜N21 Director Strategy Review before Candidate 07
+
+Status: `DIRECTOR RECOMMENDATION LOCK / PRODUCT OWNER REVIEW REQUIRED / C07 NOT AUTHORIZED`
+
+- Director inspection Artifact: `N21_DIRECTOR_STRATEGY_REFERENCE_INSPECTION_V001`; run `36831561991`; Artifact `11147044821`; inspection only / not a generation input.
+- Inspected approved N01 / N08 / N19 / N20 plus formal Scene Master AST_IMG_000052.
+- N08 proves entrance scale but is architecture-hero / monumental and unsuitable as the next direct shot language.
+- AST_IMG_000052 remains valid scene authority, but its centered full doorway + large bright sky is not recommended as a direct C07 generation input.
+- N20 is the strongest tonal / lighting continuity authority: dim warm interior / no dominant direct exterior sunlight.
+- Recommended mitigation: deterministic `N21_ENVIRONMENT_CONTINUITY_REFERENCE_V001` using environment-only crops from Scene Master + N20.
+- Future C07 composition: interior-side oblique / partial off-axis doorway / staggered threshold cluster / upright bodies / no bags.
+- V004 remains technically valid but is not recommended for direct Candidate 07 reuse.
+- Candidate 07 remains NOT AUTHORIZED; N22 NOT STARTED; RISK-003 ACTIVE.
