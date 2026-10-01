@@ -273,3 +273,16 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - Resume point: `N21 TASK-SCOPE SIMPLIFICATION / DIRECTOR STRATEGY REVIEW`.
 - N22 remains `NOT STARTED`.
 - No P0.3 Gate PASS is claimed.
+
+
+## P0.3 Current Validation Note｜2026-10-01
+
+- N21 Scene Reference Design V0.4 is `PRODUCT OWNER APPROVED / LOCKED`.
+- N21 single-frame responsibility is now `THRESHOLD TRANSITION + UNKNOWN-SPACE MOOD`, not full-cohort numerical proof.
+- Character visual style continuity is a hard acceptance gate.
+- Proposed Bundle V003 formal reference set: `AST_IMG_000052 + N03_VISITOR_REACTION_APPROVED_V001.png`.
+- N20 is continuity-review authority only and is excluded from proposed formal generation inputs.
+- N21 Bundle V002 remains technically valid but its creative scope is superseded.
+- Candidate 04 remains `NOT AUTHORIZED`.
+- RISK-003 remains ACTIVE until at least one new candidate demonstrates acceptable balance and Product Owner approval.
+- Resume point: `N21_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN`.
