@@ -2387,3 +2387,18 @@ Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
 - Candidate 08: NOT AUTHORIZED.
 - N22: NOT STARTED.
 - Publication / registration / Project Control closeout: NOT AUTHORIZED.
+
+
+## 2026-10-01｜N21 Human-Only Crowd Body/Wardrobe Reference Route
+
+Status: `INPUT SPEC CREATED / VALIDATION 4 OF 4 PASS / FORMAL BUILD NOT AUTHORIZED`
+
+- Target: `N21_CROWD_BODY_WARDROBE_REFERENCE_V001 Candidate 01`.
+- Inputs: `AST_IMG_000051 / 000064 / 000068 / 000075`.
+- No environment image, Story Shot or Style Board in this bundle.
+- Validation run: `36865944026` / job `110381336287`.
+- Result: `4/4 exact PASS`.
+- `BUILD_AUTHORIZED=FALSE` / `GENERATION_ALLOWED=FALSE`.
+- Artifact count: `0`.
+- N21 Candidate 07: NOT APPROVED / review closed.
+- Next: Product Owner authorization for formal input Bundle build.
