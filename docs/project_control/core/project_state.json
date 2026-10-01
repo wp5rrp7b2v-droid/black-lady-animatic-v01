@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R176",
+  "state_revision": "R177",
   "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 BUNDLE V005 FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / CANDIDATE 07 AUTHORIZATION REQUIRED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 CANDIDATE 07 WORK GENERATION AUTHORIZED / WAITING WORK OUTPUT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Candidate 07 Product Owner Generation Authorization",
+  "current_task": "P0.3｜S02-B｜N21 Candidate 07 Work Generation",
   "blocker": "RISK-003 / CREATIVE / ACTIVE: STYLE-ONLY REFERENCE MITIGATION IS NOW CANONICAL, BUT REAL N21 CANDIDATE EVIDENCE IS STILL REQUIRED",
-  "next_action": "Await Product Owner authorization for N21 Candidate 07 Work generation using formal verified N21_REFERENCE_DELIVERY_BUNDLE_V005 Artifact 11161920411. Generate exactly one PNG only if authorized. Do not start N22.",
+  "next_action": "Work must automatically acquire formal verified N21_REFERENCE_DELIVERY_BUNDLE_V005 Artifact 11161920411, verify 2/2 exact references, generate exactly one N21 Candidate 07 PNG by Clean Regeneration, then stop for Product Owner review. Do not start N22.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-BUNDLE-V005-FORMAL-BUILD-R176",
-    "status": "FORMAL BUILD PASS / 2 OF 2 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED TRUE AT BUNDLE LEVEL / C07 NOT AUTHORIZED",
+    "id": "2026-10-01-N21-CANDIDATE-07-WORK-AUTHORIZATION-R177",
+    "status": "PRODUCT OWNER AUTHORIZED / WORK GENERATION ALLOWED / ONE PNG ONLY / WAITING WORK OUTPUT",
     "completed": [
-      "Product Owner authorized formal V005 build + exact verification.",
-      "V005 spec advanced to V005-R2 / build_authorized=true at commit 5dcb51deb9f00b01ee36a1e9290a23dbb60c6e8f.",
-      "Formal workflow run 36859705482 / job 110360617971 completed SUCCESS.",
-      "Builder verified 2/2 exact canonical references and reported GENERATION_ALLOWED=TRUE.",
-      "Artifact 11161920411 created with size 4697710 bytes and digest sha256:358ea894249d88e93047eabbfeb760196a34c29afdfa2a82277fc875560ecb58.",
-      "Independent ZIP verification matched GitHub digest exactly.",
-      "Artifact contains exactly four files and exactly two image inputs.",
-      "Both Artifact PNG copies independently match canonical SHA / bytes / Git blob / dimensions.",
-      "Candidate 07 remains not authorized; N22 remains not started."
+      "Product Owner explicitly authorized N21 Candidate 07 Work generation.",
+      "Formal authorization file created at docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md.",
+      "Formal Bundle = N21_REFERENCE_DELIVERY_BUNDLE_V005 / Artifact 11161920411.",
+      "Generation mode = CLEAN REGENERATION.",
+      "Generation count limit = 1 PNG.",
+      "Candidate 08 not authorized; N22 not started.",
+      "No publication / registration / closeout authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_build_record_2026-10-01.md",
-    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N21 CANDIDATE 07 WORK GENERATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md",
+    "resume_from": "WAITING FOR N21 CANDIDATE 07 WORK OUTPUT / PRODUCT OWNER REVIEW",
     "blockers": [
       "RISK-003"
     ]
@@ -2291,7 +2289,7 @@
     "build_authorized": true,
     "generation_allowed": true,
     "artifact_count": 0,
-    "candidate_07_authorized": false,
+    "candidate_07_authorized": true,
     "n22_started": false,
     "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_validation_record_2026-10-01.md",
     "spec_authorization_commit": "5dcb51deb9f00b01ee36a1e9290a23dbb60c6e8f",
@@ -2304,5 +2302,17 @@
     "exact_verification": "2/2 PASS",
     "independent_artifact_verification": "2/2 PASS",
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v005_build_record_2026-10-01.md"
+  },
+  "n21_candidate_07": {
+    "status": "PRODUCT OWNER AUTHORIZED / WORK GENERATION PENDING",
+    "mode": "CLEAN REGENERATION",
+    "formal_bundle": "N21_REFERENCE_DELIVERY_BUNDLE_V005",
+    "artifact_id": 11161920411,
+    "artifact_digest": "sha256:358ea894249d88e93047eabbfeb760196a34c29afdfa2a82277fc875560ecb58",
+    "authorization_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_07_work_generation_authorization_2026-10-01.md",
+    "authorization_commit": "4b6e3b58b2b2a07895bccb1ee3c484681e211f58",
+    "generation_count_limit": 1,
+    "candidate_08_authorized": false,
+    "n22_started": false
   }
 }
