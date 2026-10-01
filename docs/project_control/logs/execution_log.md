@@ -2149,3 +2149,19 @@ Status: `DIRECTOR DESIGN LOCK / PRODUCT OWNER REVIEW REQUIRED / NOT YET BUILT`
 - Governance: proposed as P0.3 `CONTROLLED_PRODUCTION_REFERENCE`; do not mis-register as a single P0.2 Entity DERIVED_REFERENCE.
 - Future Bundle integration will require an explicit `CONTROLLED_REFERENCE` source type rather than misusing `ASSET` or `STORY_SHOT`.
 - Candidate 05 remains NOT AUTHORIZED.
+
+
+## 2026-10-01｜Character Visual Style Reference V001 Exact Crop Plan + Build Prep
+
+Status: `LOCKED / BUILD PREP READY / FORMAL BOARD NOT YET BUILT`
+
+- Product Owner authorized progression from V0.1 design review.
+- Source inspection successful on run `36820797772`; Artifact `11143985053`; 6/6 exact canonical Atomic PNG verification PASS.
+- Exact six-panel crop plan written to `production/style_references/character_visual/CHARACTER_VISUAL_STYLE_REFERENCE_V001.crop_plan.json`.
+- Final board geometry locked: 1536×1024 RGB / neutral RGB(144,144,144) / 48px outer margin / 24px gutters / 3×2 fixed slots.
+- Four panels are single-side face/hair/skin fragments; two panels are clothing-material/upper-torso fragments; no complete person or complete outfit is permitted.
+- No Ning Qiushui / Jun Luyuan source, no Story Shot, and no Character Reference Sheet is used.
+- Build contract requires pinned Python + Pillow, fixed LANCZOS contain-fit, fixed rounding, no image generation or retouching, and two-run output SHA-256 equality before publication.
+- During source inspection, the generic Bundle Builder exposed a shallow-checkout spec-selection bug. Final fix: checkout fetch-depth=2 and fail-closed HEAD^→HEAD single-spec selection. Successful verification occurred on run `36820797772`.
+- Formal Style Board builder implementation / build / publication remain NOT AUTHORIZED.
+- N21 Candidate 05 remains NOT AUTHORIZED; RISK-003 remains ACTIVE.
