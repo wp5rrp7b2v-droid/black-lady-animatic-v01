@@ -1400,3 +1400,30 @@ Closeout:
 Next:
 
 `N21_REFERENCE_DELIVERY_BUNDLE_V005 DESIGN`
+
+
+## N21 Reference Delivery Bundle V005｜Design V0.1｜2026-10-01
+
+Status:
+
+`DIRECTOR DESIGN COMPLETE / PRODUCT OWNER REVIEW REQUIRED / BUILD NOT AUTHORIZED`
+
+Proposed formal inputs:
+
+1. `N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001` — environment / threshold / lighting / tonal authority only.
+2. `CHARACTER_VISUAL_STYLE_REFERENCE_V001` — human visual-style authority only.
+
+Excluded from direct generation input:
+
+- `AST_IMG_000052`
+- N20
+- all complete Story Shots
+- all complete Scene Masters
+- named-character sheets
+- N21 Candidate 01–06
+
+Next:
+
+`Product Owner review → V005 Spec + validation-only prep`
+
+Candidate 07 remains `NOT AUTHORIZED`.
