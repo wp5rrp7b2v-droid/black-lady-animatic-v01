@@ -1664,3 +1664,29 @@ Next:
 
 `Work exact binary delivery → GitHub Actions intake verification`
 
+## Generic Guest Crowd Core Set V001｜FRONT Authority Closeout｜2026-10-02
+
+Status:
+
+`PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+- approved candidate: `FRONT BOARD Candidate 02`.
+- Candidate 01: `NOT APPROVED / DIAGNOSTIC ONLY`.
+- canonical PNG: `production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png`.
+- exact binary: `1536×1024 / RGBA / 8-bit / 2,335,288 bytes`.
+- SHA-256: `ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23`.
+- Git blob: `d8ff2d789a352475daa945d22a0a65112c72a682`.
+- intake verification: `37027704229 / 110906445923 / PASS`.
+- canonical publication: `222a204000641edfa30ff42a7324ce52afc61e2c` / exact blob reuse / no re-encode.
+- canonical verification: `37027994620 / 110907415764 / PASS`.
+- FRONT Authority manifest: `production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.manifest.json`.
+- approved pixels supersede earlier text-only archetypes where different.
+- staging and temporary verifiers: cleaned.
+- LEFT / RIGHT / BACK: `NOT AUTHORIZED`.
+- N21: `HOLD`.
+- N23 Candidate 02: `PAUSED`.
+
+Next:
+
+`LEFT PROFILE Design V0.1`
+
