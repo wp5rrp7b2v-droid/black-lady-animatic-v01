@@ -1,6 +1,6 @@
 # N22 Candidate 02｜Correction Strategy V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO BUNDLE V002 BUILD AUTHORIZATION / NO CANDIDATE 02 GENERATION AUTHORIZATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE V002 DESIGN AUTHORIZED / NO BUILD OR CANDIDATE 02 AUTHORIZATION`
 
 Date: 2026-10-02
 
@@ -397,17 +397,25 @@ No reason currently exists to modify the Castle Entrance canonical Scene Master.
 
 Current status:
 
-`CORRECTION STRATEGY V0.1 DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized now:
 
-- formal Candidate 01 rejection closeout;
-- N22 Bundle V002 Design;
-- Bundle Spec;
-- GitHub Actions Build;
+- formal Candidate 01 review closeout;
+- N22 Reference Delivery Bundle V002 Design.
+
+Still not authorized:
+
+- Bundle V002 Spec;
+- validation-only run;
+- formal Bundle V002 build;
 - Candidate 02 generation;
 - N23.
 
-If Product Owner approves this correction strategy, next formal step:
+Approval authority:
+
+`PRODUCT OWNER EXPLICIT "开始" IN CHAT / 2026-10-02`
+
+Next formal step:
 
 `N22 REFERENCE DELIVERY BUNDLE V002 DESIGN`
