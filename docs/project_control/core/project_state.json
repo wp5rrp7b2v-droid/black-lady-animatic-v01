@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R196",
+  "state_revision": "R197",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CANDIDATE 02 NOT APPROVED / CANDIDATE 03 CORRECTION STRATEGY DRAFT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CANDIDATE 03 CORRECTION STRATEGY APPROVED / BUNDLE V003 DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Candidate 03 Correction Strategy V0.1 Review",
-  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR N22 Candidate 03 Correction Strategy. Candidate 03 generation remains unauthorized.",
-  "next_action": "Review N22 Candidate 03 Su + Liao Only Correction Strategy V0.1. Preserve Candidate 02 lighting gains, remove Guang Yong from the next formal generation reference set, make Su the only first-glance named face, keep Liao as second-glance/partial identity, and hard-lock gaze de-synchronization. Do not design/build Bundle V003 until Product Owner approves the strategy.",
+  "current_task": "P0.3｜S02-B｜N22 Reference Delivery Bundle V003 Design",
+  "blocker": "NONE FOR N22 BUNDLE V003 DESIGN. Candidate 03 generation remains separately gated.",
+  "next_action": "Design N22 Reference Delivery Bundle V003 using only AST_IMG_000061 Su Xiaoxiao, AST_IMG_000058 Liao Jian and AST_IMG_000052 Castle Entrance Scene Master. Preserve Candidate 02 lighting gains. Hard-lock Su as the only first-glance named face, Liao as second-glance/partial, and no shared Su/Liao gaze direction. Do not create the V003 spec, run validation, build an Artifact, or generate Candidate 03 without separate Product Owner approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-C02-REVIEW-CLOSED-C03-STRATEGY-DRAFT-R196",
-    "status": "N22 CANDIDATE 02 NOT APPROVED / LIGHTING PASS / ENSEMBLE FAIL / CANDIDATE 03 STRATEGY DRAFT",
+    "id": "2026-10-02-N22-C03-STRATEGY-APPROVAL-R197",
+    "status": "N22 CANDIDATE 03 CORRECTION STRATEGY V0.1 PRODUCT OWNER APPROVED / LOCKED / BUNDLE V003 DESIGN NEXT",
     "completed": [
-      "N22 Candidate 02 review closed as NOT APPROVED / valid diagnostic evidence.",
-      "Candidate 02 exact review binary recorded as 941x1672 RGB PNG / 1782593 bytes / SHA256 56768b17ea6e9f1b818109c646662bbdc54403c5a16f340d4738ec1249cf0246.",
-      "Lighting correction marked materially successful and preserved.",
-      "Remaining failure isolated to ensemble composition: Su + Liao hero-pair pressure, Guang too readable, synchronized gaze.",
-      "Candidate 03 correction strategy drafted with Su + Liao + Castle Entrance only.",
-      "Guang Yong proposed for removal from Candidate 03 formal generation reference set."
+      "Candidate 03 correction strategy approved and locked.",
+      "Candidate 02 lighting gains remain protected and are not reopened by default.",
+      "Candidate 03 proposed generation reference set fixed to Su Xiaoxiao + Liao Jian + Castle Entrance Scene Master.",
+      "Guang Yong removed from Candidate 03 proposed formal generation reference set.",
+      "Su Xiaoxiao locked as only first-glance readable named face.",
+      "Liao Jian locked as second-glance / partial identity.",
+      "Hard rule added: Su and Liao must not share the same gaze direction.",
+      "Only Bundle V003 Design is authorized next."
     ],
     "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_candidate_03_correction_strategy_v0_1.md",
-    "resume_from": "N22 CANDIDATE 03 CORRECTION STRATEGY PRODUCT OWNER REVIEW",
-    "blockers": [
-      "PRODUCT OWNER STRATEGY APPROVAL REQUIRED"
-    ]
+    "resume_from": "N22 REFERENCE DELIVERY BUNDLE V003 DESIGN",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -523,13 +523,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V131",
+    "version": "V132",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R196 / N22 C02 REVIEW CLOSED / C03 STRATEGY DRAFT",
-    "derived_from_revision": "R196",
+    "status": "CURRENT / DERIVED FROM R197 / N22 C03 STRATEGY APPROVED / BUNDLE V003 DESIGN NEXT",
+    "derived_from_revision": "R197",
     "last_updated": "2026-10-02",
-    "current_task": "N22 CANDIDATE 03 CORRECTION STRATEGY REVIEW"
+    "current_task": "N22 REFERENCE DELIVERY BUNDLE V003 DESIGN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2643,7 +2643,7 @@
     ]
   },
   "n22_candidate_03_correction_strategy_v0_1": {
-    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n22_candidate_03_correction_strategy_v0_1.md",
     "proposed_reference_set": [
       "AST_IMG_000061",
@@ -2655,7 +2655,9 @@
     ],
     "preserve_lighting_from_candidate_02": true,
     "hard_new_rule": "SU/LIAO GAZE DE-SYNCHRONIZATION",
-    "bundle_v003_design_authorized": false,
-    "candidate_03_authorized": false
+    "bundle_v003_design_authorized": true,
+    "candidate_03_authorized": false,
+    "approval_date": "2026-10-02",
+    "next_step": "N22 REFERENCE DELIVERY BUNDLE V003 DESIGN"
   }
 }
