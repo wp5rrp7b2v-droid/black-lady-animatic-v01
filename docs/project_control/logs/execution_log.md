@@ -3047,3 +3047,18 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - No Bundle Spec/build or Work generation authorized.
 - Next: FRONT Board Reference Delivery Bundle Design V0.1.
 - Project State target: R218 / Dashboard V153.
+
+## 2026-10-02｜Generic Guest Crowd FRONT Board Bundle Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Bundle Design locked for `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_BOARD_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Reference count locked: 4.
+- Style parents: AST_IMG_000042 / AST_IMG_000046 / AST_IMG_000022 / AST_IMG_000009.
+- Initial test excludes Character Reference Sheets, Story Shots, Scene Masters and external images.
+- Board contract retained: 1536×1024 landscape / 2×5 / Guest A–J fixed slots / 6F4M.
+- Minimum proof: exactly one FRONT Board candidate after later gates.
+- build_authorized remains false; formal Artifact build and Work generation are NOT authorized.
+- Next: create Bundle Spec V001 + validation-only execution.
+- Project State target: R219 / Dashboard V154.
+
