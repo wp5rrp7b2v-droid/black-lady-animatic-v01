@@ -1,6 +1,6 @@
 # N22｜Node-Level Director Shot Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO DOWNSTREAM AUTHORIZATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / SCENE REFERENCE DESIGN NEXT`
 
 Date: 2026-10-02
 
@@ -431,11 +431,14 @@ Stop and redesign if any of the following occurs:
 
 Current status:
 
-`DIRECTOR DESIGN DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized next step:
 
-- Scene Reference Design;
+- N22 Scene Reference Design.
+
+Still not authorized:
+
 - Reference Delivery Bundle;
 - GitHub Actions build;
 - Work generation;
@@ -444,4 +447,6 @@ Not authorized:
 - Canonical Publication;
 - N23.
 
-Product Owner approval is required before advancing.
+Approval authority:
+
+`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-02`
