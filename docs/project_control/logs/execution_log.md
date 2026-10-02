@@ -3115,3 +3115,23 @@ Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
 - After generation: stop for Product Owner review.
 - Project State target: R222 / Dashboard V157.
 
+## 2026-10-02｜Generic Guest Crowd FRONT Board Candidate 02 Approval / Exact Intake Preparation
+
+Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / WAITING WORK BINARY DELIVERY`
+
+- Candidate 01: NOT APPROVED / diagnostic only.
+- Candidate 02: Product Owner APPROVED as formal FRONT identity authority for Guest A–J.
+- Approved binary: 1536×1024 / RGBA / 8-bit PNG.
+- Byte size: `2,335,288`.
+- SHA-256: `ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23`.
+- Git blob: `d8ff2d789a352475daa945d22a0a65112c72a682`.
+- Approved pixels supersede earlier text-only archetypes where they differ.
+- Guest I muscular build / sleeveless black top / visible tattoos are identity-defining approved traits.
+- Exact-intake staging target: `staging/generic_guest_crowd_core_set_v001_front_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_CANDIDATE_02_APPROVED.png`.
+- Temporary intake verifier installed: `.github/workflows/black-lady-generic-guest-front-v001-intake-verify.yml`.
+- Verifier now triggers only when the approved staging PNG is delivered.
+- Bootstrap run `37026278280` failed before staging delivery because the first workflow-definition commit self-triggered; it is not an intake result and has no authority over the candidate. Trigger was immediately corrected in commit `dbabc7031cff62a23c4df1689ea2d80646e3fd68`.
+- Canonical publication remains pending exact intake PASS.
+- LEFT / RIGHT / BACK remain NOT AUTHORIZED.
+- Project State target: R223 / Dashboard V158.
+
