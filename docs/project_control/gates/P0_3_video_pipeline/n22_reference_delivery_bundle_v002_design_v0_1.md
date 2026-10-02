@@ -1,6 +1,6 @@
 # N22｜Reference Delivery Bundle V002 Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO SPEC OR BUILD AUTHORIZATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE V002 SPEC + VALIDATION-ONLY PREPARATION NEXT`
 
 Date: 2026-10-02
 
@@ -353,17 +353,24 @@ No blind reference expansion.
 
 Current status:
 
-`BUNDLE V002 DESIGN V0.1 DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized next step:
 
-- Bundle V002 Spec creation;
-- validation-only run;
-- formal build;
-- Artifact;
+- create `N22_REFERENCE_DELIVERY_BUNDLE_V002.json` with `build_authorized=false`;
+- prepare validation-only execution using the existing Generic Story Shot Reference Bundle Builder.
+
+Still not authorized:
+
+- `build_authorized=true`;
+- formal Bundle V002 Artifact build;
 - Candidate 02 generation;
 - N23.
 
-If Product Owner approves this Bundle V002 Design, next step:
+Approval authority:
+
+`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-02`
+
+Next step:
 
 `N22 BUNDLE V002 SPEC + VALIDATION-ONLY PREPARATION`
