@@ -3017,3 +3017,18 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - No Bundle or Work generation authorized.
 - Next remains Style / Identity Reference Design V0.1.
 - Project State target: R216 / Dashboard V151.
+
+
+## 2026-10-02｜Generic Guest Crowd Style / Identity Design V0.1 Draft
+
+Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+
+- Guest A–F = female; Guest G–J = male.
+- Ten low-detail anonymous identity archetypes drafted.
+- Proposed style parents: AST_IMG_000042 / 000046 / 000022 / 000009.
+- Production strategy: FRONT master first, then LEFT / RIGHT / BACK derived as same identities.
+- Proposed board layout: 1536×1024, 2×5 fixed slots.
+- Named-character identity / outfit copying prohibited.
+- No bags / luggage across any view.
+- No Bundle or Work generation authorized yet.
+- Project State target: R217 / Dashboard V152.
