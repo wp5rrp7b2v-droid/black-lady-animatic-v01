@@ -2927,3 +2927,21 @@ Status: `FORMAL BUILD PASS / 4 OF 4 EXACT / ARTIFACT VERIFIED`
 - Candidate 01 Work generation: NOT AUTHORIZED.
 - Next: Product Owner Candidate 01 authorization.
 - Project State target: R210 / Dashboard V145.
+
+
+## 2026-10-02｜N23 Candidate 01 Work Generation Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG / WAITING WORK OUTPUT`
+
+- Mode: Clean Regeneration.
+- Bundle: `N23_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Run: `37006373075`; Artifact: `11225912126`.
+- Pre-generation verification: `4/4 exact required`.
+- Camera: inside castle / deeper than threshold / side-offset / diagonally looking back to open entrance.
+- Group motion: doorway → castle interior; outward-exit read = automatic FAIL.
+- Neil: beside open door / side glance / no door contact / not walking away yet.
+- N22: same-cohort continuity only; no mirror/copy.
+- Guang Yong: tertiary backward-attention continuity cue only.
+- Output: exactly one 941×1672 PNG, then stop for Product Owner review.
+- Candidate 02 / N24 / publication / registration: NOT AUTHORIZED.
+- Project State target: R211 / Dashboard V146.
