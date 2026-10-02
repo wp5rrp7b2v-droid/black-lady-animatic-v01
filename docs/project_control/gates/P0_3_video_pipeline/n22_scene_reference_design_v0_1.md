@@ -1,6 +1,6 @@
 # N22｜Scene Reference Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO BUNDLE AUTHORIZATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT`
 
 Date: 2026-10-02
 
@@ -709,20 +709,23 @@ Work handoff must explicitly say:
 
 Current status:
 
-`SCENE REFERENCE DESIGN V0.1 DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized next step:
 
-- N22 Reference Delivery Bundle Design;
-- Bundle Spec;
+- N22 Reference Delivery Bundle Design V0.1.
+
+Still not authorized:
+
+- Bundle Spec finalization / build execution;
 - GitHub Actions build;
 - Artifact;
 - Work generation;
 - Candidate 01;
 - N23.
 
-If Product Owner approves this design, the next step is:
+Approval authority:
 
-`N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1`
+`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-02`
 
-No image generation is authorized by Scene Reference approval alone.
+Scene Reference approval does not authorize image generation.
