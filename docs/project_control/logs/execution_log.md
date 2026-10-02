@@ -2511,3 +2511,19 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - If four named seeds destabilize identity/composition, reduce complexity rather than blind regenerate.
 - Next authorized step: N22 Scene Reference Design only.
 - Project State target: R185; Dashboard target: V120.
+
+
+## 2026-10-02｜N22 Scene Reference Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Initial reference count: 5.
+- Tier 1: AST_IMG_000061 Su Xiaoxiao + AST_IMG_000058 Liao Jian.
+- Tier 2: AST_IMG_000062 Wen Qingya + AST_IMG_000056 Guang Yong.
+- Scene: AST_IMG_000052 SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN.
+- N20: Director-level look / continuity authority only; excluded from initial generation input.
+- Excluded initially: CHARACTER_VISUAL_STYLE_REFERENCE_V001, N21 environment reference, N21 crowd body/wardrobe reference, Ning, Jun, Neil.
+- Design principle: minimum authority / avoid reference-content leakage / avoid cast-lineup pressure.
+- Critical assumption remains unverified until one-candidate proof.
+- Next authorized step: N22 Reference Delivery Bundle Design V0.1 only.
+- Project State target: R186; Dashboard target: V121.
