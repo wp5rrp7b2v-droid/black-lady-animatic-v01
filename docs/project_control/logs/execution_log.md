@@ -2613,3 +2613,19 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
 - AST_IMG_000062 Wen Qingya: deferred from Candidate 02 generation reference set.
 - Bundle V002 spec / validation / formal build / Candidate 02: NOT AUTHORIZED.
 - Project State target: R191 / Dashboard V126.
+
+
+## 2026-10-02｜N22 Bundle V002 Design Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Target Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V002`.
+- Reference count: 4.
+- Inputs: AST_IMG_000061 / AST_IMG_000058 / AST_IMG_000056 / AST_IMG_000052.
+- Wen Qingya AST_IMG_000062: intentionally deferred.
+- Candidate 01 pixels: excluded / diagnostic evidence only.
+- Builder: existing Generic Story Shot Reference Bundle Builder V1.
+- Next authorized step: Bundle V002 Spec + validation-only preparation with `build_authorized=false`.
+- Formal Bundle V002 build: NOT AUTHORIZED.
+- Candidate 02 generation: NOT AUTHORIZED.
+- Project State target: R192 / Dashboard V127.
