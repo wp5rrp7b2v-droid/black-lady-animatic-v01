@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R216",
+  "state_revision": "R217",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST CROWD CORE SET V001 ASSET DESIGN APPROVED + 6F4M LOCKED / N21 HOLD / N23 C02 PAUSED",
+  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST CROWD CORE SET STYLE-IDENTITY DESIGN DRAFT / N21 HOLD / N23 C02 PAUSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜Style / Identity Reference Design V0.1",
-  "blocker": "STYLE / IDENTITY REFERENCE DESIGN NOT YET APPROVED. No crowd asset generation is authorized.",
-  "next_action": "Design the style/identity reference system for Guest A–J under the locked population structure of 6 female + 4 male, choose approved character references as visual-style parents, define 10 anonymous identity archetypes and four-view consistency rules, without generating images yet.",
+  "current_task": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜Style / Identity Reference Design V0.1 Product Owner Review",
+  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR STYLE / IDENTITY REFERENCE DESIGN. No crowd asset generation is authorized.",
+  "next_action": "Product Owner reviews Style / Identity Reference Design V0.1: 6F4M Guest A–J archetypes, FRONT-master-first generation strategy, four-view consistency rules, and proposed style-parent set AST_IMG_000042 / 000046 / 000022 / 000009.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,18 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-GENERIC-GUEST-CROWD-6F4M-LOCK-R216",
-    "status": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 ASSET DESIGN AMENDMENT / 6 FEMALE + 4 MALE LOCKED",
+    "id": "2026-10-02-GENERIC-GUEST-CROWD-STYLE-IDENTITY-DRAFT-R217",
+    "status": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 STYLE / IDENTITY REFERENCE DESIGN V0.1 DRAFT / WAITING PRODUCT OWNER APPROVAL",
     "completed": [
-      "Original 10-guest / 4-view / 40-view asset structure remains unchanged.",
-      "Population gender distribution is now hard-locked to 6 female + 4 male.",
-      "No images, Bundle, or Work generation authorized yet.",
-      "Next step remains Style / Identity Reference Design V0.1."
+      "6 female + 4 male identity archetypes drafted for Guest A–J.",
+      "FRONT MASTER FIRST → LEFT → RIGHT → BACK production logic drafted.",
+      "Initial style-parent proposal uses four approved full-body front assets: Su Xiaoxiao, Wen Qingya, Liao Jian and Guang Yong.",
+      "Named-character identity copying explicitly prohibited.",
+      "Board layout proposed as 1536x1024 landscape / 2x5 fixed slots.",
+      "No model-generated text labels; deterministic labeling may occur after visual approval.",
+      "No Work generation or Bundle build authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_asset_design_v0_1.md",
-    "resume_from": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 STYLE / IDENTITY REFERENCE DESIGN V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_style_identity_reference_design_v0_1.md",
+    "resume_from": "STYLE / IDENTITY REFERENCE DESIGN V0.1 PRODUCT OWNER REVIEW",
     "blockers": [
-      "STYLE / IDENTITY REFERENCE DESIGN NOT YET APPROVED"
+      "PRODUCT OWNER APPROVAL REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -521,13 +524,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V151",
+    "version": "V152",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R216 / GENERIC GUEST CROWD CORE SET 6F4M LOCKED",
-    "derived_from_revision": "R216",
+    "status": "CURRENT / DERIVED FROM R217 / GENERIC GUEST CROWD STYLE-IDENTITY DESIGN DRAFT",
+    "derived_from_revision": "R217",
     "last_updated": "2026-10-02",
-    "current_task": "GENERIC GUEST CROWD CORE SET V001 STYLE / IDENTITY REFERENCE DESIGN"
+    "current_task": "GENERIC GUEST CROWD STYLE / IDENTITY DESIGN PO REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2946,6 +2949,39 @@
       "female": 6,
       "male": 4,
       "status": "PRODUCT OWNER LOCKED"
+    },
+    "style_identity_reference_design": {
+      "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+      "path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_style_identity_reference_design_v0_1.md",
+      "female_guests": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "male_guests": [
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "generation_order": [
+        "FRONT",
+        "LEFT_PROFILE",
+        "RIGHT_PROFILE",
+        "BACK"
+      ],
+      "identity_master": "FRONT BOARD AFTER PRODUCT OWNER APPROVAL",
+      "proposed_style_parent_assets": [
+        "AST_IMG_000042",
+        "AST_IMG_000046",
+        "AST_IMG_000022",
+        "AST_IMG_000009"
+      ],
+      "proposed_board_target": "1536x1024 / LANDSCAPE / 2x5",
+      "generation_authorized": false
     }
   }
 }
