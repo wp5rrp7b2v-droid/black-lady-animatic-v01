@@ -2988,3 +2988,20 @@ Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
 - N21_CROWD_BODY_WARDROBE_REFERENCE_V001 not reused because canonical authority scope is N21-only.
 - Candidate 02 remains NOT AUTHORIZED.
 - Project State target: R214 / Dashboard V149.
+
+
+## 2026-10-02｜Generic Guest Crowd Core Set V001 Asset Design Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- New project-level reusable asset track: BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001.
+- 10 fixed anonymous Guests A–J.
+- Four full-body orientation boards: FRONT / LEFT PROFILE / RIGHT PROFILE / BACK.
+- 40 controlled views total.
+- Main-character visual language may be used as style source, but named-character identity / complete outfit copying is prohibited.
+- Bags / shoulder bags / crossbody bags / luggage permanently prohibited.
+- Authority scope is project-wide crowd identity/body/wardrobe continuity; not N21-only / N23-only.
+- N23 Candidate 02 paused; N21 may be retested only after asset completion and remains HOLD.
+- No generation or Bundle work authorized yet.
+- Next: Style / Identity Reference Design V0.1.
+- Project State target: R215 / Dashboard V150.
