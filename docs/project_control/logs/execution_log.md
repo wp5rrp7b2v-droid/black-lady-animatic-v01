@@ -2565,3 +2565,23 @@ Status: `PASS / 5 OF 5 EXACT / NO ARTIFACT / GENERATION_ALLOWED=FALSE`
 - Run artifacts: NONE.
 - Next authority required: Product Owner formal Bundle build authorization.
 - Candidate 01 remains NOT AUTHORIZED.
+
+
+## 2026-10-02｜N22 Bundle V001 Formal Build + Independent Verification
+
+Status: `FORMAL BUILD PASS / 5 OF 5 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 01 NOT AUTHORIZED`
+
+- PO formal-build authorization received.
+- Spec authorization commit: `8cc4a9dbc959c8fa9f49d5e6a2b36649a53d58d3`.
+- Spec revision: `V001-R2`; `build_authorized=true`.
+- Run: `36962281468` / job `110698343917` / SUCCESS.
+- Builder: `PASS: 5/5 exact canonical reference binaries verified`.
+- `GENERATION_ALLOWED=TRUE`.
+- Artifact: `11208576712` / `4752815 bytes`.
+- Artifact digest: `sha256:301a127df57e197580c0b87aa0beb7d59c2687d3edd16686c10caa8f841f5c58`.
+- Artifact expiry: `2026-10-09T03:55:37Z`.
+- Independent downloaded ZIP SHA-256: MATCH.
+- Independent 5-reference size / SHA-256 / Git blob / PNG signature verification: `5/5 PASS`.
+- Product Owner manual reference upload: `0`.
+- Candidate 01 generation: `NOT AUTHORIZED`.
+- Next: Product Owner authorization for N22 Candidate 01 Work generation.
