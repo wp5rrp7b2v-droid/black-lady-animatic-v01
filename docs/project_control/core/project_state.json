@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R184",
+  "state_revision": "R185",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD BY PRODUCT OWNER / DOWNSTREAM PRODUCTION RESUMED AT N22",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 DIRECTOR DESIGN APPROVED / SCENE REFERENCE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Node-Level Director Shot Design",
-  "blocker": "NONE FOR N22+ PRODUCTION. RISK-003 REMAINS ACTIVE BUT N21-SCOPED / DEFERRED; IT DOES NOT BLOCK N22–N27.",
-  "next_action": "Begin N22 Node-Level Director Shot Design under S02-B Director Shot Design V0.3 + Review Patch 01. N22 owns People in the Flow — Ning Observational POV / named-character seeding. Keep N21 on HOLD; do not generate Candidate 09 until Product Owner explicitly reopens N21 after downstream Story Shots are completed.",
+  "current_task": "P0.3｜S02-B｜N22 Scene Reference Design",
+  "blocker": "NONE FOR N22 SCENE REFERENCE DESIGN. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
+  "next_action": "Design N22 Scene Reference V0.1 from approved N22 Node-Level Director Shot Design V0.1. Determine the minimum authoritative visual references needed for Su Xiaoxiao + Liao Jian primary seeding, Wen Qingya + Guang Yong secondary seeding, entrance-to-interior spatial continuity, and N20 warm low-key look. Do not build a Bundle or generate Candidate 01 without separate Product Owner approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N21-HOLD-DOWNSTREAM-RESUME-R184",
-    "status": "N21 HOLD BY PRODUCT OWNER / DOWNSTREAM S02-B PRODUCTION AUTHORIZED TO RESUME AT N22",
+    "id": "2026-10-02-N22-DIRECTOR-DESIGN-APPROVAL-R185",
+    "status": "N22 DIRECTOR SHOT DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / SCENE REFERENCE DESIGN NEXT",
     "completed": [
-      "Product Owner explicitly paused N21 after Candidate 08 review.",
-      "Candidate 08 remains NOT APPROVED.",
-      "Candidate 09 remains NOT AUTHORIZED.",
-      "RISK-003 remains unresolved and evidence from Candidate 08 is preserved.",
-      "RISK-003 is re-scoped as N21-specific deferred creative risk and no longer blocks N22–N27 production.",
-      "Authoritative downstream sequence remains N21 → N22 → N23 → N24 → A06 → N25 → N26 → N27.",
-      "Current production task advances to N22 Node-Level Director Shot Design."
+      "N22 node function locked as POV + INFORMATION UPGRADE + NAMED CHARACTER SEEDING.",
+      "N22 explicitly does not inherit N21 full-cohort scale responsibility.",
+      "Su Xiaoxiao + Liao Jian locked as Tier 1 visual seeds; Wen Qingya + Guang Yong as Tier 2 secondary seeds.",
+      "Exact sixteen-person and 8-men/8-women visual counting prohibited.",
+      "Asynchronous non-lineup blocking, off-axis subordinate architecture, and N20 warm low-key continuity locked.",
+      "Critical assumption retained as unverified: four named seeds may coexist without identity drift or lineup composition.",
+      "Fallback boundary locked: reduce readable named seeds rather than blind repeated regeneration if the assumption fails.",
+      "Only N22 Scene Reference Design is authorized next."
     ],
-    "audit_path": "docs/project_control/logs/decision_log.md",
-    "resume_from": "N22 NODE-LEVEL DIRECTOR SHOT DESIGN",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_node_level_director_shot_design_v0_1.md",
+    "resume_from": "N22 SCENE REFERENCE DESIGN",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -522,13 +523,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V119",
+    "version": "V120",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R184 / N21 HOLD / N22 READY TO START",
-    "derived_from_revision": "R184",
+    "status": "CURRENT / DERIVED FROM R185 / N22 DIRECTOR DESIGN APPROVED / SCENE REFERENCE DESIGN NEXT",
+    "derived_from_revision": "R185",
     "last_updated": "2026-10-02",
-    "current_task": "N21 HOLD / CURRENT ACTIVE WORK = N22 NODE-LEVEL DIRECTOR SHOT DESIGN"
+    "current_task": "N22 SCENE REFERENCE DESIGN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2389,5 +2390,26 @@
     ],
     "excluded_reference": "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v006_build_record_2026-10-01.md"
+  },
+  "n22_node_level_director_shot_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n22_node_level_director_shot_design_v0_1.md",
+    "approval_date": "2026-10-02",
+    "shot_id": "N22",
+    "title": "People in the Flow — Ning Observational POV",
+    "core_function": "POV + INFORMATION UPGRADE + NAMED CHARACTER SEEDING",
+    "tier_1_seeds": [
+      "CHAR_SU_XIAOXIAO",
+      "CHAR_LIAO_JIAN"
+    ],
+    "tier_2_seeds": [
+      "CHAR_WEN_QINGYA",
+      "CHAR_GUANG_YONG"
+    ],
+    "ning_pov_cue": "OPTIONAL EDGE / EDIT-ATTRIBUTED",
+    "neil_emphasis": "EXCLUDED / N23 OWNS DIRECTION CHANGE",
+    "critical_assumption": "FOUR NAMED CHARACTER SEEDS CAN COEXIST WITHOUT IDENTITY DRIFT OR LINEUP COMPOSITION",
+    "minimum_proof": "ONE CANDIDATE ONLY AFTER SCENE REFERENCE + BUNDLE APPROVAL",
+    "next_step": "N22 SCENE REFERENCE DESIGN"
   }
 }
