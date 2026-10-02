@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R186",
+  "state_revision": "R187",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 DIRECTOR + SCENE REFERENCE APPROVED / BUNDLE DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Reference Delivery Bundle Design V0.1",
-  "blocker": "NONE FOR N22 BUNDLE DESIGN. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
-  "next_action": "Design N22 Reference Delivery Bundle V0.1 using the approved five-reference architecture: Su Xiaoxiao Character Reference Sheet + Liao Jian Character Reference Sheet + Wen Qingya Character Reference Sheet + Guang Yong Character Reference Sheet + SCENE_CASTLE_ENTRANCE Scene Master. Preserve semantic grouping and explicit rule REFERENCE ORDER ≠ SCREEN POSITION ≠ BLOCKING ORDER. Do not build the Bundle or generate Candidate 01 without separate Product Owner approval.",
+  "current_task": "P0.3｜S02-B｜N22 Bundle Spec + Validation-Only Preparation",
+  "blocker": "NONE FOR N22 VALIDATION-ONLY PREPARATION. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
+  "next_action": "Create production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V001.json with the five approved inputs and build_authorized=false, then prepare a validation-only run using .github/workflows/story-shot-reference-bundle-builder.yml. Do not authorize a formal Artifact build, Work generation, or Candidate 01 until Product Owner separately approves formal build.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-SCENE-REFERENCE-APPROVAL-R186",
-    "status": "N22 SCENE REFERENCE DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT",
+    "id": "2026-10-02-N22-BUNDLE-DESIGN-APPROVAL-R187",
+    "status": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PREP NEXT",
     "completed": [
-      "N22 Scene Reference Design V0.1 approved and locked.",
-      "Initial formal generation reference count locked at five.",
-      "Tier 1 identity authorities: AST_IMG_000061 Su Xiaoxiao + AST_IMG_000058 Liao Jian.",
-      "Tier 2 identity authorities: AST_IMG_000062 Wen Qingya + AST_IMG_000056 Guang Yong.",
-      "Scene fact authority: AST_IMG_000052 SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN.",
-      "N20 retained as Director-level look/continuity authority only, not initial generation input.",
-      "CHARACTER_VISUAL_STYLE_REFERENCE_V001, N21 environment reference, N21 crowd body/wardrobe reference, Ning, Jun and Neil references excluded from initial N22 Bundle.",
-      "Critical four-character coexistence assumption remains unverified until one-candidate proof.",
-      "Only N22 Reference Delivery Bundle Design V0.1 is authorized next."
+      "N22 Reference Delivery Bundle Design V0.1 approved and locked.",
+      "Bundle V001 initial reference count locked at five.",
+      "Exact canonical identities locked for AST_IMG_000061, AST_IMG_000058, AST_IMG_000062, AST_IMG_000056 and AST_IMG_000052.",
+      "Reference order explicitly decoupled from screen position, left-right order, blocking order and prominence.",
+      "N20 remains written look/continuity authority only and is not a Bundle image input.",
+      "Existing Generic Story Shot Reference Bundle Builder V1 must be reused; N22-specific workflow is prohibited.",
+      "Next step is Bundle Spec + validation-only preparation with build_authorized=false.",
+      "Formal Artifact build and Candidate 01 remain separately gated."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_scene_reference_design_v0_1.md",
-    "resume_from": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_design_v0_1.md",
+    "resume_from": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -524,13 +523,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V121",
+    "version": "V122",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R186 / N22 SCENE REFERENCE APPROVED / BUNDLE DESIGN NEXT",
-    "derived_from_revision": "R186",
+    "status": "CURRENT / DERIVED FROM R187 / N22 BUNDLE DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
+    "derived_from_revision": "R187",
     "last_updated": "2026-10-02",
-    "current_task": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1"
+    "current_task": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2435,5 +2434,24 @@
       "CHAR_NEIL"
     ],
     "next_step": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1"
+  },
+  "n22_reference_delivery_bundle_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_design_v0_1.md",
+    "approval_date": "2026-10-02",
+    "bundle_id": "N22_REFERENCE_DELIVERY_BUNDLE_V001",
+    "reference_count": 5,
+    "references": [
+      "AST_IMG_000061",
+      "AST_IMG_000058",
+      "AST_IMG_000062",
+      "AST_IMG_000056",
+      "AST_IMG_000052"
+    ],
+    "builder": ".github/workflows/story-shot-reference-bundle-builder.yml",
+    "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+    "next_step": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION",
+    "formal_build_authorized": false,
+    "candidate_01_authorized": false
   }
 }
