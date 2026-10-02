@@ -1,6 +1,6 @@
 # N22｜Reference Delivery Bundle V003 Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION NEXT`
+Status: `PRODUCT OWNER APPROVED / LOCKED / FORMAL BUILD PASS / 3 OF 3 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED`
 
 Date: 2026-10-02
 
@@ -457,3 +457,32 @@ Next step:
 - Artifact: `NONE`
 
 Next: `PRODUCT OWNER FORMAL BUNDLE V003 BUILD AUTHORIZATION`
+
+
+## 16. FORMAL BUILD RESULT
+
+- spec revision: `V003-R2`
+- authorization commit: `42a52a515373954d8d0794bff29de236fe0eed78`
+- run: `36985709195`
+- job: `110770136859`
+- result: `PASS: 3/3 exact canonical reference binaries verified`
+- `GENERATION_ALLOWED=TRUE`
+- Artifact ID: `11217127728`
+- Artifact size: `3,640,093 bytes`
+- Artifact digest: `sha256:e1171f901c167bd628934558ac02bb16091400a13a550c77e8aa96737c7852f2`
+- independent ZIP digest: `MATCH`
+- independent reference verification: `3/3 PASS`
+
+Build record:
+
+`docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v003_build_record_2026-10-02.md`
+
+Current boundary:
+
+- formal Bundle V003: `READY`
+- Candidate 03 generation: `NOT AUTHORIZED`
+- N23: `NOT AUTHORIZED`
+
+Next:
+
+`PRODUCT OWNER N22 CANDIDATE 03 WORK GENERATION AUTHORIZATION`
