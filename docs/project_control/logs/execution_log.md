@@ -2646,3 +2646,23 @@ Status: `PASS / 4 OF 4 EXACT / NO ARTIFACT / GENERATION_ALLOWED=FALSE`
 - Artifacts: NONE.
 - Next: Product Owner formal Bundle V002 build authorization.
 - Candidate 02 remains NOT AUTHORIZED.
+
+
+## 2026-10-02｜N22 Bundle V002 Formal Build + Independent Verification
+
+Status: `FORMAL BUILD PASS / 4 OF 4 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 02 NOT AUTHORIZED`
+
+- PO formal-build authorization received.
+- Spec authorization commit: `42d48adf8841d19da51a64dadcb2e2b6e85dee7f`.
+- Spec revision: `V002-R2`; `build_authorized=true`.
+- Run: `36982776916` / job `110760847742` / SUCCESS.
+- Builder: `PASS: 4/4 exact canonical reference binaries verified`.
+- `GENERATION_ALLOWED=TRUE`.
+- Artifact: `11216560996` / `4,115,447 bytes`.
+- Artifact digest: `sha256:28190d5b103b8c39409630d244aeb767d1c87930b31d24046325bd0b985e33c2`.
+- Artifact expiry: `2026-10-09T08:13:08Z`.
+- Independent downloaded ZIP SHA-256: MATCH.
+- Independent 4-reference size / SHA-256 / Git blob / PNG signature verification: `4/4 PASS`.
+- Product Owner manual reference upload: `0`.
+- Candidate 02 generation: `NOT AUTHORIZED`.
+- Next: Product Owner authorization for N22 Candidate 02 Work generation.
