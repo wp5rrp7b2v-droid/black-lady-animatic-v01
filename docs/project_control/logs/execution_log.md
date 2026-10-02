@@ -3135,3 +3135,24 @@ Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / WAITING WORK BINARY DELI
 - LEFT / RIGHT / BACK remain NOT AUTHORIZED.
 - Project State target: R223 / Dashboard V158.
 
+## 2026-10-02｜Generic Guest Crowd FRONT Authority Formal Closeout
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+- Approved candidate: `FRONT BOARD Candidate 02`.
+- Candidate 01: diagnostic only / not approved.
+- Canonical PNG: `production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png`.
+- Exact binary: 1536×1024 / RGBA / 8-bit / 2,335,288 bytes.
+- SHA-256: `ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23`.
+- Git blob: `d8ff2d789a352475daa945d22a0a65112c72a682`.
+- Intake verification: run `37027704229` / job `110906445923` / exact PASS.
+- Canonical publication commit: `222a204000641edfa30ff42a7324ce52afc61e2c` / exact Git-blob reuse / no re-encode.
+- Canonical verification: run `37027994620` / job `110907415764` / exact PASS.
+- FRONT Authority manifest commit: `76a4eecd87161b2ad1f4c7995b45bd6b706c7db4`.
+- Approved pixels supersede earlier text-only archetypes where different.
+- Guest I muscular build / sleeveless black top / visible tattoos remain locked identity traits.
+- Temporary staging and verifier files cleaned.
+- LEFT / RIGHT / BACK generation remains NOT AUTHORIZED.
+- Next: `LEFT PROFILE Design V0.1`.
+- Project State target: R224 / Dashboard V159.
+
