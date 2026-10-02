@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "asset_role": "GENERIC_GUEST_CROWD_FRONT_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_FRONT_IDENTITY",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "approved_candidate": "FRONT BOARD Candidate 02",
+  "source_intake_path": "staging/generic_guest_crowd_core_set_v001_front_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_CANDIDATE_02_APPROVED.png",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png",
+  "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+  "expected": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "bit_depth": 8,
+    "byte_size": 2335288,
+    "sha256": "ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23",
+    "git_blob": "d8ff2d789a352475daa945d22a0a65112c72a682"
+  },
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd FRONT V001 Intake Verify",
+    "run_id": 37027704229,
+    "job_id": 110906445923,
+    "result": "PASS",
+    "exact_binary_match": true
+  },
+  "canonical_publication_authorized": true,
+  "do_not_reencode": true,
+  "downstream_orientation_generation_authorized": false
+}
