@@ -1,6 +1,6 @@
 # BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜Style / Identity Reference Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+Status: `PRODUCT OWNER APPROVED / LOCKED`
 
 Date: 2026-10-02
 
@@ -32,7 +32,7 @@ No image generation is authorized by this document.
 
 ---
 
-## 2. IDENTITY BUILD METHOD — LOCK PROPOSAL
+## 2. IDENTITY BUILD METHOD — LOCKED
 
 不一次性自由生成 40 个独立人物。
 
@@ -66,11 +66,11 @@ LEFT / RIGHT / BACK 只能解释为：
 
 ---
 
-## 3. PROPOSED STYLE PARENT SET
+## 3. STYLE PARENT SET — LOCKED
 
 Style parents 只提供项目视觉语言，不提供 Guest 身份。
 
-建议初始 Bundle 只考虑 4 个 CURRENT approved full-body front assets：
+初始 FRONT Board Bundle 使用 4 个 CURRENT approved full-body front style-parent assets：
 
 ### Female style parents
 
@@ -220,7 +220,7 @@ not:
 
 ## 6. BOARD LAYOUT
 
-Recommended board target:
+Locked board target:
 
 `1536 × 1024 / LANDSCAPE / 2 ROWS × 5 COLUMNS`
 
@@ -345,7 +345,7 @@ Also avoid:
 
 ---
 
-## 11. PROPOSED GENERATION SEQUENCE
+## 11. GENERATION SEQUENCE — LOCKED
 
 Do not generate all four boards at once.
 
@@ -416,9 +416,9 @@ Individual shots may select only the Guests actually needed.
 
 Status:
 
-`DRAFT / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-If approved, next step:
+Next authorized step:
 
 `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜FRONT BOARD REFERENCE DELIVERY BUNDLE DESIGN V0.1`
 
@@ -432,3 +432,19 @@ Not authorized:
 - LEFT / RIGHT / BACK Boards;
 - N23 Candidate 02;
 - N21 new Candidate.
+
+
+---
+
+## Approval Record｜2026-10-02
+
+Product Owner explicitly approved Style / Identity Reference Design V0.1.
+
+The following are now locked:
+
+- Guest A–F female / Guest G–J male;
+- FRONT MASTER FIRST → LEFT PROFILE → RIGHT PROFILE → BACK;
+- initial style parents AST_IMG_000042 / AST_IMG_000046 / AST_IMG_000022 / AST_IMG_000009;
+- 1536×1024 landscape / 2×5 fixed board structure;
+- anonymous identities may share project visual language but may not copy named-character faces or complete outfits;
+- FRONT Board must be approved before any side/back expansion.
