@@ -1641,3 +1641,26 @@ Next:
 
 `Work generation → Product Owner review`
 
+## Generic Guest Crowd Core Set V001｜FRONT Board Candidate 02 Approval｜2026-10-02
+
+Status:
+
+`PRODUCT OWNER APPROVED / EXACT BINARY IDENTITY LOCKED / INTAKE PENDING`
+
+- Candidate 01: `NOT APPROVED / DIAGNOSTIC ONLY`.
+- Candidate 02: `APPROVED / FRONT IDENTITY AUTHORITY`.
+- exact approved PNG: `1536×1024 / RGBA / 8-bit / 2,335,288 bytes`.
+- SHA-256: `ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23`.
+- Git blob: `d8ff2d789a352475daa945d22a0a65112c72a682`.
+- staging target: `staging/generic_guest_crowd_core_set_v001_front_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_CANDIDATE_02_APPROVED.png`.
+- canonical target: `production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png`.
+- exact intake verifier: installed / trigger only on staging PNG delivery.
+- approved pixels override earlier text-only identity details where different.
+- LEFT / RIGHT / BACK: `NOT AUTHORIZED`.
+- N21: `HOLD`.
+- N23 Candidate 02: `PAUSED`.
+
+Next:
+
+`Work exact binary delivery → GitHub Actions intake verification`
+
