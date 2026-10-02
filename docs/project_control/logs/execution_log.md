@@ -2757,3 +2757,21 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - `BUILD_AUTHORIZED=FALSE` / `GENERATION_ALLOWED=FALSE`
 - Artifacts: NONE
 - Candidate 03: NOT AUTHORIZED
+
+
+## 2026-10-02｜N22 Bundle V003 Formal Build + Independent Verification
+
+Status: `FORMAL BUILD PASS / 3 OF 3 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 03 NOT AUTHORIZED`
+
+- Spec authorization commit: `42a52a515373954d8d0794bff29de236fe0eed78`.
+- Spec revision: `V003-R2`; `build_authorized=true`.
+- Run: `36985709195` / job `110770136859` / SUCCESS.
+- Builder: `PASS: 3/3 exact canonical reference binaries verified`.
+- `GENERATION_ALLOWED=TRUE`.
+- Artifact: `11217127728` / `3,640,093 bytes`.
+- Artifact digest: `sha256:e1171f901c167bd628934558ac02bb16091400a13a550c77e8aa96737c7852f2`.
+- Artifact expiry: `2026-10-09T08:44:07Z`.
+- Independent ZIP SHA-256: MATCH.
+- Independent 3-reference size / SHA-256 / Git blob / PNG signature verification: `3/3 PASS`.
+- Candidate 03 generation: `NOT AUTHORIZED`.
+- Next: Product Owner authorization for N22 Candidate 03 Work generation.
