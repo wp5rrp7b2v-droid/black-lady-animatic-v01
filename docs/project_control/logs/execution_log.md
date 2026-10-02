@@ -2711,3 +2711,20 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next authorized step: N22 Reference Delivery Bundle V003 Design only.
 - Bundle V003 Spec / validation / formal build / Candidate 03: NOT AUTHORIZED.
 - Project State target: R197 / Dashboard V132.
+
+
+## 2026-10-02｜N22 Bundle V003 Design Draft
+
+Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+
+- Proposed Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V003`.
+- Reference count: 3.
+- Inputs: AST_IMG_000061 Su Xiaoxiao / AST_IMG_000058 Liao Jian / AST_IMG_000052 Castle Entrance.
+- Guang Yong: removed from V003.
+- Wen Qingya: remains deferred.
+- Candidate 02 lighting gains: preserved unchanged.
+- Su Xiaoxiao: only first-glance named face.
+- Liao Jian: second-glance / partial identity.
+- Hard rule: no shared Su/Liao gaze and no duo composition.
+- Bundle V003 Spec / validation / formal build / Candidate 03: NOT AUTHORIZED.
+- Project State target: R198 / Dashboard V133.
