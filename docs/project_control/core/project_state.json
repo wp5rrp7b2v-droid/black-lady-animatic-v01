@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R191",
+  "state_revision": "R192",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CANDIDATE 01 NOT APPROVED / CORRECTION STRATEGY LOCKED / BUNDLE V002 DESIGN DRAFT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 C01 REVIEW CLOSED / BUNDLE V002 DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Reference Delivery Bundle V002 Design V0.1 Review",
-  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR N22 BUNDLE V002 DESIGN. Candidate 02 generation remains unauthorized.",
-  "next_action": "Review N22 Reference Delivery Bundle V002 Design V0.1. Proposed V002 reduces the generation reference set to Su Xiaoxiao + Liao Jian + Guang Yong + Castle Entrance Scene Master, defers Wen Qingya, preserves successful V001 identity/scene controls, and strengthens the written lighting/composition contract. Do not create the V002 spec or run validation until Product Owner approves the design.",
+  "current_task": "P0.3｜S02-B｜N22 Bundle V002 Spec + Validation-Only Preparation",
+  "blocker": "NONE FOR N22 BUNDLE V002 VALIDATION-ONLY PREPARATION. Candidate 02 generation remains separately gated.",
+  "next_action": "Create production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V002.json with build_authorized=false using AST_IMG_000061, AST_IMG_000058, AST_IMG_000056 and AST_IMG_000052 only, then prepare validation-only execution with the existing Generic Story Shot Reference Bundle Builder. Do not authorize formal Artifact build or Candidate 02 generation without separate Product Owner approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,22 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-C01-REVIEW-CLOSED-BUNDLE-V002-DRAFT-R191",
-    "status": "N22 CANDIDATE 01 NOT APPROVED / REVIEW CLOSED / CORRECTION STRATEGY APPROVED / BUNDLE V002 DESIGN DRAFT",
+    "id": "2026-10-02-N22-BUNDLE-V002-DESIGN-APPROVAL-R192",
+    "status": "N22 BUNDLE V002 DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PREP NEXT",
     "completed": [
-      "N22 Candidate 01 review closed as NOT APPROVED / valid diagnostic evidence.",
-      "Returned Candidate 01 identity recorded as 941x1672 RGB PNG / 1968418 bytes / SHA256 3c8f81341967dce94e6fb5286cd38a3c53d8507371de9d81f1d6acb281336400.",
-      "Candidate 01 PASS evidence preserved: identity stability, body/wardrobe stability, usable Castle Entrance identity.",
-      "Candidate 01 FAIL evidence isolated to four-character composition overexposure and lighting continuity.",
-      "N22 Candidate 02 Correction Strategy V0.1 Product Owner approved and locked.",
-      "Bundle V002 Design V0.1 drafted with 4 references: Su Xiaoxiao, Liao Jian, Guang Yong, Castle Entrance.",
-      "Wen Qingya intentionally deferred from Candidate 02 generation reference set."
+      "N22 Reference Delivery Bundle V002 Design V0.1 approved and locked.",
+      "V002 reference count fixed at four.",
+      "Preserved references: AST_IMG_000061 Su Xiaoxiao, AST_IMG_000058 Liao Jian, AST_IMG_000056 Guang Yong, AST_IMG_000052 Castle Entrance Scene Master.",
+      "AST_IMG_000062 Wen Qingya explicitly deferred from Candidate 02 generation input.",
+      "Candidate 01 pixels remain negative diagnostic evidence only and are excluded from Bundle V002.",
+      "Lighting correction remains written-only: interior-dominant, doorway trace only, no broad floor daylight.",
+      "Next step is Bundle V002 spec + validation-only preparation with build_authorized=false."
     ],
     "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v002_design_v0_1.md",
-    "resume_from": "N22 BUNDLE V002 DESIGN PRODUCT OWNER REVIEW",
-    "blockers": [
-      "PRODUCT OWNER BUNDLE V002 DESIGN APPROVAL REQUIRED"
-    ]
+    "resume_from": "N22 BUNDLE V002 SPEC + VALIDATION-ONLY PREPARATION",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -524,13 +522,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V126",
+    "version": "V127",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R191 / N22 C01 REVIEW CLOSED / BUNDLE V002 DESIGN DRAFT",
-    "derived_from_revision": "R191",
+    "status": "CURRENT / DERIVED FROM R192 / N22 BUNDLE V002 DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
+    "derived_from_revision": "R192",
     "last_updated": "2026-10-02",
-    "current_task": "N22 BUNDLE V002 DESIGN PRODUCT OWNER REVIEW"
+    "current_task": "N22 BUNDLE V002 SPEC + VALIDATION-ONLY PREPARATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2547,7 +2545,7 @@
     "next_step": "N22 REFERENCE DELIVERY BUNDLE V002 DESIGN"
   },
   "n22_reference_delivery_bundle_v002_design_v0_1": {
-    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v002_design_v0_1.md",
     "target_bundle": "N22_REFERENCE_DELIVERY_BUNDLE_V002",
     "proposed_reference_count": 4,
@@ -2560,9 +2558,11 @@
     "removed_from_v001": [
       "AST_IMG_000062"
     ],
-    "spec_authorized": false,
-    "validation_authorized": false,
+    "spec_authorized": true,
+    "validation_authorized": true,
     "formal_build_authorized": false,
-    "candidate_02_authorized": false
+    "candidate_02_authorized": false,
+    "approval_date": "2026-10-02",
+    "next_step": "N22 BUNDLE V002 SPEC + VALIDATION-ONLY PREPARATION"
   }
 }
