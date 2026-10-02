@@ -2585,3 +2585,18 @@ Status: `FORMAL BUILD PASS / 5 OF 5 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENE
 - Product Owner manual reference upload: `0`.
 - Candidate 01 generation: `NOT AUTHORIZED`.
 - Next: Product Owner authorization for N22 Candidate 01 Work generation.
+
+
+## 2026-10-02｜N22 Candidate 01 Work Generation Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
+
+- Target: `N22 Candidate 01｜Clean Regeneration`.
+- Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Artifact: `11208576712`.
+- Artifact digest: `sha256:301a127df57e197580c0b87aa0beb7d59c2687d3edd16686c10caa8f841f5c58`.
+- Work automatic acquisition: REQUIRED.
+- Pre-generation exact verification: REQUIRED 5/5.
+- Generation count: exactly 1 PNG.
+- After generation: STOP for Product Owner review.
+- Candidate 02 / N23 / publication / registration / closeout: NOT AUTHORIZED.
