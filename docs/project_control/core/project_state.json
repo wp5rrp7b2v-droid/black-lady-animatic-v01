@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R201",
+  "state_revision": "R202",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE V003 FORMAL BUILD PASS / CANDIDATE 03 AWAITING PO AUTHORIZATION",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CANDIDATE 03 WORK GENERATION AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Candidate 03 Work Generation Authorization",
-  "blocker": "PRODUCT OWNER AUTHORIZATION REQUIRED FOR N22 CANDIDATE 03 GENERATION. Bundle V003 is ready: 3/3 exact verified and independently artifact-verified.",
-  "next_action": "If Product Owner authorizes N22 Candidate 03 generation, Work must automatically acquire Artifact 11217127728, verify 3/3 exact references, generate exactly one Clean Regeneration PNG under the locked Candidate 03 hierarchy/gaze/lighting contract, then stop for Product Owner review.",
+  "current_task": "P0.3｜S02-B｜N22 Candidate 03｜Work Generation",
+  "blocker": "NONE. N22 Candidate 03 generation is authorized for exactly one PNG using verified Bundle V003.",
+  "next_action": "Work automatically acquires Artifact 11217127728, verifies 3/3 exact references, generates exactly one N22 Candidate 03 Clean Regeneration PNG under the locked hierarchy/gaze/lighting contract, then stops for Product Owner review. No Candidate 04 or downstream action is authorized.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,24 +114,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-BUNDLE-V003-FORMAL-BUILD-PASS-R201",
-    "status": "N22 BUNDLE V003 FORMAL BUILD PASS / 3 OF 3 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 03 NOT AUTHORIZED",
+    "id": "2026-10-02-N22-CANDIDATE-03-WORK-AUTH-R202",
+    "status": "N22 CANDIDATE 03 WORK GENERATION AUTHORIZED / EXACTLY ONE PNG",
     "completed": [
-      "Product Owner authorized formal N22 Bundle V003 build.",
-      "Spec advanced to V003-R2 / build_authorized=true at commit 42a52a515373954d8d0794bff29de236fe0eed78.",
-      "Formal build run 36985709195 / job 110770136859 completed successfully.",
-      "Builder reported PASS: 3/3 exact canonical reference binaries verified.",
-      "GENERATION_ALLOWED=TRUE at Bundle level.",
-      "Artifact 11217127728 created, size 3640093 bytes.",
-      "Artifact digest sha256:e1171f901c167bd628934558ac02bb16091400a13a550c77e8aa96737c7852f2.",
-      "Independent ZIP digest matched workflow digest.",
-      "Independent size / SHA-256 / Git blob / PNG signature verification passed 3/3."
+      "Bundle V003 formal build previously passed 3/3 exact and independent artifact verification.",
+      "Product Owner explicitly authorized N22 Candidate 03 generation.",
+      "Generation mode locked to Clean Regeneration.",
+      "Generation count locked to exactly one PNG.",
+      "Work must auto-acquire Artifact 11217127728 and verify 3/3 exact before generation.",
+      "Su Xiaoxiao remains the only first-glance named face.",
+      "Liao Jian remains second-glance / partial.",
+      "No shared Su/Liao gaze and no duo composition remain hard rules.",
+      "Candidate 04, N23, publication, registration and closeout remain unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v003_build_record_2026-10-02.md",
-    "resume_from": "N22 CANDIDATE 03 WORK GENERATION AUTHORIZATION",
-    "blockers": [
-      "PRODUCT OWNER CANDIDATE 03 GENERATION AUTHORIZATION REQUIRED"
-    ]
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_candidate_03_work_generation_authorization_2026-10-02.md",
+    "resume_from": "N22 CANDIDATE 03 PRODUCT OWNER REVIEW AFTER WORK GENERATION",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -526,13 +524,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V136",
+    "version": "V137",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R201 / N22 BUNDLE V003 FORMAL BUILD PASS / CANDIDATE 03 AUTHORIZATION NEXT",
-    "derived_from_revision": "R201",
+    "status": "CURRENT / DERIVED FROM R202 / N22 CANDIDATE 03 WORK GENERATION AUTHORIZED",
+    "derived_from_revision": "R202",
     "last_updated": "2026-10-02",
-    "current_task": "N22 CANDIDATE 03 WORK GENERATION AUTHORIZATION"
+    "current_task": "N22 CANDIDATE 03 WORK GENERATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2686,7 +2684,7 @@
     "spec_authorized": true,
     "validation_authorized": true,
     "formal_build_authorized": true,
-    "candidate_03_authorized": false,
+    "candidate_03_authorized": true,
     "approval_date": "2026-10-02",
     "next_step": "N22 CANDIDATE 03 WORK GENERATION AUTHORIZATION",
     "validation_only_status": "PASS / 3 OF 3 EXACT / NO ARTIFACT",
@@ -2722,7 +2720,29 @@
     "exact_verification": "3/3 PASS",
     "independent_artifact_verification": "3/3 PASS",
     "generation_allowed": true,
-    "candidate_03_authorized": false,
+    "candidate_03_authorized": true,
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v003_build_record_2026-10-02.md"
+  },
+  "n22_candidate_03": {
+    "status": "WORK GENERATION AUTHORIZED / NOT YET GENERATED",
+    "mode": "CLEAN REGENERATION",
+    "formal_bundle": "N22_REFERENCE_DELIVERY_BUNDLE_V003",
+    "artifact_id": 11217127728,
+    "artifact_digest": "sha256:e1171f901c167bd628934558ac02bb16091400a13a550c77e8aa96737c7852f2",
+    "generation_count_limit": 1,
+    "work_auto_acquisition": true,
+    "pre_generation_exact_verification": "REQUIRED 3/3",
+    "correction_strategy": "docs/project_control/gates/P0_3_video_pipeline/n22_candidate_03_correction_strategy_v0_1.md",
+    "hard_rules": [
+      "SU ONLY FIRST-GLANCE NAMED FACE",
+      "LIAO SECOND-GLANCE / PARTIAL",
+      "NO SHARED SU/LIAO GAZE",
+      "NO SU/LIAO DUO COMPOSITION",
+      "PRESERVE CANDIDATE 02 LIGHTING GAINS"
+    ],
+    "candidate_04_authorized": false,
+    "n23_authorized": false,
+    "authorization_path": "docs/project_control/gates/P0_3_video_pipeline/n22_candidate_03_work_generation_authorization_2026-10-02.md",
+    "authorization_commit": "360ab484d1216739895e2745d25ce1a1b7c198cb"
   }
 }
