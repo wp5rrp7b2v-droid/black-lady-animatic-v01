@@ -2794,3 +2794,19 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
 - Generation count: exactly 1 PNG.
 - After generation: STOP for Product Owner review.
 - Candidate 04 / N23 / publication / registration / closeout: NOT AUTHORIZED.
+
+
+## 2026-10-02｜N22 Final Approval + Archival Preparation
+
+Status: `PRODUCT OWNER APPROVED / FINAL BINARY LOCKED / WAITING ORIGINAL PNG GITHUB PUBLICATION`
+
+- Shot: `N22｜People in the Flow — Ning Observational POV`.
+- Selected result: `N22 Candidate 04｜Clarity-Clean Final Binary`.
+- Exact approved binary: `941×1672 / RGB PNG / 1,834,637 bytes`.
+- SHA-256: `6d1ed04106bb35943d752113e17d5f36fd2d55b29f4234e13177c7f8b6496f3a`.
+- Git blob: `a0f38041c10e4eb13a5a915a5d2f7bf22f85a2cf`.
+- Temporary approved-source path: `production/image_library/approved/story_shots/N22_Candidate_04_APPROVED_SOURCE.png`.
+- Planned canonical path: `production/image_library/approved/story_shots/N22_PEOPLE_IN_THE_FLOW_APPROVED_V001.png`.
+- Exact-binary verification workflow prepared: `.github/workflows/p03-n22-approved-upload-verification-v001.yml`.
+- Canonical Publication / Story Shot Registration / Registration Verification: WAITING ON GITHUB SOURCE BINARY.
+- Project State target: R203 / Dashboard V138.
