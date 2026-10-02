@@ -1,6 +1,6 @@
 # N23｜Scene Reference Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT`
+Status: `SUPERSEDED BY N23 SCENE REFERENCE DESIGN V0.2 / HISTORICAL CAMERA DESIGN`
 
 Date: 2026-10-02
 
@@ -372,3 +372,16 @@ Still not authorized:
 - Work generation;
 - Candidate 01;
 - N24.
+
+
+---
+
+## Supersession Notice｜2026-10-02
+
+This camera design was superseded after N23 Candidate 01 review.
+
+Do not use the V0.1 `camera deeper inside / looking back toward entrance` camera family for future N23 generation.
+
+Current authority:
+
+`n23_scene_reference_design_v0_2.md`
