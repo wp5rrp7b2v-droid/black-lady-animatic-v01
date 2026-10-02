@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V124</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V125</title>
 <style>
 :root{
   --bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;
@@ -57,13 +57,13 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V124 · Product Owner 驾驶舱 · Derived from R189 · Updated 2026-10-02</p>
+  <p class="muted">Project Dashboard V125 · Product Owner 驾驶舱 · Derived from R190 · Updated 2026-10-02</p>
 
   <section class="hero">
     <div class="kicker">Current State</div>
-    <div class="hero-title">P0.3｜S02-B ACTIVE｜N21 HOLD / N22 BUNDLE FORMAL BUILD PASS</div>
+    <div class="hero-title">P0.3｜S02-B ACTIVE｜N21 HOLD / N22 CANDIDATE 01 AUTHORIZED</div>
     <p><span class="tag">S02-A CLOSED</span> <span class="tag">N19 CLOSED</span> <span class="tag">S02-B ACTIVE</span> <span class="tag">P0.3 IN PROGRESS</span></p>
-    <div class="hero-next">N21 保持 HOLD。N22 Bundle V001 正式 Build 已通过：5/5 exact canonical references verified，Artifact 11208576712 已生成并完成独立 ZIP + 5 张 PNG exact verification，GENERATION_ALLOWED=TRUE。当前下一步仅为 Product Owner 授权 N22 Candidate 01 Work generation。</div>
+    <div class="hero-next">N21 保持 HOLD。N22 Candidate 01 Work generation 已获 Product Owner 授权：Work 自动获取 Artifact 11208576712，生成前核验 5/5 exact，只允许 Clean Regeneration 生成 1 张 PNG，然后立即停止等待 Product Owner 审核。</div>
     <div class="pipeline">
       <span class="step">S02-A FORMALLY CLOSED</span>
       <span class="step">N16 FORMALLY CLOSED</span>
@@ -71,7 +71,7 @@ ul.compact li{margin:4px 0}
       <span class="step">N18 FORMALLY CLOSED</span>
       <span class="step">N19 FORMALLY CLOSED</span>
       <span class="step">N20 FORMALLY CLOSED</span>
-      <span class="step active">N21 HOLD / N22 CANDIDATE 01 AUTHORIZATION NEXT</span>
+      <span class="step active">N21 HOLD / N22 CANDIDATE 01 WORK GENERATION</span>
     </div>
   </section>
 
@@ -412,6 +412,20 @@ ul.compact li{margin:4px 0}
     <li>Independent ZIP digest: MATCH; independent 5-reference exact verification: 5/5 PASS.</li>
     <li>Candidate 01 remains NOT AUTHORIZED.</li>
     <li>Next: Product Owner Candidate 01 Work-generation authorization.</li>
+  </ul>
+</section>
+
+
+<section class="card span-12">
+  <div class="kicker">2026-10-02 N22 Candidate 01 Authorization</div>
+  <h2>N22 Candidate 01｜WORK GENERATION AUTHORIZED</h2>
+  <ul class="compact">
+    <li>Mode: Clean Regeneration.</li>
+    <li>Bundle: N22_REFERENCE_DELIVERY_BUNDLE_V001 / Artifact 11208576712.</li>
+    <li>Pre-generation exact verification: 5/5 required.</li>
+    <li>Output limit: exactly one PNG.</li>
+    <li>After generation: stop for Product Owner review.</li>
+    <li>Candidate 02 / N23 / publication / registration remain NOT AUTHORIZED.</li>
   </ul>
 </section>
 
