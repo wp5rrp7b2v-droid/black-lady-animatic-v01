@@ -2481,3 +2481,14 @@ Status: `NOT APPROVED / REVIEW CLOSED / HUMAN BODY-WARDROBE-DIRECTION IMPROVED /
 - Candidate 09: `NOT AUTHORIZED`.
 - N22: `NOT STARTED`.
 - Resume point: narrow Candidate 09 strategy review only; preserve C08 gains and target blocking + environment composition.
+
+
+## 2026-10-02｜N21 Hold / Downstream S02-B Resume
+
+- Product Owner directive: pause N21 and complete downstream Story Shot production before revisiting N21.
+- N21 Candidate 08: NOT APPROVED / retained as evidence only.
+- N21 Candidate 09: NOT AUTHORIZED.
+- RISK-003: ACTIVE but N21-scoped / deferred / NON-BLOCKING for N22–N27.
+- Downstream authoritative sequence preserved: N22 → N23 → N24 → A06 → N25 → N26 → N27.
+- Current active task: N22 Node-Level Director Shot Design.
+- Project State target: R184; Dashboard target: V119.
