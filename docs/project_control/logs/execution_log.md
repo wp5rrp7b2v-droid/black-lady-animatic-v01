@@ -2810,3 +2810,21 @@ Status: `PRODUCT OWNER APPROVED / FINAL BINARY LOCKED / WAITING ORIGINAL PNG GIT
 - Exact-binary verification workflow prepared: `.github/workflows/p03-n22-approved-upload-verification-v001.yml`.
 - Canonical Publication / Story Shot Registration / Registration Verification: WAITING ON GITHUB SOURCE BINARY.
 - Project State target: R203 / Dashboard V138.
+
+
+## 2026-10-02｜N22 Story Shot Formal Closeout
+
+Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED`
+
+- Exact approved binary: `941×1672 RGB PNG / 1,834,637 bytes`.
+- SHA-256: `6d1ed04106bb35943d752113e17d5f36fd2d55b29f4234e13177c7f8b6496f3a`.
+- Git blob: `a0f38041c10e4eb13a5a915a5d2f7bf22f85a2cf`.
+- Exact verification: run `36998121036` / job `110809408442` / PASS.
+- Canonical publication: run `36998203149` / job `110809649430` / commit `984b708ff69104adc172f330c8a27791656749f0` / exact blob preserved.
+- Canonical path: `production/image_library/approved/story_shots/N22_PEOPLE_IN_THE_FLOW_APPROVED_V001.png`.
+- Story Shot registration commit: `474fe2cb478c2d9a4ce2be7a77838890fb1c38ad`.
+- Registration verification: run `36998327975` / job `110810040324` / OVERALL_RESULT=PASS.
+- N22 formal closeout record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_n22_story_shot_registration_closeout_2026-10-02.md`.
+- N21 remains HOLD.
+- N23 remains NOT STARTED.
+- Project State target: R204 / Dashboard V139.
