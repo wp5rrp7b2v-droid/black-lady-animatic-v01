@@ -1619,3 +1619,25 @@ Next:
 
 `Product Owner authorization → FRONT BOARD Candidate 01 / Clean Regeneration / exactly one PNG`
 
+## Generic Guest Crowd Core Set V001｜FRONT Board Candidate 01 Work Authorization｜2026-10-02
+
+Status:
+
+`PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
+
+- mode: `CLEAN REGENERATION`.
+- Bundle: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_BOARD_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Artifact: `11231259655`.
+- pre-generation exact verification: `4/4 required`.
+- output: `exactly one 1536×1024 PNG`.
+- fixed board: `2×5 / Guest A–J / A–F female / G–J male`.
+- after generation: stop for Product Owner review.
+- Candidate 02: `NOT AUTHORIZED`.
+- LEFT / RIGHT / BACK: `NOT AUTHORIZED`.
+- N21: `HOLD`.
+- N23 Candidate 02: `PAUSED`.
+
+Next:
+
+`Work generation → Product Owner review`
+
