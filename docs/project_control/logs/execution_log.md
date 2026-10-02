@@ -2696,3 +2696,18 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
 - New hard rule: Su/Liao must not share gaze direction; Su first-glance, Liao second-glance/partial.
 - Bundle V003 / validation / formal build / Candidate 03: NOT AUTHORIZED.
 - Project State target: R196 / Dashboard V131.
+
+
+## 2026-10-02｜N22 Candidate 03 Correction Strategy Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Candidate 03 route: Su Xiaoxiao + Liao Jian + Castle Entrance only.
+- Remove Guang Yong from Candidate 03 proposed generation reference set.
+- Preserve Candidate 02 lighting gains; no new look reference by default.
+- Su Xiaoxiao: only first-glance readable named face.
+- Liao Jian: second-glance / partial identity.
+- Hard rule: Su and Liao must not share gaze direction.
+- Next authorized step: N22 Reference Delivery Bundle V003 Design only.
+- Bundle V003 Spec / validation / formal build / Candidate 03: NOT AUTHORIZED.
+- Project State target: R197 / Dashboard V132.
