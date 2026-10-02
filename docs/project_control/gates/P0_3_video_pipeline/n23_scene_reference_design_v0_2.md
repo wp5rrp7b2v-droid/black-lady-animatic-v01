@@ -1,6 +1,6 @@
 # N23｜Scene Reference Design V0.2
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / SUPERSEDES V0.1`
+Status: `SUPERSEDED BY N23 SCENE REFERENCE DESIGN V0.2.1 / HISTORICAL CAMERA DESIGN`
 
 Date: 2026-10-02
 
@@ -430,3 +430,16 @@ Not authorized:
 - N24;
 - publication;
 - registration.
+
+
+---
+
+## Supersession Notice｜2026-10-02
+
+V0.2 camera geometry remains valid, but its Neil gaze direction was corrected by V0.2.1.
+
+The V0.2 phrase `head / eyes slightly LEFT` is no longer authoritative.
+
+Current authority:
+
+`n23_scene_reference_design_v0_2_1.md`
