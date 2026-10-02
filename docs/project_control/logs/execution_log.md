@@ -2844,3 +2844,19 @@ Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
 - N24 boundary: do not consume Ning spatial POV or full destination reveal.
 - Scene Reference / Bundle / Candidate 01: NOT AUTHORIZED.
 - Project State target: R205 / Dashboard V140.
+
+
+## 2026-10-02｜N23 Director Shot Design V0.2 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- V0.1 superseded after continuity review against A06.
+- N23 primary frame: Neil stands beside the open castle door and side-glances at the cohort finishing entry.
+- Neil does not close/touch the door and does not walk away yet.
+- Crowd continuity: reuse the same N22 cohort from another real camera angle; do not mirror or literally duplicate N22.
+- Guang Yong may retain low-weight backward attention as a visual bridge into his later A06 open-door question.
+- Hierarchy: Neil + open door primary; group entry secondary; Guang Yong cue tertiary.
+- A06 retains Neil leaving the open door behind / explicit question payoff.
+- Next authorized step: N23 Scene Reference Design only.
+- Bundle / Work / Candidate 01: NOT AUTHORIZED.
+- Project State target: R206 / Dashboard V141.
