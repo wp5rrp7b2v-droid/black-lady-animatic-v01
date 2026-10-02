@@ -1,0 +1,73 @@
+name: Generic Guest Crowd FRONT V001 Canonical Verify
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify canonical exact approved FRONT binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, struct, subprocess
+
+          p = Path("production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png")
+          expected_size = 2335288
+          expected_sha = "ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23"
+          expected_blob = "d8ff2d789a352475daa945d22a0a65112c72a682"
+          expected_dims = (1536, 1024)
+          expected_mode = "RGBA"
+
+          if not p.is_file():
+              raise SystemExit("FAIL: canonical FRONT missing")
+
+          data = p.read_bytes()
+          size = len(data)
+          sha = hashlib.sha256(data).hexdigest()
+          blob = subprocess.check_output(["git","hash-object",str(p)], text=True).strip()
+
+          if data[:8] != b"\x89PNG\r\n\x1a\n":
+              raise SystemExit("FAIL: PNG signature mismatch")
+          width, height = struct.unpack(">II", data[16:24])
+          bit_depth = data[24]
+          color_type = data[25]
+          mode = {0:"L",2:"RGB",3:"P",4:"LA",6:"RGBA"}.get(color_type, f"UNKNOWN_{color_type}")
+
+          checks = {
+              "byte_size": size == expected_size,
+              "sha256": sha == expected_sha,
+              "git_blob": blob == expected_blob,
+              "dimensions": (width,height) == expected_dims,
+              "mode": mode == expected_mode,
+              "bit_depth": bit_depth == 8,
+          }
+          for k,v in checks.items():
+              print(f"{k}={'PASS' if v else 'FAIL'}")
+
+          print(f"actual_size={size}")
+          print(f"actual_sha256={sha}")
+          print(f"actual_git_blob={blob}")
+          print(f"actual_dimensions={width}x{height}")
+          print(f"actual_mode={mode}")
+          print(f"actual_bit_depth={bit_depth}")
+
+          if not all(checks.values()):
+              raise SystemExit("EXACT_BINARY_MATCH=NO")
+          print("EXACT_BINARY_MATCH=YES")
+          print("OVERALL_RESULT=PASS")
+          PY
