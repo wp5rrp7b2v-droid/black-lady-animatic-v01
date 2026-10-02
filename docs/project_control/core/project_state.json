@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R208",
+  "state_revision": "R209",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 BUNDLE DESIGN V0.1 DRAFT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 BUNDLE V001 VALIDATION-ONLY PASS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N23 Reference Delivery Bundle Design V0.1 Product Owner Review",
-  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR N23 BUNDLE DESIGN. Bundle Spec/build and Work generation remain unauthorized.",
-  "next_action": "Review N23 Reference Delivery Bundle Design V0.1: proposed four inputs are N22 canonical Story Shot, AST_IMG_000052 Castle Entrance Scene Master, AST_IMG_000059 Neil Character Reference Sheet, and AST_IMG_000056 Guang Yong Character Reference Sheet. If approved, create V001 spec with build_authorized=false and run validation-only.",
+  "current_task": "P0.3｜S02-B｜N23 Bundle V001 Formal Build Authorization",
+  "blocker": "PRODUCT OWNER FORMAL BUNDLE BUILD AUTHORIZATION REQUIRED. Validation-only passed 4/4; no Artifact exists; Work generation remains unauthorized.",
+  "next_action": "Obtain Product Owner authorization to advance N23_REFERENCE_DELIVERY_BUNDLE_V001 from build_authorized=false to true. Then run the existing generic Story Shot Reference Bundle Builder, independently verify the produced Artifact, and stop before Candidate 01 Work generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,22 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N23-BUNDLE-DESIGN-V001-DRAFT-R208",
-    "status": "N23 REFERENCE DELIVERY BUNDLE DESIGN V0.1 DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "id": "2026-10-02-N23-BUNDLE-V001-VALIDATION-PASS-R209",
+    "status": "N23 BUNDLE V001 VALIDATION-ONLY PASS / 4 OF 4 EXACT / NO ARTIFACT / GENERATION NOT ALLOWED",
     "completed": [
-      "Generic Story Shot Bundle Builder confirmed to support source_type=STORY_SHOT.",
-      "Proposed N23 Bundle V001 reduced to four canonical inputs.",
-      "N22 canonical Story Shot assigned crowd-continuity authority only, not composition authority.",
-      "AST_IMG_000052 assigned Castle Entrance DAY_DOOR_OPEN scene authority.",
-      "AST_IMG_000059 assigned Neil primary identity authority.",
-      "AST_IMG_000056 assigned Guang Yong tertiary continuity identity authority.",
-      "Horizontal camera diagram and all noncanonical/generated camera sketches excluded.",
-      "No Bundle Spec, validation run, Artifact build or Candidate generation authorized."
+      "Product Owner approved N23 Reference Delivery Bundle Design V0.1.",
+      "Bundle Spec V001-R1 created with build_authorized=false.",
+      "Validation-only run 37005584714 / job 110832961471 completed successfully.",
+      "4/4 canonical references verified exactly.",
+      "BUILD_AUTHORIZED=FALSE and GENERATION_ALLOWED=FALSE confirmed.",
+      "No Artifact was produced.",
+      "Candidate 01 remains unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_design_v0_1.md",
-    "resume_from": "N23 BUNDLE DESIGN PRODUCT OWNER REVIEW",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v001_validation_only_record_2026-10-02.md",
+    "resume_from": "N23 FORMAL BUNDLE V001 BUILD AUTHORIZATION",
     "blockers": [
-      "PRODUCT OWNER N23 BUNDLE DESIGN APPROVAL REQUIRED"
+      "PRODUCT OWNER FORMAL BUNDLE BUILD AUTHORIZATION REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -525,13 +524,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V143",
+    "version": "V144",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R208 / N23 BUNDLE DESIGN DRAFT",
-    "derived_from_revision": "R208",
+    "status": "CURRENT / DERIVED FROM R209 / N23 BUNDLE V001 VALIDATION PASS",
+    "derived_from_revision": "R209",
     "last_updated": "2026-10-02",
-    "current_task": "N23 BUNDLE DESIGN PRODUCT OWNER REVIEW"
+    "current_task": "N23 FORMAL BUNDLE V001 BUILD AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2818,7 +2817,7 @@
     "candidate_01_authorized": false
   },
   "n23_reference_delivery_bundle_design_v0_1": {
-    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_design_v0_1.md",
     "bundle_id": "N23_REFERENCE_DELIVERY_BUNDLE_V001",
     "reference_count": 4,
@@ -2833,6 +2832,11 @@
     "hard_fail": "PEOPLE READ AS LEAVING CASTLE",
     "bundle_spec_authorized": false,
     "formal_build_authorized": false,
-    "candidate_01_authorized": false
+    "candidate_01_authorized": false,
+    "bundle_spec": "production/bundle_specs/N23_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "spec_commit": "cc23ec059204e8cdcd361df90b9df47fcb277c0d",
+    "validation_run": 37005584714,
+    "validation_job": 110832961471,
+    "validation_result": "4/4 EXACT PASS"
   }
 }
