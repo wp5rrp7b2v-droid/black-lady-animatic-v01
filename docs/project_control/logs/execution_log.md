@@ -2492,3 +2492,22 @@ Status: `NOT APPROVED / REVIEW CLOSED / HUMAN BODY-WARDROBE-DIRECTION IMPROVED /
 - Downstream authoritative sequence preserved: N22 → N23 → N24 → A06 → N25 → N26 → N27.
 - Current active task: N22 Node-Level Director Shot Design.
 - Project State target: R184; Dashboard target: V119.
+
+
+## 2026-10-02｜N22 Director Shot Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Shot: `N22｜People in the Flow — Ning Observational POV`.
+- Function: `POV + INFORMATION UPGRADE + NAMED CHARACTER SEEDING`.
+- Tier 1 seeds: Su Xiaoxiao + Liao Jian.
+- Tier 2 seeds: Wen Qingya + Guang Yong.
+- N22 does not prove all sixteen bodies or exact 8-men / 8-women arithmetic.
+- Blocking locked to asynchronous / non-lineup / non-queue behavior.
+- Architecture subordinate / off-axis; no monumental symmetric Gothic portal.
+- Look continuity: N20 dim warm low-key entrance-to-interior world.
+- Neil emphasis excluded; N23 retains direction-change ownership.
+- Critical assumption remains unverified; first later generation proof is exactly one candidate.
+- If four named seeds destabilize identity/composition, reduce complexity rather than blind regenerate.
+- Next authorized step: N22 Scene Reference Design only.
+- Project State target: R185; Dashboard target: V120.
