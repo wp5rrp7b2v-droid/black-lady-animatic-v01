@@ -1,6 +1,6 @@
 # N23｜Node-Level Director Shot Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO SCENE REFERENCE OR BUNDLE AUTHORIZATION`
+Status: `SUPERSEDED BY N23 NODE-LEVEL DIRECTOR SHOT DESIGN V0.2 / HISTORICAL DRAFT`
 
 Date: 2026-10-02
 
@@ -422,6 +422,8 @@ Not authorized:
 - Story Shot Registration;
 - N24.
 
-If Product Owner approves this Node-Level Director Shot Design, next step:
+This draft was superseded after Product Owner continuity review.
 
-`N23 SCENE REFERENCE DESIGN`
+Current authority:
+
+`n23_node_level_director_shot_design_v0_2.md`
