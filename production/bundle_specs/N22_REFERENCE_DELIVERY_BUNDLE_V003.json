@@ -6,7 +6,7 @@
   "target_candidate": "N22 Candidate 03",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "references": [
     {
       "reference_id": "AST_IMG_000061",
@@ -112,5 +112,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V003-R1"
+  "spec_revision": "V003-R2"
 }
