@@ -1592,3 +1592,30 @@ Next proposed design:
 `N21_REFERENCE_DELIVERY_BUNDLE_V006 = Threshold Environment Reference + Crowd Body/Wardrobe Reference`
 
 Do not build or generate until separate Product Owner approval.
+
+## Generic Guest Crowd Core Set V001｜FRONT Board Bundle V001｜2026-10-02
+
+Status:
+
+`FORMAL BUILD PASS / 4 OF 4 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / CANDIDATE 01 NOT AUTHORIZED`
+
+- Bundle Design V0.1: Product Owner APPROVED / LOCKED.
+- reference set: `AST_IMG_000042 / AST_IMG_000046 / AST_IMG_000022 / AST_IMG_000009`.
+- validation-only run: `37019842679 / 110879793932 / 4/4 PASS / no Artifact`.
+- formal-build authorization commit: `8e5c51ac841992a319921ce2db959a9eae7d5fe3`.
+- formal run: `37020135208`.
+- formal job: `110880801633`.
+- Artifact: `11231259655`.
+- Artifact size: `11,200,536 bytes`.
+- Artifact digest: `sha256:336340a61feb7808006b4dd0c9d067a03c6ba8a4d3e4124ba08e039bc06efd07`.
+- independent ZIP digest: `MATCH`.
+- independent delivered-reference verification: `4/4 PASS`.
+- Product Owner manual reference upload: `0`.
+- bundle-level `generation_allowed=true`; governance-level Work generation remains `NOT AUTHORIZED`.
+- LEFT / RIGHT / BACK remain blocked.
+- N23 Candidate 02 remains paused; N21 remains HOLD.
+
+Next:
+
+`Product Owner authorization → FRONT BOARD Candidate 01 / Clean Regeneration / exactly one PNG`
+
