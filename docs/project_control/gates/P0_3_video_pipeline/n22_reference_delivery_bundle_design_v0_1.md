@@ -1,6 +1,6 @@
 # N22｜Reference Delivery Bundle Design V0.1
 
-Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE SPEC + VALIDATION-ONLY PREPARATION NEXT`
+Status: `PRODUCT OWNER APPROVED / LOCKED / FORMAL BUILD PASS / 5 OF 5 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED`
 
 Date: 2026-10-02
 
@@ -648,23 +648,33 @@ Do not automatically reuse N21 environment reference.
 
 Current status:
 
-`PRODUCT OWNER APPROVED / LOCKED`
+`PRODUCT OWNER APPROVED / LOCKED / FORMAL BUILD PASS / 5 OF 5 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED`
 
-Authorized next step:
+Formal build result:
 
-- create N22 Bundle Spec with `build_authorized=false`;
-- prepare validation-only execution using the existing Generic Story Shot Reference Bundle Builder.
+- spec revision: `V001-R2`
+- authorization commit: `8cc4a9dbc959c8fa9f49d5e6a2b36649a53d58d3`
+- workflow run: `36962281468`
+- job: `110698343917`
+- Builder verification: `PASS: 5/5 exact canonical reference binaries verified`
+- `GENERATION_ALLOWED=TRUE`
+- Artifact ID: `11208576712`
+- Artifact size: `4,752,815 bytes`
+- Artifact digest: `sha256:301a127df57e197580c0b87aa0beb7d59c2687d3edd16686c10caa8f841f5c58`
+- independent ZIP digest: `MATCH`
+- independent reference verification: `5/5 PASS`
 
-Still not authorized:
+Build record:
 
-- `build_authorized=true`;
-- formal Bundle Artifact build;
-- Work generation;
-- Candidate 01;
-- N23.
+`docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v001_build_record_2026-10-02.md`
 
-Approval authority:
+Current authorization boundary:
 
-`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-02`
+- formal Bundle: `READY`
+- Work generation: `NOT AUTHORIZED`
+- Candidate 01: `NOT AUTHORIZED`
+- N23: `NOT AUTHORIZED`
 
-Formal build remains a separate authorization boundary.
+Next step:
+
+`PRODUCT OWNER N22 CANDIDATE 01 WORK GENERATION AUTHORIZATION`
