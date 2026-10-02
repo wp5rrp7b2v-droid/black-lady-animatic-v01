@@ -2828,3 +2828,19 @@ Status: `COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED /
 - N21 remains HOLD.
 - N23 remains NOT STARTED.
 - Project State target: R204 / Dashboard V139.
+
+
+## 2026-10-02｜N23 Node-Level Director Shot Design Draft
+
+Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+
+- Shot: `N23｜Neil Turns — Group Direction Changes`.
+- Parent scope: `02:04.300 → 02:11.640`.
+- Function: `PRIMARY ACTION + SPATIAL TRANSITION`.
+- Core proof: Neil initiates a readable group direction change.
+- Camera: medium-wide rear / rear-3Q, laterally offset.
+- Group movement: asynchronous propagation; no synchronized turn / queue / procession.
+- Neil: action anchor, not hero portrait.
+- N24 boundary: do not consume Ning spatial POV or full destination reveal.
+- Scene Reference / Bundle / Candidate 01: NOT AUTHORIZED.
+- Project State target: R205 / Dashboard V140.
