@@ -3005,3 +3005,15 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - No generation or Bundle work authorized yet.
 - Next: Style / Identity Reference Design V0.1.
 - Project State target: R215 / Dashboard V150.
+
+
+## 2026-10-02｜Generic Guest Crowd Gender Distribution Lock
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 remains 10 fixed anonymous Guests A–J.
+- Gender distribution hard-locked: 6 female + 4 male.
+- Four-board / 40-view structure unchanged.
+- No Bundle or Work generation authorized.
+- Next remains Style / Identity Reference Design V0.1.
+- Project State target: R216 / Dashboard V151.
