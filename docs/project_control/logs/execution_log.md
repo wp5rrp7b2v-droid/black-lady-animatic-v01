@@ -2974,3 +2974,17 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Neil must not primarily look toward the doorway / exterior.
 - Candidate 02 remains NOT AUTHORIZED pending correction strategy / reference architecture review.
 - Project State target: R213 / Dashboard V148.
+
+
+## 2026-10-02｜N23 Candidate 02 Correction Strategy V0.1 Draft
+
+Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+
+- Scene Reference V0.2.1 remains unchanged.
+- Proposed V002 direct inputs: AST_IMG_000052 + AST_IMG_000059 + AST_IMG_000013.
+- N22 Story Shot direct pixels removed; N22 becomes Director-level continuity check only.
+- Guang Yong Character Sheet AST_IMG_000056 removed; replace with single REAR_3Q_RIGHT atomic reference AST_IMG_000013.
+- Other crowd members intentionally unseeded / anonymous.
+- N21_CROWD_BODY_WARDROBE_REFERENCE_V001 not reused because canonical authority scope is N21-only.
+- Candidate 02 remains NOT AUTHORIZED.
+- Project State target: R214 / Dashboard V149.
