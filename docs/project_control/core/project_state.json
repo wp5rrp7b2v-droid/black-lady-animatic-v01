@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R185",
+  "state_revision": "R186",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 DIRECTOR DESIGN APPROVED / SCENE REFERENCE DESIGN NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 DIRECTOR + SCENE REFERENCE APPROVED / BUNDLE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Scene Reference Design",
-  "blocker": "NONE FOR N22 SCENE REFERENCE DESIGN. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
-  "next_action": "Design N22 Scene Reference V0.1 from approved N22 Node-Level Director Shot Design V0.1. Determine the minimum authoritative visual references needed for Su Xiaoxiao + Liao Jian primary seeding, Wen Qingya + Guang Yong secondary seeding, entrance-to-interior spatial continuity, and N20 warm low-key look. Do not build a Bundle or generate Candidate 01 without separate Product Owner approval.",
+  "current_task": "P0.3｜S02-B｜N22 Reference Delivery Bundle Design V0.1",
+  "blocker": "NONE FOR N22 BUNDLE DESIGN. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
+  "next_action": "Design N22 Reference Delivery Bundle V0.1 using the approved five-reference architecture: Su Xiaoxiao Character Reference Sheet + Liao Jian Character Reference Sheet + Wen Qingya Character Reference Sheet + Guang Yong Character Reference Sheet + SCENE_CASTLE_ENTRANCE Scene Master. Preserve semantic grouping and explicit rule REFERENCE ORDER ≠ SCREEN POSITION ≠ BLOCKING ORDER. Do not build the Bundle or generate Candidate 01 without separate Product Owner approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,20 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-DIRECTOR-DESIGN-APPROVAL-R185",
-    "status": "N22 DIRECTOR SHOT DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / SCENE REFERENCE DESIGN NEXT",
+    "id": "2026-10-02-N22-SCENE-REFERENCE-APPROVAL-R186",
+    "status": "N22 SCENE REFERENCE DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT",
     "completed": [
-      "N22 node function locked as POV + INFORMATION UPGRADE + NAMED CHARACTER SEEDING.",
-      "N22 explicitly does not inherit N21 full-cohort scale responsibility.",
-      "Su Xiaoxiao + Liao Jian locked as Tier 1 visual seeds; Wen Qingya + Guang Yong as Tier 2 secondary seeds.",
-      "Exact sixteen-person and 8-men/8-women visual counting prohibited.",
-      "Asynchronous non-lineup blocking, off-axis subordinate architecture, and N20 warm low-key continuity locked.",
-      "Critical assumption retained as unverified: four named seeds may coexist without identity drift or lineup composition.",
-      "Fallback boundary locked: reduce readable named seeds rather than blind repeated regeneration if the assumption fails.",
-      "Only N22 Scene Reference Design is authorized next."
+      "N22 Scene Reference Design V0.1 approved and locked.",
+      "Initial formal generation reference count locked at five.",
+      "Tier 1 identity authorities: AST_IMG_000061 Su Xiaoxiao + AST_IMG_000058 Liao Jian.",
+      "Tier 2 identity authorities: AST_IMG_000062 Wen Qingya + AST_IMG_000056 Guang Yong.",
+      "Scene fact authority: AST_IMG_000052 SCENE_CASTLE_ENTRANCE / DAY_DOOR_OPEN.",
+      "N20 retained as Director-level look/continuity authority only, not initial generation input.",
+      "CHARACTER_VISUAL_STYLE_REFERENCE_V001, N21 environment reference, N21 crowd body/wardrobe reference, Ning, Jun and Neil references excluded from initial N22 Bundle.",
+      "Critical four-character coexistence assumption remains unverified until one-candidate proof.",
+      "Only N22 Reference Delivery Bundle Design V0.1 is authorized next."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_node_level_director_shot_design_v0_1.md",
-    "resume_from": "N22 SCENE REFERENCE DESIGN",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_scene_reference_design_v0_1.md",
+    "resume_from": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1",
     "blockers": []
   },
   "visual_asset_management_system": {
@@ -523,13 +524,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V120",
+    "version": "V121",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R185 / N22 DIRECTOR DESIGN APPROVED / SCENE REFERENCE DESIGN NEXT",
-    "derived_from_revision": "R185",
+    "status": "CURRENT / DERIVED FROM R186 / N22 SCENE REFERENCE APPROVED / BUNDLE DESIGN NEXT",
+    "derived_from_revision": "R186",
     "last_updated": "2026-10-02",
-    "current_task": "N22 SCENE REFERENCE DESIGN"
+    "current_task": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2411,5 +2412,28 @@
     "critical_assumption": "FOUR NAMED CHARACTER SEEDS CAN COEXIST WITHOUT IDENTITY DRIFT OR LINEUP COMPOSITION",
     "minimum_proof": "ONE CANDIDATE ONLY AFTER SCENE REFERENCE + BUNDLE APPROVAL",
     "next_step": "N22 SCENE REFERENCE DESIGN"
+  },
+  "n22_scene_reference_design_v0_1": {
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n22_scene_reference_design_v0_1.md",
+    "approval_date": "2026-10-02",
+    "formal_reference_count": 5,
+    "reference_set": [
+      "AST_IMG_000061",
+      "AST_IMG_000058",
+      "AST_IMG_000062",
+      "AST_IMG_000056",
+      "AST_IMG_000052"
+    ],
+    "excluded_initial_generation_inputs": [
+      "N20_CANONICAL_STORY_SHOT",
+      "CHARACTER_VISUAL_STYLE_REFERENCE_V001",
+      "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001",
+      "N21_CROWD_BODY_WARDROBE_REFERENCE_V001",
+      "CHAR_NING_QIUSHUI",
+      "CHAR_JUN_LUYUAN",
+      "CHAR_NEIL"
+    ],
+    "next_step": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1"
   }
 }
