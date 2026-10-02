@@ -2960,3 +2960,17 @@ Status: `C01 NOT APPROVED / DIAGNOSTIC ONLY / V0.2 CAMERA APPROVED`
 - Structural difference from N22 is mandatory.
 - Candidate 02 / Bundle V002: NOT AUTHORIZED pending correction strategy / reference-architecture review.
 - Project State target: R212 / Dashboard V147.
+
+
+## 2026-10-02｜N23 Scene Reference V0.2.1 Gaze Correction
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- V0.2 camera geometry retained: door/light LEFT; crowd LEFT → RIGHT; side/broadside threshold view.
+- Story moment clarified: the group is at the tail end of entry and almost fully inside.
+- Most visible crowd mass should sit middle-right / right of Neil.
+- Neil remains beside the open door and near-frontal to camera.
+- Neil head / eyes corrected from LEFT to slight RIGHT, watching the group tail already inside.
+- Neil must not primarily look toward the doorway / exterior.
+- Candidate 02 remains NOT AUTHORIZED pending correction strategy / reference architecture review.
+- Project State target: R213 / Dashboard V148.
