@@ -2728,3 +2728,21 @@ Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
 - Hard rule: no shared Su/Liao gaze and no duo composition.
 - Bundle V003 Spec / validation / formal build / Candidate 03: NOT AUTHORIZED.
 - Project State target: R198 / Dashboard V133.
+
+
+## 2026-10-02｜N22 Bundle V003 Design Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Target Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V003`.
+- Reference count: 3.
+- Inputs: AST_IMG_000061 / AST_IMG_000058 / AST_IMG_000052.
+- Guang Yong AST_IMG_000056: removed from Candidate 03 input.
+- Candidate 02 lighting gains: preserved unchanged.
+- Su Xiaoxiao: only first-glance named face.
+- Liao Jian: second-glance / partial identity.
+- Hard rules: no shared Su/Liao gaze; no duo composition.
+- Next authorized step: Bundle V003 Spec + validation-only preparation with `build_authorized=false`.
+- Formal Bundle V003 build: NOT AUTHORIZED.
+- Candidate 03 generation: NOT AUTHORIZED.
+- Project State target: R199 / Dashboard V134.
