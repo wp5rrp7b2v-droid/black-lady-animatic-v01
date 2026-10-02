@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R211",
+  "state_revision": "R212",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 CANDIDATE 01 WORK GENERATION AUTHORIZED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 C01 NOT APPROVED / SCENE REFERENCE V0.2 APPROVED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N23 Candidate 01 Work Generation / Product Owner Review Pending",
-  "blocker": "WAITING WORK OUTPUT / PRODUCT OWNER REVIEW. Candidate 02 and downstream archival actions remain unauthorized.",
-  "next_action": "Work auto-downloads N23_REFERENCE_DELIVERY_BUNDLE_V001 Artifact 11225912126, revalidates 4/4 exact references, generates exactly one N23 Candidate 01 PNG by Clean Regeneration under the locked inside-castle reverse-looking camera and inward crowd-direction contract, then stops for Product Owner review.",
+  "current_task": "P0.3｜S02-B｜N23 Candidate 02 Correction Strategy / Reference Architecture Review",
+  "blocker": "CANDIDATE 02 NOT AUTHORIZED. Scene Reference V0.2 is locked; reference architecture must be reviewed before Bundle V002.",
+  "next_action": "Design N23 Candidate 02 Correction Strategy around the locked screen geometry: door + exterior light on left, crowd crosses left→right into the castle, Neil stays beside the door near-frontal to camera with head/eyes slightly left. Reassess N22 as a direct generation input.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,24 +114,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N23-CANDIDATE-01-WORK-AUTHORIZED-R211",
-    "status": "N23 CANDIDATE 01 WORK GENERATION PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG",
+    "id": "2026-10-02-N23-SCENE-REFERENCE-V002-APPROVED-R212",
+    "status": "N23 CANDIDATE 01 NOT APPROVED / DIAGNOSTIC ONLY / SCENE REFERENCE V0.2 PRODUCT OWNER APPROVED",
     "completed": [
-      "Product Owner explicitly authorized N23 Candidate 01 Work generation.",
-      "Formal Bundle V001 remains Artifact 11225912126 from run 37006373075, exact verified 4/4.",
-      "Generation mode locked to Clean Regeneration.",
-      "Output locked to exactly one 9:16 PNG.",
-      "Camera locked inside castle, deeper than threshold, side-offset, looking diagonally back toward open entrance.",
-      "Group motion locked doorway → castle interior; any outward-exit read is automatic FAIL.",
-      "Neil remains beside open door and does not touch/close it or walk away yet.",
-      "N22 supplies same-cohort continuity only; no copy/mirror.",
-      "Guang Yong is tertiary backward-attention continuity cue only.",
-      "Candidate 02 / N24 / publication / registration remain unauthorized."
+      "Candidate 01 retained only as diagnostic evidence; it is not approved.",
+      "V0.1 interior-looking-back camera family superseded.",
+      "Door and exterior light locked to LEFT side of 9:16 frame.",
+      "Crowd screen movement locked LEFT → RIGHT into castle interior.",
+      "Camera locked to side / broadside threshold view with mild elevated angle.",
+      "Neil locked beside door, near-frontal to camera, with head/eyes slightly LEFT toward entering guests.",
+      "N22 difference must be structural, not a small camera shift.",
+      "Candidate 02 remains unauthorized pending correction strategy / reference architecture review."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_01_work_generation_authorization_2026-10-02.md",
-    "resume_from": "N23 CANDIDATE 01 PRODUCT OWNER REVIEW AFTER WORK OUTPUT",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_scene_reference_design_v0_2.md",
+    "resume_from": "N23 CANDIDATE 02 CORRECTION STRATEGY / REFERENCE ARCHITECTURE REVIEW",
     "blockers": [
-      "WAITING WORK OUTPUT"
+      "CANDIDATE 02 NOT AUTHORIZED"
     ]
   },
   "visual_asset_management_system": {
@@ -527,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V146",
+    "version": "V147",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R211 / N23 CANDIDATE 01 AUTHORIZED",
-    "derived_from_revision": "R211",
+    "status": "CURRENT / DERIVED FROM R212 / N23 SCENE REFERENCE V0.2 APPROVED",
+    "derived_from_revision": "R212",
     "last_updated": "2026-10-02",
-    "current_task": "N23 CANDIDATE 01 WORK GENERATION / PO REVIEW PENDING"
+    "current_task": "N23 CANDIDATE 02 CORRECTION STRATEGY / REFERENCE ARCHITECTURE REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2805,7 +2803,7 @@
     "candidate_01_authorized": false
   },
   "n23_scene_reference_design_v0_1": {
-    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "status": "SUPERSEDED BY V0.2",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n23_scene_reference_design_v0_1.md",
     "target_format": "9:16 / 941x1672",
     "camera": "INSIDE CASTLE / DEEPER THAN THRESHOLD / SIDE OFFSET / DIAGONALLY LOOKING BACK TO OPEN ENTRANCE",
@@ -2851,7 +2849,7 @@
     "independent_artifact_verification": "4/4 EXACT PASS"
   },
   "n23_candidate_01": {
-    "status": "WORK GENERATION AUTHORIZED / WAITING OUTPUT",
+    "status": "NOT APPROVED / DIAGNOSTIC EVIDENCE ONLY",
     "mode": "CLEAN REGENERATION",
     "output_limit": "EXACTLY 1 PNG",
     "target_dimensions": "941x1672",
@@ -2862,6 +2860,29 @@
     "authorization_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_01_work_generation_authorization_2026-10-02.md",
     "candidate_02_authorized": false,
     "publication_authorized": false,
-    "registration_authorized": false
+    "registration_authorized": false,
+    "review_findings": [
+      "INWARD MOVEMENT BROADLY VALID",
+      "NEIL AT OPEN DOOR VALID",
+      "CAMERA FAMILY TOO SIMILAR TO N22",
+      "NAMED CHARACTER ENSEMBLE TOO READABLE",
+      "GUANG YONG TOO PROMINENT",
+      "EXTERIOR / FLOOR LIGHT TOO BRIGHT",
+      "AMBIGUOUS BAG-LIKE FOREGROUND ELEMENT"
+    ]
+  },
+  "n23_scene_reference_design_v0_2": {
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n23_scene_reference_design_v0_2.md",
+    "format": "9:16 / 941x1672",
+    "door_position": "LEFT",
+    "exterior_light_position": "LEFT",
+    "crowd_screen_direction": "LEFT_TO_RIGHT",
+    "camera_family": "SIDE / BROADSIDE THRESHOLD VIEW / MILDLY ELEVATED",
+    "downward_angle": "APPROX 10-20 DEG VISUAL EFFECT",
+    "neil_position": "BESIDE OPEN DOOR",
+    "neil_orientation": "NEAR-FRONTAL TO CAMERA",
+    "neil_attention": "HEAD/EYES SLIGHTLY LEFT TOWARD ENTERING GUESTS",
+    "candidate_02_authorized": false
   }
 }
