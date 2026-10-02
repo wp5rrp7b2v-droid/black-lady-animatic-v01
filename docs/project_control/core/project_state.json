@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R213",
+  "state_revision": "R214",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 C01 NOT APPROVED / SCENE REFERENCE V0.2.1 APPROVED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 C02 CORRECTION STRATEGY DRAFT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N23 Candidate 02 Correction Strategy / Reference Architecture Review",
-  "blocker": "CANDIDATE 02 NOT AUTHORIZED. Scene Reference V0.2.1 is locked; reference architecture must be reviewed before Bundle V002.",
-  "next_action": "Design N23 Candidate 02 Correction Strategy using V0.2.1: door + exterior light LEFT; crowd moves LEFT→RIGHT and is already mostly inside; Neil stays beside the door near-frontal to camera with head/eyes slightly RIGHT toward the group tail. Reassess N22 direct-pixel input.",
+  "current_task": "P0.3｜S02-B｜N23 Candidate 02 Correction Strategy V0.1 Product Owner Review",
+  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR CANDIDATE 02 CORRECTION STRATEGY. Bundle V002 and Candidate 02 remain unauthorized.",
+  "next_action": "Review N23 Candidate 02 Correction Strategy V0.1. Proposed next Bundle V002 removes N22 Story Shot direct pixels and Guang Yong Character Sheet, retaining AST_IMG_000052 + AST_IMG_000059 and using AST_IMG_000013 rear-3Q-right as a low-weight Guang continuity cue.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N23-SCENE-REFERENCE-V0021-APPROVED-R213",
-    "status": "N23 SCENE REFERENCE V0.2.1 PRODUCT OWNER APPROVED / NEIL GAZE CORRECTED RIGHT",
+    "id": "2026-10-02-N23-C02-CORRECTION-STRATEGY-DRAFT-R214",
+    "status": "N23 CANDIDATE 02 CORRECTION STRATEGY V0.1 DRAFT / WAITING PRODUCT OWNER APPROVAL",
     "completed": [
-      "V0.2 left-door / left-light / left-to-right broadside camera geometry retained.",
-      "Story moment clarified as tail end of group entry.",
-      "Most visible crowd mass should already be to the right of Neil.",
-      "Neil remains beside open door, near-frontal to camera.",
-      "Neil head / eyes corrected to slight FRAME-RIGHT toward the group tail already inside.",
-      "Neil no longer looks left toward the doorway / exterior.",
-      "Candidate 02 remains unauthorized pending correction strategy / reference architecture review."
+      "Candidate 01 root cause narrowed to prior-shot / named-character reference pressure plus lighting/accessory failures.",
+      "Scene Reference V0.2.1 geometry remains unchanged.",
+      "N22 direct Story Shot pixels proposed for removal from Candidate 02 generation inputs.",
+      "Guang Yong Character Reference Sheet AST_IMG_000056 proposed for removal.",
+      "Guang Yong proposed replacement: AST_IMG_000013 REAR_3Q_RIGHT as tertiary continuity cue.",
+      "Castle Entrance Scene Master AST_IMG_000052 and Neil Reference Sheet AST_IMG_000059 retained.",
+      "N21_CROWD_BODY_WARDROBE_REFERENCE_V001 explicitly not reused because its authority scope is N21-only.",
+      "Candidate 02 remains unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_scene_reference_design_v0_2_1.md",
-    "resume_from": "N23 CANDIDATE 02 CORRECTION STRATEGY / REFERENCE ARCHITECTURE REVIEW",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_02_correction_strategy_v0_1.md",
+    "resume_from": "N23 CANDIDATE 02 CORRECTION STRATEGY PRODUCT OWNER REVIEW",
     "blockers": [
-      "CANDIDATE 02 NOT AUTHORIZED"
+      "PRODUCT OWNER APPROVAL REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -524,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V148",
+    "version": "V149",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R213 / N23 SCENE REFERENCE V0.2.1 APPROVED",
-    "derived_from_revision": "R213",
+    "status": "CURRENT / DERIVED FROM R214 / N23 C02 CORRECTION STRATEGY DRAFT",
+    "derived_from_revision": "R214",
     "last_updated": "2026-10-02",
-    "current_task": "N23 CANDIDATE 02 CORRECTION STRATEGY / REFERENCE ARCHITECTURE REVIEW"
+    "current_task": "N23 C02 CORRECTION STRATEGY PRODUCT OWNER REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2896,6 +2897,22 @@
     "neil_position": "BESIDE OPEN DOOR",
     "neil_orientation": "NEAR-FRONTAL TO CAMERA",
     "neil_attention": "HEAD/EYES SLIGHTLY RIGHT TOWARD GROUP TAIL ALREADY INSIDE",
+    "candidate_02_authorized": false
+  },
+  "n23_candidate_02_correction_strategy_v0_1": {
+    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_02_correction_strategy_v0_1.md",
+    "proposed_reference_count": 3,
+    "proposed_references": [
+      "AST_IMG_000052 / Castle Entrance Scene Master",
+      "AST_IMG_000059 / Neil Character Reference Sheet",
+      "AST_IMG_000013 / Guang Yong REAR_3Q_RIGHT"
+    ],
+    "removed_direct_inputs": [
+      "STORY_SHOT_N22",
+      "AST_IMG_000056"
+    ],
+    "n22_role": "DIRECTOR-LEVEL CONTINUITY CHECK ONLY / NOT GENERATION INPUT",
     "candidate_02_authorized": false
   }
 }
