@@ -3032,3 +3032,18 @@ Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
 - No bags / luggage across any view.
 - No Bundle or Work generation authorized yet.
 - Project State target: R217 / Dashboard V152.
+
+
+## 2026-10-02｜Generic Guest Crowd Style / Identity Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Guest A–F female / G–J male locked.
+- Ten anonymous identity archetypes approved.
+- FRONT Board locked as identity master before LEFT / RIGHT / BACK expansion.
+- Style-parent assets locked: AST_IMG_000042 / 000046 / 000022 / 000009.
+- Board target locked: 1536×1024 landscape / 2×5 fixed slots.
+- Named-character identity / complete outfit copying prohibited.
+- No Bundle Spec/build or Work generation authorized.
+- Next: FRONT Board Reference Delivery Bundle Design V0.1.
+- Project State target: R218 / Dashboard V153.
