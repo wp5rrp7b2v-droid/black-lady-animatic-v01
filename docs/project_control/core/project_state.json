@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R188",
+  "state_revision": "R189",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE V001 VALIDATION-ONLY PASS / FORMAL BUILD AWAITING PO AUTHORIZATION",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE V001 FORMAL BUILD PASS / CANDIDATE 01 AWAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Formal Bundle Build Authorization",
-  "blocker": "FORMAL N22 BUNDLE BUILD REQUIRES PRODUCT OWNER AUTHORIZATION. No technical blocker: validation-only path passed 5/5 exact.",
-  "next_action": "If Product Owner authorizes formal N22 Bundle V001 build, update build_authorized=true and execute the existing Generic Story Shot Reference Bundle Builder. Candidate 01 remains unauthorized until formal Artifact build passes and Product Owner separately authorizes generation.",
+  "current_task": "P0.3｜S02-B｜N22 Candidate 01 Work Generation Authorization",
+  "blocker": "PRODUCT OWNER AUTHORIZATION REQUIRED FOR N22 CANDIDATE 01 GENERATION. Formal Bundle is ready: 5/5 exact verified and independently artifact-verified.",
+  "next_action": "If Product Owner authorizes N22 Candidate 01 generation, hand off the verified N22_REFERENCE_DELIVERY_BUNDLE_V001 Artifact to Work for automatic acquisition, verify 5/5 exact inputs before generation, generate exactly one Clean Regeneration PNG, then stop for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,22 +114,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-BUNDLE-V001-VALIDATION-ONLY-PASS-R188",
-    "status": "N22 BUNDLE V001 VALIDATION-ONLY PASS / 5 OF 5 EXACT / NO ARTIFACT / GENERATION_ALLOWED=FALSE",
+    "id": "2026-10-02-N22-BUNDLE-V001-FORMAL-BUILD-PASS-R189",
+    "status": "N22 BUNDLE V001 FORMAL BUILD PASS / 5 OF 5 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED=TRUE / CANDIDATE 01 NOT AUTHORIZED",
     "completed": [
-      "Created production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V001.json with build_authorized=false.",
-      "Spec commit a3975de9e8e781b103936654676647d8db588a44.",
-      "Generic Story Shot Reference Bundle Builder run 36962064841 completed successfully.",
-      "Validation job 110697691495 passed 5/5 exact canonical references.",
-      "BUILD_AUTHORIZED=FALSE.",
-      "GENERATION_ALLOWED=FALSE.",
-      "Formal bundle build, bundle ID read and artifact upload steps were skipped.",
-      "Run artifact list is empty."
+      "Product Owner authorized formal N22 Bundle V001 build.",
+      "Spec authorization commit 8cc4a9dbc959c8fa9f49d5e6a2b36649a53d58d3.",
+      "Formal build run 36962281468 / job 110698343917 completed successfully.",
+      "Builder reported PASS: 5/5 exact canonical reference binaries verified.",
+      "GENERATION_ALLOWED=TRUE at Bundle level.",
+      "Artifact 11208576712 created, size 4752815 bytes.",
+      "Artifact digest sha256:301a127df57e197580c0b87aa0beb7d59c2687d3edd16686c10caa8f841f5c58.",
+      "Independent ZIP digest matched workflow digest.",
+      "Independent size / SHA-256 / Git blob / PNG signature verification passed 5/5."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v001_validation_only_record_2026-10-02.md",
-    "resume_from": "N22 FORMAL BUNDLE BUILD AUTHORIZATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v001_build_record_2026-10-02.md",
+    "resume_from": "N22 CANDIDATE 01 WORK GENERATION AUTHORIZATION",
     "blockers": [
-      "PRODUCT OWNER FORMAL BUILD AUTHORIZATION REQUIRED"
+      "PRODUCT OWNER CANDIDATE 01 GENERATION AUTHORIZATION REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -525,13 +526,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V123",
+    "version": "V124",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R188 / N22 VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION NEXT",
-    "derived_from_revision": "R188",
+    "status": "CURRENT / DERIVED FROM R189 / N22 BUNDLE FORMAL BUILD PASS / CANDIDATE 01 AUTHORIZATION NEXT",
+    "derived_from_revision": "R189",
     "last_updated": "2026-10-02",
-    "current_task": "N22 FORMAL BUNDLE BUILD AUTHORIZATION"
+    "current_task": "N22 CANDIDATE 01 WORK GENERATION AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2452,12 +2453,44 @@
     ],
     "builder": ".github/workflows/story-shot-reference-bundle-builder.yml",
     "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-    "next_step": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION",
-    "formal_build_authorized": false,
+    "next_step": "N22 CANDIDATE 01 WORK GENERATION AUTHORIZATION",
+    "formal_build_authorized": true,
     "candidate_01_authorized": false,
     "validation_only_status": "PASS / 5 OF 5 EXACT / NO ARTIFACT",
     "validation_only_run": 36962064841,
     "validation_only_job": 110697691495,
-    "spec_commit": "a3975de9e8e781b103936654676647d8db588a44"
+    "spec_commit": "a3975de9e8e781b103936654676647d8db588a44",
+    "formal_build_status": "PASS / 5 OF 5 EXACT / INDEPENDENTLY VERIFIED",
+    "formal_build_run": 36962281468,
+    "artifact_id": 11208576712
+  },
+  "n22_reference_delivery_bundle_v001": {
+    "status": "FORMAL BUILD PASS / 5 OF 5 EXACT VERIFIED / INDEPENDENT ARTIFACT VERIFIED / GENERATION_ALLOWED TRUE / READY FOR WORK AFTER PO GENERATION AUTHORIZATION",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_design_v0_1.md",
+    "spec_path": "production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "spec_revision": "V001-R2",
+    "reference_count": 5,
+    "references": [
+      "AST_IMG_000061",
+      "AST_IMG_000058",
+      "AST_IMG_000062",
+      "AST_IMG_000056",
+      "AST_IMG_000052"
+    ],
+    "validation_only_run": 36962064841,
+    "validation_only_job": 110697691495,
+    "formal_build_authorized": true,
+    "spec_authorization_commit": "8cc4a9dbc959c8fa9f49d5e6a2b36649a53d58d3",
+    "formal_build_run": 36962281468,
+    "formal_build_job": 110698343917,
+    "artifact_id": 11208576712,
+    "artifact_size": 4752815,
+    "artifact_digest": "sha256:301a127df57e197580c0b87aa0beb7d59c2687d3edd16686c10caa8f841f5c58",
+    "expires_at": "2026-10-09T03:55:37Z",
+    "exact_verification": "5/5 PASS",
+    "independent_artifact_verification": "5/5 PASS",
+    "generation_allowed": true,
+    "candidate_01_authorized": false,
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v001_build_record_2026-10-02.md"
   }
 }
