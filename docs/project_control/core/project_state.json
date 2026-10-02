@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R209",
+  "state_revision": "R210",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 BUNDLE V001 VALIDATION-ONLY PASS",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 BUNDLE V001 FORMAL BUILD PASS / CANDIDATE 01 NOT AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N23 Bundle V001 Formal Build Authorization",
-  "blocker": "PRODUCT OWNER FORMAL BUNDLE BUILD AUTHORIZATION REQUIRED. Validation-only passed 4/4; no Artifact exists; Work generation remains unauthorized.",
-  "next_action": "Obtain Product Owner authorization to advance N23_REFERENCE_DELIVERY_BUNDLE_V001 from build_authorized=false to true. Then run the existing generic Story Shot Reference Bundle Builder, independently verify the produced Artifact, and stop before Candidate 01 Work generation.",
+  "current_task": "P0.3｜S02-B｜N23 Candidate 01 Work-Generation Authorization",
+  "blocker": "PRODUCT OWNER CANDIDATE 01 WORK-GENERATION AUTHORIZATION REQUIRED. Formal Bundle V001 is verified and technically generation-ready.",
+  "next_action": "If Product Owner authorizes N23 Candidate 01, hand off exactly one Clean Regeneration PNG to Work using N23_REFERENCE_DELIVERY_BUNDLE_V001 Artifact 11225912126. Work must auto-download the Artifact, revalidate all 4 references exactly, obey the locked 9:16 inside-castle reverse-looking camera and inward crowd direction, then stop after one PNG for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N23-BUNDLE-V001-VALIDATION-PASS-R209",
-    "status": "N23 BUNDLE V001 VALIDATION-ONLY PASS / 4 OF 4 EXACT / NO ARTIFACT / GENERATION NOT ALLOWED",
+    "id": "2026-10-02-N23-BUNDLE-V001-FORMAL-BUILD-PASS-R210",
+    "status": "N23 BUNDLE V001 FORMAL BUILD PASS / 4 OF 4 EXACT / ARTIFACT VERIFIED / CANDIDATE 01 NOT AUTHORIZED",
     "completed": [
-      "Product Owner approved N23 Reference Delivery Bundle Design V0.1.",
-      "Bundle Spec V001-R1 created with build_authorized=false.",
-      "Validation-only run 37005584714 / job 110832961471 completed successfully.",
-      "4/4 canonical references verified exactly.",
-      "BUILD_AUTHORIZED=FALSE and GENERATION_ALLOWED=FALSE confirmed.",
-      "No Artifact was produced.",
-      "Candidate 01 remains unauthorized."
+      "Product Owner authorized formal N23 Bundle V001 build.",
+      "Spec advanced to V001-R2 / build_authorized=true at commit d88a9b882ebc1ddf78ed3701754ccb0e6791ebe2.",
+      "Generic Builder run 37006373075 / job 110835506338 completed successfully.",
+      "Builder verified 4/4 exact canonical reference binaries and reported GENERATION_ALLOWED=TRUE.",
+      "Artifact 11225912126 produced at 5,426,263 bytes.",
+      "Artifact digest sha256:ffb6ceb327fc405fb000639921188a4ec333d8082d4ec526dc1ecd1e5533b88d independently reproduced.",
+      "delivery_manifest and all four delivered PNGs independently reverified for bytes, SHA-256, Git blob and dimensions: 4/4 MATCH.",
+      "Candidate 01 Work generation remains separately gated and NOT AUTHORIZED."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v001_validation_only_record_2026-10-02.md",
-    "resume_from": "N23 FORMAL BUNDLE V001 BUILD AUTHORIZATION",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v001_formal_build_record_2026-10-02.md",
+    "resume_from": "N23 CANDIDATE 01 WORK-GENERATION AUTHORIZATION",
     "blockers": [
-      "PRODUCT OWNER FORMAL BUNDLE BUILD AUTHORIZATION REQUIRED"
+      "PRODUCT OWNER N23 CANDIDATE 01 AUTHORIZATION REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -524,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V144",
+    "version": "V145",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R209 / N23 BUNDLE V001 VALIDATION PASS",
-    "derived_from_revision": "R209",
+    "status": "CURRENT / DERIVED FROM R210 / N23 BUNDLE V001 FORMAL BUILD PASS",
+    "derived_from_revision": "R210",
     "last_updated": "2026-10-02",
-    "current_task": "N23 FORMAL BUNDLE V001 BUILD AUTHORIZATION"
+    "current_task": "N23 CANDIDATE 01 WORK-GENERATION AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2817,7 +2818,7 @@
     "candidate_01_authorized": false
   },
   "n23_reference_delivery_bundle_design_v0_1": {
-    "status": "PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / FORMAL BUILD PASS / 4 OF 4 EXACT",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_design_v0_1.md",
     "bundle_id": "N23_REFERENCE_DELIVERY_BUNDLE_V001",
     "reference_count": 4,
@@ -2831,12 +2832,20 @@
     "camera_authority": "N23 SCENE REFERENCE DESIGN V0.1 TEXT AUTHORITY",
     "hard_fail": "PEOPLE READ AS LEAVING CASTLE",
     "bundle_spec_authorized": false,
-    "formal_build_authorized": false,
+    "formal_build_authorized": true,
     "candidate_01_authorized": false,
     "bundle_spec": "production/bundle_specs/N23_REFERENCE_DELIVERY_BUNDLE_V001.json",
     "spec_commit": "cc23ec059204e8cdcd361df90b9df47fcb277c0d",
     "validation_run": 37005584714,
     "validation_job": 110832961471,
-    "validation_result": "4/4 EXACT PASS"
+    "validation_result": "4/4 EXACT PASS",
+    "authorized_spec_commit": "d88a9b882ebc1ddf78ed3701754ccb0e6791ebe2",
+    "spec_revision": "V001-R2",
+    "formal_build_run": 37006373075,
+    "formal_build_job": 110835506338,
+    "artifact_id": 11225912126,
+    "artifact_size_bytes": 5426263,
+    "artifact_digest": "sha256:ffb6ceb327fc405fb000639921188a4ec333d8082d4ec526dc1ecd1e5533b88d",
+    "independent_artifact_verification": "4/4 EXACT PASS"
   }
 }
