@@ -2860,3 +2860,19 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next authorized step: N23 Scene Reference Design only.
 - Bundle / Work / Candidate 01: NOT AUTHORIZED.
 - Project State target: R206 / Dashboard V141.
+
+
+## 2026-10-02｜N23 Scene Reference Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Format: 9:16 vertical / target 941×1672.
+- Camera: inside castle, deeper than threshold, side-offset, diagonally looking back toward open entrance.
+- Group direction: doorway → castle interior. Any outward-exit read = automatic FAIL.
+- Neil: beside open door / side glance / no door contact / not yet walking away.
+- N22 canonical Story Shot: crowd-continuity authority only; not composition template.
+- Guang Yong: optional low-weight backward-attention continuity cue for A06.
+- Previous horizontal N23 explanatory diagram: INVALID FOR FORMAL EXECUTION / EXCLUDED FROM BUNDLE.
+- Next authorized step: N23 Reference Delivery Bundle Design V0.1 only.
+- Bundle Spec / build / Work / Candidate 01: NOT AUTHORIZED.
+- Project State target: R207 / Dashboard V142.
