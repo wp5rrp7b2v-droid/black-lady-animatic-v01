@@ -2775,3 +2775,22 @@ Status: `FORMAL BUILD PASS / 3 OF 3 EXACT / INDEPENDENT ARTIFACT VERIFIED / GENE
 - Independent 3-reference size / SHA-256 / Git blob / PNG signature verification: `3/3 PASS`.
 - Candidate 03 generation: `NOT AUTHORIZED`.
 - Next: Product Owner authorization for N22 Candidate 03 Work generation.
+
+
+## 2026-10-02｜N22 Candidate 03 Work Generation Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
+
+- Target: `N22 Candidate 03｜Clean Regeneration`.
+- Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V003`.
+- Artifact: `11217127728`.
+- Artifact digest: `sha256:e1171f901c167bd628934558ac02bb16091400a13a550c77e8aa96737c7852f2`.
+- Work automatic acquisition: REQUIRED.
+- Pre-generation exact verification: REQUIRED 3/3.
+- Su = only first-glance named face.
+- Liao = second-glance / partial identity.
+- No shared Su/Liao gaze; no duo composition.
+- Candidate 02 lighting gains remain binding.
+- Generation count: exactly 1 PNG.
+- After generation: STOP for Product Owner review.
+- Candidate 04 / N23 / publication / registration / closeout: NOT AUTHORIZED.
