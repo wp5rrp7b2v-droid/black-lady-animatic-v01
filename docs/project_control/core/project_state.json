@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R207",
+  "state_revision": "R208",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 SCENE REFERENCE DESIGN V0.1 PRODUCT OWNER APPROVED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 BUNDLE DESIGN V0.1 DRAFT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N23 Reference Delivery Bundle Design V0.1",
-  "blocker": "NONE FOR N23 BUNDLE DESIGN. Bundle Spec/build and Work generation remain unauthorized.",
-  "next_action": "Design N23 Reference Delivery Bundle V0.1 from the approved Scene Reference: N22 canonical Story Shot for crowd continuity, Castle Entrance Scene Master for DAY_DOOR_OPEN facts, Neil identity reference, and optional Guang Yong identity/continuity reference. Do not include the invalid horizontal camera diagram.",
+  "current_task": "P0.3｜S02-B｜N23 Reference Delivery Bundle Design V0.1 Product Owner Review",
+  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR N23 BUNDLE DESIGN. Bundle Spec/build and Work generation remain unauthorized.",
+  "next_action": "Review N23 Reference Delivery Bundle Design V0.1: proposed four inputs are N22 canonical Story Shot, AST_IMG_000052 Castle Entrance Scene Master, AST_IMG_000059 Neil Character Reference Sheet, and AST_IMG_000056 Guang Yong Character Reference Sheet. If approved, create V001 spec with build_authorized=false and run validation-only.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N23-SCENE-REFERENCE-V001-APPROVED-R207",
-    "status": "N23 SCENE REFERENCE DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED",
+    "id": "2026-10-02-N23-BUNDLE-DESIGN-V001-DRAFT-R208",
+    "status": "N23 REFERENCE DELIVERY BUNDLE DESIGN V0.1 DRAFT / WAITING PRODUCT OWNER APPROVAL",
     "completed": [
-      "9:16 vertical camera logic locked.",
-      "Camera locked inside castle, deeper than threshold, offset to one side, diagonally looking back toward open entrance.",
-      "Group travel direction locked as doorway → castle interior; outward-reading frame is automatic FAIL.",
-      "Neil locked beside open door, not touching/closing it, not yet walking away.",
-      "N22 canonical Story Shot designated as crowd-continuity authority, not composition template.",
-      "Guang Yong retained only as optional low-weight continuity cue for A06.",
-      "Previous horizontal N23 explanatory diagram explicitly excluded from formal execution and Bundle inputs.",
-      "Reference Delivery Bundle Design authorized next; Bundle Spec/build and Candidate generation remain unauthorized."
+      "Generic Story Shot Bundle Builder confirmed to support source_type=STORY_SHOT.",
+      "Proposed N23 Bundle V001 reduced to four canonical inputs.",
+      "N22 canonical Story Shot assigned crowd-continuity authority only, not composition authority.",
+      "AST_IMG_000052 assigned Castle Entrance DAY_DOOR_OPEN scene authority.",
+      "AST_IMG_000059 assigned Neil primary identity authority.",
+      "AST_IMG_000056 assigned Guang Yong tertiary continuity identity authority.",
+      "Horizontal camera diagram and all noncanonical/generated camera sketches excluded.",
+      "No Bundle Spec, validation run, Artifact build or Candidate generation authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_scene_reference_design_v0_1.md",
-    "resume_from": "N23 REFERENCE DELIVERY BUNDLE DESIGN V0.1",
-    "blockers": []
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_design_v0_1.md",
+    "resume_from": "N23 BUNDLE DESIGN PRODUCT OWNER REVIEW",
+    "blockers": [
+      "PRODUCT OWNER N23 BUNDLE DESIGN APPROVAL REQUIRED"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -523,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V142",
+    "version": "V143",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R207 / N23 SCENE REFERENCE V0.1 APPROVED",
-    "derived_from_revision": "R207",
+    "status": "CURRENT / DERIVED FROM R208 / N23 BUNDLE DESIGN DRAFT",
+    "derived_from_revision": "R208",
     "last_updated": "2026-10-02",
-    "current_task": "N23 REFERENCE DELIVERY BUNDLE DESIGN V0.1"
+    "current_task": "N23 BUNDLE DESIGN PRODUCT OWNER REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2813,6 +2815,24 @@
     "invalid_reference": "HORIZONTAL N23 EXPLANATORY DIAGRAM / NOT FORMAL EXECUTION INPUT",
     "bundle_design_authorized": true,
     "bundle_spec_authorized": false,
+    "candidate_01_authorized": false
+  },
+  "n23_reference_delivery_bundle_design_v0_1": {
+    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_design_v0_1.md",
+    "bundle_id": "N23_REFERENCE_DELIVERY_BUNDLE_V001",
+    "reference_count": 4,
+    "references": [
+      "N22 canonical Story Shot / crowd_continuity",
+      "AST_IMG_000052 / scene_authority",
+      "AST_IMG_000059 / identity_primary NEIL",
+      "AST_IMG_000056 / continuity_secondary GUANG_YONG"
+    ],
+    "n22_rule": "CONTINUITY AUTHORITY ONLY / NOT COMPOSITION TEMPLATE",
+    "camera_authority": "N23 SCENE REFERENCE DESIGN V0.1 TEXT AUTHORITY",
+    "hard_fail": "PEOPLE READ AS LEAVING CASTLE",
+    "bundle_spec_authorized": false,
+    "formal_build_authorized": false,
     "candidate_01_authorized": false
   }
 }
