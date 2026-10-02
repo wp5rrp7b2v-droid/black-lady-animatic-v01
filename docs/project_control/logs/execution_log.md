@@ -2945,3 +2945,18 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG / WAITING WORK OUTPUT`
 - Output: exactly one 941×1672 PNG, then stop for Product Owner review.
 - Candidate 02 / N24 / publication / registration: NOT AUTHORIZED.
 - Project State target: R211 / Dashboard V146.
+
+
+## 2026-10-02｜N23 Candidate 01 Review + Scene Reference V0.2
+
+Status: `C01 NOT APPROVED / DIAGNOSTIC ONLY / V0.2 CAMERA APPROVED`
+
+- Candidate 01 preserved valid facts: inward movement and Neil beside open door.
+- Failures: N22-like camera family, named-character ensemble over-read, Guang Yong over-weight, excessive exterior/floor light, ambiguous bag-like foreground element.
+- V0.1 camera family is superseded.
+- V0.2: door + controlled exterior light on LEFT; crowd travels LEFT → RIGHT into castle.
+- Camera: side / broadside threshold view, mildly elevated.
+- Neil: beside open door, near-frontal to camera, head/eyes slightly LEFT toward entering guests.
+- Structural difference from N22 is mandatory.
+- Candidate 02 / Bundle V002: NOT AUTHORIZED pending correction strategy / reference-architecture review.
+- Project State target: R212 / Dashboard V147.
