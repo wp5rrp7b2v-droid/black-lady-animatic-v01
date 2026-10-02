@@ -2527,3 +2527,21 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Critical assumption remains unverified until one-candidate proof.
 - Next authorized step: N22 Reference Delivery Bundle Design V0.1 only.
 - Project State target: R186; Dashboard target: V121.
+
+
+## 2026-10-02｜N22 Reference Delivery Bundle Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Bundle: `N22_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Reference count: 5.
+- Inputs: AST_IMG_000061 / AST_IMG_000058 / AST_IMG_000062 / AST_IMG_000056 / AST_IMG_000052.
+- Exact canonical path / SHA-256 / byte size / Git blob locked in the design.
+- Reference order is not screen position, left-right order, blocking order or prominence.
+- N20 remains written look/continuity authority only; not a Bundle image input.
+- Builder: existing `.github/workflows/story-shot-reference-bundle-builder.yml` only.
+- No N22-specific workflow.
+- Next authorized step: create Bundle Spec with `build_authorized=false` and prepare validation-only execution.
+- Formal Artifact build: NOT AUTHORIZED.
+- Candidate 01: NOT AUTHORIZED.
+- Project State target: R187; Dashboard target: V122.
