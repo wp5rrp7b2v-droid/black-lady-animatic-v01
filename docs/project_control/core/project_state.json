@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R187",
+  "state_revision": "R188",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 BUNDLE V001 VALIDATION-ONLY PASS / FORMAL BUILD AWAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 Bundle Spec + Validation-Only Preparation",
-  "blocker": "NONE FOR N22 VALIDATION-ONLY PREPARATION. RISK-003 REMAINS N21-SCOPED / DEFERRED / NON-BLOCKING.",
-  "next_action": "Create production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V001.json with the five approved inputs and build_authorized=false, then prepare a validation-only run using .github/workflows/story-shot-reference-bundle-builder.yml. Do not authorize a formal Artifact build, Work generation, or Candidate 01 until Product Owner separately approves formal build.",
+  "current_task": "P0.3｜S02-B｜N22 Formal Bundle Build Authorization",
+  "blocker": "FORMAL N22 BUNDLE BUILD REQUIRES PRODUCT OWNER AUTHORIZATION. No technical blocker: validation-only path passed 5/5 exact.",
+  "next_action": "If Product Owner authorizes formal N22 Bundle V001 build, update build_authorized=true and execute the existing Generic Story Shot Reference Bundle Builder. Candidate 01 remains unauthorized until formal Artifact build passes and Product Owner separately authorizes generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,21 +114,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-BUNDLE-DESIGN-APPROVAL-R187",
-    "status": "N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1 PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PREP NEXT",
+    "id": "2026-10-02-N22-BUNDLE-V001-VALIDATION-ONLY-PASS-R188",
+    "status": "N22 BUNDLE V001 VALIDATION-ONLY PASS / 5 OF 5 EXACT / NO ARTIFACT / GENERATION_ALLOWED=FALSE",
     "completed": [
-      "N22 Reference Delivery Bundle Design V0.1 approved and locked.",
-      "Bundle V001 initial reference count locked at five.",
-      "Exact canonical identities locked for AST_IMG_000061, AST_IMG_000058, AST_IMG_000062, AST_IMG_000056 and AST_IMG_000052.",
-      "Reference order explicitly decoupled from screen position, left-right order, blocking order and prominence.",
-      "N20 remains written look/continuity authority only and is not a Bundle image input.",
-      "Existing Generic Story Shot Reference Bundle Builder V1 must be reused; N22-specific workflow is prohibited.",
-      "Next step is Bundle Spec + validation-only preparation with build_authorized=false.",
-      "Formal Artifact build and Candidate 01 remain separately gated."
+      "Created production/bundle_specs/N22_REFERENCE_DELIVERY_BUNDLE_V001.json with build_authorized=false.",
+      "Spec commit a3975de9e8e781b103936654676647d8db588a44.",
+      "Generic Story Shot Reference Bundle Builder run 36962064841 completed successfully.",
+      "Validation job 110697691495 passed 5/5 exact canonical references.",
+      "BUILD_AUTHORIZED=FALSE.",
+      "GENERATION_ALLOWED=FALSE.",
+      "Formal bundle build, bundle ID read and artifact upload steps were skipped.",
+      "Run artifact list is empty."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_design_v0_1.md",
-    "resume_from": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION",
-    "blockers": []
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n22_reference_delivery_bundle_v001_validation_only_record_2026-10-02.md",
+    "resume_from": "N22 FORMAL BUNDLE BUILD AUTHORIZATION",
+    "blockers": [
+      "PRODUCT OWNER FORMAL BUILD AUTHORIZATION REQUIRED"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -523,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V122",
+    "version": "V123",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R187 / N22 BUNDLE DESIGN APPROVED / VALIDATION-ONLY PREP NEXT",
-    "derived_from_revision": "R187",
+    "status": "CURRENT / DERIVED FROM R188 / N22 VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION NEXT",
+    "derived_from_revision": "R188",
     "last_updated": "2026-10-02",
-    "current_task": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION"
+    "current_task": "N22 FORMAL BUNDLE BUILD AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2452,6 +2454,10 @@
     "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
     "next_step": "N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION",
     "formal_build_authorized": false,
-    "candidate_01_authorized": false
+    "candidate_01_authorized": false,
+    "validation_only_status": "PASS / 5 OF 5 EXACT / NO ARTIFACT",
+    "validation_only_run": 36962064841,
+    "validation_only_job": 110697691495,
+    "spec_commit": "a3975de9e8e781b103936654676647d8db588a44"
   }
 }
