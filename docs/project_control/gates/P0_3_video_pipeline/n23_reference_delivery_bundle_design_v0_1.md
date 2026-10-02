@@ -1,6 +1,6 @@
 # N23｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / BUNDLE SPEC NOT AUTHORIZED`
+Status: `PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY NEXT`
 
 Date: 2026-10-02
 
@@ -445,9 +445,9 @@ This separation is intentional.
 
 Status:
 
-`DRAFT / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-If approved, next authorized step:
+Authorized next step:
 
 `CREATE N23_REFERENCE_DELIVERY_BUNDLE_V001 SPEC WITH build_authorized=false + VALIDATION-ONLY PREPARATION`
 
