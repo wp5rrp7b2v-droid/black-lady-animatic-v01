@@ -2600,3 +2600,16 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
 - Generation count: exactly 1 PNG.
 - After generation: STOP for Product Owner review.
 - Candidate 02 / N23 / publication / registration / closeout: NOT AUTHORIZED.
+
+
+## 2026-10-02｜N22 Candidate 01 Review Close + Bundle V002 Design
+
+- Candidate 01: `NOT APPROVED / REVIEW CLOSED / VALID DIAGNOSTIC EVIDENCE`.
+- Review PNG identity: `941×1672 / RGB / 1,968,418 bytes / SHA-256 3c8f81341967dce94e6fb5286cd38a3c53d8507371de9d81f1d6acb281336400`.
+- Preserve: Su/Liao/Wen/Guang identity stability, body/wardrobe stability, Castle Entrance scene identity.
+- Correct: four-character ensemble overexposure, Su-Liao hero-pair pressure, doorway brightness, floor daylight reflection.
+- Candidate 02 Correction Strategy V0.1: `PRODUCT OWNER APPROVED / LOCKED`.
+- Bundle V002 Design draft: 4 refs = AST_IMG_000061 / AST_IMG_000058 / AST_IMG_000056 / AST_IMG_000052.
+- AST_IMG_000062 Wen Qingya: deferred from Candidate 02 generation reference set.
+- Bundle V002 spec / validation / formal build / Candidate 02: NOT AUTHORIZED.
+- Project State target: R191 / Dashboard V126.
