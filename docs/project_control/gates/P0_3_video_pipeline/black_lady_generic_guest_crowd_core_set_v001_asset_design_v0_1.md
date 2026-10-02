@@ -84,9 +84,15 @@ V001 建立：
 
 10 人必须具有足够区分度，避免形成模板 NPC。
 
+### Gender distribution — HARD LOCK
+
+`6 FEMALE + 4 MALE`
+
+该比例属于 V001 的正式人口结构，不得在后续生成中自由改写。
+
 允许并鼓励差异：
 
-- 男女混合；
+- 性别比例固定为 6 女 / 4 男；
 - 年龄感轻微差异；
 - 高矮差异；
 - 胖瘦差异；
@@ -311,3 +317,14 @@ Not authorized:
 - canonical publication;
 - N23 Candidate 02;
 - N21 new Candidate.
+
+
+---
+
+## Asset Design Amendment 01｜2026-10-02
+
+Product Owner correction:
+
+`10 GUESTS = 6 FEMALE + 4 MALE`
+
+This amendment changes population composition only. All other approved V0.1 structure remains unchanged.
