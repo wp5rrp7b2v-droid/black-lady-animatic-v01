@@ -2876,3 +2876,20 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next authorized step: N23 Reference Delivery Bundle Design V0.1 only.
 - Bundle Spec / build / Work / Candidate 01: NOT AUTHORIZED.
 - Project State target: R207 / Dashboard V142.
+
+
+## 2026-10-02｜N23 Reference Delivery Bundle Design V0.1 Draft
+
+Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL`
+
+- Proposed Bundle: `N23_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Reference count: 4.
+- N22 canonical Story Shot → crowd continuity only; not composition authority.
+- AST_IMG_000052 → Castle Entrance / DAY_DOOR_OPEN scene authority.
+- AST_IMG_000059 → Neil primary identity authority.
+- AST_IMG_000056 → Guang Yong tertiary continuity identity authority.
+- Camera / movement direction remains controlled by N23 Scene Reference Design V0.1 text authority.
+- Hard fail: frame reads as people leaving the castle.
+- Horizontal explanatory diagram and all generated camera sketches excluded.
+- Bundle Spec / validation / formal build / Work / Candidate 01: NOT AUTHORIZED.
+- Project State target: R208 / Dashboard V143.
