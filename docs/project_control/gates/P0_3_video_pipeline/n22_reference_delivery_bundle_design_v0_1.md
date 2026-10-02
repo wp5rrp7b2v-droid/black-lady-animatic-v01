@@ -1,6 +1,6 @@
 # N22｜Reference Delivery Bundle Design V0.1
 
-Status: `DRAFT / WAITING PRODUCT OWNER APPROVAL / NO BUILD AUTHORIZATION`
+Status: `PRODUCT OWNER APPROVED / LOCKED / BUNDLE SPEC + VALIDATION-ONLY PREPARATION NEXT`
 
 Date: 2026-10-02
 
@@ -648,20 +648,23 @@ Do not automatically reuse N21 environment reference.
 
 Current status:
 
-`N22 REFERENCE DELIVERY BUNDLE DESIGN V0.1 DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized next step:
 
-- creation of formal N22 Bundle Spec;
-- validation-only GitHub Actions run;
-- formal Bundle build;
-- Artifact;
+- create N22 Bundle Spec with `build_authorized=false`;
+- prepare validation-only execution using the existing Generic Story Shot Reference Bundle Builder.
+
+Still not authorized:
+
+- `build_authorized=true`;
+- formal Bundle Artifact build;
 - Work generation;
 - Candidate 01;
 - N23.
 
-If Product Owner approves this design, next step:
+Approval authority:
 
-`N22 BUNDLE SPEC + VALIDATION-ONLY PREPARATION`
+`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-02`
 
 Formal build remains a separate authorization boundary.
