@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R183",
-  "last_updated": "2026-10-01",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 CANDIDATE 08 REVIEW CLOSED / NOT APPROVED / EOD HOLD",
+  "state_revision": "R184",
+  "last_updated": "2026-10-02",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD BY PRODUCT OWNER / DOWNSTREAM PRODUCTION RESUMED AT N22",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N21 Candidate 08 Review Closed / EOD Hold",
-  "blocker": "RISK-003 / CREATIVE / ACTIVE: CANDIDATE 08 PARTIALLY MITIGATED HUMAN BODY-WARDROBE-DIRECTION RISK, BUT CROWD BLOCKING + MONUMENTAL ENVIRONMENT COMPOSITION REMAIN OPEN",
-  "next_action": "Next session: review a narrowly scoped N21 Candidate 09 strategy. Preserve Candidate 08 gains in adult body proportion, ordinary contemporary wardrobe, no-prohibited-accessory control and THRESHOLD → DEEPER CASTLE INTERIOR movement direction. Target only crowd de-organization / central-axis reduction / reduced monumental portal emphasis / increased partial concealment and unknown-space uncertainty. Do not generate Candidate 09 or start N22 without separate Product Owner authorization.",
+  "current_task": "P0.3｜S02-B｜N22 Node-Level Director Shot Design",
+  "blocker": "NONE FOR N22+ PRODUCTION. RISK-003 REMAINS ACTIVE BUT N21-SCOPED / DEFERRED; IT DOES NOT BLOCK N22–N27.",
+  "next_action": "Begin N22 Node-Level Director Shot Design under S02-B Director Shot Design V0.3 + Review Patch 01. N22 owns People in the Flow — Ning Observational POV / named-character seeding. Keep N21 on HOLD; do not generate Candidate 09 until Product Owner explicitly reopens N21 after downstream Story Shots are completed.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,25 +114,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-01-N21-CANDIDATE-08-REVIEW-R183",
-    "status": "CANDIDATE 08 NOT APPROVED / REVIEW CLOSED / EOD HOLD",
+    "id": "2026-10-02-N21-HOLD-DOWNSTREAM-RESUME-R184",
+    "status": "N21 HOLD BY PRODUCT OWNER / DOWNSTREAM S02-B PRODUCTION AUTHORIZED TO RESUME AT N22",
     "completed": [
-      "N21_REFERENCE_DELIVERY_BUNDLE_V006 Design V0.2 approved and locked.",
-      "V006 validation-only exact-reference check passed in run 36878776156 / job 110424919156 with 2/2 exact canonical references verified and no Artifact.",
-      "V006 formal build authorized and passed in run 36879153275 / job 110426184563.",
-      "V006 Artifact 11171365040 independently verified: 4813649 bytes / SHA-256 e9e718893de20d86e90352ba7bf2ece0c7fa4f242a3b22f436bf727e9760a0c0 / two exact references.",
-      "Candidate 08 single Clean Regeneration authorized by Product Owner.",
-      "Candidate 08 reviewed at 941x1672 RGBA PNG and NOT APPROVED.",
-      "Candidate 08 showed materially improved adult body proportion, ordinary contemporary wardrobe, prohibited-accessory control and correct movement away from camera into deeper castle interior.",
-      "Candidate 08 still failed natural staggered crowd blocking and drifted toward monumental symmetrical Gothic architectural showcase with insufficient unknown-space concealment / threat.",
-      "RISK-003 updated: human body/wardrobe/direction partially mitigated; blocking + environment composition remain active creative blocker.",
-      "Candidate 09 not authorized; N22 not started."
+      "Product Owner explicitly paused N21 after Candidate 08 review.",
+      "Candidate 08 remains NOT APPROVED.",
+      "Candidate 09 remains NOT AUTHORIZED.",
+      "RISK-003 remains unresolved and evidence from Candidate 08 is preserved.",
+      "RISK-003 is re-scoped as N21-specific deferred creative risk and no longer blocks N22–N27 production.",
+      "Authoritative downstream sequence remains N21 → N22 → N23 → N24 → A06 → N25 → N26 → N27.",
+      "Current production task advances to N22 Node-Level Director Shot Design."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_08_review_2026-10-01.md",
-    "resume_from": "N21 CANDIDATE 08 FAILURE-CAUSE REVIEW → NARROW CANDIDATE 09 STRATEGY DECISION",
-    "blockers": [
-      "RISK-003"
-    ]
+    "audit_path": "docs/project_control/logs/decision_log.md",
+    "resume_from": "N22 NODE-LEVEL DIRECTOR SHOT DESIGN",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -465,10 +460,10 @@
       {
         "id": "RISK-003",
         "name": "N21 Multi-Person Generation Stability Tradeoff",
-        "status": "ACTIVE / HARD CREATIVE BLOCKER / HUMAN BODY-WARDROBE-DIRECTION PARTIALLY MITIGATED / BLOCKING + ENVIRONMENT COMPOSITION STILL OPEN",
-        "linked_task": "P0.3 / S02-B / N21",
-        "hard_blocker": true,
-        "exit_condition": "Obtain at least one Product Owner-acceptable N21 candidate. Before any Candidate 09 generation, narrow the intervention to crowd de-organization / central-axis reduction / reduced monumental environment emphasis / stronger partial concealment while preserving Candidate 08 gains in body proportion, wardrobe and movement direction."
+        "status": "ACTIVE / N21-SCOPED / DEFERRED BY PRODUCT OWNER / NON-BLOCKING FOR N22–N27",
+        "linked_task": "P0.3 / S02-B / N21 (HOLD)",
+        "hard_blocker": false,
+        "exit_condition": "Deferred until Product Owner reopens N21 after downstream Story Shots are completed. Existing Candidate 08 evidence remains baseline; Candidate 09 requires separate PO authorization."
       }
     ]
   },
@@ -527,13 +522,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V118",
+    "version": "V119",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R183 / N21 CANDIDATE 08 REVIEW CLOSED / EOD HOLD",
-    "derived_from_revision": "R183",
-    "last_updated": "2026-10-01",
-    "current_task": "N21 CANDIDATE 08 REVIEW CLOSED / CANDIDATE 09 STRATEGY NOT AUTHORIZED"
+    "status": "CURRENT / DERIVED FROM R184 / N21 HOLD / N22 READY TO START",
+    "derived_from_revision": "R184",
+    "last_updated": "2026-10-02",
+    "current_task": "N21 HOLD / CURRENT ACTIVE WORK = N22 NODE-LEVEL DIRECTOR SHOT DESIGN"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
