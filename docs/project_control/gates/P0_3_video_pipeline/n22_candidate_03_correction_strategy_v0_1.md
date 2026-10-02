@@ -2,7 +2,7 @@
 
 Status:
 
-`DRAFT / WAITING PRODUCT OWNER APPROVAL / NO BUNDLE V003 OR CANDIDATE 03 AUTHORIZATION`
+`PRODUCT OWNER APPROVED / LOCKED / BUNDLE V003 DESIGN NEXT / NO SPEC BUILD OR CANDIDATE 03 AUTHORIZATION`
 
 Date: 2026-10-02
 
@@ -333,17 +333,24 @@ No reason currently exists to change the Castle Entrance Scene Master.
 
 Current status:
 
-`CANDIDATE 03 CORRECTION STRATEGY V0.1 DRAFT COMPLETE / WAITING PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED`
 
-Not authorized:
+Authorized next step:
 
-- Bundle V003 Design;
+- N22 Reference Delivery Bundle V003 Design.
+
+Still not authorized:
+
 - Bundle V003 Spec;
 - validation-only run;
 - formal Bundle V003 build;
 - Candidate 03 generation;
 - N23.
 
-If Product Owner approves this strategy, next step:
+Approval authority:
+
+`PRODUCT OWNER EXPLICIT AUTHORIZATION IN CHAT / 2026-10-02`
+
+Next step:
 
 `N22 REFERENCE DELIVERY BUNDLE V003 DESIGN`
