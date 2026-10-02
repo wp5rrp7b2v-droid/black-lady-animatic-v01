@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R204",
+  "state_revision": "R205",
   "last_updated": "2026-10-02",
-  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 COMPLETE / CANONICAL / REGISTERED / VERIFIED / CLOSED",
+  "session_status": "P0.3 IN PROGRESS / S02-B ACTIVE / N21 HOLD / N22 CLOSED / N23 DIRECTOR SHOT DESIGN DRAFT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P0.3｜S02-B｜N22 CLOSED / N21 HOLD / N23 NOT STARTED",
-  "blocker": "N21 REMAINS ON PRODUCT OWNER HOLD. N22 HAS NO OPEN BLOCKER.",
-  "next_action": "When Product Owner is ready to continue downstream production, begin N23 Director Shot Design. N21 remains unresolved on HOLD and should be revisited later as separately instructed.",
+  "current_task": "P0.3｜S02-B｜N23 Node-Level Director Shot Design V0.1 Review",
+  "blocker": "PRODUCT OWNER APPROVAL REQUIRED FOR N23 NODE-LEVEL DIRECTOR SHOT DESIGN. No Scene Reference or generation authorized.",
+  "next_action": "Review N23 Node-Level Director Shot Design V0.1. N23 owns Neil initiating the group direction change: medium-wide rear/rear-3Q spatial action, asynchronous propagation through the group, no Neil hero framing, no full hall reveal, and no consumption of N24 Ning spatial POV. If approved, proceed to N23 Scene Reference Design.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,22 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-02-N22-FORMAL-CLOSEOUT-R204",
-    "status": "N22 COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED",
+    "id": "2026-10-02-N23-DIRECTOR-SHOT-DESIGN-DRAFT-R205",
+    "status": "N23 NODE-LEVEL DIRECTOR SHOT DESIGN V0.1 DRAFT / WAITING PRODUCT OWNER APPROVAL",
     "completed": [
-      "Product Owner approved the final clarity-clean N22 binary.",
-      "Exact approved binary locked at 941x1672 RGB PNG / 1834637 bytes.",
-      "GitHub-side exact binary verification run 36998121036 passed.",
-      "Canonical exact-blob publication run 36998203149 passed.",
-      "Canonical publication commit 984b708ff69104adc172f330c8a27791656749f0 preserved Git blob a0f38041c10e4eb13a5a915a5d2f7bf22f85a2cf.",
-      "Story Shot Index registration commit 474fe2cb478c2d9a4ce2be7a77838890fb1c38ad completed.",
-      "Registration verification run 36998327975 passed SHA/BLOB/INDEX/DIMENSIONS and staging cleanup.",
-      "N22 formal closeout record created."
+      "N23 parent authority re-read from S02-B V0.3 and Review Patch 01.",
+      "N22 formal closeout confirmed; N21 remains on Product Owner HOLD.",
+      "N23 function fixed at PRIMARY ACTION + SPATIAL TRANSITION.",
+      "N23 Director Shot Design V0.1 drafted.",
+      "Design separates N23 action beat from N24 Ning spatial POV.",
+      "Asynchronous group direction change locked as the core visual proof.",
+      "No Scene Reference, Bundle or generation authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n22_story_shot_registration_closeout_2026-10-02.md",
-    "resume_from": "N23 DIRECTOR SHOT DESIGN WHEN PRODUCT OWNER STARTS",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_node_level_director_shot_design_v0_1.md",
+    "resume_from": "N23 NODE-LEVEL DIRECTOR SHOT DESIGN PRODUCT OWNER REVIEW",
     "blockers": [
-      "N21 HOLD BY PRODUCT OWNER"
+      "PRODUCT OWNER N23 DIRECTOR DESIGN APPROVAL REQUIRED"
     ]
   },
   "visual_asset_management_system": {
@@ -525,13 +524,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V139",
+    "version": "V140",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R204 / N22 COMPLETE / N21 HOLD / N23 NOT STARTED",
-    "derived_from_revision": "R204",
+    "status": "CURRENT / DERIVED FROM R205 / N23 DIRECTOR SHOT DESIGN DRAFT",
+    "derived_from_revision": "R205",
     "last_updated": "2026-10-02",
-    "current_task": "N22 CLOSED / N21 HOLD / N23 NOT STARTED"
+    "current_task": "N23 DIRECTOR SHOT DESIGN PRODUCT OWNER REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -2773,5 +2772,19 @@
     "registration_verification_run": 36998327975,
     "registration_verification_job": 110810040324,
     "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n22_story_shot_registration_closeout_2026-10-02.md"
+  },
+  "n23_node_level_director_shot_design_v0_1": {
+    "status": "DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n23_node_level_director_shot_design_v0_1.md",
+    "title": "Neil Turns — Group Direction Changes",
+    "parent_scope": "02:04.300-02:11.640",
+    "function": "PRIMARY ACTION + SPATIAL TRANSITION",
+    "camera": "MEDIUM-WIDE / REAR OR REAR-3Q / LATERALLY OFFSET",
+    "action_anchor": "NEIL",
+    "core_proof": "ASYNCHRONOUS GROUP DIRECTION CHANGE",
+    "n24_boundary": "DO NOT CONSUME NING SPATIAL POV / FULL DESTINATION REVEAL",
+    "scene_reference_authorized": false,
+    "bundle_authorized": false,
+    "candidate_01_authorized": false
   }
 }
