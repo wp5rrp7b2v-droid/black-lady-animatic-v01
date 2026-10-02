@@ -2682,3 +2682,17 @@ Status: `PRODUCT OWNER AUTHORIZED / EXACTLY ONE PNG`
 - Generation count: exactly 1 PNG.
 - After generation: STOP for Product Owner review.
 - Candidate 03 / N23 / publication / registration / closeout: NOT AUTHORIZED.
+
+
+## 2026-10-02｜N22 Candidate 02 Review Close + Candidate 03 Strategy
+
+- Candidate 02: `NOT APPROVED / REVIEW CLOSED`.
+- Review PNG identity: `941×1672 / RGB / 1,782,593 bytes / SHA-256 56768b17ea6e9f1b818109c646662bbdc54403c5a16f340d4738ec1249cf0246`.
+- Lighting correction: PASS / preserve.
+- Larger-group foreground obstruction: improved / preserve.
+- Remaining failure: Su + Liao dual-subject staging, Guang too readable, near-synchronized named-character gaze.
+- Candidate 03 strategy draft: references proposed = AST_IMG_000061 / AST_IMG_000058 / AST_IMG_000052.
+- AST_IMG_000056 Guang Yong: proposed removal from Candidate 03 formal generation reference set.
+- New hard rule: Su/Liao must not share gaze direction; Su first-glance, Liao second-glance/partial.
+- Bundle V003 / validation / formal build / Candidate 03: NOT AUTHORIZED.
+- Project State target: R196 / Dashboard V131.
