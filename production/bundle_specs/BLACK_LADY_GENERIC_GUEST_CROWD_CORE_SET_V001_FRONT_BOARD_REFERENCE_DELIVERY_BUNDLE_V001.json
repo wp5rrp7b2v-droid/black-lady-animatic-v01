@@ -6,7 +6,7 @@
   "target_candidate": "FRONT BOARD Candidate 01",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "references": [
     {
       "reference_id": "AST_IMG_000042",
@@ -80,7 +80,7 @@
   "work_handoff": {
     "title": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜FRONT BOARD Candidate 01",
     "requirements": [
-      "This validation-only spec does NOT authorize image generation.",
+      "This formal Bundle spec authorizes reference-bundle construction only. It does NOT authorize Work image generation.",
       "If later separately authorized: generation mode = CLEAN REGENERATION; output exactly one PNG and stop for Product Owner review.",
       "Target canvas = 1536x1024 landscape / 2 rows x 5 columns.",
       "Fixed slots: top row Guest A/B/C/D/E; bottom row Guest F/G/H/I/J.",
@@ -119,5 +119,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-R1"
+  "spec_revision": "V001-R2"
 }
