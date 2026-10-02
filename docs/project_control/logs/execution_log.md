@@ -3099,3 +3099,19 @@ Status: `FORMAL BUILD PASS / 4 OF 4 EXACT / INDEPENDENT ARTIFACT VERIFIED`
 - Next: Product Owner FRONT Candidate 01 Work-generation authorization.
 - Project State target: R221 / Dashboard V156.
 
+## 2026-10-02｜Generic Guest Crowd FRONT Board Candidate 01 Work Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / ONE PNG ONLY / WAITING WORK OUTPUT`
+
+- Generation mode: Clean Regeneration.
+- Verified Bundle: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_BOARD_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Artifact: `11231259655`.
+- Pre-generation exact verification: `4/4 required`.
+- Output: exactly one `1536×1024` PNG.
+- Fixed board: 2×5 / Guests A–J / A–F female / G–J male.
+- Four delivered references are style parents only; named-character identity copying is prohibited.
+- Candidate 02 / LEFT / RIGHT / BACK remain NOT AUTHORIZED.
+- N21 remains HOLD; N23 Candidate 02 remains PAUSED.
+- After generation: stop for Product Owner review.
+- Project State target: R222 / Dashboard V157.
+
