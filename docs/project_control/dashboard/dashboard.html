@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V122</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V123</title>
 <style>
 :root{
   --bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;
@@ -57,13 +57,13 @@ ul.compact li{margin:4px 0}
 <body>
 <main>
   <h1>诡舍·黑衣夫人</h1>
-  <p class="muted">Project Dashboard V122 · Product Owner 驾驶舱 · Derived from R187 · Updated 2026-10-02</p>
+  <p class="muted">Project Dashboard V123 · Product Owner 驾驶舱 · Derived from R188 · Updated 2026-10-02</p>
 
   <section class="hero">
     <div class="kicker">Current State</div>
-    <div class="hero-title">P0.3｜S02-B ACTIVE｜N21 HOLD / N22 BUNDLE DESIGN APPROVED</div>
+    <div class="hero-title">P0.3｜S02-B ACTIVE｜N21 HOLD / N22 VALIDATION-ONLY PASS</div>
     <p><span class="tag">S02-A CLOSED</span> <span class="tag">N19 CLOSED</span> <span class="tag">S02-B ACTIVE</span> <span class="tag">P0.3 IN PROGRESS</span></p>
-    <div class="hero-next">N21 保持 HOLD。N22 Director Design、Scene Reference Design 与 Reference Delivery Bundle Design V0.1 均已获 Product Owner 批准并锁定。Bundle V001 固定 5 个 canonical inputs。当前下一步为 Bundle Spec + validation-only preparation；正式 Artifact Build 与 Candidate 01 仍未授权。</div>
+    <div class="hero-next">N21 保持 HOLD。N22 Bundle V001 validation-only 已通过：5/5 exact canonical references verified；build_authorized=false，正式 Build / Artifact Upload 均未执行，GENERATION_ALLOWED=FALSE。当前下一步需要 Product Owner 单独授权正式 Bundle Build。</div>
     <div class="pipeline">
       <span class="step">S02-A FORMALLY CLOSED</span>
       <span class="step">N16 FORMALLY CLOSED</span>
@@ -71,7 +71,7 @@ ul.compact li{margin:4px 0}
       <span class="step">N18 FORMALLY CLOSED</span>
       <span class="step">N19 FORMALLY CLOSED</span>
       <span class="step">N20 FORMALLY CLOSED</span>
-      <span class="step active">N21 HOLD / N22 VALIDATION-ONLY PREP NEXT</span>
+      <span class="step active">N21 HOLD / N22 FORMAL BUILD AUTHORIZATION NEXT</span>
     </div>
   </section>
 
@@ -383,6 +383,20 @@ ul.compact li{margin:4px 0}
     <li>Reference order is non-compositional and does not imply screen placement.</li>
     <li>Next: Bundle Spec with build_authorized=false + validation-only preparation.</li>
     <li>Formal Artifact build and Candidate 01 remain NOT AUTHORIZED.</li>
+  </ul>
+</section>
+
+
+<section class="card span-12">
+  <div class="kicker">2026-10-02 N22 Validation-Only</div>
+  <h2>N22 Bundle V001｜5/5 EXACT VALIDATION PASS</h2>
+  <ul class="compact">
+    <li>Spec commit: a3975de9e8e781b103936654676647d8db588a44.</li>
+    <li>Run 36962064841 / Job 110697691495.</li>
+    <li>BUILD_AUTHORIZED=FALSE / GENERATION_ALLOWED=FALSE.</li>
+    <li>Formal build, Bundle ID read and Artifact upload were skipped.</li>
+    <li>Artifacts: none.</li>
+    <li>Next: Product Owner formal Bundle build authorization.</li>
   </ul>
 </section>
 
