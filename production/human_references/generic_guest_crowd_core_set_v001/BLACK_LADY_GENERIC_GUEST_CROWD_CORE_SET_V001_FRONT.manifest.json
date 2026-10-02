@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "asset_role": "GENERIC_GUEST_CROWD_FRONT_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_FRONT_IDENTITY",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.png",
+  "output": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bit_depth": 8,
+    "byte_size": 2335288,
+    "sha256": "ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23",
+    "git_blob": "d8ff2d789a352475daa945d22a0a65112c72a682"
+  },
+  "approved_binary": {
+    "approved_candidate": "FRONT BOARD Candidate 02",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-02",
+    "byte_size": 2335288,
+    "sha256": "ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23",
+    "staging_path": "staging/generic_guest_crowd_core_set_v001_front_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_CANDIDATE_02_APPROVED.png",
+    "staging_git_blob": "d8ff2d789a352475daa945d22a0a65112c72a682",
+    "candidate_01_status": "NOT_APPROVED_DIAGNOSTIC_ONLY"
+  },
+  "identity_board": {
+    "layout": "2_ROWS_X_5_COLUMNS",
+    "top_row": [
+      "Guest A",
+      "Guest B",
+      "Guest C",
+      "Guest D",
+      "Guest E"
+    ],
+    "bottom_row": [
+      "Guest F",
+      "Guest G",
+      "Guest H",
+      "Guest I",
+      "Guest J"
+    ],
+    "sex_distribution": {
+      "Guest A": "FEMALE",
+      "Guest B": "FEMALE",
+      "Guest C": "FEMALE",
+      "Guest D": "FEMALE",
+      "Guest E": "FEMALE",
+      "Guest F": "FEMALE",
+      "Guest G": "MALE",
+      "Guest H": "MALE",
+      "Guest I": "MALE",
+      "Guest J": "MALE"
+    },
+    "primary_rule": "APPROVED_PIXELS_ARE_THE_PRIMARY_IDENTITY_AUTHORITY",
+    "text_override_rule": "Where earlier written archetypes differ from the approved FRONT pixels, the approved pixels win.",
+    "explicit_locked_trait_note": "Guest I's approved muscular build, sleeveless black top and visible tattoos/body markings are identity-defining traits and must remain consistent in later orientations."
+  },
+  "governance": {
+    "p0_2_asset_registry_record": false,
+    "reason": "This project-level controlled human identity board is governed in the P0.3 controlled-reference layer; do not silently extend the locked P0.2 Asset Registry schema.",
+    "not_story_shot": true,
+    "not_character_sheet": true,
+    "does_not_replace_named_character_atomic_assets": true,
+    "reusable_project_level_reference": true
+  },
+  "source_lineage": {
+    "style_identity_design": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 Style / Identity Reference Design V0.1",
+    "front_bundle_design": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 FRONT BOARD REFERENCE DELIVERY BUNDLE DESIGN V0.1",
+    "input_bundle": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT_BOARD_REFERENCE_DELIVERY_BUNDLE_V001",
+    "input_bundle_run_id": 37020135208,
+    "input_bundle_artifact_id": 11231259655,
+    "source_style_parents": [
+      "AST_IMG_000042",
+      "AST_IMG_000046",
+      "AST_IMG_000022",
+      "AST_IMG_000009"
+    ],
+    "generation_context": "WORK CLEAN REGENERATION / FRONT BOARD / PRODUCT OWNER APPROVED CANDIDATE 02",
+    "note": "Style-parent images controlled visual language only. The approved FRONT board establishes ten new anonymous Guest identities."
+  },
+  "usage_boundary": {
+    "may_control": [
+      "Guest A-J identity",
+      "Guest A-J face and hairstyle continuity",
+      "Guest A-J apparent age continuity",
+      "Guest A-J body build and relative proportion continuity",
+      "Guest A-J garment identity and visible color-family continuity",
+      "Guest A-J footwear continuity",
+      "identity-defining visible body markings and accessories present in the approved board",
+      "future LEFT PROFILE / RIGHT PROFILE / BACK views of the same ten Guests",
+      "future N21 / N23 / other crowd-shot identity continuity when separately authorized"
+    ],
+    "must_not_control": [
+      "Story Shot composition",
+      "scene environment",
+      "scene lighting",
+      "crowd blocking unless separately designed",
+      "named-character identity",
+      "automatic authorization of LEFT PROFILE / RIGHT PROFILE / BACK generation",
+      "automatic authorization of N21 or N23 generation"
+    ]
+  },
+  "orientation_governance": {
+    "required_order": [
+      "LEFT PROFILE",
+      "RIGHT PROFILE",
+      "BACK"
+    ],
+    "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
+    "redesign_forbidden": [
+      "sex",
+      "identity",
+      "face",
+      "hairstyle",
+      "body build",
+      "garment identity",
+      "footwear",
+      "identity-defining visible body markings"
+    ],
+    "generation_authorized": false
+  },
+  "publication": {
+    "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.json",
+    "request_commit": "22343180c7a06df4b6c977de97c4f5548cfb1757",
+    "publication_commit": "222a204000641edfa30ff42a7324ce52afc61e2c",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd FRONT V001 Intake Verify",
+    "workflow_run_id": 37027704229,
+    "job_id": 110906445923,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "post_publication_verification": {
+    "workflow": "Generic Guest Crowd FRONT V001 Canonical Verify",
+    "workflow_run_id": 37027994620,
+    "job_id": 110907415764,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "ef6c1b65c8d2f41db70b77b8621ec5d9ade41ad43811d2ddda88a2c14c357a23",
+    "verified_git_blob": "d8ff2d789a352475daa945d22a0a65112c72a682",
+    "verified_byte_size": 2335288,
+    "verified_dimensions": "1536x1024",
+    "verified_mode": "RGBA",
+    "verified_bit_depth": 8
+  }
+}
