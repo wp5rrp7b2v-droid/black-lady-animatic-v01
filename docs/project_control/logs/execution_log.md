@@ -3210,3 +3210,24 @@ Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOS
 - N21 remains HOLD / unresolved.
 - N23 Candidate 02 remains PAUSED / NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd Orientation Scope Amendment 02
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Previous V001 orientation set: `FRONT / LEFT PROFILE / RIGHT PROFILE / BACK`.
+- Revised V001 orientation set: `FRONT / LEFT PROFILE / REAR_3Q / BACK`.
+- RIGHT PROFILE is cancelled before generation; no approved RIGHT PROFILE binary exists.
+- V001 total remains 10 fixed Guests × 4 controlled orientations = 40 controlled views.
+- REAR_3Q is back-dominant / approximately 135° from FRONT.
+- FRONT and LEFT PROFILE canonical PNGs remain unchanged.
+- FRONT and LEFT manifests updated to remove RIGHT PROFILE from future orientation governance.
+- Scope amendment record: `docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md`.
+- Scope amendment commit: `72ccfd55333b0ddcc5bd62c297deae91fa351903`.
+- Asset Design amendment commit: `4afcd5f36487be56351737c3f934d00d46811c79`.
+- FRONT manifest governance update: `8e60e559271f35d502f3bb50b31e3a2793c022e2`.
+- LEFT manifest governance update: `c9503741a95e94a0ebcd01473f3b3921b0816808`.
+- Project State advanced to `R227`.
+- Dashboard advanced to `V162`.
+- Next: `REAR 3/4 Design V0.1`.
+- REAR_3Q generation / BACK generation / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
+
