@@ -3686,3 +3686,20 @@ Status: STRUCTURE PASS / LIGHTING BLOCKER / PRODUCT OWNER DECISION PENDING
 - Candidate 03 remains NOT AUTHORIZED.
 - Project State: R250.
 - Dashboard: V185.
+
+
+## 2026-10-03｜N23 Candidate 02 Product Owner Structural Rejection
+
+Status: CANDIDATE 02 REJECTED / STRUCTURAL FAIL / C03 STRATEGY REVISION REQUIRED
+
+- Prior Director interpretation of "structure pass / lighting blocker" is superseded.
+- Product Owner determined crowd motion does not preserve N22-readable LEFT→RIGHT continuity.
+- Neil identity continuity materially drifts.
+- Guang Yong's walking-with-backward-awareness / observation continuity is absent.
+- Lighting remains an additional blocker.
+- Candidate 02 is NOT a localized-edit base.
+- Recommended next mode: CLEAN REGENERATION only after strategy + reference-architecture revision.
+- Candidate 03 remains NOT AUTHORIZED.
+- Review revision commit: e9f8d83d343365af438c2aa3c8ccda870d6a86db.
+- Project State: R251.
+- Dashboard: V186.
