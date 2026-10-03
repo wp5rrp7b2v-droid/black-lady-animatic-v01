@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R254",
+  "state_revision": "R255",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 C02 REJECTED / C03 SLOT 3 CORRECTION + INVALID SLOT 5 REMOVAL PO APPROVED + INCORPORATED / 4 DIRECT VISUAL INPUTS PLANNED / FINAL STRATEGY + REFERENCE ARCHITECTURE APPROVAL PENDING / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 C03 STRATEGY + 4-INPUT REFERENCE ARCHITECTURE PRODUCT OWNER APPROVED + LOCKED / DOOR CONTROL EXACT CROP PLAN DESIGN AUTHORIZED / N21 HOLD / N22 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23 Candidate 03｜Corrected Strategy V0.1 + 4-Input Reference Architecture V0.1｜Final Product Owner Review",
-  "blocker": "Candidate 03 now has four valid planned direct visual inputs under a maximum cap of five. The proposed N22 Motion/Observation controlled reference was cancelled because N22 does not directly prove the required lateral motion or Guang behavior. Final Product Owner approval of the corrected architecture is still required before Door Control crop-plan work.",
-  "next_action": "Product Owner performs final review of the corrected Candidate 03 Strategy and 4-input Reference Architecture. If approved, proceed only to N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001 Exact Crop Plan. Do not build Bundle V003 or generate Candidate 03 yet.",
+  "current_task": "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan｜Product Owner Review Preparation",
+  "blocker": "No architecture blocker remains. The next gate is design-only: establish an exact crop rectangle from approved AST_IMG_000052 that preserves door identity/material/scale/open-state while suppressing exterior daylight and floor-reflection pressure. Product Owner visual approval is required before any deterministic crop build.",
+  "next_action": "Design N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001 Exact Crop Plan from AST_IMG_000052 and present it for Product Owner review. Do not execute crop, build the controlled reference, design Bundle V003, or generate Candidate 03.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-C03-SLOT5-CANCELLED-R254",
-    "status": "N23 C03 SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED + INCORPORATED / 4 DIRECT INPUTS / FINAL STRATEGY + ARCHITECTURE APPROVAL NEXT",
+    "id": "2026-10-03-N23-C03-STRATEGY-ARCH-APPROVED-R255",
+    "status": "N23 C03 CORRECTED STRATEGY + 4-INPUT REFERENCE ARCHITECTURE PRODUCT OWNER APPROVED / LOCKED / DOOR CONTROL CROP PLAN DESIGN NEXT",
     "completed": [
-      "Candidate 02 structural rejection retained as authority.",
-      "Maximum direct visual input cap remains five.",
-      "Candidate 03 current planned direct-image count reduced from five to four.",
-      "Guang identity anchor remains AST_IMG_000011 FACE_FRONT / IDENTITY ONLY.",
-      "N23_N22_MOTION_OBSERVATION_REFERENCE_V001 cancelled because source N22 does not reliably prove target lateral motion or Guang backward-awareness behavior.",
-      "Movement and Guang behavior are now explicit written shot requirements and remain unvalidated working hypotheses for Candidate 03.",
-      "Only Door Control remains as a planned new controlled reference.",
-      "No Door Crop Plan, controlled-reference build, Bundle V003, or Candidate 03 generation has been authorized."
+      "Candidate 03 corrected strategy Product Owner approved and locked.",
+      "Candidate 03 corrected reference architecture Product Owner approved and locked.",
+      "Direct visual input cap remains maximum five; current planned direct inputs remain four.",
+      "Slot 3 remains AST_IMG_000011 FACE_FRONT / IDENTITY ONLY.",
+      "N23_N22_MOTION_OBSERVATION_REFERENCE_V001 remains cancelled.",
+      "Door Control Exact Crop Plan design is authorized.",
+      "No crop execution, controlled-reference build, Bundle V003, or Candidate 03 generation is authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_reference_architecture_v0_1.md",
-    "resume_from": "PRODUCT OWNER FINAL REVIEW OF CORRECTED N23 C03 STRATEGY + 4-INPUT REFERENCE ARCHITECTURE",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_strategy_reference_architecture_approval_2026-10-03.md",
+    "resume_from": "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001 EXACT CROP PLAN DESIGN",
     "blockers": [
-      "Final Product Owner approval pending",
-      "Door Control crop plan not yet approved",
+      "Door Control crop plan not yet Product Owner approved",
       "N21 unresolved / HOLD"
     ]
   },
@@ -3560,7 +3558,7 @@
       }
     },
     "candidate_03": {
-      "status": "SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED + INCORPORATED / FINAL STRATEGY + REFERENCE ARCHITECTURE APPROVAL REQUIRED",
+      "status": "STRATEGY + 4-INPUT REFERENCE ARCHITECTURE PRODUCT OWNER APPROVED / LOCKED / DOOR CONTROL CROP PLAN DESIGN AUTHORIZED",
       "generation_authorized": false,
       "direct_visual_reference_cap": 5,
       "planned_direct_inputs": [
@@ -3577,9 +3575,9 @@
         "N22_FULL_CANONICAL_STORY_SHOT"
       ],
       "strategy_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_correction_strategy_v0_1.md",
-      "strategy_commit": "a54b65ed558009456148158c5dbe65de70871f9f",
+      "strategy_commit": "71f32185824e3891afb48c5c5b74612809440225",
       "reference_architecture_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_reference_architecture_v0_1.md",
-      "reference_architecture_commit": "fd7d0f16c9960bd876858a0204aa5b05e90e231c",
+      "reference_architecture_commit": "e24a6a4f0af3ea4846e3ad52a0e3e23fd72e2556",
       "required_intermediate_references": [
         "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001"
       ],
@@ -3594,7 +3592,11 @@
       "current_planned_direct_input_count": 4,
       "cancelled_reference": "N23_N22_MOTION_OBSERVATION_REFERENCE_V001",
       "cancelled_reference_reason": "N22 canonical does not reliably prove dominant LEFT→RIGHT lateral travel or Guang walking-with-backward-awareness behavior; deterministic crop cannot create absent evidence.",
-      "movement_behavior_status": "WORKING_HYPOTHESIS / WRITTEN_SHOT_AUTHORITY_ONLY / NOT YET VISUALLY PROVEN"
+      "movement_behavior_status": "WORKING_HYPOTHESIS / WRITTEN_SHOT_AUTHORITY_ONLY / NOT YET VISUALLY PROVEN",
+      "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_strategy_reference_architecture_approval_2026-10-03.md",
+      "approval_commit": "ef98a41e1597256bc55a3bbc6404d0bf68f11172",
+      "door_control_crop_plan_design_authorized": true,
+      "door_control_crop_execution_authorized": false
     }
   }
 }
