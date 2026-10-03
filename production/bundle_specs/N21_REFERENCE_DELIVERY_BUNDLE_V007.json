@@ -6,7 +6,7 @@
   "target_candidate": "N21 Candidate 09",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "references": [
     {
       "reference_id": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001",
@@ -114,12 +114,18 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1_CONTROLLED_REFERENCE",
-  "spec_revision": "V007-R1",
+  "spec_revision": "V007-R2",
   "validation_only_authorization": {
     "status": "PRODUCT_OWNER_AUTHORIZED",
     "date": "2026-10-03",
     "scope": "SPEC + VALIDATION-ONLY",
     "formal_build_authorized": false,
+    "candidate_09_generation_authorized": false
+  },
+  "formal_build_authorization": {
+    "status": "PRODUCT_OWNER_AUTHORIZED",
+    "date": "2026-10-03",
+    "scope": "FORMAL BUNDLE V007 BUILD + EXACT ARTIFACT VERIFICATION ONLY",
     "candidate_09_generation_authorized": false
   }
 }
