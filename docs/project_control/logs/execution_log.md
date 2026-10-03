@@ -3508,3 +3508,17 @@ Status: PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT
 - Dashboard advanced to V176.
 - Candidate 02 / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd BACK Candidate 01 Approval
+
+Status: PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING
+
+- Candidate 01 approved as-is; Candidate 02 not required.
+- Exact binary: 1536×1024 / RGBA / 8-bit / 2,378,771 bytes.
+- SHA-256: dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f.
+- Git blob: dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f.
+- Approval record commit: 52c1208f4df6e23fd6ad69ab1112254a684e63bd.
+- Intake verifier commit: ad0ffd61657914c65500c7a5bb2ef36fd92dac72.
+- Project State advanced to R242.
+- Dashboard advanced to V177.
+- Next: exact approved binary staging delivery + intake verification.
+
