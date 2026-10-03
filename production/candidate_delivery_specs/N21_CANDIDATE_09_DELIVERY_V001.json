@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N21",
+  "sequence_id": "S02-B",
+  "candidate_id": "N21 Candidate 09｜Clean Regeneration + Product Owner Iterative Edits",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "N21_Candidate_09_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1671,
+    "byte_size": 2215769,
+    "sha256": "4296383dc3fd330240a1107c004ce22d1c0ae730b193fcba495779308ba1ab0c",
+    "git_blob_sha1": "3224760c7e5bb622679d6b4f10f4817050fa6197"
+  },
+  "dimension_exception": {
+    "original_target": "941x1672",
+    "approved_exact_binary": "941x1671",
+    "status": "PRODUCT_OWNER_APPROVED_EXACT_BINARY_DIMENSION_EXCEPTION",
+    "resize_forbidden": true
+  },
+  "bundle": {
+    "bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V007",
+    "workflow_run_id": 37122780385,
+    "artifact_id": 11273732234,
+    "artifact_digest": "sha256:32cff40068237c64789722d4531f5696f0807c35bce5ee79047ac7fddfe5b064"
+  },
+  "target_staging_path": "staging/story_shot_candidates/N21/N21_Candidate_09_APPROVED.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N21_COHORT_ENTERS_INSIDE_THE_FLOW_APPROVED_V001.png",
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "padding_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
