@@ -3350,3 +3350,18 @@ Status: `PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT`
 - Dashboard advanced to `V168`.
 - Candidate 02 / BACK / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Candidate 01 Approval
+
+Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING`
+
+- Candidate 01 approved as-is; Candidate 02 not required.
+- Exact binary: 1536×1024 / RGBA / 8-bit / 2,373,958 bytes.
+- SHA-256: `52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756`.
+- Git blob: `3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400`.
+- Guest I tattoo rendering variation accepted as minor REAR_3Q tolerance only; FRONT remains global identity authority.
+- Approval record commit: `c0492ef43efd9877776b8d6d696180ce5eda2154`.
+- Intake verifier commit: `73b8c17c1adff63eadedfa81166496998ede764e`.
+- Project State advanced to `R234`.
+- Dashboard advanced to `V169`.
+- Next: exact approved binary staging delivery + intake verification.
+
