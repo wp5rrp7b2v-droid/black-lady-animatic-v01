@@ -3248,3 +3248,20 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next: `REAR 3/4 Reference Delivery Bundle Design V0.1`.
 - Bundle Spec / validation / formal build / Candidate 01 generation remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Bundle Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Bundle ID: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Reference count: exactly 2.
+- Reference 01: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT` / PRIMARY_GLOBAL_IDENTITY_AUTHORITY.
+- Reference 02: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE` / SECONDARY_SIDE_GEOMETRY_CONTINUITY_AUTHORITY.
+- Conflict rule: `FRONT WINS`.
+- Original named-character style parents, Story Shots and Scene Masters excluded.
+- Initial Spec requirement: `build_authorized=false`.
+- Bundle Design record commit: `81824ac800d6c2007c4729971107469256e93b33`.
+- Project State advanced to `R229`.
+- Dashboard advanced to `V164`.
+- Next: Bundle Spec V001 + validation-only preparation.
+- Formal Bundle Build / REAR_3Q Candidate 01 generation remain NOT AUTHORIZED.
+
