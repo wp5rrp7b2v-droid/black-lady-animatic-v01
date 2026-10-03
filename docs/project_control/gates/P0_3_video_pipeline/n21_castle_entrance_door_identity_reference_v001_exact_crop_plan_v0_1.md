@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / CROP EXECUTION NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / CROP EXECUTION NOT YET AUTHORIZED`
 
 Target:
 
@@ -166,7 +166,7 @@ Approve this crop if:
 
 Current:
 
-`EXACT CROP PLAN V0.1 / PRODUCT OWNER REVIEW`
+`EXACT CROP PLAN V0.1 / PRODUCT OWNER APPROVED / LOCKED`
 
 Not authorized:
 
@@ -176,6 +176,6 @@ Not authorized:
 - Bundle V007 Spec;
 - Candidate 09 generation.
 
-Next gate after Product Owner approval:
+Next gate:
 
 `DETERMINISTIC CROP BUILD PREPARATION / SEPARATE EXECUTION AUTHORIZATION`
