@@ -3522,3 +3522,31 @@ Status: PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING
 - Dashboard advanced to V177.
 - Next: exact approved binary staging delivery + intake verification.
 
+## 2026-10-03｜Generic Guest Crowd Core Set V001 Formal Closeout
+
+Status: PRODUCT OWNER APPROVED / FOUR ORIENTATION AUTHORITIES CANONICAL / EXACT VERIFIED / V001 CLOSED
+
+- FRONT Authority: CLOSED.
+- LEFT_PROFILE Authority: CLOSED.
+- REAR_3Q Authority: CLOSED.
+- BACK Authority: CLOSED.
+- Final orientation set: FRONT / LEFT_PROFILE / REAR_3Q / BACK.
+- RIGHT_PROFILE remains CANCELLED and replaced by REAR_3Q.
+- BACK exact binary: 1536×1024 / RGBA / 8-bit / 2,378,771 bytes.
+- BACK SHA-256: dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f.
+- BACK Git blob: dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f.
+- BACK intake verification: run 37094715518 / job 111122177202 / exact PASS.
+- BACK canonical publication: 19232cdeb24602aaf6b0cb07de6fdb45869e833c / exact blob reuse / no re-encode.
+- BACK canonical verification: run 37094791472 / job 111122397922 / exact PASS.
+- BACK Manifest commit: b6c6f9fdcf0017f1f635c75229f385cded284888.
+- FRONT manifest governance completion: a37646656d6510a13b4a56596914ceadd5944bf4.
+- LEFT_PROFILE manifest governance completion: eb3d62c011de09a895933d684d4298d638346bee.
+- REAR_3Q manifest governance completion: 82280424832b37e25c3138caa9a47413f8ff7402.
+- BACK temporary staging and verifier resources removed.
+- Core Set closeout record: docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_closeout_2026-10-03.md.
+- Project State advanced to R243.
+- Dashboard advanced to V178.
+- Next: Product Owner Story Shot re-entry decision.
+- N21 remains HOLD; N23 Candidate 02 remains PAUSED.
+- No Story Shot generation is authorized by this closeout.
+
