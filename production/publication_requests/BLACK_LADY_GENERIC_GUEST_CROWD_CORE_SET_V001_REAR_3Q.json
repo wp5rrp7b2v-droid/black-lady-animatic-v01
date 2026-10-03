@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "publication_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_CANONICAL_PUBLICATION_V001",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "asset_role": "GENERIC_GUEST_CROWD_REAR_3Q_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_REAR_3Q_IDENTITY",
+  "approved_candidate": "REAR_3Q Candidate 01",
+  "approved_by": "PRODUCT_OWNER",
+  "approved_on": "2026-10-03",
+  "source_path": "staging/generic_guest_crowd_core_set_v001_rear_3q_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_CANDIDATE_01_APPROVED.png",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.png",
+  "expected_byte_size": 2373958,
+  "expected_sha256": "52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756",
+  "expected_git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400",
+  "expected_width": 1536,
+  "expected_height": 1024,
+  "expected_mode": "RGBA",
+  "expected_bit_depth": 8,
+  "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+  "exact_binary_required": true,
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd REAR 3Q V001 Intake Verify",
+    "workflow_run_id": 37091008292,
+    "job_id": 111111161404,
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "accepted_tolerance": {
+    "guest_i": "Visible tattoo rendering variation accepted as minor REAR_3Q orientation/rendering tolerance.",
+    "governance": "This tolerance does not redefine FRONT-locked global identity-defining body-marking traits for future BACK generation."
+  }
+}
