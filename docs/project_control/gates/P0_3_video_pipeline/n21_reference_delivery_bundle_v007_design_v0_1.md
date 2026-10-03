@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN PREPARED / PRODUCT OWNER REVIEW REQUIRED / SPEC NOT YET AUTHORIZED / FORMAL BUILD NOT AUTHORIZED / CANDIDATE 09 NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED / FORMAL BUILD NOT AUTHORIZED / CANDIDATE 09 NOT AUTHORIZED`
 
 Target:
 
@@ -585,9 +585,9 @@ No direct visual reference may override items 1 or 2.
 
 Current:
 
-`BUNDLE V007 DESIGN V0.1 / PRODUCT OWNER REVIEW`
+`BUNDLE V007 DESIGN V0.1 / PRODUCT OWNER APPROVED / LOCKED`
 
-This design is now prepared because Product Owner authorized the Bundle V007 design step.
+This design is Product Owner approved and locked.
 
 Not yet authorized:
 
@@ -599,6 +599,11 @@ Not yet authorized:
 - Candidate 10;
 - N21 Story Shot publication / registration.
 
-If Product Owner approves Design V0.1, next proposed gate is:
+Authorized next:
 
-`BUNDLE V007 SPEC + VALIDATION-ONLY AUTHORIZATION`
+`BUNDLE V007 SPEC + VALIDATION-ONLY`
+
+Still not authorized:
+
+- Formal Bundle V007 Build;
+- Candidate 09 generation.
