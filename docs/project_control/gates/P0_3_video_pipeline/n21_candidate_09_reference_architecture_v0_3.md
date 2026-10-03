@@ -6,15 +6,15 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / TWO-INPUT ROUTE / NO BUILD AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / TWO-INPUT ROUTE / DOOR CROP PLAN DESIGN NEXT / NO BUILD AUTHORIZED`
 
 Target:
 
 `N21｜Cohort Enters — Inside the Flow｜Candidate 09`
 
-Depends on approval of:
+Authority:
 
-`N21 Node-Level Director Shot Design V0.2 Review Patch 01`
+`N21 Node-Level Director Shot Design V0.2 Review Patch 01｜PRODUCT OWNER APPROVED / LOCKED`
 
 Supersedes before approval:
 
@@ -223,9 +223,13 @@ Candidate 09 remains separately gated.
 
 ## 10. Current boundary
 
+Authorized next:
+
+- exact deterministic crop-plan design for `N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001`.
+
 Not authorized:
 
-- exact door crop plan;
+- door controlled-reference build;
 - door controlled-reference build;
 - Bundle V007 Spec;
 - validation;
