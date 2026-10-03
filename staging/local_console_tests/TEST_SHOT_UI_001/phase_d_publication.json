@@ -1,0 +1,34 @@
+{
+  "approval_binding": {
+    "action": "approve",
+    "bound_candidate_id": "CANDIDATE_02",
+    "bound_drive_file_id": "1nK6gUWXfkKq9C8170oXojj7dW1nctdn-",
+    "bound_sha256": "09d45c1b27fbd2aea68c818677d9656a2ae7f39296f80f6db622118312aebcc5"
+  },
+  "candidate": {
+    "bytes": 2538801,
+    "candidate_id": "CANDIDATE_02",
+    "drive_file_id": "1nK6gUWXfkKq9C8170oXojj7dW1nctdn-",
+    "drive_file_name": "TEST_SHOT_UI_001_CANDIDATE_02.png",
+    "height": 1672,
+    "mime_type": "image/png",
+    "po_status": "PO_APPROVED_PENDING_PUBLICATION",
+    "sha256": "09d45c1b27fbd2aea68c818677d9656a2ae7f39296f80f6db622118312aebcc5",
+    "width": 941
+  },
+  "github_target": {
+    "branch": "test/local-console-phase-d-staging-v001",
+    "path": "staging/local_console_tests/TEST_SHOT_UI_001/phase_d_publication.json",
+    "repo": "wp5rrp7b2v-droid/black-lady-animatic-v01"
+  },
+  "safety": {
+    "binary_uploaded_to_github": false,
+    "formal_story_shot": false,
+    "main_branch_write": false,
+    "metadata_only": true,
+    "project_control_write": false
+  },
+  "schema": "BLACK_LADY_LOCAL_CONSOLE_PHASE_D_TEST_PUBLICATION_V001",
+  "test_id": "TEST_SHOT_UI_001",
+  "test_only": true
+}
