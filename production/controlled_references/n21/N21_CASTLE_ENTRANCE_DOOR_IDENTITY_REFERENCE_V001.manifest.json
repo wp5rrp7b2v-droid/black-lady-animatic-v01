@@ -42,7 +42,7 @@
     "determinism_proof_run": 37120732368,
     "determinism_proof_artifact_id": 11273312582,
     "publication_workflow_run": 37121398686,
-    "publication_commit": null
+    "publication_commit": "776e7c8a35c6d8a384a741f08750fb9cd0efc098"
   },
   "runtime": {
     "python_version": "3.12",
