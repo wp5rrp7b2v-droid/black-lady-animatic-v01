@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER VISUAL REVIEW REQUIRED / CROP EXECUTION NOT AUTHORIZED`
+`REJECTED / WRONG DOOR SIDE / SUPERSEDED BY V0.2 / CROP EXECUTION NOT AUTHORIZED`
 
 Target:
 
@@ -132,3 +132,20 @@ Not authorized:
 Next gate:
 
 `PRODUCT OWNER VISUAL APPROVAL OF THIS EXACT CROP PLAN`
+
+
+## 8. Rejection record
+
+Product Owner correction:
+
+`Neil is beside the opposite / right-side door leaf in N23, not beside the left-side door leaf selected by this plan.`
+
+Therefore the V0.1 crop would introduce incorrect local spatial pressure between Neil and the door.
+
+Disposition:
+
+`REJECTED / DO NOT BUILD / DO NOT DELIVER`
+
+Superseded by:
+
+`N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan V0.2`
