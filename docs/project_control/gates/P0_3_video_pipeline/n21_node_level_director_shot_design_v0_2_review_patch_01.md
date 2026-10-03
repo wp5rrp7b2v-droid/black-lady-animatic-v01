@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / NOT YET AUTHORITATIVE`
+`PRODUCT OWNER APPROVED / LOCKED / AUTHORITATIVE`
 
 Base:
 
@@ -116,6 +116,6 @@ Remain:
 
 ## Current boundary
 
-This Patch is not authoritative until explicit Product Owner approval.
+This Patch is Product Owner approved and authoritative for future N21 Candidate 09 production.
 
-No reference build / Bundle / Candidate 09 generation is authorized by this proposal.
+Approval authorizes only the next exact N21 door-reference crop-plan design step. No controlled-reference build / Bundle / Candidate 09 generation is authorized.
