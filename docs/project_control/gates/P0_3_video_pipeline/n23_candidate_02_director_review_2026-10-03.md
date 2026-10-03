@@ -4,7 +4,7 @@ Date: 2026-10-03
 
 Status:
 
-`DIRECTOR REVIEW = FAIL / PRODUCT OWNER DECISION PENDING`
+`PRODUCT OWNER OVERRIDE / STRUCTURAL FAIL / CANDIDATE 02 REJECTED`
 
 Target:
 
@@ -25,55 +25,55 @@ Observed output:
 - byte size: `2,948,523`
 - SHA-256: `28a2ce889a42f9f35c782d2691ae17a07e94a958fbaefcedccde014ef2f02031`
 
-## 1. What is working
+## 1. Product Owner structural override
 
-### Camera / screen geometry
+The earlier Director interpretation that the shot structure was substantially valid is superseded by Product Owner review.
 
-PASS:
+Candidate 02 is now judged structurally invalid for three primary reasons:
 
-- open door is on frame-left;
-- crowd is to Neil's right and moves into deeper interior;
-- majority of visible crowd is already inside;
-- shot reads as tail-end-of-entry rather than beginning-of-entry;
-- camera family is structurally different from the N22-like Candidate 01 failure.
+### A. Movement continuity with N22 — FAIL
 
-### Neil
+Although the crowd is located to Neil's right, the actual body-motion read is mainly:
 
-PASS:
+`AWAY / DEEPER INTO THE HALL`
 
-- Neil remains beside the open door;
-- body is near-frontal;
-- head / eyes turn toward frame-right;
-- he is not touching or closing the door;
-- he is not walking away.
+rather than a clearly readable:
 
-Neil is visually prominent, but not centered and not yet judged as a hard hero-portrait failure.
+`SCREEN-LEFT → SCREEN-RIGHT CONTINUATION`
 
-### Generic Guest integration
+This breaks the intended visual continuity from N22.
 
-PASS:
+The requirement is not merely "people end up on the right side of the frame."
 
-- approximately five visible guests;
-- crowd reads primarily from back / rear-three-quarter;
-- no 2×5 identity-board layout;
-- no frontal named-character ensemble;
-- no obvious Su / Liao reset;
-- no bag / luggage / text;
-- Generic Guest integration materially improves anonymous-crowd continuity.
+The shot must preserve a readable lateral travel vector:
 
-### Crowd blocking
+`LEFT → RIGHT WHILE CONTINUING DEEPER INSIDE`
 
-PASS WITH MINOR RESERVATION:
+Current Candidate 02 does not prove that.
 
-- figures are staggered in depth;
-- movement phases are not perfectly synchronized;
-- not a single-file queue.
+### B. Neil identity continuity — FAIL
 
-The group still has some procession-like visual rhythm, but it is not the primary blocker in this candidate.
+Neil's face / head identity drifts materially from the approved Neil authority.
 
----
+The shot position and gaze direction alone do not compensate for identity drift.
 
-## 2. Hard blocker
+Current Bundle V002 relied on the composite Neil Character Reference Sheet only; this proved insufficient for the near-frontal / right-looking presentation required by N23.
+
+### C. Guang Yong behavioral continuity — FAIL
+
+N22 established Guang Yong's transitional behavior as:
+
+`WALKING WITH THE GROUP WHILE RETAINING BACKWARD AWARENESS / OBSERVATION`
+
+Candidate 02 loses that beat.
+
+The crowd reads as people simply walking away.
+
+Guang Yong's subtle backward-attention cue is absent, so the N22 → N23 behavioral bridge is broken.
+
+The current `AST_IMG_000013 / REAR_3Q_RIGHT` identity input is insufficient by itself to preserve that head-attention behavior.
+
+## 2. Secondary lighting blocker
 
 ### Exterior daylight / floor reflection
 
@@ -102,44 +102,42 @@ Therefore:
 
 ## 3. Correction interpretation
 
-The failure is now narrow.
+Candidate 02 is NOT a valid localized-edit base.
 
-Do NOT reopen:
+Do NOT preserve the current people/blocking and merely fix the floor light.
 
-- camera geometry;
-- Neil position;
-- Neil gaze;
-- crowd direction;
-- Generic Guest identity strategy;
-- five-reference Bundle architecture;
-- crowd count;
-- door-open story fact.
+The next attempt must reopen:
 
-Recommended correction type if Product Owner chooses to continue:
+- crowd movement vector;
+- N22 → N23 motion continuity;
+- Neil identity reference architecture;
+- Guang Yong backward-attention behavior;
+- lighting.
 
-`LOCALIZED EDIT / LIGHTING-ONLY CORRECTION`
+Keep only the already-correct scene facts:
 
-Preferred correction scope:
+- open door remains frame-left;
+- Neil remains beside the door;
+- most of the group is already inside / to Neil's right;
+- the door remains open;
+- Generic Guest Core Set remains the anonymous-crowd identity pool.
 
-1. suppress the broad cool daylight reflection on the lower-left / lower-center floor;
-2. darken and warm the interior floor so it belongs to the same low-key tungsten exposure world;
-3. reduce the exterior opening's brightness dominance while preserving visible open-door state;
-4. preserve all people, poses, identities, blocking, door geometry, Neil gaze and composition.
+Recommended next mode:
 
-Do NOT regenerate the whole shot unless localized correction fails.
+`CLEAN REGENERATION AFTER REFERENCE-ARCHITECTURE REVISION`
 
----
+Do NOT authorize Candidate 03 until the new strategy / Bundle architecture is approved.
 
 ## 4. Current gate
 
 Director recommendation:
 
-`REJECT CANDIDATE 02 AS FINAL / PRESERVE AS STRUCTURALLY VALID CORRECTION BASE`
+`REJECT CANDIDATE 02 / DO NOT USE AS LOCALIZED-EDIT BASE`
 
 Product Owner decision remains required.
 
 Candidate 03 is:
 
-`NOT AUTHORIZED`
+`NOT AUTHORIZED / STRATEGY REVISION REQUIRED`
 
 No publication / registration / closeout is authorized.
