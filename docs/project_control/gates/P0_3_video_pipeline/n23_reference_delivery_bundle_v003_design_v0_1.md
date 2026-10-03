@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / BUNDLE SPEC + VALIDATION + FORMAL BUILD NOT YET AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED / FORMAL BUILD NOT YET AUTHORIZED`
 
 Target:
 
@@ -310,18 +310,24 @@ Bundle V003 design passes only if:
 
 Current:
 
-`BUNDLE V003 DESIGN / PRODUCT OWNER REVIEW`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY NEXT`
 
-Not yet authorized:
+Authorized next:
 
-- Bundle V003 Spec;
-- Validation-only;
+- Bundle V003 Spec with `build_authorized=false`;
+- Validation-only exact check;
+- validation stage must produce no Artifact.
+
+Still not authorized:
+
 - Formal Build;
 - Work Candidate 03 generation;
 - Candidate 04;
 - N24;
 - Story Shot publication / registration.
 
-Next after Product Owner approval:
+Next:
 
-`BUNDLE V003 SPEC → VALIDATION-ONLY → FORMAL BUILD`
+`BUNDLE V003 SPEC → VALIDATION-ONLY`
+
+Formal Build requires separate Product Owner authorization after validation PASS.
