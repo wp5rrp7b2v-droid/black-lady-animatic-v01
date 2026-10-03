@@ -3703,3 +3703,24 @@ Status: CANDIDATE 02 REJECTED / STRUCTURAL FAIL / C03 STRATEGY REVISION REQUIRED
 - Review revision commit: e9f8d83d343365af438c2aa3c8ccda870d6a86db.
 - Project State: R251.
 - Dashboard: V186.
+
+
+## 2026-10-03｜N23 Candidate 03 Strategy + Reference Architecture
+
+Status: PREPARED / PRODUCT OWNER REVIEW NEXT
+
+- Candidate 02 structural rejection remains authoritative.
+- Candidate 03 generation mode after later approval: CLEAN REGENERATION.
+- Direct visual input cap: MAXIMUM 5.
+- Planned Slot 1: N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001.
+- Planned Slot 2: AST_IMG_000073 / Neil FACE_3Q_RIGHT.
+- Planned Slot 3: AST_IMG_000010 / Guang Yong FACE_3Q_RIGHT.
+- Planned Slot 4: Generic Guest REAR_3Q.
+- Planned Slot 5: N23_N22_MOTION_OBSERVATION_REFERENCE_V001.
+- Generic Guest BACK removed.
+- Full Castle Entrance Scene Master removed from direct C03 inputs.
+- Full N22 Story Shot remains excluded from direct inputs.
+- Two deterministic controlled references require exact crop-plan design + PO visual approval before Bundle V003.
+- Candidate 03 / Bundle V003 remain NOT AUTHORIZED.
+- Project State: R252.
+- Dashboard: V187.
