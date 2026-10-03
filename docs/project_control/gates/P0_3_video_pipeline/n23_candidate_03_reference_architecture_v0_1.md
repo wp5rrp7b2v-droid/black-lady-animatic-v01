@@ -2,7 +2,7 @@
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / DIRECT VISUAL CAP = 5 / CURRENT PLANNED INPUTS = 4 / DOOR CONTROL EXACT CROP PLAN DESIGN AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / DIRECT VISUAL CAP = 5 / CURRENT PLANNED INPUTS = 4 / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN PROPOSED`
 
 Date:
 
@@ -42,7 +42,7 @@ not:
 
 ### SLOT 1｜Door identity / scene fact
 
-Planned reference:
+Canonical reference:
 
 `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001`
 
@@ -139,7 +139,7 @@ Why FACE_FRONT replaces FACE_3Q_RIGHT:
 - a FACE_3Q_RIGHT image would add unnecessary opposite head-direction pressure;
 - FACE_FRONT is the more neutral identity anchor.
 
-Shot-specific head direction and behavior come from SLOT 5 plus written shot authority. SLOT 3 must not override them.
+Shot-specific head direction and behavior come from written shot authority only. SLOT 3 must not override them.
 
 ---
 
@@ -250,19 +250,19 @@ This priority list does NOT imply screen prominence.
 
 ## 6. BUILD DEPENDENCIES
 
-Bundle V003 cannot be designed as final until SLOT 1 Door Control exists and is approved.
+Door Control now exists, is Product Owner approved, exact-verified, and canonically published. The dependency for Bundle V003 design is satisfied.
 
 Required intermediate gates:
 
-### Gate A
-`N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan`
+Completed:
 
-### Gate B
-`Deterministic Build + Exact Binary Verification for Door Control`
+- `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan V0.2｜PRODUCT OWNER APPROVED`
+- `Deterministic Build + Exact Binary Verification｜PASS`
+- `Canonical publication｜PASS / commit 74c4cea6d52358e038e112427a411f9d348ede52`
 
-Only then:
+Current:
 
-`N23_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN`
+`N23_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN / PRODUCT OWNER REVIEW`
 
 ---
 
@@ -270,7 +270,7 @@ Only then:
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / NEXT = DOOR CONTROL EXACT CROP PLAN DESIGN`
+`PRODUCT OWNER APPROVED / LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN UNDER PRODUCT OWNER REVIEW`
 
 Product Owner has approved two targeted architecture corrections:
 
@@ -279,8 +279,4 @@ Product Owner has approved two targeted architecture corrections:
 
 The complete corrected architecture is Product Owner approved and locked.
 
-Authorized next step:
-
-`N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan` design only.
-
-No actual crop execution, Door Control build, Bundle V003 work, or image generation is authorized.
+Door Control crop/build/publication is complete. Bundle V003 Design V0.1 has been prepared with exactly four direct visual inputs and is waiting Product Owner review. Bundle V003 Spec, validation, formal build, and Candidate 03 generation remain unauthorized.
