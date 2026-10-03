@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R272",
+  "state_revision": "R273",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 PATCH 01 + C09 ARCH V0.3 APPROVED / DOOR IDENTITY DETERMINISTIC BUILD + EXACT VERIFICATION PASS / PRODUCT OWNER VISUAL REVIEW NEXT / BUNDLE V007 NOT AUTHORIZED",
+  "session_status": "P0.3 IN PROGRESS / N21 PATCH 01 + C09 ARCH V0.3 APPROVED / DOOR IDENTITY BUILD + EXACT VERIFICATION PASS / PRODUCT OWNER VISUAL APPROVED / EXACT CANONICAL PUBLICATION AUTHORIZATION NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21 Door Identity Reference｜Built Crop｜Product Owner Visual Review",
-  "blocker": "Deterministic build is complete and exact-verified. Product Owner visual approval is required before canonical controlled-reference publication and before any Bundle V007 work.",
-  "next_action": "Product Owner visually reviews N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001 built crop. If approved, separately authorize exact canonical publication / manifest finalization. Do not create Bundle V007 yet.",
+  "current_task": "N21 Door Identity Reference｜Exact Canonical Publication Authorization",
+  "blocker": "The built N21 door identity reference is Product Owner visually approved and exact-verified. Canonical publication remains separately gated.",
+  "next_action": "Product Owner decides whether to authorize exact canonical publication of N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001. If authorized, publish the exact verified binary unchanged, finalize its controlled-reference manifest, verify SHA/bytes/Git blob at the canonical path, then stop before Bundle V007.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-DOOR-DETERMINISTIC-BUILD-PASS-R272",
-    "status": "N21 DOOR IDENTITY DETERMINISTIC BUILD PASS / EXACT BINARY VERIFIED / PRODUCT OWNER VISUAL REVIEW NEXT",
+    "id": "2026-10-03-N21-DOOR-VISUAL-APPROVED-R273",
+    "status": "N21 DOOR IDENTITY PRODUCT OWNER VISUAL APPROVED / CANONICAL PUBLICATION AUTHORIZATION NEXT",
     "completed": [
-      "Locked crop plan executed deterministically from AST_IMG_000052.",
-      "Workflow run 37120732368 / job 111196159476 succeeded.",
-      "Artifact 11273312582 created; digest sha256:600b09bbb641f8ec5ed774dd1a234d9f40b9ad35f3ab09e2aff23f89ce88ef88.",
-      "Downloaded Artifact ZIP digest independently matched GitHub artifact digest.",
-      "Run A and Run B are byte-identical.",
-      "Output = 160x1210 RGB / 273697 bytes / sha256 44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea.",
+      "Product Owner visually approved N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.",
+      "Approved binary remains 160x1210 RGB / 273697 bytes.",
+      "Approved SHA-256 = 44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea.",
       "Expected Git blob if published unchanged = 3f9a4355460709a6e1d5aa2be611dd0ba5c75796.",
-      "Visual self-check confirms door identity/open state are retained while armor/sconce/full portal/broad floor are excluded.",
+      "Visual approval does not expand authority beyond door identity/open-state scope.",
       "Canonical publication, Bundle V007 and Candidate 09 remain unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_build_record_2026-10-03.md",
-    "resume_from": "PRODUCT OWNER VISUAL REVIEW OF BUILT N21 DOOR IDENTITY REFERENCE",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_visual_approval_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N21 DOOR IDENTITY EXACT CANONICAL PUBLICATION",
     "blockers": [
-      "Product Owner visual approval not yet recorded"
+      "Exact canonical publication not yet Product Owner authorized"
     ]
   },
   "visual_asset_management_system": {
@@ -3871,7 +3868,7 @@
     "approval_commit": "5ec3a58224b9fc49688481c6f07533f87c9f7b82"
   },
   "n21_castle_entrance_door_identity_reference_v001": {
-    "status": "DETERMINISTIC BUILD PASS / TWO-RUN EXACT VERIFIED / PRODUCT OWNER VISUAL REVIEW REQUIRED / NOT CANONICAL",
+    "status": "PRODUCT OWNER VISUAL APPROVED / EXACT BINARY VERIFIED / CANONICAL PUBLICATION AUTHORIZATION REQUIRED",
     "reference_id": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001",
     "source": "AST_IMG_000052｜SCENE_CASTLE_ENTRANCE｜SCENE_MASTER｜DAY_DOOR_OPEN",
     "crop_plan_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_exact_crop_plan_v0_1.md",
@@ -3906,6 +3903,9 @@
       "exact_verification": "PASS",
       "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_build_record_2026-10-03.md"
     },
-    "product_owner_visual_approved": false
+    "product_owner_visual_approved": true,
+    "visual_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_visual_approval_2026-10-03.md",
+    "visual_approval_commit": "075ec594eedeca1a4a03708e91529b8cbab7b2ca",
+    "canonical_publication_authorized": false
   }
 }
