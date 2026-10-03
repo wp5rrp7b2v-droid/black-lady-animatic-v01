@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "asset_role": "GENERIC_GUEST_CROWD_REAR_3Q_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_REAR_3Q_IDENTITY",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.png",
+  "output": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bit_depth": 8,
+    "byte_size": 2373958,
+    "sha256": "52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756",
+    "git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400"
+  },
+  "approved_binary": {
+    "approved_candidate": "REAR_3Q Candidate 01",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-03",
+    "decision": "APPROVED_AS_IS",
+    "byte_size": 2373958,
+    "sha256": "52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756",
+    "staging_path": "staging/generic_guest_crowd_core_set_v001_rear_3q_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_CANDIDATE_01_APPROVED.png",
+    "staging_git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400",
+    "candidate_02_status": "NOT_GENERATED_NOT_REQUIRED"
+  },
+  "identity_board": {
+    "layout": "2_ROWS_X_5_COLUMNS",
+    "top_row": [
+      "Guest A",
+      "Guest B",
+      "Guest C",
+      "Guest D",
+      "Guest E"
+    ],
+    "bottom_row": [
+      "Guest F",
+      "Guest G",
+      "Guest H",
+      "Guest I",
+      "Guest J"
+    ],
+    "sex_distribution": {
+      "Guest A": "FEMALE",
+      "Guest B": "FEMALE",
+      "Guest C": "FEMALE",
+      "Guest D": "FEMALE",
+      "Guest E": "FEMALE",
+      "Guest F": "FEMALE",
+      "Guest G": "MALE",
+      "Guest H": "MALE",
+      "Guest I": "MALE",
+      "Guest J": "MALE"
+    },
+    "orientation": "BACK_DOMINANT_REAR_3Q_APPROX_135_DEGREES_FROM_FRONT",
+    "primary_rule": "APPROVED_REAR_3Q_PIXELS_ARE_THE_PRIMARY_REAR_3Q_RENDERING_AUTHORITY",
+    "global_identity_rule": "FRONT_CANONICAL_AUTHORITY_REMAINS_PRIMARY_FOR_GLOBAL_IDENTITY_DEFINING_TRAITS",
+    "side_geometry_rule": "LEFT_PROFILE_CANONICAL_AUTHORITY_IS_SECONDARY_SIDE_GEOMETRY_CONTINUITY"
+  },
+  "accepted_tolerance": {
+    "guest_i_observation": [
+      "Muscular build, black sleeveless top and short hairstyle remain acceptable.",
+      "Visible tattoo rendering is not pixel-identical to FRONT."
+    ],
+    "product_owner_decision": "ACCEPTED_AS_MINOR_REAR_3Q_ORIENTATION_RENDERING_TOLERANCE",
+    "propagation_rule": "Do not propagate tattoo rendering variation as a new global identity definition. BACK must resolve identity-defining global traits against FRONT authority."
+  },
+  "governance": {
+    "p0_2_asset_registry_record": false,
+    "reason": "Project-level controlled human identity board governed in P0.3 controlled-reference layer.",
+    "not_story_shot": true,
+    "not_character_sheet": true,
+    "does_not_replace_named_character_atomic_assets": true,
+    "reusable_project_level_reference": true
+  },
+  "source_lineage": {
+    "front_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "left_profile_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE",
+    "rear_3q_design": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 REAR 3/4 Design V0.1",
+    "input_bundle": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_REFERENCE_DELIVERY_BUNDLE_V001",
+    "input_bundle_run_id": 37089953015,
+    "input_bundle_artifact_id": 11261897342,
+    "input_bundle_artifact_digest": "sha256:02209b2d41f49da188e2a2deb76dfcf08d918ba88a7446918a18817dff848c2b",
+    "generation_authorization_commit": "621e1a465f420da9e06c640851ed9fd2304b8d45",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_candidate_01_approval_2026-10-03.md",
+    "approval_record_commit": "c0492ef43efd9877776b8d6d696180ce5eda2154",
+    "generation_context": "WORK CLEAN REGENERATION / REAR_3Q / PRODUCT OWNER APPROVED CANDIDATE 01"
+  },
+  "usage_boundary": {
+    "may_control": [
+      "Guest A-J approved REAR_3Q rendering continuity",
+      "Guest A-J side-back silhouette and hairstyle continuity",
+      "Guest A-J approved rear-three-quarter garment silhouette and footwear continuity",
+      "future crowd-shot REAR_3Q identity continuity when separately authorized",
+      "future BACK generation as a secondary orientation reference together with FRONT"
+    ],
+    "must_not_control": [
+      "Story Shot composition",
+      "scene environment",
+      "scene lighting",
+      "crowd blocking unless separately designed",
+      "named-character identity",
+      "automatic authorization of BACK generation",
+      "automatic authorization of N21 or N23 generation",
+      "redefinition of FRONT-locked global body-build or identity-defining tattoo traits"
+    ]
+  },
+  "orientation_governance": {
+    "completed": [
+      "FRONT",
+      "LEFT_PROFILE",
+      "REAR_3Q"
+    ],
+    "next_required_order": [
+      "BACK"
+    ],
+    "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
+    "global_identity_primary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "side_geometry_secondary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE",
+    "generation_authorized": false,
+    "scope_amendment": {
+      "status": "PRODUCT_OWNER_APPROVED_LOCKED",
+      "date": "2026-10-03",
+      "record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md",
+      "replaced": "RIGHT_PROFILE",
+      "replacement": "REAR_3Q"
+    }
+  },
+  "publication": {
+    "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.json",
+    "request_commit": "360b46e803bcc9c1390c1baa6967b8b39aa1be7f",
+    "publication_commit": "52797ee337f4b346dafd6801739058d11cdfc221",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd REAR 3Q V001 Intake Verify",
+    "workflow_run_id": 37091008292,
+    "job_id": 111111161404,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "post_publication_verification": {
+    "workflow": "Generic Guest Crowd REAR 3Q V001 Canonical Verify",
+    "workflow_run_id": 37091086745,
+    "job_id": 111111398380,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756",
+    "verified_git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400",
+    "verified_byte_size": 2373958,
+    "verified_dimensions": "1536x1024",
+    "verified_mode": "RGBA",
+    "verified_bit_depth": 8
+  }
+}
