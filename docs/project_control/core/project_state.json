@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R242",
+  "state_revision": "R243",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST FRONT + LEFT_PROFILE + REAR_3Q CLOSED / BACK CANDIDATE 01 PO APPROVED / EXACT INTAKE PENDING / N21 HOLD / N22 CLOSED / N23 C02 PAUSED",
+  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST CROWD CORE SET V001 CLOSED / N21 HOLD / N22 CLOSED / N23 C02 PAUSED / STORY SHOT RE-ENTRY DECISION NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜BACK Candidate 01 Exact Binary Intake",
-  "blocker": "Product Owner approved BACK Candidate 01 as-is. Exact binary identity is locked; GitHub staging delivery and intake verification are pending. Candidate 02 is not required. N21 remains HOLD; N23 Candidate 02 remains paused.",
-  "next_action": "Deliver the exact approved BACK Candidate 01 PNG unchanged to the designated GitHub staging path. Intake verifier must return exact binary PASS before canonical publication and final Generic Guest Core Set V001 closeout.",
+  "current_task": "P0.3｜Story Shot Re-entry Decision after Generic Guest Crowd Core Set V001 Closeout",
+  "blocker": "Generic Guest Crowd Core Set V001 has no remaining orientation blocker. N21 remains unresolved/HOLD and N23 Candidate 02 remains paused. No Story Shot generation is currently authorized.",
+  "next_action": "Product Owner selects the next Story Shot re-entry path: revisit N21 using the completed Generic Guest Crowd Core Set V001, or resume N23 Candidate 02 from its paused gate. Do not generate either path until separately authorized.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "LOCAL SYNC NOT VERIFIED THIS SESSION / GITHUB MAIN NOW AHEAD WITH 2026-10-03 REAR_3Q AUTHORITY CLOSEOUT",
+    "status": "LOCAL SYNC NOT VERIFIED THIS SESSION / GITHUB MAIN NOW AHEAD WITH 2026-10-03 GENERIC GUEST CROWD CORE SET V001 CLOSEOUT",
     "rule": "After the 2026-09-23 Project Control closeout is merged to GitHub main, run git status first. If there are no tracked local changes, pull main with --ff-only; preserve known untracked local items. If ordinary network pull fails, use the verified git-proxy-auto recovery path.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status && git pull --ff-only origin main",
     "conflict_rule": "If tracked changes, binary assets, parallel Codex work, or conflict risk exists, check git status before pull and do not overwrite mechanically.",
@@ -79,7 +79,7 @@
       "production/audio/",
       "production/image_library/working/"
     ],
-    "target": "R235 / GENERIC GUEST REAR_3Q AUTHORITY CLOSED / BACK DESIGN NEXT"
+    "target": "R243 / GENERIC GUEST CROWD CORE SET V001 CLOSED / STORY SHOT RE-ENTRY DECISION NEXT"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -114,21 +114,28 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-GENERIC-GUEST-BACK-C01-APPROVAL-R242",
-    "status": "BACK CANDIDATE 01 PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING",
+    "id": "2026-10-03-GENERIC-GUEST-CORE-SET-V001-CLOSEOUT-R243",
+    "status": "GENERIC GUEST CROWD CORE SET V001 CLOSED / FOUR AUTHORITIES CANONICAL + EXACT VERIFIED",
     "completed": [
-      "BACK Candidate 01 Product Owner approved as-is.",
-      "Candidate 02 not required.",
-      "Approved binary locked at 1536x1024 RGBA PNG / 2378771 bytes.",
-      "SHA-256 = dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f.",
-      "Git blob = dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f.",
-      "BACK exact intake verifier installed.",
-      "FRONT remains primary global identity authority; REAR_3Q secondary; LEFT_PROFILE tertiary; FRONT WINS."
+      "FRONT Authority CLOSED.",
+      "LEFT_PROFILE Authority CLOSED.",
+      "REAR_3Q Authority CLOSED.",
+      "BACK Authority CLOSED.",
+      "Final orientation set = FRONT / LEFT_PROFILE / REAR_3Q / BACK.",
+      "RIGHT_PROFILE remains cancelled and replaced by REAR_3Q.",
+      "All four Canonical PNGs and manifests are present.",
+      "All four orientation manifests resolve v001_orientation_set_status=COMPLETE.",
+      "BACK exact intake run 37094715518 / job 111122177202 PASS.",
+      "BACK exact-blob canonical publication commit 19232cdeb24602aaf6b0cb07de6fdb45869e833c.",
+      "BACK canonical verification run 37094791472 / job 111122397922 PASS.",
+      "BACK manifest commit b6c6f9fdcf0017f1f635c75229f385cded284888.",
+      "BACK temporary staging and verifier resources cleaned.",
+      "Generic Guest Crowd Core Set V001 closeout recorded.",
+      "No Story Shot generation authorized by closeout."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_back_candidate_01_approval_2026-10-03.md",
-    "resume_from": "BACK APPROVED BINARY GITHUB STAGING DELIVERY",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_closeout_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER STORY SHOT RE-ENTRY DECISION",
     "blockers": [
-      "BACK exact binary intake pending",
       "N21 unresolved / HOLD",
       "N23 Candidate 02 paused"
     ]
@@ -2917,7 +2924,7 @@
     "candidate_02_authorized": false
   },
   "black_lady_generic_guest_crowd_core_set_v001": {
-    "status": "IN PROGRESS / FRONT AUTHORITY CLOSED / LEFT_PROFILE AUTHORITY CLOSED / REAR_3Q AUTHORITY CLOSED / BACK CANDIDATE 01 APPROVED / EXACT INTAKE PENDING",
+    "status": "CLOSED / PRODUCT OWNER APPROVED / FOUR ORIENTATION AUTHORITIES CANONICAL / EXACT VERIFIED / MANIFESTED",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_asset_design_v0_1.md",
     "asset_role": "PROJECT_LEVEL_REUSABLE_ANONYMOUS_GUEST_CROWD_ASSET_SET",
     "guest_count": 10,
@@ -2946,7 +2953,7 @@
     "n21_blocker_resolved": false,
     "n23_candidate_02_authorized": false,
     "generation_authorized": false,
-    "next_step": "BACK APPROVED BINARY STAGING DELIVERY + EXACT INTAKE VERIFICATION",
+    "next_step": "NONE WITHIN V001 / STORY SHOT RE-ENTRY REQUIRES SEPARATE PRODUCT OWNER DECISION",
     "gender_distribution": {
       "female": 6,
       "male": 4,
@@ -3270,11 +3277,10 @@
     "completed_views": [
       "FRONT",
       "LEFT_PROFILE",
-      "REAR_3Q"
-    ],
-    "remaining_views": [
+      "REAR_3Q",
       "BACK"
     ],
+    "remaining_views": [],
     "rear_3q_authority": {
       "status": "PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED",
       "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
@@ -3380,7 +3386,7 @@
       "candidate_01_authorized": true
     },
     "back_candidate_01": {
-      "status": "PRODUCT OWNER APPROVED AS-IS / EXACT BINARY LOCKED / INTAKE PENDING",
+      "status": "PRODUCT OWNER APPROVED AS-IS / CANONICALIZED / CLOSED",
       "mode": "CLEAN REGENERATION",
       "output_limit": "EXACTLY 1 PNG",
       "target_dimensions": "1536x1024",
@@ -3403,7 +3409,50 @@
       "approval_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_back_candidate_01_approval_2026-10-03.md",
       "approval_commit": "52c1208f4df6e23fd6ad69ab1112254a684e63bd",
       "candidate_02": "NOT GENERATED / NOT REQUIRED",
-      "staging_path": "staging/generic_guest_crowd_core_set_v001_back_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_CANDIDATE_01_APPROVED.png"
+      "staging_path": "staging/generic_guest_crowd_core_set_v001_back_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_CANDIDATE_01_APPROVED.png",
+      "intake_run": 37094715518,
+      "intake_job": 111122177202,
+      "publication_request_commit": "8ac680ffcedcdca684a1bccbaadee1372d1d261a",
+      "publication_commit": "19232cdeb24602aaf6b0cb07de6fdb45869e833c",
+      "canonical_verify_run": 37094791472,
+      "canonical_verify_job": 111122397922
+    },
+    "closeout": {
+      "status": "FORMALLY CLOSED",
+      "path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_closeout_2026-10-03.md",
+      "closeout_commit": "21e0db59f63537fdebb907539a3ea587ebae6051",
+      "completed_views": [
+        "FRONT",
+        "LEFT_PROFILE",
+        "REAR_3Q",
+        "BACK"
+      ],
+      "remaining_views": [],
+      "story_shot_generation_authorized": false
+    },
+    "back_authority": {
+      "status": "PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED",
+      "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK",
+      "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.png",
+      "manifest_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.manifest.json",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bit_depth": 8,
+      "byte_size": 2378771,
+      "sha256": "dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f",
+      "git_blob": "dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f",
+      "approved_candidate": "BACK Candidate 01",
+      "intake_run": 37094715518,
+      "intake_job": 111122177202,
+      "publication_request_commit": "8ac680ffcedcdca684a1bccbaadee1372d1d261a",
+      "publication_commit": "19232cdeb24602aaf6b0cb07de6fdb45869e833c",
+      "canonical_verify_run": 37094791472,
+      "canonical_verify_job": 111122397922,
+      "manifest_commit": "b6c6f9fdcf0017f1f635c75229f385cded284888",
+      "global_identity_primary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+      "rear_geometry_secondary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
+      "side_geometry_tertiary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE"
     }
   }
 }
