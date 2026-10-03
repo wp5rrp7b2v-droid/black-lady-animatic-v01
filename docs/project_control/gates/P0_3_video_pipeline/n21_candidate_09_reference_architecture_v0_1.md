@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / ONE DIRECT VISUAL INPUT / NO BUNDLE BUILD AUTHORIZED`
+`SUPERSEDED BEFORE PRODUCT OWNER APPROVAL / REPLACED BY V0.2 AFTER GENERIC GUEST CORE SET REVIEW`
 
 Target:
 
@@ -263,3 +263,22 @@ Not authorized:
 - any new controlled reference;
 - Candidate 10;
 - N21 publication / registration.
+
+
+---
+
+## Supersession Note｜2026-10-03
+
+This proposal was superseded before Product Owner approval.
+
+Reason:
+
+The project already has a completed four-orientation controlled identity set:
+
+`BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001`
+
+The earlier proposal unnecessarily preferred the older N21-specific Body/Wardrobe reference.
+
+See:
+
+`n21_candidate_09_reference_architecture_v0_2.md`
