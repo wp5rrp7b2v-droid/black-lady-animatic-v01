@@ -3631,3 +3631,25 @@ Status: PRODUCT OWNER DESIGN APPROVED / 5 OF 5 EXACT PASS / NO ARTIFACT / FORMAL
 - Next: Product Owner authorization for formal Bundle V002 build.
 - Candidate 02 Work generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜N23 Reference Delivery Bundle V002 Formal Build
+
+Status: FORMAL BUILD PASS / 5 OF 5 EXACT / INDEPENDENT ARTIFACT VERIFIED / C02 AUTHORIZATION NEXT
+
+- Spec: V002-R2 / build_authorized=true.
+- Authorization commit: bb3d8b81783d94cf5fd184daabec2c9cafd55d96.
+- Builder run: 37100328417.
+- Job: 111138426904.
+- Builder result: PASS 5/5 exact canonical reference binaries.
+- GENERATION_ALLOWED=TRUE.
+- Artifact ID: 11266325099.
+- Artifact size: 10,790,371 bytes.
+- Artifact digest: sha256:24b35e78f7bdcdfba6a2dfbfdb59d1cf1f1aefd0bcd97df2fdaa8202d97d7741.
+- Independent ZIP digest: MATCH.
+- Independent five-PNG size/SHA/Git-blob verification: PASS.
+- delivery_manifest.json: PASS / 5 references / byte-identical copies.
+- WORK_HANDOFF.md: PASS against N23 Scene Reference V0.2.1 + Candidate 02 Correction Strategy V0.2.
+- Build record: docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v002_build_record_2026-10-03.md.
+- Project State advanced to R248.
+- Dashboard advanced to V183.
+- Candidate 02 Work generation remains NOT AUTHORIZED.
+
