@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_visual_approval_2026-10-03.md"
+      - "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_visual_approval_2026-10-03.md"\n      - ".github/workflows/n23-door-control-reference-v001-publish.yml"
 
 permissions:
   contents: write
@@ -89,8 +89,8 @@ jobs:
             "product_owner_visual_approval_date":"2026-10-03",
             "camera_composition_inheritance":"FORBIDDEN",
             "semantic_scope":"DOOR IDENTITY / RIGHT DOOR LEAF / MATERIAL / OPEN STATE / LOCAL NEIL-SIDE RELATION ONLY",
-            "bundle_v003_authorized":false,
-            "candidate_03_generation_authorized":false
+            "bundle_v003_authorized":False,
+            "candidate_03_generation_authorized":False
           }
           Path("production/controlled_references/n23/N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001.manifest.json").write_text(
             json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
