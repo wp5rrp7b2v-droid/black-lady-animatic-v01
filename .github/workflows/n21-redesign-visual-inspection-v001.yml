@@ -32,6 +32,8 @@ jobs:
           cp "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE.png" "$OUT/07_GUEST_LEFT_PROFILE.png"
           cp "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.png" "$OUT/08_GUEST_REAR_3Q.png"
           cp "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.png" "$OUT/09_GUEST_BACK.png"
+          cp "production/environment_references/n21_threshold_transition/N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001.png" "$OUT/10_N21_THRESHOLD_ENV.png"
+          cp "production/human_references/n21_crowd_body_wardrobe/N21_CROWD_BODY_WARDROBE_REFERENCE_V001.png" "$OUT/11_N21_OLD_BODY_WARDROBE.png"
 
           cd "$OUT"
           sha256sum *.png > SHA256SUMS.txt
