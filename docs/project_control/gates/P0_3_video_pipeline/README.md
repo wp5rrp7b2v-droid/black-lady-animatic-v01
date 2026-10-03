@@ -1715,3 +1715,66 @@ Resume next session from:
 
 Do not generate LEFT PROFILE before Product Owner approval of its design and subsequent delivery gates.
 
+## P0.3 End-of-Day Closeout｜2026-10-03
+
+Status:
+
+`COMPLETE / PROJECT CONTROL SYNCHRONIZED / GENERIC GUEST V001 CLOSED / STORY SHOT RE-ENTRY DECISION NEXT`
+
+Major completion:
+
+`BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001`
+
+Final status:
+
+`PRODUCT OWNER APPROVED / FOUR ORIENTATION AUTHORITIES CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+Final orientation set:
+
+- FRONT
+- LEFT_PROFILE
+- REAR_3Q
+- BACK
+
+RIGHT_PROFILE remains formally cancelled and replaced by REAR_3Q.
+
+All four orientation manifests now resolve:
+
+- `completed = FRONT / LEFT_PROFILE / REAR_3Q / BACK`
+- `next_required_order = []`
+- `v001_orientation_set_status = COMPLETE`
+
+BACK final exact evidence:
+
+- canonical: `production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.png`
+- exact binary: `1536×1024 / RGBA / 8-bit / 2,378,771 bytes`
+- SHA-256: `dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f`
+- Git blob: `dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f`
+- intake verification: `37094715518 / 111122177202 / PASS`
+- canonical publication: `19232cdeb24602aaf6b0cb07de6fdb45869e833c`
+- canonical verification: `37094791472 / 111122397922 / PASS`
+
+Core Set closeout:
+
+`docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_closeout_2026-10-03.md`
+
+Current Story Shot state:
+
+- N21: `HOLD / UNRESOLVED`; Generic Guest V001 is now available but does not automatically resolve N21 composition/environment problems.
+- N22: `FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED`.
+- N23 Candidate 01: `NOT APPROVED / DIAGNOSTIC ONLY`.
+- N23 Scene Reference V0.2.1: `PRODUCT OWNER APPROVED / LOCKED`.
+- N23 Candidate 02: `PAUSED / ASSET DEPENDENCY SATISFIED / PRODUCT OWNER RE-ENTRY AUTHORIZATION REQUIRED`.
+
+Current resume point:
+
+`PRODUCT OWNER STORY SHOT RE-ENTRY DECISION`
+
+No Story Shot generation is automatically authorized.
+
+Daily closeout record:
+
+`docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md`
+
+Before the next local production session, local `main` must be fast-forward synced to the final remote HEAD and verified by exact SHA.
+
