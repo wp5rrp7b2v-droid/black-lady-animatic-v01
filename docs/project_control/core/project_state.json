@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R279",
+  "state_revision": "R280",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 FORMALLY CLOSED + CANONICAL + REGISTERED + VERIFIED / N22 + N23 CLOSED / RISK-003 RESOLVED / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / END-OF-DAY CLOSEOUT COMPLETE / N21 + N22 + N23 CLOSED / RISK-003 RESOLVED / N24 UNSTARTED / LOCAL SYNC TO VERIFY NEXT SESSION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "Post-N21 checkpoint｜N21 / N22 / N23 Closed｜N24 Unstarted",
-  "blocker": "N21 has no remaining blocker. RISK-003 exit condition is satisfied. No current Story Shot production blocker is recorded for N21–N23.",
-  "next_action": "Select the next production focus. The downstream unstarted node is N24; N21 requires no further Story Shot production action unless later assembly/timeline work reopens it.",
+  "current_task": "END OF DAY｜2026-10-03｜Closeout Complete",
+  "blocker": "No active N21-N23 Story Shot blocker. Local repository sync remains to be verified on the user's Mac at next session start.",
+  "next_action": "At next session start, verify local main sync against GitHub, then decide whether to start N24. Do not reopen N21 unless later assembly/timeline review creates a concrete need.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-FORMAL-CLOSEOUT-R279",
-    "status": "N21 COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / RISK-003 RESOLVED",
+    "id": "2026-10-03-EOD-CLOSEOUT-R280",
+    "status": "END-OF-DAY CLOSEOUT COMPLETE / N21-N23 CLOSED / N24 UNSTARTED / LOCAL SYNC NEXT SESSION",
     "completed": [
-      "Final N21 Candidate 09 Product Owner-approved exact binary intake verified.",
-      "Product Owner-approved 941x1671 exact-binary dimension exception verified and locked.",
-      "Candidate Intake Verification run 37130567985 / job 111224676116 passed exact SHA / bytes / Git blob / dimensions.",
-      "Canonical exact-blob publication run 37130670997 / job 111224968709 passed.",
-      "Canonical path = production/image_library/approved/story_shots/N21_COHORT_ENTERS_INSIDE_THE_FLOW_APPROVED_V001.png.",
-      "Canonical Git blob preserved = 3224760c7e5bb622679d6b4f10f4817050fa6197.",
-      "Story Shot Index registration commit = 1c8ec42728f05041fb6cafea20c821d034b2fcfe.",
-      "Registration Verification run 37130794885 / job 111225320453 passed.",
-      "RISK-003 exit condition satisfied and risk resolved for N21.",
-      "N21 is formally closed."
+      "Cross-checked GitHub main, Project State, Dashboard, Story Shot Index, N21 closeout and RISK-003.",
+      "N21 exact approved binary intake, canonical publication, registration and verification all PASS.",
+      "N21 / N22 / N23 are CLOSED / CANONICAL / REGISTERED / VERIFIED.",
+      "RISK-003 is RESOLVED / CLOSED.",
+      "Story Shot Index contains 29 APPROVED / CURRENT Story Shots.",
+      "2026-10-03 Daily Closeout updated to final end-of-day state.",
+      "N24 remains UNSTARTED and is not authorized by closeout.",
+      "Local Mac sync is deferred to next session start and must be verified before local production work."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n21_story_shot_registration_closeout_2026-10-03.md",
-    "resume_from": "POST-N21 CHECKPOINT / N24 UNSTARTED",
-    "blockers": []
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md",
+    "resume_from": "LOCAL MAIN SYNC VERIFICATION → N24 START DECISION",
+    "blockers": [
+      "LOCAL MAIN SYNC TO VERIFY NEXT SESSION"
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
