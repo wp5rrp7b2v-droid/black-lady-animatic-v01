@@ -2,7 +2,7 @@
 
 Status:
 
-`PROPOSED / SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED AND INCORPORATED / FINAL ARCHITECTURE APPROVAL STILL REQUIRED / DIRECT VISUAL CAP = 5 / CURRENT PLANNED INPUTS = 4`
+`PRODUCT OWNER APPROVED / LOCKED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / DIRECT VISUAL CAP = 5 / CURRENT PLANNED INPUTS = 4 / DOOR CONTROL EXACT CROP PLAN DESIGN AUTHORIZED`
 
 Date:
 
@@ -270,13 +270,17 @@ Only then:
 
 Status:
 
-`PROPOSED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / NEXT = DOOR CONTROL EXACT CROP PLAN DESIGN`
 
 Product Owner has approved two targeted architecture corrections:
 
 - `AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
 - `CANCEL N23_N22_MOTION_OBSERVATION_REFERENCE_V001 / CURRENT ATTEMPT USES 4 DIRECT VISUAL INPUTS`
 
-The complete corrected architecture is still waiting final Product Owner approval.
+The complete corrected architecture is Product Owner approved and locked.
 
-No Door Control build, Bundle V003 work, or image generation is authorized.
+Authorized next step:
+
+`N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan` design only.
+
+No actual crop execution, Door Control build, Bundle V003 work, or image generation is authorized.
