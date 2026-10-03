@@ -3491,3 +3491,20 @@ Status: PASS / 3 OF 3 EXACT / INDEPENDENT ARTIFACT VERIFIED
 - Next: separate Product Owner authorization for BACK Candidate 01 generation.
 - BACK Candidate 01 generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd BACK Candidate 01 Authorization
+
+Status: PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT
+
+- Formal Bundle: BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_REFERENCE_DELIVERY_BUNDLE_V001.
+- Artifact: 11263271340.
+- Artifact digest: sha256:8c53088da68965c4963b599fe79769a7ed3d836cdbab9e86c4b541d52ff55b1d.
+- Pre-generation exact verification: 3/3 REQUIRED.
+- Mode: CLEAN REGENERATION.
+- Output limit: EXACTLY 1 PNG.
+- Target: 1536×1024 / 2×5 / Guest A–J / BACK.
+- Authority hierarchy: FRONT primary / REAR_3Q secondary / LEFT_PROFILE tertiary / FRONT WINS.
+- Authorization record commit: 6015f22fd29b87c378e25edc07894e21b7ca37a6.
+- Project State advanced to R241.
+- Dashboard advanced to V176.
+- Candidate 02 / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
+
