@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "asset_role": "GENERIC_GUEST_CROWD_LEFT_PROFILE_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_LEFT_PROFILE_IDENTITY",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE.png",
+  "output": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "format": "PNG",
+    "bit_depth": 8,
+    "byte_size": 1686189,
+    "sha256": "15cc28a4cc54dd32ba9fdf7825be6a9402f22b1be19d59e74d1ad1656d238ba1",
+    "git_blob": "67d07640938163d53af347c4cd4988c2554ffe91"
+  },
+  "approved_binary": {
+    "approved_candidate": "LEFT PROFILE Candidate 01",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-03",
+    "decision": "APPROVED_AS_IS_NO_FURTHER_EDIT",
+    "byte_size": 1686189,
+    "sha256": "15cc28a4cc54dd32ba9fdf7825be6a9402f22b1be19d59e74d1ad1656d238ba1",
+    "staging_path": "staging/generic_guest_crowd_core_set_v001_left_profile_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE_CANDIDATE_01_APPROVED.png",
+    "staging_git_blob": "67d07640938163d53af347c4cd4988c2554ffe91",
+    "candidate_02_status": "NOT_GENERATED_NOT_REQUIRED"
+  },
+  "identity_board": {
+    "layout": "2_ROWS_X_5_COLUMNS",
+    "top_row": [
+      "Guest A",
+      "Guest B",
+      "Guest C",
+      "Guest D",
+      "Guest E"
+    ],
+    "bottom_row": [
+      "Guest F",
+      "Guest G",
+      "Guest H",
+      "Guest I",
+      "Guest J"
+    ],
+    "sex_distribution": {
+      "Guest A": "FEMALE",
+      "Guest B": "FEMALE",
+      "Guest C": "FEMALE",
+      "Guest D": "FEMALE",
+      "Guest E": "FEMALE",
+      "Guest F": "FEMALE",
+      "Guest G": "MALE",
+      "Guest H": "MALE",
+      "Guest I": "MALE",
+      "Guest J": "MALE"
+    },
+    "orientation": "LEFT_PROFILE_FACE_NOSE_TOWARD_SCREEN_LEFT",
+    "primary_rule": "APPROVED_LEFT_PROFILE_PIXELS_ARE_THE_PRIMARY_LEFT_PROFILE_RENDERING_AUTHORITY",
+    "global_identity_rule": "FRONT_CANONICAL_AUTHORITY_REMAINS_PRIMARY_FOR_GLOBAL_IDENTITY_DEFINING_TRAITS"
+  },
+  "accepted_tolerance": {
+    "guest_i_observation": [
+      "Muscular build appears somewhat reduced relative to FRONT.",
+      "Visible tattoo pattern differs from FRONT."
+    ],
+    "product_owner_decision": "ACCEPTED_AS_IS",
+    "propagation_rule": "Do not propagate these deviations as new global identity definitions. Future RIGHT PROFILE / BACK must resolve identity-defining global traits against FRONT authority."
+  },
+  "governance": {
+    "p0_2_asset_registry_record": false,
+    "reason": "Project-level controlled human identity board governed in P0.3 controlled-reference layer.",
+    "not_story_shot": true,
+    "not_character_sheet": true,
+    "does_not_replace_named_character_atomic_assets": true,
+    "reusable_project_level_reference": true
+  },
+  "source_lineage": {
+    "front_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "left_profile_design": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 LEFT PROFILE Design V0.1",
+    "input_bundle": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE_REFERENCE_DELIVERY_BUNDLE_V001",
+    "input_bundle_run_id": 37085478707,
+    "input_bundle_artifact_id": 11260528188,
+    "input_bundle_artifact_digest": "sha256:66f870b5e215b648909bcff7a9670f19631c8a386cec75e42c2417731cecafaa",
+    "generation_authorization_commit": "548b569b9d23ef7f56b6ddca6677d72a22ef9f09",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_left_profile_candidate_01_approval_2026-10-03.md",
+    "approval_record_commit": "d6d761aeb065fd8f4ae9c0b67cba748ea22673ee",
+    "generation_context": "WORK CLEAN REGENERATION / LEFT PROFILE / PRODUCT OWNER APPROVED CANDIDATE 01"
+  },
+  "usage_boundary": {
+    "may_control": [
+      "Guest A-J approved LEFT PROFILE rendering continuity",
+      "Guest A-J left-side silhouette and hairstyle continuity",
+      "Guest A-J approved side-view garment silhouette and footwear continuity",
+      "future crowd-shot left-profile identity continuity when separately authorized",
+      "future RIGHT PROFILE / BACK generation as a secondary orientation reference together with FRONT"
+    ],
+    "must_not_control": [
+      "Story Shot composition",
+      "scene environment",
+      "scene lighting",
+      "crowd blocking unless separately designed",
+      "named-character identity",
+      "automatic authorization of RIGHT PROFILE / BACK generation",
+      "automatic authorization of N21 or N23 generation",
+      "redefinition of FRONT-locked global body-build or identity-defining tattoo traits"
+    ]
+  },
+  "orientation_governance": {
+    "completed": [
+      "FRONT",
+      "LEFT_PROFILE"
+    ],
+    "next_required_order": [
+      "RIGHT_PROFILE",
+      "BACK"
+    ],
+    "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
+    "global_identity_primary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "generation_authorized": false
+  },
+  "publication": {
+    "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE.json",
+    "request_commit": "acd7422ce6fb8b0cbc94cf7f7e6eb0491d116467",
+    "publication_commit": "f2120c4a39691b63619ceb26e724789e2aa66e85",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd LEFT PROFILE V001 Intake Verify",
+    "workflow_run_id": 37087159946,
+    "job_id": 111099737004,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "post_publication_verification": {
+    "workflow": "Generic Guest Crowd LEFT PROFILE V001 Canonical Verify",
+    "workflow_run_id": 37087230188,
+    "job_id": 111099938256,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "15cc28a4cc54dd32ba9fdf7825be6a9402f22b1be19d59e74d1ad1656d238ba1",
+    "verified_git_blob": "67d07640938163d53af347c4cd4988c2554ffe91",
+    "verified_byte_size": 1686189,
+    "verified_dimensions": "1536x1024",
+    "verified_mode": "RGB",
+    "verified_bit_depth": 8
+  }
+}
