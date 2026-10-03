@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER VISUAL REVIEW REQUIRED / CROP EXECUTION NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / CROP RECTANGLE AUTHORITY ESTABLISHED / CROP EXECUTION NOT YET AUTHORIZED`
 
 Supersedes:
 
@@ -98,7 +98,7 @@ Those broader facts remain governed by locked N23 Scene Reference / parent Scene
 
 ## 4. PASS criteria
 
-Pass only if Product Owner confirms that:
+Product Owner confirmed this V0.2 plan. Locked acceptance basis:
 
 - the selected side is the correct Neil-side door;
 - enough of the right door leaf is visible to identify the same approved entrance;
@@ -121,7 +121,7 @@ Reject / redesign if:
 
 Current authorization:
 
-`EXACT CROP PLAN DESIGN ONLY`
+`EXACT CROP PLAN V0.2 PRODUCT OWNER APPROVED / LOCKED`
 
 Not authorized:
 
@@ -133,4 +133,4 @@ Not authorized:
 
 Next gate:
 
-`PRODUCT OWNER VISUAL APPROVAL OF V0.2`
+`DETERMINISTIC CROP BUILD PREPARATION / SEPARATE EXECUTION AUTHORIZATION REQUIRED`
