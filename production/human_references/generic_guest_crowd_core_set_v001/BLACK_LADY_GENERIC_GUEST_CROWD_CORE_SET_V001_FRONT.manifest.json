@@ -132,12 +132,13 @@
     "completed": [
       "FRONT",
       "LEFT_PROFILE",
-      "REAR_3Q"
-    ],
-    "next_required_order": [
+      "REAR_3Q",
       "BACK"
     ],
-    "rear_3q_status": "PRODUCT_OWNER_APPROVED_CANONICAL_EXACT_VERIFIED_MANIFESTED_CLOSED"
+    "next_required_order": [],
+    "rear_3q_status": "PRODUCT_OWNER_APPROVED_CANONICAL_EXACT_VERIFIED_MANIFESTED_CLOSED",
+    "v001_orientation_set_status": "COMPLETE",
+    "back_status": "PRODUCT_OWNER_APPROVED_CANONICAL_EXACT_VERIFIED_MANIFESTED_CLOSED"
   },
   "publication": {
     "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.json",
