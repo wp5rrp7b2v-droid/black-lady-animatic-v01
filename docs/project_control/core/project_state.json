@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R260",
+  "state_revision": "R261",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 C03 STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL PRODUCT OWNER APPROVED + CANONICAL + EXACT VERIFIED / BUNDLE V003 FOUR-INPUT DESIGN PROPOSED / PO REVIEW NEXT / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 C03 STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN PO APPROVED / SPEC V003-R2 / VALIDATION-ONLY 4 OF 4 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT / N21 HOLD / N22 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23_REFERENCE_DELIVERY_BUNDLE_V003｜4-Input Design V0.1｜Product Owner Review",
-  "blocker": "No Door Control blocker remains. Bundle V003 Design V0.1 is prepared with exactly four direct visual references. Product Owner approval of the Bundle design is required before Bundle V003 Spec / Validation-only / Formal Build.",
-  "next_action": "Product Owner reviews N23_REFERENCE_DELIVERY_BUNDLE_V003 Design V0.1. If approved, proceed to Bundle V003 Spec, Validation-only, then Formal Build. Do not generate Candidate 03 until a later explicit Product Owner generation authorization.",
+  "current_task": "N23_REFERENCE_DELIVERY_BUNDLE_V003｜Formal Build Authorization",
+  "blocker": "Bundle V003 Validation-only is complete: 4/4 exact PASS with build_authorized=false and zero Artifact. Formal Bundle V003 build requires separate Product Owner authorization.",
+  "next_action": "Product Owner decides whether to authorize Formal Bundle V003 Build. If authorized, change only build_authorized=true with a spec revision increment, run the builder, independently verify Artifact digest and all 4 delivered binaries, then stop before Candidate 03 generation authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,22 +118,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-BUNDLE-V003-DESIGN-R260",
-    "status": "DOOR CONTROL CANONICAL / BUNDLE V003 FOUR-INPUT DESIGN PROPOSED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N23-BUNDLE-V003-VALIDATION-PASS-R261",
+    "status": "BUNDLE V003 DESIGN APPROVED / SPEC V003-R2 / VALIDATION-ONLY 4 OF 4 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT",
     "completed": [
-      "Door Control built reference visually approved by Product Owner.",
-      "Door Control exact binary canonically published at production/controlled_references/n23/N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001.png.",
-      "Canonical SHA-256 = 5718ce8c68069ca41143d666406a8c4cec3c285837a861337da758769bbfb652.",
-      "Canonical Git blob = 88eaa11f441a4c7c341dcbde04cb9f529f9ca6af.",
-      "Canonical publication commit = 74c4cea6d52358e038e112427a411f9d348ede52.",
-      "Bundle V003 Design V0.1 prepared with exactly four direct visual inputs.",
-      "Camera/perspective/composition non-inheritance from Door Control is written directly into the Bundle design; no separate camera reference or patch was created.",
-      "Bundle V003 Spec / validation / formal build / Candidate 03 generation remain unauthorized."
+      "Bundle V003 Design V0.1 Product Owner approved and locked.",
+      "Four direct visual inputs remain unchanged; fifth slot remains unused.",
+      "Bundle V003 Spec created with build_authorized=false.",
+      "First validation attempt failed only because Door Control manifest lacked generic controlled-reference schema fields; no Artifact was created.",
+      "Door Control PNG binary remained unchanged during manifest repair.",
+      "Spec V003-R2 validation run 37108086450 / job 111160439110 passed 4/4 exact.",
+      "Validation-only run produced zero Artifact.",
+      "Candidate 03 generation remains unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_design_v0_1.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N23_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_validation_only_record_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER FORMAL BUILD AUTHORIZATION FOR N23_REFERENCE_DELIVERY_BUNDLE_V003",
     "blockers": [
-      "Bundle V003 Design not yet Product Owner approved",
+      "Formal Bundle V003 build not yet Product Owner authorized",
       "N21 unresolved / HOLD"
     ]
   },
@@ -3559,7 +3559,7 @@
       }
     },
     "candidate_03": {
-      "status": "STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN PROPOSED / PO REVIEW REQUIRED",
+      "status": "STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN APPROVED / VALIDATION 4 OF 4 PASS / FORMAL BUILD AUTHORIZATION REQUIRED",
       "generation_authorized": false,
       "direct_visual_reference_cap": 5,
       "planned_direct_inputs": [
@@ -3599,7 +3599,7 @@
       "door_control_crop_plan_design_authorized": true,
       "door_control_crop_execution_authorized": true,
       "door_control_crop_plan": {
-        "status": "PROPOSED / PRODUCT OWNER VISUAL REVIEW REQUIRED",
+        "status": "REJECTED / WRONG DOOR SIDE / SUPERSEDED BY V0.2",
         "path": "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_exact_crop_plan_v0_1.md",
         "proposal_commit": "7ab725c7bebc68e2c579e990e45f1a7421fe3b29",
         "source": "AST_IMG_000052",
@@ -3629,7 +3629,7 @@
         "height": 1265
       },
       "door_control_build_authorized": true,
-      "door_control_build_status": "PASS / TWO_RUN_BYTE_IDENTITY_PASS / VISUAL_APPROVAL_PENDING",
+      "door_control_build_status": "PASS / TWO_RUN_BYTE_IDENTITY_PASS / PRODUCT_OWNER_VISUAL_APPROVED / CANONICAL",
       "door_control_workflow_run": 37106490989,
       "door_control_job": 111155937737,
       "door_control_artifact_id": 11267754516,
@@ -3643,15 +3643,33 @@
       "door_control_canonical_commit": "74c4cea6d52358e038e112427a411f9d348ede52",
       "door_control_git_blob": "88eaa11f441a4c7c341dcbde04cb9f529f9ca6af",
       "bundle_v003_design": {
-        "status": "PROPOSED / PRODUCT OWNER REVIEW REQUIRED",
+        "status": "PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY COMPLETE",
         "path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_design_v0_1.md",
         "proposal_commit": "042b88c808d906e9bee02560ec9f2d408d87cb07",
+        "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_design_approval_2026-10-03.md",
+        "approval_commit": "d958b64699018052a1f33c2af3621d95820dbe06",
         "direct_visual_input_count": 4,
         "camera_patch_separate_file": false,
-        "camera_rule_location": "WRITTEN DIRECTLY IN BUNDLE V003 DESIGN / FUTURE WORK HANDOFF",
-        "spec_authorized": false,
-        "validation_authorized": false,
+        "camera_rule_location": "WRITTEN DIRECTLY IN BUNDLE V003 DESIGN / WORK HANDOFF",
+        "spec_authorized": true,
+        "validation_authorized": true,
         "formal_build_authorized": false
+      },
+      "bundle_v003_spec": {
+        "path": "production/bundle_specs/N23_REFERENCE_DELIVERY_BUNDLE_V003.json",
+        "revision": "V003-R2",
+        "commit": "6c7c4477bdd1e9feb4708958c9bc317a6079d21d",
+        "build_authorized": false
+      },
+      "bundle_v003_validation": {
+        "status": "PASS / 4 OF 4 EXACT / NO ARTIFACT",
+        "first_failed_run": 37108022878,
+        "first_failed_job": 111160258661,
+        "first_failure_reason": "Door Control manifest metadata schema mismatch; PNG binary unchanged.",
+        "pass_run": 37108086450,
+        "pass_job": 111160439110,
+        "artifact_count": 0,
+        "record": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_validation_only_record_2026-10-03.md"
       }
     }
   }
