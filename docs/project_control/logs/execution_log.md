@@ -3181,3 +3181,32 @@ Status: `COMPLETE / PROJECT CONTROL SYNCHRONIZED / NO FURTHER GENERATION AUTHORI
 - Next session resume point: local main sync first → `LEFT PROFILE Design V0.1`.
 - LEFT / RIGHT / BACK generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd LEFT PROFILE Authority Formal Closeout
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+- Design V0.1: Product Owner approved / locked.
+- Bundle Design V0.1.1: Product Owner approved / locked.
+- Bundle validation-only: run `37085242066` / `1/1 exact PASS`.
+- Formal Bundle Build: run `37085478707` / job `111094752923`.
+- Artifact: `11260528188` / 2,338,717 bytes / digest `sha256:66f870b5e215b648909bcff7a9670f19631c8a386cec75e42c2417731cecafaa`.
+- Candidate 01: only generated candidate / Product Owner approved as-is / no Candidate 02 required.
+- Approved binary: 1536×1024 / RGB / 8-bit / 1,686,189 bytes.
+- SHA-256: `15cc28a4cc54dd32ba9fdf7825be6a9402f22b1be19d59e74d1ad1656d238ba1`.
+- Git blob: `67d07640938163d53af347c4cd4988c2554ffe91`.
+- Guest I muscular-build reduction and tattoo-pattern variation are accepted as LEFT PROFILE tolerance only; FRONT remains primary global identity authority.
+- User upload preserved exact approved blob even though initial filename remained `十人左侧全身参考板.png`; standardized staging filename was created by exact Git-blob reuse.
+- Intake verification: run `37087159946` / job `111099737004` / exact PASS.
+- Publication request commit: `acd7422ce6fb8b0cbc94cf7f7e6eb0491d116467`.
+- Canonical publication: `f2120c4a39691b63619ceb26e724789e2aa66e85` / exact Git-blob reuse / no re-encode.
+- Canonical verification: run `37087230188` / job `111099938256` / exact PASS.
+- Manifest commit: `f4b2bbd21837545cf8607c884160a3efad9bb657`.
+- Temporary staging binaries and temporary intake/canonical verifiers removed.
+- Closeout path: `docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_left_profile_authority_closeout_2026-10-03.md`.
+- Project State advanced to `R226`.
+- Dashboard advanced to `V161`.
+- Next: `RIGHT PROFILE Design V0.1`.
+- RIGHT PROFILE / BACK generation remains NOT AUTHORIZED.
+- N21 remains HOLD / unresolved.
+- N23 Candidate 02 remains PAUSED / NOT AUTHORIZED.
+
