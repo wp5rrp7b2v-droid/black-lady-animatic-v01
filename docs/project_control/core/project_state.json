@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R266",
+  "state_revision": "R267",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 FULL REDESIGN V0.2 PREPARED / PRODUCT OWNER REVIEW REQUIRED / PREVIOUS C09 PATCH STRATEGY SUPERSEDED AS ACTIVE PLAN / N22 + N23 CLOSED / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / N21 DIRECTOR REDESIGN V0.2 PRODUCT OWNER APPROVED + LOCKED / C09 MINIMUM ONE-REFERENCE ARCHITECTURE V0.1 PROPOSED / PRODUCT OWNER REVIEW REQUIRED / N22 + N23 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21｜Node-Level Director Shot Design V0.2｜Full Redesign｜Product Owner Review",
-  "blocker": "N21 shot function has been redesigned to reduce crowd/architecture burden. Product Owner approval of the new node-level Director Design is required before any Scene Reference or Bundle architecture is reconsidered.",
-  "next_action": "Product Owner reviews N21 Node-Level Director Shot Design V0.2. If approved, separately review the minimum Scene Reference / Bundle architecture needed for the new inside-the-flow concept. Do not automatically reuse Bundle V006 or create Bundle V007.",
+  "current_task": "N21 Candidate 09｜Minimum Reference Architecture V0.1｜Product Owner Review",
+  "blocker": "N21 Director Shot Design V0.2 is approved. The active decision is whether Candidate 09 should use exactly one direct visual reference (N21_CROWD_BODY_WARDROBE_REFERENCE_V001) and carry scene/camera/environment authority in text only.",
+  "next_action": "Product Owner reviews N21 Candidate 09 Minimum Reference Architecture V0.1. If approved, prepare N21_REFERENCE_DELIVERY_BUNDLE_V007 with exactly one direct PNG reference and updated Work handoff. Do not add an environment image unless a later Candidate 09 result proves it necessary.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,24 +118,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-FULL-REDESIGN-V02-R266",
-    "status": "N21 FULL REDESIGN V0.2 PREPARED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N21-C09-ONE-REF-ARCH-R267",
+    "status": "N21 REDESIGN V0.2 APPROVED / C09 ONE-REFERENCE ARCHITECTURE PROPOSED / PRODUCT OWNER REVIEW NEXT",
     "completed": [
-      "N21 was redesigned at the shot-function level rather than patched at Candidate 09 prompt level.",
-      "New function = IMMERSIVE SCALE SHIFT + THRESHOLD TRANSITION.",
-      "N21 no longer needs to prove the full sixteen-person cohort or show 4–6 fully readable people.",
-      "3–5 readable bodies/body fragments with cropping, overlap and occlusion are sufficient.",
-      "Camera concept = AMONG-THE-GROUP / SHOULDER-HEIGHT / OBLIQUE / OFF-AXIS.",
-      "Neil is not visible; full doorway geometry is not required and may be absent.",
-      "Named-character continuity is not a presentation requirement in N21; N22 owns individualization.",
-      "Architecture becomes partial spatial pressure rather than subject.",
-      "Previous N21 Candidate 09 Restart Strategy V0.1 is superseded as the active production plan.",
-      "No reference architecture, Bundle V007 or generation is authorized."
+      "N21 Node-Level Director Shot Design V0.2 Product Owner approved and locked.",
+      "N21 Candidate 09 Restart Strategy V0.1 remains historical and is no longer the active production plan.",
+      "Minimum Reference Architecture V0.1 proposed with exactly one direct visual input.",
+      "Direct input = N21_CROWD_BODY_WARDROBE_REFERENCE_V001 only.",
+      "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 is withheld from direct Candidate 09 input but remains valid historical environment evidence.",
+      "N20 / N22 / N23 remain Director continuity evidence only and are not delivered to Work.",
+      "No Bundle V007 Spec or Candidate 09 generation is authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N21 NODE-LEVEL DIRECTOR SHOT DESIGN V0.2",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_reference_architecture_v0_1.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF N21 C09 MINIMUM REFERENCE ARCHITECTURE V0.1",
     "blockers": [
-      "N21 Director Design V0.2 not yet Product Owner approved"
+      "Candidate 09 reference architecture not yet Product Owner approved"
     ]
   },
   "visual_asset_management_system": {
@@ -3767,7 +3764,7 @@
     "generation_authorized": false
   },
   "n21_node_level_director_shot_design_v0_2": {
-    "status": "FULL REDESIGN PREPARED / PRODUCT OWNER REVIEW REQUIRED",
+    "status": "PRODUCT OWNER APPROVED / LOCKED / MINIMUM REFERENCE ARCHITECTURE REVIEW NEXT",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2.md",
     "commit": "de0567cf283522bb4c2fa1169d4cbd98c553b667",
     "working_title": "Cohort Enters — Inside the Flow",
@@ -3779,6 +3776,29 @@
     "neil_visible": false,
     "named_character_presentation_required": false,
     "reference_architecture_locked": false,
+    "generation_authorized": false,
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2_approval_2026-10-03.md",
+    "approval_commit": "c31e74b649cd610d3292e6c7f04372a67826d6e0"
+  },
+  "n21_candidate_09_reference_architecture_v0_1": {
+    "status": "PROPOSED / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_reference_architecture_v0_1.md",
+    "commit": "b46324bd19dbccacaf3e5e7ab1b4c7d49070f719",
+    "direct_visual_input_count": 1,
+    "direct_visual_inputs": [
+      "N21_CROWD_BODY_WARDROBE_REFERENCE_V001"
+    ],
+    "withheld_direct_input": [
+      "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001"
+    ],
+    "scene_camera_authority": "WRITTEN ONLY",
+    "director_continuity_evidence_not_delivered": [
+      "N20",
+      "N22",
+      "N23"
+    ],
+    "proposed_bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V007",
+    "bundle_v007_spec_authorized": false,
     "generation_authorized": false
   }
 }
