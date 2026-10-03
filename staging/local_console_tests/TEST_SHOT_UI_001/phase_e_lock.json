@@ -1,0 +1,29 @@
+{
+  "github_target": {
+    "branch": "test/local-console-phase-e-e2e-v001",
+    "path": "staging/local_console_tests/TEST_SHOT_UI_001/phase_e_lock.json",
+    "repo": "wp5rrp7b2v-droid/black-lady-animatic-v01"
+  },
+  "immutable_identity": {
+    "candidate_id": "TEST_CANDIDATE_01",
+    "drive_file_id": "1j7oKuDKJSqSywqfeOPm1ds3ZN9lIDiyq",
+    "sha256": "ec3af1ae2391a562ddc92358f5f5231a69a76d78c0f36e205fcd598a33def1f7"
+  },
+  "lock_status": "TEST_LOCKED",
+  "publication_binding": {
+    "blob_sha": "53732b259d74b40abbd0783219d28211a1d5387c",
+    "path": "staging/local_console_tests/TEST_SHOT_UI_001/phase_e_publication.json"
+  },
+  "registration_binding": {
+    "blob_sha": "6a3437be341b0a8e5e570b3c9ef7106ec19b71a3",
+    "path": "staging/local_console_tests/TEST_SHOT_UI_001/phase_e_registration.json"
+  },
+  "safety": {
+    "formal_story_shot": false,
+    "main_branch_write": false,
+    "project_control_write": false
+  },
+  "schema": "BLACK_LADY_LOCAL_CONSOLE_PHASE_E_TEST_LOCK_V001",
+  "test_id": "TEST_SHOT_UI_001",
+  "test_only": true
+}
