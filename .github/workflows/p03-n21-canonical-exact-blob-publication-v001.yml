@@ -1,0 +1,68 @@
+name: N21 Canonical Exact-Blob Publication V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n21-canonical-exact-blob-publication-v001.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify source and publish exact blob
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SRC="staging/story_shot_candidates/N21/N21_Candidate_09_APPROVED.png"
+          DST="production/image_library/approved/story_shots/N21_COHORT_ENTERS_INSIDE_THE_FLOW_APPROVED_V001.png"
+
+          EXPECT_SIZE="2215769"
+          EXPECT_SHA="4296383dc3fd330240a1107c004ce22d1c0ae730b193fcba495779308ba1ab0c"
+          EXPECT_BLOB="3224760c7e5bb622679d6b4f10f4817050fa6197"
+
+          test -f "$SRC"
+          test ! -e "$DST"
+
+          test "$(wc -c < "$SRC" | tr -d ' ')" = "$EXPECT_SIZE"
+          test "$(sha256sum "$SRC" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$SRC")" = "$EXPECT_BLOB"
+
+          python - <<'PY'
+          from pathlib import Path
+          import struct
+          p = Path("staging/story_shot_candidates/N21/N21_Candidate_09_APPROVED.png")
+          b = p.read_bytes()
+          assert b[:8] == b"\x89PNG\r\n\x1a\n"
+          assert struct.unpack(">II", b[16:24]) == (941,1671)
+          print("APPROVED_DIMENSION_EXCEPTION_941x1671=PASS")
+          PY
+
+          mkdir -p "$(dirname "$DST")"
+          git mv "$SRC" "$DST"
+
+          test "$(wc -c < "$DST" | tr -d ' ')" = "$EXPECT_SIZE"
+          test "$(sha256sum "$DST" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$DST")" = "$EXPECT_BLOB"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "P0.3 N21 canonical exact-blob publication"
+          git push origin HEAD:main
+
+          echo "SOURCE_SIZE=$EXPECT_SIZE"
+          echo "SOURCE_SHA256=$EXPECT_SHA"
+          echo "SOURCE_GIT_BLOB=$EXPECT_BLOB"
+          echo "CANONICAL_PATH=$DST"
+          echo "EXACT_BLOB_PRESERVED=YES"
+          echo "OVERALL_RESULT=PASS"
