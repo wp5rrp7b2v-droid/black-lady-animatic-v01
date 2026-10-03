@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "TEST_SHOT_UI_001_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "TEST_SHOT_UI_001",
+  "sequence_id": "TEST-E2E",
+  "target_candidate": "TEST_SHOT_UI_001 Candidate 01",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "references": [
+    {
+      "reference_id": "AST_IMG_000057",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "CHARACTER_REFERENCE_SHEET",
+      "asset_class": "DERIVED_REFERENCE",
+      "authority_class": "DERIVED",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/derived_reference_sheets/jun_luyuan/CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "e8a0410cfc176ec9d6446b84f89b2c12d0683ec32b927c90353e850c416d909e",
+      "expected_byte_size": 969995,
+      "expected_git_blob": "d11db79f4ceab2bb52139bfb8805f7c8f09b0cfc",
+      "destination_group": "character_authority",
+      "authority_purpose": "TEST_ONLY_JUN_IDENTITY_REFERENCE"
+    },
+    {
+      "reference_id": "AST_IMG_000052",
+      "source_type": "ASSET",
+      "entity_id": "SCENE_CASTLE_ENTRANCE",
+      "role": "SCENE_MASTER",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "CONDITIONAL",
+      "canonical_path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+      "expected_sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+      "expected_byte_size": 2305753,
+      "expected_git_blob": "e4dafe096f5c5c8782257030a5a659aeec7808f9",
+      "destination_group": "scene_authority",
+      "authority_purpose": "TEST_ONLY_CASTLE_ENTRANCE_REFERENCE"
+    }
+  ],
+  "work_handoff": {
+    "title": "TEST_SHOT_UI_001｜End-to-End Console Proof｜Candidate 01",
+    "requirements": [
+      "TEST ONLY. Generate exactly one non-canonical Candidate 01 PNG.",
+      "Use a 9:16 vertical cinematic audio-comic still.",
+      "Use Jun Luyuan as the primary subject and preserve the provided character reference.",
+      "Use the castle entrance reference as the scene authority.",
+      "Keep the composition simple and clearly distinguishable from previous test images.",
+      "No production Story Shot registration, publication, Project Control change, or main-branch write."
+    ],
+    "exclusions": [
+      "No production shot ID",
+      "No canonical publication",
+      "No Project Control update",
+      "No Story Shot registration",
+      "No second candidate",
+      "No text or watermark in the image"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "TEST-V001"
+}
