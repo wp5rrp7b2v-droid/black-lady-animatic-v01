@@ -66,7 +66,7 @@
       "Visible tattoo pattern differs from FRONT."
     ],
     "product_owner_decision": "ACCEPTED_AS_IS",
-    "propagation_rule": "Do not propagate these deviations as new global identity definitions. Future RIGHT PROFILE / BACK must resolve identity-defining global traits against FRONT authority."
+    "propagation_rule": "Do not propagate these deviations as new global identity definitions. Future REAR_3Q / BACK must resolve identity-defining global traits against FRONT authority."
   },
   "governance": {
     "p0_2_asset_registry_record": false,
@@ -94,7 +94,7 @@
       "Guest A-J left-side silhouette and hairstyle continuity",
       "Guest A-J approved side-view garment silhouette and footwear continuity",
       "future crowd-shot left-profile identity continuity when separately authorized",
-      "future RIGHT PROFILE / BACK generation as a secondary orientation reference together with FRONT"
+      "future REAR_3Q / BACK generation as a secondary orientation reference together with FRONT"
     ],
     "must_not_control": [
       "Story Shot composition",
@@ -102,7 +102,7 @@
       "scene lighting",
       "crowd blocking unless separately designed",
       "named-character identity",
-      "automatic authorization of RIGHT PROFILE / BACK generation",
+      "automatic authorization of REAR_3Q / BACK generation",
       "automatic authorization of N21 or N23 generation",
       "redefinition of FRONT-locked global body-build or identity-defining tattoo traits"
     ]
@@ -113,12 +113,19 @@
       "LEFT_PROFILE"
     ],
     "next_required_order": [
-      "RIGHT_PROFILE",
+      "REAR_3Q",
       "BACK"
     ],
     "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
     "global_identity_primary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
-    "generation_authorized": false
+    "generation_authorized": false,
+    "scope_amendment": {
+      "status": "PRODUCT_OWNER_APPROVED_LOCKED",
+      "date": "2026-10-03",
+      "record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md",
+      "replaced": "RIGHT_PROFILE",
+      "replacement": "REAR_3Q"
+    }
   },
   "publication": {
     "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE.json",
