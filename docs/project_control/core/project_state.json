@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R261",
+  "state_revision": "R262",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 C03 STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN PO APPROVED / SPEC V003-R2 / VALIDATION-ONLY 4 OF 4 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 C03 STRATEGY + 4-INPUT ARCHITECTURE LOCKED / BUNDLE V003 FORMAL BUILD PASS + ARTIFACT EXACT VERIFIED 4 OF 4 / CANDIDATE 03 GENERATION AUTHORIZATION NEXT / N21 HOLD / N22 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23_REFERENCE_DELIVERY_BUNDLE_V003｜Formal Build Authorization",
-  "blocker": "Bundle V003 Validation-only is complete: 4/4 exact PASS with build_authorized=false and zero Artifact. Formal Bundle V003 build requires separate Product Owner authorization.",
-  "next_action": "Product Owner decides whether to authorize Formal Bundle V003 Build. If authorized, change only build_authorized=true with a spec revision increment, run the builder, independently verify Artifact digest and all 4 delivered binaries, then stop before Candidate 03 generation authorization.",
+  "current_task": "N23 Candidate 03｜Clean Regeneration｜Product Owner Generation Authorization",
+  "blocker": "No Bundle blocker remains. N23_REFERENCE_DELIVERY_BUNDLE_V003 formal Artifact is built and independently exact-verified 4/4. Candidate 03 generation requires separate Product Owner authorization.",
+  "next_action": "If Product Owner authorizes Candidate 03 generation, Work must auto-acquire N23_REFERENCE_DELIVERY_BUNDLE_V003 Artifact 11268607749, revalidate 4/4 exact match, generate exactly one 941×1672 PNG via CLEAN REGENERATION, then stop for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,22 +118,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-BUNDLE-V003-VALIDATION-PASS-R261",
-    "status": "BUNDLE V003 DESIGN APPROVED / SPEC V003-R2 / VALIDATION-ONLY 4 OF 4 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT",
+    "id": "2026-10-03-N23-BUNDLE-V003-BUILD-PASS-R262",
+    "status": "BUNDLE V003 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED 4 OF 4 / CANDIDATE 03 GENERATION AUTHORIZATION NEXT",
     "completed": [
-      "Bundle V003 Design V0.1 Product Owner approved and locked.",
-      "Four direct visual inputs remain unchanged; fifth slot remains unused.",
-      "Bundle V003 Spec created with build_authorized=false.",
-      "First validation attempt failed only because Door Control manifest lacked generic controlled-reference schema fields; no Artifact was created.",
-      "Door Control PNG binary remained unchanged during manifest repair.",
-      "Spec V003-R2 validation run 37108086450 / job 111160439110 passed 4/4 exact.",
-      "Validation-only run produced zero Artifact.",
-      "Candidate 03 generation remains unauthorized."
+      "Bundle V003 Spec advanced to V003-R3 with Product Owner formal-build authorization.",
+      "Workflow run 37108188787 / job 111160732008 succeeded.",
+      "Artifact N23_REFERENCE_DELIVERY_BUNDLE_V003 ID 11268607749 created.",
+      "Artifact size 7554791 bytes.",
+      "Artifact digest sha256:674228ac21d51f47d8d0bbd2bc3c5463b1190d47e754f9a5e720b8d833e7554f.",
+      "Downloaded ZIP digest independently matched GitHub artifact digest.",
+      "All four delivered PNG binaries independently matched approved SHA-256 and byte sizes.",
+      "WORK_HANDOFF camera/non-inheritance rules verified present.",
+      "Candidate 03 generation remains separately gated and is not yet Product Owner authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_validation_only_record_2026-10-03.md",
-    "resume_from": "PRODUCT OWNER FORMAL BUILD AUTHORIZATION FOR N23_REFERENCE_DELIVERY_BUNDLE_V003",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_build_record_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER GENERATION AUTHORIZATION FOR N23 CANDIDATE 03",
     "blockers": [
-      "Formal Bundle V003 build not yet Product Owner authorized",
+      "Candidate 03 generation not yet Product Owner authorized",
       "N21 unresolved / HOLD"
     ]
   },
@@ -3559,7 +3560,7 @@
       }
     },
     "candidate_03": {
-      "status": "STRATEGY + 4-INPUT ARCHITECTURE LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN APPROVED / VALIDATION 4 OF 4 PASS / FORMAL BUILD AUTHORIZATION REQUIRED",
+      "status": "STRATEGY + 4-INPUT ARCHITECTURE LOCKED / BUNDLE V003 FORMAL BUILD PASS / ARTIFACT 4 OF 4 EXACT VERIFIED / GENERATION AUTHORIZATION REQUIRED",
       "generation_authorized": false,
       "direct_visual_reference_cap": 5,
       "planned_direct_inputs": [
@@ -3582,7 +3583,7 @@
       "required_intermediate_references": [
         "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001"
       ],
-      "bundle_v003_authorized": false,
+      "bundle_v003_authorized": true,
       "slot_3": {
         "status": "PRODUCT OWNER APPROVED MICRO-CORRECTION / INCORPORATED",
         "previous": "AST_IMG_000010 / FACE_3Q_RIGHT / REMOVED FROM DIRECT C03 INPUT",
@@ -3653,13 +3654,13 @@
         "camera_rule_location": "WRITTEN DIRECTLY IN BUNDLE V003 DESIGN / WORK HANDOFF",
         "spec_authorized": true,
         "validation_authorized": true,
-        "formal_build_authorized": false
+        "formal_build_authorized": true
       },
       "bundle_v003_spec": {
         "path": "production/bundle_specs/N23_REFERENCE_DELIVERY_BUNDLE_V003.json",
-        "revision": "V003-R2",
-        "commit": "6c7c4477bdd1e9feb4708958c9bc317a6079d21d",
-        "build_authorized": false
+        "revision": "V003-R3",
+        "commit": "c01fb71417442ee6c49ff3ee2aa7e899249f9038",
+        "build_authorized": true
       },
       "bundle_v003_validation": {
         "status": "PASS / 4 OF 4 EXACT / NO ARTIFACT",
@@ -3670,6 +3671,18 @@
         "pass_job": 111160439110,
         "artifact_count": 0,
         "record": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_validation_only_record_2026-10-03.md"
+      },
+      "bundle_v003_build": {
+        "status": "PASS / ARTIFACT EXACT VERIFIED / 4 OF 4 MATCH",
+        "workflow_run": 37108188787,
+        "job": 111160732008,
+        "artifact_id": 11268607749,
+        "artifact_name": "N23_REFERENCE_DELIVERY_BUNDLE_V003",
+        "artifact_size": 7554791,
+        "artifact_digest": "sha256:674228ac21d51f47d8d0bbd2bc3c5463b1190d47e754f9a5e720b8d833e7554f",
+        "exact_reference_match": "4/4 PASS",
+        "manual_product_owner_reference_upload": 0,
+        "record": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v003_build_record_2026-10-03.md"
       }
     }
   }
