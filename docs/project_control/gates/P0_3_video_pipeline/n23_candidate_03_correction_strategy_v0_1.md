@@ -2,7 +2,7 @@
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / DOOR CONTROL EXACT CROP PLAN DESIGN AUTHORIZED / REFERENCE CONTROL NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / DOOR CONTROL PRODUCT OWNER APPROVED + CANONICAL / BUNDLE V003 FOUR-INPUT DESIGN PROPOSED / CANDIDATE 03 NOT AUTHORIZED`
 
 Date:
 
@@ -308,11 +308,7 @@ It must suppress as much as practicable:
 - reflective floor;
 - photographic lighting pattern.
 
-Exact crop rectangle is NOT locked here.
-
-It requires separate Product Owner approval.
-
-The full Scene Master remains parent authority but is NOT a direct Candidate 03 Work image.
+Exact crop rectangle is now separately Product Owner approved and locked by Door Control Crop Plan V0.2. The resulting controlled reference is canonical at `production/controlled_references/n23/N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001.png` with SHA-256 `5718ce8c68069ca41143d666406a8c4cec3c285837a861337da758769bbfb652`. The full Scene Master remains parent authority but is NOT a direct Candidate 03 Work image.
 
 ---
 
@@ -429,7 +425,7 @@ Automatic fail if:
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / NEXT = DOOR CONTROL EXACT CROP PLAN DESIGN`
+`PRODUCT OWNER APPROVED / LOCKED / DOOR CONTROL CANONICAL / BUNDLE V003 DESIGN UNDER PRODUCT OWNER REVIEW`
 
 If approved, next steps are NOT Bundle V003 immediately.
 
