@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R233",
+  "state_revision": "R234",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST FRONT + LEFT CLOSED / REAR 3Q CANDIDATE 01 AUTHORIZED / WAITING WORK OUTPUT / N21 HOLD / N22 CLOSED / N23 C02 PAUSED",
+  "session_status": "P0.3 IN PROGRESS / GENERIC GUEST FRONT + LEFT CLOSED / REAR 3Q CANDIDATE 01 PO APPROVED / EXACT INTAKE PENDING / N21 HOLD / N22 CLOSED / N23 C02 PAUSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜REAR 3/4 Candidate 01 Work Generation",
-  "blocker": "No bundle blocker. REAR_3Q Candidate 01 generation is authorized for exactly one PNG. Awaiting Work output and Product Owner review. Candidate 02, BACK, N21 and N23 Candidate 02 remain unauthorized.",
-  "next_action": "Work must auto-acquire Artifact 11261897342, revalidate 2/2 canonical references, generate exactly one REAR_3Q Candidate 01 PNG, then stop for Product Owner review.",
+  "current_task": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜REAR 3/4 Candidate 01 Exact Binary Intake",
+  "blocker": "Product Owner approved REAR_3Q Candidate 01 as-is. Exact binary identity is locked; GitHub staging delivery and intake verification are pending. BACK, N21 and N23 Candidate 02 remain unauthorized.",
+  "next_action": "Deliver the exact approved REAR_3Q Candidate 01 PNG unchanged to the designated GitHub staging path. Intake verifier must return exact binary PASS before canonical publication.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -114,19 +114,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-GENERIC-GUEST-REAR-3Q-C01-AUTH-R233",
-    "status": "REAR_3Q CANDIDATE 01 PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT",
+    "id": "2026-10-03-GENERIC-GUEST-REAR-3Q-C01-APPROVAL-R234",
+    "status": "REAR_3Q CANDIDATE 01 PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING",
     "completed": [
-      "REAR_3Q Formal Bundle verified and ready.",
-      "Product Owner authorized Candidate 01 Work generation.",
-      "Output limit = exactly one PNG.",
-      "Mode = CLEAN REGENERATION.",
-      "Required pre-generation verification = 2/2 MATCH.",
-      "Candidate 02 / BACK / N21 / N23 Candidate 02 not authorized."
+      "REAR_3Q Candidate 01 Product Owner approved as-is.",
+      "Candidate 02 not required.",
+      "Approved binary locked at 1536x1024 RGBA PNG / 2373958 bytes.",
+      "SHA-256 = 52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756.",
+      "Git blob = 3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400.",
+      "Guest I tattoo rendering accepted as minor REAR_3Q tolerance only; FRONT remains global identity authority.",
+      "REAR_3Q exact intake verifier installed."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_candidate_01_work_generation_authorization_2026-10-03.md",
-    "resume_from": "WAIT FOR WORK REAR_3Q CANDIDATE 01 OUTPUT",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_candidate_01_approval_2026-10-03.md",
+    "resume_from": "REAR_3Q APPROVED BINARY GITHUB STAGING DELIVERY",
     "blockers": [
+      "REAR_3Q exact binary intake pending",
       "N21 unresolved / HOLD",
       "N23 Candidate 02 paused"
     ]
@@ -2915,7 +2917,7 @@
     "candidate_02_authorized": false
   },
   "black_lady_generic_guest_crowd_core_set_v001": {
-    "status": "IN PROGRESS / FRONT AUTHORITY CLOSED / LEFT PROFILE AUTHORITY CLOSED / REAR_3Q CANDIDATE 01 AUTHORIZED / WAITING WORK OUTPUT",
+    "status": "IN PROGRESS / FRONT AUTHORITY CLOSED / LEFT PROFILE AUTHORITY CLOSED / REAR_3Q CANDIDATE 01 APPROVED / EXACT INTAKE PENDING",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_asset_design_v0_1.md",
     "asset_role": "PROJECT_LEVEL_REUSABLE_ANONYMOUS_GUEST_CROWD_ASSET_SET",
     "guest_count": 10,
@@ -2944,7 +2946,7 @@
     "n21_blocker_resolved": false,
     "n23_candidate_02_authorized": false,
     "generation_authorized": false,
-    "next_step": "WORK GENERATES REAR_3Q CANDIDATE 01 / EXACTLY ONE PNG",
+    "next_step": "REAR_3Q APPROVED BINARY STAGING DELIVERY + EXACT INTAKE VERIFICATION",
     "gender_distribution": {
       "female": 6,
       "male": 4,
@@ -3230,7 +3232,7 @@
       "candidate_01_authorized": true
     },
     "rear_3q_candidate_01": {
-      "status": "PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT",
+      "status": "PRODUCT OWNER APPROVED AS-IS / EXACT BINARY LOCKED / INTAKE PENDING",
       "mode": "CLEAN REGENERATION",
       "output_limit": "EXACTLY 1 PNG",
       "target_dimensions": "1536x1024",
@@ -3243,7 +3245,19 @@
       "candidate_02_authorized": false,
       "back_authorized": false,
       "n21_authorized": false,
-      "n23_candidate_02_authorized": false
+      "n23_candidate_02_authorized": false,
+      "width": 1536,
+      "height": 1024,
+      "mode_png": "RGBA",
+      "bit_depth": 8,
+      "byte_size": 2373958,
+      "sha256": "52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756",
+      "git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400",
+      "approval_path": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_candidate_01_approval_2026-10-03.md",
+      "approval_commit": "c0492ef43efd9877776b8d6d696180ce5eda2154",
+      "accepted_tolerance": "Guest I visible tattoo rendering accepted as minor REAR_3Q orientation/rendering tolerance; FRONT remains global identity authority.",
+      "candidate_02": "NOT GENERATED / NOT REQUIRED",
+      "staging_path": "staging/generic_guest_crowd_core_set_v001_rear_3q_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_CANDIDATE_01_APPROVED.png"
     }
   }
 }
