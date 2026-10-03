@@ -6,7 +6,7 @@
   "target_candidate": "BACK Candidate 01",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "references": [
     {
       "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
@@ -111,5 +111,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-R1"
+  "spec_revision": "V001-R2"
 }
