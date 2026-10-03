@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R275",
+  "state_revision": "R276",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 REDESIGN V0.2 + PATCH 01 APPROVED / DOOR IDENTITY CANONICAL / BUNDLE V007 DESIGN V0.1 PREPARED / PRODUCT OWNER REVIEW REQUIRED / CANDIDATE 09 NOT AUTHORIZED",
+  "session_status": "P0.3 IN PROGRESS / N21 BUNDLE V007 DESIGN APPROVED + LOCKED / SPEC V007-R1 / VALIDATION-ONLY 2 OF 2 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT / CANDIDATE 09 NOT AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21_REFERENCE_DELIVERY_BUNDLE_V007｜Design V0.1｜Product Owner Review",
-  "blocker": "Bundle V007 Design V0.1 is prepared. Product Owner approval is required before creating the formal Bundle Spec or running Validation-only.",
-  "next_action": "Product Owner reviews N21_REFERENCE_DELIVERY_BUNDLE_V007 Design V0.1. If approved, authorize Spec + Validation-only using exactly two direct PNG references and keep formal build / Candidate 09 generation separately gated.",
+  "current_task": "N21_REFERENCE_DELIVERY_BUNDLE_V007｜Formal Build Authorization",
+  "blocker": "Bundle V007 Validation-only is complete: 2/2 exact PASS with build_authorized=false and zero Artifact. Formal Bundle V007 build requires separate Product Owner authorization.",
+  "next_action": "Product Owner decides whether to authorize Formal Bundle V007 Build. If authorized, change only build_authorized=true with a spec revision increment, run the builder, independently verify Artifact digest and both delivered binaries, then stop before Candidate 09 generation authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,24 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-BUNDLE-V007-DESIGN-R275",
-    "status": "N21 BUNDLE V007 DESIGN V0.1 PREPARED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N21-BUNDLE-V007-VALIDATION-PASS-R276",
+    "status": "N21 BUNDLE V007 VALIDATION-ONLY 2 OF 2 EXACT PASS / FORMAL BUILD AUTHORIZATION NEXT",
     "completed": [
-      "Product Owner authorized the Bundle V007 design step.",
-      "Bundle V007 Design V0.1 prepared and committed.",
-      "Direct visual input count fixed in the design at exactly 2.",
-      "REF-01 = N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001 canonical exact binary.",
-      "REF-02 = BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q canonical exact binary.",
-      "No Generic Guest FRONT / LEFT_PROFILE / BACK, no old Threshold Environment, no old Body/Wardrobe, no N20/N22/N23 Story Shot, and no named-character sheet is delivered directly.",
-      "Written Work handoff controls camera, blocking, environment, lighting and threshold-flow direction.",
-      "Candidate 09 remains CLEAN REGENERATION only after later separate authorization.",
-      "No formal Bundle Spec, Validation-only, formal build, Artifact or Candidate 09 generation has been authorized."
+      "Bundle V007 Design V0.1 Product Owner approved and locked.",
+      "Formal Spec V007-R1 created with build_authorized=false.",
+      "Validation-only workflow run 37122613561 / job 111201554781 succeeded.",
+      "VALIDATION_PASS = 2/2 exact canonical references verified.",
+      "BUILD_AUTHORIZED=FALSE and GENERATION_ALLOWED=FALSE confirmed in logs.",
+      "Artifact count = 0 as required for Validation-only.",
+      "Door Identity reference exact canonical identity passed.",
+      "Generic Guest REAR_3Q exact canonical identity passed.",
+      "No third direct visual input is present.",
+      "Formal build and Candidate 09 generation remain unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_design_v0_1.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N21_REFERENCE_DELIVERY_BUNDLE_V007 DESIGN V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_validation_only_record_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N21 BUNDLE V007 FORMAL BUILD",
     "blockers": [
-      "Bundle V007 Design V0.1 not yet Product Owner approved"
+      "Formal Bundle V007 build not yet Product Owner authorized"
     ]
   },
   "visual_asset_management_system": {
@@ -3925,7 +3926,7 @@
     "canonical_publication_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_canonical_publication_record_2026-10-03.md"
   },
   "n21_reference_delivery_bundle_v007": {
-    "status": "DESIGN V0.1 PREPARED / PRODUCT OWNER REVIEW REQUIRED / SPEC NOT AUTHORIZED / BUILD NOT AUTHORIZED / CANDIDATE 09 NOT AUTHORIZED",
+    "status": "DESIGN APPROVED / SPEC V007-R1 / VALIDATION-ONLY 2 OF 2 EXACT PASS / FORMAL BUILD AUTHORIZATION REQUIRED / CANDIDATE 09 NOT AUTHORIZED",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_design_v0_1.md",
     "design_commit": "ca6ed1e1daf20d594527b0b2c3f92e19d49f29c9",
     "direct_visual_input_count": 2,
@@ -3945,9 +3946,24 @@
         "git_blob": "3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400"
       }
     ],
-    "spec_authorized": false,
-    "validation_only_authorized": false,
+    "spec_authorized": true,
+    "validation_only_authorized": true,
     "formal_build_authorized": false,
-    "candidate_09_generation_authorized": false
+    "candidate_09_generation_authorized": false,
+    "design_approved": true,
+    "design_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_design_approval_2026-10-03.md",
+    "design_approval_commit": "91988696a1be9e5368aa34b87e08e63697660c4a",
+    "spec_path": "production/bundle_specs/N21_REFERENCE_DELIVERY_BUNDLE_V007.json",
+    "spec_revision": "V007-R1",
+    "spec_commit": "1d808ca4d4e00bc24f4a546d437fa4be3e7fea1c",
+    "validation_only": {
+      "status": "PASS / 2 OF 2 EXACT / ZERO ARTIFACT",
+      "workflow_run": 37122613561,
+      "job": 111201554781,
+      "artifact_count": 0,
+      "build_authorized": false,
+      "generation_allowed": false,
+      "record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_validation_only_record_2026-10-03.md"
+    }
   }
 }
