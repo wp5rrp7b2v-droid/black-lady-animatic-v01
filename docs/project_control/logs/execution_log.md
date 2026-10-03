@@ -3565,3 +3565,28 @@ Status: PROJECT CONTROL SYNCHRONIZED / LOCAL MAIN SYNC VERIFICATION REQUIRED
 - No Story Shot generation authorized.
 - Local Mac main sync cannot be verified from Chat; exact local HEAD == origin/main == GitHub main verification is required before next local formal production.
 
+## 2026-10-03｜N23 Candidate 02 Correction Strategy V0.2｜Generic Guest Core Set Integration
+
+Status: DIRECTOR STRATEGY PREPARED / PRODUCT OWNER REVIEW NEXT
+
+- Local main sync verified before N23 re-entry at SHA 54c31d2d2a39829af29e75259f9cc7bf9dc892a6.
+- Existing Candidate 02 Strategy V0.1 was confirmed to predate Generic Guest Crowd Core Set V001 completion.
+- Generic Guest Crowd Core Set V001 is CLOSED and available for separately-authorized N23 identity continuity.
+- N23 Scene Reference V0.2.1 camera geometry remains unchanged.
+- Proposed direct Bundle V002 inputs:
+  1. AST_IMG_000052 — Castle Entrance Scene Master.
+  2. AST_IMG_000059 — Neil Character Reference Sheet.
+  3. AST_IMG_000013 — Guang Yong REAR_3Q_RIGHT Atomic/Auxiliary.
+  4. BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.
+  5. BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.
+- Generic Guest FRONT remains global identity conflict authority but is excluded from direct Work pixels.
+- Generic Guest LEFT_PROFILE remains available but is excluded from direct C02 input.
+- N22 direct Story Shot pixels remain excluded.
+- Candidate 02 requires only approximately 4–6 visible Generic Guests / partial bodies, not all ten.
+- Guest I is not required for C02 and must not be confused with Guang Yong.
+- Strategy record: docs/project_control/gates/P0_3_video_pipeline/n23_candidate_02_correction_strategy_v0_2_generic_guest_core_set_integration.md.
+- Strategy commit: 3233a60051ce41219de70da4920be3f12c46da07.
+- Project State advanced to R245.
+- Dashboard advanced to V180.
+- Bundle V002 / validation / formal build / Work generation remain NOT AUTHORIZED.
+
