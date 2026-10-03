@@ -5,7 +5,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_visual_approval_2026-10-03.md"\n      - ".github/workflows/n23-door-control-reference-v001-publish.yml"
+      - "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_visual_approval_2026-10-03.md"
+      - ".github/workflows/n23-door-control-reference-v001-publish.yml"
 
 permissions:
   contents: write
