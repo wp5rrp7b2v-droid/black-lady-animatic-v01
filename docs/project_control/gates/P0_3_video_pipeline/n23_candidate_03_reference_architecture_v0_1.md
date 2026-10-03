@@ -2,7 +2,7 @@
 
 Status:
 
-`PROPOSED / WAITING PRODUCT OWNER APPROVAL / DIRECT VISUAL CAP = 5`
+`PROPOSED / SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED AND INCORPORATED / FINAL ARCHITECTURE APPROVAL STILL REQUIRED / DIRECT VISUAL CAP = 5`
 
 Date:
 
@@ -96,11 +96,11 @@ The reference angle does not override shot-specific subtle gaze / head-turn amou
 
 ---
 
-### SLOT 3｜Guang identity / head direction
+### SLOT 3｜Guang identity only
 
 Reference:
 
-`AST_IMG_000010`
+`AST_IMG_000011`
 
 Entity:
 
@@ -108,7 +108,7 @@ Entity:
 
 Role:
 
-`FACE_3Q_RIGHT`
+`FACE_FRONT`
 
 Authority:
 
@@ -118,17 +118,28 @@ Approval:
 
 `APPROVED / CURRENT`
 
+Resolver usage:
+
+`DEFAULT`
+
 Exact identity:
 
-- byte size: `2,928,885`
-- SHA-256: `ee8f6e72345046f2c96376d932565533fd3c3c4a96035458dd768083a639ab4b`
-- Git blob: `68baca3dcfc732a16d6e2edc100031f4f337c5d3`
+- byte size: `2,903,455`
+- SHA-256: `7f88a3f8d68dbfea0058ff0379d0164380722d96ae1774364bcd8b79367ad6f5`
+- Git blob: `5490cd3101d0d878ef77b4a3a164ea2231bf3817`
 
 Purpose:
 
-`GUANG IDENTITY + HEAD-DIRECTION SUPPORT`
+`GUANG IDENTITY ONLY`
 
-Behavior still comes from SLOT 5.
+Why FACE_FRONT replaces FACE_3Q_RIGHT:
+
+- `RIGHT` means face/nose toward screen-right under project orientation governance;
+- Candidate 03 requires Guang's body to keep moving screen-right while retaining a small backward-attention cue toward frame-left / Neil / the open door;
+- a FACE_3Q_RIGHT image would add unnecessary opposite head-direction pressure;
+- FACE_FRONT is the more neutral identity anchor.
+
+Shot-specific head direction and behavior come from SLOT 5 plus written shot authority. SLOT 3 must not override them.
 
 ---
 
@@ -188,6 +199,7 @@ Do not deliver:
 - `AST_IMG_000052` full Scene Master;
 - `AST_IMG_000059` Neil Character Reference Sheet;
 - `AST_IMG_000013` Guang REAR_3Q_RIGHT;
+- `AST_IMG_000010` Guang FACE_3Q_RIGHT;
 - Generic Guest BACK;
 - Generic Guest FRONT;
 - Generic Guest LEFT_PROFILE;
@@ -206,7 +218,7 @@ Candidate 02 failure → Candidate 03 slot response:
 → SLOT 5 adds N22-derived motion evidence.
 
 ### Guang observation disappeared
-→ SLOT 3 locks Guang face identity / head direction, SLOT 5 locks behavior.
+→ SLOT 3 locks Guang identity only with a neutral FACE_FRONT anchor; SLOT 5 locks the backward-awareness behavior and shot-specific head-direction cue.
 
 ### Neil identity drifted
 → SLOT 2 replaces broad Character Sheet pressure with angle-specific face identity.
@@ -264,6 +276,12 @@ Only then:
 
 Status:
 
-`PROPOSED / WAITING PRODUCT OWNER APPROVAL`
+`PROPOSED / SLOT 3 MICRO-CORRECTION INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
 
-No image generation is authorized.
+Product Owner has approved only the Slot 3 micro-correction:
+
+`AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+
+The complete five-slot architecture is still waiting final Product Owner approval.
+
+No controlled-reference build, Bundle V003 work, or image generation is authorized.
