@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R265",
+  "state_revision": "R266",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 REOPENED FROM HOLD / CANDIDATE 09 RESTART STRATEGY V0.1 PREPARED / PRODUCT OWNER REVIEW REQUIRED / N22 + N23 CLOSED / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / N21 FULL REDESIGN V0.2 PREPARED / PRODUCT OWNER REVIEW REQUIRED / PREVIOUS C09 PATCH STRATEGY SUPERSEDED AS ACTIVE PLAN / N22 + N23 CLOSED / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21 Candidate 09｜Restart Strategy V0.1｜Product Owner Review",
-  "blocker": "N21 RISK-003 is reopened. Candidate 08 established usable body/wardrobe/direction control, but natural staggered blocking and non-monumental partially concealed environment composition remain unresolved.",
-  "next_action": "Product Owner reviews N21 Candidate 09 Restart Strategy V0.1. If approved, prepare N21_REFERENCE_DELIVERY_BUNDLE_V007 using the same two existing canonical references with updated Work handoff only. Do not create new controlled references or generate Candidate 09 yet.",
+  "current_task": "N21｜Node-Level Director Shot Design V0.2｜Full Redesign｜Product Owner Review",
+  "blocker": "N21 shot function has been redesigned to reduce crowd/architecture burden. Product Owner approval of the new node-level Director Design is required before any Scene Reference or Bundle architecture is reconsidered.",
+  "next_action": "Product Owner reviews N21 Node-Level Director Shot Design V0.2. If approved, separately review the minimum Scene Reference / Bundle architecture needed for the new inside-the-flow concept. Do not automatically reuse Bundle V006 or create Bundle V007.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,22 +118,24 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-REOPEN-C09-STRATEGY-R265",
-    "status": "N21 REOPENED / CANDIDATE 09 RESTART STRATEGY V0.1 PREPARED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N21-FULL-REDESIGN-V02-R266",
+    "status": "N21 FULL REDESIGN V0.2 PREPARED / PRODUCT OWNER REVIEW NEXT",
     "completed": [
-      "N21 reopened from Product Owner-deferred HOLD after N23 closeout.",
-      "Candidate 08 remains the latest failure baseline and is not an edit base.",
-      "Candidate 08 positive evidence preserved: adult proportions, contemporary wardrobe, no prohibited accessories, correct inward movement direction.",
-      "Remaining scope narrowed to crowd blocking, central-axis bias, monumental/symmetrical environment drift, and insufficient partial concealment.",
-      "No new controlled reference is proposed.",
-      "Future Bundle V007 is proposed to reuse N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 + N21_CROWD_BODY_WARDROBE_REFERENCE_V001 only, changing Work handoff instructions rather than input architecture.",
-      "Candidate 09 generation remains unauthorized."
+      "N21 was redesigned at the shot-function level rather than patched at Candidate 09 prompt level.",
+      "New function = IMMERSIVE SCALE SHIFT + THRESHOLD TRANSITION.",
+      "N21 no longer needs to prove the full sixteen-person cohort or show 4–6 fully readable people.",
+      "3–5 readable bodies/body fragments with cropping, overlap and occlusion are sufficient.",
+      "Camera concept = AMONG-THE-GROUP / SHOULDER-HEIGHT / OBLIQUE / OFF-AXIS.",
+      "Neil is not visible; full doorway geometry is not required and may be absent.",
+      "Named-character continuity is not a presentation requirement in N21; N22 owns individualization.",
+      "Architecture becomes partial spatial pressure rather than subject.",
+      "Previous N21 Candidate 09 Restart Strategy V0.1 is superseded as the active production plan.",
+      "No reference architecture, Bundle V007 or generation is authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_restart_strategy_v0_1.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N21 CANDIDATE 09 RESTART STRATEGY V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF N21 NODE-LEVEL DIRECTOR SHOT DESIGN V0.2",
     "blockers": [
-      "RISK-003 ACTIVE / N21-SCOPED",
-      "Candidate 09 strategy not yet Product Owner approved"
+      "N21 Director Design V0.2 not yet Product Owner approved"
     ]
   },
   "visual_asset_management_system": {
@@ -3739,7 +3741,7 @@
   },
   "n23_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED",
   "n21_candidate_09": {
-    "status": "RESTART STRATEGY V0.1 PREPARED / PRODUCT OWNER REVIEW REQUIRED / GENERATION NOT AUTHORIZED",
+    "status": "SUPERSEDED AS ACTIVE NEXT-PRODUCTION PLAN BY N21 NODE-LEVEL DIRECTOR SHOT DESIGN V0.2 / RETAINED AS HISTORICAL STRATEGY",
     "mode": "CLEAN REGENERATION AFTER FUTURE AUTHORIZATION",
     "strategy_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_restart_strategy_v0_1.md",
     "strategy_commit": "98e55450db98777b0bc07b222dc183d21b5a6609",
@@ -3762,6 +3764,21 @@
     ],
     "new_controlled_reference_planned": false,
     "bundle_v007_authorized": false,
+    "generation_authorized": false
+  },
+  "n21_node_level_director_shot_design_v0_2": {
+    "status": "FULL REDESIGN PREPARED / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2.md",
+    "commit": "de0567cf283522bb4c2fa1169d4cbd98c553b667",
+    "working_title": "Cohort Enters — Inside the Flow",
+    "core_function": "IMMERSIVE SCALE SHIFT + THRESHOLD TRANSITION",
+    "camera_concept": "AMONG-THE-GROUP / SHOULDER-HEIGHT / OBLIQUE / OFF-AXIS",
+    "readable_human_requirement": "3–5 bodies or body fragments sufficient",
+    "full_cohort_proof_required": false,
+    "full_door_required": false,
+    "neil_visible": false,
+    "named_character_presentation_required": false,
+    "reference_architecture_locked": false,
     "generation_authorized": false
   }
 }
