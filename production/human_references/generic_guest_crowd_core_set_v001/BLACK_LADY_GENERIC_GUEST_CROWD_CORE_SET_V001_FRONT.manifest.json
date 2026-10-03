@@ -91,7 +91,7 @@
       "Guest A-J garment identity and visible color-family continuity",
       "Guest A-J footwear continuity",
       "identity-defining visible body markings and accessories present in the approved board",
-      "future LEFT PROFILE / RIGHT PROFILE / BACK views of the same ten Guests",
+      "future LEFT PROFILE / REAR_3Q / BACK views of the same ten Guests",
       "future N21 / N23 / other crowd-shot identity continuity when separately authorized"
     ],
     "must_not_control": [
@@ -100,14 +100,14 @@
       "scene lighting",
       "crowd blocking unless separately designed",
       "named-character identity",
-      "automatic authorization of LEFT PROFILE / RIGHT PROFILE / BACK generation",
+      "automatic authorization of LEFT PROFILE / REAR_3Q / BACK generation",
       "automatic authorization of N21 or N23 generation"
     ]
   },
   "orientation_governance": {
     "required_order": [
-      "LEFT PROFILE",
-      "RIGHT PROFILE",
+      "LEFT_PROFILE",
+      "REAR_3Q",
       "BACK"
     ],
     "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
@@ -121,7 +121,14 @@
       "footwear",
       "identity-defining visible body markings"
     ],
-    "generation_authorized": false
+    "generation_authorized": false,
+    "scope_amendment": {
+      "status": "PRODUCT_OWNER_APPROVED_LOCKED",
+      "date": "2026-10-03",
+      "record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md",
+      "replaced": "RIGHT_PROFILE",
+      "replacement": "REAR_3Q"
+    }
   },
   "publication": {
     "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT.json",
