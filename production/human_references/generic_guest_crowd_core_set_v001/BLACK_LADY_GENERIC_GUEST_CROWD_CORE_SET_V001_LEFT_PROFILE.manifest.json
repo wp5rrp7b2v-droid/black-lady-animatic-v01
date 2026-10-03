@@ -110,10 +110,10 @@
   "orientation_governance": {
     "completed": [
       "FRONT",
-      "LEFT_PROFILE"
+      "LEFT_PROFILE",
+      "REAR_3Q"
     ],
     "next_required_order": [
-      "REAR_3Q",
       "BACK"
     ],
     "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
@@ -125,7 +125,8 @@
       "record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md",
       "replaced": "RIGHT_PROFILE",
       "replacement": "REAR_3Q"
-    }
+    },
+    "rear_3q_status": "PRODUCT_OWNER_APPROVED_CANONICAL_EXACT_VERIFIED_MANIFESTED_CLOSED"
   },
   "publication": {
     "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE.json",
