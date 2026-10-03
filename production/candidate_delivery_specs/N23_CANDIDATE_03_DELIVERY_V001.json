@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N23",
+  "sequence_id": "S02-B",
+  "candidate_id": "N23 Candidate 03｜Clean Regeneration + Product Owner Localized Edits",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "N23_Candidate_03_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2697400,
+    "sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+    "git_blob_sha1": "649ed97addf97f126a05e12d43325720a624ea19"
+  },
+  "bundle": {
+    "bundle_id": "N23_REFERENCE_DELIVERY_BUNDLE_V003",
+    "workflow_run_id": 37108188787,
+    "artifact_id": 11268607749,
+    "artifact_digest": "sha256:674228ac21d51f47d8d0bbd2bc3c5463b1190d47e754f9a5e720b8d833e7554f"
+  },
+  "edit_lineage": [
+    "ROUND_1_DELETE_PERSON_X14.3_Y48.9",
+    "ROUND_1_DELETE_PERSON_X93.5_Y30.4",
+    "ROUND_2_GAZE_UPPER_RIGHT_X57.7_Y47.3",
+    "ROUND_2_GAZE_LOWER_LEFT_X79.9_Y31.1"
+  ],
+  "target_staging_path": "staging/story_shot_candidates/N23/N23_Candidate_03_APPROVED.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
