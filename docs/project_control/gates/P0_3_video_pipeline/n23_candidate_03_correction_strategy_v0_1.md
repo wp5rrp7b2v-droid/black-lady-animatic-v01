@@ -2,7 +2,7 @@
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED AND INCORPORATED / FINAL STRATEGY APPROVAL STILL REQUIRED / REFERENCE CONTROLS NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / DOOR CONTROL EXACT CROP PLAN DESIGN AUTHORIZED / REFERENCE CONTROL NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
 
 Date:
 
@@ -429,7 +429,7 @@ Automatic fail if:
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / NEXT = DOOR CONTROL EXACT CROP PLAN DESIGN`
 
 If approved, next steps are NOT Bundle V003 immediately.
 
@@ -445,10 +445,15 @@ Product Owner decisions already recorded for this revision:
 - `SLOT 3 MICRO-CORRECTION APPROVED: AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
 - `SLOT 5 REMOVAL APPROVED: CANCEL N23_N22_MOTION_OBSERVATION_REFERENCE_V001 / CURRENT ATTEMPT USES 4 DIRECT VISUAL INPUTS`
 
-These decisions do not themselves approve the complete Candidate 03 strategy or authorize the next gate.
+Product Owner has now also approved the complete corrected Candidate 03 strategy and authorized entry into the Door Control Exact Crop Plan design gate.
+
+Authorized next step:
+
+- `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan` design only.
 
 Still not authorized:
 
+- actual crop execution;
 - controlled reference build;
 - Bundle V003 Spec;
 - validation;
