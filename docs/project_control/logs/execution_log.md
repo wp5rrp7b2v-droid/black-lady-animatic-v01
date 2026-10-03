@@ -3333,3 +3333,20 @@ Status: `PASS / 2 OF 2 EXACT / INDEPENDENT ARTIFACT VERIFIED`
 - Next: separate Product Owner authorization for REAR_3Q Candidate 01 generation.
 - Candidate 01 generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Candidate 01 Authorization
+
+Status: `PRODUCT OWNER AUTHORIZED / WAITING WORK OUTPUT`
+
+- Formal Bundle: `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Artifact: `11261897342`.
+- Artifact digest: `sha256:02209b2d41f49da188e2a2deb76dfcf08d918ba88a7446918a18817dff848c2b`.
+- Pre-generation exact verification: `2/2 REQUIRED`.
+- Mode: `CLEAN REGENERATION`.
+- Output limit: `EXACTLY 1 PNG`.
+- Target: `1536×1024 / 2×5 / Guest A–J / REAR_3Q`.
+- Authority hierarchy: FRONT primary / LEFT_PROFILE secondary / FRONT WINS.
+- Authorization record commit: `621e1a465f420da9e06c640851ed9fd2304b8d45`.
+- Project State advanced to `R233`.
+- Dashboard advanced to `V168`.
+- Candidate 02 / BACK / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
+
