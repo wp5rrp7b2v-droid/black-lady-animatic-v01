@@ -79,3 +79,33 @@ RISK-003 解除当前 hard-blocker 状态，需要满足：
 - Existing Candidate 08 findings remain valid baseline evidence.
 - `RISK-003` is now N21-scoped and does not block `N22 → N23 → N24 → A06 → N25 → N26 → N27`.
 - `N21 Candidate 09` remains NOT AUTHORIZED until Product Owner explicitly reopens N21.
+
+## Risk Status Delta｜2026-10-03 EOD
+
+### RISK-003｜N21 multi-person Story Shot
+
+Status remains:
+
+`ACTIVE / N21-SCOPED / DEFERRED BY PRODUCT OWNER / CURRENTLY NON-BLOCKING OUTSIDE N21`
+
+Update:
+
+- `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001` is now formally CLOSED with four exact-verified canonical orientations: FRONT / LEFT_PROFILE / REAR_3Q / BACK.
+- This materially improves reusable anonymous-Guest identity continuity inputs for future N21 work.
+- It does **not** establish that N21's remaining crowd-blocking / central-axis / monumental-environment issues are solved.
+- Existing Candidate 08 evidence and N21-specific mitigation remain valid.
+- Before any new N21 candidate, perform a narrow re-entry strategy review using the completed Generic Guest Core Set as an available controlled identity input; do not reopen already-resolved body/wardrobe rules without new evidence.
+- No new N21 candidate is authorized by this risk update.
+
+### N23 dependency update
+
+N23 Candidate 02 was previously paused pending Generic Guest Crowd Core Set progress.
+
+That dependency is now satisfied because V001 is formally CLOSED.
+
+N23 Candidate 02 remains:
+
+`PAUSED / PRODUCT OWNER RE-ENTRY AUTHORIZATION REQUIRED`
+
+This is no longer an asset-readiness blocker; it is now a governance/authorization gate.
+
