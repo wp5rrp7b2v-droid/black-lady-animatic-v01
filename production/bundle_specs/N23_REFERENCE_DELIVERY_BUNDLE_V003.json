@@ -131,5 +131,6 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V003-R1"
+  "spec_revision": "V003-R2",
+  "validation_retry_reason": "Door Control manifest normalized to generic CONTROLLED_REFERENCE schema; PNG binary unchanged."
 }
