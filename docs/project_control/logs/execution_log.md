@@ -3590,3 +3590,20 @@ Status: DIRECTOR STRATEGY PREPARED / PRODUCT OWNER REVIEW NEXT
 - Dashboard advanced to V180.
 - Bundle V002 / validation / formal build / Work generation remain NOT AUTHORIZED.
 
+## 2026-10-03｜N23 Candidate 02 Strategy V0.2 Approval + Bundle V002 Design
+
+Status: STRATEGY V0.2 PRODUCT OWNER APPROVED / BUNDLE V002 DESIGN PREPARED / PO REVIEW NEXT
+
+- V0.2 supersedes V0.1.
+- Strategy approval commit: 2a242a30e50cbe0afc2bd2cf3e0264cf6980e024.
+- Approval record commit: 08f6cb11020fd3a63c3ace457f341896d1041f76.
+- Bundle Design: N23_REFERENCE_DELIVERY_BUNDLE_V002.
+- Bundle Design commit: 3984401ad3256fef5d704ee3718a6d05e5e22921.
+- Proposed direct inputs: AST_IMG_000052 / AST_IMG_000059 / AST_IMG_000013 / Generic Guest REAR_3Q / Generic Guest BACK.
+- Generic Guest FRONT = non-delivered global identity conflict authority.
+- Generic Guest LEFT_PROFILE = excluded from direct C02 input.
+- N22 direct Story Shot pixels = excluded.
+- Bundle Spec / validation / formal build / Candidate 02 generation = NOT AUTHORIZED.
+- Project State advanced to R246.
+- Dashboard advanced to V181.
+
