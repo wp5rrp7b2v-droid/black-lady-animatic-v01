@@ -3308,3 +3308,28 @@ Status: `PASS / 2 OF 2 EXACT / NO ARTIFACT`
 - Next: separate Product Owner authorization for Formal Bundle Build.
 - REAR_3Q Candidate 01 generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Formal Bundle Build
+
+Status: `PASS / 2 OF 2 EXACT / INDEPENDENT ARTIFACT VERIFIED`
+
+- Product Owner authorized Formal Bundle Build only.
+- Spec revision: `V001-R2`.
+- Spec authorization commit: `d03dafdae5c0bccbce4b4bda61ed6e6a5ac8a24d`.
+- `build_authorized=true`.
+- Builder run: `37089953015`.
+- Job: `111107977552`.
+- Builder result: `2/2 exact canonical reference binaries verified`.
+- `GENERATION_ALLOWED=TRUE` at Bundle level.
+- Artifact ID: `11261897342`.
+- Artifact size: `3,826,693 bytes`.
+- Artifact digest: `sha256:02209b2d41f49da188e2a2deb76dfcf08d918ba88a7446918a18817dff848c2b`.
+- Independent ZIP SHA-256: MATCH.
+- FRONT PNG independent size/SHA/blob/dimensions: PASS.
+- LEFT_PROFILE PNG independent size/SHA/blob/dimensions: PASS.
+- `delivery_manifest.json`: PASS / 2 references / byte-identical copies.
+- `WORK_HANDOFF.md`: PASS / FRONT primary / LEFT secondary / FRONT WINS / Guest I rule correct.
+- Project State advanced to `R232`.
+- Dashboard advanced to `V167`.
+- Next: separate Product Owner authorization for REAR_3Q Candidate 01 generation.
+- Candidate 01 generation remains NOT AUTHORIZED.
+
