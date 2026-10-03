@@ -3388,3 +3388,20 @@ Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOS
 - Next: `BACK Design V0.1`.
 - BACK / N21 / N23 Candidate 02 generation remains NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd BACK Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- FRONT / LEFT_PROFILE / REAR_3Q authorities remain CLOSED.
+- BACK Design V0.1 approved and locked.
+- Canonical geometry: full BACK / approximately 180° from FRONT.
+- Board remains 1536×1024 / 2×5 / Guests A–J / A–F female / G–J male.
+- FRONT remains primary global identity authority.
+- LEFT_PROFILE and REAR_3Q remain secondary continuity authorities.
+- Guest I global identity traits resolve against FRONT.
+- Design record commit: `aa6fdcd52cdf54ab1c0799b5e9df0650951cb240`.
+- Project State advanced to `R236`.
+- Dashboard advanced to `V171`.
+- Next: `BACK Reference Delivery Bundle Design V0.1`.
+- Bundle Spec / validation / formal build / BACK Candidate 01 generation remain NOT AUTHORIZED.
+
