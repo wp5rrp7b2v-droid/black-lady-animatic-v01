@@ -3423,3 +3423,23 @@ Status: PRODUCT OWNER APPROVED / LOCKED
 - Next: BACK Bundle Spec V001 + validation-only preparation.
 - Validation-only / Formal Bundle Build / BACK Candidate 01 generation remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd BACK Bundle Spec V001 Preparation
+
+Status: PREPARED / STATIC 3 OF 3 PASS / VALIDATION NOT RUN
+
+- Product Owner authorized Spec preparation only.
+- Preparation path: docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_back_bundle_spec_v001_preparation.json.
+- Preparation commit: 36d0c843a471f0c33200bda4685a30cdc40a753b.
+- Intended formal path: production/bundle_specs/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_REFERENCE_DELIVERY_BUNDLE_V001.json.
+- Spec revision: V001-R1.
+- build_authorized=false.
+- Reference count: 3.
+- FRONT static exact metadata cross-check: PASS.
+- REAR_3Q static exact metadata cross-check: PASS.
+- LEFT_PROFILE static exact metadata cross-check: PASS.
+- Story Shot Reference Bundle Builder triggered: NO.
+- Project State advanced to R238.
+- Dashboard advanced to V173.
+- Next: separate Product Owner authorization for BACK Validation-only.
+- Formal Build / BACK Candidate 01 generation remain NOT AUTHORIZED.
+
