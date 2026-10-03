@@ -6,7 +6,7 @@
   "target_candidate": "N23 Candidate 03",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "references": [
     {
       "reference_id": "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001",
@@ -131,6 +131,12 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V003-R2",
-  "validation_retry_reason": "Door Control manifest normalized to generic CONTROLLED_REFERENCE schema; PNG binary unchanged."
+  "spec_revision": "V003-R3",
+  "validation_retry_reason": "Door Control manifest normalized to generic CONTROLLED_REFERENCE schema; PNG binary unchanged.",
+  "formal_build_authorization": {
+    "status": "PRODUCT_OWNER_AUTHORIZED",
+    "date": "2026-10-03",
+    "scope": "FORMAL BUNDLE V003 BUILD + EXACT ARTIFACT VERIFICATION ONLY",
+    "candidate_03_generation_authorized": false
+  }
 }
