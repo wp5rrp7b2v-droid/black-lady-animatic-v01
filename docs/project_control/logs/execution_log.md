@@ -3265,3 +3265,23 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next: Bundle Spec V001 + validation-only preparation.
 - Formal Bundle Build / REAR_3Q Candidate 01 generation remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Bundle Spec V001 Preparation
+
+Status: `PREPARED / STATIC 2 OF 2 PASS / VALIDATION NOT RUN`
+
+- Product Owner authorized Spec creation only.
+- Generic Builder trigger inspection confirmed that any push to `production/bundle_specs/*.json` auto-runs Validation-only when `build_authorized=false`.
+- To preserve the separate Validation gate, V001-R1 was frozen outside the trigger path.
+- Preparation path: `docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_bundle_spec_v001_preparation.json`.
+- Preparation commit: `41f769cf9025be2490d8e59f7133e36e1df7249d`.
+- Intended formal path: `production/bundle_specs/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q_REFERENCE_DELIVERY_BUNDLE_V001.json`.
+- `build_authorized=false`.
+- Reference count: 2.
+- FRONT exact metadata static cross-check: PASS.
+- LEFT_PROFILE exact metadata static cross-check: PASS.
+- Story Shot Reference Bundle Builder triggered by preparation commit: NO.
+- Project State advanced to `R230`.
+- Dashboard advanced to `V165`.
+- Next: separate Product Owner authorization for promotion + Validation-only.
+- Formal Build / Candidate 01 generation remain NOT AUTHORIZED.
+
