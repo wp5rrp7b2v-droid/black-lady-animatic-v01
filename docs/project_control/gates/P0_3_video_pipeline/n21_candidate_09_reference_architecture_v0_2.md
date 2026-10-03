@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PROPOSED / PRODUCT OWNER REVIEW REQUIRED / GENERIC GUEST CORE SET ROUTE / NO BUNDLE BUILD AUTHORIZED`
+`SUPERSEDED BEFORE PRODUCT OWNER APPROVAL / REPLACED BY V0.3 AFTER ADJACENT-SHOT + STORY REVIEW`
 
 Target:
 
@@ -342,3 +342,18 @@ Not authorized:
 - Candidate 09 generation;
 - Candidate 10;
 - N21 publication / registration.
+
+
+---
+
+## Supersession Note｜2026-10-03
+
+This proposal was superseded before Product Owner approval.
+
+The exact canonical review of N20 / N22 / N23 and the entrance references showed that N21 still needs a restrained visual door-continuity cue. It also showed that LEFT_PROFILE should not be a first-test direct input because its uniform screen-left orientation may add avoidable movement-direction pressure.
+
+See:
+
+- `n21_adjacent_shot_story_review_2026-10-03.md`
+- `n21_node_level_director_shot_design_v0_2_review_patch_01.md`
+- `n21_candidate_09_reference_architecture_v0_3.md`
