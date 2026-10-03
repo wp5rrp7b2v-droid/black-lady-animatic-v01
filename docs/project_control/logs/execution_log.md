@@ -3231,3 +3231,20 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next: `REAR 3/4 Design V0.1`.
 - REAR_3Q generation / BACK generation / N21 / N23 Candidate 02 remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Design V0.1 Approval
+
+Status: `PRODUCT OWNER APPROVED / LOCKED`
+
+- Orientation Scope Amendment 02 remains active: `RIGHT_PROFILE` cancelled / `REAR_3Q` substituted.
+- REAR_3Q Design V0.1 approved and locked.
+- Canonical geometry: back-dominant / approximately 135° from FRONT.
+- Board remains 1536×1024 / 2×5 / Guests A–J / A–F female / G–J male.
+- FRONT remains primary global identity authority.
+- LEFT PROFILE remains secondary side-view continuity authority.
+- Guest I LEFT PROFILE accepted tolerance must not propagate as redesign.
+- Design record commit: `41da84f747c7ee6a69e8d9381c0b41e2ec6bb70b`.
+- Project State advanced to `R228`.
+- Dashboard advanced to `V163`.
+- Next: `REAR 3/4 Reference Delivery Bundle Design V0.1`.
+- Bundle Spec / validation / formal build / Candidate 01 generation remain NOT AUTHORIZED.
+
