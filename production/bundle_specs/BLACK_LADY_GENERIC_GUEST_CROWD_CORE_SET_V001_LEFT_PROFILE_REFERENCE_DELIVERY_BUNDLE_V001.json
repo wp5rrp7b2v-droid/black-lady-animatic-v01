@@ -29,7 +29,7 @@
   "work_handoff": {
     "title": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001｜LEFT PROFILE Candidate 01",
     "requirements": [
-      "This formal Bundle spec authorizes controlled-reference validation only while build_authorized=false. It does NOT authorize formal Bundle Build or Work image generation.",
+      "This formal Bundle spec authorizes reference-bundle construction only. It does NOT authorize Work image generation. LEFT PROFILE Candidate 01 generation requires separate Product Owner authorization.",
       "The delivered visual authority, when formal build is separately authorized, is the single approved FRONT Authority PNG only.",
       "These are not ten new people. They are the exact same Guest A-J identities already approved in the FRONT Authority, now viewed from a true 90-degree LEFT PROFILE.",
       "Target canvas = 1536x1024 landscape / 2 rows x 5 columns.",
@@ -75,5 +75,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-R2"
+  "spec_revision": "V001-R3"
 }
