@@ -1,0 +1,229 @@
+name: N21 Door Identity Exact Canonical Publication V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/n21-door-identity-reference-v001-canonical-publication.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      CROP_PLAN: production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.crop_plan.json
+      BUILDER: scripts/build_n21_castle_entrance_door_identity_reference_v001.py
+      TMP_OUT: n21_door_identity_publication/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.png
+      TMP_REPORT: n21_door_identity_publication/build_report.json
+      CANONICAL: production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.png
+      MANIFEST: production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.manifest.json
+      EXPECT_SHA: "44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea"
+      EXPECT_BYTES: "273697"
+      EXPECT_BLOB: "3f9a4355460709a6e1d5aa2be611dd0ba5c75796"
+      PILLOW_VERSION: "11.3.0"
+
+    steps:
+      - name: Checkout authorization commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned Pillow
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "Pillow==${PILLOW_VERSION}"
+
+      - name: Rebuild approved exact binary
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "${TMP_OUT}")"
+          python "${BUILDER}" \
+            --crop-plan "${CROP_PLAN}" \
+            --output "${TMP_OUT}" \
+            --report "${TMP_REPORT}"
+
+          SHA="$(sha256sum "${TMP_OUT}" | awk '{print $1}')"
+          BYTES="$(wc -c < "${TMP_OUT}" | tr -d ' ')"
+          BLOB="$(git hash-object "${TMP_OUT}")"
+
+          echo "REBUILT_SHA256=$SHA"
+          echo "REBUILT_BYTES=$BYTES"
+          echo "REBUILT_GIT_BLOB=$BLOB"
+
+          test "$SHA" = "${EXPECT_SHA}"
+          test "$BYTES" = "${EXPECT_BYTES}"
+          test "$BLOB" = "${EXPECT_BLOB}"
+
+          echo "APPROVED_BINARY_EXACT_MATCH=PASS"
+
+      - name: Publish exact binary and draft manifest
+        run: |
+          set -euo pipefail
+          test ! -e "${CANONICAL}"
+          cp "${TMP_OUT}" "${CANONICAL}"
+
+          test "$(sha256sum "${CANONICAL}" | awk '{print $1}')" = "${EXPECT_SHA}"
+          test "$(wc -c < "${CANONICAL}" | tr -d ' ')" = "${EXPECT_BYTES}"
+          test "$(git hash-object "${CANONICAL}")" = "${EXPECT_BLOB}"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = {
+            "schema_version": "1.0",
+            "reference_id": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001",
+            "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+            "approval_status": "PRODUCT_OWNER_APPROVED",
+            "lifecycle": "CURRENT",
+            "asset_role": "N21_DOOR_IDENTITY_CONTROL",
+            "authority_scope": "N21_RIGHT_DOOR_IDENTITY_ONLY",
+            "canonical_path": "production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.png",
+            "output": {
+              "width": 160,
+              "height": 1210,
+              "mode": "RGB",
+              "format": "PNG",
+              "bit_depth": 8,
+              "byte_size": 273697,
+              "sha256": "44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea",
+              "git_blob": "3f9a4355460709a6e1d5aa2be611dd0ba5c75796"
+            },
+            "approved_binary": {
+              "approved_by": "PRODUCT_OWNER",
+              "approved_on": "2026-10-03",
+              "decision": "APPROVED_AS_IS",
+              "byte_size": 273697,
+              "sha256": "44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea",
+              "git_blob": "3f9a4355460709a6e1d5aa2be611dd0ba5c75796",
+              "dimensions": "160x1210",
+              "mode": "RGB",
+              "visual_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_visual_approval_2026-10-03.md"
+            },
+            "source_lineage": {
+              "source_asset_id": "AST_IMG_000052",
+              "source_path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+              "source_sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+              "crop_box_ltrb": [640,130,800,1340],
+              "crop_plan": "production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.crop_plan.json",
+              "determinism_proof_run": 37120732368,
+              "determinism_proof_artifact_id": 11273312582,
+              "publication_workflow_run": int(__import__("os").environ["GITHUB_RUN_ID"]),
+              "publication_commit": None
+            },
+            "runtime": {
+              "python_version": "3.12",
+              "pillow_version": "11.3.0"
+            },
+            "usage_boundary": {
+              "may_control": [
+                "physical right-side carved door-leaf identity",
+                "carved wooden panel language",
+                "wood material and color family",
+                "door-leaf thickness and visible edge",
+                "open-state and oblique leaf angle",
+                "narrow exterior opening cue proving the door remains open"
+              ],
+              "must_not_control": [
+                "N21 camera",
+                "screen placement",
+                "complete doorway width",
+                "complete arch",
+                "full entrance geometry",
+                "exterior scenery",
+                "outdoor brightness",
+                "floor",
+                "castle interior layout",
+                "crowd position",
+                "crowd direction",
+                "lighting composition"
+              ]
+            },
+            "camera_composition_inheritance": "FORBIDDEN",
+            "bundle_v007_authorized": False,
+            "candidate_09_generation_authorized": False
+          }
+          Path("production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+          PY
+
+      - name: Commit exact publication
+        id: publication
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "${CANONICAL}" "${MANIFEST}"
+          git commit -m "N21 publish door identity controlled reference"
+          PUBLICATION_COMMIT="$(git rev-parse HEAD)"
+          echo "publication_commit=$PUBLICATION_COMMIT" >> "$GITHUB_OUTPUT"
+
+          echo "PUBLICATION_COMMIT=$PUBLICATION_COMMIT"
+          echo "CANONICAL_SHA256=$(sha256sum "${CANONICAL}" | awk '{print $1}')"
+          echo "CANONICAL_BYTES=$(wc -c < "${CANONICAL}" | tr -d ' ')"
+          echo "CANONICAL_GIT_BLOB=$(git hash-object "${CANONICAL}")"
+
+      - name: Finalize manifest with publication commit
+        env:
+          PUBLICATION_COMMIT: ${{ steps.publication.outputs.publication_commit }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path("production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.manifest.json")
+          m = json.loads(p.read_text(encoding="utf-8"))
+          m["source_lineage"]["publication_commit"] = os.environ["PUBLICATION_COMMIT"]
+          p.write_text(json.dumps(m, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+
+          git add "${MANIFEST}"
+          git commit -m "N21 finalize door identity controlled-reference manifest"
+
+      - name: Final exact verification
+        run: |
+          set -euo pipefail
+          test "$(sha256sum "${CANONICAL}" | awk '{print $1}')" = "${EXPECT_SHA}"
+          test "$(wc -c < "${CANONICAL}" | tr -d ' ')" = "${EXPECT_BYTES}"
+          test "$(git hash-object "${CANONICAL}")" = "${EXPECT_BLOB}"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+
+          p = Path("production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.png")
+          with Image.open(p) as im:
+              assert im.size == (160,1210), im.size
+              assert im.mode == "RGB", im.mode
+
+          m = json.loads(Path("production/controlled_references/n21/N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001.manifest.json").read_text())
+          assert m["approval_status"] == "PRODUCT_OWNER_APPROVED"
+          assert m["lifecycle"] == "CURRENT"
+          assert m["output"]["byte_size"] == 273697
+          assert m["output"]["sha256"] == "44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea"
+          assert m["output"]["git_blob"] == "3f9a4355460709a6e1d5aa2be611dd0ba5c75796"
+          assert m["source_lineage"]["crop_box_ltrb"] == [640,130,800,1340]
+          assert m["source_lineage"]["publication_commit"]
+          assert m["camera_composition_inheritance"] == "FORBIDDEN"
+          assert m["bundle_v007_authorized"] is False
+          assert m["candidate_09_generation_authorized"] is False
+          print("CANONICAL_BINARY_EXACT_VERIFICATION=PASS")
+          print("MANIFEST_FINALIZATION_VERIFICATION=PASS")
+          PY
+
+      - name: Push publication commits
+        run: |
+          set -euo pipefail
+          git push origin HEAD:main
+          echo "OVERALL_RESULT=PASS"
