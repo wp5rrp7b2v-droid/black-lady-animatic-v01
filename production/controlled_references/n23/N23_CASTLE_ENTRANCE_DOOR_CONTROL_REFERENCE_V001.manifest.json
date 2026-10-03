@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001",
+  "status": "PRODUCT_OWNER_APPROVED_CANONICAL",
+  "source_asset_id": "AST_IMG_000052",
+  "source_sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961",
+  "crop_box_ltrb": [
+    615,
+    75,
+    930,
+    1340
+  ],
+  "width": 315,
+  "height": 1265,
+  "mode": "RGB",
+  "byte_size": 546543,
+  "sha256": "5718ce8c68069ca41143d666406a8c4cec3c285837a861337da758769bbfb652",
+  "python_version": "3.12.14",
+  "pillow_version": "11.3.0",
+  "determinism_proof_run": 37106490989,
+  "determinism_proof_artifact_id": 11267754516,
+  "product_owner_visual_approval_date": "2026-10-03",
+  "camera_composition_inheritance": "FORBIDDEN",
+  "semantic_scope": "DOOR IDENTITY / RIGHT DOOR LEAF / MATERIAL / OPEN STATE / LOCAL NEIL-SIDE RELATION ONLY",
+  "bundle_v003_authorized": false,
+  "candidate_03_generation_authorized": false
+}
