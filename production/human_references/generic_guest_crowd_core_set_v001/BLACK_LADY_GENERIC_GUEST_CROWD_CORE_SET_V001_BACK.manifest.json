@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "asset_role": "GENERIC_GUEST_CROWD_BACK_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_BACK_IDENTITY",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.png",
+  "output": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bit_depth": 8,
+    "byte_size": 2378771,
+    "sha256": "dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f",
+    "git_blob": "dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f"
+  },
+  "approved_binary": {
+    "approved_candidate": "BACK Candidate 01",
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-10-03",
+    "decision": "APPROVED_AS_IS",
+    "byte_size": 2378771,
+    "sha256": "dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f",
+    "staging_path": "staging/generic_guest_crowd_core_set_v001_back_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_CANDIDATE_01_APPROVED.png",
+    "staging_git_blob": "dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f",
+    "candidate_02_status": "NOT_GENERATED_NOT_REQUIRED"
+  },
+  "identity_board": {
+    "layout": "2_ROWS_X_5_COLUMNS",
+    "top_row": [
+      "Guest A",
+      "Guest B",
+      "Guest C",
+      "Guest D",
+      "Guest E"
+    ],
+    "bottom_row": [
+      "Guest F",
+      "Guest G",
+      "Guest H",
+      "Guest I",
+      "Guest J"
+    ],
+    "sex_distribution": {
+      "Guest A": "FEMALE",
+      "Guest B": "FEMALE",
+      "Guest C": "FEMALE",
+      "Guest D": "FEMALE",
+      "Guest E": "FEMALE",
+      "Guest F": "FEMALE",
+      "Guest G": "MALE",
+      "Guest H": "MALE",
+      "Guest I": "MALE",
+      "Guest J": "MALE"
+    },
+    "orientation": "FULL_BACK_APPROX_180_DEGREES_FROM_FRONT",
+    "primary_rule": "APPROVED_BACK_PIXELS_ARE_THE_PRIMARY_BACK_RENDERING_AUTHORITY",
+    "global_identity_rule": "FRONT_CANONICAL_AUTHORITY_REMAINS_PRIMARY_FOR_GLOBAL_IDENTITY_DEFINING_TRAITS",
+    "rear_geometry_rule": "REAR_3Q_CANONICAL_AUTHORITY_IS_SECONDARY_REAR_GEOMETRY_CONTINUITY",
+    "side_geometry_rule": "LEFT_PROFILE_CANONICAL_AUTHORITY_IS_TERTIARY_SIDE_GEOMETRY_CONTINUITY"
+  },
+  "governance": {
+    "p0_2_asset_registry_record": false,
+    "reason": "Project-level controlled human identity board governed in P0.3 controlled-reference layer.",
+    "not_story_shot": true,
+    "not_character_sheet": true,
+    "does_not_replace_named_character_atomic_assets": true,
+    "reusable_project_level_reference": true
+  },
+  "source_lineage": {
+    "front_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "rear_3q_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
+    "left_profile_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE",
+    "back_design": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 BACK Design V0.1",
+    "input_bundle": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_REFERENCE_DELIVERY_BUNDLE_V001",
+    "input_bundle_run_id": 37092524815,
+    "input_bundle_artifact_id": 11263271340,
+    "input_bundle_artifact_digest": "sha256:8c53088da68965c4963b599fe79769a7ed3d836cdbab9e86c4b541d52ff55b1d",
+    "generation_authorization_commit": "6015f22fd29b87c378e25edc07894e21b7ca37a6",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_back_candidate_01_approval_2026-10-03.md",
+    "approval_record_commit": "52c1208f4df6e23fd6ad69ab1112254a684e63bd",
+    "generation_context": "WORK CLEAN REGENERATION / BACK / PRODUCT OWNER APPROVED CANDIDATE 01"
+  },
+  "usage_boundary": {
+    "may_control": [
+      "Guest A-J approved BACK rendering continuity",
+      "Guest A-J rear head silhouette and rear hair continuity",
+      "Guest A-J rear body-build and shoulder-width continuity",
+      "Guest A-J approved back-view garment silhouette and footwear continuity",
+      "future crowd-shot BACK identity continuity when separately authorized"
+    ],
+    "must_not_control": [
+      "Story Shot composition",
+      "scene environment",
+      "scene lighting",
+      "crowd blocking unless separately designed",
+      "named-character identity",
+      "automatic authorization of N21 or N23 generation",
+      "redefinition of FRONT-locked global identity traits"
+    ]
+  },
+  "orientation_governance": {
+    "completed": [
+      "FRONT",
+      "LEFT_PROFILE",
+      "REAR_3Q",
+      "BACK"
+    ],
+    "next_required_order": [],
+    "interpretation": "THE SAME TEN PEOPLE FROM ANOTHER VIEW",
+    "global_identity_primary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT",
+    "rear_geometry_secondary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
+    "side_geometry_tertiary_authority": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE",
+    "generation_authorized": false,
+    "v001_orientation_set_status": "COMPLETE",
+    "scope_amendment": {
+      "status": "PRODUCT_OWNER_APPROVED_LOCKED",
+      "date": "2026-10-03",
+      "record": "docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md",
+      "replaced": "RIGHT_PROFILE",
+      "replacement": "REAR_3Q"
+    }
+  },
+  "publication": {
+    "request_path": "production/publication_requests/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.json",
+    "request_commit": "8ac680ffcedcdca684a1bccbaadee1372d1d261a",
+    "publication_commit": "19232cdeb24602aaf6b0cb07de6fdb45869e833c",
+    "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+    "canonical_publication_authorized": true,
+    "exact_binary_required": true
+  },
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd BACK V001 Intake Verify",
+    "workflow_run_id": 37094715518,
+    "job_id": 111122177202,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  },
+  "post_publication_verification": {
+    "workflow": "Generic Guest Crowd BACK V001 Canonical Verify",
+    "workflow_run_id": 37094791472,
+    "job_id": 111122397922,
+    "conclusion": "SUCCESS",
+    "exact_binary_match": true,
+    "overall_result": "PASS",
+    "verified_sha256": "dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f",
+    "verified_git_blob": "dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f",
+    "verified_byte_size": 2378771,
+    "verified_dimensions": "1536x1024",
+    "verified_mode": "RGBA",
+    "verified_bit_depth": 8
+  }
+}
