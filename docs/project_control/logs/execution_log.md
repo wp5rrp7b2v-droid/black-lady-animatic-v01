@@ -3365,3 +3365,26 @@ Status: `PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / INTAKE PENDING`
 - Dashboard advanced to `V169`.
 - Next: exact approved binary staging delivery + intake verification.
 
+## 2026-10-03｜Generic Guest Crowd REAR 3/4 Authority Formal Closeout
+
+Status: `PRODUCT OWNER APPROVED / CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`
+
+- Approved candidate: `REAR_3Q Candidate 01`; Candidate 02 not required.
+- Exact binary: 1536×1024 / RGBA / 8-bit / 2,373,958 bytes.
+- SHA-256: `52ae779b86ca28e38c50bdf7bf935d08e25769d6ec9bcc73e71b9701f6604756`.
+- Git blob: `3b72a8b8f0230231f3e2a6b0f7947f3c96b4a400`.
+- Intake verification: run `37091008292` / job `111111161404` / exact PASS.
+- Canonical publication: `52797ee337f4b346dafd6801739058d11cdfc221` / exact blob reuse / no re-encode.
+- Canonical verification: run `37091086745` / job `111111398380` / exact PASS.
+- Manifest commit: `b9c7b5203c7fb6709a8ebb5839b97f4f21ea6a07`.
+- FRONT manifest governance advanced to BACK: `a5eb45967ee9c6441d571ab59de705a235843432`.
+- LEFT_PROFILE manifest governance advanced to BACK: `1d23c2955f7ace98b4fb401623fa232c5227667c`.
+- Guest I tattoo rendering variation accepted as minor REAR_3Q tolerance only; FRONT remains global identity authority.
+- Temporary staging binaries and temporary intake/canonical verifiers removed.
+- Closeout path: `docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_rear_3q_authority_closeout_2026-10-03.md`.
+- Project State advanced to `R235`.
+- Dashboard advanced to `V170`.
+- Completed orientations: `FRONT / LEFT_PROFILE / REAR_3Q`.
+- Next: `BACK Design V0.1`.
+- BACK / N21 / N23 Candidate 02 generation remains NOT AUTHORIZED.
+
