@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R252",
+  "state_revision": "R253",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 C02 REJECTED / C03 CORRECTION STRATEGY + 5-SLOT REFERENCE ARCHITECTURE PREPARED / PO REVIEW NEXT / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 C02 REJECTED / C03 SLOT 3 MICRO-CORRECTION PO APPROVED + INCORPORATED / FINAL STRATEGY + 5-SLOT REFERENCE ARCHITECTURE APPROVAL PENDING / N21 HOLD / N22 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23 Candidate 03｜Correction Strategy V0.1 + Reference Architecture V0.1｜Product Owner Review",
-  "blocker": "Candidate 03 is not blocked by reference count because the architecture is capped at five direct visual inputs. Two controlled references must still be designed and approved before Bundle V003 can be finalized.",
-  "next_action": "Product Owner reviews Candidate 03 Correction Strategy V0.1 and Reference Architecture V0.1. If approved, proceed first to exact crop-plan design for the Door Control reference and the N22 Motion/Observation controlled reference. Do not build Bundle V003 or generate Candidate 03 yet.",
+  "current_task": "N23 Candidate 03｜Correction Strategy V0.1 + Reference Architecture V0.1｜Final Product Owner Review",
+  "blocker": "Candidate 03 Slot 3 direction conflict has been corrected. Final Product Owner approval of the complete Candidate 03 strategy and five-slot reference architecture is still required before either controlled-reference crop plan may start.",
+  "next_action": "Product Owner performs final review of the corrected Candidate 03 Correction Strategy V0.1 and Reference Architecture V0.1. If approved, proceed first to exact crop-plan design for the Door Control reference and the N22 Motion/Observation controlled reference. Do not build Bundle V003 or generate Candidate 03 yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-C03-STRATEGY-REF-ARCH-R252",
-    "status": "N23 C03 STRATEGY + 5-SLOT REFERENCE ARCHITECTURE PREPARED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N23-C03-SLOT3-CORRECTION-R253",
+    "status": "N23 C03 SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED + INCORPORATED / FINAL STRATEGY + REFERENCE ARCHITECTURE APPROVAL NEXT",
     "completed": [
       "Candidate 02 structural rejection retained as authority.",
-      "Candidate 03 direct visual input cap locked at maximum five.",
-      "Generic Guest BACK removed to reduce walking-away/depth bias.",
-      "Neil Character Sheet direct input replaced by AST_IMG_000073 FACE_3Q_RIGHT.",
-      "Guang REAR_3Q_RIGHT direct input replaced by AST_IMG_000010 FACE_3Q_RIGHT plus planned N22-derived behavior control.",
-      "Full N22 Story Shot remains excluded from direct generation input.",
-      "Full Castle Entrance Scene Master planned to be replaced by a door-only controlled crop to reduce lighting bias.",
-      "Generic Guest REAR_3Q retained as the only direct anonymous-crowd board.",
-      "Two new deterministic controlled references proposed before Bundle V003."
+      "Candidate 03 five-direct-input cap retained.",
+      "Slot 3 direction conflict identified and corrected.",
+      "Guang direct identity anchor changed from AST_IMG_000010 FACE_3Q_RIGHT to AST_IMG_000011 FACE_FRONT.",
+      "AST_IMG_000011 is identity-only and must not control shot-specific head direction.",
+      "Guang backward-awareness behavior remains controlled by Slot 5 N22-derived motion/observation reference plus written shot authority.",
+      "No crop plan, controlled-reference build, Bundle V003, or Candidate 03 generation has been authorized."
     ],
     "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_reference_architecture_v0_1.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N23 C03 STRATEGY + REFERENCE ARCHITECTURE",
+    "resume_from": "PRODUCT OWNER FINAL REVIEW OF CORRECTED N23 C03 STRATEGY + REFERENCE ARCHITECTURE",
     "blockers": [
-      "Product Owner approval pending",
+      "Final Product Owner approval pending",
       "Two controlled reference crop plans not yet approved",
       "N21 unresolved / HOLD"
     ]
@@ -3561,13 +3559,13 @@
       }
     },
     "candidate_03": {
-      "status": "STRATEGY + REFERENCE ARCHITECTURE PREPARED / PRODUCT OWNER REVIEW REQUIRED",
+      "status": "SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED + INCORPORATED / FINAL STRATEGY + REFERENCE ARCHITECTURE APPROVAL REQUIRED",
       "generation_authorized": false,
       "direct_visual_reference_cap": 5,
       "planned_direct_inputs": [
         "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001",
         "AST_IMG_000073",
-        "AST_IMG_000010",
+        "AST_IMG_000011",
         "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q",
         "N23_N22_MOTION_OBSERVATION_REFERENCE_V001"
       ],
@@ -3579,14 +3577,21 @@
         "N22_FULL_CANONICAL_STORY_SHOT"
       ],
       "strategy_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_correction_strategy_v0_1.md",
-      "strategy_commit": "26f0edd61bb14aefa455abc4a72fbb11e2784eff",
+      "strategy_commit": "58d77d78424a5e95dd463784aa1d7f00fafaa71e",
       "reference_architecture_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_reference_architecture_v0_1.md",
-      "reference_architecture_commit": "8221bd96ddf792b2e1d0a576c09867d71d990ba1",
+      "reference_architecture_commit": "9f8529ca87d4c497a60fd3693c525cea168a8b0a",
       "required_intermediate_references": [
         "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001",
         "N23_N22_MOTION_OBSERVATION_REFERENCE_V001"
       ],
-      "bundle_v003_authorized": false
+      "bundle_v003_authorized": false,
+      "slot_3": {
+        "status": "PRODUCT OWNER APPROVED MICRO-CORRECTION / INCORPORATED",
+        "previous": "AST_IMG_000010 / FACE_3Q_RIGHT / REMOVED FROM DIRECT C03 INPUT",
+        "current": "AST_IMG_000011 / FACE_FRONT / IDENTITY ONLY",
+        "behavior_authority": "N23_N22_MOTION_OBSERVATION_REFERENCE_V001 + WRITTEN SHOT AUTHORITY",
+        "head_direction_rule": "SLOT 3 MUST NOT CONTROL SHOT-SPECIFIC HEAD DIRECTION"
+      }
     }
   }
 }
