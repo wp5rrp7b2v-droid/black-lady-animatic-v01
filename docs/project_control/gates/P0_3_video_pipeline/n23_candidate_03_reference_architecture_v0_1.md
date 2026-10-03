@@ -2,7 +2,7 @@
 
 Status:
 
-`PROPOSED / SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED AND INCORPORATED / FINAL ARCHITECTURE APPROVAL STILL REQUIRED / DIRECT VISUAL CAP = 5`
+`PROPOSED / SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED AND INCORPORATED / FINAL ARCHITECTURE APPROVAL STILL REQUIRED / DIRECT VISUAL CAP = 5 / CURRENT PLANNED INPUTS = 4`
 
 Date:
 
@@ -38,7 +38,7 @@ not:
 
 ---
 
-## 2. FIVE-SLOT ARCHITECTURE
+## 2. REFERENCE ARCHITECTURE
 
 ### SLOT 1｜Door identity / scene fact
 
@@ -165,30 +165,25 @@ Non-delivered governance:
 
 ---
 
-### SLOT 5｜N22 motion / behavior continuity
+### SLOT 5｜UNUSED / RESERVED
 
-Planned reference:
+Previously proposed reference:
 
 `N23_N22_MOTION_OBSERVATION_REFERENCE_V001`
 
-Source:
+Status:
 
-`N22_PEOPLE_IN_THE_FLOW_APPROVED_V001.png`
+`CANCELLED / DO NOT BUILD / DO NOT DELIVER`
 
-Type:
+Reason:
 
-`CONTROLLED_REFERENCE / DETERMINISTIC TWO-PANEL CROP`
+The N22 canonical Story Shot does not provide reliable direct visual proof of the required LEFT → RIGHT lateral movement or Guang's backward-awareness behavior. Cropping cannot manufacture that evidence.
 
-Purpose:
+Candidate 03 therefore uses four direct visual inputs, not five.
 
-- N22→N23 movement continuity;
-- lateral screen-right travel language;
-- asynchronous walking / observing;
-- Guang Yong backward-awareness behavior.
+The hard cap remains five, but there is no requirement to fill every slot.
 
-Hard boundary:
-
-`FULL N22 STORY SHOT IS NOT DELIVERED`
+Movement and Guang behavior are written shot requirements to be tested in Candidate 03. If a later failure proves that a true visual action reference is necessary, a future revision may use the reserved fifth slot only with valid source evidence.
 
 ---
 
@@ -204,6 +199,7 @@ Do not deliver:
 - Generic Guest FRONT;
 - Generic Guest LEFT_PROFILE;
 - full N22 canonical Story Shot;
+- proposed `N23_N22_MOTION_OBSERVATION_REFERENCE_V001`;
 - Candidate 02;
 - any N21-specific human reference;
 - Character Visual Style Reference.
@@ -215,10 +211,10 @@ Do not deliver:
 Candidate 02 failure → Candidate 03 slot response:
 
 ### Motion axis failed
-→ SLOT 5 adds N22-derived motion evidence.
+→ No valid direct visual reference currently proves the desired lateral motion. Candidate 03 tests this through written shot authority; this remains a working hypothesis.
 
 ### Guang observation disappeared
-→ SLOT 3 locks Guang identity only with a neutral FACE_FRONT anchor; SLOT 5 locks the backward-awareness behavior and shot-specific head-direction cue.
+→ SLOT 3 locks Guang identity only with a neutral FACE_FRONT anchor. Backward-awareness behavior and shot-specific head direction remain written shot requirements and are not claimed as visually proven.
 
 ### Neil identity drifted
 → SLOT 2 replaces broad Character Sheet pressure with angle-specific face identity.
@@ -242,10 +238,11 @@ Shot-specific authority:
 Direct-reference semantic priority:
 
 1. Neil identity — SLOT 2
-2. motion / Guang behavior — SLOT 5
-3. door identity — SLOT 1
-4. Generic Guest identity — SLOT 4
-5. Guang identity detail — SLOT 3
+2. door identity — SLOT 1
+3. Generic Guest identity — SLOT 4
+4. Guang identity detail — SLOT 3
+
+Movement / Guang behavior are controlled by shot authority, not by a direct visual slot in the current attempt.
 
 This priority list does NOT imply screen prominence.
 
@@ -253,7 +250,7 @@ This priority list does NOT imply screen prominence.
 
 ## 6. BUILD DEPENDENCIES
 
-Bundle V003 cannot be designed as final until SLOT 1 and SLOT 5 controlled references exist and are approved.
+Bundle V003 cannot be designed as final until SLOT 1 Door Control exists and is approved.
 
 Required intermediate gates:
 
@@ -261,10 +258,7 @@ Required intermediate gates:
 `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001｜Exact Crop Plan`
 
 ### Gate B
-`N23_N22_MOTION_OBSERVATION_REFERENCE_V001｜Exact Crop Plan`
-
-### Gate C
-`Deterministic Build + Exact Binary Verification for both controlled references`
+`Deterministic Build + Exact Binary Verification for Door Control`
 
 Only then:
 
@@ -276,12 +270,13 @@ Only then:
 
 Status:
 
-`PROPOSED / SLOT 3 MICRO-CORRECTION INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
+`PROPOSED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
 
-Product Owner has approved only the Slot 3 micro-correction:
+Product Owner has approved two targeted architecture corrections:
 
-`AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+- `AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+- `CANCEL N23_N22_MOTION_OBSERVATION_REFERENCE_V001 / CURRENT ATTEMPT USES 4 DIRECT VISUAL INPUTS`
 
-The complete five-slot architecture is still waiting final Product Owner approval.
+The complete corrected architecture is still waiting final Product Owner approval.
 
-No controlled-reference build, Bundle V003 work, or image generation is authorized.
+No Door Control build, Bundle V003 work, or image generation is authorized.
