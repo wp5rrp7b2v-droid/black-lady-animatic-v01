@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001",
+  "status": "PRODUCT_OWNER_APPROVED_LOCKED_BUILD_AUTHORIZED",
+  "source": {
+    "asset_id": "AST_IMG_000052",
+    "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+    "width": 941,
+    "height": 1672,
+    "mode": "RGB",
+    "byte_size": 2305753,
+    "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961"
+  },
+  "crop": {
+    "coordinate_convention": "left_top_inclusive_right_bottom_exclusive",
+    "x1": 640,
+    "y1": 130,
+    "x2": 800,
+    "y2": 1340,
+    "width": 160,
+    "height": 1210
+  },
+  "output": {
+    "width": 160,
+    "height": 1210,
+    "mode": "RGB",
+    "format": "PNG",
+    "resize": false
+  },
+  "authority": {
+    "direct_pixel_scope": [
+      "physical right-side carved door-leaf identity",
+      "carved wooden panel language",
+      "wood material / color family",
+      "door-leaf thickness / visible edge",
+      "open state / oblique leaf angle",
+      "narrow exterior opening cue proving the door remains open"
+    ],
+    "excluded_scope": [
+      "N21 camera",
+      "screen placement",
+      "complete doorway width",
+      "complete arch",
+      "full entrance geometry",
+      "exterior scenery",
+      "outdoor brightness",
+      "floor",
+      "castle interior layout",
+      "crowd position",
+      "crowd direction",
+      "lighting composition"
+    ]
+  },
+  "approval": {
+    "product_owner_approved": true,
+    "approved_date": "2026-10-03",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_crop_plan_v0_1_approval_2026-10-03.md"
+  },
+  "authorization": {
+    "deterministic_build_authorized": true,
+    "authorized_date": "2026-10-03",
+    "canonical_publication_authorized": false,
+    "bundle_v007_authorized": false,
+    "candidate_09_generation_authorized": false
+  }
+}
