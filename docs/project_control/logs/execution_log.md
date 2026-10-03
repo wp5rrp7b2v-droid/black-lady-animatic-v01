@@ -3405,3 +3405,21 @@ Status: `PRODUCT OWNER APPROVED / LOCKED`
 - Next: `BACK Reference Delivery Bundle Design V0.1`.
 - Bundle Spec / validation / formal build / BACK Candidate 01 generation remain NOT AUTHORIZED.
 
+## 2026-10-03｜Generic Guest Crowd BACK Bundle Design V0.1 Approval
+
+Status: PRODUCT OWNER APPROVED / LOCKED
+
+- Bundle ID: BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_REFERENCE_DELIVERY_BUNDLE_V001.
+- Reference count: exactly 3.
+- Reference 01: FRONT / PRIMARY_GLOBAL_IDENTITY_AUTHORITY.
+- Reference 02: REAR_3Q / SECONDARY_REAR_GEOMETRY_CONTINUITY_AUTHORITY.
+- Reference 03: LEFT_PROFILE / TERTIARY_SIDE_GEOMETRY_CONTINUITY_AUTHORITY.
+- Conflict rule: FRONT WINS.
+- Named-character style parents, Story Shots and Scene Masters excluded.
+- Initial Spec requirement: build_authorized=false.
+- Bundle Design record commit: e55b6d1b2190a816642dd37d9aecaf7c0f2d57b0.
+- Project State advanced to R237.
+- Dashboard advanced to V172.
+- Next: BACK Bundle Spec V001 + validation-only preparation.
+- Validation-only / Formal Bundle Build / BACK Candidate 01 generation remain NOT AUTHORIZED.
+
