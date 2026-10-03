@@ -2,7 +2,7 @@
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED AND INCORPORATED / FINAL STRATEGY APPROVAL STILL REQUIRED / REFERENCE CONTROLS NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
+`DIRECTOR DESIGN PREPARED / SLOT 3 CORRECTION + SLOT 5 REMOVAL PRODUCT OWNER APPROVED AND INCORPORATED / FINAL STRATEGY APPROVAL STILL REQUIRED / REFERENCE CONTROLS NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
 
 Date:
 
@@ -188,7 +188,7 @@ Correct read:
 
 `HE IS STILL MOVING WITH THE FLOW, BUT HE HAS NOT FULLY STOPPED WATCHING BEHIND HIM`
 
-This behavior must be supported visually by a dedicated N22-derived controlled reference defined below.
+This behavior currently has no valid direct visual reference. It remains a written shot-specific behavior requirement to be tested in Candidate 03. Do not fabricate a visual authority for it.
 
 ---
 
@@ -233,64 +233,46 @@ Do not force all ten.
 
 ---
 
-## 7. NEW CONTROLLED REFERENCE A — N22 MOTION + OBSERVATION
+## 7. N22 MOTION / OBSERVATION REFERENCE — CANCELLED
 
-Required new controlled reference:
+Previously proposed:
 
 `N23_N22_MOTION_OBSERVATION_REFERENCE_V001`
 
-Source authority:
+Status:
 
-`N22_PEOPLE_IN_THE_FLOW_APPROVED_V001.png`
-
-Source must be the exact approved N22 canonical binary.
-
-Purpose:
-
-`N22→N23 MOTION CONTINUITY + GUANG YONG BACKWARD-AWARENESS BEHAVIOR ONLY`
-
-This controlled reference should be built deterministically from exact N22 pixels, not regenerated.
-
-Proposed single-image / two-panel structure:
-
-### Panel A｜Motion Continuity
-
-A crop that proves the N22 movement language:
-
-- lateral flow;
-- asynchronous stride;
-- people moving while observing;
-- no formal queue.
-
-It should suppress unnecessary readable named faces as much as possible.
-
-### Panel B｜Guang Observation Behavior
-
-A tighter crop proving the specific behavior Product Owner requires:
-
-`WALKING WITH THE GROUP WHILE STILL OBSERVING BACK / SIDE`
-
-This panel is behavioral evidence, not a new Guang identity authority.
-
-Exact crop rectangles are NOT locked by this strategy.
-
-They require a separate:
-
-`CONTROLLED REFERENCE EXACT CROP PLAN + PRODUCT OWNER VISUAL APPROVAL`
-
-before build.
-
-Hard boundary:
-
-`DO NOT DELIVER THE FULL N22 STORY SHOT TO WORK`
+`CANCELLED / DO NOT BUILD / DO NOT DELIVER`
 
 Reason:
 
-Candidate 01 proved that full N22 pixels create excessive ensemble / composition pressure.
+The approved N22 canonical Story Shot does not itself provide reliable direct visual proof of:
+
+- dominant LEFT → RIGHT lateral travel;
+- Guang Yong walking screen-right while retaining backward attention.
+
+A deterministic crop cannot create motion or behavior that the source image does not clearly contain.
+
+Therefore:
+
+- do not build a two-panel N22 controlled reference;
+- do not use full N22 canonical pixels as a Candidate 03 direct reference;
+- do not treat N22 as Guang behavioral authority.
+
+Candidate 03 must test the following as written shot requirements:
+
+- crowd first-read = LEFT → RIGHT lateral travel;
+- Guang body continues screen-right;
+- Guang head / attention retains a small backward cue toward frame-left / Neil / open door.
+
+These remain:
+
+`WORKING HYPOTHESIS / NOT YET VISUALLY PROVEN BY A VALID DIRECT REFERENCE`
+
+If Candidate 03 fails specifically on either behavior, future revision may search for a genuinely suitable visual action reference within the five-image cap.
 
 ---
 
-## 8. NEW CONTROLLED REFERENCE B — DOOR IDENTITY WITHOUT LIGHTING BIAS
+## 8. NEW CONTROLLED REFERENCE — DOOR IDENTITY WITHOUT LIGHTING BIAS
 
 Candidate 02 still showed excessive exterior / floor daylight while using the full Castle Entrance Scene Master.
 
@@ -357,7 +339,6 @@ No separate lighting reference image is allocated because of the five-image cap.
 
 Lighting must be controlled through:
 
-- N22 Motion/Observation controlled reference;
 - Door Control reference;
 - written shot authority.
 
@@ -369,15 +350,22 @@ Hard cap:
 
 `5 DIRECT VISUAL INPUTS MAXIMUM`
 
-Proposed direct inputs:
+Planned direct inputs for this attempt:
 
 1. `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001`
 2. `AST_IMG_000073｜Neil FACE_3Q_RIGHT`
 3. `AST_IMG_000011｜Guang Yong FACE_FRONT / IDENTITY ONLY`
 4. `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q`
-5. `N23_N22_MOTION_OBSERVATION_REFERENCE_V001`
 
-No sixth direct image.
+Current direct-image count:
+
+`4`
+
+Hard cap remains:
+
+`MAXIMUM 5`
+
+The fifth slot is intentionally unused. Do not add another reference merely to fill the cap.
 
 ---
 
@@ -390,9 +378,10 @@ Remove:
 - `AST_IMG_000013` Guang Yong REAR_3Q_RIGHT;
 - `AST_IMG_000010` Guang Yong FACE_3Q_RIGHT as a direct Candidate 03 input, because its screen-right facial orientation conflicts with the intended backward-attention direction;
 - Generic Guest BACK;
-- full N22 canonical Story Shot.
+- full N22 canonical Story Shot;
+- proposed `N23_N22_MOTION_OBSERVATION_REFERENCE_V001` controlled reference.
 
-These remain historical / parent authorities where applicable but are not direct Candidate 03 Work inputs.
+These remain historical / diagnostic authorities where applicable but are not direct Candidate 03 Work inputs.
 
 ---
 
@@ -440,23 +429,23 @@ Automatic fail if:
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / SLOT 3 MICRO-CORRECTION INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
+`DIRECTOR DESIGN PREPARED / SLOT 3 CORRECTION + SLOT 5 REMOVAL INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
 
 If approved, next steps are NOT Bundle V003 immediately.
 
 First:
 
-1. design `N23_N22_MOTION_OBSERVATION_REFERENCE_V001` exact crop plan;
-2. design `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001` exact crop plan;
-3. Product Owner visually approves both controlled-reference plans;
-4. deterministic GitHub Actions build + exact binary verification for both controlled references;
-5. then design `N23_REFERENCE_DELIVERY_BUNDLE_V003` with exactly five direct visual references.
+1. design `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001` exact crop plan;
+2. Product Owner visually approves the Door Control crop plan;
+3. deterministic GitHub Actions build + exact binary verification for the Door Control reference;
+4. then design `N23_REFERENCE_DELIVERY_BUNDLE_V003` with four planned direct visual references, while retaining a maximum cap of five.
 
-Product Owner decision already recorded for this revision:
+Product Owner decisions already recorded for this revision:
 
-`SLOT 3 MICRO-CORRECTION APPROVED: AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+- `SLOT 3 MICRO-CORRECTION APPROVED: AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+- `SLOT 5 REMOVAL APPROVED: CANCEL N23_N22_MOTION_OBSERVATION_REFERENCE_V001 / CURRENT ATTEMPT USES 4 DIRECT VISUAL INPUTS`
 
-This decision does not itself approve the complete Candidate 03 strategy or authorize the next gate.
+These decisions do not themselves approve the complete Candidate 03 strategy or authorize the next gate.
 
 Still not authorized:
 
