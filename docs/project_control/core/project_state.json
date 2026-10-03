@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R278",
+  "state_revision": "R279",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 CANDIDATE 09 FINAL PRODUCT OWNER APPROVED / EXACT LOCAL BINARY IDENTIFIED / 941x1671 DIMENSION EXCEPTION LOCKED / GITHUB INTAKE NEXT / N22 + N23 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N21 FORMALLY CLOSED + CANONICAL + REGISTERED + VERIFIED / N22 + N23 CLOSED / RISK-003 RESOLVED / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21 Candidate 09｜Approved Binary Intake + Canonical Closeout Preparation",
-  "blocker": "Final N21 Candidate 09 is Product Owner approved and exact local binary identity is known, but the exact approved PNG has not yet been staged into GitHub for intake verification.",
-  "next_action": "Stage the exact Product Owner-approved N21 Candidate 09 PNG without re-encoding. Intake must expect 941x1671 RGB / 2215769 bytes / sha256 4296383dc3fd330240a1107c004ce22d1c0ae730b193fcba495779308ba1ab0c / Git blob 3224760c7e5bb622679d6b4f10f4817050fa6197. Do not resize to 941x1672.",
+  "current_task": "Post-N21 checkpoint｜N21 / N22 / N23 Closed｜N24 Unstarted",
+  "blocker": "N21 has no remaining blocker. RISK-003 exit condition is satisfied. No current Story Shot production blocker is recorded for N21–N23.",
+  "next_action": "Select the next production focus. The downstream unstarted node is N24; N21 requires no further Story Shot production action unless later assembly/timeline work reopens it.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,22 +118,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-C09-FINAL-PO-APPROVED-R278",
-    "status": "N21 CANDIDATE 09 FINAL PRODUCT OWNER APPROVED / EXACT BINARY IDENTIFIED / GITHUB INTAKE NEXT",
+    "id": "2026-10-03-N21-FORMAL-CLOSEOUT-R279",
+    "status": "N21 COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / RISK-003 RESOLVED",
     "completed": [
-      "Product Owner explicitly approved current image as final N21.",
-      "Final approved binary = 941x1671 RGB / 2215769 bytes.",
-      "SHA-256 = 4296383dc3fd330240a1107c004ce22d1c0ae730b193fcba495779308ba1ab0c.",
-      "Git blob = 3224760c7e5bb622679d6b4f10f4817050fa6197.",
-      "One-pixel height difference from original 941x1672 target is explicitly accepted as a Product Owner exact-binary dimension exception.",
-      "No resize/pad/re-encode is permitted before intake.",
-      "GitHub staging, intake verification, canonical publication, registration and closeout remain pending."
+      "Final N21 Candidate 09 Product Owner-approved exact binary intake verified.",
+      "Product Owner-approved 941x1671 exact-binary dimension exception verified and locked.",
+      "Candidate Intake Verification run 37130567985 / job 111224676116 passed exact SHA / bytes / Git blob / dimensions.",
+      "Canonical exact-blob publication run 37130670997 / job 111224968709 passed.",
+      "Canonical path = production/image_library/approved/story_shots/N21_COHORT_ENTERS_INSIDE_THE_FLOW_APPROVED_V001.png.",
+      "Canonical Git blob preserved = 3224760c7e5bb622679d6b4f10f4817050fa6197.",
+      "Story Shot Index registration commit = 1c8ec42728f05041fb6cafea20c821d034b2fcfe.",
+      "Registration Verification run 37130794885 / job 111225320453 passed.",
+      "RISK-003 exit condition satisfied and risk resolved for N21.",
+      "N21 is formally closed."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_final_product_owner_approval_2026-10-03.md",
-    "resume_from": "EXACT APPROVED N21 CANDIDATE 09 BINARY INTAKE",
-    "blockers": [
-      "Exact approved PNG not yet staged into GitHub"
-    ]
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n21_story_shot_registration_closeout_2026-10-03.md",
+    "resume_from": "POST-N21 CHECKPOINT / N24 UNSTARTED",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -466,10 +467,10 @@
       {
         "id": "RISK-003",
         "name": "N21 Multi-Person Generation Stability Tradeoff",
-        "status": "ACTIVE / N21 REOPENED / HARD CREATIVE BLOCKER FOR N21 ONLY",
-        "linked_task": "P0.3 / S02-B / N21 Candidate 09 Restart",
-        "hard_blocker": true,
-        "exit_condition": "N21 obtains a Product Owner-approved Story Shot that resolves natural staggered crowd blocking and non-monumental partially concealed unknown-space composition, then completes canonical publication and registration."
+        "status": "RESOLVED / CLOSED 2026-10-03",
+        "linked_task": "P0.3 / S02-B / N21 FORMALLY CLOSED",
+        "hard_blocker": false,
+        "exit_condition": "SATISFIED 2026-10-03: Product Owner-approved N21 Story Shot canonically published, registered and registration-verified."
       }
     ]
   },
@@ -2945,7 +2946,7 @@
     "controlled_view_count": 40,
     "authority_scope": "PROJECT_LEVEL_CROWD_IDENTITY_BODY_WARDROBE_CONTINUITY",
     "n21_retest_possible": true,
-    "n21_blocker_resolved": false,
+    "n21_blocker_resolved": true,
     "n23_candidate_02_authorized": false,
     "generation_authorized": false,
     "next_step": "NONE WITHIN V001 / STORY SHOT RE-ENTRY REQUIRES SEPARATE PRODUCT OWNER DECISION",
@@ -3738,7 +3739,7 @@
   },
   "n23_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED",
   "n21_candidate_09": {
-    "status": "FINAL PRODUCT OWNER APPROVED / EXACT LOCAL BINARY IDENTIFIED / GITHUB INTAKE REQUIRED",
+    "status": "FORMALLY CLOSED / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED",
     "mode": "CLEAN REGENERATION + PRODUCT OWNER DIRECTED ITERATIVE EDITS",
     "bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V007",
     "artifact_id": 11273732234,
@@ -3764,9 +3765,33 @@
     },
     "final_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_final_product_owner_approval_2026-10-03.md",
     "final_approval_commit": "b45d8e8b8a4169c6cfe3d9b14140f9d85e484dcf",
-    "intake_verified": false,
-    "canonical_publication_complete": false,
-    "story_shot_registered": false
+    "intake_verified": true,
+    "canonical_publication_complete": true,
+    "story_shot_registered": true,
+    "intake_verification": {
+      "status": "PASS",
+      "run": 37130567985,
+      "job": 111224676116,
+      "artifact_id": 11276561955,
+      "artifact_digest": "sha256:b184a68cc507629d8fc27ab2acbde4fb535f840f4f958a9481b4c639a5614db7"
+    },
+    "canonical_path": "production/image_library/approved/story_shots/N21_COHORT_ENTERS_INSIDE_THE_FLOW_APPROVED_V001.png",
+    "canonical_publication": {
+      "status": "PASS / EXACT BLOB PRESERVED / 941x1671 DIMENSION EXCEPTION PRESERVED",
+      "run": 37130670997,
+      "job": 111224968709,
+      "commit": "26fb1612938aeabb19c19afe594faeb6f7bb1f4b",
+      "git_blob": "3224760c7e5bb622679d6b4f10f4817050fa6197"
+    },
+    "story_shot_registration": {
+      "status": "REGISTERED / VERIFIED",
+      "index_path": "production/story_shots/story_shot_index.jsonl",
+      "registration_commit": "1c8ec42728f05041fb6cafea20c821d034b2fcfe",
+      "verification_run": 37130794885,
+      "verification_job": 111225320453,
+      "verification_result": "PASS"
+    },
+    "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n21_story_shot_registration_closeout_2026-10-03.md"
   },
   "n21_node_level_director_shot_design_v0_2": {
     "status": "PRODUCT OWNER APPROVED / LOCKED / MINIMUM REFERENCE ARCHITECTURE REVIEW NEXT",
@@ -3928,7 +3953,7 @@
     "canonical_publication_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_canonical_publication_record_2026-10-03.md"
   },
   "n21_reference_delivery_bundle_v007": {
-    "status": "FORMAL BUILD PASS / ARTIFACT 2 OF 2 EXACT VERIFIED / CANDIDATE 09 GENERATION AUTHORIZATION REQUIRED",
+    "status": "FORMAL BUILD PASS / USED FOR PO-APPROVED CANDIDATE 09 / N21 CLOSED",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_design_v0_1.md",
     "design_commit": "ca6ed1e1daf20d594527b0b2c3f92e19d49f29c9",
     "direct_visual_input_count": 2,
@@ -3951,7 +3976,7 @@
     "spec_authorized": true,
     "validation_only_authorized": true,
     "formal_build_authorized": true,
-    "candidate_09_generation_authorized": false,
+    "candidate_09_generation_authorized": true,
     "design_approved": true,
     "design_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_design_approval_2026-10-03.md",
     "design_approval_commit": "91988696a1be9e5368aa34b87e08e63697660c4a",
@@ -3979,5 +4004,6 @@
       "manual_product_owner_reference_upload": 0,
       "record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_build_record_2026-10-03.md"
     }
-  }
+  },
+  "n21_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED"
 }
