@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R268",
+  "state_revision": "R269",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 DIRECTOR REDESIGN V0.2 APPROVED / C09 REFERENCE ARCHITECTURE CORRECTED TO GENERIC GUEST CORE SET V0.2 / PRODUCT OWNER REVIEW REQUIRED / N22 + N23 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N21 REDESIGN V0.2 APPROVED / ADJACENT CANONICAL + STORY REVIEW COMPLETE / REVIEW PATCH 01 + C09 REFERENCE ARCHITECTURE V0.3 PROPOSED / PRODUCT OWNER REVIEW REQUIRED / N22 + N23 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21 Candidate 09｜Minimum Reference Architecture V0.2｜Generic Guest Core Set｜Product Owner Review",
-  "blocker": "The previous one-reference Body/Wardrobe proposal has been superseded. The active decision is whether Candidate 09 should use Generic Guest REAR_3Q + LEFT_PROFILE as the two direct visual references, with FRONT/BACK retained as non-delivered authorities and environment controlled in text.",
-  "next_action": "Product Owner reviews N21 Candidate 09 Minimum Reference Architecture V0.2. If approved, prepare N21_REFERENCE_DELIVERY_BUNDLE_V007 with exactly two direct PNGs: Generic Guest REAR_3Q + LEFT_PROFILE. Do not include an environment image unless later generation proves it necessary.",
+  "current_task": "N21｜Review Patch 01 + Candidate 09 Reference Architecture V0.3｜Product Owner Review",
+  "blocker": "N21 redesigned shot function is approved, but the exact door-continuity treatment and Candidate 09 two-input architecture remain pending Product Owner approval after canonical adjacent-shot review.",
+  "next_action": "Product Owner reviews N21 V0.2 Review Patch 01 and Candidate 09 Reference Architecture V0.3. If approved, design the exact deterministic crop for N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001; do not build Bundle V007 or generate Candidate 09 yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,25 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-C09-GENERIC-GUEST-ARCH-V02-R268",
-    "status": "N21 REDESIGN V0.2 APPROVED / C09 GENERIC GUEST CORE SET ARCHITECTURE V0.2 PROPOSED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N21-ADJACENT-REVIEW-PATCH01-ARCHV03-R269",
+    "status": "N21 CANONICAL ADJACENT-SHOT REVIEW COMPLETE / PATCH 01 + C09 ARCH V0.3 PO REVIEW NEXT",
     "completed": [
-      "Confirmed BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001 is complete across FRONT / LEFT_PROFILE / REAR_3Q / BACK.",
-      "Reference Architecture V0.1 using N21_CROWD_BODY_WARDROBE_REFERENCE_V001 was superseded before Product Owner approval.",
-      "Reference Architecture V0.2 now uses Generic Guest Core Set.",
-      "Proposed direct inputs = REAR_3Q + LEFT_PROFILE.",
-      "FRONT remains global identity primary authority but is not delivered directly.",
-      "BACK remains full-back authority but is not delivered directly to avoid full-back procession bias.",
-      "N21-specific Body/Wardrobe reference becomes historical evidence only.",
-      "Environment reference remains withheld from direct Candidate 09 input.",
-      "No Bundle V007 Spec or Candidate 09 generation is authorized."
+      "Exact canonical N20 / N22 / N23 visually inspected via N21 Redesign Visual Inspection V001.",
+      "Scene Master, N23 Door Control, Generic Guest FRONT/LEFT_PROFILE/REAR_3Q/BACK, old N21 Threshold Environment and old Body/Wardrobe references visually inspected.",
+      "Extended inspection run 37118990672 / job 111191256130 / artifact 11272745899.",
+      "N21 Threshold Environment Reference confirmed visually misaligned with redesigned N21 because it is symmetrical, architecture-first and central-axis dominant.",
+      "N21 must retain a partial same-door continuity cue; environment-free text-only route is no longer recommended.",
+      "Threat/unknown mood demoted to secondary; primary function remains scale shift + threshold flow.",
+      "Reference Architecture V0.2 superseded before PO approval.",
+      "Proposed V0.3 direct inputs = new N21-specific narrow door identity reference + Generic Guest REAR_3Q.",
+      "LEFT_PROFILE / BACK / FRONT / full environment / adjacent Story Shots remain non-delivered authorities/evidence.",
+      "No door crop, Bundle V007 build or Candidate 09 generation is authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_reference_architecture_v0_2.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N21 C09 REFERENCE ARCHITECTURE V0.2",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_adjacent_shot_story_review_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER REVIEW OF N21 REVIEW PATCH 01 + C09 REFERENCE ARCHITECTURE V0.3",
     "blockers": [
-      "Candidate 09 reference architecture V0.2 not yet Product Owner approved"
+      "N21 V0.2 Review Patch 01 not yet Product Owner approved",
+      "Candidate 09 Reference Architecture V0.3 not yet Product Owner approved"
     ]
   },
   "visual_asset_management_system": {
@@ -3804,7 +3806,7 @@
     "generation_authorized": false
   },
   "n21_candidate_09_reference_architecture_v0_2": {
-    "status": "PROPOSED / PRODUCT OWNER REVIEW REQUIRED",
+    "status": "SUPERSEDED BEFORE PRODUCT OWNER APPROVAL / REPLACED BY V0.3 AFTER ADJACENT-SHOT REVIEW",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_reference_architecture_v0_2.md",
     "commit": "3457af6ccca686da8aeb808d56b1ca00fc76c22f",
     "direct_visual_input_count": 2,
@@ -3825,6 +3827,45 @@
     "scene_camera_authority": "WRITTEN ONLY",
     "proposed_bundle_id": "N21_REFERENCE_DELIVERY_BUNDLE_V007",
     "bundle_v007_spec_authorized": false,
+    "generation_authorized": false
+  },
+  "n21_adjacent_shot_story_review": {
+    "status": "COMPLETE / DESIGN CORRECTION PROPOSED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_adjacent_shot_story_review_2026-10-03.md",
+    "commit": "b5c44c7c9ab5b297bd5e4338ae6f9a1f8aaa616b",
+    "inspection_run": 37118990672,
+    "inspection_job": 111191256130,
+    "artifact_id": 11272745899,
+    "artifact_digest": "sha256:0781c22b1119407315a1e22d8e0cfd92af5ef92be203d88d154b36e6dc7b5971"
+  },
+  "n21_node_level_director_shot_design_v0_2_review_patch_01": {
+    "status": "PROPOSED / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_node_level_director_shot_design_v0_2_review_patch_01.md",
+    "commit": "6d9889d5c778e83b1937fd0c3b577bc342492f25",
+    "proposed_required_door_cue": "PARTIAL PHYSICAL RIGHT-SIDE DOOR LEAF / EXTREME SCREEN-LEFT",
+    "proposed_camera": "INSIDE CASTLE / JUST BEYOND THRESHOLD / SHOULDER HEIGHT / OFF-AXIS / LOOKING DIAGONALLY INWARD",
+    "proposed_flow": "LEFT-REAR THRESHOLD → RIGHT-FORWARD DEEPER INTERIOR",
+    "threat_priority": "SECONDARY / LATENT ONLY",
+    "approved": false
+  },
+  "n21_candidate_09_reference_architecture_v0_3": {
+    "status": "PROPOSED / PRODUCT OWNER REVIEW REQUIRED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n21_candidate_09_reference_architecture_v0_3.md",
+    "commit": "2f042ca17ddd276fc39e68e4a053345c473045ee",
+    "direct_visual_input_count": 2,
+    "proposed_direct_visual_inputs": [
+      "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001 / NOT YET BUILT",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
+    ],
+    "nondelivered_authorities": [
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT / GLOBAL IDENTITY PRIMARY",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_LEFT_PROFILE / SIDE AUTHORITY",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK / FULL-BACK AUTHORITY",
+      "AST_IMG_000052 / SCENE FACT AUTHORITY",
+      "N21_THRESHOLD_TRANSITION_ENVIRONMENT_REFERENCE_V001 / HISTORICAL CONTROLLED ENVIRONMENT REFERENCE"
+    ],
+    "bundle_v007_authorized": false,
+    "door_reference_crop_authorized": false,
     "generation_authorized": false
   }
 }
