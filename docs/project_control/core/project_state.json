@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R246",
+  "state_revision": "R247",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 C02 STRATEGY V0.2 APPROVED / N23 BUNDLE V002 DESIGN PREPARED / PO REVIEW NEXT / GENERIC GUEST V001 CLOSED / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 C02 STRATEGY V0.2 APPROVED / N23 BUNDLE V002 DESIGN APPROVED / VALIDATION-ONLY 5 OF 5 PASS / FORMAL BUILD AUTHORIZATION NEXT / GENERIC GUEST V001 CLOSED / N21 HOLD / N22 CLOSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23 Reference Delivery Bundle V002 Design V0.1｜Product Owner Review",
-  "blocker": "No asset-readiness blocker. N23 Candidate 02 remains gated by Product Owner approval of Bundle V002 Design, followed by Spec validation-only, separate formal-build authorization, independent Artifact verification and separate Work-generation authorization.",
-  "next_action": "Product Owner reviews N23 Reference Delivery Bundle V002 Design V0.1. If approved, create formal Spec with build_authorized=false and run validation-only exact verification. Do not generate Candidate 02.",
+  "current_task": "N23 Reference Delivery Bundle V002｜Formal Bundle Build Authorization",
+  "blocker": "No reference-validation blocker. Bundle V002 validation-only passed 5/5 exact with no Artifact. Formal Bundle build remains not authorized; Candidate 02 Work generation remains not authorized.",
+  "next_action": "Product Owner authorizes formal N23 Bundle V002 build. Then change only build_authorized=false→true and spec revision V002-R1→V002-R2, verify formal Artifact and all 5 delivered binaries independently, then stop at separate Candidate 02 Work-generation authorization gate.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,23 +118,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-BUNDLE-V002-DESIGN-R246",
-    "status": "N23 C02 STRATEGY V0.2 APPROVED / BUNDLE V002 DESIGN PREPARED / PRODUCT OWNER REVIEW NEXT",
+    "id": "2026-10-03-N23-BUNDLE-V002-VALIDATION-R247",
+    "status": "N23 BUNDLE V002 VALIDATION-ONLY PASS / 5 OF 5 EXACT / FORMAL BUILD AUTHORIZATION NEXT",
     "completed": [
-      "N23 Candidate 02 Correction Strategy V0.2 Product Owner approved and locked.",
-      "V0.2 supersedes V0.1 as active Candidate 02 correction authority.",
-      "N23 Reference Delivery Bundle V002 Design V0.1 prepared.",
-      "Direct visual input count = 5.",
-      "Direct inputs = AST_IMG_000052 / AST_IMG_000059 / AST_IMG_000013 / Generic Guest REAR_3Q / Generic Guest BACK.",
-      "Generic Guest FRONT remains non-delivered global identity conflict authority; FRONT WINS.",
-      "Generic Guest LEFT_PROFILE excluded from direct Candidate 02 input.",
-      "N22 direct Story Shot pixels remain excluded.",
-      "Bundle Spec / validation / formal build / Candidate 02 generation remain not authorized."
+      "N23 Bundle V002 Design Product Owner approved and locked.",
+      "Formal Spec created as V002-R1 with build_authorized=false.",
+      "Validation-only workflow run 37099838586 completed SUCCESS.",
+      "Job 111137056125 completed SUCCESS.",
+      "Builder verified 5/5 exact canonical references.",
+      "GENERATION_ALLOWED=FALSE.",
+      "Artifact count = 0.",
+      "Candidate 02 generation remains not authorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v002_design_v0_1.md",
-    "resume_from": "PRODUCT OWNER REVIEW OF N23 REFERENCE DELIVERY BUNDLE V002 DESIGN V0.1",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v002_validation_only_record_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N23 BUNDLE V002 FORMAL BUILD",
     "blockers": [
-      "N23 Bundle V002 Design Product Owner approval pending",
+      "N23 Bundle V002 formal build not authorized",
       "N21 unresolved / HOLD"
     ]
   },
@@ -3455,7 +3454,7 @@
   },
   "n23": {
     "candidate_02": {
-      "status": "PAUSED / STRATEGY V0.2 APPROVED / BUNDLE V002 DESIGN PREPARED / PRODUCT OWNER REVIEW REQUIRED",
+      "status": "PAUSED / STRATEGY V0.2 APPROVED / BUNDLE V002 DESIGN APPROVED / VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION NEXT",
       "correction_strategy_v0_2": {
         "status": "PRODUCT OWNER APPROVED / LOCKED / SUPERSEDES V0.1",
         "path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_02_correction_strategy_v0_2_generic_guest_core_set_integration.md",
@@ -3476,7 +3475,7 @@
         "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_02_correction_strategy_v0_2_approval_2026-10-03.md"
       },
       "bundle_v002_design": {
-        "status": "DESIGN PREPARED / WAITING PRODUCT OWNER APPROVAL",
+        "status": "PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION NEXT",
         "bundle_id": "N23_REFERENCE_DELIVERY_BUNDLE_V002",
         "path": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v002_design_v0_1.md",
         "commit": "3984401ad3256fef5d704ee3718a6d05e5e22921",
@@ -3494,7 +3493,16 @@
         "spec_authorized": false,
         "validation_authorized": false,
         "formal_build_authorized": false,
-        "candidate_02_authorized": false
+        "candidate_02_authorized": false,
+        "design_approval_commit": "6b4ec69bd754e53580d9087f590acc1da8cc9fc1",
+        "design_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_reference_delivery_bundle_v002_design_approval_2026-10-03.md",
+        "spec_path": "production/bundle_specs/N23_REFERENCE_DELIVERY_BUNDLE_V002.json",
+        "spec_revision": "V002-R1",
+        "spec_commit": "632ca0cb50af62f1cbc481b8cae7cbab5b20a444",
+        "validation_run": 37099838586,
+        "validation_job": 111137056125,
+        "validation_result": "PASS / 5 OF 5 EXACT",
+        "artifact_count": 0
       }
     }
   }
