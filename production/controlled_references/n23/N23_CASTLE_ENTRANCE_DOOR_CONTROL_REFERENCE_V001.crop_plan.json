@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001",
+  "status": "PRODUCT_OWNER_APPROVED_LOCKED",
+  "source": {
+    "asset_id": "AST_IMG_000052",
+    "path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V001.png",
+    "width": 941,
+    "height": 1672,
+    "mode": "RGB",
+    "byte_size": 2305753,
+    "sha256": "d49af6a5e42d0867f2ffe4883e6af82f4d3777da3e96d788924cee2a9c743961"
+  },
+  "crop": {
+    "coordinate_convention": "left_top_inclusive_right_bottom_exclusive",
+    "x1": 615,
+    "y1": 75,
+    "x2": 930,
+    "y2": 1340,
+    "width": 315,
+    "height": 1265
+  },
+  "output": {
+    "width": 315,
+    "height": 1265,
+    "mode": "RGB",
+    "format": "PNG",
+    "resize": false
+  },
+  "authority": {
+    "direct_pixel_scope": [
+      "right door-leaf material",
+      "right door-leaf carved-panel language",
+      "right door-leaf open-state / oblique angle",
+      "local door-frame relation",
+      "adjacent interior-side standing zone relevant to Neil",
+      "open-door fact"
+    ],
+    "excluded_scope": [
+      "complete double-door symmetry",
+      "full portal width",
+      "whole arch geometry",
+      "exterior scene composition",
+      "scene lighting",
+      "broad floor lighting"
+    ]
+  },
+  "approval": {
+    "product_owner_approved": true,
+    "approved_date": "2026-10-03",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_castle_entrance_door_control_reference_v001_crop_plan_v0_2_approval_2026-10-03.md"
+  }
+}
