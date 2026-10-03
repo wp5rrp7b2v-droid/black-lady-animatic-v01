@@ -2,7 +2,7 @@
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / WAITING PRODUCT OWNER APPROVAL / REFERENCE CONTROLS NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
+`DIRECTOR DESIGN PREPARED / SLOT 3 MICRO-CORRECTION PRODUCT OWNER APPROVED AND INCORPORATED / FINAL STRATEGY APPROVAL STILL REQUIRED / REFERENCE CONTROLS NOT YET BUILT / CANDIDATE 03 NOT AUTHORIZED`
 
 Date:
 
@@ -157,11 +157,19 @@ but the output lost the N22 behavioral bridge.
 
 Candidate 03 removes AST_IMG_000013 from direct input.
 
-New direct Guang identity/head-direction anchor:
+New direct Guang identity-only anchor:
 
-`AST_IMG_000010｜CHAR_GUANG_YONG｜FACE_3Q_RIGHT`
+`AST_IMG_000011｜CHAR_GUANG_YONG｜FACE_FRONT`
 
-This does NOT by itself define the complete action.
+Reason for the micro-correction:
+
+- project orientation governance defines RIGHT as face/nose toward screen-right;
+- Candidate 03 requires Guang's body to continue screen-right while his head / attention retains a small backward cue toward frame-left / Neil / the open door;
+- therefore `FACE_3Q_RIGHT` would introduce avoidable head-direction pressure opposite to the intended backward-awareness cue.
+
+`AST_IMG_000011 CONTROLS GUANG IDENTITY ONLY / IT MUST NOT CONTROL SHOT-SPECIFIC HEAD DIRECTION`
+
+The complete action is controlled by the N22-derived motion/observation reference plus written shot authority.
 
 The complete behavioral lock is:
 
@@ -365,7 +373,7 @@ Proposed direct inputs:
 
 1. `N23_CASTLE_ENTRANCE_DOOR_CONTROL_REFERENCE_V001`
 2. `AST_IMG_000073｜Neil FACE_3Q_RIGHT`
-3. `AST_IMG_000010｜Guang Yong FACE_3Q_RIGHT`
+3. `AST_IMG_000011｜Guang Yong FACE_FRONT / IDENTITY ONLY`
 4. `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q`
 5. `N23_N22_MOTION_OBSERVATION_REFERENCE_V001`
 
@@ -380,6 +388,7 @@ Remove:
 - full `AST_IMG_000052` Scene Master;
 - `AST_IMG_000059` Neil Character Reference Sheet;
 - `AST_IMG_000013` Guang Yong REAR_3Q_RIGHT;
+- `AST_IMG_000010` Guang Yong FACE_3Q_RIGHT as a direct Candidate 03 input, because its screen-right facial orientation conflicts with the intended backward-attention direction;
 - Generic Guest BACK;
 - full N22 canonical Story Shot.
 
@@ -431,7 +440,7 @@ Automatic fail if:
 
 Status:
 
-`DIRECTOR DESIGN PREPARED / WAITING PRODUCT OWNER APPROVAL`
+`DIRECTOR DESIGN PREPARED / SLOT 3 MICRO-CORRECTION INCORPORATED / WAITING PRODUCT OWNER FINAL APPROVAL`
 
 If approved, next steps are NOT Bundle V003 immediately.
 
@@ -442,6 +451,12 @@ First:
 3. Product Owner visually approves both controlled-reference plans;
 4. deterministic GitHub Actions build + exact binary verification for both controlled references;
 5. then design `N23_REFERENCE_DELIVERY_BUNDLE_V003` with exactly five direct visual references.
+
+Product Owner decision already recorded for this revision:
+
+`SLOT 3 MICRO-CORRECTION APPROVED: AST_IMG_000010 FACE_3Q_RIGHT → AST_IMG_000011 FACE_FRONT / IDENTITY ONLY`
+
+This decision does not itself approve the complete Candidate 03 strategy or authorize the next gate.
 
 Still not authorized:
 
