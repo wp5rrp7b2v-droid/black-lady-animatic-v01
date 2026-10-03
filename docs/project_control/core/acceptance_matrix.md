@@ -286,3 +286,21 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - Candidate 04 remains `NOT AUTHORIZED`.
 - RISK-003 remains ACTIVE until at least one new candidate demonstrates acceptable balance and Product Owner approval.
 - Resume point: `N21_REFERENCE_DELIVERY_BUNDLE_V003 DESIGN`.
+
+## P0.3 Current Validation Note｜2026-10-03 EOD
+
+- P0.3 remains `IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED`.
+- S02-A remains `FORMALLY CLOSED`.
+- S02-B remains `ACTIVE`.
+- N16 / N17 / N18 / N19 / N20 / N22 remain formally closed under their existing approvals and verification records.
+- N21 remains `HOLD / UNRESOLVED`; completion of the Generic Guest Crowd Core Set does not by itself resolve N21 crowd blocking, central-axis composition or environment-drift risk.
+- N23 Candidate 01 remains `NOT APPROVED / DIAGNOSTIC ONLY`.
+- N23 Scene Reference V0.2.1 remains `PRODUCT OWNER APPROVED / LOCKED`.
+- N23 Candidate 02 remains `PAUSED`, but its earlier dependency on Generic Guest Crowd Core Set progress is now satisfied.
+- `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001` is now `PRODUCT OWNER APPROVED / FOUR ORIENTATION AUTHORITIES CANONICAL / EXACT VERIFIED / MANIFESTED / CLOSED`.
+- Final Core Set orientations are `FRONT / LEFT_PROFILE / REAR_3Q / BACK`; RIGHT_PROFILE remains formally cancelled and replaced by REAR_3Q.
+- All four orientation manifests resolve `v001_orientation_set_status = COMPLETE` and no remaining V001 orientation generation requirement exists.
+- Core Set closeout does not authorize N21 or N23 generation.
+- Resume point: `PRODUCT OWNER STORY SHOT RE-ENTRY DECISION` between N21 and N23 Candidate 02.
+- No P0.3 Gate PASS is claimed.
+
