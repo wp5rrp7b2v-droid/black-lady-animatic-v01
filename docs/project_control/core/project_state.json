@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R263",
+  "state_revision": "R264",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N23 CANDIDATE 03 FINAL PRODUCT OWNER APPROVED AFTER TWO LOCALIZED EDIT ROUNDS / EXACT FINAL BINARY IDENTIFIED / INTAKE + CANONICAL PUBLICATION + REGISTRATION NEXT / N21 HOLD / N22 CLOSED",
+  "session_status": "P0.3 IN PROGRESS / N23 FORMALLY CLOSED + CANONICAL + REGISTERED + VERIFIED / N22 CLOSED / N21 HOLD / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N23 Candidate 03｜Approved Binary Intake + Canonical Closeout Preparation",
-  "blocker": "Final N23 Candidate 03 is Product Owner approved and its exact local binary identity is known, but that exact approved PNG has not yet been staged into GitHub for intake verification. Canonical publication and Story Shot registration must not proceed until the exact approved binary is present in the repo and verified.",
-  "next_action": "Stage the exact Product Owner-approved N23 Candidate 03 PNG without re-encoding, run Story Shot Candidate Intake Verifier, then continue canonical exact-binary publication and Story Shot registration only if the staged binary SHA-256 equals 2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973.",
+  "current_task": "Post-N23 checkpoint｜N23 Closed / N21 Hold / N24 Unstarted",
+  "blocker": "N23 has no remaining blocker. N21 remains unresolved / HOLD.",
+  "next_action": "Select next production focus: either return to unresolved N21 or begin N24 design. N23 requires no further production action unless later animation/timeline assembly work reopens it.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,22 +118,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N23-C03-FINAL-PO-APPROVED-R263",
-    "status": "N23 CANDIDATE 03 FINAL PRODUCT OWNER APPROVED / EXACT BINARY IDENTIFIED / GITHUB INTAKE NEXT",
+    "id": "2026-10-03-N23-FORMAL-CLOSEOUT-R264",
+    "status": "N23 COMPLETE / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED / CLOSED",
     "completed": [
-      "Formal Candidate 03 Work generation completed from verified Bundle V003.",
-      "Product Owner performed two localized edit rounds in Work.",
-      "Edit round 1 removed persons at approximately x14.3% y48.9% and x93.5% y30.4%.",
-      "Edit round 2 changed gaze at approximately x57.7% y47.3% to upper-right and x79.9% y31.1% to lower-left.",
-      "Final approved image remains Candidate 03 and is not renumbered Candidate 04.",
-      "Final approved binary = 941x1672 RGBA / 2697400 bytes / sha256 2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973.",
-      "Pre-edit Work output = 941x1672 RGB / 1812627 bytes / sha256 62eb4dab958353950860595393e0aa449aa244ebf810e9a8ebf5c5a70faba4d1.",
-      "Canonical publication and registration have not yet occurred."
+      "Final N23 Candidate 03 Product Owner-approved binary exact identity verified.",
+      "Candidate Intake Verification run 37114574502 passed exact SHA / byte / Git blob / dimensions.",
+      "Canonical exact-blob publication run 37114635199 passed.",
+      "Canonical path = production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png.",
+      "Canonical Git blob preserved = 649ed97addf97f126a05e12d43325720a624ea19.",
+      "Story Shot Index registration commit = 3887854fb622f90b9bf2c86e9954dbd0c1c33988.",
+      "Registration Verification run 37114733431 / job 111179226534 passed.",
+      "N23 is formally closed."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_final_product_owner_approval_2026-10-03.md",
-    "resume_from": "EXACT APPROVED N23 CANDIDATE 03 BINARY INTAKE",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n23_story_shot_registration_closeout_2026-10-03.md",
+    "resume_from": "POST-N23 CHECKPOINT / SELECT N21 OR N24",
     "blockers": [
-      "Exact approved PNG not yet staged into GitHub for intake verification",
       "N21 unresolved / HOLD"
     ]
   },
@@ -3559,7 +3558,7 @@
       }
     },
     "candidate_03": {
-      "status": "FINAL PRODUCT OWNER APPROVED / TWO LOCALIZED EDIT ROUNDS / EXACT FINAL BINARY IDENTIFIED / GITHUB INTAKE REQUIRED",
+      "status": "FORMALLY CLOSED / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED",
       "generation_authorized": true,
       "direct_visual_reference_cap": 5,
       "planned_direct_inputs": [
@@ -3709,9 +3708,34 @@
       },
       "final_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n23_candidate_03_final_product_owner_approval_2026-10-03.md",
       "final_approval_commit": "5978a5beeaf5e66307cc8418737c96bb84f74cc3",
-      "intake_verified": false,
-      "canonical_publication_complete": false,
-      "story_shot_registered": false
+      "intake_verified": true,
+      "canonical_publication_complete": true,
+      "story_shot_registered": true,
+      "intake_verification": {
+        "status": "PASS",
+        "run": 37114574502,
+        "job": 111178760205,
+        "artifact_id": 11271013272,
+        "artifact_digest": "sha256:b1a6fda2d398b7731eb3223183a6e286aedab5f41c9b0a58970ceffffe6508a6"
+      },
+      "canonical_path": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+      "canonical_publication": {
+        "status": "PASS / EXACT BLOB PRESERVED",
+        "run": 37114635199,
+        "job": 111178938708,
+        "commit": "471c1784295e68a6b45d2869ab62ecdbea8cd014",
+        "git_blob": "649ed97addf97f126a05e12d43325720a624ea19"
+      },
+      "story_shot_registration": {
+        "status": "REGISTERED / VERIFIED",
+        "index_path": "production/story_shots/story_shot_index.jsonl",
+        "registration_commit": "3887854fb622f90b9bf2c86e9954dbd0c1c33988",
+        "verification_run": 37114733431,
+        "verification_job": 111179226534,
+        "verification_result": "PASS"
+      },
+      "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n23_story_shot_registration_closeout_2026-10-03.md"
     }
-  }
+  },
+  "n23_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED"
 }
