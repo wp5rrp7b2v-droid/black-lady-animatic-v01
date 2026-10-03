@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "publication_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_CANONICAL_PUBLICATION_V001",
+  "reference_id": "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "asset_role": "GENERIC_GUEST_CROWD_BACK_IDENTITY_AUTHORITY",
+  "authority_scope": "PROJECT_LEVEL_GENERIC_GUEST_CROWD_A_TO_J_BACK_IDENTITY",
+  "approved_candidate": "BACK Candidate 01",
+  "approved_by": "PRODUCT_OWNER",
+  "approved_on": "2026-10-03",
+  "source_path": "staging/generic_guest_crowd_core_set_v001_back_intake/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK_CANDIDATE_01_APPROVED.png",
+  "canonical_path": "production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_BACK.png",
+  "expected_byte_size": 2378771,
+  "expected_sha256": "dbde5e5a4df213c19439016c675e1fb40e999577b1cfd4ec92f04c13471db13f",
+  "expected_git_blob": "dcef9dc08cb72d15826ec18abb7f3fa2bb5cd22f",
+  "expected_width": 1536,
+  "expected_height": 1024,
+  "expected_mode": "RGBA",
+  "expected_bit_depth": 8,
+  "publication_method": "EXACT_GIT_BLOB_REUSE_NO_REENCODE",
+  "exact_binary_required": true,
+  "intake_verification": {
+    "workflow": "Generic Guest Crowd BACK V001 Intake Verify",
+    "workflow_run_id": 37094715518,
+    "job_id": 111122177202,
+    "exact_binary_match": true,
+    "overall_result": "PASS"
+  }
+}
