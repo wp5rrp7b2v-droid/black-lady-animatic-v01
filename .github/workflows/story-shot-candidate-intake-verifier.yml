@@ -11,6 +11,7 @@ on:
     branches: [main]
     paths:
       - "staging/story_shot_candidates/**/*.png"
+      - "production/candidate_delivery_specs/*.json"
 
 permissions:
   contents: read
@@ -32,6 +33,12 @@ jobs:
             CANDIDATE="${{ inputs.candidate_path }}"
           else
             CANDIDATE="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'staging/story_shot_candidates/**/*.png' | tail -n 1)"
+            if [ -z "$CANDIDATE" ]; then
+              SPEC="$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'production/candidate_delivery_specs/*.json' | tail -n 1)"
+              if [ -n "$SPEC" ]; then
+                CANDIDATE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["target_staging_path"])' "$SPEC")"
+              fi
+            fi
           fi
           if [ -z "$CANDIDATE" ]; then
             echo "No candidate staging PNG selected"
