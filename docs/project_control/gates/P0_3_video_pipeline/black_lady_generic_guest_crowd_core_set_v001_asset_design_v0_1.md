@@ -328,3 +328,29 @@ Product Owner correction:
 `10 GUESTS = 6 FEMALE + 4 MALE`
 
 This amendment changes population composition only. All other approved V0.1 structure remains unchanged.
+
+---
+
+## Asset Design Amendment 02｜2026-10-03
+
+Product Owner approved replacement of the unexecuted `RIGHT PROFILE` board with `REAR_3Q`.
+
+Previous orientation set:
+
+`FRONT / LEFT PROFILE / RIGHT PROFILE / BACK`
+
+Revised V001 orientation set:
+
+`FRONT / LEFT PROFILE / REAR_3Q / BACK`
+
+Rationale:
+
+- RIGHT PROFILE is materially redundant with the already completed LEFT PROFILE for this reusable anonymous crowd asset;
+- REAR_3Q adds more useful side-back / inward-movement / back-dominant information for crowd Story Shots;
+- total structure remains 10 Guests × 4 controlled orientations = 40 controlled views;
+- FRONT and LEFT PROFILE approved binaries remain unchanged;
+- REAR_3Q requires its own design / Bundle / Work / PO / exact-binary formalization chain.
+
+Formal amendment record:
+
+`docs/project_control/gates/P0_3_video_pipeline/black_lady_generic_guest_crowd_core_set_v001_orientation_scope_amendment_02_2026-10-03.md`
