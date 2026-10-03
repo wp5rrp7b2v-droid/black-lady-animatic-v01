@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R271",
+  "state_revision": "R272",
   "last_updated": "2026-10-03",
-  "session_status": "P0.3 IN PROGRESS / N21 PATCH 01 + C09 ARCH V0.3 APPROVED / DOOR IDENTITY CROP PLAN V0.1 PRODUCT OWNER APPROVED + LOCKED / DETERMINISTIC CROP BUILD AUTHORIZATION NEXT",
+  "session_status": "P0.3 IN PROGRESS / N21 PATCH 01 + C09 ARCH V0.3 APPROVED / DOOR IDENTITY DETERMINISTIC BUILD + EXACT VERIFICATION PASS / PRODUCT OWNER VISUAL REVIEW NEXT / BUNDLE V007 NOT AUTHORIZED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N21 Door Identity Reference｜Deterministic Crop Build Authorization",
-  "blocker": "N21 door identity crop plan is approved and locked. Deterministic crop execution remains separately gated.",
-  "next_action": "Product Owner decides whether to authorize deterministic build of N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001 from the locked crop plan. If authorized, build exactly once deterministically, verify output SHA/bytes/dimensions, then stop before Bundle V007.",
+  "current_task": "N21 Door Identity Reference｜Built Crop｜Product Owner Visual Review",
+  "blocker": "Deterministic build is complete and exact-verified. Product Owner visual approval is required before canonical controlled-reference publication and before any Bundle V007 work.",
+  "next_action": "Product Owner visually reviews N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001 built crop. If approved, separately authorize exact canonical publication / manifest finalization. Do not create Bundle V007 yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,21 +118,23 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-03-N21-DOOR-CROPPLAN-APPROVED-R271",
-    "status": "N21 DOOR IDENTITY CROP PLAN V0.1 APPROVED / BUILD AUTHORIZATION NEXT",
+    "id": "2026-10-03-N21-DOOR-DETERMINISTIC-BUILD-PASS-R272",
+    "status": "N21 DOOR IDENTITY DETERMINISTIC BUILD PASS / EXACT BINARY VERIFIED / PRODUCT OWNER VISUAL REVIEW NEXT",
     "completed": [
-      "Exact Crop Plan V0.1 Product Owner approved and locked.",
-      "Approved rectangle = x1 640, y1 130, x2 800, y2 1340.",
-      "Approved output size = 160x1210.",
-      "No resize / retouch / relight / recolor permitted.",
-      "Authority limited to physical right-side door identity, carving, wood material, open state and narrow open-edge cue.",
-      "Deterministic crop build has not yet been authorized or executed.",
-      "Bundle V007 and Candidate 09 remain unauthorized."
+      "Locked crop plan executed deterministically from AST_IMG_000052.",
+      "Workflow run 37120732368 / job 111196159476 succeeded.",
+      "Artifact 11273312582 created; digest sha256:600b09bbb641f8ec5ed774dd1a234d9f40b9ad35f3ab09e2aff23f89ce88ef88.",
+      "Downloaded Artifact ZIP digest independently matched GitHub artifact digest.",
+      "Run A and Run B are byte-identical.",
+      "Output = 160x1210 RGB / 273697 bytes / sha256 44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea.",
+      "Expected Git blob if published unchanged = 3f9a4355460709a6e1d5aa2be611dd0ba5c75796.",
+      "Visual self-check confirms door identity/open state are retained while armor/sconce/full portal/broad floor are excluded.",
+      "Canonical publication, Bundle V007 and Candidate 09 remain unauthorized."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_crop_plan_v0_1_approval_2026-10-03.md",
-    "resume_from": "PRODUCT OWNER AUTHORIZATION FOR N21 DOOR IDENTITY DETERMINISTIC CROP BUILD",
+    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_build_record_2026-10-03.md",
+    "resume_from": "PRODUCT OWNER VISUAL REVIEW OF BUILT N21 DOOR IDENTITY REFERENCE",
     "blockers": [
-      "Deterministic crop build not yet Product Owner authorized"
+      "Product Owner visual approval not yet recorded"
     ]
   },
   "visual_asset_management_system": {
@@ -3869,7 +3871,7 @@
     "approval_commit": "5ec3a58224b9fc49688481c6f07533f87c9f7b82"
   },
   "n21_castle_entrance_door_identity_reference_v001": {
-    "status": "EXACT CROP PLAN V0.1 PRODUCT OWNER APPROVED / LOCKED / BUILD AUTHORIZATION REQUIRED",
+    "status": "DETERMINISTIC BUILD PASS / TWO-RUN EXACT VERIFIED / PRODUCT OWNER VISUAL REVIEW REQUIRED / NOT CANONICAL",
     "reference_id": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001",
     "source": "AST_IMG_000052｜SCENE_CASTLE_ENTRANCE｜SCENE_MASTER｜DAY_DOOR_OPEN",
     "crop_plan_path": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_exact_crop_plan_v0_1.md",
@@ -3882,10 +3884,28 @@
       "width": 160,
       "height": 1210
     },
-    "build_authorized": false,
+    "build_authorized": true,
     "canonical": false,
     "crop_plan_approved": true,
     "crop_plan_approval_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_crop_plan_v0_1_approval_2026-10-03.md",
-    "crop_plan_approval_commit": "6b45bedfe07ad29b5ec83efd606afb1e4013cad7"
+    "crop_plan_approval_commit": "6b45bedfe07ad29b5ec83efd606afb1e4013cad7",
+    "build": {
+      "workflow_run": 37120732368,
+      "job": 111196159476,
+      "artifact_id": 11273312582,
+      "artifact_name": "N21_CASTLE_ENTRANCE_DOOR_IDENTITY_REFERENCE_V001_TWO_RUN_PROOF",
+      "artifact_size": 550949,
+      "artifact_digest": "sha256:600b09bbb641f8ec5ed774dd1a234d9f40b9ad35f3ab09e2aff23f89ce88ef88",
+      "output_width": 160,
+      "output_height": 1210,
+      "output_mode": "RGB",
+      "output_bytes": 273697,
+      "output_sha256": "44c0aa0738747831b9aceaf0aba197fddf1af918f14e099a647dbc60153789ea",
+      "expected_git_blob": "3f9a4355460709a6e1d5aa2be611dd0ba5c75796",
+      "two_run_byte_identity": true,
+      "exact_verification": "PASS",
+      "build_record": "docs/project_control/gates/P0_3_video_pipeline/n21_castle_entrance_door_identity_reference_v001_build_record_2026-10-03.md"
+    },
+    "product_owner_visual_approved": false
   }
 }
