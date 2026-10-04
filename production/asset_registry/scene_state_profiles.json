@@ -148,6 +148,85 @@
           "status": "APPROVED"
         }
       ]
+    },
+    {
+      "scene_id": "SCENE_MURAL_CORRIDOR",
+      "scene_name": "古堡壁画廊",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "古堡第一大厅之后继续向内部延伸的阴暗廊道",
+          "廊道继续连接更深的古堡内部空间"
+        ],
+        "fixed_architecture": [
+          "狭长古堡廊道",
+          "老旧墙体与连续拱券 / 顶部结构",
+          "沿墙陈列区域"
+        ],
+        "key_objects": [
+          "小主人画作与诗文集",
+          "六幅重点儿童画"
+        ],
+        "object_relationships": [
+          "小主人作品沿墙装裱陈列",
+          "六幅重点儿童画是该壁画廊的核心剧情陈列"
+        ],
+        "core_materials": [
+          "老旧石材",
+          "深色木质陈设",
+          "装裱画框"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {},
+          "source_master_asset_id": "AST_IMG_000085",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_SECOND_HALL_DINING",
+      "scene_name": "古堡第二大厅 / 餐厅",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "古堡第二大厅兼正式用餐空间",
+          "大厅通过西侧昏暗走廊与更深内部空间连接"
+        ],
+        "fixed_architecture": [
+          "古堡大厅主体空间",
+          "通往西侧昏暗走廊的连接口"
+        ],
+        "key_objects": [
+          "1:1 耶稣受难石膏像",
+          "长餐桌"
+        ],
+        "object_relationships": [
+          "长餐桌位于耶稣受难像前方",
+          "主要观看关系中餐桌横向遮挡受难像中部，形成刻意的不适感",
+          "黑衣夫人首次出场方向来自西侧昏暗走廊"
+        ],
+        "core_materials": [
+          "老旧石材",
+          "深色木材"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {},
+          "source_master_asset_id": "AST_IMG_000087",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
     }
   ],
   "shot_variable_fields": [

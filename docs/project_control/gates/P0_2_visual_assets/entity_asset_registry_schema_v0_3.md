@@ -137,6 +137,12 @@ Supplementary role 不自动计入 Character Tier Core Set。
 
 Scene Master 锁定稳定 Scene Facts，并通过独立的 controlled State Profile 表达 DAY/NIGHT、门开闭、壁炉状态等连续性条件；不得把 Shot Photography 写入 Scene Facts。
 
+### Prop Role
+
+- `PROP_MASTER`
+
+`PROP_MASTER` is used only when a real reusable Prop / narrative-content asset has been Product Owner approved. It does not imply that the generic state-aware Prop resolver already supports automatic selection; until that capability is explicitly implemented and verified, such assets may use controlled explicit binding with `resolver_usage = CONDITIONAL`.
+
 ### Shot Role
 
 V0.3 当前锁定：

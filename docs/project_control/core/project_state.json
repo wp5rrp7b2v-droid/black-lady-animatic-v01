@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R282",
+  "state_revision": "R283",
   "last_updated": "2026-10-04",
-  "session_status": "P0.3 IN PROGRESS / START-OF-DAY RECONCILIATION COMPLETE / DASHBOARD RECOVERY COMPLETE / N21-N23 CLOSED / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / COMMON ASSET BATCH 01 FORMALIZED / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -49,8 +49,8 @@
     }
   ],
   "current_task": "S02-B｜N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT",
-  "blocker": "No production blocker. Dashboard drift and cross-file current-state drift identified at start of day were reconciled on 2026-10-04.",
-  "next_action": "Product Owner decides whether to start N24. Before any local formal production, fast-forward local main to the post-repair remote HEAD.",
+  "blocker": "No production blocker.",
+  "next_action": "Product Owner decides whether to start N24. Common asset preparation is independent of N24.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,18 +118,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-04-DASHBOARD-RECOVERY-R282",
-    "status": "CROSS-FILE CURRENT-STATE RECONCILED / DASHBOARD V217 REBUILT",
+    "id": "2026-10-04-COMMON-ASSET-BATCH-01-R283",
+    "status": "3 COMMON ASSETS FORMALIZED / N24 INDEPENDENT",
     "completed": [
-      "Confirmed 2026-10-03 daily closeout as authority for N21-N23 final state.",
-      "Confirmed Story Shot index contains 29 approved/current records.",
-      "Confirmed N21, N22 and N23 are CLOSED / CANONICAL / REGISTERED / VERIFIED.",
-      "Confirmed RISK-003 is RESOLVED / CLOSED 2026-10-03.",
-      "Reconciled Risk Register, P0.3 README and Acceptance Matrix current-state wording.",
-      "Reset resume point to N24 / UNSTARTED / PRODUCT OWNER START DECISION.",
-      "Rebuilt Dashboard as current-only derived visualization."
+      "SCENE_MURAL_CORRIDOR approved and registered as AST_IMG_000085.",
+      "PROP_YOUNG_MASTER_PAINTING_SET approved and registered as AST_IMG_000086.",
+      "SCENE_SECOND_HALL_DINING approved and registered as AST_IMG_000087.",
+      "All three staging Git blobs matched the approved binaries exactly.",
+      "Canonical publication reuses exact Git blobs; no re-encoding.",
+      "Scene profiles added for the two new Scene Masters.",
+      "PROP_MASTER role minimally added to Schema V0.3; generic Prop auto-resolution is not claimed.",
+      "Common asset workflow recorded as RC-028."
     ],
-    "audit_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md",
     "resume_from": "N24 / UNSTARTED / PRODUCT OWNER START DECISION",
     "blockers": []
   },
@@ -163,7 +163,7 @@
       "AST_IMG_000050",
       "AST_IMG_000051"
     ],
-    "asset_registry_record_count": 83,
+    "asset_registry_record_count": 87,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail (P0.2 long-term Asset Registry model; P0.3 STORY_SHOT operational layer is governed separately by RC-024/RC-025)",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -526,11 +526,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V217",
+    "version": "V218",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / REBUILT FROM R282 / 2026-10-04 START-OF-DAY RECOVERY",
-    "derived_from_revision": "R282",
+    "status": "CURRENT / DERIVED FROM R283 / COMMON ASSET BATCH 01 REGISTERED",
+    "derived_from_revision": "R283",
     "last_updated": "2026-10-04",
     "current_task": "N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT"
   },
@@ -4002,5 +4002,47 @@
       "record": "docs/project_control/gates/P0_3_video_pipeline/n21_reference_delivery_bundle_v007_build_record_2026-10-03.md"
     }
   },
-  "n21_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED"
+  "n21_status": "CLOSED / CANONICAL / REGISTERED / VERIFIED",
+  "common_visual_asset_batch_2026_10_04_01": {
+    "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL / REGISTERED / AUDITED",
+    "workflow": "Chat prompt → Work generation / PO direct minor revisions → PO approval → Chat exact-binary publication + registration",
+    "independent_of_story_shot": true,
+    "assets": [
+      {
+        "entity_id": "SCENE_MURAL_CORRIDOR",
+        "asset_id": "AST_IMG_000085",
+        "role": "SCENE_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "f16f18e15eab0096ad02e2fd697d5e5e9c7022219d4723d6b0fde245067b6d71",
+        "git_blob": "091e1b510cb6d07553bfc6f540e36ed28ab66746",
+        "canonical_path": "production/image_library/scene_masters/mural_corridor/SCENE_MURAL_CORRIDOR_SCENE_MASTER_DEFAULT_DEFAULT_V001.png"
+      },
+      {
+        "entity_id": "PROP_YOUNG_MASTER_PAINTING_SET",
+        "asset_id": "AST_IMG_000086",
+        "role": "PROP_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "0457580f8ea719c34c786c298fb5a70d1a313990a61989e811a063da63867a6a",
+        "git_blob": "fb1525773b9235f1cfca9b06bbe85d396b9aa94b",
+        "canonical_path": "production/image_library/prop_references/young_master_painting_set/PROP_YOUNG_MASTER_PAINTING_SET_PROP_MASTER_DEFAULT_DEFAULT_V001.png",
+        "resolver_boundary": "FORMAL COMMON ASSET / CONTROLLED EXPLICIT BINDING / GENERIC PROP AUTO-RESOLUTION NOT CLAIMED"
+      },
+      {
+        "entity_id": "SCENE_SECOND_HALL_DINING",
+        "asset_id": "AST_IMG_000087",
+        "role": "SCENE_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "f557d9baa9e875a1bd53bc6b93e8dc1deda3742282394b93b492f104cf32bda4",
+        "git_blob": "c7de79614121e72db93cb0a011d1ea31335631eb",
+        "canonical_path": "production/image_library/scene_masters/second_hall_dining/SCENE_SECOND_HALL_DINING_SCENE_MASTER_DEFAULT_DEFAULT_V001.png"
+      }
+    ],
+    "registration_counts_after_commit": {
+      "entities": 17,
+      "assets": 87,
+      "audit_events": 129
+    },
+    "staging_cleanup": "3/3 uploaded staging PNG paths removed by exact-blob canonical move",
+    "next": "N24 remains independent / unstarted"
+  }
 }
