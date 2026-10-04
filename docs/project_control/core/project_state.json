@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R286",
+  "state_revision": "R287",
   "last_updated": "2026-10-04",
-  "session_status": "P0.3 IN PROGRESS / COMMON ASSET CORE PREBUILD COMPLETE THROUGH BATCH 04 / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / COMMON ASSET PREBUILD + LEGACY SCENE V002 REFRESH COMPLETE / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -50,7 +50,7 @@
   ],
   "current_task": "S02-B｜N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT",
   "blocker": "No production blocker.",
-  "next_action": "Core common-asset prebuild is complete through Batch 04. Product Owner may start N24 or defer the remaining optional common assets until their story segments approach.",
+  "next_action": "Asset replenishment for today is complete through the three V002 Scene Master replacements. Product Owner may start N24 or continue optional asset work.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,17 +118,15 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-04-COMMON-ASSET-BATCH-04-R286",
-    "status": "5 CORE COMMON ASSETS FORMALIZED / CORE PREBUILD COMPLETE / N24 INDEPENDENT",
+    "id": "2026-10-04-COMMON-ASSET-BATCH-05-R287",
+    "status": "3 LEGACY SCENE MASTERS REFRESHED TO V002 / ASSET PREBUILD COMPLETE / N24 INDEPENDENT",
     "completed": [
-      "SCENE_MANOR_CHURCH_EXTERIOR_APPROACH → AST_IMG_000100.",
-      "SCENE_MANOR_CHURCH_INTERIOR → AST_IMG_000101.",
-      "PROP_MANOR_GATE_KEY → AST_IMG_000102.",
-      "PROP_SAVIOR_SKIN → AST_IMG_000103.",
-      "PROP_YOUNG_MASTER_SECRET_SKETCHBOOK → AST_IMG_000104.",
-      "All five uploaded Git blobs matched the approved binaries exactly.",
-      "Canonical publication reuses exact Git blobs; no re-encoding.",
-      "Two new Scene Masters were added to scene_state_profiles."
+      "SCENE_CASTLE_ENTRANCE V002 → AST_IMG_000105 CURRENT; AST_IMG_000052 SUPERSEDED.",
+      "SCENE_FIRST_HALL V002 → AST_IMG_000106 CURRENT; AST_IMG_000053 SUPERSEDED.",
+      "SCENE_MANOR_GATE V002 → AST_IMG_000107 CURRENT; AST_IMG_000084 SUPERSEDED.",
+      "3/3 uploaded V002 Git blobs matched approved binaries exactly.",
+      "No V001 binary was deleted and no historical Story Shot reference was rewritten.",
+      "Scene State Profiles now resolve the three Scene Masters to V002."
     ],
     "resume_from": "N24 / UNSTARTED / PRODUCT OWNER START DECISION",
     "blockers": []
@@ -163,7 +161,7 @@
       "AST_IMG_000050",
       "AST_IMG_000051"
     ],
-    "asset_registry_record_count": 104,
+    "asset_registry_record_count": 107,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail (P0.2 long-term Asset Registry model; P0.3 STORY_SHOT operational layer is governed separately by RC-024/RC-025)",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -526,11 +524,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V221",
+    "version": "V222",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R286 / COMMON ASSET BATCH 04 REGISTERED",
-    "derived_from_revision": "R286",
+    "status": "CURRENT / DERIVED FROM R287 / LEGACY SCENE V002 REFRESH COMPLETE",
+    "derived_from_revision": "R287",
     "last_updated": "2026-10-04",
     "current_task": "N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT"
   },
@@ -4237,5 +4235,48 @@
       "PROP_YOUNG_MASTER_SECRET_SKETCHBOOK is a representative open-page visual authority and does not lock every narrative page."
     ],
     "next": "N24 remains independent / unstarted; remaining common-asset candidates are optional/deferred."
+  },
+  "common_visual_asset_batch_2026_10_04_05_scene_refresh": {
+    "status": "PRODUCT OWNER APPROVED / 3 OF 3 EXACT BINARY VERIFIED / V002 CURRENT / V001 SUPERSEDED-HISTORICAL",
+    "assets": [
+      {
+        "entity_id": "SCENE_CASTLE_ENTRANCE",
+        "old_asset_id": "AST_IMG_000052",
+        "new_asset_id": "AST_IMG_000105",
+        "state": "DAY_DOOR_OPEN",
+        "sha256": "85b1a6020caba327f88541a2ea75d676da08f491e0534ef9fd30425f846a0fd9",
+        "canonical_path": "production/image_library/scene_masters/castle_entrance/SCENE_CASTLE_ENTRANCE_SCENE_MASTER_DEFAULT_DAY_DOOR_OPEN_V002.png"
+      },
+      {
+        "entity_id": "SCENE_FIRST_HALL",
+        "old_asset_id": "AST_IMG_000053",
+        "new_asset_id": "AST_IMG_000106",
+        "state": "FIREPLACE_EXTINGUISHED",
+        "sha256": "e92d7ed7264bbf1895807c84e2a7c4e5d2295cc77da61f74de9ec99ab7568745",
+        "canonical_path": "production/image_library/scene_masters/first_hall/SCENE_FIRST_HALL_SCENE_MASTER_DEFAULT_FIREPLACE_EXTINGUISHED_V002.png"
+      },
+      {
+        "entity_id": "SCENE_MANOR_GATE",
+        "old_asset_id": "AST_IMG_000084",
+        "new_asset_id": "AST_IMG_000107",
+        "state": "DAY_CLOSED",
+        "sha256": "440f716d6b09b29a94076d01064974ba331ae72d8665d5528f8366c74853c3b1",
+        "canonical_path": "production/image_library/scene_masters/manor_gate/SCENE_MANOR_GATE_SCENE_MASTER_DEFAULT_DAY_CLOSED_V002.png"
+      }
+    ],
+    "continuity_rules": [
+      "V001 binaries remain preserved and auditable; no historical Story Shot references are rewritten.",
+      "Only resolver/current Scene Master authority moves to V002.",
+      "SCENE_CASTLE_ENTRANCE V002 intentionally narrows stable facts to entrance geometry and interior/exterior boundary; old step/road/woods assumptions are no longer immutable Scene facts.",
+      "SCENE_MANOR_GATE weather is treated as stateful; the approved V002 image depicts an overcast/wet condition but does not permanently lock all uses to that weather."
+    ],
+    "registration_counts_after_commit": {
+      "entities": 33,
+      "assets": 107,
+      "audit_events": 188,
+      "scene_profiles": 13
+    },
+    "staging_cleanup": "3/3 uploaded V002 staging PNG paths removed by exact-blob canonical publication",
+    "next": "N24 remains independent / unstarted"
   }
 }
