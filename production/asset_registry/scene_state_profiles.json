@@ -227,6 +227,138 @@
           "status": "APPROVED"
         }
       ]
+    },
+    {
+      "scene_id": "SCENE_SECOND_FLOOR_GUEST_CORRIDOR",
+      "scene_name": "古堡二楼客房走廊",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "古堡二楼住宿层长走廊",
+          "客房位于走廊两侧",
+          "201–216 共16间房，一侧8间"
+        ],
+        "fixed_architecture": [
+          "连续客房门列",
+          "长走廊纵深",
+          "老旧古堡住宿层"
+        ],
+        "key_objects": [
+          "客房门",
+          "走廊照明"
+        ],
+        "object_relationships": [
+          "客房门沿走廊两侧连续排列",
+          "走廊承担二楼客房之间与楼梯节点之间的主要通行"
+        ],
+        "core_materials": [
+          "深色木材",
+          "老旧墙面",
+          "古堡室内铺地"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {},
+          "source_master_asset_id": "AST_IMG_000089",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_SECOND_FLOOR_GUEST_ROOM",
+      "scene_name": "古堡二楼诡客客房",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [
+        "ROOM_216_BASELINE"
+      ],
+      "stable_facts": {
+        "spatial_topology": [
+          "以216房为主要原文依据的二楼标准诡客客房",
+          "空间允许窗户/窗帘→两张独立单人床→窗边书桌之间自然移动"
+        ],
+        "fixed_architecture": [
+          "两张分开的单人床",
+          "带厚重窗帘的窗户",
+          "紧邻窗户的书桌",
+          "独立卫浴入口",
+          "可从室内上锁的客房门"
+        ],
+        "key_objects": [
+          "空白画册与画笔",
+          "小型解压玩具"
+        ],
+        "object_relationships": [
+          "空白画册与画笔位于窗边书桌",
+          "两名诡客分别使用两张单人床",
+          "窗户提供观察庄园后院方向的视线"
+        ],
+        "core_materials": [
+          "深色木材",
+          "老旧墙面",
+          "古堡客房织物"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "condition": "CLEAN / UNTRIGGERED",
+            "weather_context": "RAINY EXTERIOR VISIBLE",
+            "sketch_set_state": "BLANK / UNTOUCHED"
+          },
+          "source_master_asset_id": "AST_IMG_000090",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_CASTLE_MAIN_STAIRCASE",
+      "scene_name": "古堡主楼梯",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "古堡主要上下层交通节点",
+          "连接下层、二楼并继续通往更上层",
+          "具有楼梯平台与可形成阻挡/对峙的节点"
+        ],
+        "fixed_architecture": [
+          "主楼梯",
+          "楼梯平台",
+          "具有竖向间隙的铁质栏杆/铁棍护栏",
+          "连接阴暗楼道的开口"
+        ],
+        "key_objects": [
+          "铁质栏杆",
+          "楼梯照明"
+        ],
+        "object_relationships": [
+          "人物可站在楼梯或平台阻挡下行/上行路线",
+          "楼梯口可通过铁栏杆缝隙形成向外观察视线"
+        ],
+        "core_materials": [
+          "石材",
+          "深色金属",
+          "老旧古堡墙体"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {},
+          "source_master_asset_id": "AST_IMG_000092",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
     }
   ],
   "shot_variable_fields": [
