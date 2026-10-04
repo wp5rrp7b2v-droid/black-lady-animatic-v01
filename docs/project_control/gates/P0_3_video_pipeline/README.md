@@ -1795,3 +1795,28 @@ This is the current production truth for resuming work. It supersedes older curr
 - Resume point: N24 / UNSTARTED / PRODUCT OWNER START DECISION.
 
 Authoritative closeout: docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md
+
+## P0.3 End-of-Day Closeout｜2026-10-04
+
+Status:
+
+`COMPLETE / PROJECT CONTROL SYNCHRONIZED / CORE COMMON-ASSET PREBUILD COMPLETE / N24 UNSTARTED`
+
+- Common Asset Batches 01–04: 20 Product Owner-approved reusable assets formally registered.
+- Scene Refresh Batch 05: SCENE_CASTLE_ENTRANCE / SCENE_FIRST_HALL / SCENE_MANOR_GATE promoted to V002 CURRENT; V001 authorities preserved as SUPERSEDED history.
+- Asset Registry = 107; Entity Registry = 33; Audit Event Log = 188; Scene State Profiles = 13.
+- CURRENT reusable authorities = 13 Scene Masters + 10 Prop Masters.
+- Story Shot Index remains 29 APPROVED / CURRENT.
+- N16–N23 remain formally closed; N24 remains UNSTARTED.
+- P0.3 remains IN PROGRESS / NOT YET VALIDATED.
+- No production blocker is active.
+- Before next local formal production, local main must fast-forward to current GitHub main and exact SHA equality must be verified.
+
+Daily closeout record:
+
+`docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-04.md`
+
+Resume:
+
+`LOCAL SYNC VERIFICATION → N24 START DECISION OR OPTIONAL COMMON-ASSET CONTINUATION`
+

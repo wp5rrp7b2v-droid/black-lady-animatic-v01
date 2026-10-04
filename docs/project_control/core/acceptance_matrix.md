@@ -314,3 +314,15 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - RISK-003 is RESOLVED / CLOSED 2026-10-03.
 - Current Story Shot Index count: 29.
 - N24 is UNSTARTED; starting N24 still requires Product Owner direction.
+
+## P0.3 Current Validation Note｜2026-10-04 End-of-Day
+
+- Today’s common-asset prebuild and Scene Master refresh do not themselves satisfy P0.3 Gate validation criteria.
+- P0.3 remains IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED.
+- N16–N23 remain FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED.
+- N24 remains UNSTARTED.
+- Current Story Shot Index count remains 29.
+- Reusable asset authority now includes 13 CURRENT Scene Masters and 10 CURRENT Prop Masters; Asset Registry count = 107.
+- SCENE_CASTLE_ENTRANCE / SCENE_FIRST_HALL / SCENE_MANOR_GATE now resolve to V002 CURRENT; their V001 binaries remain preserved as SUPERSEDED historical authorities.
+- No production blocker is active.
+
