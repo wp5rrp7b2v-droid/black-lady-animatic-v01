@@ -494,6 +494,95 @@
           "status": "APPROVED"
         }
       ]
+    },
+    {
+      "scene_id": "SCENE_MANOR_CHURCH_EXTERIOR_APPROACH",
+      "scene_name": "庄园后院教堂外部接近空间",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "教堂位于庄园后方区域",
+          "教堂为独立于古堡主体之外的建筑",
+          "古堡/后院方向可沿外部路径接近教堂"
+        ],
+        "fixed_architecture": [
+          "小型石砌教堂主体",
+          "前部入口",
+          "可通行的后院接近路径"
+        ],
+        "key_objects": [
+          "教堂主体",
+          "后院路径",
+          "外围树木与庄园边界"
+        ],
+        "object_relationships": [
+          "路径从古堡/后院方向引向教堂入口",
+          "教堂在庄园内部但独立于古堡本体"
+        ],
+        "core_materials": [
+          "石材",
+          "深色木门",
+          "湿冷外部地面"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "approved_master_weather": "RAINY",
+            "weather_is_stateful": true
+          },
+          "source_master_asset_id": "AST_IMG_000100",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_MANOR_CHURCH_INTERIOR",
+      "scene_name": "庄园教堂内部",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "单一教堂主厅沿中轴延伸",
+          "入口方向面向内部中央/祭坛核心区域"
+        ],
+        "fixed_architecture": [
+          "石砌教堂主厅",
+          "木质高屋架",
+          "两侧窗列",
+          "中央通道与两侧座椅区"
+        ],
+        "key_objects": [
+          "大量倒悬于十字架上的人体/尸体",
+          "中央黑暗宗教/伪宗教核心雕塑"
+        ],
+        "object_relationships": [
+          "倒悬十字架沿两侧空间形成压迫性包围",
+          "中央核心位于教堂纵深尽头并承担高潮行动焦点"
+        ],
+        "core_materials": [
+          "石材",
+          "深色木材",
+          "旧金属烛台"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "central_key_closeup": "NOT_LOCKED_BY_SCENE_MASTER",
+            "black_lady_present": false
+          },
+          "source_master_asset_id": "AST_IMG_000101",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
     }
   ],
   "shot_variable_fields": [

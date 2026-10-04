@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R285",
+  "state_revision": "R286",
   "last_updated": "2026-10-04",
-  "session_status": "P0.3 IN PROGRESS / COMMON ASSET BATCH 03 FORMALIZED / N24 UNSTARTED",
+  "session_status": "P0.3 IN PROGRESS / COMMON ASSET CORE PREBUILD COMPLETE THROUGH BATCH 04 / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -50,7 +50,7 @@
   ],
   "current_task": "S02-B｜N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT",
   "blocker": "No production blocker.",
-  "next_action": "Product Owner may continue common asset preparation or start N24; common asset preparation remains independent of Story Shot execution.",
+  "next_action": "Core common-asset prebuild is complete through Batch 04. Product Owner may start N24 or defer the remaining optional common assets until their story segments approach.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -118,18 +118,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-04-COMMON-ASSET-BATCH-03-R285",
-    "status": "6 COMMON ASSETS FORMALIZED / N24 INDEPENDENT",
+    "id": "2026-10-04-COMMON-ASSET-BATCH-04-R286",
+    "status": "5 CORE COMMON ASSETS FORMALIZED / CORE PREBUILD COMPLETE / N24 INDEPENDENT",
     "completed": [
-      "SCENE_THIRD_FLOOR_EAST_PORTRAIT_CORRIDOR → AST_IMG_000094.",
-      "PROP_BLACK_LADY_PORTRAIT_SET → AST_IMG_000095.",
-      "PROP_BLACK_LADY_SCYTHE → AST_IMG_000096.",
-      "SCENE_BLACK_LADY_BEDROOM → AST_IMG_000097.",
-      "SCENE_ABANDONED_KITCHEN → AST_IMG_000098.",
-      "PROP_DINING_HALL_JESUS_STATUE → AST_IMG_000099.",
-      "All six uploaded Git blobs matched the approved binaries exactly.",
+      "SCENE_MANOR_CHURCH_EXTERIOR_APPROACH → AST_IMG_000100.",
+      "SCENE_MANOR_CHURCH_INTERIOR → AST_IMG_000101.",
+      "PROP_MANOR_GATE_KEY → AST_IMG_000102.",
+      "PROP_SAVIOR_SKIN → AST_IMG_000103.",
+      "PROP_YOUNG_MASTER_SECRET_SKETCHBOOK → AST_IMG_000104.",
+      "All five uploaded Git blobs matched the approved binaries exactly.",
       "Canonical publication reuses exact Git blobs; no re-encoding.",
-      "Three new Scene Masters were added to scene_state_profiles."
+      "Two new Scene Masters were added to scene_state_profiles."
     ],
     "resume_from": "N24 / UNSTARTED / PRODUCT OWNER START DECISION",
     "blockers": []
@@ -164,7 +163,7 @@
       "AST_IMG_000050",
       "AST_IMG_000051"
     ],
-    "asset_registry_record_count": 99,
+    "asset_registry_record_count": 104,
     "model": "Entity → Atomic Master Asset → Derived Reference Sheet → Reference Resolver → Shot Reference Package → Generation → Product Owner Approval → Automatic Ingest → Asset Registry / Audit Trail (P0.2 long-term Asset Registry model; P0.3 STORY_SHOT operational layer is governed separately by RC-024/RC-025)",
     "formal_asset_admission": "PRODUCT_OWNER_APPROVED_ONLY",
     "asset_id_pattern": "AST_<MEDIA_CODE>_<6-digit sequence>",
@@ -527,11 +526,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V220",
+    "version": "V221",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R285 / COMMON ASSET BATCH 03 REGISTERED",
-    "derived_from_revision": "R285",
+    "status": "CURRENT / DERIVED FROM R286 / COMMON ASSET BATCH 04 REGISTERED",
+    "derived_from_revision": "R286",
     "last_updated": "2026-10-04",
     "current_task": "N24 UNSTARTED / PRODUCT OWNER START DECISION NEXT"
   },
@@ -4180,5 +4179,63 @@
       "PROP_DINING_HALL_JESUS_STATUE DEFAULT is the intact uncut baseline."
     ],
     "next": "N24 remains independent / unstarted"
+  },
+  "common_visual_asset_batch_2026_10_04_04": {
+    "status": "PRODUCT OWNER APPROVED / 5 OF 5 EXACT BINARY VERIFIED / CANONICAL / REGISTERED / AUDITED",
+    "independent_of_story_shot": true,
+    "assets": [
+      {
+        "entity_id": "SCENE_MANOR_CHURCH_EXTERIOR_APPROACH",
+        "asset_id": "AST_IMG_000100",
+        "role": "SCENE_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "16b84638a0482d3625840312868c5ff203d25663c6e7f2d9cde8f2990dd15562",
+        "canonical_path": "production/image_library/scene_masters/manor_church_exterior_approach/SCENE_MANOR_CHURCH_EXTERIOR_APPROACH_SCENE_MASTER_DEFAULT_DEFAULT_V001.png"
+      },
+      {
+        "entity_id": "SCENE_MANOR_CHURCH_INTERIOR",
+        "asset_id": "AST_IMG_000101",
+        "role": "SCENE_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "b0abda2f6a77c321d8d6b4fc1cf95ae9f99c56fd418157a5174a20bfa93c1d18",
+        "canonical_path": "production/image_library/scene_masters/manor_church_interior/SCENE_MANOR_CHURCH_INTERIOR_SCENE_MASTER_DEFAULT_DEFAULT_V001.png"
+      },
+      {
+        "entity_id": "PROP_MANOR_GATE_KEY",
+        "asset_id": "AST_IMG_000102",
+        "role": "PROP_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "834df3199c55e0b3cf47b8e0910abfbe7d1ddca06545be545bf30132788390ca",
+        "canonical_path": "production/image_library/prop_references/manor_gate_key/PROP_MANOR_GATE_KEY_PROP_MASTER_DEFAULT_DEFAULT_V001.png"
+      },
+      {
+        "entity_id": "PROP_SAVIOR_SKIN",
+        "asset_id": "AST_IMG_000103",
+        "role": "PROP_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "93df002e18a6f656c48e02cef8e5141f537d605b22c45d6d1162e8d61353c402",
+        "canonical_path": "production/image_library/prop_references/savior_skin/PROP_SAVIOR_SKIN_PROP_MASTER_DEFAULT_DEFAULT_V001.png"
+      },
+      {
+        "entity_id": "PROP_YOUNG_MASTER_SECRET_SKETCHBOOK",
+        "asset_id": "AST_IMG_000104",
+        "role": "PROP_MASTER",
+        "dimensions": "1448x1086",
+        "sha256": "69a1f3ead05323dacf97a54fa33f26c1782a3e3c54c399ada92014e13f493667",
+        "canonical_path": "production/image_library/prop_references/young_master_secret_sketchbook/PROP_YOUNG_MASTER_SECRET_SKETCHBOOK_PROP_MASTER_DEFAULT_DEFAULT_V001.png"
+      }
+    ],
+    "registration_counts_after_commit": {
+      "entities": 33,
+      "assets": 104,
+      "audit_events": 179
+    },
+    "staging_cleanup": "5/5 uploaded staging PNG paths removed by exact-blob canonical publication",
+    "notes": [
+      "SCENE_MANOR_CHURCH_EXTERIOR_APPROACH approved master depicts rain; weather remains stateful rather than immutable architecture.",
+      "PROP_SAVIOR_SKIN is the approved reusable wearable-cover visual authority derived from the dining-hall Jesus statue.",
+      "PROP_YOUNG_MASTER_SECRET_SKETCHBOOK is a representative open-page visual authority and does not lock every narrative page."
+    ],
+    "next": "N24 remains independent / unstarted; remaining common-asset candidates are optional/deferred."
   }
 }
