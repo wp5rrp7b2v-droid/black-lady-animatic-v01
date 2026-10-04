@@ -359,6 +359,141 @@
           "status": "APPROVED"
         }
       ]
+    },
+    {
+      "scene_id": "SCENE_THIRD_FLOOR_EAST_PORTRAIT_CORRIDOR",
+      "scene_name": "古堡三楼东侧黑衣夫人画像走廊",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "位于古堡三楼最东侧",
+          "长走廊持续向深处延伸",
+          "走廊最深处仅有一间黑衣夫人寝室",
+          "走廊另一方向存在可观察庄园外部/教堂方向的窗户"
+        ],
+        "fixed_architecture": [
+          "老旧狭长古堡走廊",
+          "低采光 / 少窗 / 基本无人工照明"
+        ],
+        "key_objects": [
+          "大量黑衣夫人肖像画"
+        ],
+        "object_relationships": [
+          "黑衣夫人肖像沿走廊墙面密集陈列",
+          "画像姿态可不同但脸部/视线统一朝向画外"
+        ],
+        "core_materials": [
+          "老旧墙面",
+          "深色木地板",
+          "古典画框"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "portrait_state": "STATIC_DRY",
+            "water_stains": "NONE",
+            "black_lady_present": false
+          },
+          "source_master_asset_id": "AST_IMG_000094",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_BLACK_LADY_BEDROOM",
+      "scene_name": "黑衣夫人寝室",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "位于三楼东侧画像走廊最深处",
+          "该走廊深处只有这一间房"
+        ],
+        "fixed_architecture": [
+          "普通古堡女性卧室格局",
+          "卧床",
+          "衣柜",
+          "梳妆/桌柜区",
+          "窗户与厚重窗帘"
+        ],
+        "key_objects": [
+          "普通女性生活用品"
+        ],
+        "object_relationships": [
+          "空间看起来与普通女人住房无显著差异",
+          "房内无任何宗教物件或教义陈设"
+        ],
+        "core_materials": [
+          "深色木材",
+          "旧墙面",
+          "布艺"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "religious_objects": "NONE_VISIBLE",
+            "supernatural_signs": "NONE"
+          },
+          "source_master_asset_id": "AST_IMG_000097",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "scene_id": "SCENE_ABANDONED_KITCHEN",
+      "scene_name": "古堡废弃厨房",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "古堡一楼厨房区域"
+        ],
+        "fixed_architecture": [
+          "旧式灶台",
+          "工作台",
+          "水槽与水管",
+          "储物架"
+        ],
+        "key_objects": [
+          "积灰旧锅具",
+          "蛛网",
+          "鼠类活动痕迹"
+        ],
+        "object_relationships": [
+          "厨房至少数月未被真正使用",
+          "水管/水槽出现带锈褐色水迹",
+          "环境不存在近期烹饪活动迹象"
+        ],
+        "core_materials": [
+          "石材",
+          "老旧木材",
+          "锈蚀金属"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "recent_use": "NONE",
+            "dust": "HEAVY",
+            "water_condition": "RUST_BROWN",
+            "fresh_food": "NONE"
+          },
+          "source_master_asset_id": "AST_IMG_000098",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified 2026-10-04",
+          "status": "APPROVED"
+        }
+      ]
     }
   ],
   "shot_variable_fields": [
