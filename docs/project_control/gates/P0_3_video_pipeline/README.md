@@ -1778,3 +1778,20 @@ Daily closeout record:
 
 Before the next local production session, local `main` must be fast-forward synced to the final remote HEAD and verified by exact SHA.
 
+
+## 2026-10-04 Start-of-Day Reconciliation
+
+This is the current production truth for resuming work. It supersedes older current-state sections that still show N21 as HOLD or N23 as PAUSED; those sections remain historical checkpoints only.
+
+- P0.3 remains IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED.
+- N16 / N17 / N18 / N19 / N20 / N21 / N22 / N23 are FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED.
+- N21 Candidate 09 is the approved final N21 Story Shot.
+- N21 exact-binary dimension exception is locked at 941×1671; resize is forbidden.
+- RISK-003 is RESOLVED / CLOSED 2026-10-03.
+- Story Shot Index contains 29 current approved records.
+- Generic Guest Crowd Core Set V001 is complete with FRONT / LEFT_PROFILE / REAR_3Q / BACK canonical authorities; RIGHT_PROFILE remains cancelled.
+- N24 is UNSTARTED.
+- No N24 design, Bundle, generation, publication or registration is authorized merely by this reconciliation.
+- Resume point: N24 / UNSTARTED / PRODUCT OWNER START DECISION.
+
+Authoritative closeout: docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md

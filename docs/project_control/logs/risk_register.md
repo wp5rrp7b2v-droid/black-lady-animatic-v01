@@ -4,7 +4,7 @@
 
 | ID | 日期 | 风险 | 影响 | 当前缓解 | 状态 |
 |---|---|---|---|---|---|
-| RISK-003 | 2026-10-02 | N21 多人物 Story Shot 已完成 Candidate 08 新一轮实证。V006 使用已批准的 Threshold Environment Reference + Crowd Body/Wardrobe Reference；C08 显示成年人比例、普通现代服装、无包具控制与总体向古堡深处的运动方向明显改善，且未被 Human Reference 强制成四人阵容。但群体仍呈较规整的纵深队列 / 中央运动轴，环境重新漂移为高拱、巨大双门、强消失点的宏伟哥特式建筑展示，未知空间的遮挡、威胁与不确定性不足。当前不能把根因归结为 Human Reference 失败，也不能认定为模型整体退化。 | 若继续无差别生成，可能在已经改善的人体/服装上反复返工，同时持续出现组织化 crowd blocking、中央轴构图和 monumental environment drift，延长 N21 收敛时间。 | 保留 V006 Human Body/Wardrobe 与人物前进方向的成功结论；下一轮不得重开已改善的人体比例规则。Candidate 09 前只允许先做窄范围策略复盘，目标限定为：打散中央轴与规整队列、削弱宏伟对称门户、增加局部遮挡与未知空间；Candidate 09 仍需独立 PO 授权。 2026-10-02 Product Owner 明确决定暂停 N21，先完成 N22–N27 后再评估如何处理 N21；因此本风险继续保留全部既有证据，但仅作用于 N21，不再阻塞后续 Story Shot 制图。Candidate 09 仍未授权。 | **ACTIVE / N21-SCOPED / DEFERRED BY PRODUCT OWNER / NON-BLOCKING FOR N22–N27 / C09 NOT AUTHORIZED** |
+| RISK-003 | 2026-10-02 | N21 多人物 Story Shot 已完成 Candidate 08 新一轮实证。V006 使用已批准的 Threshold Environment Reference + Crowd Body/Wardrobe Reference；C08 显示成年人比例、普通现代服装、无包具控制与总体向古堡深处的运动方向明显改善，且未被 Human Reference 强制成四人阵容。但群体仍呈较规整的纵深队列 / 中央运动轴，环境重新漂移为高拱、巨大双门、强消失点的宏伟哥特式建筑展示，未知空间的遮挡、威胁与不确定性不足。当前不能把根因归结为 Human Reference 失败，也不能认定为模型整体退化。 | 若继续无差别生成，可能在已经改善的人体/服装上反复返工，同时持续出现组织化 crowd blocking、中央轴构图和 monumental environment drift，延长 N21 收敛时间。 | 保留 V006 Human Body/Wardrobe 与人物前进方向的成功结论；下一轮不得重开已改善的人体比例规则。Candidate 09 前只允许先做窄范围策略复盘，目标限定为：打散中央轴与规整队列、削弱宏伟对称门户、增加局部遮挡与未知空间；Candidate 09 仍需独立 PO 授权。 2026-10-02 Product Owner 明确决定暂停 N21，先完成 N22–N27 后再评估如何处理 N21；因此本风险继续保留全部既有证据，但仅作用于 N21，不再阻塞后续 Story Shot 制图。Candidate 09 仍未授权。 | **RESOLVED / CLOSED 2026-10-03** |
 | RISK-002 | 2026-09-18 | Image-generation service 不返回独立的 consumed-input SHA / cryptographic receipt。当前只能证明送入 generation call 前的正式 reference bytes、Asset IDs、SHA 与实际 reference file paths，无法从生成服务自身取得“最终实际消费输入”的密码学回执。 | 严格端到端 provenance 存在最后一跳审计缺口；未来若发生 identity drift / service-side caching / preprocessing 异常，无法仅凭服务回执证明模型内部消费的原始输入字节。 | AO-05 已建立多层证据链：GitHub canonical Asset SHA → GitHub Actions canonical-byte verification → artifact ZIP digest → Work 独立 SHA verification → actual 4-reference generation call；RUN A / RUN B 输入集合一致且均成功。要求所有正式生成继续记录 Asset IDs、SHA、调用文件路径/顺序、时间与 output/proof identifier。 | **ACCEPTED / NON-BLOCKING / DEFERRED IMPROVEMENT** |
 | RISK-001 | 2026-09-13 | GitHub 网络连接不稳定：项目近期多次出现 `443 timeout`、`Empty reply from server`、HTTP/2 framing error、`unexpected disconnect` 等，导致 pull / fetch / push / Automatic Ingest publication 可能随机失败。 | Project Control 同步、Automatic Ingest、Codex Git 操作与正式资产发布都依赖 GitHub；若没有稳定恢复方案，可能出现“本地已完成但远端未发布”、重复执行、版本分叉或误判完成状态。 | 2026-09-14 已完成并验证 AO-07：动态 helper `$HOME/.local/bin/git-proxy-auto` 可动态读取 macOS proxy、不持久化动态端口，命令级使用 HTTP/1.1；真实完成 `ls-remote / pull / push / local-vs-remote SHA match`；AO-02 migration publication 通过该链路达到 `REMOTE_VERIFIED`，migration 二次执行返回 `ALREADY_APPLIED / NO CHANGE`。正式 lightweight recovery runbook、`PENDING_REMOTE_PUBLICATION`、ACK loss / remote mismatch、failure→recovery 规则均已落档并经 Product Owner 批准。 | **CONTROLLED / MITIGATION VERIFIED / AO-07 COMPLETE** |
 
@@ -109,3 +109,19 @@ N23 Candidate 02 remains:
 
 This is no longer an asset-readiness blocker; it is now a governance/authorization gate.
 
+
+## 2026-10-03 RISK-003 Final Closure
+
+This section supersedes older current-state wording that described N21 as HOLD or Candidate 09 as not authorized. Those earlier entries remain historical evidence only.
+
+- N21 Candidate 09: PRODUCT OWNER APPROVED.
+- Exact-binary intake: PASS.
+- Canonical exact-blob publication: PASS.
+- Story Shot registration: COMPLETE.
+- Registration verification: PASS.
+- N21: FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED.
+- RISK-003: RESOLVED / CLOSED 2026-10-03.
+- No N21 production blocker remains.
+- N24 is the next unstarted Story Shot node.
+
+Closure authority: docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md
