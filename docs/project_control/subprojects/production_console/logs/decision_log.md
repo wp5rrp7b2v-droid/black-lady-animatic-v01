@@ -63,3 +63,21 @@ The ready package must reflect:
 **Gate effect:** current Local Mac Regression may continue using exposed test fields. Formal V1.1 E2E Qualification is blocked until this production-UX correction is implemented and regression-checked.
 
 **Boundary:** this is a Console UX/orchestration requirement and does not change the current formal Story Shot production SOP.
+
+## PC-D007｜2026-10-06｜Qualification detail vs Production one-page control
+
+**Decision:** Product Owner approved a two-density UI rule.
+
+**Qualification / Test mode**
+- may expose full technical fields, checklists, evidence, remote paths and diagnostic detail;
+- optimized for screenshots, regression review and defect discovery.
+
+**Production mode**
+- should remain concise and fit the operator's overall control view on approximately one page;
+- default view should emphasize current stage, gate result, blocker/risk, immutable Candidate identity summary and next required Product Owner action;
+- technical metadata and full evidence remain available under expandable Details / Evidence / Audit sections;
+- failed checks or blockers may auto-expand the relevant technical detail.
+
+**Goal:** Product Owner should maintain whole-process situational awareness without managing implementation-level metadata.
+
+**Boundary:** no evidence is removed; this is a presentation-density rule only.
