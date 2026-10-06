@@ -54,15 +54,11 @@ def resolve_from_state(state, shot_id=None):
     _, scene_key, scene = _latest_versioned(state, f"{prefix}_scene_reference_design")
     _, bundle_key, bundle = _latest_versioned(state, f"{prefix}_reference_delivery_bundle")
 
-    if not bundle:
-        raise RuntimeError(f"Project Control 未找到 {shot_id} 的 Reference Delivery Bundle")
+    bundle = bundle or {}
+    ref_count = int(bundle.get("direct_image_count") or bundle.get("direct_visual_input_count") or 0)
+    bundle_id = bundle.get("artifact_name") or ((bundle_key or "").upper() if bundle_key else None)
 
-    ref_count = int(bundle.get("direct_image_count") or 0)
-    bundle_id = bundle.get("artifact_name")
-    if not bundle_id:
-        bundle_id = (bundle_key or "").upper()
-
-    formal_build_verified = (
+    formal_build_verified = bool(bundle) and (
         "FORMAL BUILD PASS" in str(bundle.get("status") or "").upper()
         and "ARTIFACT EXACT VERIFIED" in str(bundle.get("status") or "").upper()
         and bool(bundle.get("downloaded_zip_digest_match"))
@@ -70,10 +66,15 @@ def resolve_from_state(state, shot_id=None):
         and bool(bundle.get("handoff_verified"))
     )
 
-    references_exact = _exact_reference_pass(bundle.get("reference_exact_match"), ref_count)
+    references_exact = bool(bundle) and _exact_reference_pass(
+        bundle.get("reference_exact_match") or bundle.get("exact_reference_match"),
+        ref_count,
+    )
     generation_authorized = bool(
         bundle.get("candidate_01_generation_authorized")
+        or bundle.get("candidate_02_generation_authorized")
         or bundle.get("generation_authorized")
+        or bundle.get("generation_authorized_by_product_owner")
     )
 
     package_ready = bool(
@@ -88,6 +89,7 @@ def resolve_from_state(state, shot_id=None):
         "shot_id": shot_id,
         "package_ready": package_ready,
         "generation_authorized": generation_authorized,
+        "resolution_state": "READY" if package_ready else "PARTIAL_CURRENT_SHOT",
         "design_package": {
             "director_design": {
                 "key": director_key,
