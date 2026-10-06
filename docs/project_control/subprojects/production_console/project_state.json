@@ -6,7 +6,7 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R010",
+  "state_revision": "PC-R011",
   "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / REGISTRATION PASS / LOCK NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
@@ -90,7 +90,8 @@
       "system_status_refresh": "System panel must refresh after session/state changes; current Local Sessions count remains stale at 0 after Session creation.",
       "drag_drop_candidate_intake": "Drag-and-drop candidate intake failed during Local Mac Regression. File-picker upload path succeeded and exact-binary verification passed. Drag-and-drop must be fixed before formal E2E Qualification.",
       "work_handoff_ux": "Production UX must not require Product Owner to manually download a Work Handoff JSON for every shot. Console should auto-generate and route/expose the verified handoff to Work; manual download remains optional diagnostic/export only.",
-      "production_ui_density": "Production mode should fit the operator's whole-process view on approximately one page. Show stage, safety state, blocker, immutable identity summary and next action by default; keep technical details under expandable Evidence/Audit. Qualification mode may expose full diagnostics for screenshots and debugging."
+      "production_ui_density": "Production mode should fit the operator's whole-process view on approximately one page. Show stage, safety state, blocker, immutable identity summary and next action by default; keep technical details under expandable Evidence/Audit. Qualification mode may expose full diagnostics for screenshots and debugging.",
+      "candidate_upload_idempotency": "Local Mac Regression produced two Drive files with the same Candidate filename/size during one Candidate intake interaction. Candidate upload must be idempotent and concurrency-safe: one Session + Candidate ID may create at most one Drive binary; duplicate/double requests must return the already-bound Candidate or fail closed without creating another file."
     },
     "local_mac_regression_evidence": {
       "session_id": "V11_LOCAL_REGRESSION_001",
@@ -124,8 +125,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL MAC REGRESSION / LOCK",
-  "next_gate": "LOCK PASS → CLOSEOUT",
+  "current_task": "LOCAL MAC REGRESSION / LOCK NEXT",
+  "next_gate": "LOCK PASS → CLOSEOUT; duplicate-upload defect must be fixed before formal E2E",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
