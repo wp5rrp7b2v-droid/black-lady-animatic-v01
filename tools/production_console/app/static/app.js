@@ -6,6 +6,8 @@ const STATUS_STAGE={
 };
 let current=null;
 let remoteEvidence=null;
+let resolvedPackage=null;
+let currentView=localStorage.getItem("blpc_view")||"diagnostics";
 
 const el=id=>document.getElementById(id);
 const h=v=>String(v==null?"":v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -54,16 +56,16 @@ async function withButtonFeedback(button,labels,task){
     if(button){
       button.classList.remove("action-working");
       button.classList.add("action-success");
-      button.textContent="✓ "+(labels.success||"完成");
+      button.textContent=(labels.success||"完成");
     }
-    showAction((labels.success||"操作完成")+" ✓","success");
+    showAction((labels.success||"操作完成"),"success");
     await pause(650);
     return result;
   }catch(e){
     if(button){
       button.classList.remove("action-working","action-success");
       button.classList.add("action-error");
-      button.textContent="✕ "+(labels.error||"失败");
+      button.textContent=(labels.error||"失败");
       setTimeout(()=>{
         button.classList.remove("action-error");
         button.disabled=false;
@@ -75,6 +77,115 @@ async function withButtonFeedback(button,labels,task){
   }
 }
 
+
+function dateStamp(){
+  const d=new Date();
+  const p=n=>String(n).padStart(2,"0");
+  return ""+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate());
+}
+async function suggestedSessionId(shotId){
+  try{
+    const s=await refreshSystem();
+    const base=(shotId||"SHOT")+"_"+dateStamp()+"_";
+    const existing=(s.sessions||[]).map(x=>x.session_id||"");
+    let n=1;
+    while(existing.includes(base+String(n).padStart(3,"0"))) n++;
+    return base+String(n).padStart(3,"0");
+  }catch{
+    return (shotId||"SHOT")+"_"+dateStamp()+"_001";
+  }
+}
+function resolvedSummaryText(r){
+  if(!r)return "";
+  const d=r.design_package||{};
+  return [
+    "Design Package READY from Project Control",
+    "Director: "+((d.director_design||{}).status||"UNKNOWN"),
+    "Scene Reference: "+((d.scene_reference||{}).status||"UNKNOWN"),
+    "Bundle: "+((d.bundle||{}).status||"UNKNOWN")
+  ].join("\n");
+}
+async function applyResolvedPackage(r){
+  resolvedPackage=r;
+  if(!current){
+    el("shotId").value=r.shot_id||"";
+    const b=r.bundle||{};
+    el("bundleId").value=b.bundle_id||"";
+    el("runId").value=b.run_id||"";
+    el("artifactId").value=b.artifact_id||"";
+    el("artifactDigest").value=b.artifact_digest||"";
+    el("referenceCount").value=b.reference_count||"";
+    el("referencesExact").checked=b.references_exact===true;
+    el("manifestVerified").checked=b.delivery_manifest_verified===true;
+    el("generationAllowed").checked=b.generation_allowed===true;
+    el("designSummary").value=resolvedSummaryText(r);
+    if(!el("sessionId").value.trim()) el("sessionId").value=await suggestedSessionId(r.shot_id);
+  }
+  setLockedInputs();
+  renderOperatorSummary();
+}
+async function resolveProjectMetadata(shotId="",silent=false){
+  try{
+    if(!silent) showAction("正在从 GitHub Project Control 自动解析 Design Package…","working");
+    const q=shotId?"?shot_id="+encodeURIComponent(shotId):"";
+    const j=await api("/api/v1/design-package/resolve"+q);
+    await applyResolvedPackage(j.resolved);
+    if(!silent){
+      showAction(
+        "Project metadata resolved · "+j.resolved.shot_id+" · "+(j.resolved.package_ready?"Design Package READY":"Design Package NOT READY"),
+        j.resolved.package_ready?"success":"working"
+      );
+    }
+    return j.resolved;
+  }catch(e){
+    if(!silent) showAction("Project metadata resolve FAIL · "+e.message,"error");
+    return null;
+  }
+}
+function setView(mode){
+  currentView=mode==="operator"?"operator":"diagnostics";
+  localStorage.setItem("blpc_view",currentView);
+  document.body.classList.toggle("operator-view",currentView==="operator");
+  el("operatorViewBtn").classList.toggle("active-view",currentView==="operator");
+  el("diagnosticViewBtn").classList.toggle("active-view",currentView==="diagnostics");
+  setLockedInputs();
+  renderOperatorSummary();
+  if(currentView==="operator"&&!current&&!resolvedPackage) resolveProjectMetadata("",true);
+}
+function renderOperatorSummary(){
+  const box=el("operatorSummaryBody");
+  if(!box)return;
+  const r=resolvedPackage||{};
+  const s=current||{};
+  const b=(current&&current.bundle)||r.bundle||{};
+  const candidate=(current&&current.candidate)||{};
+  const shot=s.shot_id||r.shot_id||"Resolving…";
+  const status=s.status||(r.package_ready?"DESIGN PACKAGE READY":"NO SESSION");
+  const stage=s.current_stage||"DESIGN";
+  const refs=b.reference_count?String(b.reference_count)+(b.references_exact?" / EXACT":" / CHECK"):"—";
+  const artifact=b.artifact_id||"—";
+  const generation=current
+    ? ((current.preflight||{}).pass===true?"AUTHORIZED":status)
+    : (r.generation_authorized?"AUTHORIZED":"WAITING PO AUTHORIZATION");
+  const exact=candidate.exact_binary_pass===true?"PASS":(candidate.candidate_id?"NOT VERIFIED":"—");
+  let next="No active Session.";
+  if(current) next=status==="CLOSED"?"Workflow complete.":("Continue at "+stage+".");
+  else if(r.package_ready&&!r.generation_authorized) next="Design Package ready; waiting Product Owner generation authorization under the current formal process.";
+  else if(r.package_ready) next="Design Package ready for qualification preflight.";
+  box.innerHTML=
+    '<div class="operator-grid">'+
+      '<div class="operator-cell"><strong>Shot</strong>'+h(shot)+'</div>'+
+      '<div class="operator-cell"><strong>Status</strong>'+h(status)+'</div>'+
+      '<div class="operator-cell"><strong>Bundle</strong>'+h(b.bundle_id||"—")+'</div>'+
+      '<div class="operator-cell"><strong>References</strong>'+h(refs)+'</div>'+
+      '<div class="operator-cell"><strong>Artifact</strong>'+h(artifact)+'</div>'+
+      '<div class="operator-cell"><strong>Generation</strong>'+h(generation)+'</div>'+
+      '<div class="operator-cell"><strong>Candidate</strong>'+h(candidate.candidate_id||"—")+'</div>'+
+      '<div class="operator-cell"><strong>Exact Binary</strong>'+h(exact)+'</div>'+
+    '</div>'+
+    '<div class="operator-next"><strong>Next</strong><br>'+h(next)+'</div>'+
+    (r.source?'<div class="readonly-source">Auto-resolved from GitHub Project Control · main '+h((r.source.main_commit_sha||"").slice(0,12))+'</div>':"");
+}
 function bundle(){
   return {
     bundle_id:el("bundleId").value.trim(),
@@ -97,15 +208,18 @@ function displayDesign(v){
 function setLockedInputs(){
   const has=!!current;
   const designEditable=!has||current.status==="DESIGN_PENDING";
-  el("sessionId").disabled=has;
-  el("shotId").disabled=has;
+  const autoLocked=!has&&!!resolvedPackage;
+  const operatorLocked=currentView==="operator";
+  el("sessionId").disabled=has||operatorLocked;
+  el("shotId").disabled=has||autoLocked||operatorLocked;
   ["bundleId","runId","artifactId","referenceCount","artifactDigest","referencesExact","manifestVerified","generationAllowed","designSummary"]
-    .forEach(id=>el(id).disabled=!designEditable);
+    .forEach(id=>el(id).disabled=!designEditable||autoLocked||operatorLocked);
   el("startBtn").disabled=has;
   el("loadBtn").disabled=has;
   el("recoverBtn").disabled=has;
   el("reconcileBtn").disabled=!has;
   el("refreshEvidenceBtn").disabled=!has;
+  el("resolveMetadataBtn").disabled=has;
 }
 
 function setSession(s){
@@ -132,7 +246,7 @@ function setSession(s){
 }
 
 function resetWorkspace(){
-  current=null; remoteEvidence=null;
+  current=null; remoteEvidence=null; resolvedPackage=null;
   localStorage.removeItem("blpc_session_id");
   ["sessionId","shotId","bundleId","runId","artifactId","artifactDigest","referenceCount","designSummary"]
     .forEach(id=>el(id).value="");
@@ -141,6 +255,7 @@ function resetWorkspace(){
   el("generationAllowed").checked=true;
   setLockedInputs();
   render();
+  if(currentView==="operator") resolveProjectMetadata("",true);
 }
 
 function renderWorkflow(){
@@ -296,6 +411,7 @@ function render(){
   renderIdentity();
   renderActive();
   renderEvidence();
+  renderOperatorSummary();
 }
 
 async function refreshSystem(){
@@ -308,7 +424,8 @@ async function refreshSystem(){
       row("GitHub CLI",j.github_cli?"READY":"NOT READY",j.github_cli?"ok":"warn")+
       row("Boundary",j.production_process_boundary,"mono")+
       row("Local Sessions",(j.sessions||[]).length);
-  }catch(e){el("system").textContent=e.message}
+    return j;
+  }catch(e){el("system").textContent=e.message; throw e}
 }
 
 async function start(){
@@ -320,16 +437,25 @@ async function start(){
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
-async function load(){
+async function load(auto=false){
   try{
     if(!sid()) throw new Error("请输入 Session ID");
     const j=await api("/api/v1/session?session_id="+encodeURIComponent(sid()));
     setSession(j.session);
     await refreshEvidence();
-  }catch(e){alert(e.message)}
+  }catch(e){
+    if(auto&&String(e.message||"").includes("Session 不存在")){
+      current=null; remoteEvidence=null;
+      setLockedInputs(); render();
+      showAction("本地 Session 缺失，正在尝试 External Recovery…","working");
+      await recoverExternal(null,true);
+      return;
+    }
+    alert(e.message);
+  }
 }
-async function recoverExternal(){
-  const b=el("recoverBtn");
+async function recoverExternal(button=null,silent=false){
+  const b=button||el("recoverBtn");
   try{
     const sessionId=el("sessionId").value.trim();
     if(!sessionId) throw new Error("请输入 Session ID");
@@ -342,8 +468,8 @@ async function recoverExternal(){
     await refreshSystem();
     showAction("External Recovery 完成 · Status = "+j.session.status,"success");
   }catch(e){
-    showAction("External Recovery FAIL · "+e.message,"error");
-    alert(e.message);
+    showAction("External Recovery · "+e.message,"error");
+    if(!silent) alert(e.message);
   }finally{
     if(b)b.disabled=false;
   }
@@ -478,15 +604,19 @@ async function closeout(button){
 }
 
 el("startBtn").onclick=start;
-el("loadBtn").onclick=load;
-el("recoverBtn").onclick=recoverExternal;
+el("loadBtn").onclick=()=>load(false);
+el("recoverBtn").onclick=()=>recoverExternal(null,false);
 el("reconcileBtn").onclick=reconcile;
 el("newSessionBtn").onclick=resetWorkspace;
 el("refreshEvidenceBtn").onclick=refreshEvidence;
+el("resolveMetadataBtn").onclick=()=>resolveProjectMetadata(el("shotId").value.trim(),false);
+el("operatorViewBtn").onclick=()=>setView("operator");
+el("diagnosticViewBtn").onclick=()=>setView("diagnostics");
 
 const saved=localStorage.getItem("blpc_session_id");
 if(saved) el("sessionId").value=saved;
-setLockedInputs();
+setView(currentView);
 refreshSystem();
 render();
-if(saved) load();
+if(saved) load(true);
+else if(currentView==="operator") resolveProjectMetadata("",true);
