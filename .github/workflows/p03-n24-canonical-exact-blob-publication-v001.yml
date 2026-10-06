@@ -1,0 +1,57 @@
+name: N24 Canonical Exact-Blob Publication V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p03-n24-canonical-exact-blob-publication-v001.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify source and publish exact blob
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SRC="staging/story_shot_candidates/N24/N24_Candidate_03_APPROVED.png"
+          DST="production/image_library/approved/story_shots/N24_GUANG_YONG_QUESTIONS_OPEN_DOOR_APPROVED_V001.png"
+
+          EXPECT_SIZE="2734305"
+          EXPECT_SHA="e6604ec6a66151bc68bbd443812a538e2cd92820b6d5a601a98e3c4b90c13f34"
+          EXPECT_BLOB="5541be10e8f679dd87df94b63d35eaa3d9482def"
+
+          test -f "$SRC"
+          test ! -e "$DST"
+
+          test "$(wc -c < "$SRC" | tr -d ' ')" = "$EXPECT_SIZE"
+          test "$(sha256sum "$SRC" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$SRC")" = "$EXPECT_BLOB"
+
+          mkdir -p "$(dirname "$DST")"
+          git mv "$SRC" "$DST"
+
+          test "$(wc -c < "$DST" | tr -d ' ')" = "$EXPECT_SIZE"
+          test "$(sha256sum "$DST" | awk '{print $1}')" = "$EXPECT_SHA"
+          test "$(git hash-object "$DST")" = "$EXPECT_BLOB"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "P0.3 N24 canonical exact-blob publication"
+          git push origin HEAD:main
+
+          echo "SOURCE_SIZE=$EXPECT_SIZE"
+          echo "SOURCE_SHA256=$EXPECT_SHA"
+          echo "SOURCE_GIT_BLOB=$EXPECT_BLOB"
+          echo "CANONICAL_PATH=$DST"
+          echo "EXACT_BLOB_PRESERVED=YES"
+          echo "OVERALL_RESULT=PASS"
