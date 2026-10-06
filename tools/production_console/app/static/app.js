@@ -7,6 +7,7 @@ const STATUS_STAGE={
 let current=null;
 let remoteEvidence=null;
 let resolvedPackage=null;
+let operatorPackage=null;
 let currentView=localStorage.getItem("blpc_view")||"diagnostics";
 let workspaceEpoch=0;
 
@@ -154,6 +155,20 @@ async function resolveProjectMetadata(shotId="",silent=false){
     return null;
   }
 }
+
+async function refreshOperatorOverview(silent=false){
+  try{
+    if(!silent) showAction("正在刷新 Operator View Project Control…","working");
+    const j=await api("/api/v1/design-package/resolve");
+    operatorPackage=j.resolved;
+    renderOperatorSummary();
+    if(!silent) showAction("Operator View 已刷新 · "+operatorPackage.shot_id,"success");
+    return operatorPackage;
+  }catch(e){
+    if(!silent) showAction("Operator View refresh FAIL · "+e.message,"error");
+    return null;
+  }
+}
 function setView(mode){
   currentView=mode==="operator"?"operator":"diagnostics";
   localStorage.setItem("blpc_view",currentView);
@@ -162,11 +177,12 @@ function setView(mode){
   el("diagnosticViewBtn").classList.toggle("active-view",currentView==="diagnostics");
   setLockedInputs();
   renderOperatorSummary();
+  if(currentView==="operator") refreshOperatorOverview(true);
 }
 function renderOperatorSummary(){
   const box=el("operatorSummaryBody");
   if(!box)return;
-  const r=resolvedPackage||{};
+  const r=operatorPackage||resolvedPackage||{};
   const s=current||{};
   const b=(current&&current.bundle)||r.bundle||{};
   const candidate=(current&&current.candidate)||{};
@@ -195,7 +211,10 @@ function renderOperatorSummary(){
       '<div class="operator-cell"><strong>Exact Binary</strong>'+h(exact)+'</div>'+
     '</div>'+
     '<div class="operator-next"><strong>Next</strong><br>'+h(next)+'</div>'+
-    (r.source?'<div class="readonly-source">Auto-resolved from GitHub Project Control · main '+h((r.source.main_commit_sha||"").slice(0,12))+'</div>':"");
+    (r.source?'<div class="readonly-source">Resolved from GitHub Project Control · commit '+h((r.source.main_commit_sha||"").slice(0,12))+'</div>':"")+
+    '<div class="actions compact"><button id="operatorRefreshBtn">Refresh Project Control</button><span id="operatorFreshness" class="muted"></span></div>';
+  const rb=el("operatorRefreshBtn");
+  if(rb) rb.onclick=()=>refreshOperatorOverview(false);
 }
 function bundle(){
   return {
@@ -448,6 +467,13 @@ async function refreshSystem(){
       row("GitHub CLI",j.github_cli?"READY":"NOT READY",j.github_cli?"ok":"warn")+
       row("Boundary",j.production_process_boundary,"mono")+
       row("Local Sessions",(j.sessions||[]).length);
+    const f=el("operatorFreshness");
+    if(f&&operatorPackage&&operatorPackage.source){
+      const resolved=(operatorPackage.source.main_commit_sha||"");
+      const latest=(j.github_main_sha||"");
+      f.textContent=resolved&&latest&&resolved!==latest?"STALE · newer main available":"CURRENT";
+      f.className=resolved&&latest&&resolved!==latest?"warn":"ok";
+    }
     return j;
   }catch(e){el("system").textContent=e.message; throw e}
 }
