@@ -6,7 +6,7 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R023",
+  "state_revision": "PC-R024",
   "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / CLOSED WORKFLOW VISUAL PATCH READY",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
@@ -147,7 +147,8 @@
       "true_external_recovery_precondition": "PASS / local Session intentionally absent",
       "action_button_feedback": "PATCH_READY_RETEST_REQUIRED",
       "lock_visibility": "LOCK action did execute successfully in current CLOSED session; previous UI hid the button immediately after state transition. Patch now shows working/success button states before advancing.",
-      "closed_workflow_visual": "PATCHED: when status=CLOSED, all 8 workflow steps render as completed/green; CLOSEOUT no longer remains white active state. Current Gate title changes to Workflow Complete | CLOSED."
+      "closed_workflow_visual": "PATCHED: when status=CLOSED, all 8 workflow steps render as completed/green; CLOSEOUT no longer remains white active state. Current Gate title changes to Workflow Complete | CLOSED.",
+      "completed_step_visual": "NEXT UI UPDATE: completed workflow steps remain green but keep numeric step labels; do not replace numbers with checkmarks."
     }
   },
   "scale_gate": {
@@ -158,7 +159,7 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "UPDATE LOCAL BUILD → VISUAL RETEST CLOSED STATE → TRUE EXTERNAL RECOVERY",
+  "current_task": "CONTINUE SHORT DEFECT REGRESSION / TRUE EXTERNAL RECOVERY",
   "next_gate": "VISUAL CLOSED-STATE RETEST + TRUE EXTERNAL RECOVERY PASS → SHORT DEFECT REGRESSION CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
