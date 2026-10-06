@@ -581,6 +581,53 @@
           "status": "APPROVED"
         }
       ]
+    },
+    {
+      "scene_id": "SCENE_CASTLE_ENTRANCE_INNER_LOBBY",
+      "scene_name": "古堡主入口内侧门厅",
+      "entity_status": "ACTIVE",
+      "variant": "DEFAULT",
+      "legacy_aliases": [],
+      "stable_facts": {
+        "spatial_topology": [
+          "位于古堡主入口之后、第一大厅之前",
+          "摄影机可从主门口 / 门槛附近朝古堡内部观察该空间",
+          "作为进入古堡后的入口缓冲与短暂停留区",
+          "与SCENE_CASTLE_ENTRANCE属于同一主入口空间体系，但承担向内视角与停留区职责"
+        ],
+        "fixed_architecture": [
+          "紧凑的哥特式入口内门厅",
+          "石质/灰褐色墙体与柱体",
+          "深色木质护墙或局部木饰面",
+          "通往更深古堡内部的拱形开口"
+        ],
+        "key_objects": [
+          "壁灯 / 烛台"
+        ],
+        "object_relationships": [
+          "中央与中前景保留可供5–8人自然错位停留的开放区域",
+          "继续向内的拱形开口连接更深古堡空间，但不等同于第一大厅",
+          "入口方向自然光只作为方向提示，不定义为大面积深入室内的强光"
+        ],
+        "core_materials": [
+          "老旧石材",
+          "深色木材",
+          "深色石质铺地"
+        ]
+      },
+      "state_profiles": [
+        {
+          "profile_id": "DEFAULT",
+          "facts": {
+            "group_capacity_reference": "5–8 PEOPLE NATURAL PAUSE / STAGGER",
+            "first_hall_visible": false,
+            "fireplace_visible": false
+          },
+          "source_master_asset_id": "AST_IMG_000108",
+          "evidence": "Product Owner approved common Scene Master / exact binary verified and canonically published 2026-10-06",
+          "status": "APPROVED"
+        }
+      ]
     }
   ],
   "shot_variable_fields": [
