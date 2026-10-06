@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R021",
-  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / EXTERNAL RECOVERY TEST SEQUENCE ADJUSTED",
+  "state_revision": "PC-R022",
+  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / ACTION FEEDBACK PATCH READY",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "56366b45031c16fccffcab175665c38b8e232c38",
+    "engineering_branch_head": "5111e034660b98a3bf318f4f83a4d869baaa81bd",
     "local_mac_regression": "MAIN_PATH_PASS / PATCH AUTOMATED_TESTS_14_OF_14_PASS / SHORT_MANUAL_RETEST_NEXT",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -144,7 +144,9 @@
       "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38",
       "automated_local_tests": "14/14 PASS",
       "external_recovery_entry": "VISUAL PASS",
-      "true_external_recovery_precondition": "PASS / local Session intentionally absent"
+      "true_external_recovery_precondition": "PASS / local Session intentionally absent",
+      "action_button_feedback": "PATCH_READY_RETEST_REQUIRED",
+      "lock_visibility": "LOCK action did execute successfully in current CLOSED session; previous UI hid the button immediately after state transition. Patch now shows working/success button states before advancing."
     }
   },
   "scale_gate": {
@@ -155,8 +157,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "RESTORE LOCAL PATCH-RETEST SESSION → COMPLETE TO CLOSED → REMOVE LOCAL SESSION → TRUE EXTERNAL RECOVERY",
-  "next_gate": "TRUE EXTERNAL RECOVERY PASS → SHORT DEFECT REGRESSION CLOSEOUT",
+  "current_task": "UPDATE LOCAL BUILD → SHORT RETEST ACTION FEEDBACK + COMPLETE TRUE EXTERNAL RECOVERY",
+  "next_gate": "ACTION FEEDBACK RETEST + TRUE EXTERNAL RECOVERY PASS → SHORT DEFECT REGRESSION CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
