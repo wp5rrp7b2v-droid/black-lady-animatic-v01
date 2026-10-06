@@ -29,3 +29,17 @@ A full End-to-End qualification must PASS before Production Adoption can even be
 **Decision:** Current formal Story Shot process remains unchanged during UI design, implementation and testing.
 
 Any future change to production storage, publication, registration or closeout is a separate Process Change / Production Adoption program requiring explicit Product Owner approval after qualification.
+
+## PC-D005｜2026-10-06｜V1.1 Core Refactor continuation approved
+
+**Decision:** Product Owner approved continuing V1.1 implementation from the established engineering branch.
+
+**Authorized engineering scope:**
+- generic Shot Session;
+- workflow state machine;
+- immutable Candidate identity;
+- qualification-only GitHub branch/path adapters;
+- unified V1.1 UI implementation;
+- regression testing.
+
+**Not authorized:** any change to the current formal Story Shot SOP, canonical Story Shot records, Story Shot Index, or production adoption.
