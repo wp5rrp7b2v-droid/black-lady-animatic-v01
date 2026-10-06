@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict
 
-from config import SESSIONS_DIR
+from config import SESSIONS_DIR, LOCKS_DIR
 
 
 def now_iso() -> str:
@@ -99,3 +99,29 @@ def list_sessions():
                 "updated_at": data.get("updated_at"),
             })
     return rows
+
+
+def candidate_lock_path(session_id: str, candidate_id: str) -> Path:
+    safe_candidate = "".join(ch for ch in (candidate_id or "") if ch.isalnum() or ch in "-_")
+    if not safe_candidate:
+        raise ValueError("candidate_id 无效")
+    return LOCKS_DIR / f"{safe_session_id(session_id)}__{safe_candidate}.lock"
+
+
+def acquire_candidate_lock(session_id: str, candidate_id: str) -> Path:
+    LOCKS_DIR.mkdir(parents=True, exist_ok=True)
+    path = candidate_lock_path(session_id, candidate_id)
+    try:
+        fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        os.write(fd, now_iso().encode("utf-8"))
+        os.close(fd)
+        return path
+    except FileExistsError:
+        raise RuntimeError("Candidate upload 正在处理中；已阻止重复上传")
+
+
+def release_candidate_lock(path: Path) -> None:
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
