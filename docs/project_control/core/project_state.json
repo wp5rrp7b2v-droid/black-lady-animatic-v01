@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R309",
+  "state_revision": "R310",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 BUNDLE V004 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CANDIDATE 02 WAITING PO AUTHORIZATION",
+  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 02 PO REJECTED / CANDIDATE 03 REVISION DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜CANDIDATE 02｜WAITING PRODUCT OWNER FORMAL WORK AUTHORIZATION",
+  "current_task": "N24｜CANDIDATE 03 REVISION DESIGN｜INTEGRATION + DEPTH + TIGHTER DIALOGUE FRAME",
   "blocker": "No technical blocker.",
-  "next_action": "Product Owner authorizes N24 Candidate 02 formal Work execution; Work then reads and revalidates Bundle V004, generates exactly 1 PNG, and stops.",
+  "next_action": "Prepare Candidate 03 Work revision instructions based on Candidate 02: preserve Guang Yong identity, remove cutout/layer separation, tighten framing to thigh-up/three-quarter body, integrate 3–4 guests across depth, and have Guang Yong look toward camera/Neil axis.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / DIRECTOR V0.4 APPROVED / SCENE REFERENCE V0.4 APPROVED / BUNDLE V004 FORMAL BUILD + ARTIFACT EXACT VERIFIED / CANDIDATE 02 WAITING PO AUTHORIZATION",
+  "n24_status": "IN PROGRESS / CANDIDATE 02 PRODUCT OWNER REJECTED / CANDIDATE 03 REVISION REQUIRED",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4586,5 +4586,18 @@
     "manifest_result": "PASS",
     "handoff_verified": true,
     "build_record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v004_build_record_2026-10-06.md"
+  },
+  "n24_candidate_02": {
+    "status": "PRODUCT OWNER REJECTED / DO NOT PUBLISH / DO NOT REGISTER",
+    "dimensions": "941x1672",
+    "byte_size": 3027342,
+    "sha256": "a5f206dab950a0fc4cd0ed5aa6952c52368126177d010a6367f5f73a7fc08cbb",
+    "failure_reasons": [
+      "Guang Yong cutout/composited appearance",
+      "Guang Yong and background guests read as separate image layers",
+      "frame too empty",
+      "Guang Yong should look toward camera"
+    ],
+    "rejection_record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_02_rejection_record_2026-10-06.md"
   }
 }
