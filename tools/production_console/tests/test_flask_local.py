@@ -2,6 +2,8 @@ import os
 import sys
 import tempfile
 import unittest
+import hashlib
+from io import BytesIO
 from pathlib import Path
 
 TMP=tempfile.TemporaryDirectory()
@@ -9,6 +11,9 @@ os.environ["BLACK_LADY_PRIVATE_DIR"]=TMP.name
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"app"))
 import server
+import routes_session
+from state_store import acquire_candidate_lock, release_candidate_lock
+from PIL import Image
 
 class FlaskLocalTests(unittest.TestCase):
     @classmethod
@@ -36,5 +41,57 @@ class FlaskLocalTests(unittest.TestCase):
     def test_production_mode_rejected(self):
         r=self.client.post("/api/v1/session/start",json={"session_id":"BAD","shot_id":"N24","mode":"PRODUCTION"})
         self.assertEqual(r.status_code,409)
+
+    def test_candidate_upload_lock(self):
+        lock = acquire_candidate_lock("LOCK_QA", "CANDIDATE_01")
+        try:
+            with self.assertRaises(RuntimeError):
+                acquire_candidate_lock("LOCK_QA", "CANDIDATE_01")
+        finally:
+            release_candidate_lock(lock)
+
+    def test_true_external_recovery_without_local_session(self):
+        bio=BytesIO()
+        Image.new("RGB",(2,3)).save(bio,format="PNG")
+        raw=bio.getvalue()
+        digest=hashlib.sha256(raw).hexdigest()
+        identity={
+            "shot_id":"TEST_RECOVER",
+            "candidate_id":"CANDIDATE_01",
+            "drive_file_id":"drive-recover-1",
+            "sha256":digest,
+            "byte_size":len(raw),
+            "width":2,
+            "height":3,
+            "mime_type":"image/png",
+        }
+        evidence={
+            "highest_remote_status":"CLOSED",
+            "records":{
+                "publication":{"exists":True,"path":"p.json","blob_sha":"bp","payload":{
+                    "shot_id":"TEST_RECOVER",
+                    "bundle":{"bundle_id":"B","run_id":1,"artifact_id":2,"artifact_digest":"sha256:x","reference_count":1,"references_exact":True,"delivery_manifest_verified":True,"generation_allowed":True},
+                    "candidate":identity,
+                    "approval_binding":{"candidate_id":"CANDIDATE_01","drive_file_id":"drive-recover-1","sha256":digest},
+                }},
+                "registration":{"exists":True,"path":"r.json","blob_sha":"br","payload":{"candidate_identity":identity}},
+                "lock":{"exists":True,"path":"l.json","blob_sha":"bl","payload":{"immutable_identity":identity}},
+                "closeout":{"exists":True,"path":"c.json","blob_sha":"bc","payload":{"immutable_identity":identity}},
+            },
+        }
+        orig_remote=routes_session.remote_evidence
+        orig_download=routes_session.drive_download_bytes
+        try:
+            routes_session.remote_evidence=lambda session_id:evidence
+            routes_session.drive_download_bytes=lambda file_id:raw
+            resp=self.client.post("/api/v1/session/recover",json={"session_id":"RECOVER_ONLY"})
+            self.assertEqual(resp.status_code,200)
+            data=resp.get_json()
+            self.assertTrue(data["recovered"])
+            self.assertEqual(data["session"]["status"],"CLOSED")
+            self.assertEqual(data["session"]["candidate"]["sha256"],digest)
+        finally:
+            routes_session.remote_evidence=orig_remote
+            routes_session.drive_download_bytes=orig_download
 
 if __name__=="__main__": unittest.main()
