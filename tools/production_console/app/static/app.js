@@ -149,7 +149,7 @@ function renderWorkflow(){
   el("workflow").innerHTML=STAGES.map((x,i)=>{
     const done=closed||i<idx;
     const active=!closed&&i===idx;
-    return '<div class="step '+(active?"active ":"")+(done?"done":"")+'"><span>'+(i+1)+'</span>'+x+'</div>';
+    return '<div class="step '+(active?"active ":"")+(done?"done":"")+'">'+x+'</div>';
   }).join("");
   el("sessionState").textContent=current?current.status:"NO SESSION";
 }
