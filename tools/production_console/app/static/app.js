@@ -122,6 +122,13 @@ async function applyResolvedPackage(r){
     el("designSummary").value=resolvedSummaryText(r);
     if(!el("sessionId").value.trim()) el("sessionId").value=await suggestedSessionId(r.shot_id);
   }
+  const src=r.source||{};
+  const sourceBox=el("resolutionSource");
+  if(sourceBox){
+    sourceBox.innerHTML=
+      (src.project_state_blob_sha?'<div class="mono small">Project State blob: '+h(src.project_state_blob_sha)+'</div>':"")+
+      (src.main_commit_sha?'<div class="mono small">main commit: '+h(src.main_commit_sha)+'</div>':"");
+  }
   setLockedInputs();
   renderOperatorSummary();
 }
@@ -257,6 +264,7 @@ async function resetWorkspace(){
   localStorage.removeItem("blpc_session_id");
   ["sessionId","shotId","bundleId","runId","artifactId","artifactDigest","referenceCount","designSummary"]
     .forEach(id=>el(id).value="");
+  if(el("resolutionSource")) el("resolutionSource").innerHTML="";
   el("referencesExact").checked=false;
   el("manifestVerified").checked=false;
   el("generationAllowed").checked=false;
