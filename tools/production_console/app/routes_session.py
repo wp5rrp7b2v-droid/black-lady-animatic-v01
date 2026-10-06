@@ -219,6 +219,8 @@ def session_recover():
 def session_reconcile():
     try:
         session = require_session()
+        before_status = session.get("status")
+        before_identity = candidate_identity(session.get("candidate") or {})
         evidence = remote_evidence(session["session_id"])
         highest = evidence.get("highest_remote_status")
         if not highest:
@@ -309,15 +311,19 @@ def session_reconcile():
 
         session["status"] = highest
         session["current_stage"] = stage_for(highest)
-        append_history(
-            session,
-            "EXTERNAL_EVIDENCE_RECONCILED",
-            remote_status=highest,
-            drive_checks=drive_checks,
-        )
+        after_identity = candidate_identity(session.get("candidate") or {})
+        changed = before_status != highest or before_identity != after_identity
+        if changed:
+            append_history(
+                session,
+                "EXTERNAL_EVIDENCE_RECONCILED",
+                remote_status=highest,
+                drive_checks=drive_checks,
+            )
         save_session(session)
         return ok(
-            changed=True,
+            changed=changed,
+            verified=True,
             session=public_session(session),
             remote=evidence,
             drive_checks=drive_checks,
