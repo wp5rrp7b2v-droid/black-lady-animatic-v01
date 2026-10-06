@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R033",
-  "status": "ACTIVE / PRE-E2E UX LOCAL PRECHECK PASS / 3 UI RETESTS NEXT",
+  "state_revision": "PC-R034",
+  "status": "ACTIVE / PRE-E2E UX RETEST / NEW SESSION AUTOFILL CONFLICT PATCHED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "e49eba30689cf2bf5031a7ff0d62ed44bf6d7be9",
+    "engineering_branch_head": "f55d07b1d01dc1aa72a6dc8616ad484a97635da6",
     "local_mac_regression": "MAIN 8-STEP PATH PASS / DEFECT SHORT-REGRESSION PASS / PRE-E2E UX COMPLETION REQUIRED",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -164,7 +164,8 @@
         "story_shot_index_blob": "cc7e7116207b4cb05528c5c3d24f37516f1bcd16",
         "story_shot_count": 30
       },
-      "pre_e2e_ux_local_diagnose": "PASS / 18 of 18 tests / 2026-10-06"
+      "pre_e2e_ux_local_diagnose": "PASS / 18 of 18 tests / 2026-10-06",
+      "new_session_behavior": "PATCHED: New Session now clears the current workspace and remains empty; it no longer silently auto-resolves Project Control metadata. Auto Resolve is explicit user action only. Visible success feedback added."
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -197,8 +198,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL UI RETEST 1: AUTO METADATA RESOLVE",
-  "next_gate": "AUTO METADATA PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
+  "current_task": "LOCAL UI RETEST 1: NEW SESSION CLEAR → EXPLICIT AUTO METADATA RESOLVE",
+  "next_gate": "NEW SESSION + AUTO METADATA PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
