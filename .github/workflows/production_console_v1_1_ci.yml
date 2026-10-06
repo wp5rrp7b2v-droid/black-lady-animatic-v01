@@ -1,0 +1,60 @@
+name: Production Console V1.1 CI
+
+on:
+  push:
+    branches:
+      - feature/production-console-v1-1
+    paths:
+      - 'tools/production_console/**'
+      - '.github/workflows/production_console_v1_1_ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tools/production_console
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r app/requirements.txt
+
+      - name: Python compile
+        run: python -m py_compile app/*.py tests/*.py
+
+      - name: JavaScript parse
+        run: |
+          node --check app/static/app.js
+          node --check app/static/archive.js
+
+      - name: Unit and Flask regression
+        env:
+          BLACK_LADY_PRIVATE_DIR: /tmp/black_lady_console_private
+        run: python -m unittest tests.test_workflow tests.test_payloads tests.test_flask_local -v
+
+      - name: Safety boundary scan
+        run: |
+          test ! -e BlackLadyLocalConsolePrivate
+          ! grep -R "formal_story_shot.*true" -n app tests
+          ! grep -R "main_branch_write.*true" -n app tests
+          ! grep -R "project_control_write.*true" -n app tests
+          echo "Safety boundary scan PASS"
