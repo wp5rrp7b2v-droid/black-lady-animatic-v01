@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R318",
+  "state_revision": "R319",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N25 BUNDLE V001 VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PO AUTHORIZATION",
+  "session_status": "2026-10-06 ACTIVE / N25 BUNDLE V001 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CANDIDATE 01 WAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25_REFERENCE_DELIVERY_BUNDLE_V001｜WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
-  "blocker": "No technical blocker. Formal Build + Artifact Exact Verification require explicit Product Owner authorization.",
-  "next_action": "Product Owner explicitly authorizes Formal N25 Bundle V001 Build + Artifact Exact Verification only. Candidate 01 generation remains a separate later authorization.",
+  "current_task": "N25｜CANDIDATE 01｜WAITING PRODUCT OWNER FORMAL WORK AUTHORIZATION",
+  "blocker": "No technical blocker. Candidate 01 generation is intentionally gated behind explicit Product Owner authorization.",
+  "next_action": "Product Owner authorizes N25 Candidate 01 formal Work execution. Then Work must read and revalidate N25_REFERENCE_DELIVERY_BUNDLE_V001 and generate exactly 1 PNG, then stop.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4387,7 +4387,7 @@
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "IN PROGRESS / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE V001 VALIDATION-ONLY PASS / FORMAL BUILD WAITING PO AUTHORIZATION",
+  "n25_status": "IN PROGRESS / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE V001 FORMAL BUILD + ARTIFACT EXACT VERIFIED / CANDIDATE 01 WAITING PO AUTHORIZATION",
   "n25_director_design": {
     "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
@@ -4670,7 +4670,7 @@
     "rationale": "PROFILE_RIGHT adds readable side-face / mouth continuity for speech while REAR_3Q_RIGHT already protects no-turn-back body orientation."
   },
   "n25_reference_delivery_bundle_v001": {
-    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
+    "status": "FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 WAITING PRODUCT OWNER AUTHORIZATION",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n25_reference_delivery_bundle_v001_design_v0_1.md",
     "target_candidate": "N25 Candidate 01｜Clean Regeneration",
     "direct_image_count": 5,
@@ -4687,12 +4687,26 @@
     ],
     "build_authorized": false,
     "candidate_01_generation_authorized": false,
-    "spec_revision": "V001-R1",
+    "spec_revision": "V001-R2",
     "spec_commit": "70a3e0281b9c44fc20012ef456fa09e9abaa1a65",
     "validation_run_id": 37459637592,
     "validation_job_id": 112255691287,
     "validation_result": "5/5 EXACT PASS",
     "artifact_count": 0,
-    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n25_reference_delivery_bundle_v001_validation_only_record_2026-10-06.md"
+    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n25_reference_delivery_bundle_v001_validation_only_record_2026-10-06.md",
+    "formal_build_authorized": true,
+    "formal_build_commit": "b98a2a60f30bbfff4a81490c7d46105bf7ac1f62",
+    "run_id": 37460860156,
+    "job_id": 112259771222,
+    "run_conclusion": "SUCCESS",
+    "artifact_id": 11411667773,
+    "artifact_name": "N25_REFERENCE_DELIVERY_BUNDLE_V001",
+    "artifact_size_bytes": 9062019,
+    "artifact_digest": "sha256:59da1121cfce98eb22bedebce2787498cceb4e31a3235b266ec52d2e7ca25ee7",
+    "downloaded_zip_digest_match": true,
+    "reference_exact_match": "5/5",
+    "manifest_result": "PASS",
+    "handoff_verified": true,
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n25_reference_delivery_bundle_v001_build_record_2026-10-06.md"
   }
 }
