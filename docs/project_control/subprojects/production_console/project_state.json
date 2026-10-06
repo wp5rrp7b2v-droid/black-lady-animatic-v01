@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R034",
-  "status": "ACTIVE / PRE-E2E UX RETEST / NEW SESSION AUTOFILL CONFLICT PATCHED",
+  "state_revision": "PC-R035",
+  "status": "ACTIVE / PRE-E2E UX RETEST / NEW SESSION PASS / AUTO METADATA NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -154,7 +154,7 @@
       "true_external_recovery_full_fidelity": "PASS",
       "recovery_fidelity_patch": "PATCH READY: future qualification publication records include design_summary + preflight recovery snapshot; recovery restores them when present and explicitly labels legacy evidence as incomplete.",
       "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists.",
-      "workflow_step_labels": "PATCHED / stage names only; no numeric labels and no checkmarks",
+      "workflow_step_labels": "PASS / names only; no numeric labels; no checkmarks",
       "production_metadata_autoresolve": "PATCH READY / reads current Shot + approved Design/Scene + latest formal Bundle from GitHub Project Control and locks technical fields read-only",
       "production_one_page_mode": "PATCH READY / Operator View with compact current-shot control; Diagnostics retains full qualification evidence",
       "stale_localstorage_recovery_handoff": "PATCH READY / startup auto-attempts External Recovery when remembered local Session JSON is missing",
@@ -165,7 +165,7 @@
         "story_shot_count": 30
       },
       "pre_e2e_ux_local_diagnose": "PASS / 18 of 18 tests / 2026-10-06",
-      "new_session_behavior": "PATCHED: New Session now clears the current workspace and remains empty; it no longer silently auto-resolves Project Control metadata. Auto Resolve is explicit user action only. Visible success feedback added."
+      "new_session_behavior": "PASS / explicit clear state retained / visible feedback confirmed"
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -198,8 +198,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL UI RETEST 1: NEW SESSION CLEAR → EXPLICIT AUTO METADATA RESOLVE",
-  "next_gate": "NEW SESSION + AUTO METADATA PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
+  "current_task": "LOCAL UI RETEST 1B: AUTO METADATA RESOLVE",
+  "next_gate": "AUTO METADATA PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
