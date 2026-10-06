@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R300",
+  "state_revision": "R301",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 01 PO REJECTED / DESIGN LOGIC + GUANG YONG IDENTITY DRIFT / DIRECTOR V0.4 DRAFT",
+  "session_status": "2026-10-06 ACTIVE / N24 DIRECTOR DESIGN V0.4 PO APPROVED / FRONT-FACING GUANG YONG / GROUP PAUSED / SCENE REFERENCE V0.3 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜NODE-LEVEL DIRECTOR SHOT DESIGN V0.4｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "N24 Candidate 01 failed Product Owner review due to incorrect shot blocking and severe Guang Yong identity drift. Do not generate Candidate 02 under V0.3.",
-  "next_action": "Product Owner reviews N24 Node-Level Director Shot Design V0.4. If approved, revise Scene Reference / Bundle with stronger Guang Yong identity protection and <=5 direct references.",
+  "current_task": "N24｜SCENE REFERENCE DESIGN V0.3｜READY TO START",
+  "blocker": "No production blocker. Candidate 01 remains rejected; no new generation until revised Scene Reference and Bundle are approved.",
+  "next_action": "Enter N24 Scene Reference Design V0.3 based on locked Director Design V0.4. Prioritize Guang Yong identity; group is paused behind him; Neil remains entrance-side / behind group; door direction is implied mainly by light.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / CANDIDATE 01 REJECTED / DIRECTOR DESIGN REOPENED / V0.4 WAITING PO APPROVAL",
+  "n24_status": "IN PROGRESS / DIRECTOR DESIGN V0.4 PRODUCT OWNER APPROVED / SCENE REFERENCE V0.3 NEXT",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4497,9 +4497,11 @@
     "rule": "For Work-direct Story Shot generation bundles, design direct image references at <=5. If more evidence exists, resolve redundancy at Bundle Design; Work must never silently omit or choose references."
   },
   "n24_director_design_v0_4": {
-    "status": "DESIGN DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n24_node_level_director_shot_design_v0_4.md",
-    "core_correction": "Guang Yong turns toward Neil ahead/side-ahead while moving; no backward look toward entrance; door preferred off-screen.",
-    "bundle_implication": "Do not reuse V003 unchanged; prioritize stronger Guang Yong identity references within <=5 direct-image cap."
+    "core_composition": "Camera faces Guang Yong; group dispersed behind him; group has paused; Neil remains entrance-side / behind group; door position mainly implied by light and spatial orientation.",
+    "movement_rule": "No walking requirement; Guang Yong may stop to ask.",
+    "door_rule": "A06 owns explicit open-door establishment; N24 door may be off-screen / weakly implied.",
+    "bundle_rule": "Next bundle must not reuse V003 unchanged; prioritize Guang Yong identity within <=5 direct images."
   }
 }
