@@ -12,6 +12,7 @@ TOKEN = PRIVATE_DIR / "token.json"
 CONFIG = PRIVATE_DIR / "config.json"
 BINDING = PRIVATE_DIR / "drive_binding.json"
 SESSIONS_DIR = PRIVATE_DIR / "sessions"
+LOCKS_DIR = PRIVATE_DIR / "locks"
 LEGACY_PHASE_E_STATE = PRIVATE_DIR / "phase_e_e2e_state.json"
 FOLDER_MIME = "application/vnd.google-apps.folder"
 QUALIFICATION_BRANCH = os.environ.get("BLACK_LADY_CONSOLE_TEST_BRANCH", "test/local-console-v1-1-e2e-v001")
