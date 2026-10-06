@@ -20,6 +20,26 @@ const sid=()=>el("sessionId").value.trim()||localStorage.getItem("blpc_session_i
 const row=(k,v,cls="")=>'<div class="row"><span>'+h(k)+'</span><span class="'+cls+'">'+h(v)+'</span></div>';
 const pill=(label,pass)=>'<span class="mini-pill '+(pass===true?"pass":pass===false?"fail":"")+'">'+h(label)+'</span>';
 
+function localTime(value){
+  if(!value) return "";
+  const d=new Date(value);
+  if(Number.isNaN(d.getTime())) return String(value);
+  try{
+    return new Intl.DateTimeFormat(undefined,{
+      year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",minute:"2-digit",second:"2-digit",
+      hour12:false,timeZoneName:"short"
+    }).format(d);
+  }catch{return d.toLocaleString();}
+}
+function showAction(message,type=""){
+  const box=el("actionStatus");
+  if(!box)return;
+  box.hidden=false;
+  box.className="action-status"+(type?" "+type:"");
+  box.textContent=message;
+}
+
 function bundle(){
   return {
     bundle_id:el("bundleId").value.trim(),
@@ -72,6 +92,7 @@ function setSession(s){
   }
   setLockedInputs();
   render();
+  refreshSystem();
 }
 
 function resetWorkspace(){
@@ -150,7 +171,7 @@ function renderEvidence(){
   html+='<h3>Remote evidence</h3>'+renderRemote();
   el("evidence").innerHTML=html;
   el("history").innerHTML=(current.history||[]).slice().reverse().map(x=>
-    '<div class="history-item"><strong>'+h(x.action)+'</strong><span class="mono">'+h(x.at||"")+'</span></div>'
+    '<div class="history-item"><strong>'+h(x.action)+'</strong><span class="mono">'+h(localTime(x.at||""))+'</span></div>'
   ).join("");
 }
 
@@ -261,13 +282,26 @@ async function load(){
   }catch(e){alert(e.message)}
 }
 async function reconcile(){
+  const b=el("reconcileBtn");
   try{
     if(!current) throw new Error("请先 Load Session");
+    if(b)b.disabled=true;
+    showAction("正在从 GitHub qualification evidence + Drive binary 核对 Session…","working");
     const j=await post("/api/v1/session/reconcile",{session_id:sid()});
     setSession(j.session);
     remoteEvidence=j.remote||null;
     renderEvidence();
-  }catch(e){alert(e.message)}
+    await refreshSystem();
+    showAction(
+      "External Evidence Reconcile 完成 · "+(j.changed?"已按外部证据重新校准":"外部证据一致，无需改变状态")+" · Status = "+j.session.status,
+      "success"
+    );
+  }catch(e){
+    showAction("External Evidence Reconcile FAIL · "+e.message,"error");
+    alert(e.message);
+  }finally{
+    if(b)b.disabled=false;
+  }
 }
 async function refreshEvidence(){
   if(!current) return;
