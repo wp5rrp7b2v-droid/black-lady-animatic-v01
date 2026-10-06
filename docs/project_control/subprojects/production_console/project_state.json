@@ -6,7 +6,7 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R016",
+  "state_revision": "PC-R017",
   "status": "ACTIVE / LOCAL REGRESSION MAIN PATH PASS / DEFECT PATCH READY / SHORT RETEST NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "b8d6bb69a01368ed0d45483472dd9fa70dcc2537",
+    "engineering_branch_head": "56366b45031c16fccffcab175665c38b8e232c38",
     "local_mac_regression": "MAIN_8_STEP_PATH_PASS / DEFECT_BRANCH_RETEST_REQUIRED",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -138,7 +138,8 @@
       "true_external_recovery": "PATCH_READY_RETEST_REQUIRED",
       "external_reconcile_feedback": "PATCH_READY_RETEST_REQUIRED",
       "local_time_display": "PASS_FROM_PREVIOUS_RETEST",
-      "system_status_refresh": "PASS_FROM_PREVIOUS_RETEST"
+      "system_status_refresh": "PASS_FROM_PREVIOUS_RETEST",
+      "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38"
     }
   },
   "scale_gate": {
