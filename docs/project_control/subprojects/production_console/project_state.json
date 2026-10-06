@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R039",
-  "status": "ACTIVE / PRE-E2E UX RETEST / NEW SESSION SEMANTICS PATCH READY",
+  "state_revision": "PC-R040",
+  "status": "ACTIVE / PRE-E2E UX RETEST / CURRENT-SHOT PARTIAL RESOLUTION PATCH CI PASS",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "004b3c2cec8f46b37f0925b68f8d4b9a9573e08c",
+    "engineering_branch_head": "5c5b4a9d1e678d0be872a58100af84762a53c0cb",
     "local_mac_regression": "MAIN 8-STEP PATH PASS / DEFECT SHORT-REGRESSION PASS / PRE-E2E UX COMPLETION REQUIRED",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -167,7 +167,9 @@
       "pre_e2e_ux_local_diagnose": "PASS / 18 of 18 tests / 2026-10-06",
       "new_session_behavior": "ROOT CAUSE IDENTIFIED: startup auto-load could complete after resetWorkspace and repopulate the cleared workspace. PATCHED with workspaceEpoch invalidation; stale async Load / Auto Resolve / Recovery results cannot write after New Session.",
       "new_session_visual_affordance": "PATCH READY: New Session now clears values AND neutralizes sample placeholders/default checkboxes; button disables when already in a clean NO SESSION workspace; Auto Resolve is highlighted as the explicit next action.",
-      "new_session_semantics": "PATCH READY: New Session is always available and now means 'start a fresh current-shot workspace': clear prior state, then explicitly auto-resolve the current Shot/Bundle from Project Control. Button label changed to 'New Session / Current Shot'."
+      "new_session_semantics": "PATCH READY: New Session is always available and now means 'start a fresh current-shot workspace': clear prior state, then explicitly auto-resolve the current Shot/Bundle from Project Control. Button label changed to 'New Session / Current Shot'.",
+      "current_shot_partial_resolution": "PATCHED + CI PASS: Project Control current task is now N26 Director Design NOT YET STARTED. Resolver no longer treats missing Bundle as system failure; it returns N26 as PARTIAL_CURRENT_SHOT with Design Package NOT READY and empty Bundle metadata.",
+      "pre_e2e_ux_ci_latest": "PASS / Production Console V1.1 CI run 37473214772"
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -204,8 +206,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "UPDATE LOCAL BUILD → RETEST NEW SESSION / CURRENT SHOT",
-  "next_gate": "NEW SESSION CURRENT-SHOT RESOLVE PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
+  "current_task": "UPDATE LOCAL BUILD → RETEST NEW SESSION / CURRENT SHOT PARTIAL RESOLUTION",
+  "next_gate": "N26 PARTIAL CURRENT-SHOT UI PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
