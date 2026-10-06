@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R331",
+  "state_revision": "R332",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N26 BUNDLE V002 VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PO AUTHORIZATION",
+  "session_status": "2026-10-06 EOD CLOSED / PROJECT CONTROL SYNCHRONIZED / N26 V002 VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED / LOCAL SYNC NEXT SESSION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N26_REFERENCE_DELIVERY_BUNDLE_V002｜WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
-  "blocker": "No technical blocker. Formal Build + Artifact Exact Verification require explicit Product Owner authorization before an executable Work instruction can be issued.",
-  "next_action": "Product Owner authorizes Formal N26 Bundle V002 Build + Artifact Exact Verification. Candidate 02 Work execution remains a separate later authorization.",
+  "current_task": "NEXT SESSION｜LOCAL MAIN SYNC VERIFICATION → N26 BUNDLE V002 FORMAL BUILD AUTHORIZATION DECISION",
+  "blocker": "No production blocker. Session is closed by Product Owner; no further production authorized tonight.",
+  "next_action": "At next session start, verify local main against origin/main. Then resume at N26_REFERENCE_DELIVERY_BUNDLE_V002 Formal Build + Artifact Exact Verification authorization decision.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -595,7 +595,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "IMPLEMENTED / ACTIVE / 29 FORMALLY REGISTERED STORY SHOTS",
+    "status": "IMPLEMENTED / ACTIVE / 31 FORMALLY REGISTERED STORY SHOTS",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -604,7 +604,7 @@
       "REJECTED",
       "WIP"
     ],
-    "implementation_status": "IMPLEMENTED / INDEX = production/story_shots/story_shot_index.jsonl / 29 APPROVED CURRENT RECORDS / VERIFIED 2026-10-04",
+    "implementation_status": "IMPLEMENTED / INDEX = production/story_shots/story_shot_index.jsonl / 31 APPROVED CURRENT RECORDS / VERIFIED 2026-10-06",
     "legacy_path_principle": "Do not rename or duplicate A01-A07 merely to normalize the new model; preserve historical IDs and references.",
     "n01": {
       "shot_id": "N01",
@@ -624,7 +624,7 @@
       ]
     },
     "index_path": "production/story_shots/story_shot_index.jsonl",
-    "registered_story_shot_count": 29,
+    "registered_story_shot_count": 31,
     "opening_sequence": [
       "A01",
       "A02",
@@ -4849,5 +4849,20 @@
     "validation_result": "5/5 EXACT PASS",
     "artifact_count": 0,
     "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_validation_only_record_2026-10-06.md"
+  },
+  "local_sync_status": "TO VERIFY NEXT SESSION",
+  "daily_closeout_2026_10_06": {
+    "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
+    "n24": "FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
+    "n25": "FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
+    "n26": "CANDIDATE 01 REJECTED / V002 IDENTITY RESCUE VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED",
+    "n27": "ABSORBED INTO N26",
+    "story_shot_count": 31,
+    "entity_count": 34,
+    "asset_count": 108,
+    "audit_event_count": 190,
+    "scene_profile_count": 14,
+    "next_session": "LOCAL MAIN SYNC VERIFICATION → N26 V002 FORMAL BUILD AUTHORIZATION DECISION"
   }
 }
