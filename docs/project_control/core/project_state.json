@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R304",
+  "state_revision": "R305",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / SCENE_CASTLE_ENTRANCE_INNER_LOBBY CANDIDATE 01 PO APPROVED / EXACT VERIFIED / CANONICAL BINARY INGEST PENDING",
+  "session_status": "2026-10-06 ACTIVE / SCENE_CASTLE_ENTRANCE_INNER_LOBBY CLOSED / AST_IMG_000108 CANONICAL + REGISTERED / N24 SCENE REFERENCE REVISIT NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "SCENE_CASTLE_ENTRANCE_INNER_LOBBY｜CANONICAL PUBLICATION + REGISTRATION",
-  "blocker": "Approved exact PNG is present in Chat but not yet in GitHub staging/canonical storage. Connected GitHub write interface cannot ingest the Chat binary directly; do not create registry entries before exact canonical binary exists.",
-  "next_action": "Upload the exact approved PNG through Production Console GitHub Staging. Then Chat verifies Git blob/SHA against the approved binary, moves it canonically without mutation, registers AST_IMG_000108, verifies registration, and closes the asset.",
+  "current_task": "N24｜SCENE REFERENCE DESIGN REVISION USING AST_IMG_000108｜NOT YET STARTED",
+  "blocker": "No production blocker.",
+  "next_action": "Return to N24 Scene Reference design and replace the risky SCENE_CASTLE_ENTRANCE V002 direct-reference concept with the newly approved SCENE_CASTLE_ENTRANCE_INNER_LOBBY / AST_IMG_000108 as appropriate. No generation authorized yet.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4514,24 +4514,23 @@
     "n23_direct_image": "NOT REQUIRED / HISTORICAL CONTINUITY EVIDENCE ONLY"
   },
   "common_asset_scene_castle_entrance_inner_lobby": {
-    "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL PUBLICATION PENDING BINARY INGEST",
-    "asset_class": "SCENE MASTER",
-    "design_path": "docs/project_control/gates/P0_3_video_pipeline/scene_castle_entrance_inner_lobby_asset_design_v0_1.md",
-    "handoff_path": "docs/project_control/gates/P0_3_video_pipeline/scene_castle_entrance_inner_lobby_candidate_01_formal_work_handoff_2026-10-06.md",
-    "output": "EXACTLY 1 PNG / 4:3 / 1536x1152 preferred",
-    "camera": "AT OR NEAR CASTLE MAIN DOOR THRESHOLD LOOKING INWARD",
-    "capacity": "AT LEAST 5–8 PEOPLE",
-    "candidate_01_authorized": true,
-    "candidate_02_authorized": false,
-    "registration_authorized": false,
+    "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL / REGISTERED / REGISTRATION VERIFIED / CLOSED",
     "entity_id": "SCENE_CASTLE_ENTRANCE_INNER_LOBBY",
-    "reserved_asset_id": "AST_IMG_000108",
+    "asset_id": "AST_IMG_000108",
+    "asset_class": "SCENE MASTER",
     "dimensions": "1448x1086",
     "byte_size": 2541370,
     "sha256": "f16d98a977eb73c75249cd3692ebfce9e3cd12cfbcbdb171d5b652149cb7c1a3",
     "git_blob": "91471e32dab1c7b51b7e718ffd539305d81daf85",
     "canonical_path": "production/image_library/scene_masters/castle_entrance_inner_lobby/SCENE_CASTLE_ENTRANCE_INNER_LOBBY_SCENE_MASTER_DEFAULT_DEFAULT_V001.png",
-    "registration_status": "PENDING CANONICAL BINARY INGEST",
-    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/scene_castle_entrance_inner_lobby_candidate_01_approval_publication_prep_2026-10-06.md"
+    "canonical_publication_commit": "ac5c69da9bf04ba32490bd7ec80afbc63255f883",
+    "registration_status": "VERIFIED / CLOSED",
+    "closeout": "docs/project_control/gates/P0_3_video_pipeline/scene_castle_entrance_inner_lobby_registration_closeout_2026-10-06.md"
+  },
+  "registry_counts_current": {
+    "entities": 34,
+    "assets": 108,
+    "audit_events": 190,
+    "scene_profiles": 14
   }
 }
