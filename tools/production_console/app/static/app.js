@@ -224,7 +224,7 @@ function setLockedInputs(){
   el("reconcileBtn").disabled=!has;
   el("refreshEvidenceBtn").disabled=!has;
   el("resolveMetadataBtn").disabled=has;
-  el("newSessionBtn").disabled=!has&&!resolvedPackage;
+  el("newSessionBtn").disabled=false;
 }
 
 function setSession(s){
@@ -251,7 +251,7 @@ function setSession(s){
   refreshSystem();
 }
 
-function resetWorkspace(){
+async function resetWorkspace(){
   workspaceEpoch++;
   current=null; remoteEvidence=null; resolvedPackage=null;
   localStorage.removeItem("blpc_session_id");
@@ -262,9 +262,16 @@ function resetWorkspace(){
   el("generationAllowed").checked=false;
   setLockedInputs();
   render();
-  showAction("New Session workspace ready · 下一步：Auto Resolve Project Metadata","success");
-  el("resolveMetadataBtn").classList.add("next-action");
-  setTimeout(()=>el("resolveMetadataBtn")&&el("resolveMetadataBtn").classList.remove("next-action"),2500);
+  showAction("New Session · 正在从 Project Control 准备当前 Shot…","working");
+  const resolved=await resolveProjectMetadata("",true);
+  if(resolved){
+    showAction(
+      "New Session ready · "+resolved.shot_id+" · "+(resolved.package_ready?"Design Package READY":"Design Package NOT READY"),
+      resolved.package_ready?"success":"working"
+    );
+  }else{
+    showAction("New Session 已清空，但 Project Control 自动解析失败；可在 Diagnostics 中重试 Auto Resolve。","error");
+  }
 }
 
 function renderWorkflow(){
