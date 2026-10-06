@@ -7,7 +7,7 @@ from flask import Blueprint, render_template, request, send_file
 
 from common import ok, fail, require_session
 from config import PRODUCTION_PROCESS_BOUNDARY
-from state_store import default_session, save_session, append_history, list_sessions, now_iso, session_exists
+from state_store import default_session, save_session, append_history, list_sessions, now_iso, session_exists, load_session, acquire_candidate_lock, release_candidate_lock
 from workflow import transition, candidate_identity, identity_complete, public_session, STAGES, stage_for
 from drive_service import (
     connected as drive_connected,
@@ -97,6 +97,122 @@ def session_get():
         )
     except Exception as e:
         return fail(str(e), 404)
+
+
+
+def _verified_remote_recovery(session_id: str):
+    evidence = remote_evidence(session_id)
+    highest = evidence.get("highest_remote_status")
+    if not highest:
+        raise RuntimeError("未找到可恢复的 remote qualification evidence")
+
+    records = evidence["records"]
+    pub_payload = records["publication"].get("payload") or {}
+    reg_payload = records["registration"].get("payload") or {}
+    lock_payload = records["lock"].get("payload") or {}
+    closeout_payload = records["closeout"].get("payload") or {}
+
+    identities = [
+        x for x in (
+            pub_payload.get("candidate"),
+            reg_payload.get("candidate_identity"),
+            lock_payload.get("immutable_identity"),
+            closeout_payload.get("immutable_identity"),
+        ) if x
+    ]
+    if not identities:
+        raise RuntimeError("Remote qualification evidence 缺少 Candidate identity")
+
+    base = identities[0]
+    identity_fields = ("shot_id", "candidate_id", "drive_file_id", "sha256", "byte_size", "width", "height")
+    for other in identities[1:]:
+        if any(other.get(k) != base.get(k) for k in identity_fields):
+            raise RuntimeError("Remote qualification identity drift detected")
+
+    file_id = base.get("drive_file_id")
+    if not file_id:
+        raise RuntimeError("Remote identity 缺少 Drive File ID")
+    raw = drive_download_bytes(file_id)
+    meta = image_meta(raw)
+    drive_checks = {
+        "sha256_match": sha256(raw) == base.get("sha256"),
+        "byte_size_match": len(raw) == base.get("byte_size"),
+        "dimensions_match": (meta["width"], meta["height"]) == (base.get("width"), base.get("height")),
+        "png_format": meta.get("format") == "PNG",
+    }
+    if not all(drive_checks.values()):
+        raise RuntimeError(f"Drive authoritative readback 与 remote identity 不一致: {drive_checks}")
+
+    shot_id = base.get("shot_id") or pub_payload.get("shot_id")
+    if not shot_id:
+        raise RuntimeError("Remote evidence 缺少 shot_id")
+
+    session = default_session(session_id, shot_id, "QUALIFICATION")
+    session["bundle"] = pub_payload.get("bundle") or {}
+    session["candidate"] = {
+        **base,
+        "mime_type": base.get("mime_type") or "image/png",
+        "exact_binary_pass": True,
+        "exact_binary_checks": drive_checks,
+        "status": highest,
+        "recovered_from_external": True,
+    }
+    approval_binding = pub_payload.get("approval_binding") or {}
+    if approval_binding:
+        expected = {
+            "candidate_id": base.get("candidate_id"),
+            "drive_file_id": base.get("drive_file_id"),
+            "sha256": base.get("sha256"),
+        }
+        if any(approval_binding.get(k) != v for k, v in expected.items()):
+            raise RuntimeError("Remote approval binding 与 Candidate identity 不一致")
+        session["approval"] = {
+            "action": "approve",
+            "binding": approval_binding,
+            "recovered_from_external": True,
+        }
+
+    for key in ("publication", "registration", "lock", "closeout"):
+        record = records[key]
+        if record.get("exists"):
+            session[key] = {
+                "path": record.get("path"),
+                "remote_blob_sha": record.get("blob_sha"),
+                "remote_payload": record.get("payload"),
+                "recovered_from_external": True,
+            }
+
+    session["status"] = highest
+    session["current_stage"] = stage_for(highest)
+    append_history(
+        session,
+        "SESSION_RECOVERED_FROM_EXTERNAL_EVIDENCE",
+        remote_status=highest,
+        drive_checks=drive_checks,
+    )
+    return session, evidence, drive_checks
+
+
+@bp.post("/api/v1/session/recover")
+def session_recover():
+    try:
+        body = request.get_json(silent=True) or {}
+        session_id = (body.get("session_id") or "").strip()
+        if not session_id:
+            return fail("缺少 session_id", 400)
+        if session_exists(session_id):
+            return fail("本地 Session 仍存在；请使用 Load / Reconcile，而不是 External Recovery")
+        session, evidence, drive_checks = _verified_remote_recovery(session_id)
+        save_session(session)
+        return ok(
+            recovered=True,
+            session=public_session(session),
+            remote=evidence,
+            drive_checks=drive_checks,
+        )
+    except Exception as e:
+        traceback.print_exc()
+        return fail(f"{type(e).__name__}: {e}", 500)
 
 
 @bp.post("/api/v1/session/reconcile")
@@ -296,17 +412,24 @@ def work_handoff():
 
 @bp.post("/api/v1/candidate/upload")
 def candidate_upload():
+    lock_path = None
     try:
         session = require_session()
-        if session.get("status") != "AWAITING_CANDIDATE":
-            return fail("当前状态不允许 Candidate upload")
-        if session.get("candidate", {}).get("drive_file_id"):
-            return fail("当前 Session 已绑定 Candidate binary；禁止覆盖")
-
         f = request.files.get("file")
         candidate_id = (request.form.get("candidate_id") or "CANDIDATE_01").strip()
         if not f:
             return fail("未收到 Candidate 文件", 400)
+
+        lock_path = acquire_candidate_lock(session["session_id"], candidate_id)
+        session = load_session(session["session_id"])
+
+        existing = session.get("candidate") or {}
+        if existing.get("drive_file_id"):
+            if existing.get("candidate_id") == candidate_id:
+                return ok(idempotent=True, session=public_session(session), candidate=existing)
+            return fail("当前 Session 已绑定其他 Candidate binary；禁止覆盖")
+        if session.get("status") != "AWAITING_CANDIDATE":
+            return fail("当前状态不允许 Candidate upload")
         raw = f.read()
         if not raw:
             return fail("Candidate 文件为空", 400)
@@ -344,6 +467,9 @@ def candidate_upload():
     except Exception as e:
         traceback.print_exc()
         return fail(f"{type(e).__name__}: {e}", 500)
+    finally:
+        if lock_path is not None:
+            release_candidate_lock(lock_path)
 
 
 @bp.post("/api/v1/candidate/new")
