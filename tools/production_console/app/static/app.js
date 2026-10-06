@@ -8,6 +8,7 @@ let current=null;
 let remoteEvidence=null;
 let resolvedPackage=null;
 let currentView=localStorage.getItem("blpc_view")||"diagnostics";
+let workspaceEpoch=0;
 
 const el=id=>document.getElementById(id);
 const h=v=>String(v==null?"":v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -125,11 +126,14 @@ async function applyResolvedPackage(r){
   renderOperatorSummary();
 }
 async function resolveProjectMetadata(shotId="",silent=false){
+  const requestEpoch=workspaceEpoch;
   try{
     if(!silent) showAction("正在从 GitHub Project Control 自动解析 Design Package…","working");
     const q=shotId?"?shot_id="+encodeURIComponent(shotId):"";
     const j=await api("/api/v1/design-package/resolve"+q);
+    if(requestEpoch!==workspaceEpoch) return null;
     await applyResolvedPackage(j.resolved);
+    if(requestEpoch!==workspaceEpoch) return null;
     if(!silent){
       showAction(
         "Project metadata resolved · "+j.resolved.shot_id+" · "+(j.resolved.package_ready?"Design Package READY":"Design Package NOT READY"),
@@ -246,6 +250,7 @@ function setSession(s){
 }
 
 function resetWorkspace(){
+  workspaceEpoch++;
   current=null; remoteEvidence=null; resolvedPackage=null;
   localStorage.removeItem("blpc_session_id");
   ["sessionId","shotId","bundleId","runId","artifactId","artifactDigest","referenceCount","designSummary"]
@@ -430,20 +435,27 @@ async function refreshSystem(){
 
 async function start(){
   try{
+    const requestEpoch=workspaceEpoch;
     const j=await post("/api/v1/session/start",{
       session_id:el("sessionId").value.trim(),shot_id:el("shotId").value.trim(),
       mode:"QUALIFICATION",bundle:bundle(),design_summary:el("designSummary").value.trim()
     });
+    if(requestEpoch!==workspaceEpoch) return;
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
 async function load(auto=false){
+  const requestEpoch=workspaceEpoch;
   try{
     if(!sid()) throw new Error("请输入 Session ID");
-    const j=await api("/api/v1/session?session_id="+encodeURIComponent(sid()));
+    const requestedSessionId=sid();
+    const j=await api("/api/v1/session?session_id="+encodeURIComponent(requestedSessionId));
+    if(requestEpoch!==workspaceEpoch) return;
     setSession(j.session);
+    if(requestEpoch!==workspaceEpoch) return;
     await refreshEvidence();
   }catch(e){
+    if(requestEpoch!==workspaceEpoch) return;
     if(auto&&String(e.message||"").includes("Session 不存在")){
       current=null; remoteEvidence=null;
       setLockedInputs(); render();
@@ -455,6 +467,7 @@ async function load(auto=false){
   }
 }
 async function recoverExternal(button=null,silent=false){
+  const requestEpoch=workspaceEpoch;
   const b=button||el("recoverBtn");
   try{
     const sessionId=el("sessionId").value.trim();
@@ -462,6 +475,7 @@ async function recoverExternal(button=null,silent=false){
     if(b)b.disabled=true;
     showAction("正在仅凭 GitHub qualification evidence + Drive binary 重建本地 Session…","working");
     const j=await post("/api/v1/session/recover",{session_id:sessionId});
+    if(requestEpoch!==workspaceEpoch) return;
     setSession(j.session);
     remoteEvidence=j.remote||null;
     renderEvidence();
