@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local runtime/private state
+sessions/
+runtime/
+*.local.json
+credentials.json
+token.json
+drive_binding.json
+
+# Never commit the parent project's private Console directory
+BlackLadyLocalConsolePrivate/
