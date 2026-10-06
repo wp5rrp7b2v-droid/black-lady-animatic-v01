@@ -44,3 +44,5 @@ body.operator-view .candidate-img{max-height:360px}
 .operator-next{margin-top:10px;border-left:3px solid #526171;background:var(--panel2);padding:9px 11px;border-radius:7px}
 .readonly-source{font-size:11px;color:var(--muted);margin-top:8px}
 @media(max-width:900px){.top-actions{align-items:flex-start}.operator-grid{grid-template-columns:1fr 1fr}body.operator-view .layout{grid-template-columns:1fr}}
+
+button.next-action{border-color:#7ee29a!important;box-shadow:0 0 0 1px #345b42 inset;color:#bff7ce!important}
