@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R025",
-  "status": "ACTIVE / TRUE EXTERNAL RECOVERY CORE PASS / FULL-FIDELITY RECOVERY GAPS FOUND",
+  "state_revision": "PC-R026",
+  "status": "ACTIVE / EXTERNAL RECOVERY CORE PASS / RECOVERY-FIDELITY PATCH READY",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "ef984405ca321f6144535e76d7056a0faed76de8",
+    "engineering_branch_head": "4125701b802b407962747a4b4da8bfd5c5de51d4",
     "local_mac_regression": "MAIN_PATH_PASS / PATCH AUTOMATED_TESTS_14_OF_14_PASS / SHORT_MANUAL_RETEST_NEXT",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -149,9 +149,11 @@
       "action_button_feedback": "PATCH_READY_RETEST_REQUIRED",
       "lock_visibility": "LOCK action did execute successfully in current CLOSED session; previous UI hid the button immediately after state transition. Patch now shows working/success button states before advancing.",
       "closed_workflow_visual": "PATCHED: when status=CLOSED, all 8 workflow steps render as completed/green; CLOSEOUT no longer remains white active state. Current Gate title changes to Workflow Complete | CLOSED.",
-      "completed_step_visual": "NEXT UI UPDATE: completed workflow steps remain green but keep numeric step labels; do not replace numbers with checkmarks.",
-      "true_external_recovery_core": "PASS: local Session JSON absent; recovery rebuilt CLOSED state from GitHub qualification evidence + Drive binary; Candidate identity and remote publication/registration/lock/closeout bindings restored.",
-      "true_external_recovery_full_fidelity": "PARTIAL / FIX REQUIRED: recovered Session shows Preflight=PENDING and Design Package Summary={} because current remote qualification evidence does not preserve the original design summary / preflight audit snapshot."
+      "completed_step_visual": "PATCHED: completed steps remain green and retain numeric 1-8 labels; no checkmarks.",
+      "true_external_recovery_core": "PASS",
+      "true_external_recovery_full_fidelity": "PARTIAL / FIX REQUIRED: recovered Session shows Preflight=PENDING and Design Package Summary={} because current remote qualification evidence does not preserve the original design summary / preflight audit snapshot.",
+      "recovery_fidelity_patch": "PATCH READY: future qualification publication records include design_summary + preflight recovery snapshot; recovery restores them when present and explicitly labels legacy evidence as incomplete.",
+      "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists."
     }
   },
   "scale_gate": {
@@ -162,8 +164,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "PATCH FULL-FIDELITY EXTERNAL RECOVERY + MINOR UI CLEANUP",
-  "next_gate": "RECOVERY-FIDELITY RETEST PASS → SHORT DEFECT REGRESSION CLOSEOUT",
+  "current_task": "SHORT RETEST RECOVERY FIDELITY ON ONE NEW QUALIFICATION SESSION",
+  "next_gate": "RECOVERY FIDELITY RETEST PASS → SHORT DEFECT REGRESSION CLOSEOUT → FORMAL V1.1 E2E QUALIFICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
