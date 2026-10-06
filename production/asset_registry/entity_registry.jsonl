@@ -31,3 +31,4 @@
 {"created_at":"2026-10-04T14:24:00Z","display_name":"庄园大门铁钥匙","entity_id":"PROP_MANOR_GATE_KEY","entity_status":"ACTIVE","entity_type":"PROP","owner_entity_id":null,"updated_at":"2026-10-04T14:24:00Z"}
 {"created_at":"2026-10-04T14:24:00Z","display_name":"救世主的皮","entity_id":"PROP_SAVIOR_SKIN","entity_status":"ACTIVE","entity_type":"PROP","owner_entity_id":null,"updated_at":"2026-10-04T14:24:00Z"}
 {"created_at":"2026-10-04T14:24:00Z","display_name":"小主人秘密画册","entity_id":"PROP_YOUNG_MASTER_SECRET_SKETCHBOOK","entity_status":"ACTIVE","entity_type":"PROP","owner_entity_id":"CHAR_CASTLE_YOUNG_MASTER","updated_at":"2026-10-04T14:24:00Z"}
+{"character_tier":null,"created_at":"2026-10-06T08:26:35Z","display_name":"古堡主入口内侧门厅","entity_id":"SCENE_CASTLE_ENTRANCE_INNER_LOBBY","entity_status":"ACTIVE","entity_type":"SCENE","legacy_aliases":[],"primary_side":null,"updated_at":"2026-10-06T08:26:35Z"}
