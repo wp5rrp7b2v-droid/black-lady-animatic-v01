@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R293",
+  "state_revision": "R294",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CANCELLED BEFORE GENERATION / S02-B SHOT MAP REVISED / N25 DIRECTOR DESIGN V0.1 READY FOR PO REVIEW",
+  "session_status": "2026-10-06 ACTIVE / N24 RESTORED AS GUANG YONG QUESTION / BUNDLE V002 VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25｜NODE-LEVEL DIRECTOR SHOT DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
+  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V002｜VALIDATION-ONLY PASS / WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
   "blocker": "No production blocker.",
-  "next_action": "Product Owner reviews N25 Node-Level Director Shot Design V0.1. If approved, proceed to N25 Scene Reference Design.",
+  "next_action": "Product Owner decides whether to authorize FORMAL N24_REFERENCE_DELIVERY_BUNDLE_V002 BUILD + exact Artifact verification only. Candidate 01 generation remains unauthorized.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,9 +4334,9 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "CANCELLED BEFORE GENERATION / REDUNDANT WITH A06 / HISTORICAL VERIFIED BUNDLE RETAINED / NO STORY SHOT BINARY",
+  "n24_status": "IN PROGRESS / RESTORED AS GUANG YONG QUESTION / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.2 APPROVED / BUNDLE V002 VALIDATION-ONLY 6 OF 6 PASS / FORMAL BUILD PENDING",
   "n24_reference_delivery_bundle_v001": {
-    "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 CANCELLATION",
+    "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
     "scene_reference_design": "N24 Scene Reference Design V0.1 / PRODUCT OWNER APPROVED / LOCKED",
     "bundle_design": "N24_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4381,17 +4381,43 @@
     "N22",
     "N23",
     "A06",
+    "N24",
     "N25",
     "N26",
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "DIRECTOR DESIGN V0.1 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+  "n25_status": "HOLD / NOT CURRENT GATE / RECHECK AFTER N24",
   "n25_director_design": {
-    "status": "WAITING_PRODUCT_OWNER_APPROVAL",
+    "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
     "source_audio": "02:15.000–02:19.500 / 城堡大门只会在下雨天关闭",
     "source_action": "尼尔管家听到这话，头也不回地淡淡道",
-    "next_gate": "N25 SCENE REFERENCE DESIGN"
+    "next_gate": "RECHECK AFTER N24"
+  },
+  "s02_b_shot_map_patch_03": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_03_n24_restored_guang_yong_question_2026-10-06.md",
+  "n24_reference_delivery_bundle_v002": {
+    "status": "VALIDATION-ONLY PASS / 6 OF 6 EXACT / ZERO ARTIFACT / FORMAL BUILD NOT YET AUTHORIZED / CANDIDATE 01 NOT AUTHORIZED",
+    "director_design": "N24 Node-Level Director Shot Design V0.3 / PRODUCT OWNER APPROVED / LOCKED",
+    "director_design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_node_level_director_shot_design_v0_3.md",
+    "scene_reference_design": "N24 Scene Reference Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
+    "scene_reference_design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_scene_reference_design_v0_2.md",
+    "bundle_design": "N24_REFERENCE_DELIVERY_BUNDLE_V002 Design V0.1 / PRODUCT OWNER APPROVED / LOCKED",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v002_design_v0_1.md",
+    "spec_path": "production/bundle_specs/N24_REFERENCE_DELIVERY_BUNDLE_V002.json",
+    "spec_revision": "V002-R1",
+    "spec_commit": "08a0fbf61994fc7bedb07320ebfeedd1dc7eff13",
+    "direct_visual_input_count": 6,
+    "validation_only": {
+      "status": "PASS / 6 OF 6 EXACT / ZERO ARTIFACT",
+      "workflow_run": 37420407898,
+      "job": 112128265664,
+      "artifact_count": 0,
+      "build_authorized": false,
+      "generation_allowed": false,
+      "record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v002_validation_only_record_2026-10-06.md"
+    },
+    "formal_build_authorized": false,
+    "candidate_01_generation_authorized": false
   }
 }
