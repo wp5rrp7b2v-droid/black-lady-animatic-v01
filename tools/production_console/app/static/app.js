@@ -100,10 +100,10 @@ function resolvedSummaryText(r){
   if(!r)return "";
   const d=r.design_package||{};
   return [
-    "Design Package READY from Project Control",
-    "Director: "+((d.director_design||{}).status||"UNKNOWN"),
-    "Scene Reference: "+((d.scene_reference||{}).status||"UNKNOWN"),
-    "Bundle: "+((d.bundle||{}).status||"UNKNOWN")
+    "Design Package "+(r.package_ready?"READY":"NOT READY")+" from Project Control",
+    "Director: "+((d.director_design||{}).status||"NOT STARTED"),
+    "Scene Reference: "+((d.scene_reference||{}).status||"NOT STARTED"),
+    "Bundle: "+((d.bundle||{}).status||"NOT BUILT")
   ].join("\n");
 }
 async function applyResolvedPackage(r){
@@ -218,7 +218,7 @@ function setLockedInputs(){
   el("shotId").disabled=has||autoLocked||operatorLocked;
   ["bundleId","runId","artifactId","referenceCount","artifactDigest","referencesExact","manifestVerified","generationAllowed","designSummary"]
     .forEach(id=>el(id).disabled=!designEditable||autoLocked||operatorLocked);
-  el("startBtn").disabled=has;
+  el("startBtn").disabled=has||(!current&&resolvedPackage&&!resolvedPackage.package_ready);
   el("loadBtn").disabled=has;
   el("recoverBtn").disabled=has;
   el("reconcileBtn").disabled=!has;
