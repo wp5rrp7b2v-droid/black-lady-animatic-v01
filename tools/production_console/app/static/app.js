@@ -225,6 +225,7 @@ function setLockedInputs(){
 function setSession(s){
   current=s;
   remoteEvidence=null;
+  resolvedPackage=null;
   if(s&&s.session_id){
     localStorage.setItem("blpc_session_id",s.session_id);
     el("sessionId").value=s.session_id;
