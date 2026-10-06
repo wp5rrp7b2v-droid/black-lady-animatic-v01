@@ -319,7 +319,9 @@ async function reconcile(){
     renderEvidence();
     await refreshSystem();
     showAction(
-      "External Evidence Reconcile 完成 · "+(j.changed?"已按外部证据重新校准":"外部证据一致，无需改变状态")+" · Status = "+j.session.status,
+      j.changed
+        ? "External Evidence 已重新校准 · Status = "+j.session.status
+        : "External Evidence 核对通过 · 状态一致 · Status = "+j.session.status,
       "success"
     );
   }catch(e){
