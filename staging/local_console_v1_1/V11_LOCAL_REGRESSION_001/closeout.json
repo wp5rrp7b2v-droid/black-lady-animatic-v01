@@ -1,0 +1,32 @@
+{
+  "closeout_status": "QUALIFICATION_CLOSED",
+  "github_target": {
+    "branch": "test/local-console-v1-1-e2e-v001",
+    "path": "staging/local_console_v1_1/V11_LOCAL_REGRESSION_001/closeout.json",
+    "repo": "wp5rrp7b2v-droid/black-lady-animatic-v01"
+  },
+  "immutable_identity": {
+    "byte_size": 455852,
+    "candidate_id": "CANDIDATE_01",
+    "drive_file_id": "1281NNJc-ZCSw2BnVV7fYLWbE2qk3m41i",
+    "height": 3831,
+    "mime_type": "image/png",
+    "sha256": "e9b51e59cd432609dc8d6a4d51b663b466f7569eb715108e08a438eb322dbe70",
+    "shot_id": "TEST_UI_V11_001",
+    "width": 763
+  },
+  "lock_binding": {
+    "blob_sha": "42658a581cbe579732726e21c08a94b7dbf934a1",
+    "path": "staging/local_console_v1_1/V11_LOCAL_REGRESSION_001/lock.json"
+  },
+  "qualification_only": true,
+  "safety": {
+    "formal_sop_change": false,
+    "formal_story_shot": false,
+    "main_branch_write": false,
+    "project_control_write": false
+  },
+  "schema": "BLACK_LADY_PRODUCTION_CONSOLE_V1_1_QUALIFICATION_CLOSEOUT_V001",
+  "session_id": "V11_LOCAL_REGRESSION_001",
+  "shot_id": "TEST_UI_V11_001"
+}
