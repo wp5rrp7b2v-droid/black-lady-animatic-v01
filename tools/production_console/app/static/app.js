@@ -133,6 +133,7 @@ async function resolveProjectMetadata(shotId="",silent=false){
     const j=await api("/api/v1/design-package/resolve"+q);
     if(requestEpoch!==workspaceEpoch) return null;
     await applyResolvedPackage(j.resolved);
+    el("resolveMetadataBtn").classList.remove("next-action");
     if(requestEpoch!==workspaceEpoch) return null;
     if(!silent){
       showAction(
@@ -223,6 +224,7 @@ function setLockedInputs(){
   el("reconcileBtn").disabled=!has;
   el("refreshEvidenceBtn").disabled=!has;
   el("resolveMetadataBtn").disabled=has;
+  el("newSessionBtn").disabled=!has&&!resolvedPackage;
 }
 
 function setSession(s){
@@ -255,12 +257,14 @@ function resetWorkspace(){
   localStorage.removeItem("blpc_session_id");
   ["sessionId","shotId","bundleId","runId","artifactId","artifactDigest","referenceCount","designSummary"]
     .forEach(id=>el(id).value="");
-  el("referencesExact").checked=true;
-  el("manifestVerified").checked=true;
-  el("generationAllowed").checked=true;
+  el("referencesExact").checked=false;
+  el("manifestVerified").checked=false;
+  el("generationAllowed").checked=false;
   setLockedInputs();
   render();
-  showAction("New Session workspace ready · 尚未创建或自动解析 Session","success");
+  showAction("New Session workspace ready · 下一步：Auto Resolve Project Metadata","success");
+  el("resolveMetadataBtn").classList.add("next-action");
+  setTimeout(()=>el("resolveMetadataBtn")&&el("resolveMetadataBtn").classList.remove("next-action"),2500);
 }
 
 function renderWorkflow(){
