@@ -115,6 +115,11 @@ def resolve_from_state(state, shot_id=None):
             "delivery_manifest_verified": str(bundle.get("manifest_result") or "").upper() == "PASS",
             "generation_allowed": generation_authorized,
         },
+        "project_control": {
+            "session_status": state.get("session_status"),
+            "current_task": state.get("current_task"),
+            "next_action": state.get("next_action"),
+        },
         "source": {
             "project_state_path": PROJECT_STATE_PATH,
         },
