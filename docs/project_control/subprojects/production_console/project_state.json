@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R042",
-  "status": "ACTIVE / PRE-E2E UX RETEST / AUTO-RESOLVE REVISION EVIDENCE PATCH READY",
+  "state_revision": "PC-R043",
+  "status": "ACTIVE / PRE-E2E UX RETEST / AUTO METADATA RESOLVE PASS / OPERATOR VIEW NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -155,7 +155,22 @@
       "recovery_fidelity_patch": "PATCH READY: future qualification publication records include design_summary + preflight recovery snapshot; recovery restores them when present and explicitly labels legacy evidence as incomplete.",
       "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists.",
       "workflow_step_labels": "PASS / screenshot confirms stage names only; no numeric labels; no checkmarks.",
-      "production_metadata_autoresolve": "PATCH READY / reads current Shot + approved Design/Scene + latest formal Bundle from GitHub Project Control and locks technical fields read-only",
+      "production_metadata_autoresolve": {
+        "status": "PASS",
+        "verified_against_main_commit": "b28f3517e37c693ec36f0c3b990c23fcba400f07",
+        "verified_project_state_blob": "16ca969784ce1c407783d2339115ebdeebdc720e",
+        "verified_facts": [
+          "N26 resolved",
+          "Director Design approved/locked",
+          "Scene Reference approved/locked",
+          "Bundle Design approved/locked / validation-only next",
+          "Reference Count 5",
+          "Run/Artifact/Digest absent at this revision",
+          "Exact/Manifest/Generation not yet authorized",
+          "Design Package NOT READY",
+          "Qualification start blocked"
+        ]
+      },
       "production_one_page_mode": "PATCH READY / Operator View with compact current-shot control; Diagnostics retains full qualification evidence",
       "stale_localstorage_recovery_handoff": "PATCH READY / startup auto-attempts External Recovery when remembered local Session JSON is missing",
       "pre_e2e_ux_ci": "PASS / GitHub Actions Production Console V1.1 CI run 37463928039 / 18 tests PASS / JS parse PASS / safety boundary PASS",
@@ -209,8 +224,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "UPDATE LOCAL BUILD → RETEST AUTO RESOLVE WITH SOURCE SHA VISIBLE",
-  "next_gate": "AUTO METADATA MATCH AGAINST DISPLAYED SOURCE REVISION → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS",
+  "current_task": "LOCAL UI RETEST 2: OPERATOR VIEW",
+  "next_gate": "OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
