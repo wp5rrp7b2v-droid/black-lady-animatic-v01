@@ -198,8 +198,8 @@ function renderActive(){
 
   switch(current.status){
     case "DESIGN_PENDING":
-      a.insertAdjacentHTML("beforeend",'<div class="stage-note">确认上方 Design Summary 与 Bundle metadata 后，由 Product Owner 批准进入 PREFLIGHT。</div>');
-      add("Approve Design",approveDesign,"primary"); break;
+      a.insertAdjacentHTML("beforeend",'<div class="stage-note">Qualification 模式：确认 Design Package 与测试 metadata 后进入 PREFLIGHT。正式生产中技术 metadata 将自动解析并只读显示。</div>');
+      add("Confirm Design Package Ready",approveDesign,"primary"); break;
 
     case "DESIGN_APPROVED":
     case "PREFLIGHT_FAILED":
