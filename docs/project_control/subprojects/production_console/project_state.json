@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R018",
-  "status": "ACTIVE / SHORT DEFECT REGRESSION READY / 14 OF 14 LOCAL TESTS PASS",
+  "state_revision": "PC-R019",
+  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / UI PATCH VISUAL PASS",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -133,14 +133,15 @@
       "drag_drop": "PATCH_READY_RETEST_REQUIRED",
       "candidate_upload_idempotency": "PATCH_READY_RETEST_REQUIRED",
       "work_handoff_ux": "PATCH_READY_RETEST_REQUIRED",
-      "design_package_semantics": "PATCH_READY_RETEST_REQUIRED",
-      "preflight_detail_density": "PATCH_READY_RETEST_REQUIRED",
+      "design_package_semantics": "VISUAL PASS",
+      "preflight_detail_density": "VISUAL PASS",
       "true_external_recovery": "PATCH_READY_RETEST_REQUIRED",
       "external_reconcile_feedback": "PATCH_READY_RETEST_REQUIRED",
-      "local_time_display": "PASS_FROM_PREVIOUS_RETEST",
-      "system_status_refresh": "PASS_FROM_PREVIOUS_RETEST",
+      "local_time_display": "PASS",
+      "system_status_refresh": "PASS",
       "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38",
-      "automated_local_tests": "14/14 PASS"
+      "automated_local_tests": "14/14 PASS",
+      "external_recovery_entry": "VISUAL PASS"
     }
   },
   "scale_gate": {
@@ -151,8 +152,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHORT MANUAL RETEST: UI PATCHES + TRUE EXTERNAL RECOVERY",
-  "next_gate": "SHORT MANUAL RETEST PASS → V1.1 FORMAL E2E QUALIFICATION",
+  "current_task": "SHORT MANUAL RETEST: DRAG_DROP + UPLOAD IDEMPOTENCY + TRUE EXTERNAL RECOVERY",
+  "next_gate": "3 MANUAL DEFECT RETESTS PASS → FORMAL V1.1 E2E QUALIFICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
