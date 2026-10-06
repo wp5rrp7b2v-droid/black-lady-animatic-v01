@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R322",
+  "state_revision": "R323",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N26 MERGED DIRECTOR DESIGN APPROVED / N27 ABSORBED / N26 SCENE REFERENCE V0.1 WAITING PO APPROVAL",
+  "session_status": "2026-10-06 ACTIVE / N26 SCENE REFERENCE V0.1 PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N26｜SCENE REFERENCE DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "No production blocker. N26 Bundle and Work generation remain gated behind Scene Reference approval.",
-  "next_action": "Product Owner reviews N26 Scene Reference Design V0.1. If approved, proceed to N26_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1.",
+  "current_task": "N26_REFERENCE_DELIVERY_BUNDLE_V001｜DESIGN V0.1｜NEXT GATE",
+  "blocker": "No production blocker.",
+  "next_action": "Create N26_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1 using exactly five direct references from the locked N26 Scene Reference Design V0.1.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4733,7 +4733,7 @@
     "registration_verification_job_id": 112289954976,
     "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n25_story_shot_registration_closeout_2026-10-06.md"
   },
-  "n26_status": "IN PROGRESS / DIRECTOR DESIGN V0.1 APPROVED / SCENE REFERENCE V0.1 WAITING PRODUCT OWNER APPROVAL",
+  "n26_status": "IN PROGRESS / DIRECTOR V0.1 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE DESIGN NEXT",
   "n27_status": "ABSORBED INTO N26 / NO SEPARATE PRODUCTION NODE",
   "n26_n27_merge": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -4753,7 +4753,7 @@
     "movement_transition": "NEIL LEADS / GROUP BEGINS FOLLOWING"
   },
   "n26_scene_reference_design_v0_1": {
-    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n26_scene_reference_design_v0_1.md",
     "direct_image_count": 5,
     "direct_images": [
