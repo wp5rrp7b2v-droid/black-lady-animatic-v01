@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD NOT YET AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CANDIDATE 01 NOT YET AUTHORIZED`
 
 Target:
 
@@ -74,9 +74,18 @@ Completed:
 - Artifact count `0`
 - Workflow Run `37420407898`
 
+Formal build evidence:
+
+- Workflow Run `37420742768`
+- Job `112129308908`
+- Artifact ID `11392483673`
+- Artifact digest `sha256:dee66ea50062daefbf85ce1e0485a69e30128197dcd93e6ea180ef8494620313`
+- exact references `6/6 MATCH`
+- independent ZIP digest `MATCH`
+
 Next gate:
 
-- Product Owner authorization for Formal Bundle V002 Build + Artifact exact verification only
+- Product Owner authorization for N24 Candidate 01 / Clean Regeneration / Exactly 1 PNG
 
 Not authorized:
 
