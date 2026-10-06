@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Lady | Production Console V1.1</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><h1>BLACK LADY｜Production Console V1.1</h1><div class="muted">Unified Workflow · Qualification Build</div></div>
+    <span class="badge">IMPLEMENTATION</span>
+  </header>
+  <div class="boundary">当前正式 Story Shot 生产流程保持不变。此界面仅用于 UI / Workflow Qualification；不得自动修改 main、Story Shot Index、正式 PNG 或 Project Control。</div>
+
+  <nav class="workflow" id="workflow"></nav>
+
+  <div class="layout">
+    <main>
+      <section class="panel">
+        <h2>Session</h2>
+        <div class="grid">
+          <label>Session ID<input id="sessionId" placeholder="N24_UI_QA_001"></label>
+          <label>Shot ID<input id="shotId" placeholder="N24"></label>
+          <label>Bundle ID<input id="bundleId" placeholder="N24_REFERENCE_DELIVERY_BUNDLE_V001"></label>
+          <label>Run ID<input id="runId" inputmode="numeric"></label>
+          <label>Artifact ID<input id="artifactId" inputmode="numeric"></label>
+          <label>Reference Count<input id="referenceCount" type="number" min="1"></label>
+          <label class="wide">Artifact Digest<input id="artifactDigest" placeholder="sha256:..."></label>
+          <label class="wide">Director Design Summary<textarea id="designSummary" rows="3"></textarea></label>
+        </div>
+        <div class="actions">
+          <button class="primary" id="startBtn">Start Qualification Session</button>
+          <button id="loadBtn">Load Session</button>
+          <a class="btn" href="/connect">Connect / Rebind Drive</a>
+          <a class="btn" href="/archive">Phase E Archive</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 id="activeTitle">Active Stage</h2>
+        <div id="activePanel" class="empty">Start or load a Session.</div>
+      </section>
+
+      <section class="panel">
+        <h2>Evidence & Recovery</h2>
+        <div id="evidence" class="empty">No evidence yet.</div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="panel sticky">
+        <h2>Immutable Identity</h2>
+        <div id="identity" class="empty">Candidate 尚未建立。</div>
+      </section>
+      <section class="panel">
+        <h2>System</h2>
+        <div id="system" class="empty">Loading...</div>
+      </section>
+    </aside>
+  </div>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
