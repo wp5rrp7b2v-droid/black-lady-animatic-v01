@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R326",
+  "state_revision": "R327",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N26 BUNDLE V001 VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PO AUTHORIZATION",
+  "session_status": "2026-10-06 ACTIVE / N26 BUNDLE V001 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 WAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N26_REFERENCE_DELIVERY_BUNDLE_V001｜WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
-  "blocker": "No technical blocker. Formal Build + Artifact Exact Verification require explicit Product Owner authorization.",
-  "next_action": "Product Owner explicitly authorizes Formal N26 Bundle V001 Build + Artifact Exact Verification only. Candidate 01 generation remains a separate later authorization.",
+  "current_task": "N26 Candidate 01｜FORMAL WORK EXECUTION｜WAITING PRODUCT OWNER AUTHORIZATION",
+  "blocker": "No technical blocker. N26 Candidate 01 generation requires explicit Product Owner authorization.",
+  "next_action": "Product Owner explicitly authorizes N26 Candidate 01 Work execution. Work must use the exact verified N26_REFERENCE_DELIVERY_BUNDLE_V001, generate Exactly 1 PNG, then stop for Product Owner review.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4733,7 +4733,7 @@
     "registration_verification_job_id": 112289954976,
     "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n25_story_shot_registration_closeout_2026-10-06.md"
   },
-  "n26_status": "IN PROGRESS / DIRECTOR V0.1 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE V001 VALIDATION-ONLY PASS / FORMAL BUILD WAITING PO AUTHORIZATION",
+  "n26_status": "IN PROGRESS / BUNDLE V001 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CANDIDATE 01 WAITING PRODUCT OWNER AUTHORIZATION",
   "n27_status": "ABSORBED INTO N26 / NO SEPARATE PRODUCTION NODE",
   "n26_n27_merge": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -4767,7 +4767,7 @@
     "candidate_generation_authorized": false
   },
   "n26_reference_delivery_bundle_v001": {
-    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
+    "status": "FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 WAITING PRODUCT OWNER AUTHORIZATION",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v001_design_v0_1.md",
     "target_candidate": "N26 Candidate 01｜Clean Regeneration",
     "direct_image_count": 5,
@@ -4781,12 +4781,22 @@
     "n27_disposition": "ABSORBED INTO N26 / NO SEPARATE PRODUCTION",
     "build_authorized": false,
     "candidate_01_generation_authorized": false,
-    "spec_revision": "V001-R1",
+    "spec_revision": "V001-R2",
     "spec_commit": "41336caeb9e3babc998117e81e4d3464b8ef79da",
     "validation_run_id": 37475090445,
     "validation_job_id": 112308309445,
     "validation_result": "5/5 EXACT PASS",
     "artifact_count": 0,
-    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v001_validation_only_record_2026-10-06.md"
+    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v001_validation_only_record_2026-10-06.md",
+    "formal_build_spec_commit": "b861d48e3ca55ae7fe82d9f0296581877b945be7",
+    "formal_build_run_id": 37475656444,
+    "formal_build_job_id": 112310250967,
+    "artifact_id": 11418318680,
+    "artifact_size_bytes": 9736331,
+    "artifact_digest": "sha256:b747baf46109bf4a6649d92b71c3f1476e89706636159aff6794de7d9c593005",
+    "downloaded_zip_sha256": "b747baf46109bf4a6649d92b71c3f1476e89706636159aff6794de7d9c593005",
+    "exact_reference_match": "5/5",
+    "work_handoff_verification": "PASS",
+    "build_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v001_build_record_2026-10-06.md"
   }
 }
