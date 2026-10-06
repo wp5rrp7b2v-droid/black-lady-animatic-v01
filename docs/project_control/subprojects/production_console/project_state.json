@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R006",
-  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / DESIGN GATE PASS / PREFLIGHT NEXT",
+  "state_revision": "PC-R007",
+  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / PREFLIGHT PASS / GENERATE NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "b6006b67dabed5e6b43d3736d41859c5c8bd1eac",
-    "local_mac_regression": "IN_PROGRESS / DESIGN_GATE_PASS",
+    "local_mac_regression": "IN_PROGRESS / DESIGN_PASS / PREFLIGHT_PASS",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -86,7 +86,20 @@
         "Artifact verified",
         "References exact match"
       ],
-      "e2e_blocking": true
+      "e2e_blocking": true,
+      "system_status_refresh": "System panel must refresh after session/state changes; current Local Sessions count remains stale at 0 after Session creation."
+    },
+    "local_mac_regression_evidence": {
+      "session_id": "V11_LOCAL_REGRESSION_001",
+      "shot_id": "TEST_UI_V11_001",
+      "drive_folder": "V11_LOCAL_REGRESSION_001",
+      "preflight": "PASS",
+      "qualification_branch": "test/local-console-v1-1-e2e-v001",
+      "remote_publication": "NONE",
+      "remote_registration": "NONE",
+      "remote_lock": "NONE",
+      "remote_closeout": "NONE",
+      "current_status": "AWAITING_CANDIDATE"
     }
   },
   "scale_gate": {
@@ -97,8 +110,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL MAC REGRESSION / PREFLIGHT NEXT",
-  "next_gate": "COMPLETE LOCAL MAC REGRESSION → IMPLEMENT PRE-E2E DESIGN PACKAGE UX FIXES → V1.1 E2E QUALIFICATION",
+  "current_task": "LOCAL MAC REGRESSION / GENERATE + CANDIDATE INTAKE",
+  "next_gate": "CANDIDATE DRIVE EXACT VERIFICATION PASS",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
