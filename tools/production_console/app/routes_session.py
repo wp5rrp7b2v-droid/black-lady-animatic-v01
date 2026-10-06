@@ -1,17 +1,27 @@
 import io
+import json
 import traceback
 from pathlib import Path
+
 from flask import Blueprint, render_template, request, send_file
 
 from common import ok, fail, require_session
 from config import PRODUCTION_PROCESS_BOUNDARY
 from state_store import default_session, save_session, append_history, list_sessions, now_iso, session_exists
-from workflow import transition, candidate_identity, identity_complete, public_session, STAGES
-from drive_service import connected as drive_connected, get_bound_folder, exact_upload, drive_download_bytes
+from workflow import transition, candidate_identity, identity_complete, public_session, STAGES, stage_for
+from drive_service import (
+    connected as drive_connected,
+    get_bound_folder,
+    exact_upload,
+    drive_download_bytes,
+    image_meta,
+    sha256,
+)
 from github_service import gh_binary
-from qualification import preflight as qualification_preflight, paths_for
+from qualification import preflight as qualification_preflight, paths_for, remote_evidence
 
 bp = Blueprint("session_routes", __name__)
+
 
 @bp.get("/")
 def index():
@@ -25,7 +35,11 @@ def archive_page():
 
 @bp.get("/health")
 def health():
-    return ok(service="BLACK_LADY_PRODUCTION_CONSOLE_V1_1", release="V1.1_IMPLEMENTATION", production_process_boundary=PRODUCTION_PROCESS_BOUNDARY)
+    return ok(
+        service="BLACK_LADY_PRODUCTION_CONSOLE_V1_1",
+        release="V1.1_IMPLEMENTATION",
+        production_process_boundary=PRODUCTION_PROCESS_BOUNDARY,
+    )
 
 
 @bp.get("/api/v1/status")
@@ -77,9 +91,124 @@ def session_start():
 def session_get():
     try:
         session = require_session()
-        return ok(session=public_session(session), qualification_paths=paths_for(session["session_id"]))
+        return ok(
+            session=public_session(session),
+            qualification_paths=paths_for(session["session_id"]),
+        )
     except Exception as e:
         return fail(str(e), 404)
+
+
+@bp.post("/api/v1/session/reconcile")
+def session_reconcile():
+    try:
+        session = require_session()
+        evidence = remote_evidence(session["session_id"])
+        highest = evidence.get("highest_remote_status")
+        if not highest:
+            return ok(
+                changed=False,
+                reason="NO_REMOTE_QUALIFICATION_EVIDENCE",
+                session=public_session(session),
+                remote=evidence,
+            )
+
+        identities = []
+        records = evidence["records"]
+        pub_payload = (records["publication"].get("payload") or {})
+        reg_payload = (records["registration"].get("payload") or {})
+        lock_payload = (records["lock"].get("payload") or {})
+        closeout_payload = (records["closeout"].get("payload") or {})
+
+        for identity in (
+            pub_payload.get("candidate"),
+            reg_payload.get("candidate_identity"),
+            lock_payload.get("immutable_identity"),
+            closeout_payload.get("immutable_identity"),
+        ):
+            if identity:
+                identities.append(identity)
+
+        if not identities:
+            return fail("Remote qualification evidence 缺少 Candidate identity")
+
+        base = identities[0]
+        identity_fields = ("shot_id", "candidate_id", "drive_file_id", "sha256", "byte_size", "width", "height")
+        for other in identities[1:]:
+            if any(other.get(k) != base.get(k) for k in identity_fields):
+                return fail("Remote qualification identity drift detected")
+
+        if base.get("shot_id") != session.get("shot_id"):
+            return fail("Remote shot_id 与当前 Session 不一致")
+
+        file_id = base.get("drive_file_id")
+        if not file_id:
+            return fail("Remote identity 缺少 Drive File ID")
+        raw = drive_download_bytes(file_id)
+        meta = image_meta(raw)
+        drive_checks = {
+            "sha256_match": sha256(raw) == base.get("sha256"),
+            "byte_size_match": len(raw) == base.get("byte_size"),
+            "dimensions_match": (meta["width"], meta["height"]) == (base.get("width"), base.get("height")),
+            "png_format": meta.get("format") == "PNG",
+        }
+        if not all(drive_checks.values()):
+            return fail("Drive authoritative readback 与 remote identity 不一致", drive_checks=drive_checks)
+
+        session["candidate"] = {
+            **(session.get("candidate") or {}),
+            **base,
+            "mime_type": base.get("mime_type") or "image/png",
+            "exact_binary_pass": True,
+            "exact_binary_checks": drive_checks,
+            "status": highest,
+        }
+
+        approval_binding = pub_payload.get("approval_binding") or {}
+        if approval_binding:
+            expected = {
+                "candidate_id": base.get("candidate_id"),
+                "drive_file_id": base.get("drive_file_id"),
+                "sha256": base.get("sha256"),
+            }
+            if any(approval_binding.get(k) != v for k, v in expected.items()):
+                return fail("Remote approval binding 与 Candidate identity 不一致")
+            session["approval"] = {
+                **(session.get("approval") or {}),
+                "action": "approve",
+                "binding": approval_binding,
+                "reconciled_from_remote": True,
+            }
+
+        for key in ("publication", "registration", "lock", "closeout"):
+            record = records[key]
+            if record.get("exists"):
+                session[key] = {
+                    **(session.get(key) or {}),
+                    "path": record.get("path"),
+                    "remote_blob_sha": record.get("blob_sha"),
+                    "remote_payload": record.get("payload"),
+                    "reconciled_from_remote": True,
+                }
+
+        session["status"] = highest
+        session["current_stage"] = stage_for(highest)
+        append_history(
+            session,
+            "EXTERNAL_EVIDENCE_RECONCILED",
+            remote_status=highest,
+            drive_checks=drive_checks,
+        )
+        save_session(session)
+        return ok(
+            changed=True,
+            session=public_session(session),
+            remote=evidence,
+            drive_checks=drive_checks,
+        )
+    except Exception as e:
+        traceback.print_exc()
+        return fail(f"{type(e).__name__}: {e}", 500)
 
 
 @bp.post("/api/v1/design/approve")
@@ -111,7 +240,11 @@ def preflight():
         result = qualification_preflight(session, drive_connected(), bool(folder_id))
         session["preflight"] = {**result, "checked_at": now_iso()}
         transition(session, "PREFLIGHT_PASS" if result["pass"] else "PREFLIGHT_FAILED")
-        append_history(session, "PREFLIGHT_PASS" if result["pass"] else "PREFLIGHT_FAIL", checks=result["checks"])
+        append_history(
+            session,
+            "PREFLIGHT_PASS" if result["pass"] else "PREFLIGHT_FAIL",
+            checks=result["checks"],
+        )
         if result["pass"]:
             transition(session, "AWAITING_CANDIDATE")
             append_history(session, "GENERATION_AUTHORIZED_FOR_QUALIFICATION")
@@ -119,6 +252,46 @@ def preflight():
         return ok(session=public_session(session), preflight=result)
     except Exception as e:
         return fail(str(e))
+
+
+@bp.get("/api/v1/work-handoff")
+def work_handoff():
+    try:
+        session = require_session()
+        if session.get("status") not in (
+            "AWAITING_CANDIDATE",
+            "CANDIDATE_VERIFIED_PENDING_PO",
+            "REJECTED",
+        ):
+            return fail("Work Handoff 仅在 GENERATE / REVIEW qualification 阶段可导出")
+        candidate_id = (request.args.get("candidate_id") or "CANDIDATE_01").strip()
+        payload = {
+            "schema": "BLACK_LADY_PRODUCTION_CONSOLE_V1_1_WORK_HANDOFF_V001",
+            "qualification_only": True,
+            "session_id": session["session_id"],
+            "shot_id": session["shot_id"],
+            "candidate_id": candidate_id,
+            "mode": session["mode"],
+            "design_summary": session.get("design_summary") or {},
+            "bundle": session.get("bundle") or {},
+            "execution_rules": {
+                "output": "EXACTLY_1_PNG",
+                "stop_after_one_candidate": True,
+                "formal_story_shot_publication": False,
+                "formal_project_control_write": False,
+                "production_process_change": False,
+            },
+            "production_process_boundary": PRODUCTION_PROCESS_BOUNDARY,
+        }
+        raw = (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+        return send_file(
+            io.BytesIO(raw),
+            mimetype="application/json",
+            as_attachment=True,
+            download_name=f"{session['session_id']}_{candidate_id}_WORK_HANDOFF.json",
+        )
+    except Exception as e:
+        return fail(str(e), 404)
 
 
 @bp.post("/api/v1/candidate/upload")
@@ -129,6 +302,7 @@ def candidate_upload():
             return fail("当前状态不允许 Candidate upload")
         if session.get("candidate", {}).get("drive_file_id"):
             return fail("当前 Session 已绑定 Candidate binary；禁止覆盖")
+
         f = request.files.get("file")
         candidate_id = (request.form.get("candidate_id") or "CANDIDATE_01").strip()
         if not f:
@@ -136,13 +310,23 @@ def candidate_upload():
         raw = f.read()
         if not raw:
             return fail("Candidate 文件为空", 400)
-        ext = Path(f.filename or "candidate.png").suffix.lower() or ".png"
-        drive_name = f"{session['shot_id']}_{candidate_id}_{session['session_id']}{ext}"
-        uploaded = exact_upload(drive_name, f.mimetype or "application/octet-stream", raw)
+        if len(raw) > 50 * 1024 * 1024:
+            return fail("Candidate 测试限制为 50 MB 以下", 400)
+
+        ext = Path(f.filename or "candidate.png").suffix.lower()
+        if ext != ".png":
+            return fail("Candidate 必须是原始 PNG；不接受 JPG / WebP / screenshot substitution", 400)
+        local_meta = image_meta(raw)
+        if local_meta.get("format") != "PNG":
+            return fail("文件扩展名为 PNG，但实际内容不是 PNG", 400)
+
+        drive_name = f"{session['shot_id']}_{candidate_id}_{session['session_id']}.png"
+        uploaded = exact_upload(drive_name, "image/png", raw)
         candidate = {
             "shot_id": session["shot_id"],
             "candidate_id": candidate_id,
             **uploaded,
+            "mime_type": "image/png",
             "status": "CANDIDATE_VERIFIED_PENDING_PO",
             "uploaded_at": now_iso(),
         }
@@ -150,7 +334,11 @@ def candidate_upload():
             return fail("Candidate immutable identity 不完整")
         session["candidate"] = candidate
         transition(session, "CANDIDATE_VERIFIED_PENDING_PO")
-        append_history(session, "CANDIDATE_EXACT_VERIFIED", candidate_identity=candidate_identity(candidate))
+        append_history(
+            session,
+            "CANDIDATE_EXACT_VERIFIED",
+            candidate_identity=candidate_identity(candidate),
+        )
         save_session(session)
         return ok(session=public_session(session), candidate=candidate)
     except Exception as e:
@@ -175,10 +363,14 @@ def candidate_new():
         session["publication"] = {}
         session["registration"] = {}
         session["lock"] = {}
-        # Deliberate controlled recovery back to GENERATE after an immutable rejected attempt.
+        session["closeout"] = {}
         session["status"] = "AWAITING_CANDIDATE"
         session["current_stage"] = "GENERATE"
-        append_history(session, "NEW_CANDIDATE_AUTHORIZED_AFTER_REJECTION", previous_candidate_id=old.get("candidate_id"))
+        append_history(
+            session,
+            "NEW_CANDIDATE_AUTHORIZED_AFTER_REJECTION",
+            previous_candidate_id=old.get("candidate_id"),
+        )
         save_session(session)
         return ok(session=public_session(session))
     except Exception as e:
@@ -194,7 +386,12 @@ def candidate_media():
         if not file_id:
             return fail("Candidate 尚未绑定 Drive 文件", 404)
         raw = drive_download_bytes(file_id)
-        return send_file(io.BytesIO(raw), mimetype=candidate.get("mime_type") or "application/octet-stream", download_name=candidate.get("drive_file_name") or "candidate.png", max_age=0)
+        return send_file(
+            io.BytesIO(raw),
+            mimetype="image/png",
+            download_name=candidate.get("drive_file_name") or "candidate.png",
+            max_age=0,
+        )
     except Exception as e:
         return fail(f"{type(e).__name__}: {e}", 500)
 
@@ -203,7 +400,11 @@ def candidate_media():
 def candidate_review():
     try:
         session = require_session()
-        if session.get("status") not in ("CANDIDATE_VERIFIED_PENDING_PO", "REJECTED", "PO_APPROVED_PENDING_PUBLICATION"):
+        if session.get("status") not in (
+            "CANDIDATE_VERIFIED_PENDING_PO",
+            "REJECTED",
+            "PO_APPROVED_PENDING_PUBLICATION",
+        ):
             return fail("当前状态不允许 Candidate review")
         body = request.get_json(silent=True) or {}
         action = (body.get("action") or "").strip().lower()
@@ -224,7 +425,12 @@ def candidate_review():
             "drive_file_id": candidate.get("drive_file_id"),
             "sha256": candidate.get("sha256"),
         }
-        session["approval"] = {"action": action, "reason": reason, "binding": binding, "decided_at": now_iso()}
+        session["approval"] = {
+            "action": action,
+            "reason": reason,
+            "binding": binding,
+            "decided_at": now_iso(),
+        }
         if action == "approve":
             transition(session, "PO_APPROVED_PENDING_PUBLICATION")
             candidate["status"] = "PO_APPROVED_PENDING_PUBLICATION"
@@ -238,5 +444,3 @@ def candidate_review():
         return ok(session=public_session(session))
     except Exception as e:
         return fail(str(e))
-
-
