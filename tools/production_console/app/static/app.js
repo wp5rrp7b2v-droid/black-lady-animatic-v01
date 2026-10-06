@@ -68,6 +68,7 @@ function setLockedInputs(){
     .forEach(id=>el(id).disabled=!designEditable);
   el("startBtn").disabled=has;
   el("loadBtn").disabled=has;
+  el("recoverBtn").disabled=has;
   el("reconcileBtn").disabled=!has;
   el("refreshEvidenceBtn").disabled=!has;
 }
@@ -167,7 +168,10 @@ function renderEvidence(){
   let html=row("Status",current.status)+row("Mode",current.mode)+
     row("Preflight",p.pass===true?"PASS":p.pass===false?"FAIL":"PENDING",p.pass===true?"ok":p.pass===false?"bad":"warn")+
     row("Process Boundary","FORMAL WORKFLOW UNCHANGED","ok");
-  if(p.checks) html+='<h3>Preflight checks</h3>'+renderCheckGrid(p.checks);
+  if(p.checks){
+    const summary=Object.values(p.checks).filter(v=>v===true).length+"/"+Object.keys(p.checks).length;
+    html+='<details '+(p.pass===false?'open':'')+'><summary>Preflight checks · '+h(summary)+' PASS</summary>'+renderCheckGrid(p.checks)+'</details>';
+  }
   html+='<h3>Remote evidence</h3>'+renderRemote();
   el("evidence").innerHTML=html;
   el("history").innerHTML=(current.history||[]).slice().reverse().map(x=>
@@ -206,12 +210,13 @@ function renderActive(){
     case "PREFLIGHT_PASS":
     case "AWAITING_CANDIDATE":
       a.insertAdjacentHTML("beforeend",
-        '<div class="drop" id="drop"><strong>GENERATE in Work → upload exactly one Candidate PNG</strong>'+
-        '<p class="muted">Console 生成 handoff，但不替代 Work 制图；本轮仅 qualification。</p>'+
+        '<div class="stage-note"><strong>Work Handoff READY</strong><br><span class="muted">正式生产中由 Console 自动准备执行包；手工下载仅保留为诊断导出。</span></div>'+
+        '<div class="drop" id="drop" tabindex="0"><strong>拖拽 1 张 Candidate PNG 到这里</strong>'+
+        '<p class="muted">或使用文件选择。只接受 PNG；同一 Session + Candidate ID 重复请求会被幂等保护。</p>'+
         '<div class="actions"><input id="candidateId" placeholder="CANDIDATE_01" value="CANDIDATE_01">'+
         '<input id="candidateFile" type="file" accept="image/png">'+
         '<button id="candidateUpload" class="primary">Upload + Drive Exact Verify</button>'+
-        '<a id="handoffLink" class="btn" href="#">Download Work Handoff</a></div></div>');
+        '<a id="handoffLink" class="btn" href="#">Diagnostic: Export Handoff</a></div></div>');
       bindDrop(); break;
 
     case "CANDIDATE_VERIFIED_PENDING_PO":
@@ -281,6 +286,27 @@ async function load(){
     await refreshEvidence();
   }catch(e){alert(e.message)}
 }
+async function recoverExternal(){
+  const b=el("recoverBtn");
+  try{
+    const sessionId=el("sessionId").value.trim();
+    if(!sessionId) throw new Error("请输入 Session ID");
+    if(b)b.disabled=true;
+    showAction("正在仅凭 GitHub qualification evidence + Drive binary 重建本地 Session…","working");
+    const j=await post("/api/v1/session/recover",{session_id:sessionId});
+    setSession(j.session);
+    remoteEvidence=j.remote||null;
+    renderEvidence();
+    await refreshSystem();
+    showAction("External Recovery 完成 · Status = "+j.session.status,"success");
+  }catch(e){
+    showAction("External Recovery FAIL · "+e.message,"error");
+    alert(e.message);
+  }finally{
+    if(b)b.disabled=false;
+  }
+}
+
 async function reconcile(){
   const b=el("reconcileBtn");
   try{
@@ -333,9 +359,16 @@ function bindDrop(){
   const updateLink=()=>{link.href="/api/v1/work-handoff?session_id="+encodeURIComponent(sid())+"&candidate_id="+encodeURIComponent((cid.value||"CANDIDATE_01").trim())};
   cid.oninput=updateLink;updateLink();
   b.onclick=()=>upload(f.files[0]);
-  ["dragenter","dragover"].forEach(x=>d.addEventListener(x,e=>{e.preventDefault();d.classList.add("drag")}));
-  ["dragleave","drop"].forEach(x=>d.addEventListener(x,e=>{e.preventDefault();d.classList.remove("drag")}));
-  d.addEventListener("drop",e=>upload(e.dataTransfer.files[0]));
+
+  const stop=e=>{e.preventDefault();e.stopPropagation()};
+  ["dragenter","dragover","dragleave","drop"].forEach(name=>d.addEventListener(name,stop,false));
+  ["dragenter","dragover"].forEach(name=>d.addEventListener(name,()=>d.classList.add("drag"),false));
+  ["dragleave","drop"].forEach(name=>d.addEventListener(name,()=>d.classList.remove("drag"),false));
+  d.addEventListener("drop",e=>{
+    const files=e.dataTransfer&&e.dataTransfer.files;
+    if(files&&files.length) upload(files[0]);
+    else showAction("Drag & Drop FAIL · 未检测到文件","error");
+  },false);
 }
 async function upload(file){
   try{
@@ -389,6 +422,7 @@ async function closeout(){
 
 el("startBtn").onclick=start;
 el("loadBtn").onclick=load;
+el("recoverBtn").onclick=recoverExternal;
 el("reconcileBtn").onclick=reconcile;
 el("newSessionBtn").onclick=resetWorkspace;
 el("refreshEvidenceBtn").onclick=refreshEvidence;
