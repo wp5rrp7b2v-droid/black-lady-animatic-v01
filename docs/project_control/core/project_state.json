@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R296",
+  "state_revision": "R297",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 01 GENERATION STOPPED BEFORE IMAGE / TOOL MAX 5 REFERENCES / BUNDLE V003 DESIGN READY FOR PO REVIEW",
+  "session_status": "2026-10-06 ACTIVE / N24 BUNDLE V003 VALIDATION-ONLY PASS / 5 OF 5 EXACT / FORMAL BUILD AUTHORIZATION PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜BUNDLE V003 FIVE-REFERENCE DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "Work image generation interface supports at most 5 referenced images; Bundle V002 contains 6 exact-verified direct references. No candidate image was generated.",
-  "next_action": "Product Owner reviews N24_REFERENCE_DELIVERY_BUNDLE_V003 Design V0.1. Recommended change: remove N23 direct image only; keep A06, Guang Yong, Neil, Castle Entrance V002, Generic Guest REAR_3Q.",
+  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V003｜VALIDATION-ONLY PASS / WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
+  "blocker": "No active production blocker. Prior six-reference Work limit blocker resolved at design level by V003 five-reference bundle.",
+  "next_action": "Product Owner decides whether to authorize FORMAL N24_REFERENCE_DELIVERY_BUNDLE_V003 BUILD + Artifact exact verification only. Candidate 01 generation remains unauthorized until the V003 artifact is built and exact-verified.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / CANDIDATE 01 ATTEMPT 01 STOPPED BEFORE GENERATION / TOOL REFERENCE CAP 5 / BUNDLE V003 DESIGN WAITING PO APPROVAL",
+  "n24_status": "IN PROGRESS / BUNDLE V003 VALIDATION-ONLY 5 OF 5 PASS / FORMAL BUILD PENDING",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4441,8 +4441,11 @@
     "record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_01_generation_attempt_01_blocked_reference_limit_2026-10-06.md"
   },
   "n24_reference_delivery_bundle_v003": {
-    "status": "DESIGN V0.1 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD NOT YET AUTHORIZED / CANDIDATE 01 NOT AUTHORIZED",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v003_design_v0_1.md",
+    "spec_path": "production/bundle_specs/N24_REFERENCE_DELIVERY_BUNDLE_V003.json",
+    "spec_revision": "V003-R1",
+    "spec_commit": "c2b946dc62ebbdf25c7e0946d59ca819f87470fe",
     "direct_visual_input_count": 5,
     "removed_from_v002": "N23_APPROVED_STORY_SHOT",
     "retained": [
@@ -4452,8 +4455,24 @@
       "AST_IMG_000105",
       "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
     ],
-    "spec_created": false,
+    "validation_only": {
+      "status": "PASS / 5 OF 5 EXACT / ZERO ARTIFACT",
+      "workflow_run": 37422594408,
+      "job": 112135048042,
+      "artifact_count": 0,
+      "build_authorized": false,
+      "generation_allowed": false,
+      "record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v003_validation_only_record_2026-10-06.md"
+    },
     "formal_build_authorized": false,
     "candidate_01_generation_authorized": false
+  },
+  "story_shot_bundle_generation_interface_rule": {
+    "status": "LOCKED / ACTIVE",
+    "max_direct_referenced_images": 5,
+    "effective_from": "2026-10-06",
+    "evidence": "N24 Candidate 01 Attempt 01 rejected six referenced_image_paths before generation",
+    "rule_path": "docs/project_control/gates/P0_3_video_pipeline/generic_story_shot_reference_bundle_builder_v1.md",
+    "rule": "For Work-direct Story Shot generation bundles, design direct image references at <=5. If more evidence exists, resolve redundancy at Bundle Design; Work must never silently omit or choose references."
   }
 }
