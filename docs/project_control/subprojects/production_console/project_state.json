@@ -6,7 +6,7 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R029",
+  "state_revision": "PC-R030",
   "status": "ACTIVE / SHORT DEFECT REGRESSION PASS / PRE-E2E UX BLOCKERS REMAIN",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
@@ -153,7 +153,8 @@
       "true_external_recovery_core": "PASS",
       "true_external_recovery_full_fidelity": "PASS",
       "recovery_fidelity_patch": "PATCH READY: future qualification publication records include design_summary + preflight recovery snapshot; recovery restores them when present and explicitly labels legacy evidence as incomplete.",
-      "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists."
+      "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists.",
+      "workflow_step_labels": "PATCHED: workflow header shows stage names only; no checkmarks and no numeric 1-8 labels."
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -186,7 +187,7 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "IMPLEMENT 3 REMAINING PRE-E2E UX BLOCKERS",
+  "current_task": "IMPLEMENT 3 REMAINING PRE-E2E UX BLOCKERS + FINAL COMPACT UI POLISH",
   "next_gate": "PRE-E2E UX COMPLETION + SHORT RETEST → FORMAL V1.1 E2E QUALIFICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
