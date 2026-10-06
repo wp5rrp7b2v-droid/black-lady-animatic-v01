@@ -1,0 +1,60 @@
+name: N24 Story Shot Registration Verification V001
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/story_shots/story_shot_index.jsonl"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify N24 canonical binary and index
+        shell: python
+        run: |
+          from pathlib import Path
+          import json, hashlib, subprocess, struct
+
+          path = "production/image_library/approved/story_shots/N24_GUANG_YONG_QUESTIONS_OPEN_DOOR_APPROVED_V001.png"
+          sha = "e6604ec6a66151bc68bbd443812a538e2cd92820b6d5a601a98e3c4b90c13f34"
+          blob = "5541be10e8f679dd87df94b63d35eaa3d9482def"
+          expected_size = 2734305
+
+          b = Path(path).read_bytes()
+          assert b[:8] == b"\x89PNG\r\n\x1a\n"
+          assert len(b) == expected_size
+          assert hashlib.sha256(b).hexdigest() == sha
+          assert subprocess.check_output(["git","hash-object",path], text=True).strip() == blob
+          assert struct.unpack(">II", b[16:24]) == (972,1619)
+
+          rows = [json.loads(x) for x in Path("production/story_shots/story_shot_index.jsonl").read_text(encoding="utf-8").splitlines() if x.strip()]
+          hits = [x for x in rows if x.get("shot_id") == "N24"]
+          assert len(hits) == 1
+
+          r = hits[0]
+          assert r["canonical_path"] == path
+          assert r["filename"] == "N24_GUANG_YONG_QUESTIONS_OPEN_DOOR_APPROVED_V001.png"
+          assert r["sha256_locked_identity"] == sha
+          assert r["github_blob_sha"] == blob
+          assert r["byte_size"] == expected_size
+          assert r["dimensions"] == {"width":972,"height":1619}
+          assert r["approval_status"] == "APPROVED"
+          assert r["lifecycle"] == "CURRENT"
+          assert r["asset_class"] == "STORY_SHOT"
+          assert r["title"] == "Guang Yong Questions the Open Door"
+          assert r["scene"] == "CASTLE_ENTRANCE_INNER_LOBBY"
+          assert r["characters"] == ["GUANG_YONG"]
+          assert r["timeline"] == "02:11.500-02:15.500"
+          assert r["rename_preserved_exact_git_blob"] is True
+
+          assert not Path("staging/story_shot_candidates/N24/N24_Candidate_03_APPROVED.png").exists()
+
+          print("N24_PASS SHA_MATCH=YES BLOB_MATCH=YES INDEX_MATCH=YES DIMENSIONS_MATCH=YES")
+          print("STAGING_CLEANUP_PASS")
+          print("OVERALL_RESULT=PASS")
