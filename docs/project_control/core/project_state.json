@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R332",
+  "state_revision": "R333",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 EOD CLOSED / PROJECT CONTROL SYNCHRONIZED / N26 V002 VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED / LOCAL SYNC NEXT SESSION",
+  "session_status": "2026-10-06 EOD CLOSED / PROJECT CONTROL SYNCHRONIZED / N24 + N25 FORMALLY CLOSED / N26 IN PROGRESS / NO FINAL N26 APPROVAL / LOCAL SYNC NEXT SESSION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -50,7 +50,7 @@
   ],
   "current_task": "NEXT SESSION｜LOCAL MAIN SYNC VERIFICATION → N26 BUNDLE V002 FORMAL BUILD AUTHORIZATION DECISION",
   "blocker": "No production blocker. Session is closed by Product Owner; no further production authorized tonight.",
-  "next_action": "At next session start, verify local main against origin/main. Then resume at N26_REFERENCE_DELIVERY_BUNDLE_V002 Formal Build + Artifact Exact Verification authorization decision.",
+  "next_action": "At next session start, verify local main against origin/main. Then reconcile N26 V002 formal chain: verify whether a formal Bundle Build/Artifact exists; if not, return to Formal Build authorization, exact-verify the Artifact, then resume Work. Do not advance to later Story Shots before N26 is resolved or explicitly deferred.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4733,7 +4733,7 @@
     "registration_verification_job_id": 112289954976,
     "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n25_story_shot_registration_closeout_2026-10-06.md"
   },
-  "n26_status": "IN PROGRESS / CANDIDATE 01 REJECTED / BUNDLE V002 VALIDATION-ONLY PASS / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
+  "n26_status": "IN PROGRESS / CANDIDATE 01 REJECTED / V002 IDENTITY-RESCUE DIRECTION APPROVED / POST-VALIDATION WORK ITERATIONS NON-CANONICAL / NO FINAL PRODUCT OWNER APPROVAL",
   "n27_status": "ABSORBED INTO N26 / NO SEPARATE PRODUCTION NODE",
   "n26_n27_merge": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -4825,7 +4825,7 @@
     "candidate_target": "N26 Candidate 02｜Clean Regeneration / Identity Rescue"
   },
   "n26_reference_delivery_bundle_v002": {
-    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
+    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / CANONICAL MAIN DOES NOT PROVE FORMAL BUILD ARTIFACT / RECONCILE NEXT SESSION",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_design_v0_1.md",
     "target_candidate": "N26 Candidate 02｜Clean Regeneration / Identity Rescue",
     "direct_image_count": 5,
@@ -4848,21 +4848,17 @@
     "validation_job_id": 112335178717,
     "validation_result": "5/5 EXACT PASS",
     "artifact_count": 0,
-    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_validation_only_record_2026-10-06.md"
+    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_validation_only_record_2026-10-06.md",
+    "end_of_day_reconciliation": "Chat-side Work iterations occurred after validation-only, but no canonical formal V002 Artifact record is present on main. Treat those images as non-canonical working outputs until formal chain provenance is reconciled."
   },
-  "local_sync_status": "TO VERIFY NEXT SESSION",
+  "local_sync_status": "TO VERIFY NEXT SESSION AFTER FINAL 2026-10-06 REMOTE COMMITS",
   "daily_closeout_2026_10_06": {
-    "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED",
+    "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
     "n24": "FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
     "n25": "FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
-    "n26": "CANDIDATE 01 REJECTED / V002 IDENTITY RESCUE VALIDATION-ONLY PASS / FORMAL BUILD NOT AUTHORIZED",
+    "n26": "IN PROGRESS / NO FINAL APPROVAL / V002 FORMAL CHAIN RECONCILIATION REQUIRED",
     "n27": "ABSORBED INTO N26",
-    "story_shot_count": 31,
-    "entity_count": 34,
-    "asset_count": 108,
-    "audit_event_count": 190,
-    "scene_profile_count": 14,
-    "next_session": "LOCAL MAIN SYNC VERIFICATION → N26 V002 FORMAL BUILD AUTHORIZATION DECISION"
+    "next_session": "LOCAL MAIN SYNC VERIFICATION → N26 V002 FORMAL CHAIN RECONCILIATION"
   }
 }
