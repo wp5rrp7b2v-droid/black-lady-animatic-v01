@@ -43,3 +43,23 @@ Any future change to production storage, publication, registration or closeout i
 - regression testing.
 
 **Not authorized:** any change to the current formal Story Shot SOP, canonical Story Shot records, Story Shot Index, or production adoption.
+
+## PC-D006｜2026-10-06｜DESIGN Gate semantics and production metadata UX
+
+**Decision:** Product Owner approved correcting the V1.1 DESIGN stage before formal End-to-End Qualification.
+
+**DESIGN semantics:** Console DESIGN represents **Design Package Ready Gate**, not authoring or separately approving Director Design inside the Console.
+
+The ready package must reflect:
+- Director Design approved;
+- Scene Reference Design approved;
+- Bundle Spec approved;
+- Bundle built;
+- Artifact verified;
+- references exact match.
+
+**Production UX rule:** technical metadata including Session ID, Bundle ID, GitHub Actions Run ID, Artifact ID, reference count, Artifact digest, exact-reference result, delivery manifest verification and generation allowance must be auto-resolved where technically determinable and displayed read-only. Product Owner must not be required to transcribe these values during normal production use.
+
+**Gate effect:** current Local Mac Regression may continue using exposed test fields. Formal V1.1 E2E Qualification is blocked until this production-UX correction is implemented and regression-checked.
+
+**Boundary:** this is a Console UX/orchestration requirement and does not change the current formal Story Shot production SOP.
