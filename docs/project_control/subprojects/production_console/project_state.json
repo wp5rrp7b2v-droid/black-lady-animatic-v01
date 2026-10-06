@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R001",
-  "status": "ACTIVE / V1.1 DESIGN V0.1 PRODUCT OWNER APPROVED / IMPLEMENTATION NOT STARTED",
+  "state_revision": "PC-R002",
+  "status": "ACTIVE / V1.1 IMPLEMENTATION PREPARATION COMPLETE / ENGINEERING BRANCH NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -39,7 +39,7 @@
     "design_version": "V0.1",
     "design_status": "PRODUCT_OWNER_APPROVED",
     "design_approved_on": "2026-10-06",
-    "implementation_status": "NOT_STARTED",
+    "implementation_status": "PREPARATION_COMPLETE",
     "e2e_qualification_status": "NOT_STARTED_REQUIRED",
     "target_state_machine": [
       "DESIGN",
@@ -60,7 +60,8 @@
       "dimensions"
     ],
     "recovery_rule": "Registration failure must not require publication rerun when the publication identity is already valid.",
-    "reopening_rule": "Console must reconstruct qualified state from authoritative external evidence rather than local JSON claims."
+    "reopening_rule": "Console must reconstruct qualified state from authoritative external evidence rather than local JSON claims.",
+    "implementation_spec": "docs/project_control/subprojects/production_console/implementation/v1_1_implementation_spec_v0_1.md"
   },
   "scale_gate": {
     "v1_0_foundation": "PASS",
@@ -70,8 +71,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "V1.1 IMPLEMENTATION PREPARATION",
-  "next_gate": "IMPLEMENT V1.1 WITHOUT CHANGING CURRENT FORMAL STORY SHOT SOP",
+  "current_task": "CREATE V1.1 ENGINEERING BRANCH + IMPORT SANITIZED V1.0 BASELINE",
+  "next_gate": "V1.1 IMPLEMENTATION REGRESSION BEFORE E2E",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
