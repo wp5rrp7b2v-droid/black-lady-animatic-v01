@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R299",
+  "state_revision": "R300",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 01 AUTHORIZED FOR WORK / BUNDLE V003 EXACT VERIFIED / EXACTLY 1 PNG",
+  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 01 PO REJECTED / DESIGN LOGIC + GUANG YONG IDENTITY DRIFT / DIRECTOR V0.4 DRAFT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜CANDIDATE 01｜WORK GENERATION AUTHORIZED / EXACTLY 1 PNG",
-  "blocker": "No production blocker.",
-  "next_action": "Work executes N24 Candidate 01 using N24_REFERENCE_DELIVERY_BUNDLE_V003, revalidates 5/5 exact references, generates exactly 1 PNG, then stops for Product Owner review.",
+  "current_task": "N24｜NODE-LEVEL DIRECTOR SHOT DESIGN V0.4｜WAITING PRODUCT OWNER APPROVAL",
+  "blocker": "N24 Candidate 01 failed Product Owner review due to incorrect shot blocking and severe Guang Yong identity drift. Do not generate Candidate 02 under V0.3.",
+  "next_action": "Product Owner reviews N24 Node-Level Director Shot Design V0.4. If approved, revise Scene Reference / Bundle with stronger Guang Yong identity protection and <=5 direct references.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / CANDIDATE 01 AUTHORIZED FOR WORK / EXACTLY 1 PNG / BUNDLE V003",
+  "n24_status": "IN PROGRESS / CANDIDATE 01 REJECTED / DIRECTOR DESIGN REOPENED / V0.4 WAITING PO APPROVAL",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4434,20 +4434,16 @@
     }
   },
   "n24_candidate_01": {
-    "status": "PRODUCT OWNER AUTHORIZED / READY FOR WORK / EXACTLY 1 PNG",
-    "mode": "CLEAN_REGENERATION",
-    "bundle": "N24_REFERENCE_DELIVERY_BUNDLE_V003",
-    "artifact_id": 11392909399,
-    "artifact_digest": "sha256:145590c8a8237aa32593733bd0ddca20e826f8b7a19a3529d9e2468bbd88175f",
-    "direct_reference_count": 5,
-    "direct_reference_limit": 5,
-    "pre_generation_revalidation": "REQUIRED / 5 OF 5 EXACT",
-    "stop_after_generation": true,
-    "candidate_02_authorized": false,
-    "canonical_publication_authorized": false,
+    "status": "PRODUCT OWNER REJECTED",
+    "result": "FAIL",
+    "rejection_reason": "DESIGN INCORRECT + GUANG YONG IDENTITY DRIFT",
+    "dimensions": "941x1672",
+    "byte_size": 2877043,
+    "sha256": "d9b769cf36e583d14b8b22b67f293929ba59bd0777e962896e0d7b82cedf93b7",
+    "publication_authorized": false,
     "story_shot_registration_authorized": false,
-    "handoff": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_01_formal_work_execution_handoff_2026-10-06.md",
-    "authorization": "EXPLICIT PRODUCT OWNER APPROVAL IN CHAT / 2026-10-06"
+    "candidate_02_authorized": false,
+    "record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_01_rejection_record_2026-10-06.md"
   },
   "n24_reference_delivery_bundle_v003": {
     "status": "FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 NOT AUTHORIZED",
@@ -4499,5 +4495,11 @@
     "evidence": "N24 Candidate 01 Attempt 01 rejected six referenced_image_paths before generation",
     "rule_path": "docs/project_control/gates/P0_3_video_pipeline/generic_story_shot_reference_bundle_builder_v1.md",
     "rule": "For Work-direct Story Shot generation bundles, design direct image references at <=5. If more evidence exists, resolve redundancy at Bundle Design; Work must never silently omit or choose references."
+  },
+  "n24_director_design_v0_4": {
+    "status": "DESIGN DRAFT / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n24_node_level_director_shot_design_v0_4.md",
+    "core_correction": "Guang Yong turns toward Neil ahead/side-ahead while moving; no backward look toward entrance; door preferred off-screen.",
+    "bundle_implication": "Do not reuse V003 unchanged; prioritize stronger Guang Yong identity references within <=5 direct-image cap."
   }
 }
