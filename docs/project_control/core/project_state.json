@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R314",
+  "state_revision": "R315",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / S02-B SEQUENCE CORRECTED TO N23→N24→A06→N25→N26→N27 / N25 DIRECTOR V0.3 READY",
+  "session_status": "2026-10-06 ACTIVE / N25 DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 READY FOR PRODUCT OWNER REVIEW",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25｜NODE-LEVEL DIRECTOR SHOT DESIGN V0.3｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "No production blocker.",
-  "next_action": "Product Owner reviews N25 Director Design V0.3. If approved, proceed to N25 Scene Reference Design.",
+  "current_task": "N25｜SCENE REFERENCE DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
+  "blocker": "No production blocker. N25 Bundle and Work generation remain gated behind Scene Reference approval.",
+  "next_action": "Product Owner reviews N25 Scene Reference Design V0.1. If approved, create N25_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1 with exactly five direct references.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4387,7 +4387,7 @@
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "IN PROGRESS / DIRECTOR DESIGN V0.3 WAITING PRODUCT OWNER APPROVAL",
+  "n25_status": "IN PROGRESS / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 WAITING PRODUCT OWNER APPROVAL",
   "n25_director_design": {
     "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
@@ -4640,12 +4640,30 @@
     "record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_sequence_order_correction_n24_a06_n25_2026-10-06.md"
   },
   "n25_director_design_v0_3": {
-    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "PRODUCT OWNER APPROVED / LOCKED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_3.md",
     "preceding_editorial_shot": "A06｜门不关",
     "core_action": "Cut back from A06 to Neil moving past the paused group toward the front/deeper interior, answering without turning back.",
     "movement_ownership": "NEIL MOVES / GROUP MOSTLY REMAINS PAUSED",
     "door_visibility": "DO NOT RE-ESTABLISH — A06 OWNS OPEN-DOOR INSERT",
+    "candidate_generation_authorized": false
+  },
+  "n25_scene_reference_design_v0_1": {
+    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n25_scene_reference_design_v0_1.md",
+    "direct_image_count": 5,
+    "direct_images": [
+      "AST_IMG_000059",
+      "AST_IMG_000066",
+      "AST_IMG_000025",
+      "AST_IMG_000108",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
+    ],
+    "non_delivered_evidence": [
+      "A06_APPROVED_STORY_SHOT",
+      "N24_APPROVED_STORY_SHOT"
+    ],
+    "composition": "Neil rear/side-back walking toward deeper interior; 2–4 guests mostly paused; door suppressed.",
     "candidate_generation_authorized": false
   }
 }
