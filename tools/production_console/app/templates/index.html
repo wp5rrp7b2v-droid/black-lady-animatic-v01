@@ -12,9 +12,15 @@
       <h1>BLACK LADY｜Production Console V1.1</h1>
       <div class="muted">Unified Workflow · Qualification Build</div>
     </div>
-    <div class="top-badges">
-      <span class="badge">SUBPROJECT</span>
-      <span class="badge">QUALIFICATION ONLY</span>
+    <div class="top-actions">
+      <div class="top-badges">
+        <span class="badge">SUBPROJECT</span>
+        <span class="badge">QUALIFICATION ONLY</span>
+      </div>
+      <div class="view-switch">
+        <button id="operatorViewBtn">Operator View</button>
+        <button id="diagnosticViewBtn" class="active-view">Diagnostics</button>
+      </div>
     </div>
   </header>
 
@@ -25,11 +31,19 @@
 
   <div id="actionStatus" class="action-status" hidden></div>
 
+  <section class="panel operator-only" id="operatorSummary">
+    <div class="panel-head">
+      <div><div class="kicker">Operator Overview</div><h2>Current Shot Control</h2></div>
+      <span class="state-pill">PREVIEW / NO PRODUCTION WRITE</span>
+    </div>
+    <div id="operatorSummaryBody" class="empty">Resolving current Project Control...</div>
+  </section>
+
   <nav class="workflow" id="workflow"></nav>
 
   <div class="layout">
     <main>
-      <section class="panel">
+      <section class="panel diagnostic-only">
         <div class="panel-head">
           <div><div class="kicker">Workspace</div><h2>Design Package / Shot Session</h2></div>
           <span class="state-pill" id="sessionState">NO SESSION</span>
@@ -54,6 +68,7 @@
         </div>
 
         <div class="actions">
+          <button id="resolveMetadataBtn">Auto Resolve Project Metadata</button>
           <button class="primary" id="startBtn">Start Qualification Session</button>
           <button id="loadBtn">Load Session</button>
           <button id="recoverBtn">Recover from External Evidence</button>
@@ -71,7 +86,7 @@
         <div id="activePanel" class="empty">Start or load a Session.</div>
       </section>
 
-      <section class="panel">
+      <section class="panel diagnostic-only">
         <div class="panel-head">
           <div><div class="kicker">Audit</div><h2>Evidence & Recovery</h2></div>
           <button id="refreshEvidenceBtn">Refresh Evidence</button>
@@ -89,13 +104,13 @@
         <div id="identity" class="empty">Candidate 尚未建立。</div>
       </section>
 
-      <section class="panel">
+      <section class="panel diagnostic-only">
         <div class="kicker">Runtime</div>
         <h2>System</h2>
         <div id="system" class="empty">Loading...</div>
       </section>
 
-      <section class="panel">
+      <section class="panel diagnostic-only">
         <div class="kicker">Safety</div>
         <h2>Production Boundary</h2>
         <p class="muted">V1.1 qualification 不构成正式流程变更。Production Adoption 仍为 LOCKED。</p>
