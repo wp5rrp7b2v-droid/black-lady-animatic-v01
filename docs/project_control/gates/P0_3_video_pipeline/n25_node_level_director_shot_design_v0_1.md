@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL`
+`HOLD / NOT CURRENT GATE / REQUIRES RECHECK AFTER RESTORED N24`
 
 Shot:
 
@@ -18,7 +18,11 @@ Sequence:
 
 Preceded by:
 
-`A06｜门不关｜APPROVED REUSE`
+`N24｜Guang Yong Questions the Open Door｜RESTORED BEFORE N25`
+
+Continuity note:
+
+The earlier draft assumed N24 cancellation and direct A06→N25 continuity. That assumption is superseded by S02-B Review Patch 03. This V0.1 is retained as draft history and must be rechecked before any approval.
 
 Source authority:
 
@@ -292,11 +296,9 @@ FAIL if:
 
 ## 15. Current gate
 
-`WAITING PRODUCT OWNER APPROVAL`
+`HOLD / DO NOT APPROVE AS-IS`
 
-If approved:
-
-`N25 SCENE REFERENCE DESIGN`
+Resume only after N24 production advances and N25 continuity is rechecked.
 
 Not yet authorized:
 
