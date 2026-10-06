@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED / FORMAL BUILD NOT YET AUTHORIZED`
 
 Target:
 
@@ -310,12 +310,20 @@ If Product Owner approves this Design:
 
 Current:
 
-`WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED`
 
-Not yet authorized:
+Approved by:
 
-- Bundle V001 Spec;
-- validation-only;
+`PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-06`
+
+Authorized next:
+
+- Bundle V001 Spec with `build_authorized=false`;
+- Validation-only exact check;
+- validation-only must produce zero Artifact.
+
+Still not authorized:
+
 - formal build;
 - Work generation;
 - Candidate 01;
