@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R305",
+  "state_revision": "R306",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / SCENE_CASTLE_ENTRANCE_INNER_LOBBY CLOSED / AST_IMG_000108 CANONICAL + REGISTERED / N24 SCENE REFERENCE REVISIT NEXT",
+  "session_status": "2026-10-06 ACTIVE / N24 SCENE REFERENCE V0.4 DRAFT READY / AST_IMG_000108 REPLACES AST_IMG_000105 AS DIRECT SCENE INPUT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜SCENE REFERENCE DESIGN REVISION USING AST_IMG_000108｜NOT YET STARTED",
-  "blocker": "No production blocker.",
-  "next_action": "Return to N24 Scene Reference design and replace the risky SCENE_CASTLE_ENTRANCE V002 direct-reference concept with the newly approved SCENE_CASTLE_ENTRANCE_INNER_LOBBY / AST_IMG_000108 as appropriate. No generation authorized yet.",
+  "current_task": "N24｜SCENE REFERENCE DESIGN V0.4｜WAITING PRODUCT OWNER APPROVAL",
+  "blocker": "No production blocker. No N24 generation is authorized until Scene Reference V0.4 and Bundle V004 are approved.",
+  "next_action": "Product Owner reviews N24 Scene Reference Design V0.4. Recommended Bundle V004 direct inputs: AST_IMG_000056 + AST_IMG_000010 + AST_IMG_000009 + AST_IMG_000108 + Generic Guest FRONT. Exactly 5 direct images.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / DIRECTOR V0.4 APPROVED / SCENE REFERENCE V0.3 WAITING PO APPROVAL",
+  "n24_status": "IN PROGRESS / DIRECTOR V0.4 APPROVED / SCENE REFERENCE V0.4 WAITING PO APPROVAL",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4505,13 +4505,10 @@
     "bundle_rule": "Next bundle must not reuse V003 unchanged; prioritize Guang Yong identity within <=5 direct images."
   },
   "n24_scene_reference_design_v0_3": {
-    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "SUPERSEDED BEFORE APPROVAL / DO NOT USE",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n24_scene_reference_design_v0_3.md",
-    "reference_strategy": "3 Guang Yong identity refs + Castle Entrance V002 + Generic Guest FRONT",
-    "direct_image_count": 5,
-    "neil_direct_image": "NOT RECOMMENDED FOR FIRST V0.4 ATTEMPT",
-    "a06_direct_image": "NOT REQUIRED / EDITORIAL CONTINUITY EVIDENCE ONLY",
-    "n23_direct_image": "NOT REQUIRED / HISTORICAL CONTINUITY EVIDENCE ONLY"
+    "superseded_by": "N24 Scene Reference Design V0.4",
+    "reason": "AST_IMG_000105 direct use posed door-reappearance risk; AST_IMG_000108 was created and registered to solve the inward-lobby scene requirement."
   },
   "common_asset_scene_castle_entrance_inner_lobby": {
     "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / CANONICAL / REGISTERED / REGISTRATION VERIFIED / CLOSED",
@@ -4532,5 +4529,25 @@
     "assets": 108,
     "audit_events": 190,
     "scene_profiles": 14
+  },
+  "n24_scene_reference_design_v0_4": {
+    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n24_scene_reference_design_v0_4.md",
+    "direct_image_count": 5,
+    "direct_images": [
+      "AST_IMG_000056",
+      "AST_IMG_000010",
+      "AST_IMG_000009",
+      "AST_IMG_000108",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_FRONT"
+    ],
+    "excluded_direct_images": [
+      "A06_APPROVED_STORY_SHOT",
+      "N23_APPROVED_STORY_SHOT",
+      "AST_IMG_000105",
+      "CHAR_NEIL_DIRECT_REFERENCE"
+    ],
+    "scene_authority": "AST_IMG_000108 / SCENE_CASTLE_ENTRANCE_INNER_LOBBY",
+    "composition": "Camera on entrance-side axis facing Guang Yong; Guang Yong foreground/front-3Q; 2–4 paused guests dispersed behind; Neil may remain off-screen; entrance direction implied by light."
   }
 }
