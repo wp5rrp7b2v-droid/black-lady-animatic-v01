@@ -60,6 +60,7 @@ def oauth2callback():
         return redirect("/?connected=1")
     except Exception as e:
         traceback.print_exc()
+        return fail(f"Drive verify upload failed: {type(e).__name__}: {e}", 500)
         return fail(f"OAuth callback failed: {type(e).__name__}: {e}", 500)
 
 
