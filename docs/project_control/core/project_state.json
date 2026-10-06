@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R312",
+  "state_revision": "R313",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CLOSED / CANONICAL / REGISTERED / VERIFIED / N25 NEXT",
+  "session_status": "2026-10-06 ACTIVE / N25 DIRECTOR DESIGN V0.2 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25｜DIRECTOR DESIGN RECHECK｜NOT YET STARTED",
-  "blocker": "No production blocker.",
-  "next_action": "Recheck N25 Director Design against the now-closed N24 continuity before authorizing any N25 Scene Reference, Bundle, or generation.",
+  "current_task": "N25｜NODE-LEVEL DIRECTOR SHOT DESIGN V0.2｜WAITING PRODUCT OWNER APPROVAL",
+  "blocker": "No production blocker. N25 Scene Reference / Bundle / Work generation remain gated behind Director Design approval.",
+  "next_action": "Product Owner reviews N25 Director Design V0.2. If approved, proceed to N25 Scene Reference Design.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4387,7 +4387,7 @@
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "HOLD / NOT CURRENT GATE / RECHECK AFTER N24",
+  "n25_status": "IN PROGRESS / DIRECTOR DESIGN V0.2 WAITING PRODUCT OWNER APPROVAL",
   "n25_director_design": {
     "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
@@ -4622,5 +4622,21 @@
     "registration_verification_job_id": 112238890955,
     "registration_verification_result": "PASS",
     "closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n24_story_shot_registration_closeout_2026-10-06.md"
+  },
+  "n25_director_design_v0_1": {
+    "status": "SUPERSEDED / DO NOT USE",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
+    "reason": "Assumed pre-N24 continuous walking. Final N24 instead locks a paused group with Neil off-screen on the entrance side."
+  },
+  "n25_director_design_v0_2": {
+    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_2.md",
+    "dialogue": "城堡大门只会在下雨天关闭",
+    "core_action": "Neil passes the paused group toward the front/deeper interior and answers without turning back.",
+    "continuity_from_n24": "Group paused in inner lobby; Guang Yong has just asked; Neil starts entrance-side/off-screen and reclaims leading position.",
+    "movement_ownership": "NEIL MOVES / GROUP MOSTLY REMAINS PAUSED",
+    "door_visibility": "NOT REQUIRED / DO NOT RE-ESTABLISH",
+    "scene": "CASTLE_ENTRANCE_INNER_LOBBY / transition toward deeper castle",
+    "candidate_generation_authorized": false
   }
 }
