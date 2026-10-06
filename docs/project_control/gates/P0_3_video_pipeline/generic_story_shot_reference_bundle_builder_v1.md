@@ -53,6 +53,19 @@ Each reference must contain:
 - expected byte_size
 - expected Git blob
 
+## Generation Interface Compatibility
+
+For Story Shot Bundles that will be passed directly to the Work image-generation interface:
+
+- maximum direct referenced images: `5`
+- Bundle Design must satisfy `references.length <= 5` before Formal Build authorization when all references are intended as direct image inputs
+- do not wait until Work generation to discover this limit
+- if more than five evidentiary images exist, Chat must reduce them during Bundle Design by removing redundant direct-image evidence or by keeping lower-priority material as non-delivered Project Control evidence
+- Work must never silently omit, merge, substitute, or choose among an over-limit reference set
+- a Bundle with more than five direct generation images is not executable as-is even if all binaries exact-verify successfully
+
+This rule was locked after N24 Candidate 01 Attempt 01 on 2026-10-06, when the generation interface rejected six `referenced_image_paths` before image creation.
+
 ## Validation contract
 
 Builder must fail closed unless every reference passes:
