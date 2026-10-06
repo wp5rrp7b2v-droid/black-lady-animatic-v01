@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R307",
+  "state_revision": "R308",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 SCENE REFERENCE V0.4 PO APPROVED / BUNDLE V004 DESIGN READY FOR PO REVIEW",
+  "session_status": "2026-10-06 ACTIVE / N24 BUNDLE V004 VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V004 DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "No production blocker. No N24 Candidate 02 generation authorized.",
-  "next_action": "Product Owner reviews N24_REFERENCE_DELIVERY_BUNDLE_V004 Design V0.1. If approved, create V004 validation-only spec with build_authorized=false and verify exactly 5 direct references.",
+  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V004｜WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
+  "blocker": "No technical blocker. Formal Bundle V004 build is intentionally gated behind explicit Product Owner authorization.",
+  "next_action": "Product Owner authorizes Formal N24 Bundle V004 Build + Artifact Exact Verification only. Candidate 02 generation remains a separate later authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / DIRECTOR V0.4 APPROVED / SCENE REFERENCE V0.4 APPROVED / BUNDLE V004 DESIGN WAITING PO APPROVAL",
+  "n24_status": "IN PROGRESS / DIRECTOR V0.4 APPROVED / SCENE REFERENCE V0.4 APPROVED / BUNDLE V004 VALIDATION PASS / FORMAL BUILD WAITING PO AUTHORIZATION",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4544,7 +4544,7 @@
     "scene_authority": "AST_IMG_000108 / SCENE_CASTLE_ENTRANCE_INNER_LOBBY"
   },
   "n24_reference_delivery_bundle_v004": {
-    "status": "DESIGN V0.1 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v004_design_v0_1.md",
     "target_candidate": "N24 Candidate 02",
     "direct_visual_input_count": 5,
@@ -4563,6 +4563,15 @@
     ],
     "spec_created": false,
     "formal_build_authorized": false,
-    "candidate_02_generation_authorized": false
+    "candidate_02_generation_authorized": false,
+    "spec_path": "production/bundle_specs/N24_REFERENCE_DELIVERY_BUNDLE_V004.json",
+    "spec_revision": "V004-R1",
+    "spec_commit": "7eb124e0fa939d8ce6af3f34dc26ef3b43ea71be",
+    "validation_run_id": 37437761471,
+    "validation_job_id": 112183682784,
+    "validation_conclusion": "SUCCESS",
+    "exact_reference_match": "5/5",
+    "artifact_count": 0,
+    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v004_validation_only_record_2026-10-06.md"
   }
 }
