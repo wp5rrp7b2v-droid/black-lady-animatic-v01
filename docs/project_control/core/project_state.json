@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R320",
+  "state_revision": "R321",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N25 FINAL APPROVED / EXACT BINARY LOCKED / WAITING GITHUB STAGING UPLOAD",
+  "session_status": "2026-10-06 ACTIVE / N25 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED / N26 NEXT",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25｜APPROVED CANDIDATE 03｜WAITING EXACT PNG STAGING UPLOAD",
-  "blocker": "Manual upload of the exact Product Owner-approved PNG is required before Candidate Intake Verification.",
-  "next_action": "Upload the exact approved binary as staging/story_shot_candidates/N25/N25_Candidate_03_APPROVED.png. Then run Candidate Intake Verification.",
+  "current_task": "N26｜DIRECTOR DESIGN｜NOT YET STARTED",
+  "blocker": "No production blocker.",
+  "next_action": "Start N26 Director Design for Neil's next line: 这是夫人的要求。 Preserve continuity from the now-closed N25 before authorizing any N26 Scene Reference, Bundle, or generation.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4387,7 +4387,7 @@
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "PRODUCT OWNER APPROVED / EXACT BINARY LOCKED / STAGING INGEST PENDING",
+  "n25_status": "FORMALLY CLOSED / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED",
   "n25_director_design": {
     "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
@@ -4711,7 +4711,7 @@
   },
   "n25_approved_candidate": {
     "candidate_id": "N25 Candidate 03｜Controlled Modification",
-    "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED",
+    "status": "FORMALLY CLOSED / PRODUCT OWNER APPROVED / CANONICAL / REGISTERED / VERIFIED",
     "source_file": "image(20261006-125322).png",
     "width": 941,
     "height": 1672,
@@ -4721,6 +4721,17 @@
     "git_blob": "8e523285a832496f1e316fd20737293668cf18db",
     "delivery_spec": "production/candidate_delivery_specs/N25_CANDIDATE_03_DELIVERY_V001.json",
     "target_staging_path": "staging/story_shot_candidates/N25/N25_Candidate_03_APPROVED.png",
-    "target_canonical_path": "production/image_library/approved/story_shots/N25_RAIN_DAY_RULE_NEIL_ANSWERS_WITHOUT_TURNING_APPROVED_V001.png"
-  }
+    "target_canonical_path": "production/image_library/approved/story_shots/N25_RAIN_DAY_RULE_NEIL_ANSWERS_WITHOUT_TURNING_APPROVED_V001.png",
+    "intake_run_id": 37468725212,
+    "intake_job_id": 112286298623,
+    "canonical_path": "production/image_library/approved/story_shots/N25_RAIN_DAY_RULE_NEIL_ANSWERS_WITHOUT_TURNING_APPROVED_V001.png",
+    "canonical_publication_run_id": 37469355337,
+    "canonical_publication_job_id": 112288467935,
+    "canonical_publication_commit": "968d3a93586c4a17bd7bb50c318af6f59cd88483",
+    "registration_commit": "1ba0724c84b1ba1a4bfc366b077476739ef03f82",
+    "registration_verification_run_id": 37469784688,
+    "registration_verification_job_id": 112289954976,
+    "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n25_story_shot_registration_closeout_2026-10-06.md"
+  },
+  "n26_status": "NOT YET STARTED / DIRECTOR DESIGN NEXT"
 }
