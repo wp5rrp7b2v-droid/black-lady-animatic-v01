@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R032",
-  "status": "ACTIVE / PRE-E2E UX PATCH CI PASS / LOCAL UI RETEST NEXT",
+  "state_revision": "PC-R033",
+  "status": "ACTIVE / PRE-E2E UX LOCAL PRECHECK PASS / 3 UI RETESTS NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -163,7 +163,8 @@
         "sop_blob": "b1751704fe98c866d79633fb7c2c84c9a70f8e9e",
         "story_shot_index_blob": "cc7e7116207b4cb05528c5c3d24f37516f1bcd16",
         "story_shot_count": 30
-      }
+      },
+      "pre_e2e_ux_local_diagnose": "PASS / 18 of 18 tests / 2026-10-06"
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -196,8 +197,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL SHORT UI RETEST: AUTO METADATA + OPERATOR VIEW + STALE SESSION AUTO RECOVERY",
-  "next_gate": "3 UI RETESTS PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION",
+  "current_task": "LOCAL UI RETEST 1: AUTO METADATA RESOLVE",
+  "next_gate": "AUTO METADATA PASS → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
