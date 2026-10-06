@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R026",
-  "status": "ACTIVE / EXTERNAL RECOVERY CORE PASS / RECOVERY-FIDELITY PATCH READY",
+  "state_revision": "PC-R027",
+  "status": "ACTIVE / FINAL SHORT RECOVERY-FIDELITY RETEST STARTED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "4125701b802b407962747a4b4da8bfd5c5de51d4",
-    "local_mac_regression": "MAIN_PATH_PASS / PATCH AUTOMATED_TESTS_14_OF_14_PASS / SHORT_MANUAL_RETEST_NEXT",
+    "local_mac_regression": "MAIN_PATH_PASS / DEFECT PATCH RETEST IN FINAL RECOVERY-FIDELITY CHECK",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -154,6 +154,11 @@
       "true_external_recovery_full_fidelity": "PARTIAL / FIX REQUIRED: recovered Session shows Preflight=PENDING and Design Package Summary={} because current remote qualification evidence does not preserve the original design summary / preflight audit snapshot.",
       "recovery_fidelity_patch": "PATCH READY: future qualification publication records include design_summary + preflight recovery snapshot; recovery restores them when present and explicitly labels legacy evidence as incomplete.",
       "external_recovery_no_evidence_message": "PATCHED: user-facing explanation replaces raw RuntimeError when no remote qualification evidence exists."
+    },
+    "recovery_fidelity_retest": {
+      "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
+      "drive_folder": "V11_RECOVERY_FIDELITY_RETEST_001",
+      "status": "STARTED"
     }
   },
   "scale_gate": {
@@ -164,8 +169,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHORT RETEST RECOVERY FIDELITY ON ONE NEW QUALIFICATION SESSION",
-  "next_gate": "RECOVERY FIDELITY RETEST PASS → SHORT DEFECT REGRESSION CLOSEOUT → FORMAL V1.1 E2E QUALIFICATION",
+  "current_task": "V11_RECOVERY_FIDELITY_RETEST_001 / PUBLISH SNAPSHOT → REMOVE LOCAL SESSION → EXTERNAL RECOVERY",
+  "next_gate": "RECOVERY RESTORES DESIGN PACKAGE + PREFLIGHT PASS → SHORT DEFECT REGRESSION CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
