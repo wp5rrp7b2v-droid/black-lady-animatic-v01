@@ -1,0 +1,23 @@
+{
+  "schema": "BLACK_LADY_PRODUCTION_CONSOLE_V1_0_SOURCE_BASELINE_V001",
+  "recorded_on": "2026-10-06",
+  "source_release": "V1.0_FIXED_INSTALL_FOUNDATION",
+  "source_snapshot_date": "2026-10-03",
+  "source_snapshot_note": "Verified source tree extracted from retained Fixed Install SourceSnapshot wrapper.",
+  "original_fixed_install_zip_sha256_recorded": "b43b74a1ed2dba9a8ab440f70a065a06a8261737db4354ed950b3322a4f37460",
+  "uploaded_wrapper_zip_sha256_verified": "3738f87ee30055b34677352d4e08ba449b132212081ab939614fbee937b34390",
+  "files": {
+    "README_FIRST_INSTALL.txt": "58c12fc2d188bafc25016ad05e6bdf802d8c21c1f57ed2f37b24c5127695c424",
+    "install.command": "6d755f887e031b7dfdb2ba59641b52c44935eff763f97b8c40bb4a11985915cf",
+    "app/VERSION.json": "1349fcfe2b5bfaca558fb152a0f33928d4ee991938463bb59c3d19ff1296b6e3",
+    "app/requirements.txt": "45b450c4d0e24355c2f00848fb91fa25d08f3e973cb78c51933df3e9c5ff1262",
+    "app/start.command": "b4f5f57d8e4b1a9509926a2e509067bb3d4012fe7f06662a5aa5e237d4ab10cb",
+    "app/stop.command": "5388b74d9112f659f9dceb98d089abad46f58810ce3783728b8bb0ca40a0b8df",
+    "app/diagnose.command": "d5f0f340fcab6e769f48acad8eadb6fcae44c80ca433829c1ccefbf50d373fe0",
+    "app/server.py": "4fd334ea00aee66bbc996384f3b1564f3394ce70f6399bb0f84535141d4f1f81",
+    "app/templates/index.html": "da9ca8bfd79ac9a2a362233af5c7bc563f68c47b9b9ee852c7d04256bdc31e82"
+  },
+  "verification": "9/9 SOURCE FILE HASHES MATCH RETAINED V1.0 RECORD",
+  "private_material_included": false,
+  "formal_production_change": false
+}
