@@ -149,7 +149,7 @@ function renderWorkflow(){
   el("workflow").innerHTML=STAGES.map((x,i)=>{
     const done=closed||i<idx;
     const active=!closed&&i===idx;
-    return '<div class="step '+(active?"active ":"")+(done?"done":"")+'"><span>'+(done?"✓":(i+1))+'</span>'+x+'</div>';
+    return '<div class="step '+(active?"active ":"")+(done?"done":"")+'"><span>'+(i+1)+'</span>'+x+'</div>';
   }).join("");
   el("sessionState").textContent=current?current.status:"NO SESSION";
 }
@@ -203,8 +203,9 @@ function renderEvidence(){
     return;
   }
   const p=current.preflight||{};
+  const preflightLabel=p.pass===true?"PASS":p.pass===false?"FAIL":(p.evidence_status||"PENDING");
   let html=row("Status",current.status)+row("Mode",current.mode)+
-    row("Preflight",p.pass===true?"PASS":p.pass===false?"FAIL":"PENDING",p.pass===true?"ok":p.pass===false?"bad":"warn")+
+    row("Preflight",preflightLabel,p.pass===true?"ok":p.pass===false?"bad":"warn")+
     row("Process Boundary","FORMAL WORKFLOW UNCHANGED","ok");
   if(p.checks){
     const summary=Object.values(p.checks).filter(v=>v===true).length+"/"+Object.keys(p.checks).length;
