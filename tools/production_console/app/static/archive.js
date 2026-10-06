@@ -1,0 +1,1 @@
+fetch("/api/v1/archive/phase-e").then(async r=>{const j=await r.json();if(!r.ok||j.ok===false)throw new Error(j.error||("HTTP "+r.status));document.getElementById("out").textContent=JSON.stringify(j.archive,null,2)}).catch(e=>{document.getElementById("out").textContent="Archive read failed: "+e.message});
