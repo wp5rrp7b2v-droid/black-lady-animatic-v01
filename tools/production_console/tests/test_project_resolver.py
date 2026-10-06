@@ -50,14 +50,20 @@ class ProjectResolverTests(unittest.TestCase):
         self.assertTrue(r["bundle"]["delivery_manifest_verified"])
         self.assertFalse(r["bundle"]["generation_allowed"])
 
-    def test_missing_bundle_fails_closed(self):
+    def test_current_shot_without_bundle_returns_partial_state(self):
         state = {
-            "current_task": "N25 current",
-            "n25_director_design_v0_3": {"status": "PRODUCT OWNER APPROVED / LOCKED"},
-            "n25_scene_reference_design_v0_1": {"status": "PRODUCT OWNER APPROVED / LOCKED"},
+            "current_task": "N26｜DIRECTOR DESIGN｜NOT YET STARTED",
+            "session_status": "N25 CLOSED / N26 NEXT",
         }
-        with self.assertRaises(RuntimeError):
-            resolve_from_state(state)
+        r = resolve_from_state(state)
+        self.assertEqual(r["shot_id"], "N26")
+        self.assertFalse(r["package_ready"])
+        self.assertFalse(r["generation_authorized"])
+        self.assertEqual(r["resolution_state"], "PARTIAL_CURRENT_SHOT")
+        self.assertIsNone(r["bundle"]["bundle_id"])
+        self.assertEqual(r["bundle"]["reference_count"], 0)
+        self.assertFalse(r["bundle"]["references_exact"])
+        self.assertFalse(r["bundle"]["delivery_manifest_verified"])
 
 
 if __name__ == "__main__":
