@@ -1,6 +1,6 @@
 # Black Lady Production Console｜Subproject Control
 
-Status: **ACTIVE / V1.1 DESIGN V0.1 PRODUCT OWNER APPROVED / IMPLEMENTATION NOT STARTED**
+Status: **ACTIVE / 2026-10-06 EOD SESSION CLOSED / Q3 PRE-E2E UX RETEST IN PROGRESS / CONTINUE NEXT SESSION**
 
 Parent project: 《诡舍·黑衣夫人》  
 Canonical repo: `wp5rrp7b2v-droid/black-lady-animatic-v01`  
@@ -45,8 +45,11 @@ The Console must never become a third independent truth source.
 - V1.0 Fixed Install Foundation: qualification foundation complete.
 - Phase A / B / C1 / C2 / D / E: PASS.
 - V1.1 Unified Production Workflow Design V0.1: PRODUCT OWNER APPROVED 2026-10-06.
-- V1.1 Implementation: NOT STARTED.
-- V1.1 End-to-End Qualification: NOT STARTED / REQUIRED.
+- V1.1 Core implementation + local regression: PASS.
+- Auto Metadata Resolve: PASS against exact Project Control revision.
+- Operator View one-page layout: VISUAL PASS.
+- Remaining Q3 manual checks: Operator View freshness; stale localStorage → automatic External Recovery.
+- V1.1 End-to-End Qualification (Q4): NOT STARTED / REQUIRED.
 - Production Process Change: NOT STARTED / NOT AUTHORIZED.
 - Production Scale: LOCKED.
 
@@ -66,3 +69,21 @@ This is the **Console orchestration model under qualification**, not a declarati
 ## Recovery rule
 
 When Chat context is unavailable, restore state from this directory plus the parent Project Control. Local private credentials are never committed to GitHub.
+
+
+## Next-session resume point
+
+2026-10-06 working session is closed, but the subproject remains **ACTIVE**.
+
+Next session begins with:
+
+`LOCAL SYNC VERIFICATION → OPERATOR VIEW FRESHNESS RETEST → STALE SESSION AUTO RECOVERY RETEST`
+
+If both remaining Q3 checks pass:
+
+`Q3 COMPLETE → FORMAL V1.1 END-TO-END QUALIFICATION (Q4)`
+
+Daily closeout record:
+`logs/eod_closeout_2026-10-06.md`
+
+Local sync is required at next session start because both parent `main` and `feature/production-console-v1-1` advanced during the day. Preserve local-only/private folders and credentials; never commit `BlackLadyLocalConsolePrivate/`.
