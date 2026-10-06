@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R009",
-  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / CANDIDATE EXACT PASS / UI FIXES REQUIRED",
+  "state_revision": "PC-R010",
+  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / REGISTRATION PASS / LOCK NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "b6006b67dabed5e6b43d3736d41859c5c8bd1eac",
-    "local_mac_regression": "IN_PROGRESS / DESIGN_PASS / PREFLIGHT_PASS / CANDIDATE_EXACT_PASS",
+    "local_mac_regression": "IN_PROGRESS / DESIGN_PASS / PREFLIGHT_PASS / CANDIDATE_EXACT_PASS / PO_APPROVE_PASS / PUBLICATION_PASS / REGISTRATION_PASS",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -102,10 +102,18 @@
       "remote_registration": "NONE",
       "remote_lock": "NONE",
       "remote_closeout": "NONE",
-      "current_status": "CANDIDATE_VERIFIED_PENDING_PO",
+      "current_status": "REGISTERED_PENDING_LOCK",
       "candidate_id": "CANDIDATE_01",
       "candidate_exact_binary": "PASS",
-      "review_stage": "READY"
+      "review_stage": "READY",
+      "qualification_publication_blob": "7eac3df24eca904d44c7040c77c02d605afa4c43",
+      "qualification_registration_blob": "9c46813fe9167f169556a25c201e6cb4012875ee",
+      "publication_binding_match": true,
+      "candidate_identity_consistent": true,
+      "test_paths_on_main": "ABSENT",
+      "formal_story_shot_sop_unchanged": true,
+      "story_shot_index_unchanged": true,
+      "story_shot_index_count": 29
     }
   },
   "scale_gate": {
@@ -116,8 +124,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL MAC REGRESSION / REGISTRATION + RETRY TEST",
-  "next_gate": "REGISTRATION RETRY-ONLY PASS → LOCK → CLOSEOUT",
+  "current_task": "LOCAL MAC REGRESSION / LOCK",
+  "next_gate": "LOCK PASS → CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
