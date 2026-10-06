@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R310",
+  "state_revision": "R311",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 02 PO REJECTED / CANDIDATE 03 REVISION DESIGN NEXT",
+  "session_status": "2026-10-06 ACTIVE / N24 CANDIDATE 03 PO APPROVED / EXACT BINARY VERIFIED / WAITING GITHUB STAGING INTAKE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜CANDIDATE 03 REVISION DESIGN｜INTEGRATION + DEPTH + TIGHTER DIALOGUE FRAME",
-  "blocker": "No technical blocker.",
-  "next_action": "Prepare Candidate 03 Work revision instructions based on Candidate 02: preserve Guang Yong identity, remove cutout/layer separation, tighten framing to thigh-up/three-quarter body, integrate 3–4 guests across depth, and have Guang Yong look toward camera/Neil axis.",
+  "current_task": "N24｜CANDIDATE 03｜WAITING EXACT APPROVED PNG GITHUB STAGING UPLOAD",
+  "blocker": "Approved exact PNG is still only in Chat/local file. Story Shot registration must wait until exact candidate intake passes in GitHub.",
+  "next_action": "Upload the exact approved N24 Candidate 03 PNG as staging/story_shot_candidates/N24/N24_Candidate_03_APPROVED.png. Then run/verify candidate intake, canonical exact-blob publication, Story Shot registration, registration verification, and closeout.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / CANDIDATE 02 PRODUCT OWNER REJECTED / CANDIDATE 03 REVISION REQUIRED",
+  "n24_status": "IN PROGRESS / CANDIDATE 03 PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / STAGING INGEST PENDING",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4599,5 +4599,19 @@
       "Guang Yong should look toward camera"
     ],
     "rejection_record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_02_rejection_record_2026-10-06.md"
+  },
+  "n24_candidate_03": {
+    "status": "PRODUCT OWNER APPROVED / EXACT BINARY VERIFIED / STAGING INGEST PENDING",
+    "candidate_id": "N24 Candidate 03｜Controlled Modification",
+    "dimensions": "972x1619",
+    "mode": "RGBA",
+    "byte_size": 2734305,
+    "sha256": "e6604ec6a66151bc68bbd443812a538e2cd92820b6d5a601a98e3c4b90c13f34",
+    "git_blob": "5541be10e8f679dd87df94b63d35eaa3d9482def",
+    "target_staging_path": "staging/story_shot_candidates/N24/N24_Candidate_03_APPROVED.png",
+    "target_canonical_path": "production/image_library/approved/story_shots/N24_GUANG_YONG_QUESTIONS_OPEN_DOOR_APPROVED_V001.png",
+    "approval_record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_03_approval_publication_prep_2026-10-06.md",
+    "delivery_spec": "production/candidate_delivery_specs/N24_CANDIDATE_03_DELIVERY_V001.json",
+    "dimension_exception": "PRODUCT OWNER APPROVED EXACT 972x1619 / RESIZE FORBIDDEN"
   }
 }
