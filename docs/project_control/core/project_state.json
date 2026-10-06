@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R289",
+  "state_revision": "R290",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-04 EOD CLOSED / CORE COMMON-ASSET PREBUILD COMPLETE / LEGACY SCENE V002 REFRESH COMPLETE / N24 UNSTARTED",
+  "session_status": "2026-10-06 ACTIVE / N24 DIRECTOR + SCENE REFERENCE + BUNDLE DESIGN APPROVED / BUNDLE V001 VALIDATION-ONLY PASS / FORMAL BUILD AUTHORIZATION PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "NEXT SESSION｜LOCAL SYNC VERIFICATION → N24 UNSTARTED / PRODUCT OWNER START DECISION",
+  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V001｜VALIDATION-ONLY PASS / WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
   "blocker": "No production blocker.",
-  "next_action": "At next start, verify local main == origin/main == current GitHub main. Then Product Owner chooses N24 start or optional common-asset continuation.",
+  "next_action": "Product Owner decides whether to authorize FORMAL N24_REFERENCE_DELIVERY_BUNDLE_V001 BUILD + exact Artifact verification only. Candidate 01 generation remains unauthorized.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "REMOTE MAIN ADVANCED THROUGH 2026-10-04 EOD / LOCAL FAST-FORWARD REQUIRED NEXT SESSION",
+    "status": "VERIFIED 2026-10-06 / LOCAL_HEAD == ORIGIN_MAIN == 0e050e46e793da9c77ee35c5c47ad9be5e05f735 AT START OF SESSION / REMOTE MAIN HAS SINCE ADVANCED THROUGH N24 CONTROL COMMITS",
     "rule": "Before the next local formal production session, inspect local status first. Preserve known untracked local items. If no tracked conflict exists, fast-forward pull main only. If ordinary network pull fails, use the verified git-proxy-auto recovery path. Never overwrite tracked local work mechanically.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status --short --branch && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -80,10 +80,10 @@
     ],
     "target": "LOCAL_HEAD == ORIGIN_MAIN == CURRENT_GITHUB_MAIN_HEAD",
     "verification_requirement": "Before next local formal production, verify exact SHA equality after fast-forward pull.",
-    "verified_on": "2026-10-03",
-    "verified_head": "d8198cdc9ce6d302bc94256a212d851b5a713665",
-    "verification_evidence": "User terminal: tracked tree clean except untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/; git-proxy-auto pull --ff-only origin main fast-forwarded 54c31d2..d5b2fc1; git rev-parse HEAD returned d5b2fc1d40fbe797ea878100d39ea4c49cf0093f.",
-    "note": "Local sync was last verified on 2026-10-03 before today's Dashboard repair and common-asset work. GitHub main advanced materially on 2026-10-04; re-verify local truth before local formal production."
+    "verified_on": "2026-10-06",
+    "verified_head": "0e050e46e793da9c77ee35c5c47ad9be5e05f735",
+    "verification_evidence": "User terminal on 2026-10-06: tracked tree clean except known untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/; git-proxy-auto pull --ff-only origin main returned Already up to date; git rev-parse HEAD and origin/main both returned 0e050e46e793da9c77ee35c5c47ad9be5e05f735.",
+    "note": "Start-of-day local sync gate passed. GitHub main has subsequently advanced through N24 control/spec/validation record commits in this Chat; re-sync local working copy before the next local formal operation that depends on those new commits."
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -4330,5 +4330,28 @@
       "production_scale": "LOCKED",
       "next_action": "V1.1 implementation preparation under existing production-process boundary"
     }
+  },
+  "n24_status": "IN PROGRESS / DIRECTOR V0.2 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE V001 DESIGN APPROVED / VALIDATION-ONLY 5 OF 5 PASS / FORMAL BUILD PENDING",
+  "n24_reference_delivery_bundle_v001": {
+    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD NOT YET AUTHORIZED / CANDIDATE 01 NOT AUTHORIZED",
+    "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
+    "scene_reference_design": "N24 Scene Reference Design V0.1 / PRODUCT OWNER APPROVED / LOCKED",
+    "bundle_design": "N24_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1 / PRODUCT OWNER APPROVED / LOCKED",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v001_design_v0_1.md",
+    "spec_path": "production/bundle_specs/N24_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "spec_revision": "V001-R1",
+    "spec_commit": "869fa946e571c1f6b5e721db7b61bacf62d9f0be",
+    "direct_visual_input_count": 5,
+    "validation_only": {
+      "status": "PASS / 5 OF 5 EXACT / ZERO ARTIFACT",
+      "workflow_run": 37414744147,
+      "job": 112110779356,
+      "artifact_count": 0,
+      "build_authorized": false,
+      "generation_allowed": false,
+      "record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v001_validation_only_record_2026-10-06.md"
+    },
+    "formal_build_authorized": false,
+    "candidate_01_generation_authorized": false
   }
 }
