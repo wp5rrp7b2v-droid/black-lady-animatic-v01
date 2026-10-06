@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R007",
-  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / PREFLIGHT PASS / GENERATE NEXT",
+  "state_revision": "PC-R008",
+  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / CANDIDATE EXACT PASS / UI FIXES REQUIRED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "b6006b67dabed5e6b43d3736d41859c5c8bd1eac",
-    "local_mac_regression": "IN_PROGRESS / DESIGN_PASS / PREFLIGHT_PASS",
+    "local_mac_regression": "IN_PROGRESS / DESIGN_PASS / PREFLIGHT_PASS / CANDIDATE_EXACT_PASS",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -87,7 +87,9 @@
         "References exact match"
       ],
       "e2e_blocking": true,
-      "system_status_refresh": "System panel must refresh after session/state changes; current Local Sessions count remains stale at 0 after Session creation."
+      "system_status_refresh": "System panel must refresh after session/state changes; current Local Sessions count remains stale at 0 after Session creation.",
+      "drag_drop_candidate_intake": "Drag-and-drop candidate intake failed during Local Mac Regression. File-picker upload path succeeded and exact-binary verification passed. Drag-and-drop must be fixed before formal E2E Qualification.",
+      "work_handoff_ux": "Production UX must not require Product Owner to manually download a Work Handoff JSON for every shot. Console should auto-generate and route/expose the verified handoff to Work; manual download remains optional diagnostic/export only."
     },
     "local_mac_regression_evidence": {
       "session_id": "V11_LOCAL_REGRESSION_001",
@@ -99,7 +101,10 @@
       "remote_registration": "NONE",
       "remote_lock": "NONE",
       "remote_closeout": "NONE",
-      "current_status": "AWAITING_CANDIDATE"
+      "current_status": "CANDIDATE_VERIFIED_PENDING_PO",
+      "candidate_id": "CANDIDATE_01",
+      "candidate_exact_binary": "PASS",
+      "review_stage": "READY"
     }
   },
   "scale_gate": {
@@ -110,8 +115,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL MAC REGRESSION / GENERATE + CANDIDATE INTAKE",
-  "next_gate": "CANDIDATE DRIVE EXACT VERIFICATION PASS",
+  "current_task": "LOCAL MAC REGRESSION / PO REVIEW NEXT",
+  "next_gate": "PO REVIEW BINDING → QUALIFICATION PUBLICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
