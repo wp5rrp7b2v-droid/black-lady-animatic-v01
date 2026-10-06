@@ -39,6 +39,41 @@ function showAction(message,type=""){
   box.className="action-status"+(type?" "+type:"");
   box.textContent=message;
 }
+const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function withButtonFeedback(button,labels,task){
+  const original=button?button.textContent:"";
+  try{
+    if(button){
+      button.disabled=true;
+      button.classList.remove("action-success","action-error");
+      button.classList.add("action-working");
+      button.textContent=labels.working||"Working…";
+    }
+    showAction(labels.working||"正在执行…","working");
+    const result=await task();
+    if(button){
+      button.classList.remove("action-working");
+      button.classList.add("action-success");
+      button.textContent="✓ "+(labels.success||"完成");
+    }
+    showAction((labels.success||"操作完成")+" ✓","success");
+    await pause(650);
+    return result;
+  }catch(e){
+    if(button){
+      button.classList.remove("action-working","action-success");
+      button.classList.add("action-error");
+      button.textContent="✕ "+(labels.error||"失败");
+      setTimeout(()=>{
+        button.classList.remove("action-error");
+        button.disabled=false;
+        button.textContent=original;
+      },1200);
+    }
+    showAction((labels.error||"操作失败")+" · "+e.message,"error");
+    throw e;
+  }
+}
 
 function bundle(){
   return {
@@ -181,7 +216,10 @@ function renderEvidence(){
 
 function actionButton(name,fn,cls=""){
   const b=document.createElement("button");
-  b.textContent=name;b.className=cls;b.onclick=fn;return b;
+  b.textContent=name;
+  b.className=cls;
+  b.onclick=()=>fn(b);
+  return b;
 }
 
 function renderActive(){
@@ -221,8 +259,8 @@ function renderActive(){
 
     case "CANDIDATE_VERIFIED_PENDING_PO":
       a.insertAdjacentHTML("beforeend",'<div class="stage-note">Candidate 已完成 Drive readback exact verification。PO 决策会绑定 Candidate ID + Drive File ID + SHA256。</div>');
-      add("PO Approve",()=>review("approve"),"primary");
-      add("PO Reject",()=>review("reject"),"danger"); break;
+      add("PO Approve",(b)=>review("approve",b),"primary");
+      add("PO Reject",(b)=>review("reject",b),"danger"); break;
 
     case "REJECTED":
       a.insertAdjacentHTML("beforeend",'<div class="stage-note">Rejected Candidate 保留为不可变历史；新图必须使用新的 Candidate ID。</div>');
@@ -342,15 +380,17 @@ async function refreshEvidence(){
     renderEvidence();
   }
 }
-async function approveDesign(){
+async function approveDesign(button){
   try{
-    const j=await post("/api/v1/design/approve",{session_id:sid(),bundle:bundle(),design_summary:el("designSummary").value.trim()});
+    const j=await withButtonFeedback(button,{working:"Confirming…",success:"Design Package Ready",error:"Design Gate FAIL"},
+      ()=>post("/api/v1/design/approve",{session_id:sid(),bundle:bundle(),design_summary:el("designSummary").value.trim()}));
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
-async function runPreflight(){
+async function runPreflight(button){
   try{
-    const j=await post("/api/v1/preflight",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Checking PREFLIGHT…",success:"PREFLIGHT PASS",error:"PREFLIGHT FAIL"},
+      ()=>post("/api/v1/preflight",{session_id:sid()}));
     setSession(j.session);
     await refreshEvidence();
   }catch(e){alert(e.message)}
@@ -384,40 +424,51 @@ async function upload(file){
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
-async function review(action){
+async function review(action,button){
   try{
     const reason=action==="reject"?(prompt("Reject reason（可选）","")||""):"";
-    const j=await post("/api/v1/candidate/review",{session_id:sid(),action,reason});
+    const j=await withButtonFeedback(
+      button,
+      action==="approve"
+        ? {working:"Approving…",success:"PO Approved",error:"PO Approve FAIL"}
+        : {working:"Rejecting…",success:"PO Rejected",error:"PO Reject FAIL"},
+      ()=>post("/api/v1/candidate/review",{session_id:sid(),action,reason})
+    );
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
-async function newCandidate(){
+async function newCandidate(button){
   try{
-    const j=await post("/api/v1/candidate/new",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Opening…",success:"New Candidate Ready",error:"Open Candidate FAIL"},
+      ()=>post("/api/v1/candidate/new",{session_id:sid()}));
     setSession(j.session);
   }catch(e){alert(e.message)}
 }
-async function publish(){
+async function publish(button){
   try{
-    const j=await post("/api/v1/publish",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Publishing test record…",success:"Publication Record Created",error:"Publication FAIL"},
+      ()=>post("/api/v1/publish",{session_id:sid()}));
     setSession(j.session);await refreshEvidence();
   }catch(e){alert(e.message)}
 }
-async function register(){
+async function register(button){
   try{
-    const j=await post("/api/v1/register",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Registering…",success:"Registration Complete",error:"Registration FAIL"},
+      ()=>post("/api/v1/register",{session_id:sid()}));
     setSession(j.session);await refreshEvidence();
   }catch(e){alert(e.message)}
 }
-async function lock(){
+async function lock(button){
   try{
-    const j=await post("/api/v1/lock",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Locking identity…",success:"LOCK Complete",error:"LOCK FAIL"},
+      ()=>post("/api/v1/lock",{session_id:sid()}));
     setSession(j.session);await refreshEvidence();
   }catch(e){alert(e.message)}
 }
-async function closeout(){
+async function closeout(button){
   try{
-    const j=await post("/api/v1/closeout",{session_id:sid()});
+    const j=await withButtonFeedback(button,{working:"Closing out…",success:"Closeout Complete",error:"Closeout FAIL"},
+      ()=>post("/api/v1/closeout",{session_id:sid()}));
     setSession(j.session);await refreshEvidence();
   }catch(e){alert(e.message)}
 }
