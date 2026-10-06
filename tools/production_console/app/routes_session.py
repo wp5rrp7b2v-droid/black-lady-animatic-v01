@@ -104,7 +104,7 @@ def _verified_remote_recovery(session_id: str):
     evidence = remote_evidence(session_id)
     highest = evidence.get("highest_remote_status")
     if not highest:
-        raise RuntimeError("未找到可恢复的 remote qualification evidence")
+        raise RuntimeError("无法恢复：该 Session 尚未建立 GitHub qualification evidence。请先完成 Publication，或确认 Session ID。")
 
     records = evidence["records"]
     pub_payload = records["publication"].get("payload") or {}
@@ -149,6 +149,19 @@ def _verified_remote_recovery(session_id: str):
 
     session = default_session(session_id, shot_id, "QUALIFICATION")
     session["bundle"] = pub_payload.get("bundle") or {}
+    recovery_snapshot = pub_payload.get("recovery_snapshot") or {}
+    if recovery_snapshot:
+        session["design_summary"] = recovery_snapshot.get("design_summary")
+        session["preflight"] = recovery_snapshot.get("preflight") or {}
+        session["recovery_fidelity"] = "FULL"
+    else:
+        session["design_summary"] = "Not recoverable from legacy remote evidence."
+        session["preflight"] = {
+            "pass": None,
+            "recovered": True,
+            "evidence_status": "NOT_AVAILABLE_FROM_LEGACY_REMOTE_EVIDENCE",
+        }
+        session["recovery_fidelity"] = "PARTIAL_LEGACY_EVIDENCE"
     session["candidate"] = {
         **base,
         "mime_type": base.get("mime_type") or "image/png",
