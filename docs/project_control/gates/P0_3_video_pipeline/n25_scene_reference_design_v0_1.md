@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED`
 
 Shot:
 
@@ -105,28 +105,28 @@ Hard rule:
 
 Neil's head remains aligned generally with his walking direction.
 
-## 5. Direct reference 03 — Neil BODY_BACK
+## 5. Direct reference 03 — Neil PROFILE_RIGHT
 
-`AST_IMG_000025`
+`AST_IMG_000065`
 
 Canonical path:
 
-`production/image_library/character_references/neil/CHAR_NEIL_BODY_BACK_DEFAULT_DEFAULT_V001.png`
+`production/image_library/character_references/neil/CHAR_NEIL_PROFILE_RIGHT_DEFAULT_DEFAULT_V001.png`
 
 Exact identity data:
 
-- SHA-256: `cba43e22ca16a538a197a877fea81bb5086a12caf2a8be11090aa00d6f285060`
-- bytes: `2,584,766`
-- Git blob: `484e1827cc0fdb589f665efe1adae6d3b0903a0b`
+- SHA-256: `17dff7f50b7392915db6d74f1d04b506f2de884e9069ba11f9013bbe2fce8262`
+- bytes: `1,693,697`
+- Git blob: `0a4dd1af179e9e03d4786266ab65b6bea726ecec`
 
 Purpose:
 
-- body proportion;
-- back silhouette;
-- wardrobe / coat continuity;
-- no-turn-back action protection.
+- right-side facial geometry;
+- natural side-profile mouth visibility for speech;
+- head orientation that remains forward rather than turning back;
+- identity continuity when Neil is shown in side / rear-3Q movement.
 
-This reference outranks any temptation to rotate Neil into a frontal speaking pose.
+This reference complements REAR_3Q_RIGHT: it improves readable speech without sacrificing the source rule that Neil does not turn back.
 
 ## 6. Direct reference 04 — Castle Entrance Inner Lobby
 
@@ -370,7 +370,7 @@ with exactly five direct images:
 
 1. `AST_IMG_000059`
 2. `AST_IMG_000066`
-3. `AST_IMG_000025`
+3. `AST_IMG_000065`
 4. `AST_IMG_000108`
 5. `BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q`
 
@@ -380,7 +380,7 @@ Hard cap:
 
 ## 20. Current gate
 
-`WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / NEXT: N25 REFERENCE DELIVERY BUNDLE DESIGN`
 
 Not yet authorized:
 
