@@ -6,7 +6,11 @@ Date:
 
 Status:
 
-`DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL`
+`SUPERSEDED BEFORE APPROVAL / DO NOT USE / REPLACED BY V0.4 AFTER AST_IMG_000108 REGISTRATION`
+
+Supersession note:
+
+`AST_IMG_000105` was removed from the direct-reference strategy after Product Owner identified door-reappearance risk. A new inward-looking lobby Scene Master, `AST_IMG_000108`, was then produced, approved, canonically published and registered. V0.3 is retained as historical design evidence only.
 
 Upper authority:
 
