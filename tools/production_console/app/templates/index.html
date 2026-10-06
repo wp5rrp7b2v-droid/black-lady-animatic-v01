@@ -50,21 +50,21 @@
         </div>
 
         <div class="grid">
-          <label>Session ID<input id="sessionId" placeholder="N24_UI_QA_001"></label>
-          <label>Shot ID<input id="shotId" placeholder="N24"></label>
-          <label>Bundle ID<input id="bundleId" placeholder="N24_REFERENCE_DELIVERY_BUNDLE_V001"></label>
+          <label>Session ID<input id="sessionId" placeholder="Auto-generated / enter only for recovery"></label>
+          <label>Shot ID<input id="shotId" placeholder="Auto Resolve from Project Control"></label>
+          <label>Bundle ID<input id="bundleId" placeholder="Auto Resolve from Project Control"></label>
           <label>Run ID<input id="runId" inputmode="numeric"></label>
           <label>Artifact ID<input id="artifactId" inputmode="numeric"></label>
           <label>Reference Count<input id="referenceCount" type="number" min="1"></label>
-          <label class="wide">Artifact Digest<input id="artifactDigest" placeholder="sha256:..."></label>
+          <label class="wide">Artifact Digest<input id="artifactDigest" placeholder="Auto Resolve from verified Bundle"></label>
 
           <div class="checks wide">
-            <label class="check"><input id="referencesExact" type="checkbox" checked> References Exact</label>
-            <label class="check"><input id="manifestVerified" type="checkbox" checked> delivery_manifest Verified</label>
-            <label class="check"><input id="generationAllowed" type="checkbox" checked> Generation Allowed</label>
+            <label class="check"><input id="referencesExact" type="checkbox"> References Exact</label>
+            <label class="check"><input id="manifestVerified" type="checkbox"> delivery_manifest Verified</label>
+            <label class="check"><input id="generationAllowed" type="checkbox"> Generation Allowed</label>
           </div>
 
-          <label class="wide">Design Package Summary<textarea id="designSummary" rows="4" placeholder="Approved design summary / shot function / critical boundaries"></textarea></label>
+          <label class="wide">Design Package Summary<textarea id="designSummary" rows="4" placeholder="Auto Resolve from approved Design Package"></textarea></label>
         </div>
 
         <div class="actions">
