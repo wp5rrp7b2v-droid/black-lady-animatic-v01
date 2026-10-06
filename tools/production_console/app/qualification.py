@@ -37,6 +37,10 @@ def publication_payload(session):
         "session_id": session["session_id"],
         "shot_id": session.get("shot_id"),
         "bundle": session.get("bundle") or {},
+        "recovery_snapshot": {
+            "design_summary": session.get("design_summary"),
+            "preflight": session.get("preflight") or {},
+        },
         "candidate": candidate_identity(candidate),
         "approval_binding": approval.get("binding") or {},
         "github_target": {"repo": GITHUB_REPO, "branch": QUALIFICATION_BRANCH, "path": paths["publication"]},
