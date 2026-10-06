@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N24",
+  "sequence_id": "S02-B",
+  "candidate_id": "N24 Candidate 03｜Controlled Modification",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "N24_Candidate_03_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 972,
+    "height": 1619,
+    "byte_size": 2734305,
+    "sha256": "e6604ec6a66151bc68bbd443812a538e2cd92820b6d5a601a98e3c4b90c13f34",
+    "git_blob_sha1": "5541be10e8f679dd87df94b63d35eaa3d9482def"
+  },
+  "bundle": {
+    "bundle_id": "N24_REFERENCE_DELIVERY_BUNDLE_V004",
+    "workflow_run_id": 37441781229,
+    "artifact_id": 11400539916,
+    "artifact_digest": "sha256:7df5acb788a06a80f0b4a0ad78bf15323d7d51949e8880fef9d7e2354c4cb917"
+  },
+  "edit_lineage": [
+    "CANDIDATE_02_CLEAN_REGENERATION",
+    "CANDIDATE_03_CONTROLLED_MODIFICATION_REMOVE_CUTOUT_LAYERING",
+    "CANDIDATE_03_TIGHTER_THREE_QUARTER_DIALOGUE_FRAME",
+    "CANDIDATE_03_GUANG_YONG_DIRECT_CAMERA_NEIL_AXIS_GAZE",
+    "CANDIDATE_03_MULTI_DEPTH_BACKGROUND_GUEST_INTEGRATION"
+  ],
+  "target_staging_path": "staging/story_shot_candidates/N24/N24_Candidate_03_APPROVED.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N24_GUANG_YONG_QUESTIONS_OPEN_DOOR_APPROVED_V001.png",
+  "dimension_exception": {
+    "original_preferred_target": "941x1672",
+    "approved_exact_binary": "972x1619",
+    "status": "PRODUCT_OWNER_APPROVED_EXACT_BINARY_DIMENSION_EXCEPTION",
+    "resize_forbidden": true
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
