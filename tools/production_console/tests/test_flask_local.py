@@ -42,6 +42,36 @@ class FlaskLocalTests(unittest.TestCase):
         r=self.client.post("/api/v1/session/start",json={"session_id":"BAD","shot_id":"N24","mode":"PRODUCTION"})
         self.assertEqual(r.status_code,409)
 
+    def test_design_package_resolver_endpoint(self):
+        orig = routes_session.resolve_project_design_package
+        try:
+            routes_session.resolve_project_design_package = lambda shot_id=None: {
+                "shot_id": shot_id or "N25",
+                "package_ready": True,
+                "generation_authorized": False,
+                "bundle": {
+                    "bundle_id": "N25_REFERENCE_DELIVERY_BUNDLE_V001",
+                    "run_id": 37460860156,
+                    "artifact_id": 11411667773,
+                    "artifact_digest": "sha256:abc",
+                    "reference_count": 5,
+                    "references_exact": True,
+                    "delivery_manifest_verified": True,
+                    "generation_allowed": False,
+                },
+                "design_package": {},
+                "project_control": {"next_action": "WAITING PO"},
+                "source": {"project_state_path": "project_state.json"},
+            }
+            resp = self.client.get("/api/v1/design-package/resolve?shot_id=N25")
+            self.assertEqual(resp.status_code, 200)
+            data = resp.get_json()["resolved"]
+            self.assertEqual(data["shot_id"], "N25")
+            self.assertTrue(data["package_ready"])
+            self.assertFalse(data["bundle"]["generation_allowed"])
+        finally:
+            routes_session.resolve_project_design_package = orig
+
     def test_candidate_upload_lock(self):
         lock = acquire_candidate_lock("LOCK_QA", "CANDIDATE_01")
         try:
