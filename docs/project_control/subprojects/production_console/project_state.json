@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R019",
-  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / UI PATCH VISUAL PASS",
+  "state_revision": "PC-R020",
+  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / TRUE EXTERNAL RECOVERY PRECONDITION CONFIRMED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -94,7 +94,8 @@
       "candidate_upload_idempotency": "Local Mac Regression produced two Drive files with the same Candidate filename/size during one Candidate intake interaction. Candidate upload must be idempotent and concurrency-safe: one Session + Candidate ID may create at most one Drive binary; duplicate/double requests must return the already-bound Candidate or fail closed without creating another file.",
       "true_external_recovery": "Current UI auto-loads the last Session from browser localStorage and disables Session ID once loaded. Current Reconcile External Evidence endpoint still requires an existing local Session file. This proves restart persistence + external cross-check, but not recovery from loss of local Session state. Before formal E2E, add a Recover Session from External Evidence flow that can start from Session ID / remote qualification evidence and reconstruct the local Session from GitHub qualification records + Drive binary without relying on prior local JSON.",
       "reconcile_feedback": "PATCHED on feature/production-console-v1-1: Reconcile now shows working/success/failure feedback and refreshes Evidence/System.",
-      "local_time_display": "PATCHED on feature/production-console-v1-1: backend audit timestamps remain UTC; UI history renders in browser local timezone."
+      "local_time_display": "PATCHED on feature/production-console-v1-1: backend audit timestamps remain UTC; UI history renders in browser local timezone.",
+      "stale_localstorage_autoload": "When browser localStorage remembers a Session whose local JSON no longer exists, startup auto-load currently shows 'Session 不存在'. Production UX should suppress the modal and offer/trigger External Recovery instead."
     },
     "local_mac_regression_evidence": {
       "session_id": "V11_LOCAL_REGRESSION_001",
@@ -141,7 +142,8 @@
       "system_status_refresh": "PASS",
       "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38",
       "automated_local_tests": "14/14 PASS",
-      "external_recovery_entry": "VISUAL PASS"
+      "external_recovery_entry": "VISUAL PASS",
+      "true_external_recovery_precondition": "PASS / local Session intentionally absent"
     }
   },
   "scale_gate": {
@@ -152,8 +154,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHORT MANUAL RETEST: DRAG_DROP + UPLOAD IDEMPOTENCY + TRUE EXTERNAL RECOVERY",
-  "next_gate": "3 MANUAL DEFECT RETESTS PASS → FORMAL V1.1 E2E QUALIFICATION",
+  "current_task": "TRUE EXTERNAL RECOVERY MANUAL RETEST",
+  "next_gate": "RECOVER FROM EXTERNAL EVIDENCE PASS → SHORT DEFECT REGRESSION CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
