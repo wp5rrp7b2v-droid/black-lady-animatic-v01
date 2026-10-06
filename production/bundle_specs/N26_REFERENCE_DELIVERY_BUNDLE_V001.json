@@ -6,7 +6,7 @@
   "target_candidate": "N26 Candidate 01",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "rule": "DIRECT_VISUAL_INPUT_COUNT_MUST_BE_LESS_THAN_OR_EQUAL_TO_5",
@@ -157,5 +157,12 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-R1"
+  "spec_revision": "V001-R2",
+  "formal_build_authorization": {
+    "status": "PRODUCT_OWNER_AUTHORIZED",
+    "date": "2026-10-06",
+    "scope": "FORMAL BUNDLE V001 BUILD + ARTIFACT EXACT VERIFICATION ONLY",
+    "candidate_01_generation_authorized": false,
+    "record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v001_formal_build_authorization_2026-10-06.md"
+  }
 }
