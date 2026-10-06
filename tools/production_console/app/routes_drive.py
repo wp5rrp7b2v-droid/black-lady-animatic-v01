@@ -2,6 +2,7 @@ import json
 import os
 import secrets
 import traceback
+
 from flask import Blueprint, request, redirect, session
 from google_auth_oauthlib.flow import Flow
 
@@ -12,16 +13,24 @@ from drive_service import exact_upload, resolve_picker_selection
 
 bp = Blueprint("drive_routes", __name__)
 
+
 @bp.get("/connect")
 def connect():
     if not CREDENTIALS.exists():
         return fail(f"OAuth credentials 缺失: {CREDENTIALS}", 404)
     code_verifier = secrets.token_urlsafe(64)
-    flow = Flow.from_client_secrets_file(str(CREDENTIALS), scopes=SCOPES, code_verifier=code_verifier)
+    flow = Flow.from_client_secrets_file(
+        str(CREDENTIALS),
+        scopes=SCOPES,
+        code_verifier=code_verifier,
+    )
     flow.redirect_uri = f"http://{HOST}:{PORT}/oauth2callback"
     authorization_url, state = flow.authorization_url(
-        access_type="offline", prompt="consent", include_granted_scopes="false",
-        trigger_onepick="true", allow_folder_selection="true",
+        access_type="offline",
+        prompt="consent",
+        include_granted_scopes="false",
+        trigger_onepick="true",
+        allow_folder_selection="true",
     )
     session["oauth_state"] = state
     session["oauth_code_verifier"] = code_verifier
@@ -43,7 +52,12 @@ def oauth2callback():
     if not code or not code_verifier:
         return fail("OAuth callback 缺少 authorization code 或 PKCE verifier", 400)
     try:
-        flow = Flow.from_client_secrets_file(str(CREDENTIALS), scopes=SCOPES, state=state, code_verifier=code_verifier)
+        flow = Flow.from_client_secrets_file(
+            str(CREDENTIALS),
+            scopes=SCOPES,
+            state=state,
+            code_verifier=code_verifier,
+        )
         flow.redirect_uri = f"http://{HOST}:{PORT}/oauth2callback"
         os.environ.setdefault("OAUTHLIB_INSECURE_TRANSPORT", "1")
         flow.fetch_token(code=code)
@@ -53,14 +67,15 @@ def oauth2callback():
         write_json(BINDING, {
             "folder_id": folder_meta["id"],
             "folder_name": folder_meta.get("name"),
-            "folder_url": folder_meta.get("webViewLink") or f"https://drive.google.com/drive/folders/{folder_meta['id']}",
+            "folder_url": folder_meta.get("webViewLink")
+                or f"https://drive.google.com/drive/folders/{folder_meta['id']}",
             **resolution,
         })
-        session.pop("oauth_state", None); session.pop("oauth_code_verifier", None)
+        session.pop("oauth_state", None)
+        session.pop("oauth_code_verifier", None)
         return redirect("/?connected=1")
     except Exception as e:
         traceback.print_exc()
-        return fail(f"Drive verify upload failed: {type(e).__name__}: {e}", 500)
         return fail(f"OAuth callback failed: {type(e).__name__}: {e}", 500)
 
 
@@ -75,7 +90,15 @@ def drive_verify_upload():
     if len(raw) > 50 * 1024 * 1024:
         return fail("测试限制为 50 MB 以下", 400)
     try:
-        result = exact_upload(f.filename or "candidate.png", f.mimetype or "application/octet-stream", raw)
-        return ok(result=result, production_writes={"github":0,"project_control":0,"formal_story_shots":0})
+        result = exact_upload(
+            f.filename or "candidate.png",
+            f.mimetype or "application/octet-stream",
+            raw,
+        )
+        return ok(
+            result=result,
+            production_writes={"github": 0, "project_control": 0, "formal_story_shots": 0},
+        )
     except Exception as e:
         traceback.print_exc()
+        return fail(f"Drive verify upload failed: {type(e).__name__}: {e}", 500)
