@@ -3,8 +3,8 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R288",
-  "last_updated": "2026-10-04",
+  "state_revision": "R289",
+  "last_updated": "2026-10-06",
   "session_status": "2026-10-04 EOD CLOSED / CORE COMMON-ASSET PREBUILD COMPLETE / LEGACY SCENE V002 REFRESH COMPLETE / N24 UNSTARTED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
@@ -4315,5 +4315,20 @@
     "p0_3_status": "IN PROGRESS / NOT YET VALIDATED",
     "story_shot_resume": "N24 / UNSTARTED / PRODUCT OWNER START DECISION",
     "local_sync": "REQUIRED NEXT SESSION"
+  },
+  "subprojects": {
+    "production_console": {
+      "subproject_id": "BLACK_LADY_PRODUCTION_CONSOLE",
+      "name": "Black Lady Local Production Console",
+      "root": "docs/project_control/subprojects/production_console/",
+      "status": "ACTIVE / V1.1 DESIGN V0.1 PRODUCT OWNER APPROVED / IMPLEMENTATION NOT STARTED",
+      "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
+      "v1_1_design": "PRODUCT_OWNER_APPROVED_2026-10-06",
+      "v1_1_implementation": "NOT_STARTED",
+      "v1_1_e2e_qualification": "NOT_STARTED_REQUIRED",
+      "production_process_change": "NOT_STARTED_NOT_AUTHORIZED",
+      "production_scale": "LOCKED",
+      "next_action": "V1.1 implementation preparation under existing production-process boundary"
+    }
   }
 }
