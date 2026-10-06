@@ -9,7 +9,7 @@ Status: **ACTIVE**
 | Q0 | V1.0 Fixed Install Foundation retained and recoverable | PASS | Allows V1.1 design |
 | Q1 | Phase A / B / C1 / C2 / D / E qualification evidence | PASS | Allows V1.1 design |
 | Q2 | V1.1 Unified Workflow Design V0.1 Product Owner approval | PASS / 2026-10-06 | Allows implementation |
-| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | CORE + LOCAL REGRESSION PASS / FINAL PRE-E2E UX RETEST PENDING | Blocks E2E until UX retest PASS |
+| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | ACTIVE / CORE + LOCAL REGRESSION PASS / 2 MANUAL PRE-E2E UX RETESTS REMAIN | Blocks E2E until both retests PASS |
 | Q4 | V1.1 End-to-End qualification | NOT STARTED / REQUIRED | Blocks production adoption |
 | Q5 | Separate Process Change / Production Adoption decision | NOT AUTHORIZED | Production scale locked |
 
@@ -58,3 +58,23 @@ A separate Product Owner-approved Process Change / Production Adoption phase is 
 - changing publication or registration SOP;
 - changing Project Control closeout behavior;
 - scaling the Console to routine formal production.
+
+
+## 2026-10-06 EOD status
+
+This is a **daily session closeout only**. The Production Console subproject remains **ACTIVE**.
+
+Verified:
+- Auto Metadata Resolve: PASS against exact Project Control revision.
+- Operator View one-page layout: VISUAL PASS.
+- Operator View freshness patch: implemented and CI PASS.
+- True External Recovery and recovery fidelity: PASS from prior local regression.
+
+Manual retests remaining before Q3 completion:
+1. Operator View freshness behavior.
+2. Stale browser localStorage + missing local Session JSON → automatic External Recovery.
+
+Tomorrow resume:
+`LOCAL SYNC VERIFICATION → OPERATOR VIEW FRESHNESS RETEST → STALE SESSION AUTO RECOVERY RETEST`
+
+Q4 remains **NOT STARTED**. Production Adoption remains **LOCKED**.
