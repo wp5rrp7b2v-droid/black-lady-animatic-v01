@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R316",
+  "state_revision": "R317",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N25 SCENE REFERENCE V0.1 PRODUCT OWNER APPROVED / LOCKED / BUNDLE DESIGN NEXT",
+  "session_status": "2026-10-06 ACTIVE / N25 BUNDLE V001 DESIGN V0.1 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N25｜REFERENCE DELIVERY BUNDLE V001 DESIGN｜NEXT GATE",
-  "blocker": "No production blocker.",
-  "next_action": "Create N25_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1 using exactly five direct references: AST_IMG_000059, AST_IMG_000066, AST_IMG_000065, AST_IMG_000108, and Generic Guest REAR_3Q.",
+  "current_task": "N25_REFERENCE_DELIVERY_BUNDLE_V001｜DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
+  "blocker": "No production blocker. Bundle Spec / validation-only remain gated behind Product Owner approval of Bundle Design V0.1.",
+  "next_action": "Product Owner reviews N25_REFERENCE_DELIVERY_BUNDLE_V001 Design V0.1. If approved, create the Bundle Spec with build_authorized=false and run validation-only exact verification.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4387,7 +4387,7 @@
     "N27"
   ],
   "s02_b_shot_map_patch_02": "docs/project_control/gates/P0_3_video_pipeline/s02_b_director_shot_design_v0_3_review_patch_02_n24_cancellation_2026-10-06.md",
-  "n25_status": "IN PROGRESS / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE DESIGN NEXT",
+  "n25_status": "IN PROGRESS / DIRECTOR V0.3 APPROVED / SCENE REFERENCE V0.1 APPROVED / BUNDLE V001 DESIGN V0.1 WAITING PRODUCT OWNER APPROVAL",
   "n25_director_design": {
     "status": "HOLD / DO NOT APPROVE AS-IS / ASSUMED CANCELLED N24",
     "path": "docs/project_control/gates/P0_3_video_pipeline/n25_node_level_director_shot_design_v0_1.md",
@@ -4668,5 +4668,24 @@
     "removed_reference": "AST_IMG_000025｜BODY_BACK",
     "replacement_reference": "AST_IMG_000065｜PROFILE_RIGHT",
     "rationale": "PROFILE_RIGHT adds readable side-face / mouth continuity for speech while REAR_3Q_RIGHT already protects no-turn-back body orientation."
+  },
+  "n25_reference_delivery_bundle_v001": {
+    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "design_path": "docs/project_control/gates/P0_3_video_pipeline/n25_reference_delivery_bundle_v001_design_v0_1.md",
+    "target_candidate": "N25 Candidate 01｜Clean Regeneration",
+    "direct_image_count": 5,
+    "direct_images": [
+      "AST_IMG_000059",
+      "AST_IMG_000066",
+      "AST_IMG_000065",
+      "AST_IMG_000108",
+      "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
+    ],
+    "non_delivered_continuity_evidence": [
+      "A06｜门不关",
+      "N24｜Guang Yong Questions the Open Door"
+    ],
+    "build_authorized": false,
+    "candidate_01_generation_authorized": false
   }
 }
