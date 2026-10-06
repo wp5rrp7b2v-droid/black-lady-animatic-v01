@@ -150,7 +150,6 @@ function setView(mode){
   el("diagnosticViewBtn").classList.toggle("active-view",currentView==="diagnostics");
   setLockedInputs();
   renderOperatorSummary();
-  if(currentView==="operator"&&!current&&!resolvedPackage) resolveProjectMetadata("",true);
 }
 function renderOperatorSummary(){
   const box=el("operatorSummaryBody");
@@ -256,7 +255,7 @@ function resetWorkspace(){
   el("generationAllowed").checked=true;
   setLockedInputs();
   render();
-  if(currentView==="operator") resolveProjectMetadata("",true);
+  showAction("New Session workspace ready · 尚未创建或自动解析 Session","success");
 }
 
 function renderWorkflow(){
@@ -620,4 +619,3 @@ setView(currentView);
 refreshSystem();
 render();
 if(saved) load(true);
-else if(currentView==="operator") resolveProjectMetadata("",true);
