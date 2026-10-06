@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R044",
-  "status": "ACTIVE / PRE-E2E UX RETEST / OPERATOR VIEW LAYOUT PASS / FRESHNESS PATCH IN VALIDATION",
+  "state_revision": "PC-R045",
+  "status": "EOD SESSION CLOSED / SUBPROJECT ACTIVE / Q3 PRE-E2E UX RETEST IN PROGRESS / RESUME NEXT SESSION",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "1ab7836274e04e8a2401f432ef985dbb3044e942",
-    "local_mac_regression": "MAIN 8-STEP PATH PASS / DEFECT SHORT-REGRESSION PASS / PRE-E2E UX COMPLETION REQUIRED",
+    "local_mac_regression": "MAIN PATH PASS / DEFECT SHORT REGRESSION PASS / TWO PRE-E2E MANUAL UI RETESTS REMAIN",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -208,26 +208,50 @@
       "recovered_candidate_identity_match": true
     },
     "pre_e2e_blockers_remaining": {
-      "production_metadata_autoresolve": "PATCH READY / RETEST REQUIRED",
-      "production_one_page_mode": "PATCH READY / RETEST REQUIRED",
-      "stale_localstorage_recovery_handoff": "PATCH READY / RETEST REQUIRED"
+      "operator_view_freshness": "PATCH IMPLEMENTED / CI PASS / LOCAL MANUAL RETEST PENDING",
+      "stale_localstorage_recovery_handoff": "PATCH IMPLEMENTED / LOCAL MANUAL RETEST PENDING"
     },
     "validation_policy": {
       "state_claims": "From PC-R037 onward, UI screenshot alone is insufficient for non-visual PASS claims. Use UI screenshot only for visual behavior; use GitHub/Drive/backend evidence for persisted state, identity, publication, registration, lock, closeout and recovery claims.",
       "historical_note": "Prior critical workflow PASS claims that were independently checked against GitHub qualification records / Story Shot safety state remain evidence-backed. UI-only judgments are treated as visual/partial unless separately verified.",
       "live_project_control": "Validate Auto Resolve against the exact Project State blob and main commit returned by the resolver, because main may advance concurrently."
+    },
+    "eod_2026_10_06": {
+      "status": "SESSION CLOSED / SUBPROJECT ACTIVE",
+      "closeout_record": "docs/project_control/subprojects/production_console/logs/eod_closeout_2026-10-06.md",
+      "auto_metadata_resolve": "PASS",
+      "operator_view_layout": "VISUAL PASS",
+      "operator_view_freshness": "PATCH IMPLEMENTED / CI PASS / MANUAL RETEST PENDING",
+      "stale_session_auto_recovery": "MANUAL RETEST PENDING",
+      "q3": "ACTIVE / NOT COMPLETE",
+      "q4": "NOT STARTED",
+      "production_adoption": "LOCKED",
+      "local_sync_next_session": "REQUIRED",
+      "parent_project_snapshot": {
+        "state_revision": "R332",
+        "project_state_blob": "ba09e0bd3e806b7825e15541875664794fa87831",
+        "main_head": "f917671177173fbb0f2a2e1fc8bdf71f4ea59c75",
+        "note": "EOD snapshot only; next session must use then-current origin/main."
+      },
+      "engineering_snapshot": {
+        "branch": "feature/production-console-v1-1",
+        "head": "1ab7836274e04e8a2401f432ef985dbb3044e942",
+        "ci_run": 37476340081,
+        "ci_result": "SUCCESS"
+      }
     }
   },
   "scale_gate": {
     "v1_0_foundation": "PASS",
     "v1_1_design": "PASS / PO APPROVED",
-    "v1_1_implementation": "CORE FLOW PASS / PRE-E2E UX PATCH READY",
-    "v1_1_e2e": "NOT STARTED / BLOCKED UNTIL SHORT UX RETEST PASS",
+    "v1_1_implementation": "CORE FLOW PASS / Q3 ACTIVE / TWO MANUAL PRE-E2E UX RETESTS REMAIN",
+    "v1_1_e2e": "NOT STARTED / BLOCKED UNTIL Q3 COMPLETE",
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "WAIT FOR CI → LOCAL RETEST OPERATOR VIEW FRESHNESS",
-  "next_gate": "OPERATOR VIEW FRESHNESS PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
+  "current_task": "NEXT SESSION｜LOCAL SYNC VERIFICATION → OPERATOR VIEW FRESHNESS RETEST → STALE SESSION AUTO RECOVERY RETEST",
+  "next_gate": "TWO REMAINING UI RETESTS PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION (Q4)",
   "blockers": [],
-  "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
+  "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
+  "session_status": "2026-10-06 EOD CLOSED / SUBPROJECT REMAINS ACTIVE"
 }
