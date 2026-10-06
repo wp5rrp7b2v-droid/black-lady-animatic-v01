@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R330",
+  "state_revision": "R331",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N26 BUNDLE V002 DESIGN V0.1 COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+  "session_status": "2026-10-06 ACTIVE / N26 BUNDLE V002 VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PO AUTHORIZATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N26_REFERENCE_DELIVERY_BUNDLE_V002｜DESIGN V0.1｜WAITING PRODUCT OWNER APPROVAL",
-  "blocker": "No production blocker. Validation-only remains gated behind Product Owner approval of N26 Bundle V002 Design V0.1.",
-  "next_action": "Product Owner reviews N26_REFERENCE_DELIVERY_BUNDLE_V002 Design V0.1. If approved, create V002 validation-only spec with build_authorized=false.",
+  "current_task": "N26_REFERENCE_DELIVERY_BUNDLE_V002｜WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
+  "blocker": "No technical blocker. Formal Build + Artifact Exact Verification require explicit Product Owner authorization before an executable Work instruction can be issued.",
+  "next_action": "Product Owner authorizes Formal N26 Bundle V002 Build + Artifact Exact Verification. Candidate 02 Work execution remains a separate later authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4733,7 +4733,7 @@
     "registration_verification_job_id": 112289954976,
     "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n25_story_shot_registration_closeout_2026-10-06.md"
   },
-  "n26_status": "IN PROGRESS / CANDIDATE 01 REJECTED / IDENTITY RESCUE V0.2 APPROVED / BUNDLE V002 DESIGN V0.1 WAITING PRODUCT OWNER APPROVAL",
+  "n26_status": "IN PROGRESS / CANDIDATE 01 REJECTED / BUNDLE V002 VALIDATION-ONLY PASS / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
   "n27_status": "ABSORBED INTO N26 / NO SEPARATE PRODUCTION NODE",
   "n26_n27_merge": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -4825,7 +4825,7 @@
     "candidate_target": "N26 Candidate 02｜Clean Regeneration / Identity Rescue"
   },
   "n26_reference_delivery_bundle_v002": {
-    "status": "DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL",
+    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD WAITING PRODUCT OWNER AUTHORIZATION",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_design_v0_1.md",
     "target_candidate": "N26 Candidate 02｜Clean Regeneration / Identity Rescue",
     "direct_image_count": 5,
@@ -4841,6 +4841,13 @@
       "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
     ],
     "build_authorized": false,
-    "candidate_02_generation_authorized": false
+    "candidate_02_generation_authorized": false,
+    "spec_revision": "V002-R1",
+    "spec_commit": "42deba84597ea3232c6031f2edaf97b63fcc46e0",
+    "validation_run_id": 37482836980,
+    "validation_job_id": 112335178717,
+    "validation_result": "5/5 EXACT PASS",
+    "artifact_count": 0,
+    "validation_record": "docs/project_control/gates/P0_3_video_pipeline/n26_reference_delivery_bundle_v002_validation_only_record_2026-10-06.md"
   }
 }
