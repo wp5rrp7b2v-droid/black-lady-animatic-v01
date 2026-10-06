@@ -4,11 +4,12 @@
   "date": "2026-10-06",
   "subproject": "BLACK_LADY_PRODUCTION_CONSOLE",
   "design": "V1.1_UNIFIED_WORKFLOW_DESIGN_V0.1_PO_APPROVED",
-  "implementation": "UI_SERVICE_INTEGRATION_COMPLETE",
+  "implementation": "LOCAL_REGRESSION_DEFECT_PATCH_READY",
   "qualification_mode": "QUALIFICATION_ONLY",
-  "e2e": "NOT_STARTED_REQUIRED",
+  "e2e": "BLOCKED_PENDING_SHORT_REGRESSION_RETEST",
   "production_process_change": "NOT_AUTHORIZED",
   "formal_story_shot_workflow": "UNCHANGED",
   "implementation_completed_on": "2026-10-06",
-  "local_mac_regression": "NEXT_REQUIRED"
+  "local_mac_regression": "MAIN_PATH_PASS / DEFECT_PATCH_RETEST_REQUIRED",
+  "patch_head": "b8d6bb69a01368ed0d45483472dd9fa70dcc2537"
 }
