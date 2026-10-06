@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN DRAFT / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED`
 
 Supersedes for future N24 generation:
 
@@ -20,7 +20,7 @@ Sequence remains:
 
 `N23 → A06 → N24 → N25 → N26 → N27`
 
-## 1. Narrative function unchanged
+## 1. Narrative function
 
 `SPEAKER IDENTIFICATION + QUESTION PROMPT`
 
@@ -32,171 +32,229 @@ Speaker:
 
 `GUANG_YONG`
 
-## 2. Core correction
+## 2. Locked scene logic
 
-Do NOT design Guang Yong as turning back toward the entrance while asking.
+After the group has entered, they briefly stop and wait for Neil to lead them onward.
 
-A06 already showed the open door.
+Neil has not yet moved to the front of the group.
 
-N24 should show:
+Neil remains on the entrance side / behind the group.
 
-`GUANG YONG CONTINUES INWARD AND TURNS TOWARD NEIL AHEAD / SIDE-AHEAD TO ASK HIM`
+Therefore N24 is NOT a moving-dialogue shot.
 
-The door can remain fully off-screen.
+N24 is:
 
-The audience remembers the open door from A06; N24 only needs the character question.
+`GUANG YONG STOPS WITH THE GROUP, FACES THE ENTRANCE-SIDE NEIL, AND ASKS THE QUESTION.`
 
-## 3. New first-read hierarchy
+## 3. First-read hierarchy
 
 First read:
 
-`GUANG YONG IS ASKING NEIL`
+`GUANG YONG IS SPEAKING`
 
 Second read:
 
-`BOTH ARE STILL MOVING INWARD`
+`THE GROUP HAS PAUSED BEHIND HIM AND IS WAITING`
 
 Third read:
 
-`THE QUESTION REFERS BACK TO THE OPEN DOOR ESTABLISHED IN A06`
+`HE IS ADDRESSING NEIL ON THE ENTRANCE SIDE`
 
-Do NOT require the open door to be visible.
+The door itself does not need to be shown prominently.
 
-## 4. Blocking
+## 4. Camera and composition
 
-Preferred staging:
+Target:
 
-- Guang Yong = left-center / center foreground or near-midground;
-- Neil = right-forward / center-forward midground;
-- Guang Yong body remains aligned with inward movement;
-- Guang Yong head / shoulders turn approximately 30–45 degrees toward Neil, not toward camera and not toward the doorway;
-- Neil remains slightly ahead and continues walking;
-- Neil does not turn around;
-- 1–3 other guests may appear only as weak moving context.
+`9:16 VERTICAL`
 
-The shot should read as a moving conversation within the flow, not a backward-look insert.
+Preferred framing:
 
-## 5. Camera
+`MEDIUM / MEDIUM-CLOSE`
 
-Preferred:
+Camera faces Guang Yong from the entrance / Neil side.
 
-`MEDIUM / MEDIUM-CLOSE REAR-3Q TWO-PLANE COMPOSITION`
+Guang Yong:
 
-Camera follows from behind-left or behind-side.
+- foreground or near-midground;
+- first visual subject;
+- frontal or slight 3Q toward camera / Neil side;
+- naturally stopped;
+- speaking;
+- not walking;
+- not looking back toward camera from a rear view.
 
-Avoid:
+Other guests:
 
-- full-height two-person staging dominating the frame;
-- frontal face portrait;
-- doorway as compositional anchor;
-- bright exterior strip;
-- symmetrical pair composition.
+- dispersed behind Guang Yong;
+- secondary;
+- naturally staggered;
+- some may be partial / occluded;
+- their distribution should communicate that the group has already entered and paused;
+- no lineup / queue.
+
+Neil:
+
+- located on the entrance-side line of action;
+- may be weakly visible at frame edge / side / deeper entrance-side plane if composition supports it;
+- must not dominate the frame;
+- must not be shown already leading from the front;
+- must not answer yet.
+
+## 5. Door / entrance direction
+
+A06 already owns:
+
+`THE CASTLE DOOR REMAINS OPEN`
+
+N24 should NOT repeat A06.
+
+Preferred treatment:
+
+`DOOR POSITION IMPLIED BY LIGHT + SPATIAL ORIENTATION`
+
+Use:
+
+- restrained entrance-side light;
+- light direction falling from the entrance side;
+- background figure orientation;
+- spatial opening / tonal gradient.
+
+Do NOT require a large visible door.
+
+Do NOT allow bright exterior daylight to dominate.
 
 ## 6. Guang Yong identity protection
 
-Identity preservation becomes a higher priority than crowd completeness.
+Identity preservation is a top priority.
 
 Required:
 
-- short male body proportion;
+- recognizably Guang Yong;
+- short male proportion;
 - naturally slightly chubby;
-- locked face structure / hair / age / wardrobe family;
-- no taller, broader, more athletic reinterpretation;
-- no generic middle-aged-man substitution.
+- locked face structure;
+- locked hair;
+- locked age impression;
+- locked wardrobe family;
+- ordinary / practical / grounded;
+- not comic;
+- not heroic;
+- not tactical;
+- not generic middle-aged-man substitution.
 
-For the next Bundle, use stronger Guang Yong identity evidence, potentially more than one Guang Yong reference while keeping the Work direct-image cap at <=5.
+The next Bundle should allocate more of the five direct-image slots to Guang Yong identity.
 
-## 7. Neil
+## 7. Crowd state
 
-Neil is a secondary addressed target.
-
-Required:
-
-- recognizably Neil;
-- forward / rear / rear-3Q;
-- slightly ahead of Guang Yong;
-- walking;
-- no turn-back;
-- no answering mouth / gesture;
-- no visual dominance over Guang Yong.
-
-## 8. Door / A06 relationship
-
-A06 owns:
-
-`THE DOOR IS STILL OPEN`
-
-N24 does NOT need any direct doorway visibility.
+The group is paused, not marching.
 
 Preferred:
 
-`DOOR OFF-SCREEN`
+- 2–4 secondary guests behind Guang Yong;
+- dispersed;
+- irregular spacing;
+- relaxed stopped body language;
+- some turned toward the entrance / Neil side;
+- no synchronized pose;
+- no formal audience semicircle.
 
-This prevents visual repetition and keeps the question connected by editorial memory rather than by literal duplication.
+The crowd exists to prove:
+
+`THEY HAVE ENTERED AND ARE WAITING FOR NEIL TO LEAD.`
+
+## 8. Neil state
+
+Neil remains behind / entrance-side relative to the group.
+
+Required:
+
+- not at the head of the group;
+- not already walking away;
+- not answering;
+- not gesturing;
+- not turning N25 into this shot.
+
+N25 begins only after Guang Yong's question.
 
 ## 9. Space
 
-Remain in the short interior transition after Castle Entrance.
+Remain within:
 
-The background should be subordinate.
+`CASTLE_ENTRANCE / IMMEDIATE INTERIOR HOLDING AREA`
 
-Do not create a new hall-establishment beat.
+Do not establish:
 
-No First Hall.
+- First Hall;
+- fireplace;
+- deep corridor;
+- new major room.
 
-No fireplace.
+The background must remain subordinate to Guang Yong.
 
-No strong exterior daylight.
+## 10. Light / tone
 
-## 10. Crowd
+Continue S02-B visual family:
 
-Only enough people to prove continuous movement.
-
-Preferred:
-
-- 1–3 weak secondary guests;
-- partial figures / backs / occlusion acceptable;
-- no need for crowd-reference dominance.
-
-Identity of Guang Yong is more important than complete crowd styling.
+- warm low-key interior;
+- restrained amber / tungsten;
+- entrance-side light used only to indicate spatial direction;
+- natural skin;
+- textured blacks;
+- restrained saturation;
+- clarity without increased exposure;
+- no dirty noise;
+- no cutout / pasted edges.
 
 ## 11. Hard fail
 
-- Guang Yong looks toward camera rather than Neil.
-- Guang Yong looks primarily back at the door while speaking.
-- Guang Yong identity drifts.
-- Guang Yong appears tall / athletic / generic.
-- Neil becomes equal or stronger visual subject.
-- doorway / exterior light dominates.
-- image repeats A06.
-- static two-person posed dialogue.
-- First Hall reveal.
-- bag / luggage.
-- queue / equal spacing / synchronized gait.
-- bright / glossy / clean-luxury staging that breaks S02-B low-key mood.
+Automatic FAIL if:
 
-## 12. PASS
+- Guang Yong identity drifts;
+- Guang Yong is not the first subject;
+- Guang Yong is shown walking;
+- Guang Yong reads as looking at camera rather than addressing entrance-side Neil;
+- Neil is shown leading from the front;
+- Neil becomes equal or stronger visual subject;
+- door / exterior becomes primary;
+- image repeats A06;
+- group appears to be marching / queuing;
+- group becomes a formal audience arrangement;
+- First Hall / fireplace appears;
+- backpack / shoulder bag / crossbody bag / luggage;
+- bright studio-like lighting;
+- dirty / noisy / pasted-on rendering.
+
+## 12. PASS definition
 
 The frame should read immediately as:
 
-`THE GROUP IS CONTINUING INWARD. GUANG YONG, STILL WALKING, TURNS TOWARD NEIL AHEAD AND ASKS HIM ABOUT THE DOOR THAT WAS JUST SHOWN OPEN IN A06.`
+`THE GROUP HAS ENTERED AND PAUSED. GUANG YONG, FACING THE ENTRANCE-SIDE NEIL, ASKS ABOUT THE DOOR. THE DOOR'S LOCATION IS IMPLIED MAINLY BY LIGHT AND SPATIAL DIRECTION, WHILE THE OTHER GUESTS REMAIN DISPERSED BEHIND GUANG YONG.`
 
 ## 13. Bundle implication
 
 Do not reuse Bundle V003 unchanged.
 
-Next Bundle should prioritize Guang Yong identity more strongly.
+Next Bundle should prioritize Guang Yong identity more strongly while respecting:
 
-Candidate reference strategy to review after V0.4 approval:
+`WORK DIRECT IMAGE LIMIT <= 5`
+
+Candidate strategy for Scene Reference / Bundle review:
 
 - Guang Yong Character Reference Sheet
 - Guang Yong FACE_3Q_RIGHT
-- Guang Yong REAR_3Q_RIGHT
-- Neil REAR_3Q_RIGHT
+- Guang Yong FRONT / BODY authority as needed
+- Neil identity reference
 - Castle Entrance V002
 
-A06 and Generic Guest may remain non-delivered editorial / Project Control evidence if needed, because the Work direct-image limit is 5.
+A06 may remain editorial / Project Control continuity evidence rather than a direct generation image if necessary.
 
-Current gate:
+Generic Guest board may also remain non-delivered if Guang Yong identity requires the slot.
 
-`WAITING PRODUCT OWNER APPROVAL`
+## 14. Current gate
+
+`PRODUCT OWNER APPROVED / LOCKED`
+
+Next:
+
+`N24 Scene Reference Design V0.3`
