@@ -145,9 +145,12 @@ function resetWorkspace(){
 
 function renderWorkflow(){
   const idx=current?(STATUS_STAGE[current.status]??0):-1;
-  el("workflow").innerHTML=STAGES.map((x,i)=>
-    '<div class="step '+(i===idx?"active ":"")+(i<idx?"done":"")+'"><span>'+(i+1)+'</span>'+x+'</div>'
-  ).join("");
+  const closed=!!current&&current.status==="CLOSED";
+  el("workflow").innerHTML=STAGES.map((x,i)=>{
+    const done=closed||i<idx;
+    const active=!closed&&i===idx;
+    return '<div class="step '+(active?"active ":"")+(done?"done":"")+'"><span>'+(done?"✓":(i+1))+'</span>'+x+'</div>';
+  }).join("");
   el("sessionState").textContent=current?current.status:"NO SESSION";
 }
 
@@ -229,7 +232,7 @@ function renderActive(){
     a.innerHTML='<span class="empty">Start or load a Session.</span>';
     return;
   }
-  el("activeTitle").textContent="Active Stage｜"+current.current_stage;
+  el("activeTitle").textContent=current.status==="CLOSED"?"Workflow Complete｜CLOSED":"Active Stage｜"+current.current_stage;
   a.innerHTML=row("Session",current.session_id)+row("Shot",current.shot_id)+row("Status",current.status)+'<div class="actions" id="stageActions"></div>';
   const actions=el("stageActions");
   const add=(name,fn,cls="")=>actions.appendChild(actionButton(name,fn,cls));
