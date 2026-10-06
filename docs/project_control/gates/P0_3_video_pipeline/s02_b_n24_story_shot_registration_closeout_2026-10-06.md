@@ -171,10 +171,18 @@ Result:
 
 `N24 = FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED`
 
-Next downstream node:
+Editorial next shot:
+
+`A06｜门不关｜APPROVED LEGACY STORY SHOT`
+
+Next unclosed production node after A06:
 
 `N25｜Neil Response — Castle Door Only Closes on Rainy Days`
 
 N25 remains:
 
 `NOT YET AUTHORIZED FOR PRODUCTION`
+
+Sequence correction authority:
+
+`N23 → N24 → A06 → N25 → N26 → N27`
