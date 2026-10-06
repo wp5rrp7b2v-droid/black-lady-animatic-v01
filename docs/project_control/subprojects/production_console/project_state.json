@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R013",
-  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / CLOSEOUT PASS / RESTART-RECONCILE FINAL CHECK",
+  "state_revision": "PC-R014",
+  "status": "ACTIVE / LOCAL MAC REGRESSION IN PROGRESS / RESTART PERSISTENCE TEST / TRUE EXTERNAL RECOVERY GAP FOUND",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -91,7 +91,8 @@
       "drag_drop_candidate_intake": "Drag-and-drop candidate intake failed during Local Mac Regression. File-picker upload path succeeded and exact-binary verification passed. Drag-and-drop must be fixed before formal E2E Qualification.",
       "work_handoff_ux": "Production UX must not require Product Owner to manually download a Work Handoff JSON for every shot. Console should auto-generate and route/expose the verified handoff to Work; manual download remains optional diagnostic/export only.",
       "production_ui_density": "Production mode should fit the operator's whole-process view on approximately one page. Show stage, safety state, blocker, immutable identity summary and next action by default; keep technical details under expandable Evidence/Audit. Qualification mode may expose full diagnostics for screenshots and debugging.",
-      "candidate_upload_idempotency": "Local Mac Regression produced two Drive files with the same Candidate filename/size during one Candidate intake interaction. Candidate upload must be idempotent and concurrency-safe: one Session + Candidate ID may create at most one Drive binary; duplicate/double requests must return the already-bound Candidate or fail closed without creating another file."
+      "candidate_upload_idempotency": "Local Mac Regression produced two Drive files with the same Candidate filename/size during one Candidate intake interaction. Candidate upload must be idempotent and concurrency-safe: one Session + Candidate ID may create at most one Drive binary; duplicate/double requests must return the already-bound Candidate or fail closed without creating another file.",
+      "true_external_recovery": "Current UI auto-loads the last Session from browser localStorage and disables Session ID once loaded. Current Reconcile External Evidence endpoint still requires an existing local Session file. This proves restart persistence + external cross-check, but not recovery from loss of local Session state. Before formal E2E, add a Recover Session from External Evidence flow that can start from Session ID / remote qualification evidence and reconstruct the local Session from GitHub qualification records + Drive binary without relying on prior local JSON."
     },
     "local_mac_regression_evidence": {
       "session_id": "V11_LOCAL_REGRESSION_001",
@@ -135,8 +136,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL MAC REGRESSION / RESTART + EXTERNAL EVIDENCE RECONCILE",
-  "next_gate": "RESTART-RECONCILE PASS → LOCAL MAC REGRESSION CLOSEOUT",
+  "current_task": "LOCAL MAC REGRESSION / RESTART PERSISTENCE + EXTERNAL CROSS-CHECK",
+  "next_gate": "VERIFY CURRENT RESTART PERSISTENCE; TRUE EXTERNAL RECOVERY FIX REQUIRED BEFORE FORMAL E2E",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
