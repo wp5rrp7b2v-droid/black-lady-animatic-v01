@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R297",
+  "state_revision": "R298",
   "last_updated": "2026-10-06",
-  "session_status": "2026-10-06 ACTIVE / N24 BUNDLE V003 VALIDATION-ONLY PASS / 5 OF 5 EXACT / FORMAL BUILD AUTHORIZATION PENDING",
+  "session_status": "2026-10-06 ACTIVE / N24 BUNDLE V003 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5-REFERENCE INTERFACE COMPATIBLE / CANDIDATE 01 AUTHORIZATION PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "N24｜REFERENCE DELIVERY BUNDLE V003｜VALIDATION-ONLY PASS / WAITING PRODUCT OWNER FORMAL BUILD AUTHORIZATION",
-  "blocker": "No active production blocker. Prior six-reference Work limit blocker resolved at design level by V003 five-reference bundle.",
-  "next_action": "Product Owner decides whether to authorize FORMAL N24_REFERENCE_DELIVERY_BUNDLE_V003 BUILD + Artifact exact verification only. Candidate 01 generation remains unauthorized until the V003 artifact is built and exact-verified.",
+  "current_task": "N24｜CANDIDATE 01 START DECISION / BUNDLE V003 FORMAL BUILD PASS",
+  "blocker": "No production blocker.",
+  "next_action": "Product Owner decides whether to authorize N24 Candidate 01 Clean Regeneration against N24_REFERENCE_DELIVERY_BUNDLE_V003. If authorized: Work must revalidate V003 5/5, generate exactly 1 PNG, then stop.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -4334,7 +4334,7 @@
       "local_mac_regression": "NOT_STARTED_REQUIRED"
     }
   },
-  "n24_status": "IN PROGRESS / BUNDLE V003 VALIDATION-ONLY 5 OF 5 PASS / FORMAL BUILD PENDING",
+  "n24_status": "IN PROGRESS / BUNDLE V003 FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 PENDING PO AUTHORIZATION",
   "n24_reference_delivery_bundle_v001": {
     "status": "HISTORICAL VERIFIED ARTIFACT / NOT FOR GENERATION / SUPERSEDED BY N24 V0.3 + BUNDLE V002",
     "director_design": "N24 Node-Level Director Shot Design V0.2 / PRODUCT OWNER APPROVED / LOCKED",
@@ -4441,11 +4441,11 @@
     "record": "docs/project_control/gates/P0_3_video_pipeline/n24_candidate_01_generation_attempt_01_blocked_reference_limit_2026-10-06.md"
   },
   "n24_reference_delivery_bundle_v003": {
-    "status": "VALIDATION-ONLY PASS / 5 OF 5 EXACT / ZERO ARTIFACT / FORMAL BUILD NOT YET AUTHORIZED / CANDIDATE 01 NOT AUTHORIZED",
+    "status": "FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / CANDIDATE 01 NOT AUTHORIZED",
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v003_design_v0_1.md",
     "spec_path": "production/bundle_specs/N24_REFERENCE_DELIVERY_BUNDLE_V003.json",
-    "spec_revision": "V003-R1",
-    "spec_commit": "c2b946dc62ebbdf25c7e0946d59ca819f87470fe",
+    "spec_revision": "V003-R2",
+    "spec_commit": "a135934855f275f6c72c4d3a2f3cc121fb998797",
     "direct_visual_input_count": 5,
     "removed_from_v002": "N23_APPROVED_STORY_SHOT",
     "retained": [
@@ -4464,8 +4464,24 @@
       "generation_allowed": false,
       "record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v003_validation_only_record_2026-10-06.md"
     },
-    "formal_build_authorized": false,
-    "candidate_01_generation_authorized": false
+    "formal_build_authorized": true,
+    "candidate_01_generation_authorized": false,
+    "formal_build": {
+      "status": "PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH / DIRECT REFERENCE COUNT 5 OF MAX 5",
+      "workflow_run": 37422986328,
+      "job": 112136277097,
+      "artifact_id": 11392909399,
+      "artifact_name": "N24_REFERENCE_DELIVERY_BUNDLE_V003",
+      "artifact_size": 13567293,
+      "artifact_digest": "sha256:145590c8a8237aa32593733bd0ddca20e826f8b7a19a3529d9e2468bbd88175f",
+      "exact_reference_match": "5/5 PASS",
+      "zip_digest_match": true,
+      "generation_interface_compatible": true,
+      "direct_reference_count": 5,
+      "direct_reference_limit": 5,
+      "generation_authorized_by_product_owner": false,
+      "record": "docs/project_control/gates/P0_3_video_pipeline/n24_reference_delivery_bundle_v003_build_record_2026-10-06.md"
+    }
   },
   "story_shot_bundle_generation_interface_rule": {
     "status": "LOCKED / ACTIVE",
