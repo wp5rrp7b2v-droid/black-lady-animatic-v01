@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED / FORMAL BUILD NOT YET AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / VALIDATION PASS / FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CANDIDATE 01 NOT YET AUTHORIZED`
 
 Target:
 
@@ -310,21 +310,30 @@ If Product Owner approves this Design:
 
 Current:
 
-`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED`
+`FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / 5 OF 5 MATCH`
 
-Approved by:
+Formal build authorized by:
 
 `PRODUCT OWNER EXPLICIT APPROVAL IN CHAT / 2026-10-06`
 
-Authorized next:
+Build evidence:
 
-- Bundle V001 Spec with `build_authorized=false`;
-- Validation-only exact check;
-- validation-only must produce zero Artifact.
+- workflow run: `37414975422`
+- job: `112111492358`
+- Artifact ID: `11390787884`
+- Artifact digest: `sha256:e9b40bcd5daa77f482d1a440824408884c77dd73b6fdba3d5759cd35c437a391`
+- exact references: `5/5 MATCH`
+- independent ZIP digest: `MATCH`
+
+Next gate:
+
+`PRODUCT OWNER AUTHORIZATION → N24 CANDIDATE 01 / CLEAN REGENERATION / EXACTLY 1 PNG`
 
 Still not authorized:
 
-- formal build;
 - Work generation;
 - Candidate 01;
+- Candidate 02;
+- Canonical Publication;
+- Story Shot Registration;
 - N25.
