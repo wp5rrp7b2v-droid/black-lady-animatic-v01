@@ -21,3 +21,7 @@
 details{margin-top:10px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);padding:8px 10px}
 details>summary{cursor:pointer;color:#cbd4dc;font-weight:600}
 details[open]>summary{margin-bottom:8px}
+
+button.action-working{background:#5a4b20!important;border-color:#8a742f!important;color:#f4d77c!important}
+button.action-success{background:#173b27!important;border-color:#3b8f59!important;color:#8ff0ae!important}
+button.action-error{background:#4d2028!important;border-color:#8b3948!important;color:#ffabb6!important}
