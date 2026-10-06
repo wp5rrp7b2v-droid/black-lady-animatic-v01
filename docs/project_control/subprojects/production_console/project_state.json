@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R017",
-  "status": "ACTIVE / LOCAL REGRESSION MAIN PATH PASS / DEFECT PATCH READY / SHORT RETEST NEXT",
+  "state_revision": "PC-R018",
+  "status": "ACTIVE / SHORT DEFECT REGRESSION READY / 14 OF 14 LOCAL TESTS PASS",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -74,7 +74,7 @@
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
     "engineering_branch_head": "56366b45031c16fccffcab175665c38b8e232c38",
-    "local_mac_regression": "MAIN_8_STEP_PATH_PASS / DEFECT_BRANCH_RETEST_REQUIRED",
+    "local_mac_regression": "MAIN_PATH_PASS / PATCH AUTOMATED_TESTS_14_OF_14_PASS / SHORT_MANUAL_RETEST_NEXT",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
       "production_metadata_ux": "Run ID / Artifact ID / Reference Count / Artifact Digest / exact-reference status / manifest verification / generation allowance must be auto-resolved and read-only in production UX.",
@@ -139,7 +139,8 @@
       "external_reconcile_feedback": "PATCH_READY_RETEST_REQUIRED",
       "local_time_display": "PASS_FROM_PREVIOUS_RETEST",
       "system_status_refresh": "PASS_FROM_PREVIOUS_RETEST",
-      "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38"
+      "patch_series_head": "56366b45031c16fccffcab175665c38b8e232c38",
+      "automated_local_tests": "14/14 PASS"
     }
   },
   "scale_gate": {
@@ -150,8 +151,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHORT LOCAL REGRESSION RETEST OF DEFECT PATCH",
-  "next_gate": "SHORT RETEST PASS → V1.1 FORMAL E2E QUALIFICATION",
+  "current_task": "SHORT MANUAL RETEST: UI PATCHES + TRUE EXTERNAL RECOVERY",
+  "next_gate": "SHORT MANUAL RETEST PASS → V1.1 FORMAL E2E QUALIFICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
