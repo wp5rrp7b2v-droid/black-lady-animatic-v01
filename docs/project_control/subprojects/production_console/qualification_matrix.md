@@ -9,7 +9,7 @@ Status: **ACTIVE**
 | Q0 | V1.0 Fixed Install Foundation retained and recoverable | PASS | Allows V1.1 design |
 | Q1 | Phase A / B / C1 / C2 / D / E qualification evidence | PASS | Allows V1.1 design |
 | Q2 | V1.1 Unified Workflow Design V0.1 Product Owner approval | PASS / 2026-10-06 | Allows implementation |
-| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | NOT STARTED | Blocks E2E |
+| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | CODE COMPLETE / LOCAL REGRESSION PENDING | Blocks E2E until regression PASS |
 | Q4 | V1.1 End-to-End qualification | NOT STARTED / REQUIRED | Blocks production adoption |
 | Q5 | Separate Process Change / Production Adoption decision | NOT AUTHORIZED | Production scale locked |
 
