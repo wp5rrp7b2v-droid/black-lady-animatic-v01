@@ -19,6 +19,7 @@ from drive_service import (
 )
 from github_service import gh_binary
 from qualification import preflight as qualification_preflight, paths_for, remote_evidence
+from project_resolver import resolve_project_design_package
 
 bp = Blueprint("session_routes", __name__)
 
@@ -62,6 +63,16 @@ def status():
         github_cli_path=gh,
         sessions=list_sessions(),
     )
+
+
+@bp.get("/api/v1/design-package/resolve")
+def design_package_resolve():
+    try:
+        shot_id = (request.args.get("shot_id") or "").strip() or None
+        resolved = resolve_project_design_package(shot_id=shot_id)
+        return ok(resolved=resolved)
+    except Exception as e:
+        return fail(str(e), 404)
 
 
 @bp.post("/api/v1/session/start")
