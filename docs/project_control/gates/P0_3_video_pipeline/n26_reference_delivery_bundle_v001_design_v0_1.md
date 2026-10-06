@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`DESIGN COMPLETE / WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED`
 
 Target:
 
@@ -514,7 +514,7 @@ The later Bundle Spec / `WORK_HANDOFF.md` must state:
 
 ## 17. Current gate
 
-`WAITING PRODUCT OWNER APPROVAL`
+`PRODUCT OWNER APPROVED / LOCKED / NEXT: VALIDATION-ONLY SPEC`
 
 Not yet authorized:
 
