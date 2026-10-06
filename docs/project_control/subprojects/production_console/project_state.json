@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R031",
-  "status": "ACTIVE / PRE-E2E UX PATCH READY / SHORT RETEST NEXT",
+  "state_revision": "PC-R032",
+  "status": "ACTIVE / PRE-E2E UX PATCH CI PASS / LOCAL UI RETEST NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -157,7 +157,13 @@
       "workflow_step_labels": "PATCHED / stage names only; no numeric labels and no checkmarks",
       "production_metadata_autoresolve": "PATCH READY / reads current Shot + approved Design/Scene + latest formal Bundle from GitHub Project Control and locks technical fields read-only",
       "production_one_page_mode": "PATCH READY / Operator View with compact current-shot control; Diagnostics retains full qualification evidence",
-      "stale_localstorage_recovery_handoff": "PATCH READY / startup auto-attempts External Recovery when remembered local Session JSON is missing"
+      "stale_localstorage_recovery_handoff": "PATCH READY / startup auto-attempts External Recovery when remembered local Session JSON is missing",
+      "pre_e2e_ux_ci": "PASS / GitHub Actions Production Console V1.1 CI run 37463928039 / 18 tests PASS / JS parse PASS / safety boundary PASS",
+      "formal_story_shot_safety_recheck": {
+        "sop_blob": "b1751704fe98c866d79633fb7c2c84c9a70f8e9e",
+        "story_shot_index_blob": "cc7e7116207b4cb05528c5c3d24f37516f1bcd16",
+        "story_shot_count": 30
+      }
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -190,8 +196,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHORT PRE-E2E UX RETEST",
-  "next_gate": "3 UX PATCHES PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION",
+  "current_task": "LOCAL SHORT UI RETEST: AUTO METADATA + OPERATOR VIEW + STALE SESSION AUTO RECOVERY",
+  "next_gate": "3 UI RETESTS PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
