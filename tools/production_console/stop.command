@@ -1,9 +1,18 @@
-#!/bin/bash
+#!/bin/zsh
 set -euo pipefail
-PRIVATE_DEFAULT="$HOME/诡舍/黑衣夫人/black_lady_short_01/BlackLadyLocalConsolePrivate"
-PRIVATE="${BLACK_LADY_PRIVATE_DIR:-$PRIVATE_DEFAULT}"
-PIDFILE="$PRIVATE/v1_1_console.pid"
-if [ ! -f "$PIDFILE" ]; then echo "No V1.1 PID file."; exit 0; fi
-PID="$(cat "$PIDFILE")"
-CMD="$(ps -p "$PID" -o command= 2>/dev/null || true)"
-if [[ "$CMD" == *"server.py"* ]]; then kill "$PID" 2>/dev/null || true; rm -f "$PIDFILE"; echo "Stopped Production Console V1.1."; else echo "PID is not a Console server; refusing to kill."; exit 1; fi
+PRIVATE_DIR="${BLACK_LADY_PRIVATE_DIR:-/Users/caroline/诡舍/黑衣夫人/black_lady_short_01/BlackLadyLocalConsolePrivate}"
+PID_FILE="$PRIVATE_DIR/production_console_v1_1.pid"
+if [[ ! -f "$PID_FILE" ]]; then
+  echo "Production Console V1.1 is not recorded as running."
+  exit 0
+fi
+PID="$(cat "$PID_FILE" 2>/dev/null || true)"
+if [[ -n "$PID" ]] && kill -0 "$PID" 2>/dev/null; then
+  kill "$PID"
+  for i in {1..20}; do
+    if ! kill -0 "$PID" 2>/dev/null; then break; fi
+    sleep 0.1
+  done
+fi
+rm -f "$PID_FILE"
+echo "Production Console V1.1 stopped."
