@@ -1,0 +1,12 @@
+{
+  "product": "BLACK_LADY_LOCAL_PRODUCTION_CONSOLE",
+  "release": "V1.1_IMPLEMENTATION",
+  "date": "2026-10-06",
+  "subproject": "BLACK_LADY_PRODUCTION_CONSOLE",
+  "design": "V1.1_UNIFIED_WORKFLOW_DESIGN_V0.1_PO_APPROVED",
+  "implementation": "STARTED",
+  "qualification_mode": "QUALIFICATION_ONLY",
+  "e2e": "NOT_STARTED_REQUIRED",
+  "production_process_change": "NOT_AUTHORIZED",
+  "formal_story_shot_workflow": "UNCHANGED"
+}
