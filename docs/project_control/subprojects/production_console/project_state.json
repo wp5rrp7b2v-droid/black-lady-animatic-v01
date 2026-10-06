@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R020",
-  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / TRUE EXTERNAL RECOVERY PRECONDITION CONFIRMED",
+  "state_revision": "PC-R021",
+  "status": "ACTIVE / SHORT DEFECT REGRESSION IN PROGRESS / EXTERNAL RECOVERY TEST SEQUENCE ADJUSTED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -95,7 +95,8 @@
       "true_external_recovery": "Current UI auto-loads the last Session from browser localStorage and disables Session ID once loaded. Current Reconcile External Evidence endpoint still requires an existing local Session file. This proves restart persistence + external cross-check, but not recovery from loss of local Session state. Before formal E2E, add a Recover Session from External Evidence flow that can start from Session ID / remote qualification evidence and reconstruct the local Session from GitHub qualification records + Drive binary without relying on prior local JSON.",
       "reconcile_feedback": "PATCHED on feature/production-console-v1-1: Reconcile now shows working/success/failure feedback and refreshes Evidence/System.",
       "local_time_display": "PATCHED on feature/production-console-v1-1: backend audit timestamps remain UTC; UI history renders in browser local timezone.",
-      "stale_localstorage_autoload": "When browser localStorage remembers a Session whose local JSON no longer exists, startup auto-load currently shows 'Session 不存在'. Production UX should suppress the modal and offer/trigger External Recovery instead."
+      "stale_localstorage_autoload": "When browser localStorage remembers a Session whose local JSON no longer exists, startup auto-load currently shows 'Session 不存在'. Production UX should suppress the modal and offer/trigger External Recovery instead.",
+      "external_recovery_no_evidence_message": "If a Session has no remote qualification evidence yet, External Recovery should show a clear user-facing message such as: '无法恢复：该 Session 尚未建立 GitHub qualification evidence。请先完成 Publication，或确认 Session ID。' rather than a raw RuntimeError."
     },
     "local_mac_regression_evidence": {
       "session_id": "V11_LOCAL_REGRESSION_001",
@@ -154,8 +155,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "TRUE EXTERNAL RECOVERY MANUAL RETEST",
-  "next_gate": "RECOVER FROM EXTERNAL EVIDENCE PASS → SHORT DEFECT REGRESSION CLOSEOUT",
+  "current_task": "RESTORE LOCAL PATCH-RETEST SESSION → COMPLETE TO CLOSED → REMOVE LOCAL SESSION → TRUE EXTERNAL RECOVERY",
+  "next_gate": "TRUE EXTERNAL RECOVERY PASS → SHORT DEFECT REGRESSION CLOSEOUT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
