@@ -26,12 +26,13 @@ def _exact_reference_pass(value, expected_count):
 
 def _latest_versioned(state, prefix):
     rows = []
-    rx = re.compile(r"^" + re.escape(prefix) + r"_v(\d+)$", re.I)
+    rx = re.compile(r"^" + re.escape(prefix) + r"_v(\d+(?:_\d+)*)$", re.I)
     for key, value in (state or {}).items():
         m = rx.match(key)
         if m and isinstance(value, dict):
-            rows.append((int(m.group(1)), key, value))
-    return max(rows, default=(None, None, None), key=lambda x: x[0] if x[0] is not None else -1)
+            score = tuple(int(part) for part in m.group(1).split("_"))
+            rows.append((score, key, value))
+    return max(rows, default=(None, None, None), key=lambda x: x[0] if x[0] is not None else (-1,))
 
 
 def infer_current_shot_id(state):
