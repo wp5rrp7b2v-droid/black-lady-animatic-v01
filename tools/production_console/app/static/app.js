@@ -168,10 +168,10 @@ function renderOperatorSummary(){
     ? ((current.preflight||{}).pass===true?"AUTHORIZED":status)
     : (r.generation_authorized?"AUTHORIZED":"WAITING PO AUTHORIZATION");
   const exact=candidate.exact_binary_pass===true?"PASS":(candidate.candidate_id?"NOT VERIFIED":"—");
-  let next="No active Session.";
+  let next=((r.project_control||{}).next_action)||"No active Session.";
   if(current) next=status==="CLOSED"?"Workflow complete.":("Continue at "+stage+".");
-  else if(r.package_ready&&!r.generation_authorized) next="Design Package ready; waiting Product Owner generation authorization under the current formal process.";
-  else if(r.package_ready) next="Design Package ready for qualification preflight.";
+  else if(r.package_ready&&!r.generation_authorized&&!(r.project_control||{}).next_action) next="Design Package ready; waiting Product Owner generation authorization under the current formal process.";
+  else if(r.package_ready&&!(r.project_control||{}).next_action) next="Design Package ready for qualification preflight.";
   box.innerHTML=
     '<div class="operator-grid">'+
       '<div class="operator-cell"><strong>Shot</strong>'+h(shot)+'</div>'+
