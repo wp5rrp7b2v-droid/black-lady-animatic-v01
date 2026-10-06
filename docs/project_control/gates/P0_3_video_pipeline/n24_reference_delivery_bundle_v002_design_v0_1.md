@@ -6,7 +6,7 @@ Date:
 
 Status:
 
-`PRODUCT OWNER APPROVED / LOCKED / SPEC + VALIDATION-ONLY AUTHORIZED / FORMAL BUILD NOT YET AUTHORIZED`
+`PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUILD NOT YET AUTHORIZED`
 
 Target:
 
@@ -67,11 +67,16 @@ A06 already established the open door. Do not repeat A06 as the main composition
 
 ## Current gate
 
-Authorized:
+Completed:
 
-- Bundle V002 Spec with `build_authorized=false`
-- validation-only exact verification
-- zero Artifact expected
+- Bundle V002 Spec `V002-R1`
+- validation-only exact verification `6/6 PASS`
+- Artifact count `0`
+- Workflow Run `37420407898`
+
+Next gate:
+
+- Product Owner authorization for Formal Bundle V002 Build + Artifact exact verification only
 
 Not authorized:
 
