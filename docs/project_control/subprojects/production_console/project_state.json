@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-06",
-  "state_revision": "PC-R041",
-  "status": "ACTIVE / PRE-E2E UX RETEST / LIVE PROJECT CONTROL REVISION AWARE",
+  "state_revision": "PC-R042",
+  "status": "ACTIVE / PRE-E2E UX RETEST / AUTO-RESOLVE REVISION EVIDENCE PATCH READY",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "5c5b4a9d1e678d0be872a58100af84762a53c0cb",
+    "engineering_branch_head": "090bcc02b14721caaa6e503532d96b80353cd1dc",
     "local_mac_regression": "MAIN 8-STEP PATH PASS / DEFECT SHORT-REGRESSION PASS / PRE-E2E UX COMPLETION REQUIRED",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -170,7 +170,8 @@
       "new_session_semantics": "PATCH READY: New Session is always available and now means 'start a fresh current-shot workspace': clear prior state, then explicitly auto-resolve the current Shot/Bundle from Project Control. Button label changed to 'New Session / Current Shot'.",
       "current_shot_partial_resolution": "PATCHED + CI PASS: Project Control current task is now N26 Director Design NOT YET STARTED. Resolver no longer treats missing Bundle as system failure; it returns N26 as PARTIAL_CURRENT_SHOT with Design Package NOT READY and empty Bundle metadata.",
       "pre_e2e_ux_ci_latest": "PASS / Production Console V1.1 CI run 37473214772",
-      "auto_metadata_live_resolution": "Current screenshot matches latest main: N26 Director and Scene Reference approved/locked; Bundle design next; Bundle not built."
+      "auto_metadata_live_resolution": "Current screenshot matches latest main: N26 Director and Scene Reference approved/locked; Bundle design next; Bundle not built.",
+      "auto_metadata_revision_evidence": "PATCH READY: Diagnostics now displays exact Project State blob SHA and main commit SHA used by Auto Resolve."
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -208,8 +209,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "SHOW RESOLVED PROJECT CONTROL SOURCE REVISION IN UI",
-  "next_gate": "AUTO METADATA MATCH AGAINST RESOLVED REVISION → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS",
+  "current_task": "UPDATE LOCAL BUILD → RETEST AUTO RESOLVE WITH SOURCE SHA VISIBLE",
+  "next_gate": "AUTO METADATA MATCH AGAINST DISPLAYED SOURCE REVISION → OPERATOR VIEW PASS → STALE SESSION AUTO RECOVERY PASS",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub."
 }
