@@ -9,8 +9,8 @@ Status: **ACTIVE**
 | Q0 | V1.0 Fixed Install Foundation retained and recoverable | PASS | Allows V1.1 design |
 | Q1 | Phase A / B / C1 / C2 / D / E qualification evidence | PASS | Allows V1.1 design |
 | Q2 | V1.1 Unified Workflow Design V0.1 Product Owner approval | PASS / 2026-10-06 | Allows implementation |
-| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | ACTIVE / CORE + LOCAL REGRESSION PASS / 2 MANUAL PRE-E2E UX RETESTS REMAIN | Blocks E2E until both retests PASS |
-| Q4 | V1.1 End-to-End qualification | NOT STARTED / REQUIRED | Blocks production adoption |
+| Q3 | V1.1 implementation complete without changing current formal Story Shot SOP | PASS / 2026-10-07 / PRE-E2E UX RETEST COMPLETE | Allows Q4 |
+| Q4 | V1.1 End-to-End qualification | ACTIVE / AUTHORIZED 2026-10-07 / SESSION V11_Q4_E2E_001 | Blocks production adoption until PASS |
 | Q5 | Separate Process Change / Production Adoption decision | NOT AUTHORIZED | Production scale locked |
 
 ## Q3 acceptance
@@ -78,3 +78,18 @@ Tomorrow resume:
 `LOCAL SYNC VERIFICATION → OPERATOR VIEW FRESHNESS RETEST → STALE SESSION AUTO RECOVERY RETEST`
 
 Q4 remains **NOT STARTED**. Production Adoption remains **LOCKED**.
+
+
+## 2026-10-07 Q4 start
+
+Product Owner authorized Q4.
+
+Controlled qualification identity:
+- Session: `V11_Q4_E2E_001`
+- Shot: `TEST_UI_V11_Q4_001`
+- Bundle: `V11_Q4_E2E_BUNDLE_001`
+- Branch: `test/local-console-v1-1-e2e-v001`
+
+Q3 is complete. Q4 is ACTIVE. Production Adoption / Q5 remains LOCKED and NOT AUTHORIZED.
+
+Start record: `logs/q4_e2e_qualification_start_2026-10-07.md`
