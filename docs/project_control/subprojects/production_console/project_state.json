@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R049",
-  "status": "ACTIVE / Q3 PRE-E2E UX RETEST / OPERATOR FRESHNESS UI PATCH CI PASS / LOCAL RETEST REQUIRED",
+  "state_revision": "PC-R050",
+  "status": "ACTIVE / Q3 PRE-E2E UX RETEST / OPERATOR VIEW FRESHNESS PASS / STALE SESSION AUTO RECOVERY RETEST NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -281,6 +281,13 @@
       "ci_run": 37565996657,
       "ci_result": "SUCCESS",
       "status": "READY FOR LOCAL MANUAL RETEST"
+    },
+    "operator_view_freshness_retest_2026_10_07": {
+      "status": "PASS",
+      "visible_freshness": "CURRENT",
+      "resolved_main_commit": "6eca31ac89e8445c8e215112240a3a5d69497605",
+      "independently_verified_main_head": "6eca31ac89e8445c8e215112240a3a5d69497605",
+      "note": "Screenshot-visible CURRENT label and resolved commit matched independently verified GitHub main HEAD."
     }
   },
   "scale_gate": {
@@ -291,8 +298,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "LOCAL OPERATOR VIEW FRESHNESS RETEST",
-  "next_gate": "OPERATOR VIEW FRESHNESS PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
+  "current_task": "STALE SESSION AUTO RECOVERY RETEST",
+  "next_gate": "STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION (Q4)",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
   "session_status": "2026-10-07 ACTIVE / N26 FORMAL CLOSE VERIFIED / OPERATOR VIEW FRESHNESS RETEST NEXT"
