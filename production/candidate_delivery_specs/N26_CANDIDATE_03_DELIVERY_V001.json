@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "N26",
+  "sequence_id": "S02-B",
+  "candidate_id": "N26 Candidate 03｜Controlled Modification",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "N26_Candidate_03_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2504586,
+    "sha256": "8dcd5f5449ad6429f45e7b4f59ce15bfd574eeb8aa45a83d4e4132df3cf436d9",
+    "git_blob_sha1": "a5ce429689a99437773385e25b9813745e380f74"
+  },
+  "bundle": {
+    "bundle_id": "N26_REFERENCE_DELIVERY_BUNDLE_V002",
+    "workflow_run_id": 37553891715,
+    "artifact_id": 11453927794,
+    "artifact_digest": "sha256:f7fdb72eb39aeea743dfd61707a817d5fae8cba34a0b924210985ecf34a3dd10"
+  },
+  "edit_lineage": [
+    "CANDIDATE_01_REJECTED_NING_JUN_IDENTITY_DRIFT",
+    "CANDIDATE_02_CLEAN_REGENERATION_IDENTITY_RESCUE",
+    "CANDIDATE_03_CONTROLLED_MODIFICATION_DEPTH_SEPARATION_AND_LIGHTING_RESTRAINT"
+  ],
+  "target_staging_path": "staging/story_shot_candidates/N26/N26_Candidate_03_APPROVED.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/N26_LADYS_RULE_AND_FORWARD_MOTION_APPROVED_V001.png",
+  "dimension_status": {
+    "preferred_target": "941x1672",
+    "approved_exact_binary": "941x1672",
+    "status": "MATCHES_PREFERRED_TARGET",
+    "resize_forbidden": true
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
