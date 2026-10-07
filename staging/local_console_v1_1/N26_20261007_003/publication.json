@@ -1,0 +1,74 @@
+{
+  "approval_binding": {
+    "candidate_id": "CANDIDATE_01",
+    "drive_file_id": "1zjVpuKoJAIEjD6u9xSPFqB-YGDQgJ0U7",
+    "sha256": "8dcd5f5449ad6429f45e7b4f59ce15bfd574eeb8aa45a83d4e4132df3cf436d9"
+  },
+  "bundle": {
+    "artifact_digest": "sha256:f7fdb72eb39aeea743dfd61707a817d5fae8cba34a0b924210985ecf34a3dd10",
+    "artifact_id": 11453927794,
+    "bundle_id": "N26_REFERENCE_DELIVERY_BUNDLE_V002",
+    "delivery_manifest_verified": true,
+    "generation_allowed": true,
+    "reference_count": 5,
+    "references_exact": true,
+    "run_id": 37553891715
+  },
+  "candidate": {
+    "byte_size": 2504586,
+    "candidate_id": "CANDIDATE_01",
+    "drive_file_id": "1zjVpuKoJAIEjD6u9xSPFqB-YGDQgJ0U7",
+    "height": 1672,
+    "mime_type": "image/png",
+    "sha256": "8dcd5f5449ad6429f45e7b4f59ce15bfd574eeb8aa45a83d4e4132df3cf436d9",
+    "shot_id": "N26",
+    "width": 941
+  },
+  "github_target": {
+    "branch": "test/local-console-v1-1-e2e-v001",
+    "path": "staging/local_console_v1_1/N26_20261007_003/publication.json",
+    "repo": "wp5rrp7b2v-droid/black-lady-animatic-v01"
+  },
+  "qualification_only": true,
+  "recovery_snapshot": {
+    "design_summary": "Design Package READY from Project Control\nDirector: PRODUCT OWNER APPROVED / LOCKED\nScene Reference: PRODUCT OWNER APPROVED / LOCKED\nBundle: FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CONSUMED BY N26 CANDIDATE 02 GENERATION / FINAL SHOT CLOSED",
+    "preflight": {
+      "checked_at": "2026-10-07T06:51:41.050589+00:00",
+      "checks": {
+        "artifact_digest": true,
+        "artifact_id": true,
+        "bundle_id": true,
+        "delivery_manifest_verified": true,
+        "design_approved": true,
+        "drive_connected": true,
+        "drive_folder_bound": true,
+        "drive_folder_matches_session": true,
+        "generation_allowed": true,
+        "github_qualification_branch_available": true,
+        "no_locked_candidate": true,
+        "qualification_paths_clear": true,
+        "reference_count": true,
+        "references_exact": true,
+        "run_id": true,
+        "session_identity": true
+      },
+      "external": {
+        "github_ok": true,
+        "main_head": "7dba6cff7c31571333169c671a7b293a3edf494d",
+        "qualification_branch": "test/local-console-v1-1-e2e-v001",
+        "qualification_branch_head": "9c6ca33f9f5bede9cc8fdf5074e4062b87321595",
+        "qualification_paths_clear": true
+      },
+      "pass": true
+    }
+  },
+  "safety": {
+    "formal_sop_change": false,
+    "formal_story_shot": false,
+    "main_branch_write": false,
+    "project_control_write": false
+  },
+  "schema": "BLACK_LADY_PRODUCTION_CONSOLE_V1_1_QUALIFICATION_PUBLICATION_V001",
+  "session_id": "N26_20261007_003",
+  "shot_id": "N26"
+}
