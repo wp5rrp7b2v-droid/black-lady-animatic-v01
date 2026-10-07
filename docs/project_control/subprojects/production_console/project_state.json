@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R054",
-  "status": "ACTIVE / Q4 E2E / PREFLIGHT PASS / GENERATE AWAITING CANDIDATE",
+  "state_revision": "PC-R055",
+  "status": "ACTIVE / Q4 E2E / PUBLICATION PASS / RECOVERY TEST NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -349,7 +349,7 @@
         "qualification_branch_head": "611992e5f3d4767d2f9813afde8e4d751f24bbe1"
       },
       "q4_paths_clear_at_start": true,
-      "current_stage": "GENERATE / AWAITING_CANDIDATE",
+      "current_stage": "REGISTER / PUBLISHED_NOT_REGISTERED / RECOVERY TEST REQUIRED",
       "design_checkpoint_2026_10_07": {
         "visible_session": "V11_Q4_E2E_001",
         "visible_shot": "TEST_UI_V11_Q4_001",
@@ -391,6 +391,20 @@
         },
         "drive_folder_remote_check": "EXISTS / EMPTY",
         "interpretation": "Q4 DESIGN and PREFLIGHT gates passed; qualification may proceed to candidate intake."
+      },
+      "publication_checkpoint_2026_10_07": {
+        "status": "PASS",
+        "publication_blob": "4b5981cfdf0971c5448dc52cf3f0b01288cd38a0",
+        "candidate_sha256": "1c2d630c36efbdd735447acf67b9fd29df6f81aca460213d619d67a88cad7c7d",
+        "registration_exists": false,
+        "lock_exists": false,
+        "closeout_exists": false,
+        "formal_story_shot_sop_blob": "b1751704fe98c866d79633fb7c2c84c9a70f8e9e",
+        "story_shot_index_blob": "aca511a8db47bff458682de7db59101195e62206",
+        "story_shot_index_record_count": 32,
+        "n26_canonical_blob": "a5ce429689a99437773385e25b9813745e380f74",
+        "parent_project_state_revision": "R337",
+        "parent_project_state_blob": "6895891002447cabdfba7f3771a77696c36845eb"
       }
     }
   },
@@ -402,8 +416,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "Q4 V11_Q4_E2E_001｜UPLOAD CANDIDATE_01 → DRIVE EXACT VERIFY",
-  "next_gate": "CANDIDATE EXACT-BINARY PASS → PRODUCT OWNER REVIEW",
+  "current_task": "Q4 V11_Q4_E2E_001｜SIMULATE LOCAL SESSION LOSS AFTER PUBLICATION",
+  "next_gate": "AUTO RECOVERY TO PUBLISHED_NOT_REGISTERED WITHOUT REPUBLISH → REGISTRATION",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
   "session_status": "2026-10-07 ACTIVE / Q4 PREFLIGHT PASS / AWAITING CANDIDATE"
