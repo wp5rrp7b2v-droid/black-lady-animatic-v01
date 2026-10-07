@@ -5,9 +5,9 @@
   "parent_project_id": "BLACK-LADY-001",
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
-  "last_updated": "2026-10-06",
-  "state_revision": "PC-R046",
-  "status": "EOD SESSION CLOSED / SUBPROJECT ACTIVE / LOCAL SYNC VERIFIED / Q3 PRE-E2E UX RETEST RESUMES NEXT SESSION",
+  "last_updated": "2026-10-07",
+  "state_revision": "PC-R047",
+  "status": "ACTIVE / N26 FORMALLY CLOSED / Q3 PRE-E2E UX RETEST RESUMED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -251,6 +251,20 @@
         "BlackLadyLocalConsolePrivate/"
       ],
       "rule": "Preserve local-only/private directories; do not git clean them and do not commit private OAuth/runtime material."
+    },
+    "resume_2026_10_07": {
+      "parent_n26_status": "FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED",
+      "parent_project_state_revision": "R337",
+      "parent_project_state_blob": "6895891002447cabdfba7f3771a77696c36845eb",
+      "evidence_commits": [
+        "04bcdcd1f864ee49a6792de0beb8fc67a38a44d7",
+        "b66b9d9a2380516666ef0830c7bf9e6c3c960e6c",
+        "e7d0e712c996fdc473ebcfa638f1ab1cc54aac8f",
+        "feeff654439e01b6d163bb5c1b707144baf100ca",
+        "e4270aef8bca451c34b13e6b6734406e969cf50b",
+        "807112c69d0f1b1dcf6ef4145f9aa1f880203f2d"
+      ],
+      "interpretation": "Parent Story Shot N26 completed through PO approval, intake verification, canonical publication, Story Shot registration, registration closeout, and Project Control closeout. Console qualification may resume without using N26 as a substitute qualification write path."
     }
   },
   "scale_gate": {
@@ -261,9 +275,9 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "NEXT SESSION｜OPERATOR VIEW FRESHNESS RETEST → STALE SESSION AUTO RECOVERY RETEST",
-  "next_gate": "TWO REMAINING UI RETESTS PASS → Q3 COMPLETE → FORMAL V1.1 E2E QUALIFICATION (Q4)",
+  "current_task": "OPERATOR VIEW FRESHNESS RETEST",
+  "next_gate": "OPERATOR VIEW FRESHNESS PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
-  "session_status": "2026-10-06 EOD CLOSED / SUBPROJECT REMAINS ACTIVE"
+  "session_status": "2026-10-07 ACTIVE / N26 FORMAL CLOSE VERIFIED / OPERATOR VIEW FRESHNESS RETEST NEXT"
 }
