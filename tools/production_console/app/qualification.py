@@ -155,7 +155,7 @@ def remote_evidence(session_id: str):
     }
 
 
-def preflight(session, drive_connected: bool, drive_folder_bound: bool):
+def preflight(session, drive_connected: bool, drive_folder_bound: bool, drive_folder_name: str = None):
     bundle = session.get("bundle") or {}
     paths = paths_for(session["session_id"])
     checks = {
@@ -171,6 +171,7 @@ def preflight(session, drive_connected: bool, drive_folder_bound: bool):
         "generation_allowed": bundle.get("generation_allowed") is True,
         "drive_connected": bool(drive_connected),
         "drive_folder_bound": bool(drive_folder_bound),
+        "drive_folder_matches_session": bool(drive_folder_bound and drive_folder_name == session.get("session_id")),
         "no_locked_candidate": not bool((session.get("lock") or {}).get("locked_at")),
     }
     external = {}
