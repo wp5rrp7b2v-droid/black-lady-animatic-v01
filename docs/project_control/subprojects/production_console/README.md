@@ -1,6 +1,6 @@
 # Black Lady Production Console｜Subproject Control
 
-Status: **ACTIVE / Q3 COMPLETE / Q4 V1.1 END-TO-END QUALIFICATION ACTIVE / Q5 PRODUCTION ADOPTION LOCKED**
+Status: **ACTIVE / Q4 V1.1 END-TO-END QUALIFICATION PASS / Q5 PRODUCTION ADOPTION LOCKED**
 
 Parent project: 《诡舍·黑衣夫人》  
 Canonical repo: `wp5rrp7b2v-droid/black-lady-animatic-v01`  
@@ -49,7 +49,7 @@ The Console must never become a third independent truth source.
 - Auto Metadata Resolve: PASS against exact Project Control revision.
 - Operator View one-page layout: VISUAL PASS.
 - Q3 Pre-E2E UX qualification: PASS / COMPLETE 2026-10-07.
-- V1.1 End-to-End Qualification (Q4): ACTIVE / Session `V11_Q4_E2E_001`.
+- V1.1 End-to-End Qualification (Q4): PASS / COMPLETE 2026-10-07 / Session `V11_Q4_E2E_001`.
 - Production Process Change: NOT STARTED / NOT AUTHORIZED.
 - Production Scale: LOCKED.
 
@@ -104,6 +104,16 @@ Required path:
 
 `DESIGN → PREFLIGHT → GENERATE → REVIEW → PUBLISH → REGISTER → LOCK → CLOSEOUT`
 
-The run includes deliberate local-session-loss recovery after Publication and again after Closeout. Formal Story Shot production remains unchanged. Production Adoption / Q5 remains locked pending a separate Product Owner decision.
+Q4 completed the full controlled path through CLOSEOUT with exact Candidate identity, binding continuity, Drive exact-binary verification, and no drift in the formal Story Shot SOP / Story Shot Index / N26 canonical binary / parent Project Control. Recovery acceptance retains the independently passed Q3 recovery evidence because the post-Q3 Q4 patch changed only PREFLIGHT Drive-folder/session isolation, not recovery logic. Production Adoption / Q5 remains locked pending a separate Product Owner decision.
 
 Start record: `logs/q4_e2e_qualification_start_2026-10-07.md`
+
+
+## Q4 final status｜2026-10-07
+
+Q4 = **PASS / COMPLETE**.
+
+Final qualification branch head:
+`9c6ca33f9f5bede9cc8fdf5074e4062b87321595`
+
+The Production Console is technically qualified through V1.1 Q4, but this does **not** change the parent Story Shot production workflow. Q5 / Production Adoption requires a separate explicit Product Owner authorization.
