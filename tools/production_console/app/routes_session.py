@@ -17,7 +17,7 @@ from drive_service import (
     image_meta,
     sha256,
 )
-from github_service import gh_binary
+from github_service import gh_binary, main_meta
 from qualification import preflight as qualification_preflight, paths_for, remote_evidence
 from project_resolver import resolve_project_design_package
 
@@ -61,6 +61,7 @@ def status():
         drive_folder_name=binding.get("folder_name") or binding.get("name"),
         github_cli=github_cli,
         github_cli_path=gh,
+        github_main_sha=(((main_meta().get("commit") or {}).get("sha")) if github_cli else None),
         sessions=list_sessions(),
     )
 
