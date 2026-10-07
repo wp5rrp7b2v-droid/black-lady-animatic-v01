@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R052",
-  "status": "ACTIVE / Q4 FORMAL V1.1 E2E QUALIFICATION STARTED / Q5 PRODUCTION ADOPTION LOCKED",
+  "state_revision": "PC-R053",
+  "status": "ACTIVE / Q4 E2E / DESIGN CHECKPOINT / DRIVE SESSION-ISOLATION DEFECT PATCHED / LOCAL UPDATE REQUIRED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "56cd1d5c6e9ec2885daf396a901ef5a917e3108e",
+    "engineering_branch_head": "e750d8fafa9839716d2f7cd52d44e8b2ca8e6023",
     "local_mac_regression": "MAIN PATH PASS / DEFECT SHORT REGRESSION PASS / TWO PRE-E2E MANUAL UI RETESTS REMAIN",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -349,7 +349,27 @@
         "qualification_branch_head": "611992e5f3d4767d2f9813afde8e4d751f24bbe1"
       },
       "q4_paths_clear_at_start": true,
-      "current_stage": "DESIGN / FRESH TEST WORKSPACE REQUIRED"
+      "current_stage": "DESIGN / CORRECTION REQUIRED BEFORE DESIGN APPROVAL",
+      "design_checkpoint_2026_10_07": {
+        "visible_session": "V11_Q4_E2E_001",
+        "visible_shot": "TEST_UI_V11_Q4_001",
+        "visible_bundle": "V11_Q4_E2E_BUNDLE_001",
+        "session_status": "DESIGN_PENDING",
+        "artifact_id_visible": "1",
+        "expected_artifact_id": "4000001",
+        "drive_folder_visible": "V11_RECOVERY_FIDELITY_RETEST_001",
+        "expected_drive_folder": "V11_Q4_E2E_001",
+        "decision": "DO NOT CONFIRM DESIGN UNTIL BOTH ARE CORRECTED",
+        "defect_found": "Preflight previously checked only Drive folder presence, not that the bound folder belongs to the current Session.",
+        "patch_commits": [
+          "bcccc812a75ad69a6ba06f364c1d696d4b3b242f",
+          "fe0c3b5ee8045462f632d43a53506e51aedf0372",
+          "e750d8fafa9839716d2f7cd52d44e8b2ca8e6023"
+        ],
+        "ci_run": 37572408851,
+        "ci_result": "SUCCESS",
+        "new_check": "drive_folder_matches_session"
+      }
     }
   },
   "scale_gate": {
@@ -360,8 +380,8 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "Q4 V1.1 END-TO-END QUALIFICATION / SESSION V11_Q4_E2E_001",
-  "next_gate": "Q4 FULL PATH PASS + EXTERNAL VERIFICATION → Q4 COMPLETE → SEPARATE Q5 PRODUCT OWNER DECISION",
+  "current_task": "Q4 V11_Q4_E2E_001｜CORRECT ARTIFACT ID → UPDATE CONSOLE → REBIND DRIVE TO V11_Q4_E2E_001 → CONFIRM DESIGN",
+  "next_gate": "Q4 DESIGN METADATA + DRIVE SESSION ISOLATION VERIFIED → PREFLIGHT",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
   "session_status": "2026-10-07 ACTIVE / Q4 STARTED"
