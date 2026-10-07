@@ -1,0 +1,74 @@
+{
+  "approval_binding": {
+    "candidate_id": "CANDIDATE_01",
+    "drive_file_id": "1S22_I1cY2pSfD8ooPBBjhEPyJcxRGEkJ",
+    "sha256": "1c2d630c36efbdd735447acf67b9fd29df6f81aca460213d619d67a88cad7c7d"
+  },
+  "bundle": {
+    "artifact_digest": "sha256:1c7ab35ef73f84250cc974026286a41615236fcb8578b14fc9d02021dd079a14",
+    "artifact_id": 4000001,
+    "bundle_id": "V11_Q4_E2E_BUNDLE_001",
+    "delivery_manifest_verified": true,
+    "generation_allowed": true,
+    "reference_count": 1,
+    "references_exact": true,
+    "run_id": 4000001
+  },
+  "candidate": {
+    "byte_size": 16210,
+    "candidate_id": "CANDIDATE_01",
+    "drive_file_id": "1S22_I1cY2pSfD8ooPBBjhEPyJcxRGEkJ",
+    "height": 1672,
+    "mime_type": "image/png",
+    "sha256": "1c2d630c36efbdd735447acf67b9fd29df6f81aca460213d619d67a88cad7c7d",
+    "shot_id": "TEST_UI_V11_Q4_001",
+    "width": 941
+  },
+  "github_target": {
+    "branch": "test/local-console-v1-1-e2e-v001",
+    "path": "staging/local_console_v1_1/V11_Q4_E2E_001/publication.json",
+    "repo": "wp5rrp7b2v-droid/black-lady-animatic-v01"
+  },
+  "qualification_only": true,
+  "recovery_snapshot": {
+    "design_summary": "Q4 FORMAL V1.1 E2E QUALIFICATION — CONTROLLED TEST ONLY.\nFORMAL STORY SHOT WORKFLOW UNCHANGED.",
+    "preflight": {
+      "checked_at": "2026-10-07T05:05:30.368707+00:00",
+      "checks": {
+        "artifact_digest": true,
+        "artifact_id": true,
+        "bundle_id": true,
+        "delivery_manifest_verified": true,
+        "design_approved": true,
+        "drive_connected": true,
+        "drive_folder_bound": true,
+        "drive_folder_matches_session": true,
+        "generation_allowed": true,
+        "github_qualification_branch_available": true,
+        "no_locked_candidate": true,
+        "qualification_paths_clear": true,
+        "reference_count": true,
+        "references_exact": true,
+        "run_id": true,
+        "session_identity": true
+      },
+      "external": {
+        "github_ok": true,
+        "main_head": "d6ad40de1267e1bfa4b4fe46c2727bdd1cc2db1e",
+        "qualification_branch": "test/local-console-v1-1-e2e-v001",
+        "qualification_branch_head": "611992e5f3d4767d2f9813afde8e4d751f24bbe1",
+        "qualification_paths_clear": true
+      },
+      "pass": true
+    }
+  },
+  "safety": {
+    "formal_sop_change": false,
+    "formal_story_shot": false,
+    "main_branch_write": false,
+    "project_control_write": false
+  },
+  "schema": "BLACK_LADY_PRODUCTION_CONSOLE_V1_1_QUALIFICATION_PUBLICATION_V001",
+  "session_id": "V11_Q4_E2E_001",
+  "shot_id": "TEST_UI_V11_Q4_001"
+}
