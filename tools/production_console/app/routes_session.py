@@ -383,8 +383,9 @@ def preflight():
         session = require_session()
         if session.get("status") not in ("DESIGN_APPROVED", "PREFLIGHT_FAILED"):
             return fail("当前状态不允许 PREFLIGHT")
-        _, folder_id = get_bound_folder()
-        result = qualification_preflight(session, drive_connected(), bool(folder_id))
+        binding, folder_id = get_bound_folder()
+        folder_name = binding.get("folder_name") or binding.get("name")
+        result = qualification_preflight(session, drive_connected(), bool(folder_id), folder_name)
         session["preflight"] = {**result, "checked_at": now_iso()}
         transition(session, "PREFLIGHT_PASS" if result["pass"] else "PREFLIGHT_FAILED")
         append_history(
