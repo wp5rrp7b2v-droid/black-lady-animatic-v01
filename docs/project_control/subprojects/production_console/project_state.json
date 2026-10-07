@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R048",
-  "status": "ACTIVE / Q3 PRE-E2E UX RETEST / OPERATOR FRESHNESS PATCH CI PASS / LOCAL RETEST NEXT",
+  "state_revision": "PC-R049",
+  "status": "ACTIVE / Q3 PRE-E2E UX RETEST / OPERATOR FRESHNESS UI PATCH CI PASS / LOCAL RETEST REQUIRED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "de007878ba157485e36e848418299f48c6671863",
+    "engineering_branch_head": "56cd1d5c6e9ec2885daf396a901ef5a917e3108e",
     "local_mac_regression": "MAIN PATH PASS / DEFECT SHORT REGRESSION PASS / TWO PRE-E2E MANUAL UI RETESTS REMAIN",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -272,6 +272,14 @@
       "ci_run": 37564557100,
       "ci_result": "SUCCESS",
       "issue": "Frontend expected github_main_sha but /api/v1/status did not expose it, allowing false CURRENT display when latest SHA was unavailable.",
+      "status": "READY FOR LOCAL MANUAL RETEST"
+    },
+    "operator_freshness_ui_patch_2026_10_07": {
+      "screenshot_result": "FAIL / freshness label absent",
+      "cause": "Operator View resolved Project Control successfully but did not re-run /api/v1/status freshness comparison after operatorPackage update.",
+      "patch_commit": "56cd1d5c6e9ec2885daf396a901ef5a917e3108e",
+      "ci_run": 37565996657,
+      "ci_result": "SUCCESS",
       "status": "READY FOR LOCAL MANUAL RETEST"
     }
   },
