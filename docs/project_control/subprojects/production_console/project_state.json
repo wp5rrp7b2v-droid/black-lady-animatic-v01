@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R047",
-  "status": "ACTIVE / N26 FORMALLY CLOSED / Q3 PRE-E2E UX RETEST RESUMED",
+  "state_revision": "PC-R048",
+  "status": "ACTIVE / Q3 PRE-E2E UX RETEST / OPERATOR FRESHNESS PATCH CI PASS / LOCAL RETEST NEXT",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -73,7 +73,7 @@
       "note": "Flask dependency installation could not run in the chat container because outbound package resolution is unavailable; this is not a test assertion failure."
     },
     "integration_closeout": "docs/project_control/subprojects/production_console/implementation/v1_1_ui_service_integration_closeout_2026-10-06.md",
-    "engineering_branch_head": "1ab7836274e04e8a2401f432ef985dbb3044e942",
+    "engineering_branch_head": "de007878ba157485e36e848418299f48c6671863",
     "local_mac_regression": "MAIN PATH PASS / DEFECT SHORT REGRESSION PASS / TWO PRE-E2E MANUAL UI RETESTS REMAIN",
     "pre_e2e_required_fixes": {
       "design_gate_semantics": "DESIGN must represent Design Package Ready, not manual Director Design authoring inside Console.",
@@ -188,7 +188,7 @@
       "auto_metadata_live_resolution": "Current screenshot matches latest main: N26 Director and Scene Reference approved/locked; Bundle design next; Bundle not built.",
       "auto_metadata_revision_evidence": "PATCH READY: Diagnostics now displays exact Project State blob SHA and main commit SHA used by Auto Resolve.",
       "operator_view_layout": "VISUAL PASS / one-page compact control confirmed",
-      "operator_view_data_freshness": "PATCH READY / Operator View now refreshes read-only Project Control on entry, shows resolved commit, exposes manual refresh, and marks stale when current main advances."
+      "operator_view_data_freshness": "PATCH COMPLETE / backend now exposes current github_main_sha; frontend compares resolved commit vs current main and marks STALE when different; CI PASS / local manual retest pending"
     },
     "recovery_fidelity_retest": {
       "session_id": "V11_RECOVERY_FIDELITY_RETEST_001",
@@ -265,6 +265,14 @@
         "807112c69d0f1b1dcf6ef4145f9aa1f880203f2d"
       ],
       "interpretation": "Parent Story Shot N26 completed through PO approval, intake verification, canonical publication, Story Shot registration, registration closeout, and Project Control closeout. Console qualification may resume without using N26 as a substitute qualification write path."
+    },
+    "operator_freshness_fix_2026_10_07": {
+      "backend_commit": "55e07570342434038cdb124474428e7870d3165b",
+      "regression_commit": "de007878ba157485e36e848418299f48c6671863",
+      "ci_run": 37564557100,
+      "ci_result": "SUCCESS",
+      "issue": "Frontend expected github_main_sha but /api/v1/status did not expose it, allowing false CURRENT display when latest SHA was unavailable.",
+      "status": "READY FOR LOCAL MANUAL RETEST"
     }
   },
   "scale_gate": {
@@ -275,7 +283,7 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "OPERATOR VIEW FRESHNESS RETEST",
+  "current_task": "LOCAL OPERATOR VIEW FRESHNESS RETEST",
   "next_gate": "OPERATOR VIEW FRESHNESS PASS → STALE SESSION AUTO RECOVERY PASS → Q3 COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
