@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R056",
-  "status": "ACTIVE / Q4 COMPLETE / V1.1 E2E QUALIFICATION PASS / Q5 NOT AUTHORIZED",
+  "state_revision": "PC-R057",
+  "status": "ACTIVE / Q4 PASS / N26 SHADOW E2E TEST AUTHORIZED / Q5 NOT AUTHORIZED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -456,6 +456,26 @@
         "q4_registration_continued_without_republication": true,
         "note": "Per-step duplicate recovery screenshots were not repeated in Q4; post-Q3 engineering change was limited to Drive-folder/session preflight isolation and did not modify recovery logic."
       }
+    },
+    "n26_shadow_e2e_test": {
+      "status": "AUTHORIZED / CONSOLE RUN NOT STARTED",
+      "authorized_on": "2026-10-07",
+      "session_id": "V11_N26_SHADOW_E2E_001",
+      "source_shot_id": "N26",
+      "production_adoption": false,
+      "q5_authorized": false,
+      "bundle_id": "N26_REFERENCE_DELIVERY_BUNDLE_V002",
+      "workflow_run_id": 37553891715,
+      "artifact_id": 11453927794,
+      "artifact_digest": "sha256:f7fdb72eb39aeea743dfd61707a817d5fae8cba34a0b924210985ecf34a3dd10",
+      "reference_count": 5,
+      "source_candidate_sha256": "8dcd5f5449ad6429f45e7b4f59ce15bfd574eeb8aa45a83d4e4132df3cf436d9",
+      "source_candidate_blob": "a5ce429689a99437773385e25b9813745e380f74",
+      "source_candidate_bytes": 2504586,
+      "source_candidate_dimensions": "941 × 1672",
+      "test_drive_folder_id": "1WVraNAHdwowjwh13s830oVicSFUObGdn",
+      "test_drive_folder_name": "V11_N26_SHADOW_E2E_001",
+      "boundary": "QUALIFICATION ONLY / FORMAL N26 RECORDS READ-ONLY / NO PRODUCTION ADOPTION"
     }
   },
   "scale_gate": {
@@ -466,9 +486,9 @@
     "production_adoption": "LOCKED / Q5 NOT AUTHORIZED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "Q4 CLOSEOUT COMPLETE / AWAIT PRODUCT OWNER DECISION ON Q5",
-  "next_gate": "EXPLICIT PRODUCT OWNER AUTHORIZATION REQUIRED BEFORE Q5 PROCESS CHANGE / PRODUCTION ADOPTION",
+  "current_task": "V11_N26_SHADOW_E2E_001｜N26 END-TO-END TEST IN QUALIFICATION MODE",
+  "next_gate": "N26 SHADOW E2E COMPLETE",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
-  "session_status": "2026-10-07 Q4 COMPLETE / PASS"
+  "session_status": "2026-10-07 N26 SHADOW E2E TEST STARTED"
 }
