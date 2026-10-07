@@ -30,6 +30,19 @@ class FlaskLocalTests(unittest.TestCase):
         self.assertEqual(r.get_json()["service"],"BLACK_LADY_PRODUCTION_CONSOLE_V1_1")
         self.assertEqual(r.get_json()["production_process_boundary"],"FORMAL_STORY_SHOT_WORKFLOW_UNCHANGED")
 
+    def test_status_exposes_current_main_sha(self):
+        orig_gh = routes_session.gh_binary
+        orig_main_meta = routes_session.main_meta
+        try:
+            routes_session.gh_binary = lambda: "/usr/bin/gh"
+            routes_session.main_meta = lambda: {"commit": {"sha": "abc123main"}}
+            r=self.client.get("/api/v1/status")
+            self.assertEqual(r.status_code,200)
+            self.assertEqual(r.get_json()["github_main_sha"],"abc123main")
+        finally:
+            routes_session.gh_binary = orig_gh
+            routes_session.main_meta = orig_main_meta
+
     def test_session_design_flow(self):
         body={"session_id":"N24_QA_LOCAL","shot_id":"N24","mode":"QUALIFICATION","bundle":{"bundle_id":"B","run_id":1,"artifact_id":2,"artifact_digest":"sha256:x","reference_count":2,"references_exact":True,"generation_allowed":True}}
         r=self.client.post("/api/v1/session/start",json=body)
