@@ -6,8 +6,8 @@
   "parent_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
-  "state_revision": "PC-R058",
-  "status": "ACTIVE / Q4 PASS / N26 SHADOW E2E PASS / UX FINDINGS OPEN / Q5 NOT AUTHORIZED",
+  "state_revision": "PC-R059",
+  "status": "ACTIVE / V1.1 FOUNDATION + E2E STAGE CLOSED / PRODUCT DIRECTION RESET / Q5 NOT AUTHORIZED",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -505,6 +505,27 @@
       ],
       "production_adoption": false,
       "q5_authorized": false
+    },
+    "stage_closeout_2026_10_07": {
+      "status": "CLOSED / PASS",
+      "record": "docs/project_control/subprojects/production_console/logs/stage_summary_v1_1_foundation_and_e2e_2026-10-07.md",
+      "record_commit": "43a1149b25b76626e4629e7492443fdf8fafd35e",
+      "engineering_result": "V1.1 WORKFLOW ENGINE / QUALIFICATION / RECOVERY FOUNDATION VERIFIED",
+      "product_result": "CURRENT UI NOT ACCEPTED AS PRODUCT OWNER DAILY PRODUCTION ENTRY",
+      "retained_foundation": [
+        "V1.0 fixed-install local console",
+        "V1.1 state machine",
+        "Project Control metadata resolver",
+        "Drive / GitHub integration",
+        "candidate exact-binary verification and immutable identity",
+        "qualification publication / registration / lock / closeout",
+        "external recovery and reconciliation",
+        "operator diagnostics and audit evidence"
+      ],
+      "direction_reset": "Restore original product intent: one unified Story Shot workspace spanning design → references/bundle → Work generation → candidate review → PO approval → formal closeout; internal workflow states should remain backend/diagnostic details rather than Product Owner chores.",
+      "production_adoption": false,
+      "q5_authorized": false,
+      "v2_design_authorized": false
     }
   },
   "scale_gate": {
@@ -513,11 +534,12 @@
     "v1_1_implementation": "PASS / Q3 COMPLETE",
     "v1_1_e2e": "PASS / Q4 COMPLETE 2026-10-07",
     "production_adoption": "LOCKED / Q5 NOT AUTHORIZED",
-    "process_change": "NOT_AUTHORIZED"
+    "process_change": "NOT_AUTHORIZED",
+    "v1_1_stage_closeout": "PASS / CLOSED 2026-10-07"
   },
-  "current_task": "N26 SHADOW E2E VERIFIED COMPLETE / REVIEW UX FINDINGS BEFORE ANY Q5 DECISION",
-  "next_gate": "OPTIONAL UX FIXES + RETEST / Q5 REQUIRES SEPARATE PRODUCT OWNER AUTHORIZATION",
+  "current_task": "STAGE CLOSEOUT COMPLETE / AWAIT PRODUCT OWNER AUTHORIZATION FOR V2 UNIFIED STORY SHOT WORKSPACE DESIGN",
+  "next_gate": "V2 UNIFIED STORY SHOT WORKSPACE PRODUCT DESIGN / NOT STARTED",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
-  "session_status": "2026-10-07 N26 SHADOW E2E PASS / PRODUCTION ADOPTION NOT STARTED"
+  "session_status": "2026-10-07 V1.1 FOUNDATION + E2E STAGE CLOSED / PRODUCTION ADOPTION NOT STARTED"
 }
