@@ -55,19 +55,42 @@ def resolve_from_state(state, shot_id=None):
     _, bundle_key, bundle = _latest_versioned(state, f"{prefix}_reference_delivery_bundle")
 
     bundle = bundle or {}
-    ref_count = int(bundle.get("direct_image_count") or bundle.get("direct_visual_input_count") or 0)
-    bundle_id = bundle.get("artifact_name") or ((bundle_key or "").upper() if bundle_key else None)
+    formal_build = bundle.get("formal_build") if isinstance(bundle.get("formal_build"), dict) else {}
 
-    formal_build_verified = bool(bundle) and (
-        "FORMAL BUILD PASS" in str(bundle.get("status") or "").upper()
-        and "ARTIFACT EXACT VERIFIED" in str(bundle.get("status") or "").upper()
-        and bool(bundle.get("downloaded_zip_digest_match"))
-        and str(bundle.get("manifest_result") or "").upper() == "PASS"
-        and bool(bundle.get("handoff_verified"))
+    ref_count = int(bundle.get("direct_image_count") or bundle.get("direct_visual_input_count") or 0)
+    bundle_id = (
+        formal_build.get("artifact_name")
+        or bundle.get("artifact_name")
+        or ((bundle_key or "").upper() if bundle_key else None)
     )
 
+    zip_digest_match = bundle.get("downloaded_zip_digest_match")
+    if zip_digest_match is None:
+        zip_digest_match = formal_build.get("zip_digest_match")
+
+    manifest_verified = (
+        str(bundle.get("manifest_result") or "").upper() == "PASS"
+        or str(formal_build.get("overall_result") or "").upper() == "PASS"
+    )
+
+    handoff_verified = (
+        bool(bundle.get("handoff_verified"))
+        or str(formal_build.get("work_handoff") or "").upper() == "PASS"
+    )
+
+    formal_status = str(bundle.get("status") or "").upper()
+    formal_build_verified = bool(bundle) and (
+        (
+            "FORMAL BUILD PASS" in formal_status
+            and "ARTIFACT EXACT VERIFIED" in formal_status
+        )
+        or str(formal_build.get("overall_result") or "").upper() == "PASS"
+    ) and bool(zip_digest_match) and manifest_verified and handoff_verified
+
     references_exact = bool(bundle) and _exact_reference_pass(
-        bundle.get("reference_exact_match") or bundle.get("exact_reference_match"),
+        bundle.get("reference_exact_match")
+        or bundle.get("exact_reference_match")
+        or formal_build.get("reference_exact_match"),
         ref_count,
     )
     generation_authorized = bool(
@@ -109,12 +132,12 @@ def resolve_from_state(state, shot_id=None):
         },
         "bundle": {
             "bundle_id": bundle_id,
-            "run_id": bundle.get("run_id"),
-            "artifact_id": bundle.get("artifact_id"),
-            "artifact_digest": bundle.get("artifact_digest"),
+            "run_id": formal_build.get("workflow_run_id") or bundle.get("run_id"),
+            "artifact_id": formal_build.get("artifact_id") or bundle.get("artifact_id"),
+            "artifact_digest": formal_build.get("artifact_digest") or bundle.get("artifact_digest"),
             "reference_count": ref_count,
             "references_exact": references_exact,
-            "delivery_manifest_verified": str(bundle.get("manifest_result") or "").upper() == "PASS",
+            "delivery_manifest_verified": manifest_verified,
             "generation_allowed": generation_authorized,
         },
         "project_control": {
