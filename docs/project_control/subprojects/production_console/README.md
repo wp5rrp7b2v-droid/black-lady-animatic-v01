@@ -1,6 +1,6 @@
 # Black Lady Production Console｜Subproject Control
 
-Status: **ACTIVE / 2026-10-06 EOD SESSION CLOSED / Q3 PRE-E2E UX RETEST IN PROGRESS / CONTINUE NEXT SESSION**
+Status: **ACTIVE / Q3 COMPLETE / Q4 V1.1 END-TO-END QUALIFICATION ACTIVE / Q5 PRODUCTION ADOPTION LOCKED**
 
 Parent project: 《诡舍·黑衣夫人》  
 Canonical repo: `wp5rrp7b2v-droid/black-lady-animatic-v01`  
@@ -48,8 +48,8 @@ The Console must never become a third independent truth source.
 - V1.1 Core implementation + local regression: PASS.
 - Auto Metadata Resolve: PASS against exact Project Control revision.
 - Operator View one-page layout: VISUAL PASS.
-- Remaining Q3 manual checks: Operator View freshness; stale localStorage → automatic External Recovery.
-- V1.1 End-to-End Qualification (Q4): NOT STARTED / REQUIRED.
+- Q3 Pre-E2E UX qualification: PASS / COMPLETE 2026-10-07.
+- V1.1 End-to-End Qualification (Q4): ACTIVE / Session `V11_Q4_E2E_001`.
 - Production Process Change: NOT STARTED / NOT AUTHORIZED.
 - Production Scale: LOCKED.
 
@@ -87,3 +87,23 @@ Daily closeout record:
 `logs/eod_closeout_2026-10-06.md`
 
 Local sync is required at next session start because both parent `main` and `feature/production-console-v1-1` advanced during the day. Preserve local-only/private folders and credentials; never commit `BlackLadyLocalConsolePrivate/`.
+
+
+## Q4 active run｜2026-10-07
+
+Product Owner authorized the formal V1.1 End-to-End qualification.
+
+Controlled test identity:
+
+- Session: `V11_Q4_E2E_001`
+- Shot: `TEST_UI_V11_Q4_001`
+- Bundle: `V11_Q4_E2E_BUNDLE_001`
+- Qualification branch: `test/local-console-v1-1-e2e-v001`
+
+Required path:
+
+`DESIGN → PREFLIGHT → GENERATE → REVIEW → PUBLISH → REGISTER → LOCK → CLOSEOUT`
+
+The run includes deliberate local-session-loss recovery after Publication and again after Closeout. Formal Story Shot production remains unchanged. Production Adoption / Q5 remains locked pending a separate Product Owner decision.
+
+Start record: `logs/q4_e2e_qualification_start_2026-10-07.md`
