@@ -162,6 +162,7 @@ async function refreshOperatorOverview(silent=false){
     const j=await api("/api/v1/design-package/resolve");
     operatorPackage=j.resolved;
     renderOperatorSummary();
+    await refreshSystem();
     if(!silent) showAction("Operator View 已刷新 · "+operatorPackage.shot_id,"success");
     return operatorPackage;
   }catch(e){
