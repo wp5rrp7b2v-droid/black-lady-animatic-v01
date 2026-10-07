@@ -7,7 +7,7 @@
   "project_control_root": "docs/project_control/subprojects/production_console/",
   "last_updated": "2026-10-07",
   "state_revision": "PC-R055",
-  "status": "ACTIVE / Q4 E2E / PUBLICATION PASS / RECOVERY TEST NEXT",
+  "status": "ACTIVE / Q4 E2E / PUBLICATION COMPLETE / BATCHED BACK-HALF VERIFICATION",
   "purpose": "Qualify a unified local production UI without changing the current formal Story Shot production workflow during the design/test phase.",
   "authority_boundary": {
     "current_formal_story_shot_workflow": "UNCHANGED / ACTIVE BASELINE",
@@ -405,6 +405,24 @@
         "n26_canonical_blob": "a5ce429689a99437773385e25b9813745e380f74",
         "parent_project_state_revision": "R337",
         "parent_project_state_blob": "6895891002447cabdfba7f3771a77696c36845eb"
+      },
+      "execution_policy": {
+        "mode": "BATCHED_EVIDENCE_VERIFICATION",
+        "reason": "Do not require a screenshot at every transition when backend logs and authoritative remote evidence can verify failures and bindings.",
+        "back_half_path": [
+          "REGISTER",
+          "LOCK",
+          "CLOSEOUT"
+        ],
+        "per_step_screenshot_required": false,
+        "stop_condition": "Stop only on UI/backend error, failed transition, identity/binding mismatch, or safety invariant change.",
+        "final_verification": [
+          "Console/backend logs",
+          "qualification publication/registration/lock/closeout records",
+          "Candidate immutable identity and SHA consistency",
+          "Drive binary identity",
+          "formal main / Story Shot Index / N26 canonical / parent Project Control unchanged"
+        ]
       }
     }
   },
@@ -416,9 +434,9 @@
     "production_adoption": "LOCKED",
     "process_change": "NOT_AUTHORIZED"
   },
-  "current_task": "Q4 V11_Q4_E2E_001｜SIMULATE LOCAL SESSION LOSS AFTER PUBLICATION",
-  "next_gate": "AUTO RECOVERY TO PUBLISHED_NOT_REGISTERED WITHOUT REPUBLISH → REGISTRATION",
+  "current_task": "Q4 V11_Q4_E2E_001｜REGISTER → LOCK → CLOSEOUT CONTINUOUS EXECUTION",
+  "next_gate": "BACK-HALF COMPLETE → CENTRALIZED LOG + REMOTE EVIDENCE + FORMAL-SAFETY CROSS-CHECK",
   "blockers": [],
   "private_data_rule": "BlackLadyLocalConsolePrivate and OAuth credentials must never be committed to GitHub.",
-  "session_status": "2026-10-07 ACTIVE / Q4 PREFLIGHT PASS / AWAITING CANDIDATE"
+  "session_status": "2026-10-07 ACTIVE / Q4 BACK-HALF BATCH MODE"
 }
