@@ -1,7 +1,32 @@
 # Black Lady Animatic v01
 
-## 移动端云端交付验证
+Canonical repository for the `诡舍·黑衣夫人` production project.
 
-本项目使用纯文本 Base64 payload 与 GitHub Actions Artifact 进行移动端交付验证，仓库不保存恢复后的图片或视频二进制文件。
+## Current production layout
 
-获取视频：在 GitHub 仓库的 **Actions** 页面打开一次 **Build animatic artifact** 成功运行，随后在运行详情页的 **Artifacts** 区域下载 `black-lady-animatic-cloud-smoke-test-02`。
+- `production/` — canonical approved assets, Story Shots, registries, bundle specs, and approved video outputs.
+- `docs/project_control/` — project state, governance, approvals, verification records, and closeout evidence.
+- `scripts/` — currently retained production / registry / verification tooling.
+- `.github/workflows/` — active GitHub Actions workflows only.
+- `staging/` — controlled temporary inputs that are still required by an active workflow or regression fixture.
+- `tests/` — retained regression tests for the production toolchain.
+
+## Story Shot production baseline
+
+Formal Story Shot work follows:
+
+`Director Design → Scene Reference → Bundle → Work generation → Product Owner approval → Exact Binary Verification → Canonical Publication → Story Shot Registration → Registration Verification → Project Control Closeout`
+
+GitHub `main` remains the canonical repository baseline.
+
+## Historical experiments
+
+Completed proof-of-concept implementations and retired one-off workflows are kept under:
+
+`docs/project_control/archive/`
+
+They are historical evidence only and are not active production entry points.
+
+## Repository cleanup note
+
+The original Base64 cloud animatic smoke-test transport was retired on 2026-10-07. Its workflow, payload fragments, and render helper are no longer part of the repository working tree. Historical Git commits preserve that experiment if reconstruction is ever required.
