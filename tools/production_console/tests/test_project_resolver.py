@@ -66,5 +66,44 @@ class ProjectResolverTests(unittest.TestCase):
         self.assertFalse(r["bundle"]["delivery_manifest_verified"])
 
 
+    def test_resolve_nested_formal_build_metadata_for_closed_shot_replay(self):
+        state = {
+            "current_task": "N26 CLOSEOUT COMPLETE",
+            "n26_director_design_v0_1": {
+                "status": "PRODUCT OWNER APPROVED / LOCKED",
+                "path": "director.md",
+            },
+            "n26_scene_reference_design_v0_2": {
+                "status": "PRODUCT OWNER APPROVED / LOCKED",
+                "path": "scene.md",
+            },
+            "n26_reference_delivery_bundle_v002": {
+                "status": "FORMAL BUILD PASS / ARTIFACT EXACT VERIFIED / CONSUMED BY N26 CANDIDATE 02 GENERATION / FINAL SHOT CLOSED",
+                "direct_image_count": 5,
+                "candidate_02_generation_authorized": True,
+                "formal_build": {
+                    "workflow_run_id": 37553891715,
+                    "artifact_id": 11453927794,
+                    "artifact_name": "N26_REFERENCE_DELIVERY_BUNDLE_V002",
+                    "artifact_digest": "sha256:f7fdb72e",
+                    "zip_digest_match": True,
+                    "reference_exact_match": "5/5",
+                    "work_handoff": "PASS",
+                    "overall_result": "PASS",
+                },
+            },
+        }
+        r = resolve_from_state(state, shot_id="N26")
+        self.assertTrue(r["package_ready"])
+        self.assertTrue(r["generation_authorized"])
+        self.assertEqual(r["resolution_state"], "READY")
+        self.assertEqual(r["bundle"]["bundle_id"], "N26_REFERENCE_DELIVERY_BUNDLE_V002")
+        self.assertEqual(r["bundle"]["run_id"], 37553891715)
+        self.assertEqual(r["bundle"]["artifact_id"], 11453927794)
+        self.assertEqual(r["bundle"]["reference_count"], 5)
+        self.assertTrue(r["bundle"]["references_exact"])
+        self.assertTrue(r["bundle"]["delivery_manifest_verified"])
+
+
 if __name__ == "__main__":
     unittest.main()
