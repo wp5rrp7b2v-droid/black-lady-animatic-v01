@@ -1,12 +1,12 @@
 # Repository Cleanup Archive｜2026-10-07
 
-Status: `VERIFIED / PRODUCT OWNER AUTHORIZED`
+Status: `VERIFIED / PRODUCT OWNER AUTHORIZED / DRIVE ARCHIVE MIGRATED`
 
 Baseline commit:
 
 `6f6dff4edd943cd4f870c789f25c52602a836ccf`
 
-Purpose: remove files proven to have no current project dependency, and move uncertain or historically valuable material out of active execution paths without discarding its exact Git blobs.
+Purpose: keep GitHub focused on current execution/runtime/governance while preserving retired historical material in Google Drive with exact provenance.
 
 ## Deleted from active tree
 
@@ -26,35 +26,58 @@ Total removed from the current working tree: 5,034,360 bytes.
 
 The deleted objects remain recoverable from Git history.
 
-## Archived, not deleted
+## Historical archive migrated to Google Drive
 
-The following material had historical / audit / experimental value or residual uncertainty, so it was moved under this archive with exact existing blob identities preserved:
+The former GitHub archive subtree:
 
-### Retired workflows
+`docs/project_control/archive/repository_cleanup_2026-10-07/original/`
 
-- `.github/workflows/manor-gate-scene-reference-delivery-bundle-v001.yml`
-- `.github/workflows/p03-n15-reference-delivery-bundle-v001.yml`
-- `.github/workflows/p03-libopenshot-camera-motion-proof-v001.yml`
-- `.github/workflows/p03-opening-v2-libopenshot-full-proof-v001.yml`
-- `.github/workflows/p03-opening-v2-proof-review-v001.yml`
-- `.github/workflows/p03-opening-v2-proof-review-v002.yml`
-- `.github/workflows/p03-opening-v2-proof-review-v003.yml`
-- `.github/workflows/render-sh05-remotion.yml`
+contained:
 
-### Historical proof implementations
+- file count: 116
+- total original bytes: 5,488,370
 
-- `openshot-camera-motion-proof-v001/`
-- `openshot-opening-v2-full-proof-v001/`
-- `remotion-opening-v2-review/`
-- `remotion-opening-v2-review-v002/`
-- `remotion-opening-v2-review-v003/`
-- `remotion-sh05/`
+This retired material was exported by one-time GitHub Actions Run:
 
-Archive path rule:
+- Run ID: `37602987338`
+- Artifact ID: `11473995756`
+- Artifact name: `REPOSITORY_CLEANUP_2026-10-07_ORIGINAL_ARCHIVE`
+- Artifact ZIP bytes: `5,203,773`
+- Artifact SHA-256: `f8295133c62b81f9ee3fbae13f89da4551b9d1bb2b8d8901e33c868a5cbdd0d7`
+- Source commit: `8278516b6f5f3cb982309dd3ab478fb35d860c59`
+
+The export contains:
+
+- the complete retired archive subtree;
+- `SHA256SUMS.txt` for file-level SHA-256 verification;
+- `GIT_BLOBS.txt` for Git blob provenance;
+- `EXPORT_RECEIPT.txt`;
+- `ARCHIVE_SHA256.txt`;
+- `repository_cleanup_2026-10-07_original.zip`.
+
+Google Drive destination:
+
+`Black Lady Project / 99_Archive / GitHub_Repository_Cleanup_2026-10-07`
+
+Drive file:
+
+- file ID: `1RZr321qx4FvGia6MzYbv_kwYr5g-tqwZ`
+- name: `REPOSITORY_CLEANUP_2026-10-07_ORIGINAL_ARCHIVE.zip`
+- stored bytes: `5,203,773`
+
+Verification result:
+
+`GITHUB ARTIFACT SIZE == DRIVE STORED SIZE`
+
+`LOCAL ARTIFACT SHA-256 == GITHUB ARTIFACT DIGEST`
+
+The retired `original/` subtree is therefore permitted to leave the GitHub active tree. The original Git objects remain recoverable from Git history.
+
+## Previously archived categories
+
+The migrated archive includes retired workflows, historical proof implementations, retired scripts, and historical staging candidates that were previously preserved below:
 
 `docs/project_control/archive/repository_cleanup_2026-10-07/original/<original path>`
-
-This preserves the original relative path below the archive root so provenance remains explicit.
 
 ## Explicitly not touched
 
@@ -64,19 +87,16 @@ No cleanup change was made to:
 - `production/asset_registry/`;
 - `production/story_shots/`;
 - `production/video/`;
+- `source_material/` canonical story sources;
 - current Project Control state;
 - active generic Story Shot bundle / intake workflows;
 - `staging/d069_a04_intake/A04_REBOOT_approved_v001.png`, because the retained D069 regression test still consumes it;
 - CURRENT Scene / Character / Prop assets.
 
-## Expected operational effect
+## Repository storage rule after this migration
 
-The retired workflows are removed from `.github/workflows/`, so they cannot continue creating normal Actions noise from their former triggers.
+GitHub retains material that participates in current execution, canonical registration, exact verification, reproducible build logic, tests, or active project governance.
 
-In the pre-cleanup sample of the latest 100 workflow runs:
+Google Drive is the long-term archive location for retired files that no longer participate in the active execution graph.
 
-- `Build animatic artifact`: 40 runs;
-- `MANOR GATE Scene Reference Delivery Bundle V001`: 24 runs, all failed;
-- `N15 Reference Delivery Bundle V001`: 23 runs, all failed.
-
-The cleanup therefore removes the three largest known obsolete trigger sources without changing the current Story Shot production chain.
+This migration does not rewrite Git history.
