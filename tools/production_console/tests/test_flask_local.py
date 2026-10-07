@@ -12,6 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"app"))
 import server
 import routes_session
+import qualification
 from state_store import acquire_candidate_lock, release_candidate_lock
 from PIL import Image
 
@@ -84,6 +85,41 @@ class FlaskLocalTests(unittest.TestCase):
             self.assertFalse(data["bundle"]["generation_allowed"])
         finally:
             routes_session.resolve_project_design_package = orig
+
+    def test_preflight_rejects_cross_session_drive_folder(self):
+        session={
+            "session_id":"Q4_SESSION",
+            "shot_id":"TEST_Q4",
+            "status":"DESIGN_APPROVED",
+            "bundle":{
+                "bundle_id":"Q4_BUNDLE",
+                "run_id":1,
+                "artifact_id":1,
+                "artifact_digest":"sha256:x",
+                "reference_count":1,
+                "references_exact":True,
+                "delivery_manifest_verified":True,
+                "generation_allowed":True,
+            },
+            "lock":{},
+        }
+        orig_branch=qualification.branch_meta
+        orig_main=qualification.main_meta
+        orig_get=qualification.get_file
+        try:
+            qualification.branch_meta=lambda branch:{"commit":{"sha":"q"}}
+            qualification.main_meta=lambda:{"commit":{"sha":"m"}}
+            qualification.get_file=lambda branch,path:None
+            bad=qualification.preflight(session,True,True,"OTHER_SESSION")
+            self.assertFalse(bad["pass"])
+            self.assertFalse(bad["checks"]["drive_folder_matches_session"])
+            good=qualification.preflight(session,True,True,"Q4_SESSION")
+            self.assertTrue(good["pass"])
+            self.assertTrue(good["checks"]["drive_folder_matches_session"])
+        finally:
+            qualification.branch_meta=orig_branch
+            qualification.main_meta=orig_main
+            qualification.get_file=orig_get
 
     def test_candidate_upload_lock(self):
         lock = acquire_candidate_lock("LOCK_QA", "CANDIDATE_01")
