@@ -1,0 +1,68 @@
+name: N18 Micro Action Source Delivery (Test Only)
+
+on:
+  push:
+    branches:
+      - test/n18-micro-action-source-delivery-20261009
+    paths:
+      - .github/workflows/n18-micro-action-source-delivery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout canonical repository bytes
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify N18 exact approved original and prepare handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, os, struct, subprocess
+          source = Path('production/image_library/approved/story_shots/N18_CLEAR_SKY_DOUBT_APPROVED_V001.png')
+          expected = {
+              'filename': source.name,
+              'size_bytes': 2158626,
+              'sha256': '18746fdde8a3b7699061fd6f4a8a6b666d50001250a2df902bb3b5995e7e2613',
+              'git_blob_sha1': '039471efd721fa5f822c4fb8ec933b4893f91641',
+              'width': 941,
+              'height': 1672
+          }
+          data = source.read_bytes()
+          checks = {
+              'bytes': len(data) == expected['size_bytes'],
+              'sha256': hashlib.sha256(data).hexdigest() == expected['sha256'],
+              'git_blob': hashlib.sha1(('blob %d\0' % len(data)).encode() + data).hexdigest() == expected['git_blob_sha1'],
+              'png_signature': data[:8] == b'\x89PNG\r\n\x1a\n',
+              'dimensions': tuple(struct.unpack('>II', data[16:24])) == (expected['width'], expected['height'])
+          }
+          print(json.dumps(checks, ensure_ascii=False))
+          assert all(checks.values()), 'APPROVED BINARY FAIL: stop without exporting'
+          out = Path('n18_delivery')
+          out.mkdir()
+          target = out / source.name
+          target.write_bytes(data)
+          manifest = {'bundle_id':'N18_MICRO_ACTION_SOURCE_BUNDLE_V001','status':'EXACT_SOURCE_VERIFIED','source_repo':'wp5rrp7b2v-droid/black-lady-animatic-v01','canonical_path':str(source),'source_commit':os.getenv('GITHUB_SHA'), 'expected':expected,'checks':checks}
+          (out / 'delivery_manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          (out / 'SHA256SUMS.txt').write_text(expected['sha256'] + '  ' + source.name + '\n',encoding='utf-8')
+          (out / 'WORK_HANDOFF.md').write_text('''# N18 MICRO ACTION SOURCE — VERIFIED ORIGINAL\n\nContains the exact Product-Owner-approved N18 PNG from the GitHub canonical repository.\n\nWork must read delivery_manifest.json, re-check SHA-256 of the PNG, and treat the PNG as immutable base.\n\nDO NOT use previous GIF tests or generated images; DO NOT regenerate the entire still.\n\nPhase 2 is a technology capability check only: demonstrate a natural blink with unchanged pixels outside the eye-region mask. If local masking/layer-based animation and compositing are not supported, STOP; do not export MP4.\n\nFormal S02-B V001 edit is NOT changed.\n''', encoding='utf-8')
+          for p in [target, out / 'delivery_manifest.json', out / 'SHA256SUMS.txt', out / 'WORK_HANDOFF.md']:
+              print(str(p), p.stat().st_size)
+          PY
+
+      - name: Upload verified original only
+        uses: actions/upload-artifact@v4
+        with:
+          name: N18_MICRO_ACTION_SOURCE_BUNDLE_V001
+          path: n18_delivery/
+          retention-days: 14
+          if-no-files-found: error
