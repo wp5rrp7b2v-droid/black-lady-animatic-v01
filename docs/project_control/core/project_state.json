@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R339",
+  "state_revision": "R340",
   "last_updated": "2026-10-09",
-  "session_status": "2026-10-09 ACTIVE / S02-B V001 PO APPROVED + EXACT DRIVE MASTER VERIFIED + VIDEO INDEX REGISTERED / P0.3 IN PROGRESS / LOCAL SYNC DEFERRED UNTIL EVENING",
+  "session_status": "2026-10-09 CLOUD DAILY CLOSEOUT COMPLETE / S02-B V001 APPROVED AND LOCKED / N18 MICRO-ACTION GIF TEST FAIL + PAUSED / P0.3 IN PROGRESS / LOCAL MAC SYNC PENDING USER TERMINAL VERIFICATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "S02-B V001 APPROVED AND REGISTERED / NEXT: DISCUSS PRODUCT OWNER NEW IDEA (CONTENT NOT YET GIVEN)",
-  "blocker": "No blocker to cloud discussion and planning. Local Mac branch/status and main SHA equality remain unverified; local synchronization deferred to evening by Product Owner.",
-  "next_action": "First: discuss the Product Owner's new idea, which has not been described yet. Keep S02-B V001 exactly approved; do not invent or implement the idea. Evening: inspect local branch/status and perform safe local main synchronization/verification. P0.3 remains IN PROGRESS.",
+  "current_task": "EOD CLOSED IN GITHUB / NEXT: LOCAL MAIN SAFE FAST-FORWARD + SHA PARITY PROOF / THEN PO CHOOSES NEXT VIDEO PRODUCTION TASK",
+  "blocker": "No cloud production blocker. Local Mac working copy is NOT VERIFIED SYNCED: current session has no access to user's Mac file system. N18 micro-action GIF technique paused after failed visual test; not a blocker to approved still-shot editing.",
+  "next_action": "Run the safe local main synchronization command from the 2026-10-09 daily closeout in Mac Terminal; return status and HEAD/origin/main hashes; verify against current GitHub main. Preserve untracked private console folders; stop on tracked modifications/non-fast-forward. Then PO chooses next editing/story segment, not auto-restart of N18 GIF.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,9 +61,9 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "INSPECTED 2026-10-07 / LOCAL WORKING COPY CURRENTLY ON feature/production-console-v1-1 @ ea0e3a0 / origin/main @ 097cc7603b18ede8d7cf92053cb100971555012b / MAIN RE-SYNC REQUIRED NEXT SESSION",
-    "rule": "Before the next local formal production session, inspect local status first. Preserve known untracked local items. If no tracked conflict exists, fast-forward pull main only. If ordinary network pull fails, use the verified git-proxy-auto recovery path. Never overwrite tracked local work mechanically.",
-    "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" && git status --short --branch && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main",
+    "status": "PENDING USER-SIDE MAC TERMINAL VERIFICATION / 2026-10-09 GITHUB CLOUD CLOSEOUT COMPLETE / DO NOT CLAIM LOCAL SYNC PASS",
+    "rule": "Current Mac state has not been freshly inspected since 2026-10-07. Inspect tracked changes; never overwrite or stash without review. On clean tracked tree, switch to local main and perform ff-only pull using git-proxy-auto. Preserve untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ and other local private/working folders. Check hashes against GitHub main.",
+    "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
     "temporary_exception": {
       "mode": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -83,8 +83,8 @@
     "verification_requirement": "Before next local formal production, verify exact SHA equality after fast-forward pull.",
     "verified_on": "2026-10-07",
     "verified_head": null,
-    "verification_evidence": "User terminal on 2026-10-07: current branch feature/production-console-v1-1, local HEAD ea0e3a0, origin/main 097cc76; git status showed only intended untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/. Local cleanup then removed archived/duplicate legacy material, but local main parity was not established and must be verified next session.",
-    "note": "2026-10-07 EOD: local storage cleanup completed and historical legacy/UI material was archived to Google Drive before local deletion. This does not substitute for Git main synchronization. Next formal local operation must begin with branch/status inspection and local main fast-forward verification."
+    "verification_evidence": "Latest terminal evidence 2026-10-07: feature/production-console-v1-1 at ea0e3a0, old origin/main at 097cc76, untracked private console directories. 2026-10-09 no Mac terminal access; actual post-closeout sync not yet verified.",
+    "note": "Nightly 2026-10-09 cloud closeout was completed; user has requested Mac sync but it cannot be executed from this cloud chat. Await user-side safe switch-main/ff-only pull output and SHA parity check."
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -119,17 +119,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-09-S02-B-V001-PO-APPROVAL-R339",
-    "status": "VIDEO V001 APPROVED / CANONICAL DRIVE EXACT VERIFIED / REGISTERED / P0.3 STILL IN PROGRESS",
+    "id": "2026-10-09-DAILY-CLOSEOUT-R340",
+    "status": "CLOUD PROJECT CONTROL CLOSEOUT COMPLETE / LOCAL MAC UNVERIFIED / P0.3 IN PROGRESS",
     "completed": [
-      "Product Owner approved current 64.250-second S02-B cut exactly as V001.",
-      "12-shot cut from approved Story Shots rendered in GitHub Actions and full decode passed.",
-      "Drive canonical S02_B_ASSEMBLY_APPROVED_V001.mp4 uploaded; byte-by-byte Drive download round-trip plus SHA-256 + decode PASS.",
-      "Video Index registered a third APPROVED/CURRENT video master S02_B_ASSEMBLY_V001.",
-      "Local Mac synchronization deliberately deferred until the evening at Product Owner request."
+      "S02-B V001 remains exactly approved and canonical on Drive; 3 approved/current video registry entries, 32 approved/current Story Shots.",
+      "Micro-action terminology clarified; N18 ~2.8s GIF blink/breath/gaze approach tested and rejected for current complex-background still workflow.",
+      "Work independently cloned and SHA-256-verified approved N18 PNG; local masking/compositing isolated background pixels, but natural eyelid rendering FAILED.",
+      "Isolated GitHub Actions source-delivery experiment verified exact N18 PNG; test branch not merged into main.",
+      "Product Owner directed stopping current N18 GIF route; no test GIF promoted to canonical or video registry.",
+      "Cloud decision, execution, P0.3 README, daily closeout, Project State and Dashboard aligned."
     ],
-    "resume_from": "DISCUSS PRODUCT OWNER NEW IDEA (CONTENT NOT YET PROVIDED) → KEEP V001 APPROVAL FROZEN → EVENING LOCAL GIT SYNC",
-    "blockers": []
+    "resume_from": "USER MAC SAFE MAIN SYNCHRONIZATION + EXACT HEAD PARITY → NEXT PO PRODUCTION CHOICE",
+    "blockers": [
+      "Mac working copy not accessible from cloud assistant; local synchronization requires user terminal output."
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -524,13 +527,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V269",
+    "version": "V270",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R339 / 2026-10-09 S02-B V001 PO APPROVED",
-    "derived_from_revision": "R339",
+    "status": "CURRENT / DERIVED FROM R340 / EOD GIF TECH TEST FAIL + CLOUD CLOSEOUT / MAC SYNC PENDING",
+    "derived_from_revision": "R340",
     "last_updated": "2026-10-09",
-    "current_task": "S02-B V001 APPROVED / DISCUSS PO IDEA / LOCAL SYNC TONIGHT"
+    "current_task": "CLOUD CLOSEOUT COMPLETE / LOCAL MAIN SYNC PENDING / NEXT PO DECISION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -545,10 +548,10 @@
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-03.md",
-    "last_daily_closeout_status": "COMPLETE / CROSS-CHECKED / N21-N23 CLOSED / RISK-003 CLOSED / R281",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_a_assembly_v001_formal_closeout_2026-09-28.md",
-    "last_formal_closeout_status": "COMPLETE / S02-A ASSEMBLY V001 / R119"
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-09.md",
+    "last_daily_closeout_status": "GITHUB CLOUD COMPLETE / LOCAL MAC SYNC AWAITING VERIFICATION / R340",
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
+    "last_formal_closeout_status": "S02-B V001 PRODUCT OWNER APPROVED / EXACT DRIVE VERIFIED / REGISTERED"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -5014,8 +5017,29 @@
     "gate_boundary": "P0.3 IN PROGRESS / NOT GATE APPROVED"
   },
   "next_idea_discussion": {
-    "status": "PENDING_PRODUCT_OWNER_DESCRIPTION / NOT A PROPOSAL / NO CHANGE AUTHORIZED",
-    "note": "PO has announced a new idea to discuss after S02-B V001 registration. No concept content, requirements or implementation scope supplied as of checkpoint.",
-    "received_on": "2026-10-09"
+    "status": "DISCUSSED / N18 GIF EXPERIMENT PAUSED BY PRODUCT OWNER",
+    "received_on": "2026-10-09",
+    "description": "Try character micro-actions to enliven S02-B's static images, beginning with N18 blink/breath/gaze micro-action GIF. Whole-frame GIF technique failed continuity test for complex background.",
+    "result": "N18 GIF TEST FAIL / NOT ADOPTED / S02-B V001 APPROVAL UNAFFECTED",
+    "future_scope": "Future animation or other techniques require a fresh PO decision; no unapproved production variation"
+  },
+  "n18_micro_action_test_2026_10_09": {
+    "status": "EXPERIMENT FAIL / PAUSED BY PRODUCT OWNER / NO CANONICAL ANIMATION REGISTERED",
+    "shot_id": "N18",
+    "canonical_original": "production/image_library/approved/story_shots/N18_CLEAR_SKY_DOUBT_APPROVED_V001.png",
+    "original_sha256": "18746fdde8a3b7699061fd6f4a8a6b666d50001250a2df902bb3b5995e7e2613",
+    "original_size_bytes": 2158626,
+    "original_git_blob": "039471efd721fa5f822c4fb8ec933b4893f91641",
+    "original_work_git_clone_binary_verification": "PASS",
+    "test_delivery_workflow_run": 37935492180,
+    "test_delivery_artifact_id": 11618096801,
+    "test_delivery_branch": "test/n18-micro-action-source-delivery-20261009",
+    "test_delivery_scope": "TEST ONLY / NOT MERGED MAIN",
+    "masking_outside_region_pixels_changed": 0,
+    "mask_compositing": "TECHNICALLY VALIDATED / NOT SUFFICIENT FOR NATURAL ANIMATION",
+    "blink_rendering": "FAIL / TEXTURE STRETCH / EYELASH STACKING / RESIDUAL HIGHLIGHTS",
+    "gif_test_status": "REJECTED / NOT ENTERED VIDEO INDEX OR SHOT REGISTRY",
+    "next": "DO NOT RETRY AUTOMATICALLY; CONTINUE APPROVED STILL-SHOT EDITING",
+    "closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-09.md"
   }
 }
