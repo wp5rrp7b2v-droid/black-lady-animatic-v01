@@ -1,0 +1,37 @@
+name: S02-B Director Review MP4 (noncanonical)
+
+on:
+  push:
+    branches:
+      - review/s02b-assembly-preview-20261009
+    paths:
+      - review_tools/build_s02b_review.py
+      - .github/workflows/s02b-director-review.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assemble-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout isolated review branch
+        uses: actions/checkout@v4
+      - name: Inspect media tools
+        run: |
+          ffmpeg -version | head -n 2
+          ffprobe -version | head -n 2
+          python3 --version
+      - name: Verify canonical media and render noncanonical review
+        run: RUNNER_TEMP="$PWD" python3 review_tools/build_s02b_review.py
+      - name: Upload review MP4 and manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_B_DIRECTOR_REVIEW_V001
+          path: |
+            S02_B_REVIEW_V001/S02_B_DIRECTOR_REVIEW_V001.mp4
+            S02_B_REVIEW_V001/REVIEW_MANIFEST.json
+          retention-days: 7
+          if-no-files-found: error
