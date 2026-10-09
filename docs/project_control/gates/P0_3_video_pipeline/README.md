@@ -1834,3 +1834,13 @@ Status: **PO APPROVED / V001 CUT LOCKED / EXACT DRIVE BINARY VERIFIED / VIDEO IN
 - **This video-level approval is not P0.3 Gate PASS**. Revisions require a distinct new version and PO review.
 - Next: discuss new PO idea (content not yet provided). Local Git synchronization deliberately deferred until evening.
 - Dedicated record: `s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md`.
+
+## 2026-10-09｜N18 人物微动作 GIF exploratory closeout
+
+- Terminology: 人物微动作 = in-frame character performance; distinct from camera motion and ambient scene effects.
+- N18 action design: inhale → one natural blink → gaze shifts slightly outward/up → exhale (~2.8 s), test deliverable desired as **GIF**.
+- Earlier full-frame generative GIF attempts could not preserve character/background continuity to Product Owner quality bar. Work independently cloned the exact approved PNG and confirmed local mask pixel isolation, but the blink geometry failed to look natural.
+- Product Owner concluded the tested complete-frame GIF production approach is **not viable for this project at present**; N18 GIF experiments are stopped. This is an experiment-specific rejection, not a claim of universal GIF impossibility or a ban on future selective character animation.
+- No test GIF is approved/registered; N18 approved PNG and S02-B V001 canonical video remain untouched.
+- P0.3 remains IN PROGRESS. Cloud EOD records updated; local Mac sync pending terminal verification.
+- Detail: `p0_3_daily_closeout_2026-10-09.md`.
