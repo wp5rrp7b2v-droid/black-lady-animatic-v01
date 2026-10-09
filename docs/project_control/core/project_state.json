@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R340",
+  "state_revision": "R341",
   "last_updated": "2026-10-09",
-  "session_status": "2026-10-09 CLOUD DAILY CLOSEOUT COMPLETE / S02-B V001 APPROVED AND LOCKED / N18 MICRO-ACTION GIF TEST FAIL + PAUSED / P0.3 IN PROGRESS / LOCAL MAC SYNC PENDING USER TERMINAL VERIFICATION",
+  "session_status": "2026-10-09 EOD REGISTERED / S02-B V001 APPROVED LOCKED / N18 MICRO-ACTION GIF TEST PAUSED / MAC MAIN SYNC VERIFIED TO 15140be / FINAL META-ONLY CLOUD UPDATE REQUIRES LAST FF / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "EOD CLOSED IN GITHUB / NEXT: LOCAL MAIN SAFE FAST-FORWARD + SHA PARITY PROOF / THEN PO CHOOSES NEXT VIDEO PRODUCTION TASK",
-  "blocker": "No cloud production blocker. Local Mac working copy is NOT VERIFIED SYNCED: current session has no access to user's Mac file system. N18 micro-action GIF technique paused after failed visual test; not a blocker to approved still-shot editing.",
-  "next_action": "Run the safe local main synchronization command from the 2026-10-09 daily closeout in Mac Terminal; return status and HEAD/origin/main hashes; verify against current GitHub main. Preserve untracked private console folders; stop on tracked modifications/non-fast-forward. Then PO chooses next editing/story segment, not auto-restart of N18 GIF.",
+  "current_task": "DAY CLOSED / NO ACTIVE N18 ANIMATION / LOCAL MAIN MEDIA CONTENT SYNCED / ONE FINAL METADATA-ONLY FF FOR R341 V271 IF EXACT HEAD PARITY REQUIRED",
+  "blocker": "No production blocker. User Mac main successfully fast-forwarded to exact initial EOD SHA 15140be6df10ba694e89df8ccca8dd22d40d32dd. This subsequent R341/V271 record commit will advance remote GitHub main, requiring a final ff-only pull for exact post-record parity.",
+  "next_action": "Optional final fast-forward pull of GitHub main to include closing verification metadata (R341/V271). Thereafter next session Product Owner chooses next still-shot editing/story segment. No N18 GIF auto-retry; P0.3 IN PROGRESS.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "PENDING USER-SIDE MAC TERMINAL VERIFICATION / 2026-10-09 GITHUB CLOUD CLOSEOUT COMPLETE / DO NOT CLAIM LOCAL SYNC PASS",
+    "status": "PASS / USER TERMINAL VERIFIED 2026-10-09 / LOCAL HEAD == ORIGIN_MAIN == GITHUB MAIN AT 15140be6 / FINAL CLOUD CLOSEOUT METADATA MAY REQUIRE NEXT FF",
     "rule": "Current Mac state has not been freshly inspected since 2026-10-07. Inspect tracked changes; never overwrite or stash without review. On clean tracked tree, switch to local main and perform ff-only pull using git-proxy-auto. Preserve untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ and other local private/working folders. Check hashes against GitHub main.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -81,10 +81,10 @@
     ],
     "target": "LOCAL_HEAD == ORIGIN_MAIN == CURRENT_GITHUB_MAIN_HEAD",
     "verification_requirement": "Before next local formal production, verify exact SHA equality after fast-forward pull.",
-    "verified_on": "2026-10-07",
-    "verified_head": null,
-    "verification_evidence": "Latest terminal evidence 2026-10-07: feature/production-console-v1-1 at ea0e3a0, old origin/main at 097cc76, untracked private console directories. 2026-10-09 no Mac terminal access; actual post-closeout sync not yet verified.",
-    "note": "Nightly 2026-10-09 cloud closeout was completed; user has requested Mac sync but it cannot be executed from this cloud chat. Await user-side safe switch-main/ff-only pull output and SHA parity check."
+    "verified_on": "2026-10-09",
+    "verified_head": "15140be6df10ba694e89df8ccca8dd22d40d32dd",
+    "verification_evidence": "User Mac terminal showed: main...origin/main, no tracked edits, only untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/; git switch main already on main; git-proxy-auto pull --ff-only origin main successful Fast-forward 04b4b7d..15140be; both git rev-parse HEAD and origin/main output exact 15140be6df10ba694e89df8ccca8dd22d40d32dd. This matched GitHub main immediately before recording the sync result. Later cloud-only bookkeeping commits advance remote main and require subsequent ff for post-record exact parity.",
+    "note": "Verified local Mac main source sync via user's actual terminal evidence on 2026-10-09. No local data discarded; only two known untracked console folders remain. The GitHub main update that records this verification is intentionally later than the synced head; a small final ff-only pull would restore latest-head equality."
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -119,20 +119,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-09-DAILY-CLOSEOUT-R340",
-    "status": "CLOUD PROJECT CONTROL CLOSEOUT COMPLETE / LOCAL MAC UNVERIFIED / P0.3 IN PROGRESS",
+    "id": "2026-10-09-DAILY-CLOSEOUT-R341",
+    "status": "SOURCE MAC SYNC VERIFIED TO 15140be / N18 GIF TEST ON HOLD / P0.3 IN PROGRESS / POST-VERIFICATION CLOUD METADATA COMMIT",
     "completed": [
       "S02-B V001 remains exactly approved and canonical on Drive; 3 approved/current video registry entries, 32 approved/current Story Shots.",
       "Micro-action terminology clarified; N18 ~2.8s GIF blink/breath/gaze approach tested and rejected for current complex-background still workflow.",
       "Work independently cloned and SHA-256-verified approved N18 PNG; local masking/compositing isolated background pixels, but natural eyelid rendering FAILED.",
       "Isolated GitHub Actions source-delivery experiment verified exact N18 PNG; test branch not merged into main.",
       "Product Owner directed stopping current N18 GIF route; no test GIF promoted to canonical or video registry.",
-      "Cloud decision, execution, P0.3 README, daily closeout, Project State and Dashboard aligned."
+      "Cloud decision, execution, P0.3 README, daily closeout, Project State and Dashboard aligned.",
+      "Product Owner Mac terminal independently proved local main == origin/main == initial EOD GitHub head 15140be; safe ff-only pull, untracked private console directories preserved."
     ],
-    "resume_from": "USER MAC SAFE MAIN SYNCHRONIZATION + EXACT HEAD PARITY → NEXT PO PRODUCTION CHOICE",
-    "blockers": [
-      "Mac working copy not accessible from cloud assistant; local synchronization requires user terminal output."
-    ]
+    "resume_from": "FINAL META-ONLY GITHUB MAIN FF FOR HEAD PARITY → NEXT PO PRODUCTION CHOICE",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -527,13 +526,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V270",
+    "version": "V271",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R340 / EOD GIF TECH TEST FAIL + CLOUD CLOSEOUT / MAC SYNC PENDING",
-    "derived_from_revision": "R340",
+    "status": "CURRENT / DERIVED FROM R341 / CLOUD EOD CLOSED / USER MAC SYNC SOURCE VERIFIED TO 15140be / LAST META-ONLY REMOTE UPDATE",
+    "derived_from_revision": "R341",
     "last_updated": "2026-10-09",
-    "current_task": "CLOUD CLOSEOUT COMPLETE / LOCAL MAIN SYNC PENDING / NEXT PO DECISION"
+    "current_task": "DAY CLOSED / LOCAL SOURCE VERIFIED / NEXT PO DECISION (AFTER FINAL META FF WHEN NECESSARY)"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -549,7 +548,7 @@
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-09.md",
-    "last_daily_closeout_status": "GITHUB CLOUD COMPLETE / LOCAL MAC SYNC AWAITING VERIFICATION / R340",
+    "last_daily_closeout_status": "COMPLETE / USER MAC MAIN SOURCE SYNC VERIFIED TO 15140be / R341 / FINAL META COMMIT NEEDS FF FOR FRESH EXACT HEAD PARITY",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
     "last_formal_closeout_status": "S02-B V001 PRODUCT OWNER APPROVED / EXACT DRIVE VERIFIED / REGISTERED"
   },
