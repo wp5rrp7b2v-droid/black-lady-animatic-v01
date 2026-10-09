@@ -3724,3 +3724,16 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Candidate 03 / Bundle V003 remain NOT AUTHORIZED.
 - Project State: R252.
 - Dashboard: V187.
+
+## 2026-10-09｜S02-B V001 Assembly Approval / Drive Publication
+
+- Product Owner approved the 64.250-second S02-B director review as `S02-B V001`.
+- GitHub Actions production proof: run `37894629986`, artifact ID `11600040686`, ZIP digest `sha256:42ec125d86edf48591721a061e0c87ca18cc27d90fb1b3282c8b49018b6375fd`.
+- Exact approved MP4: H.264/AAC, 720×1280, 30 fps, 1,927 video frames, 3,393,713 bytes, SHA-256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a`, full decode PASS.
+- Canonical Drive file `S02_B_ASSEMBLY_APPROVED_V001.mp4`, ID `16No99iizefd_dEzIsZcVLeoXNxiuvit4`, folder `07_Video`.
+- Drive round-trip readback: exact SHA and bytes MATCH, `cmp` PASS, full decode PASS, no re-encode.
+- Video Index entry `S02_B_ASSEMBLY_V001` registered as `APPROVED / CURRENT`.
+- Approved sequence: `N16 → N17 → N18 → N19 → N20 → N21 → N22 → N23 → N24 → A06 → N25 → N26`.
+- P0.3 remains IN PROGRESS / not Gate-approved. Local Mac sync deferred to tonight per Product Owner.
+- Pending discussion only: PO mentioned a new idea, whose substance has not yet been shared. No scope or design change made.
+- Dedicated proof: `docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md`.
