@@ -2,7 +2,7 @@
 
 Date: 2026-10-09
 
-Status: **CLOUD CLOSEOUT COMPLETE / LOCAL MAC SYNC REQUIRES USER-SIDE VERIFICATION / P0.3 IN PROGRESS**
+Status: **CLOUD CLOSEOUT COMPLETE / MAC MAIN FAST-FORWARD VERIFIED TO 15140be / FINAL CLOUD BOOKKEEPING UPDATE PENDING LOCAL PULL / P0.3 IN PROGRESS**
 
 ## 1. Approved audiovisual deliverable (unchanged)
 
@@ -69,8 +69,24 @@ fi
 
 This deliberately switches to the local `main` **only if tracked work is clean**; `git switch` and `--ff-only` stop rather than discard conflicting data. Untracked private/local folders must be preserved. Verify `LOCAL_HEAD == ORIGIN_MAIN == GITHUB_MAIN_HEAD` using a fresh GitHub `main` check. If any step errors or SHAs differ, stop and investigate; do not report synced.
 
+## 4A. 2026-10-09 Mac synchronization verification (terminal evidence received)
+
+The Product Owner ran the safe synchronization command in the Mac terminal and provided complete output.
+
+- `git status --short --branch` before and after: `## main...origin/main`.
+- Only untracked entries remained: `BlackLadyLocalConsole/` and `BlackLadyLocalConsolePrivate/` — preserved, not deleted or added.
+- `git switch main` reported already on `main`.
+- `git-proxy-auto pull --ff-only origin main`: **SUCCESS / Fast-forward**, from `04b4b7d` to `15140be`; eight tracked files updated; no conflict or force operation.
+- Independently displayed local HEAD: `15140be6df10ba694e89df8ccca8dd22d40d32dd`.
+- Independently displayed local `origin/main`: `15140be6df10ba694e89df8ccca8dd22d40d32dd`.
+- This SHA matched the GitHub `main` head that had been verified at the end of initial cloud closeout.
+- **LOCAL SOURCE SYNC VERIFIED FOR THAT HEAD; all approved production contents were synchronized.**
+- This verification is based on actual user-provided terminal output, not remote inference.
+
+**Subsequent cloud edits to record this verification** necessarily advance GitHub main again. Those edits are Project Control / Dashboard closeout bookkeeping only, not media changes; the local working tree will need one final fast-forward before asserting parity with that newer GitHub head. Do not erase or replace the earlier PASS evidence.
+
 ## 5. Next-session resume point
 
-- Finish safe Mac main synchronization and return verification output.
+- Local Mac source synchronization to `15140be` verified PASS; fast-forward once more to include this final verification bookkeeping commit if exact parity with the final GitHub head is required.
 - Then Product Owner chooses next real video/story segment or V002 editing priorities. Do not silently restart the rejected N18 GIF route.
 - P0.3 remains in progress; current approved artifacts remain usable.
