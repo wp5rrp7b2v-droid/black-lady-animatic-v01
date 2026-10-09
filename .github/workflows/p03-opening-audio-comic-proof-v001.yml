@@ -1,0 +1,81 @@
+name: P03 Opening Audio-Comic Proof V001
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/p03-opening-audio-comic-proof-v001]
+    paths:
+      - 'remotion-opening-proof/**'
+      - '.github/workflows/p03-opening-audio-comic-proof-v001.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p03-opening-proof-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install and verify FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          ffmpeg -version
+          ffprobe -version
+
+      - name: Verify canonical inputs and prepare exact copies
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: python3 remotion-opening-proof/scripts/prepare_inputs.py
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+          cache-dependency-path: remotion-opening-proof/package-lock.json
+
+      - name: Install locked dependencies and typecheck
+        working-directory: remotion-opening-proof
+        run: |
+          npm ci
+          npm run typecheck
+
+      - name: Install Remotion Chrome Headless Shell on runner
+        working-directory: remotion-opening-proof
+        # Official CLI: https://www.remotion.dev/docs/cli/browser/ensure
+        run: npx remotion browser ensure
+
+      - name: Render locked Opening Proof
+        working-directory: remotion-opening-proof
+        run: npm run render
+
+      - name: Probe, count decoded frames, full decode and output SHA256
+        run: python3 remotion-opening-proof/scripts/qc_output.py
+
+      - name: Upload technically verified proof
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: P03_OPENING_AUDIO_COMIC_PROOF_V001
+          path: remotion-opening-proof/out/P03_OPENING_AUDIO_COMIC_PROOF_V001/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Record artifact identity
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact-id }}
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_STEP_SUMMARY"
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
