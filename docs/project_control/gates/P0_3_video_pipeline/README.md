@@ -1820,3 +1820,17 @@ Resume:
 
 `LOCAL SYNC VERIFICATION → N24 START DECISION OR OPTIONAL COMMON-ASSET CONTINUATION`
 
+## 2026-10-09｜S02-B Assembly V001 Product Owner Approval
+
+Status: **PO APPROVED / V001 CUT LOCKED / EXACT DRIVE BINARY VERIFIED / VIDEO INDEX REGISTERED**.
+
+- Version: `S02_B_ASSEMBLY_V001`; file: `S02_B_ASSEMBLY_APPROVED_V001.mp4`.
+- 64.250 seconds; canonical audio 01:18.750–02:23.000; 720×1280 H.264/AAC at 30 fps; 3,393,713 bytes.
+- SHA-256: `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a`.
+- Google Drive: https://drive.google.com/file/d/16No99iizefd_dEzIsZcVLeoXNxiuvit4/view?usp=drivesdk
+- GitHub Actions run `37894629986` / Artifact `11600040686` passed complete render+decode.
+- Drive download round-trip exact match (bytes + SHA-256 + byte-for-byte compare), full decode PASS.
+- 12 approved Story Shots; correct tail `N23 → N24 → A06 → N25 → N26`; N27 absorbed.
+- **This video-level approval is not P0.3 Gate PASS**. Revisions require a distinct new version and PO review.
+- Next: discuss new PO idea (content not yet provided). Local Git synchronization deliberately deferred until evening.
+- Dedicated record: `s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md`.
