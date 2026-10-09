@@ -3737,3 +3737,16 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - P0.3 remains IN PROGRESS / not Gate-approved. Local Mac sync deferred to tonight per Product Owner.
 - Pending discussion only: PO mentioned a new idea, whose substance has not yet been shared. No scope or design change made.
 - Dedicated proof: `docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md`.
+
+## 2026-10-09｜N18 Character Micro-action GIF Test — EOD Technical Closeout
+
+- Product Owner clarified terminology: **人物微动作 (micro-action)**, not “微动镜头” or camera motion.
+- Attempted N18 performance: slight inhale → one blink → outward/upward eye refocus → exhale; approx 2.8 seconds; ultimately output intent **GIF only**.
+- Earlier still-to-GIF frame regeneration failed the identity/background/color/continuity bar; no experimental GIF approved or registered.
+- Canonical original PNG `N18_CLEAR_SKY_DOUBT_APPROVED_V001.png` remains unchanged, 941×1672 / 2,158,626 bytes / SHA-256 `18746fdde8a3b7699061fd6f4a8a6b666d50001250a2df902bb3b5995e7e2613` / Git blob `039471efd721fa5f822c4fb8ec933b4893f91641`.
+- Test-only GitHub branch `test/n18-micro-action-source-delivery-20261009`, workflow run `37935492180`, artifact `11618096801`: original-only binary identity verification PASS. GitHub Artifact redirect download was blocked for Work (403); Work successfully used a direct Git clone and independently computed matching source SHA-256.
+- Work 13-frame eye-mask test: all non-mask pixels stable (difference 0); local compositing control verified. Blink geometry FAIL (texture stretch / eyelash stacking / residual highlight); no approved natural blink.
+- Simplified candidate GIF experiment V003 also not acceptable per Product Owner due to overall still-image consistency with populated background. Method stopped; no formal 2.8 s animation or canonical replacement.
+- S02-B V001 remains PRODUCT OWNER APPROVED / exact Drive master unchanged / Video Index unaffected (3 entries); Story Shot Index remains 32. P0.3 remains IN PROGRESS.
+- Decision `BL-D-172`; dedicated daily closeout `docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-09.md`.
+- Cloud Project Control closeout complete. Local Mac file system is not accessible from this session; user terminal safe main fast-forward and exact SHA parity evidence required before marking LOCAL SYNC PASS.
