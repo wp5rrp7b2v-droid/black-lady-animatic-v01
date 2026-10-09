@@ -1,7 +1,7 @@
 # S02-B Assembly V001｜PO Approval + Canonical Publication Closeout
 Date: 2026-10-09
 
-Status: **PRODUCT OWNER APPROVED / EXACT-BINARY CANONICAL PUBLICATION VERIFIED / VIDEO INDEX REGISTERED / REGISTRATION READBACK PENDING**
+Status: **PRODUCT OWNER APPROVED / EXACT-BINARY CANONICAL PUBLICATION VERIFIED / VIDEO INDEX REGISTERED / REGISTRATION READBACK PASS / CLOSEOUT COMPLETE**
 
 ## Approval authority
 PO instruction: “这次的剪辑先批准为S02-B V001，另外我还有个新的想法，你先登记，完成后我们探讨。”
@@ -58,3 +58,19 @@ PO instruction: “这次的剪辑先批准为S02-B V001，另外我还有个新
 
 ## Next discussion
 The PO mentioned a new idea but **has not yet provided its content**. Preserve a *pending discussion item*, not a claimed approved idea or change request. Discuss it after this video registration is fully verified.
+
+## Independent registration verification｜2026-10-09
+
+**PASS (15/15 registry / state / metadata assertions)** after GitHub main updates and Google Drive metadata readback:
+
+- Video Index contains **exactly one** `S02_B_ASSEMBLY_V001` and exactly three total approved video entries.
+- Approval/lifecycle: `APPROVED / CURRENT`.
+- Index SHA-256 = stored V001 SHA-256; Index size = 3,393,713 bytes.
+- Index Google Drive file ID = `16No99iizefd_dEzIsZcVLeoXNxiuvit4`.
+- Google Drive metadata file name/byte size/parent `07_Video` match record.
+- Project State is **R339** with matching V001 SHA-256 and Drive file ID; P0.3 did **not** change to PASS.
+- Dashboard **V269** explicitly derives from R339 and shows the approved S02-B V001 entry.
+- Independent earlier Drive binary round-trip SHA-256 and full-decode verification passed.
+- Exact git blob hashes of Video Index, Project State and Dashboard verified by GitHub readback.
+
+No open registration blocker. Later changes must preserve V001 identity and seek a new V002 approval, not overwrite this canonical binary.
