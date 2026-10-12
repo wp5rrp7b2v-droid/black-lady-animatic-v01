@@ -1,0 +1,32 @@
+name: S02-B N16 N17 Transition Polish V003 (NONCANONICAL)
+on:
+  push:
+    branches:
+      - review/s02b-n16-n17-transitions-v003-20261012
+    paths:
+      - review_tools/build_s02b_transitions_v003.py
+      - .github/workflows/s02b-n16-n17-transition-v003.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-transition-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify sources and render refined edit
+        run: RUNNER_TEMP="$PWD" python3 review_tools/build_s02b_transitions_v003.py
+      - name: Upload isolated review media and proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_N16_N17_V003_TRANSITION_TEST
+          path: |
+            S02B_N16_N17_V003_TRANSITION_TEST/S02B_N16_N17_V003_TRANSITION_TEST.mp4
+            S02B_N16_N17_V003_TRANSITION_TEST/RENDER_MANIFEST.json
+            S02B_N16_N17_V003_TRANSITION_TEST/*_START.png
+            S02B_N16_N17_V003_TRANSITION_TEST/*_END.png
+          retention-days: 7
+          if-no-files-found: error
