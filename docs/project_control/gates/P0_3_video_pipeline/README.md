@@ -1848,3 +1848,10 @@ Status: **PO APPROVED / V001 CUT LOCKED / EXACT DRIVE BINARY VERIFIED / VIDEO IN
 ## 2026-10-12｜Local Mac Sync Cadence (RC-029)
 
 Product Owner confirmed that routine Mac local synchronization happens **once during daily evening closeout**, not at morning startup or after every cloud GitHub write. Daytime production remains Chat + GitHub Actions + Work using canonical GitHub `main`; approved still shots / S02-B V001 remain unchanged. At evening closeout, inspect local status, use safe fast-forward-only synchronization and verify exact HEAD parity using real terminal evidence. If formal local engineering must run earlier, first verify/safely update the worktree or defer that engineering. This section supersedes older *current-action* reminders to sync Mac at every startup; historical closeout evidence is preserved.
+
+## 2026-10-12｜S02-B N16–N17 V004 局部试剪 PO 通过
+
+- PO：`V004可以通过`，范围仅为 21.95 秒 / 六视觉节点 N16–N17 画质优先试剪，不是完整 S02-B 新版成片批准。
+- Video SHA-256 `7f30596a60ada54a8393f8207ad7f59f92702ca8278d0bd257fc258911877018`，7,180,406 bytes，658 帧；GitHub Actions Run `38253241059`，Artifact `11748263727`，源 PNG/音频身份、完整解码、ZIP/MP4 哈希 PASS。
+- 本次接受限制数字裁切放大、一次编码及六节点变换转场的剪辑参考标准。正式 S02-B V001、Video Index 和 P0.3 状态均不变。
+- 下一步处理 S02-B 后续约 42.30 秒，再制作全段非正式试剪供 PO 另行审批。证据：`s02_b_n16_n17_v004_approval_2026-10-12.md`。
