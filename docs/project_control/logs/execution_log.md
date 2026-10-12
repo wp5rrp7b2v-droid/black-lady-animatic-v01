@@ -3750,3 +3750,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - S02-B V001 remains PRODUCT OWNER APPROVED / exact Drive master unchanged / Video Index unaffected (3 entries); Story Shot Index remains 32. P0.3 remains IN PROGRESS.
 - Decision `BL-D-172`; dedicated daily closeout `docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-09.md`.
 - Cloud Project Control closeout complete. Local Mac file system is not accessible from this session; user terminal safe main fast-forward and exact SHA parity evidence required before marking LOCAL SYNC PASS.
+
+## 2026-10-12｜S02-B N16–N17 V004 试剪获 PO 通过
+
+- 六节点、21.95s 名义时长、658 帧、720×1280，直接使用已批准 N16/N17 原始 PNG 限制裁切放大，一次编码；保持原声与克制的连续转场。
+- GitHub Actions Run `38253241059` = SUCCESS；Artifact `11748263727`；ZIP SHA-256 `29c9ff13b8f08517d0929e15b256c2fe2ddc969bc64c5ac1e4f39019da91ebeb`，MP4 SHA-256 `7f30596a60ada54a8393f8207ad7f59f92702ca8278d0bd257fc258911877018`、7,180,406 bytes；源图/音频校验及全片解码 PASS。
+- Product Owner：`V004可以通过`。仅批准 N16–N17 局部片段的剪辑与画质处理；整段 S02-B V001 视频和 Video Index 不变，P0.3 继续 IN PROGRESS。
+- BL-D-174；详情：`docs/project_control/gates/P0_3_video_pipeline/s02_b_n16_n17_v004_approval_2026-10-12.md`。后续继续优化剩余 42.30 秒。
