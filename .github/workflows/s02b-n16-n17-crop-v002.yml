@@ -1,0 +1,31 @@
+name: S02-B N16 N17 Crop A-B V002 (NONCANONICAL)
+on:
+  push:
+    branches:
+      - review/s02b-n16-n17-crop-v002-20261012
+    paths:
+      - review_tools/build_s02b_crop_v002.py
+      - .github/workflows/s02b-n16-n17-crop-v002.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-crop-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify original source and render review cut
+        run: RUNNER_TEMP="$PWD" python3 review_tools/build_s02b_crop_v002.py
+      - name: Upload A-B review video and six node stills
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_N16_N17_V002_CROP_TEST
+          path: |
+            S02B_N16_N17_V002_CROP_TEST/S02B_N16_N17_V002_CROP_TEST.mp4
+            S02B_N16_N17_V002_CROP_TEST/RENDER_MANIFEST.json
+            S02B_N16_N17_V002_CROP_TEST/*.png
+          retention-days: 7
+          if-no-files-found: error
