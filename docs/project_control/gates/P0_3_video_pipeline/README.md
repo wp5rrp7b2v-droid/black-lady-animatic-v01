@@ -1844,3 +1844,7 @@ Status: **PO APPROVED / V001 CUT LOCKED / EXACT DRIVE BINARY VERIFIED / VIDEO IN
 - No test GIF is approved/registered; N18 approved PNG and S02-B V001 canonical video remain untouched.
 - P0.3 remains IN PROGRESS. Cloud EOD records updated; local Mac sync pending terminal verification.
 - Detail: `p0_3_daily_closeout_2026-10-09.md`.
+
+## 2026-10-12｜Local Mac Sync Cadence (RC-029)
+
+Product Owner confirmed that routine Mac local synchronization happens **once during daily evening closeout**, not at morning startup or after every cloud GitHub write. Daytime production remains Chat + GitHub Actions + Work using canonical GitHub `main`; approved still shots / S02-B V001 remain unchanged. At evening closeout, inspect local status, use safe fast-forward-only synchronization and verify exact HEAD parity using real terminal evidence. If formal local engineering must run earlier, first verify/safely update the worktree or defer that engineering. This section supersedes older *current-action* reminders to sync Mac at every startup; historical closeout evidence is preserved.

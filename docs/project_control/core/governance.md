@@ -36,11 +36,11 @@
 
 1. **ChatGPT**：负责项目判断、方案、Gate Review、验收建议、Project Control 维护，以及可通过当前 GitHub 能力直接完成的文本 / 轻量代码写入。
 2. 每完成明确阶段 / Gate / 正式任务并形成结论后，由 ChatGPT 更新 canonical repo。
-3. **Local sync**：本地工程开始前执行 `git pull --ff-only origin main`；若 GitHub 网络需要动态代理，则按当前已验证的网络规则使用 `git-proxy-auto`。
+3. **Local sync（RC-029，2026-10-12 生效）**：默认仅在 Product Owner 每日晚上启动收尾时统一执行一次本地 Mac 工作副本同步；白天 Chat / GitHub Actions / Work 使用远端 GitHub `main` 的正式版本，不要求开工或每次 GitHub 更新后同步本地。若当天确需在 Mac 上进行依赖最新正式仓库的本地工程操作，则先检查 / 快进到已核验的远端版本，否则延后该本地操作。网络需动态代理时使用已验证的 `git-proxy-auto`。
 4. **Codex**：只负责确实需要访问或修改本地项目文件、代码库、脚本、Remotion 工程、音视频处理、测试 / 调试或其他本地工程环境的执行工作；只有 Task Contract 明确授权时才修改 Project Control。
 5. ChatGPT 与 Codex 不并行修改同一 Project Control 文件。
 6. 遇到 non-fast-forward、未知 tracked changes 或状态冲突时停止，不 force、不覆盖。
-7. **GitHub write reminder**：每次 ChatGPT 对 canonical GitHub repo 完成实际写入 / 更新后，用户可见回复必须明确提醒 Product Owner 同步本地 working copy；默认命令为：
+7. **GitHub write reminder（RC-029 supersedes RC-012 cadence）**：每次 ChatGPT 写入 GitHub 后，默认不要求 Product Owner 立即本地 pull，也不逐次提醒。仅在当日晚间收尾集中提示并执行一次安全同步；若 Product Owner 明确要求临时同步，或确需先开展本地工程，则进入单独的预检 / 安全同步例外。夜间默认命令为：
 
 ```bash
 cd "/Users/caroline/诡舍/黑衣夫人/black_lady_short_01"
@@ -106,7 +106,7 @@ Terminal 只承担明确执行，不替代 Chat 的方案判断与结果审核�
 #### GitHub / Local Sync 特别规则
 
 - Chat 能直接更新 canonical GitHub 的内容，优先由 Chat 写入。
-- 写入后需要本地同步时，优先由 Terminal 使用 `git-proxy-auto pull --ff-only origin main`。
+- 白天 GitHub 写入不触发逐次本地同步。每日晚间收尾时由 Terminal 进行一次本地预检及 `git-proxy-auto pull --ff-only origin main`，并核对本地/远端 SHA；确需提前执行本地工程时先验证版本，否则暂缓本地工程。
 - 仅为 pull / push / SHA 核验 / 网络诊断而调用 Codex，原则上属于过度升级；除非出现必须依赖本地工程自动化或复杂故障定位的情况。
 
 Product Owner 可随时基于效率、风险或实际体验调整当次执行方式；本规则目标是减少不必要的 Codex 介入，同时保留其在真正本地工程任务中的价值。
