@@ -46,3 +46,19 @@ Product Owner 2026-10-12 明确反馈：
 RC-029：本地 Mac 只在当日晚间收尾做一次受控同步。此 Chat 不能直接执行用户 Mac 的终端命令，所以 **先登记 `LOCAL SYNC PENDING USER TERMINAL PROOF`**，不得预先标注 PASS。安全前置条件：本地无已跟踪修改，当前可安全切换 main，无合并冲突；执行 `git-proxy-auto pull --ff-only origin main` 后必须比对 `git rev-parse HEAD`、`git rev-parse origin/main` 与云端 main 精确 SHA。保留本地未跟踪目录，禁止 clean/reset/hard/force。
 
 收尾性质：**云端审计与流程记录已完成后，等待用户终端输出确认本地同步**。无 PO 授权不做新版试剪或候选图。
+
+## 6. 2026-10-12 本地 Mac 同步终端验收｜PASS
+
+Product Owner 实际 Mac Terminal 输出：
+
+- 同步前状态：`## main...origin/main`，仅有两个未跟踪目录 `BlackLadyLocalConsole/`、`BlackLadyLocalConsolePrivate/`；没有已跟踪文件修改。
+- 命令 `git switch main`：Already on `main`；无合并/强制重置。
+- `git-proxy-auto pull --ff-only origin main`：**Fast-forward PASS**，`c940943..7f54c6a`；9 个项目控制文件变更落到本地。
+- `git rev-parse HEAD`：`7f54c6aa4b1951e04e9b2e821e237766f0706a05`。
+- `git rev-parse origin/main`：`7f54c6aa4b1951e04e9b2e821e237766f0706a05`。
+- 该 SHA 同时是本轮夜间同步之前独立确认的 GitHub `main` 精确 SHA；**三方一致（AT CHECKPOINT）**。
+- 同步后状态：`## main...origin/main`，仅上述两个未跟踪目录，均未删除。
+
+**验收：LOCAL MAC SYNC PASS at checkpoint `7f54c6aa4b1951e04e9b2e821e237766f0706a05`。**
+
+注：本验收结果落入 GitHub Project Control 本身会创建后续 cloud-only 元数据提交，使远端 HEAD 在此已验证 checkpoint 之后前进。不能将“同步时三方一致”夸大为“元数据落档后始终三方一致”；按 RC-029，不因本次收尾追加元数据而要求当晚再同步一次。已验证的本地 HEAD 保持上述值，下次正常夜间同步再纳入这些元数据更新。
