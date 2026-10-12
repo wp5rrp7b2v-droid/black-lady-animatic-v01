@@ -3757,3 +3757,13 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - GitHub Actions Run `38253241059` = SUCCESS；Artifact `11748263727`；ZIP SHA-256 `29c9ff13b8f08517d0929e15b256c2fe2ddc969bc64c5ac1e4f39019da91ebeb`，MP4 SHA-256 `7f30596a60ada54a8393f8207ad7f59f92702ca8278d0bd257fc258911877018`、7,180,406 bytes；源图/音频校验及全片解码 PASS。
 - Product Owner：`V004可以通过`。仅批准 N16–N17 局部片段的剪辑与画质处理；整段 S02-B V001 视频和 Video Index 不变，P0.3 继续 IN PROGRESS。
 - BL-D-174；详情：`docs/project_control/gates/P0_3_video_pipeline/s02_b_n16_n17_v004_approval_2026-10-12.md`。后续继续优化剩余 42.30 秒。
+
+## 2026-10-12｜S02-B remaining 42.30s Tail Edit V0.1 — noncanonical PO review
+
+- N16–N17 V004 first 658 frames remain PO-approved as a *segment*. Redesigned N18–N26/A06 remaining 1269 frames (42.30s), 12 editorial phases across 10 already approved original PNGs, avoiding over-cropping and gratuitous dissolves.
+- GitHub isolated review branch `review/s02b-tail-quality-v001-20261012`. GitHub Actions Run `38257096875` SUCCESS, Artifact `11750723234`, ZIP SHA-256 `0741d3dbeac212bdd678e31f09fc6e6327dd65f4ad8c8fb7a5009a2a763c627d` independently matched, ZIP integrity PASS.
+- Tail MP4: `S02B_TAIL_42S_EDITORIAL_REVIEW_V001.mp4`, 16,141,546 bytes / SHA-256 `193b4619b738cdd75a278783059f910ab390adfd054ea7c96542976d419e29d7`. Manifest checksum and size PASS, 720×1280/30fps/1269 frames, full decode PASS; original audio SHA-256 verified, AAC stereo mean −14.6dB, non-silent.
+- Context-only composite joins the exact decoded approved V004 source (658 frames) with tail source (1269 frames) using video stream copying and original S02-B V001 AAC track unchanged. Full candidate `S02B_FULL_64S_EDITORIAL_CONTEXT_REVIEW_V001.mp4`: SHA-256 `1019e0a73c48455bddbe917e8a0f4d5ff937774af2724c817dc676b331de66f2`, 1927 frames, 64.250s, full decode PASS. Local only, not a canonical GitHub/Drive publication.
+- Independent visual tail A/B comparison vs S02-B V001 generated; not quality-approved yet.
+- **No PO approval for tail or complete new master has been given.** Approved S02-B V001 SHA-256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a` confirmed unchanged. No Video Index entry or P0.3 Gate change. Next: PO review, then decide whether to revise or formally integrate.
+- RC-029: Mac local sync at evening closeout, not now.
