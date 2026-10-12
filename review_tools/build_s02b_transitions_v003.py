@@ -52,7 +52,8 @@ specs=[
  ("N16","JUN_ACK_SOFT_CHANGE",116,(zl,1.864,430,435,110,115,116,8,30))
 ]
 clips=[];boundaries=[];cursor=0
-for i,(sid,kind,params) in enumerate(specs,1):
+for i,(sid,kind,declared_frames,params) in enumerate(specs,1):
+ assert declared_frames==params[6]
  frames=params[6]; vf=eased_filter(*params)
  dst=OUT/f"{i:02d}_{sid}_{kind}.mp4"
  run(["ffmpeg","-hide_banner","-loglevel","error","-y","-loop","1","-framerate","30","-i",ROOT/IDX[sid]["canonical_path"],"-vf",vf,"-frames:v",str(frames),"-an","-c:v","libx264","-preset","veryfast","-crf","19","-pix_fmt","yuv420p",dst])
