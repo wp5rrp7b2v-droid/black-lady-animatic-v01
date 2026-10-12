@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R346",
+  "state_revision": "R347",
   "last_updated": "2026-10-12",
-  "session_status": "2026-10-12 EOD CLOUD CLOSEOUT / S02-B TAIL V001 AND V002 NOT APPROVED / OPENING N16-N17 V004 SEGMENT APPROVED / FULL S02-B V001 CANONICAL LOCKED / P0.3 IN PROGRESS / MAC LOCAL SYNC AWAITING TERMINAL PROOF",
+  "session_status": "2026-10-12 EOD CLOSED / S02-B TAIL V001+V002 NOT APPROVED / N16-N17 V004 SEGMENT APPROVED / FULL S02-B V001 CANONICAL LOCKED / RC-029 MAC SYNC CHECKPOINT VERIFIED PASS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "STOP PRODUCTION TODAY / CLOSEOUT COMPLETED IN GITHUB / REQUEST SAFE MAC EOD SYNC AND EXACT HEAD VERIFICATION",
+  "current_task": "DAILY CLOSEOUT COMPLETE / NEXT SESSION REDESIGN N18–N26 EDITORIAL SHOTS; NO FURTHER WORK TONIGHT",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "At EOD, run safe Mac status preflight and git-proxy-auto pull --ff-only origin main; compare local HEAD, origin/main, current GitHub main exact SHA and report terminal evidence. Next session redesign N18-N26/A06 meaningful narrative closeups/details before new trials, only after PO decision. Do not retry tail V001/V002, do not alter canonical S02-B V001 or P0.3.",
+  "next_action": "Next session redesign tail storytelling, preserving approved full S02-B V001 and N16–N17 V004 segment. Under RC-029, regular Mac synchronization is next due at next evening closeout, not immediately after evidence-only GitHub commits.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-10-12 EOD SYNC REQUESTED / NOT YET VERIFIED / LAST PROVEN LOCAL HEAD 15140be (2026-10-09)",
+    "status": "2026-10-12 EOD VERIFIED PASS AT CHECKPOINT 7f54c6a / POST-CHECKPOINT CLOUD-ONLY CLOSEOUT RECORDS EXIST; NO SECOND MAC SYNC TONIGHT",
     "rule": "RC-029 overrides RC-012 cadence: one safe local Mac sync at each daily evening closeout, not at morning start or after every GitHub write. Canonical GitHub main is daytime source of truth; if formal local work is unavoidable before evening, do safe preflight+sync first or defer local work.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -81,10 +81,10 @@
     ],
     "target": "AT EOD: LOCAL_HEAD == ORIGIN_MAIN == CURRENT_GITHUB_MAIN_HEAD",
     "verification_requirement": "At daily evening closeout: check tracked/branch status, fast-forward-only pull without destructive operations, then verify exact local HEAD, origin/main and GitHub main SHA; do not mark today's sync PASS without user's terminal evidence.",
-    "verified_on": "2026-10-09",
-    "verified_head": "15140be6df10ba694e89df8ccca8dd22d40d32dd",
-    "verification_evidence": "User Mac terminal showed: main...origin/main, no tracked edits, only untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/; git switch main already on main; git-proxy-auto pull --ff-only origin main successful Fast-forward 04b4b7d..15140be; both git rev-parse HEAD and origin/main output exact 15140be6df10ba694e89df8ccca8dd22d40d32dd. This matched GitHub main immediately before recording the sync result. Later cloud-only bookkeeping commits advance remote main and require subsequent ff for post-record exact parity.",
-    "note": "2026-10-12 closeout: cloud records updated; local Mac safe FF-only sync has been requested but needs actual user's terminal output. Do not mark LOCAL SYNC PASS without exact HEAD == origin/main == current GitHub main."
+    "verified_on": "2026-10-12",
+    "verified_head": "7f54c6aa4b1951e04e9b2e821e237766f0706a05",
+    "verification_evidence": "User Mac terminal 2026-10-12: branch main, tracked worktree clean, only untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ preserved; git-proxy-auto pull --ff-only origin main advanced c940943..7f54c6a, no merge/reset; local HEAD == origin/main == 7f54c6aa4b1951e04e9b2e821e237766f0706a05. This was GitHub main checkpoint at sync. Subsequent cloud-only closeout verification commits advance GitHub main; this is expected and is NOT a claim of current HEAD parity. Do not request additional sync tonight merely for metadata.",
+    "note": "MAC LOCAL SYNC PASS AT THE USER-PROVEN 7f54c6a CHECKPOINT. Later GitHub documentation updates remain cloud-only until next RC-029 scheduled evening sync. Do not imply real-time three-way parity after remote moves."
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -119,18 +119,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-12-EOD-S02B-TAIL-HOLD-R346",
-    "status": "CLOUD CLOSEOUT COMPLETE / TAIL V001 V002 NOT APPROVED / MAC LOCAL SYNC PENDING",
+    "id": "2026-10-12-EOD-S02B-TAIL-HOLD-AND-LOCAL-SYNC-R347",
+    "status": "EOD CLOSED / TAIL V001+V002 NOT APPROVED / LOCAL MAC SYNC PASS AT CHECKPOINT",
     "completed": [
       "Recorded Product Owner's explicit hold for both noncanonical S02-B tail test variants.",
       "Preserved exact canonical full S02-B V001 approval and opening N16-N17 V004 segment approval.",
       "Recorded BL-D-175, updated decision and execution logs, P0.3 notes and daily EOD closeout file.",
-      "No full revised release, new Story Shot, Video Index modification or Gate PASS."
+      "No full revised release, new Story Shot, Video Index modification or Gate PASS.",
+      "User Mac safe fast-forward-only synchronization verified at exact local HEAD=origin/main=7f54c6aa4b1951e04e9b2e821e237766f0706a05, tracked worktree clean; two private console directories preserved.",
+      "Post-sync GitHub documentation updates are intentionally cloud-only and do not invalidate timestamped checkpoint PASS; no second EOD pull requested."
     ],
-    "resume_from": "NEXT SESSION DIRECTOR REDESIGN; THIS EVENING USER MAC FF-ONLY SYNC AND SHA PROOF",
-    "blockers": [
-      "Local Mac synchronization requires user's terminal evidence; not yet verified."
-    ]
+    "resume_from": "NEXT SESSION REDESIGN N18–N26 EDITORIAL PLAN; NEXT REGULAR EOD LOCAL SYNC PER RC-029",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -525,13 +525,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V276",
+    "version": "V277",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "CURRENT / DERIVED FROM R346 / EOD CLOUD CLOSEOUT / TAIL V001 V002 HOLD / MAC SYNC PENDING",
-    "derived_from_revision": "R346",
+    "status": "CURRENT / DERIVED FROM R347 / EOD CLOSED / LOCAL SYNC PASS AT CHECKPOINT / CLOUD BOOKKEEPING ADVANCED",
+    "derived_from_revision": "R347",
     "last_updated": "2026-10-12",
-    "current_task": "STOP TODAY / TAIL V001 & V002 NOT APPROVED / FULL V001 LOCKED / EOD MAC SYNC VERIFICATION"
+    "current_task": "NEXT SESSION DIRECTOR REDESIGN / TODAY EOD LOCAL SYNC PASS AT CHECKPOINT"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
