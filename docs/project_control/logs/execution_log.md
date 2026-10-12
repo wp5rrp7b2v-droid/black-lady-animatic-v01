@@ -3767,3 +3767,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Independent visual tail A/B comparison vs S02-B V001 generated; not quality-approved yet.
 - **No PO approval for tail or complete new master has been given.** Approved S02-B V001 SHA-256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a` confirmed unchanged. No Video Index entry or P0.3 Gate change. Next: PO review, then decide whether to revise or formally integrate.
 - RC-029: Mac local sync at evening closeout, not now.
+
+## 2026-10-12｜S02-B Tail V002 Content-Cut Review (PO criticism addressed; no approval)
+
+- Product Owner reported prior tail's latter shots visually repeated the same push/pull; prior tail V001 editorial trial was not approved.
+- Test branch `review/s02b-tail-content-cut-v002-20261012` swaps automatic zooming for held shots and meaningful frame-to-frame subject transitions. N18 Jun vs sky and N23 Neil at doorway vs crowd are static compositional beats; N24/A06/N25/N26 are held shot/reaction/object/answer cuts with no zoom animation; only N20 retains a restrained lateral pan.
+- GitHub Actions Run `38260416254` SUCCESS. Artifact `11751264976`, ZIP SHA-256 `b1ef4edebc3726c470025f4fa36c3d4087655e898a0b4ffa0d86e17b2702f096` independently matched, ZIP integrity PASS. MP4 `S02B_TAIL_42S_CONTENT_CUT_V002.mp4` SHA-256 `4c14231e50ede2d8c9c7cd8eec56e823943ff8d763e141d19d241867ccccd788`, 5,861,790 bytes, manifest MATCH; 1269 frames, 42.3s, full decode PASS, non-silent AAC.
+- Additional local review-only media (full decode PASS): tail V001/V002 comparison SHA-256 `37e3a00ab743384b33394b0a589870fd87e01642ca90cb20db8330533c8b5dbc`, 42.3s; V004-approved opening + V002 tail context SHA-256 `138e440d09dd188709721e9274b0b60660e84b849b73040c0bc84d5e8de64a6e`, 64.25s, 1927 frames, original S02-B V001 audio stream copy.
+- Director limitation: N23 alternate crops still visually similar because both are from a single approved PNG. New truly distinct cutaways may require 1–2 actual new Story Shots and PO authorization under locked Chat/Work/GitHub Actions flow.
+- No new PO approval yet. Official S02-B V001, Video Index, Story Shot Index, P0.3 unchanged. Project State R345 / Dashboard V275. RC-029 nightly Mac sync pending.
