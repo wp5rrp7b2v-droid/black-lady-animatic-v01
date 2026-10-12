@@ -3786,3 +3786,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Next editorial design must prioritize story-specific content changes; possible new shot angles/details require separate PO authorization and the locked Chat + GitHub Actions + Work Story Shot process. No further experiments during today's closeout.
 - Decision `BL-D-175`; formal EOD record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`.
 - RC-029: cloud closeout can be committed and read back, but local Mac parity stays **PENDING USER TERMINAL PROOF** until safe FF-only pull and exact local/remote SHA match are evidenced. Preserve untracked production console folders.
+
+### 2026-10-12 EOD Mac Synchronization｜Verified PASS
+
+- User Mac terminal reported a clean tracked worktree on `main`, with only two preserved untracked directories: `BlackLadyLocalConsole/` and `BlackLadyLocalConsolePrivate/`.
+- Fast-forward-only GitHub pull succeeded `c940943..7f54c6a`, 9 changed Project Control files; no force reset, clean or merge.
+- `LOCAL HEAD` = `ORIGIN MAIN` = `7f54c6aa4b1951e04e9b2e821e237766f0706a05`. This was independently established as the exact GitHub main SHA **before closeout evidence was committed**.
+- Post-pull `git status --short --branch`: `## main...origin/main`, plus only the two preserved untracked console folders. Recorded verdict: **RC-029 EOD LOCAL SYNC PASS at 7f54c6a (checkpoint parity verified)**.
+- Recording this result into Project Control advances cloud `main` beyond that synced checkpoint; do **not** claim continuing local-vs-current-remote parity or ask for a redundant same-evening pull. The next normal EOD cycle may absorb post-checkpoint metadata commits.
+- Proof in `docs/project_control/gates/P0_3_video_pipeline/s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`.
