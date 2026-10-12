@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify media encoder and install Pillow
         run: |
+          sudo apt-get install -y -qq ffmpeg
           ffmpeg -version | head -n 2
           python3 -m pip install --quiet pillow
       - name: Verify canonical sources and render V004 once
