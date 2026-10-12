@@ -14,3 +14,16 @@ Approval boundary: Product Owner authorized a **trial render**, not release or V
 - No GIF, no AI image generation, no source retouching.
 - Output resides in a seven-day GitHub Actions artifact, not canonical video library.
 - Existing S02-B V001 video index and P0.3 state remain unchanged.
+
+## 2026-10-12 GitHub Actions execution and exact result
+
+- Runner: https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/38237983164
+- Branch source commit: `3eac893b9489d36b66cc65bbab6380782356536a`
+- Run ID: `38237983164`; result: `SUCCESS`; all steps completed.
+- Artifact ID: `11741024076`, `S02B_N16_N17_V002_CROP_TEST`.
+- Artifact downloaded ZIP digest: `sha256:96de6b04f7796eb3c6cbc2eefa6e892b50b8db310a329014ce49fc69d11fa03d` — independently matched after download; archive integrity test PASS.
+- Review MP4 SHA-256: `898b1c507667d5066f77cb246e61ce149508f6b656c2661d94c830dbb98cacc0`, bytes: `1,193,249`; independently compared with `RENDER_MANIFEST.json`.
+- 658 frames, 720 × 1280, 30 fps, 21.950 seconds, H.264/AAC; full decode PASS.
+- Approved PNG identities: N16 b26fb7d6…, N17 bd315999…; canonical source audio 8d0d12d3…; all verified in GitHub runner.
+- A/B locally previewed against intact PO-approved S02-B V001 source; **no decision yet on whether editorial trial improves watchability**.
+- Approval/registration boundary unchanged: `REVIEW ONLY / AWAITING PRODUCT OWNER`; no V002 canonical publication or Video Index entry. Daytime local Mac synchronization deferred to evening closeout under RC-029.
