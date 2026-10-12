@@ -3776,3 +3776,13 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Additional local review-only media (full decode PASS): tail V001/V002 comparison SHA-256 `37e3a00ab743384b33394b0a589870fd87e01642ca90cb20db8330533c8b5dbc`, 42.3s; V004-approved opening + V002 tail context SHA-256 `138e440d09dd188709721e9274b0b60660e84b849b73040c0bc84d5e8de64a6e`, 64.25s, 1927 frames, original S02-B V001 audio stream copy.
 - Director limitation: N23 alternate crops still visually similar because both are from a single approved PNG. New truly distinct cutaways may require 1–2 actual new Story Shots and PO authorization under locked Chat/Work/GitHub Actions flow.
 - No new PO approval yet. Official S02-B V001, Video Index, Story Shot Index, P0.3 unchanged. Project State R345 / Dashboard V275. RC-029 nightly Mac sync pending.
+
+## 2026-10-12｜S02-B Tail V001/V002 PO Hold + Daily Closeout
+
+- Product Owner reviewed the tail editorial tests and explicitly stated: `没有前面的版本好，目前V001和V002都暂不批准。今天先工作到这里，登记下目前的进展，开展收尾和本地同步工作`.
+- Scope clarification: **Tail V001 and Tail V002 (N18–N26/A06, 42.30s) are both NOT APPROVED / HOLD**. Their GitHub Actions render/codec and exact hash checks remain valid technical evidence only, not creative signoff. Tail V001's repeated zooms and Tail V002's visually similar reframings are not suitable for promoting to formal production.
+- The **already PO-approved full S02-B Assembly V001 (64.25s)** stays locked / canonical, exact SHA-256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a`. The **N16–N17 21.95s V004 editorial segment** remains separately approved as a quality benchmark, not a complete new master.
+- No new Story Shots, Video Index registration, Drive publication, P0.3 Gate advancement, main merge of review branches, or deletion of artifacts. The experiment source is retained in `review/s02b-tail-quality-v001-20261012` and `review/s02b-tail-content-cut-v002-20261012`.
+- Next editorial design must prioritize story-specific content changes; possible new shot angles/details require separate PO authorization and the locked Chat + GitHub Actions + Work Story Shot process. No further experiments during today's closeout.
+- Decision `BL-D-175`; formal EOD record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`.
+- RC-029: cloud closeout can be committed and read back, but local Mac parity stays **PENDING USER TERMINAL PROOF** until safe FF-only pull and exact local/remote SHA match are evidenced. Preserve untracked production console folders.
