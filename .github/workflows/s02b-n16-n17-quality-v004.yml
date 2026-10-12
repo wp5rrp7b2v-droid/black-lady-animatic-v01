@@ -1,0 +1,35 @@
+name: S02-B N16 N17 Quality Crop V004 (NONCANONICAL)
+on:
+  push:
+    branches:
+      - review/s02b-n16-n17-quality-v004-20261012
+    paths:
+      - review_tools/build_s02b_quality_v004.py
+      - .github/workflows/s02b-n16-n17-quality-v004.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-quality-trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install FFmpeg and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --quiet pillow
+      - name: Verify canonical sources and render V004 once
+        run: RUNNER_TEMP="$PWD" python3 review_tools/build_s02b_quality_v004.py
+      - name: Upload noncanonical trial MP4 and QC proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_N16_N17_V004_QUALITY_TEST
+          path: |
+            S02B_N16_N17_V004_QUALITY_TEST/S02B_N16_N17_V004_QUALITY_TEST.mp4
+            S02B_N16_N17_V004_QUALITY_TEST/S02B_N16_N17_V004_AUDIO_ONLY.mp3
+            S02B_N16_N17_V004_QUALITY_TEST/V004_QUALITY_SIX_BEATS.jpg
+            S02B_N16_N17_V004_QUALITY_TEST/RENDER_MANIFEST.json
+          retention-days: 7
+          if-no-files-found: error
