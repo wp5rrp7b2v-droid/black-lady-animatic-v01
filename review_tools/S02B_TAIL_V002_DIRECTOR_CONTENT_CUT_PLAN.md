@@ -17,3 +17,13 @@ Date: 2026-10-12
 This is editorial noncanonical review ONLY. Previously approved N16–N17 V004 first 658 frames unchanged. Official complete S02-B V001 (64.250 sec) remains current and immutable. No Video Index, Story Shot or P0.3 status change. Submit V002 tail and side-by-side with tail V001 before further production / integrated review.
 
 Artifacts expire after 7 days; do not promote to canonical storage without Product Owner approval and separate publication verification.
+
+## 2026-10-12 Verified V002 Deliverables / A-B Technical Check
+
+- GitHub Actions SUCCESS: https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/38260416254
+- Artifact: ID `11751264976`, ZIP SHA-256 `b1ef4edebc3726c470025f4fa36c3d4087655e898a0b4ffa0d86e17b2702f096`, independently downloaded and ZIP integrity + digest PASS.
+- Tail candidate `S02B_TAIL_42S_CONTENT_CUT_V002.mp4`: **5,861,790 bytes**, SHA-256 `4c14231e50ede2d8c9c7cd8eec56e823943ff8d763e141d19d241867ccccd788`, matched `RENDER_MANIFEST.json`. 720×1280, H264/AAC, 1269 frames, 42.300s; full decode PASS, AAC mean -14.6 dB.
+- Local test-only editorial A/B: `S02B_TAIL_V001_V002_NARRATIVE_CUT_AB.mp4`, SHA-256 `37e3a00ab743384b33394b0a589870fd87e01642ca90cb20db8330533c8b5dbc`, 1269 frames, 42.300s, full decode PASS. Left=V001 repetitive push-pull; right=V002 static subject cutaways.
+- Local 64.250-second context preview: `S02B_FULL_64S_CONTENT_CUT_V002_CONTEXT_REVIEW.mp4`, SHA-256 `138e440d09dd188709721e9274b0b60660e84b849b73040c0bc84d5e8de64a6e`, 1927 frames, full decode PASS. Exact approved opening V004 and independently rendered tail V002 video stream-copy; original S02-B V001 AAC track preserved. No canonical publish.
+- Director self-check caveat: The static N23 Neil/crowd crops share considerable visual content, so perceived variation may remain modest. If PO asks for truly different framing, do not simulate another zoom: propose 1–2 new identity-controlled reaction or architectural detail Story Shots via the locked Chat→GitHub Actions→Work→PO workflow.
+- **PO verdict pending**; no replacement of current V001, no Video Index changes, no Gate promotion. Mac sync remains EOD.
