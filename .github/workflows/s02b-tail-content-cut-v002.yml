@@ -1,0 +1,34 @@
+name: S02-B Tail V002 Narrative Cutaways (NONCANONICAL)
+on:
+  push:
+    branches:
+      - review/s02b-tail-content-cut-v002-20261012
+    paths:
+      - review_tools/build_s02b_tail_content_cut_v002.py
+      - .github/workflows/s02b-tail-content-cut-v002.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-tail-v002:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install FFmpeg and Pillow
+        run: |
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --quiet pillow
+      - name: Verify original media and render 42 second narrative cut
+        run: RUNNER_TEMP="$PWD" python3 review_tools/build_s02b_tail_content_cut_v002.py
+      - name: Upload isolated V002 for Product Owner review
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_TAIL_42S_CONTENT_CUT_V002
+          path: |
+            S02B_TAIL_42S_CONTENT_CUT_V002/S02B_TAIL_42S_CONTENT_CUT_V002.mp4
+            S02B_TAIL_42S_CONTENT_CUT_V002/S02B_TAIL_42S_CONTENT_CUT_V002_AUDIO.mp3
+            S02B_TAIL_42S_CONTENT_CUT_V002/S02B_TAIL_V002_STATIC_CUTAWAYS.jpg
+            S02B_TAIL_42S_CONTENT_CUT_V002/RENDER_MANIFEST.json
+          retention-days: 7
+          if-no-files-found: error
