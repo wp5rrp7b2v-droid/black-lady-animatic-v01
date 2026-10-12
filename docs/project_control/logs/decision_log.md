@@ -258,3 +258,5 @@
 | BL-D-173 | 2026-10-12 | Product Owner 明确规定：本地 Mac 与 GitHub `main` 的常规同步统一安排在**每天晚上项目收尾**，不作为白天开工前置步骤，也不在每次 Chat/GitHub 写入后逐次要求本地 pull。日间以远端 canonical GitHub 状态开展 Chat + Work + GitHub Actions 工作；保留针对临时本地正式工程的版本预检例外；夜间以 `git status` + `git-proxy-auto pull --ff-only` + exact SHA 比对验收。此决策不修改 S02-B V001、N18 GIF 结论或 P0.3 Gate 状态。 | PRODUCT OWNER APPROVED / ACTIVE DAILY EOD ROUTINE / RC-029 |
 
 | BL-D-174 | 2026-10-12 | Product Owner 通过 N16–N17 V004（21.95s 局部试剪），作为后续剪辑质量基准；S02-B V001 正式母版不变。证据：run 38253241059 / artifact 11748263727。 | SEGMENT APPROVED / FULL MASTER UNCHANGED |
+
+| BL-D-175 | 2026-10-12 | Product Owner 对 **S02-B 后半段 42.30 秒试剪 Tail V001 与 Tail V002 均明确暂不批准**（反馈：`没有前面的版本好`；早先指出后几个镜头重复拉近拉远）。两版技术渲染 PASS 不代表剪辑批准，暂停继续自动生成同类推拉 / 同图裁切试剪，下一次应先重新做叙事镜头设计，必要时提出真实不同机位特写或环境细节图待 PO 单独授权。**此处 Tail V001≠正式 S02-B 64.250s V001 母版**，原已批准母版和 N16–N17 局部 V004 通过结论均保持不变；Video Index 与 Story Shot Index 不变，P0.3 仍 IN PROGRESS。依据 `s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md` 结案，Mac 同步在夜间收尾单独核验。 | TAIL V001/V002 NOT APPROVED / EXPERIMENT HOLD / CANONICAL V001 PRESERVED / RC-029 LOCAL SYNC PENDING |
