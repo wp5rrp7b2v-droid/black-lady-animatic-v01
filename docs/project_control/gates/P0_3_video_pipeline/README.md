@@ -1862,3 +1862,11 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - ZIP SHA-256 `0741d3dbeac212bdd678e31f09fc6e6327dd65f4ad8c8fb7a5009a2a763c627d`, MP4 SHA-256 `193b4619b738cdd75a278783059f910ab390adfd054ea7c96542976d419e29d7`; full decode, original input identity, video frame count and non-silent AAC verified.
 - First 21.95s N16–N17 V004 retains earlier limited PO segment approval. Together 658+1269 = 1927 frames. Local context-only stream-copy composite with existing approved V001 audio = 64.250s, SHA-256 `1019e0a73c48455bddbe917e8a0f4d5ff937774af2724c817dc676b331de66f2`; used solely for whole-sequence PO review.
 - **Awaiting PO review** of tail and full sequence. No full revised master approval, no Video Index update, no V001 replacement, no P0.3 PASS. Mac sync deferred to evening RC-029.
+
+## 2026-10-12｜Tail V001 and V002 NOT APPROVED / EOD CLOSEOUT
+
+- Product Owner has **not approved** either experimental N18–N26/A06 42.30s tail editorials (V001 and V002), after identifying repetitive zoom/crop language. The 64.25s full context preview assembled from either is likewise **not approved**. Rendering and exact-binary QA remain useful test evidence only.
+- Do not confuse experimental **Tail V001** with separately **APPROVED / CANONICAL full S02-B Assembly V001** (video sha256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a`). Already-approved N16–N17 editorial V004 treatment remains accepted only for the first 21.95s.
+- **P0.3 remains IN PROGRESS**. No Video Index mutation, new shots, canonical publication, or promotion of the experimental tails; source branches/Actions evidence retained.
+- Before any new tail candidate, redesign the narrative cutaways and assess genuinely new angles/detail source shots through Director → Scene Reference → Bundle → Work → PO if justified; never generate extra Story Shot PNG without fresh PO authorization.
+- Closeout record: `s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`, decision `BL-D-175`; local Mac EOD sync must be verified with user's real terminal output and exact GitHub main parity, not assumed.
