@@ -1855,3 +1855,10 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - Video SHA-256 `7f30596a60ada54a8393f8207ad7f59f92702ca8278d0bd257fc258911877018`，7,180,406 bytes，658 帧；GitHub Actions Run `38253241059`，Artifact `11748263727`，源 PNG/音频身份、完整解码、ZIP/MP4 哈希 PASS。
 - 本次接受限制数字裁切放大、一次编码及六节点变换转场的剪辑参考标准。正式 S02-B V001、Video Index 和 P0.3 状态均不变。
 - 下一步处理 S02-B 后续约 42.30 秒，再制作全段非正式试剪供 PO 另行审批。证据：`s02_b_n16_n17_v004_approval_2026-10-12.md`。
+
+## 2026-10-12｜S02-B Tail + Full Context Editorial Trial (awaiting PO)
+
+- 42.30-second N18–N26/A06 tail video in review branch `review/s02b-tail-quality-v001-20261012`; Actions run `38257096875` SUCCESS, artifact `11750723234`; 10 approved PNG inputs, 12 meaningful editorial phases, 1269 decoded frames, original 100.700–143.000s canonical audio retained.
+- ZIP SHA-256 `0741d3dbeac212bdd678e31f09fc6e6327dd65f4ad8c8fb7a5009a2a763c627d`, MP4 SHA-256 `193b4619b738cdd75a278783059f910ab390adfd054ea7c96542976d419e29d7`; full decode, original input identity, video frame count and non-silent AAC verified.
+- First 21.95s N16–N17 V004 retains earlier limited PO segment approval. Together 658+1269 = 1927 frames. Local context-only stream-copy composite with existing approved V001 audio = 64.250s, SHA-256 `1019e0a73c48455bddbe917e8a0f4d5ff937774af2724c817dc676b331de66f2`; used solely for whole-sequence PO review.
+- **Awaiting PO review** of tail and full sequence. No full revised master approval, no Video Index update, no V001 replacement, no P0.3 PASS. Mac sync deferred to evening RC-029.
