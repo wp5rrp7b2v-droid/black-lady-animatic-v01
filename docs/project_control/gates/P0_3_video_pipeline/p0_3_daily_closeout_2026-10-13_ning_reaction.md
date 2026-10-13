@@ -77,4 +77,14 @@ Canonical source of truth: GitHub `main` Project Control + official Story Shot/V
 - Current state: `docs/project_control/core/project_state.json`
 - Dashboard: `docs/project_control/dashboard/dashboard.html`
 
-**Daily cloud closeout checkpoint status:** records to be reconciled against main R359 / Dashboard V279; GitHub readback before declaring PASS. Mac sync remains a separate user-terminal gate.
+## 8｜最终云端独立回读验收（2026-10-13）
+
+- Project State **R359**：GitHub main 回读并解析通过，B V002 `po_approved=true`，`word_level_alignment_verified=false`，2026-10-13 Mac 同步状态 PENDING。
+- Dashboard **V279**：标题与正文均引用 **Project State R359**，回读一致。
+- Execution Log 已登记 `DAILY_CLOSEOUT_2026_10_13_S02B_NING`。
+- Story Shot Index：**32 entries / 32 APPROVED**；临时 `TAIL_NING_REACTION_TEST_01` 无正式条目。
+- Video Index：**3 entries**；`S02_B_ASSEMBLY_V001` SHA256 `8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a` 未变。
+- 本 Daily Closeout Record 已创建且 GitHub readback 可读取。云端 closeout 状态：**PASS**。
+- **2026-10-13 Mac 本地同步单独标记 PENDING USER TERMINAL PROOF**；以上云端核验不证明 Mac HEAD 已追平 GitHub。后续正常本地同步后按 checkpoint 再补验收证据，避免将当前元数据提交误当成已同步。
+
+**Final cloud record closeout: PASS; local sync: PENDING.**
