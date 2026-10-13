@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R348",
+  "state_revision": "R349",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING RULE-REACTION INSERT DIRECTOR CONCEPT + SCENE REFERENCE V0.1 PO APPROVED / LOCKED / BUNDLE BUILD NOT AUTHORIZED / S02-B V001 CANONICAL UNCHANGED / P0.3 IN PROGRESS",
+  "session_status": "2026-10-13 S02-B NING REACTION REFERENCE BUNDLE V001 DESIGN DRAFTED / AWAITING PO DESIGN APPROVAL / N25-N26 PIXEL AXIS REVIEW PENDING / NO BUILD OR GENERATION / APPROVED S02-B V001 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "DESIGN NING REACTION INSERT REFERENCE BUNDLE (3 SOURCES), CHECK N25/N26 EDITORIAL AXIS BEFORE BUILD / NO GENERATION AUTHORIZATION",
+  "current_task": "PO REVIEW TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001 DESIGN / AWAIT VISUAL AXIS COMPARISON BEFORE WORK GENERATION",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Prepare non-executable Reference Delivery Bundle design for TAIL_NING_REACTION_TEST_01 using verified Ning reference sheet, Ning FACE_3Q_LEFT and Castle Entrance Inner Lobby; then obtain PO authorization before Bundle spec activation or formal GitHub Actions build. Keep approved N25/N26 PNG and 64.25s S02-B V001 unchanged. Perform Mac sync at evening closeout per RC-029.",
+  "next_action": "PO review 3-input Bundle Design V0.1. If approved, authorize validation-only Spec (build_authorized=false; push triggers Actions), verify 3/3 exact with zero Artifact; separately authorize formal build only after prior gate. Before Work generation, visually compare actual approved N25/N26 PNGs for screen axis and background continuity; stop on mismatch. Preserve approved S02-B V001 and N16-N17 V004.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,17 +119,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-RULE-REACTION-SCENE-REFERENCE-R348",
-    "status": "DIRECTOR CONCEPT + SCENE REFERENCE V0.1 PO APPROVED / BUNDLE NOT AUTHORIZED / NO NEW PNG",
+    "id": "2026-10-13-S02B-NING-REACTION-BUNDLE-DESIGN-R349",
+    "status": "REFERENCE BUNDLE DESIGN V0.1 DOCUMENTED / AWAITING PO REVIEW / NO ACTIONS OR CANDIDATE",
     "completed": [
-      "2026-10-12 PO nonapprovals for Tail V001/V002 remain authoritative; canonical S02-B V001 and N16–N17 V004 segment preserved.",
-      "Product Owner approved separate Ning Qiushui rule-reaction editorial insert concept and Scene Reference Design V0.1 on 2026-10-13.",
-      "GitHub blob identities MATCH for AST_IMG_000060 / AST_IMG_000071 / AST_IMG_000108; original registered PNG SHA-256 values retained but not recomputed today.",
-      "Scene Reference Design written and independently read back from GitHub with all expected authorities and no-build boundary.",
-      "No reference Bundle, new Story Shot binary, canonical publication, registration, Video Index modification or P0.3 Gate PASS."
+      "Previously PO approved Ning Qiushui editorial-reaction concept and Scene Reference V0.1 remain locked.",
+      "Proposed test-only Bundle ID and schema, 3 exact approved direct references, one-candidate Work handoff and minimal A/B validation designed.",
+      "GitHub main source-file Git blob checks 3/3 direct inputs MATCH; adjacent approved N25/N26 Git blob checks 2/2 MATCH.",
+      "Actual approved N25/N26 PNG pixels were not independently viewed, so screen-direction continuity is not yet verified.",
+      "Bundle Design file committed and exact text read back; no production/bundle_specs JSON created, no GitHub Actions build or Work generation requested."
     ],
-    "resume_from": "BUNDLE DESIGN ONLY / N25-N26 CAMERA AXIS REVIEW / FORMAL BUILD REQUIRES NEW PO AUTHORIZATION",
-    "blockers": []
+    "resume_from": "PRODUCT OWNER BUNDLE DESIGN REVIEW / THEN VALIDATION-ONLY AUTHORIZATION / N25-N26 IMAGE-LEVEL AXIS REVIEW BEFORE WORK",
+    "blockers": [
+      "N25/N26 visual spatial axis still unverified; must be resolved before candidate generation."
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -5144,6 +5146,25 @@
     "tail_v001_v002": "NOT APPROVED / ON HOLD",
     "p0_3": "IN PROGRESS",
     "video_index": "UNCHANGED",
-    "story_shot_index": "UNCHANGED"
+    "story_shot_index": "UNCHANGED",
+    "bundle_design": {
+      "id": "TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+      "path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_reference_delivery_bundle_v001_design_v0_1.md",
+      "status": "DRAFT / READY FOR PO DESIGN REVIEW / NOT YET PO APPROVED",
+      "candidate": "TAIL_NING_REACTION_TEST_01 Candidate 01 / ONE PNG ONLY",
+      "proposed_direct_references": [
+        "AST_IMG_000060",
+        "AST_IMG_000071",
+        "AST_IMG_000108"
+      ],
+      "source_blob_identity": "3/3 GIT_BLOB MATCH AT GITHUB MAIN",
+      "adjacent_binary_blob_identity": "N25 + N26 2/2 GIT_BLOB MATCH",
+      "adjacent_visual_axis": "UNKNOWN / PNG PIXEL INSPECTION PENDING BEFORE CANDIDATE",
+      "spec_path": "production/bundle_specs/TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json",
+      "spec_status": "NOT CREATED / CREATION WOULD TRIGGER VALIDATION-ONLY ACTIONS",
+      "build_authorized": false,
+      "work_generation_authorized": false,
+      "revision": "DESIGN_V0.1"
+    }
   }
 }
