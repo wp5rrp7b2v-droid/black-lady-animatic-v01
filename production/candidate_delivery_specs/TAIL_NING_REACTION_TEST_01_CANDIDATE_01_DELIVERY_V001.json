@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "TAIL_NING_REACTION_TEST_01",
+  "sequence_id": "S02-B",
+  "candidate_id": "TAIL_NING_REACTION_TEST_01 Candidate 01 | Ning Qiushui reacts to '这是夫人的要求'",
+  "product_owner_status": "APPROVED",
+  "candidate_approval_scope": "VISUAL CANDIDATE FOR EDITORIAL A/B ONLY / NOT CANONICAL STORY SHOT REGISTRATION",
+  "source_upload_filename": "TAIL_NING_REACTION_TEST_01_CANDIDATE_01_PO_APPROVED.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2471479,
+    "sha256": "cbac98a82763c6c930a3c820c917f4b9b8bc2ed300a49b48143b8b1cd9486c9c",
+    "git_blob_sha1": "907c4cdbd875d67399258dceb29eedd9f8038946"
+  },
+  "bundle": {
+    "bundle_id": "TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 38333161748,
+    "artifact_id": 11783891178,
+    "artifact_digest": "sha256:314b5bdac45e8cde34f90c3c195bff5544fedbaec69d45264f07051088dca5c6"
+  },
+  "target_staging_path": "staging/story_shot_candidates/TAIL_NING_REACTION_TEST_01/TAIL_NING_REACTION_TEST_01_CANDIDATE_01_PO_APPROVED.png",
+  "downstream_canonical_target": null,
+  "publication_status": "NOT AUTHORIZED / NONE ASSIGNED - TEST INSERT ONLY",
+  "editorial_test_status": "NOT YET PERFORMED",
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  }
+}
