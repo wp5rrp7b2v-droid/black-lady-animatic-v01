@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R350",
+  "state_revision": "R351",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 S02-B NING RULE REACTION BUNDLE V001 DESIGN PO APPROVED / VALIDATION-ONLY 3/3 EXACT PASS / 0 ARTIFACT / FORMAL BUILD NOT AUTHORIZED / WORK NOT AUTHORIZED / S02-B V001 CANONICAL UNCHANGED",
+  "session_status": "2026-10-13 NING RULE REACTION BUNDLE V001 FORMAL BUILD COMPLETED / 1 ARTIFACT / ZIP SHA256 EXACT MATCH / REFERENCES 3/3 INDEPENDENT EXACT MATCH / WORK NOT AUTHORIZED / N25-N26 PIXEL VISUAL CONTINUITY PENDING / S02-B V001 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "VALIDATION-ONLY COMPLETE / NEXT PO FORMAL BUNDLE BUILD AUTHORIZATION / N25-N26 VISUAL AXIS CHECK PENDING BEFORE WORK GENERATION",
+  "current_task": "FORMAL BUNDLE V001 VERIFIED / NEXT N25-N26 VISUAL AXIS COMPARISON + SEPARATE PO WORK CANDIDATE 01 AUTHORIZATION",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Product Owner to approve or withhold formal build of TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001. The currently approved Spec still has build_authorized=false. If formal build authorized, activate and use GitHub Actions to build and exact verify one Bundle Artifact. Independently visually inspect N25/N26 approved PNG pixels for the axis and background continuity before separately approving Work generation. Do not alter S02-B approved V001 or the V004 segment.",
+  "next_action": "Check actual approved N25 and N26 PNG pixels for screen direction, character continuity, light and inner-lobby spatial consistency. If PASS, seek Product Owner Work generation authorization for exactly 1 Ning Qiushui reaction insert PNG using the already exact-verified Bundle V001. Do not change canonical S02-B V001 video or indices. Bundle generation_allowed=true is a technical manifest flag, not PO approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,18 +119,19 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-RULE-REACTION-VALIDATION-ONLY-R350",
-    "status": "3/3 EXACT VALIDATION-ONLY PASS / 0 ARTIFACT / NO BUILD / NO WORK",
+    "id": "2026-10-13-S02B-NING-RULE-REACTION-FORMAL-BUNDLE-R351",
+    "status": "FORMAL BUNDLE BUILT + 1 ARTIFACT + ZIP SHA256 EXACT MATCH + 3/3 PNG INDEPENDENT EXACT / WORK NOT AUTHORIZED",
     "completed": [
-      "PO approved Ning rule reaction Bundle V001 Design V0.1 and authorized only build_authorized=false validation-only Spec.",
-      "Spec created and read back, 3 direct reference IDs exact, push Actions Run 38328900831 associated to Spec commit cd233e47d9af03b7464b9cebe67efee76162fd3a.",
-      "Builder emitted VALIDATION_PASS 3/3, BUILD_AUTHORIZED=FALSE, GENERATION_ALLOWED=FALSE. Run success; artifact count 0; build/upload steps skipped.",
-      "Formal validation record and design approval status written/read back in GitHub.",
-      "No formal Bundle, Work candidate, Story Shot registration, Video Index update, approved S02-B V001 replacement or P0.3 Gate PASS."
+      "PO approved formal build and artifact exact verification only.",
+      "Spec updated build_authorized=true, candidate_01_generation_authorized=false; commit de4d0442800e19d87680406bd5b80d8efeac49e7.",
+      "Actions Run 38333161748 completed SUCCESS; job 115087255648 built and uploaded 1 artifact.",
+      "Artifact 11783891178 downloaded; physical ZIP SHA256 314b5bda... equals GitHub digest; ZIP CRC and exact member set PASS.",
+      "Actual packaged PNGs independently verified SHA256, bytes, Git blob, dimensions and Manifest: 3/3 exact match.",
+      "Formal build evidence record written and read back. No Work generation, no candidate, no canonical publication, no register/index changes or video modification."
     ],
-    "resume_from": "PO FORMAL BUILD AUTHORIZATION / N25-N26 PIXEL-LEVEL AXIS REVIEW BEFORE WORK CANDIDATE",
+    "resume_from": "VISUALLY REVIEW ACTUAL APPROVED N25/N26 PIXELS; THEN ASK FOR SEPARATE PO WORK AUTHORIZATION",
     "blockers": [
-      "N25/N26 actual PNG pixels not visually inspected; directional and environmental continuity not yet established."
+      "N25/N26 screen-space direction and look continuity still not independently pixel-verified."
     ]
   },
   "visual_asset_management_system": {
@@ -5150,7 +5151,7 @@
     "bundle_design": {
       "id": "TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
       "path": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_reference_delivery_bundle_v001_design_v0_1.md",
-      "status": "PRODUCT OWNER APPROVED / LOCKED 2026-10-13 / VALIDATION-ONLY PASS / BUILD NOT AUTHORIZED",
+      "status": "PRODUCT OWNER APPROVED / LOCKED / VALIDATION-ONLY PASS / FORMAL BUNDLE BUILT + VERIFIED / WORK NOT AUTHORIZED",
       "candidate": "TAIL_NING_REACTION_TEST_01 Candidate 01 / ONE PNG ONLY",
       "proposed_direct_references": [
         "AST_IMG_000060",
@@ -5161,8 +5162,8 @@
       "adjacent_binary_blob_identity": "N25 + N26 2/2 GIT_BLOB MATCH",
       "adjacent_visual_axis": "UNKNOWN / PNG PIXEL INSPECTION PENDING BEFORE CANDIDATE",
       "spec_path": "production/bundle_specs/TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json",
-      "spec_status": "CREATED + READBACK VERIFIED / build_authorized=false / VALIDATION-ONLY WORKFLOW SUCCESS",
-      "build_authorized": false,
+      "spec_status": "FORMAL-BUILD-AUTHORIZED SPEC + READBACK VERIFIED / ACTIONS BUILD COMPLETED / BUNDLE VERIFIED",
+      "build_authorized": true,
       "work_generation_authorized": false,
       "revision": "DESIGN_V0.1",
       "spec_commit": "cd233e47d9af03b7464b9cebe67efee76162fd3a",
@@ -5183,6 +5184,31 @@
         "record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_bundle_v001_validation_only_record_2026-10-13.md",
         "n25_n26_pixel_visual_axis": "PENDING / NOT CLAIMED",
         "next_gate": "SEPARATE PO FORMAL BUILD AUTHORIZATION"
+      },
+      "formal_build": {
+        "date": "2026-10-13",
+        "status": "PASS / 1 ARTIFACT / EXACT ZIP HASH MATCH / 3 OF 3 INDEPENDENT PNG EXACT MATCH / WORK NOT AUTHORIZED",
+        "spec_commit": "de4d0442800e19d87680406bd5b80d8efeac49e7",
+        "spec_git_blob": "76b2ed4fe4c2c5fec0ffd01bebdf9111d215050e",
+        "run_id": 38333161748,
+        "job_id": 115087255648,
+        "run_status": "completed",
+        "conclusion": "success",
+        "artifact_id": 11783891178,
+        "artifact_name": "TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+        "artifact_size_bytes": 5398660,
+        "artifact_digest": "sha256:314b5bdac45e8cde34f90c3c195bff5544fedbaec69d45264f07051088dca5c6",
+        "downloaded_zip_sha256": "314b5bdac45e8cde34f90c3c195bff5544fedbaec69d45264f07051088dca5c6",
+        "downloaded_zip_exact_match": true,
+        "archive_crc": "PASS",
+        "zip_exact_members": 5,
+        "reference_exact_match": "3/3 / SHA256+BYTES+GIT_BLOB+PNG_SIGNATURE+DIMENSIONS",
+        "delivery_manifest": "PASS",
+        "work_handoff": "PRESENT / REFERENCE IDS CHECKED",
+        "builder_generation_allowed": "TRUE TECHNICAL FLAG ONLY / NO PO WORK AUTHORIZATION",
+        "work_generation_authorized": false,
+        "visual_axis_check": "PENDING ACTUAL N25/N26 PNG PIXEL REVIEW / BEFORE WORK",
+        "verification_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_bundle_v001_formal_build_exact_verification_2026-10-13.md"
       }
     }
   }
