@@ -2,7 +2,7 @@
 
 Date: 2026-10-13
 
-**STATUS: NONCANONICAL B V002 FRAME-ACCURATE ACOUSTIC-PAUSE CUT RENDERED / PO V002 REVIEW PENDING / NOT VERIFIED WORD-LEVEL ASR / APPROVED CANONICAL V001 UNCHANGED**
+**STATUS: B V002 PRODUCT OWNER APPROVED FOR LOCAL EDITORIAL TIMING / NOT VERIFIED WORD-LEVEL ASR / NO FORMAL MASTER PUBLICATION / APPROVED CANONICAL V001 UNCHANGED**
 
 ## Authorization / upstream decisions
 
@@ -51,7 +51,7 @@ Independent ffmpeg/ffprobe inspection confirmed:
 ## Gate conclusion
 
 - `B V001 EDITORIAL TREATMENT`: PO APPROVED, authoritative baseline.
-- `B V002 ACOUSTIC PAUSE CUT`: **TECHNICAL FRAME QC PASS / NEW PO REVIEW PENDING**.
+- `B V002 ACOUSTIC PAUSE CUT`: **TECHNICAL FRAME QC PASS / PRODUCT OWNER APPROVED 2026-10-13 FOR LOCAL EDITORIAL TIMING**.
 - `B V002 ORIGINAL AUDIO IDENTITY ACROSS A/B`: **PASS**.
 - `EXACT SPOKEN WORD ONSET/OFFSET IDENTIFICATION`: **PENDING / CAN'T ASSERT FROM WAVEFORM ALONE**.
 - `S02_B_ASSEMBLY_V001 64.25s`: APPROVED / CANONICAL / UNCHANGED.
@@ -59,6 +59,19 @@ Independent ffmpeg/ffprobe inspection confirmed:
 - `N27 ABSORBED`: UNCHANGED.
 - `P0.3`: IN PROGRESS.
 
-**Next:** PO can audition B V002 versus previously approved B V001. If V002 is subjectively acceptable, treat as a better-pause-aligned candidate, but before marking “精确对白逐字对齐 PASS” obtain trustworthy direct-auditory or Chinese-ASR forced-alignment evidence and verify entry/exit against `这是夫人的要求。各位，请随我来。`. Do not promote canonical by assumption.
+**Next:** PO has approved the rendered B V002 local edit as seen. Before marking “精确对白逐字对齐 PASS”, obtain trustworthy direct-auditory or Chinese-ASR forced-alignment evidence and verify entry/exit against `这是夫人的要求。各位，请随我来。`. Do not promote canonical by assumption.
 
 Local review MP4 and waveform plots are in conversation artifacts only; no video added to formal repository or Drive.
+
+## 2026-10-13｜Product Owner review closeout (addendum)
+
+Product Owner responded **“批准”** immediately after viewing the linked `S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4` and being asked to approve the B V002 revised timing. The exact approved review-file identity was reconfirmed from the locally mounted file without re-encoding:
+
+- Filename: `S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4`
+- Byte size: `707624`
+- SHA256: `748ce5d1648cc2ae1a690278584ee2dad380c3e7984e2a114a4a1c62eae3aab5`
+- Running time: `7.783s`; Ning insert exactly 53 frames (`116–168`), ≈1.766667s.
+- **PO decision: B V002 local timing/visual edit APPROVED AS REVIEWED.** This replaces B V001 as the preferred *local treatment candidate* for the Ning reaction, while leaving B V001's historical PO approval intact.
+- Audio PCM identity across A, B V001, B V002 remains technically verified; **phoneme/word-level identification of the two Chinese phrases is still unverified**. PO approval means the *auditioned edit is acceptable*, not that waveform measurement proves syllable boundaries.
+- Before any official full-length S02-B V002 publication, retain explicit authorization and new-version review gate; do not overwrite S02-B V001. Canonical PNG publication and Story Shot Index registration remain separately gated. No N27 production.
+- This status supersedes all earlier **“PO V002 REVIEW PENDING”** phrases above while preserving their prior-stage audit history.
