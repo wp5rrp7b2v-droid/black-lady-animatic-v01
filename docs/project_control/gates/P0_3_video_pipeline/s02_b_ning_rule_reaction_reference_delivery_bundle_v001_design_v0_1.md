@@ -2,7 +2,7 @@
 
 日期：2026-10-13
 
-状态：**DESIGN PREPARED / AWAITING PRODUCT OWNER DESIGN APPROVAL / NO BUNDLE SPEC CREATED / NO BUILD / NO WORK GENERATION**
+状态：**PRODUCT OWNER APPROVED / LOCKED 2026-10-13 / VALIDATION-ONLY 3/3 PASS / FORMAL BUILD NOT AUTHORIZED / NO WORK GENERATION**
 
 ## 0｜权限和来源
 
@@ -130,4 +130,17 @@
 - Tail V001 / V002：NOT APPROVED / ON HOLD
 - `Video Index` / `Story Shot Index`：UNCHANGED
 - P0.3：IN PROGRESS
-- 本设计文件：**READY FOR PRODUCT OWNER DESIGN REVIEW / NOT APPROVED BY PO YET**
+- 本设计文件：**PRODUCT OWNER APPROVED / LOCKED 2026-10-13**
+
+## 8｜2026-10-13 PO Approval & Validation-only Result
+
+Product Owner explicitly approved this Bundle Design V0.1 and authorized ONLY creation of `build_authorized=false` Spec plus exact 3/3 validation. The previously prospective statements “尚未创建 Spec / 不触发 Actions” in section 5 describe the **pre-authorization design state** and are superseded by the recorded run below; they do not imply permission to build formally.
+
+- Created Spec: `production/bundle_specs/TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json` (flag remains `false`).
+- Spec commit: `cd233e47d9af03b7464b9cebe67efee76162fd3a`.
+- GitHub Actions Run: `38328900831` — completed / SUCCESS.
+- Job: `115073876666` — `VALIDATION_PASS: 3/3 exact canonical references verified`.
+- Job confirms `BUILD_AUTHORIZED=FALSE`, `GENERATION_ALLOWED=FALSE`.
+- Bundle build/upload steps SKIPPED; Workflow Artifact count exactly **0**.
+- Verification record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_bundle_v001_validation_only_record_2026-10-13.md`.
+- **Next Gate = PO FORMAL BUILD AUTHORIZATION ONLY; PO WORK IMAGE GENERATION NOT AUTHORIZED; N25/N26 image-pixel visual continuity remains unverified and must PASS before candidate generation.**
