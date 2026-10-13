@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R355",
+  "state_revision": "R356",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING REACTION CANDIDATE 01 PO VISUAL APPROVED + EXACT GITHUB STAGING INTAKE SUCCESS / RUN 38400935301 / LOCAL ORIGINAL AUDIO 7.783S A-B REVIEW EXCERPTS RENDERED / PO EDITORIAL REVIEW PENDING / CANONICAL V001 + INDICES UNCHANGED",
+  "session_status": "2026-10-13 NING REACTION LOCAL B A-B EDITORIAL TREATMENT PO APPROVED / AUDIO WORD-LEVEL PLACEMENT UNVERIFIED / FULL S02-B V001 CANONICAL UNCHANGED / NO STORY SHOT CANONICAL PUBLICATION",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "PO REVIEW SHORT LOCAL A-B N25 -> NING REACTION INSERT -> N26 (TIMING PROVISIONAL) / DO NOT REGISTER OR PUBLISH TEST CANDIDATE",
+  "current_task": "PRESERVE PO-APPROVED B LOCAL EDITORIAL TREATMENT / VERIFY EXACT NEIL LINE WORD ONSET AND OFFSET BEFORE CONTROLLED FINAL PREVIEW; NO MASTER REPLACEMENT",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Product Owner compare A original 7.783s excerpt vs B same-audio 7.783s NING insert provisional picture cut ~60.333–61.733sec of approved S02-B V001. If editorially effective, separately align microcut to Neil line '这是夫人的要求' and seek PO approval for new candidate video revision, never overwrite canonical S02-B V001. Story Shot canonical publication/registration remains separately gated. Evening Mac local sync per RC-029.",
+  "next_action": "Obtain reliable audio/voice word-level timing by direct listening or verified ASR for Neil's line '这是夫人的要求。各位，请随我来。' within approved S02-B V001 original source. Compare actual speech boundary to trial insert absolute 60.333334–61.733334s, only adjust picture cut where evidence supports it, preserve intact original voice and picture source outside insert. Render revised review-only B if timing materially changes and obtain PO approval before any proposed S02_B_ASSEMBLY_V002. Do not overwrite V001 or register N27; request separate publication authorization.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,17 +119,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-REACTION-EXACT-STAGING-AND-AB-R355",
-    "status": "GITHUB CANDIDATE INTAKE VERIFIED + NONCANONICAL A-B READY / WAITING PO EDITORIAL REVIEW",
+    "id": "2026-10-13-S02B-NING-REACTION-B-PO-EDITORIAL-APPROVAL-R356",
+    "status": "B A/B LOCAL EDITORIAL TREATMENT PO APPROVED / PRECISE AUDIO WORD QC PENDING / MASTER UNCHANGED",
     "completed": [
-      "GitHub staging upload commit b12d5c51... observed; PNG 2,471,479 bytes, Git blob 907c4cdb... exact local PO-approved source.",
-      "GitHub Actions run 38400935301 success, logs CANDIDATE_INTAKE_VERIFIED=TRUE and expected size/hash/941x1672; evidence Artifact 11814559907 independently downloaded ZIP SHA256 dd549e67... exact.",
-      "Built two short local A/B MP4s of approved S02-B V001 tail, 7.783 sec. Same decoded audio PCM SHA256 229b550f... between A and B; B includes 1.4s Ning reaction overlay during N26 original opening (trial alignment, not exact voice boundary).",
-      "Published exact intake and A/B trial evidence record. Neither test clip is canonical nor uploaded to GitHub or Drive.",
-      "32 Story Shot records (test id absent), 3 approved Video Index records remain unchanged; S02-B V001 remains locked."
+      "Product Owner explicitly said B版通过, approving 7.783s local B editorial treatment, not formal 64.25s full video master.",
+      "Rechecked B exact local MP4 SHA256 2822343f... and 604306 bytes and A SHA256 f23a0738... in mounted source files.",
+      "Confirmed staged candidate PNG intake Actions 38400935301 remains exact PASS, Git blob 907c4cdb... .",
+      "GitHub approval Gate record created; Decision Log BL-D-176 and Execution Log updated.",
+      "Known provisional B insert interval absolute 60.333334-61.733334s is only trial timing; no independent verified speech word onset/offset. Did not render falsely labeled aligned clip.",
+      "No canonical video V001 overwrite, no Shot Index or Video Index modification, no new N27 or P0.3 PASS."
     ],
-    "resume_from": "PRODUCT OWNER WATCH A/B TEST / DECIDE EDITORIAL VALUE / LATER ALIGN ORIGINAL VOICE WORDS BEFORE NEW CANONICAL VIDEO REVISION",
-    "blockers": []
+    "resume_from": "WORD-LEVEL ORIGINAL AUDIO QC THEN CONTROLLED REVIEW PREVIEW / NO CANONICAL PUBLICATION OR REGISTRATION",
+    "blockers": [
+      "Need reliable direct-listening or ASR evidence of actual start/end of 这是夫人的要求 and transition to 各位，请随我来 to certify precise picture splice."
+    ]
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -5124,7 +5127,7 @@
     "next_time": "Reconsider genuinely distinct storytelling shots and/or actual new camera-angle source images, subject to PO design approval; do not generate them now."
   },
   "s02_b_ning_rule_reaction_insert_2026_10_13": {
-    "status": "PO APPROVED DIRECTOR CONCEPT, SCENE REF, BUNDLE AND CANDIDATE 01 VISUAL / NO CANONICAL OR MASTER PUBLICATION",
+    "status": "PO APPROVED NING REACTION CANDIDATE 01 AND LOCAL B EDITORIAL TREATMENT / PRECISE AUDIO WORD CUT PENDING / FORMAL MASTER UNCHANGED",
     "temporary_id": "TAIL_NING_REACTION_TEST_01",
     "scope": "One distinct Ning Qiushui 3/4 close reaction insert during '这是夫人的要求' in N26 original audio; N26 ownership and approved image unchanged.",
     "concept_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_editorial_insert_concept_2026-10-13.md",
@@ -5136,7 +5139,7 @@
     ],
     "direct_reference_git_blob_check": "3 OF 3 MATCH / PNG SHA256 FROM EXISTING APPROVED RECORDS / RECOMPUTATION DEFERRED TO BUNDLE",
     "adjacency": "N25 -> NEW TEST INSERT DURING N26 LINE -> N26; preserve N25 and N26 canonical source binaries",
-    "next_gate": "PO EDITORIAL A-B APPROVAL THEN WORD-LEVEL AUDIO ALIGNMENT / CANONICAL IMAGE PUBLICATION AND REGISTRATION NOT AUTHORIZED",
+    "next_gate": "PRECISE AUDIO SPEECH-BOUNDARY QC / NEW FULL-VERSION PREVIEW GATE REQUIRES SEPARATE PO / STORY SHOT PUBLICATION STILL NOT AUTHORIZED",
     "candidate_png": "TAIL_NING_REACTION_TEST_01 Candidate 01 PO VISUAL APPROVED / GITHUB CANDIDATE INTAKE VERIFIED EXACT / EDITORIAL A-B PENDING",
     "audio_microcut": "NOT LOCKED / REQUIRE ACTUAL ORIGINAL AUDIO ALIGNMENT",
     "existing_s02b_v001": "APPROVED / CANONICAL / UNCHANGED",
@@ -5260,7 +5263,7 @@
         "proof": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_candidate_01_exact_intake_and_local_ab_review_2026-10-13.md"
       },
       "editorial_ab_trial": {
-        "status": "NONCANONICAL 2 LOCAL MP4 EXCERPTS BUILT / PO EDITORIAL DECISION PENDING",
+        "status": "PRODUCT OWNER APPROVED B TREATMENT / EXACT SPEECH ALIGNMENT NOT VERIFIED / NONCANONICAL",
         "type": "MINIMAL AUDIO-CONTINUOUS A-B",
         "canonical_video_source": "S02_B_ASSEMBLY_APPROVED_V001 / SOURCE 56.466667–64.25s",
         "rendered_duration_seconds": 7.783,
@@ -5277,7 +5280,10 @@
         "b_sha256": "2822343f1ef9dea14ba2536fd108276a379fec8326edf87bcb233304a67fe4d6",
         "a_b_decoded_audio_sha256_identical": "229b550f5ce8689de72719e34e72e7e3471e7e8bedc518093633144390833baf",
         "note": "Exact original PO-approved source PNG is not reencoded in GitHub; only B review MP4 scales to native 720x1280 preview. Neither local MP4 is formal or uploaded to Drive/GitHub.",
-        "product_owner_editorial_approval": "PENDING"
+        "product_owner_editorial_approval": "APPROVED 2026-10-13 / B VERSION LOCAL EDITORIAL TREATMENT ONLY",
+        "po_approval_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_ab_b_v001_po_editorial_approval_2026-10-13.md",
+        "word_level_speech_timing": "UNKNOWN / NO VERIFIED ALIGNMENT",
+        "audio_qc_status": "PENDING VERIFIED WORD-ONSET/OFFSET REVIEW / DO NOT GUESS"
       }
     }
   }
