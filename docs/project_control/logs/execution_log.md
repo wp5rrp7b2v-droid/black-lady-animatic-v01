@@ -3818,3 +3818,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - A/B V001/V002 decoded PCM audio SHA256 **identical**: `229b550f5ce8689de72719e34e72e7e3471e7e8bedc518093633144390833baf`. Confirmed only 53 intended image frames differ substantially; all other frames only exhibit minor codec re-encoding differences.
 - Evidence record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md`.
 - B V001 editor treatment stays PO-approved. B V002 is a NEW REVIEW VERSION awaiting PO viewing; no canonical master, Video Index or Story Shot Index changes. Evening Mac sync remains per RC-029.
+
+## 2026-10-13｜NING_REACTION_B_V002_PO_APPROVAL_2026_10_13
+
+- PO said “批准” to the presented 7.783-second **B V002** local sound-pause-calibrated edit; approval applies to exact preview `S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4`, 707,624 bytes, SHA256 `748ce5d1648cc2ae1a690278584ee2dad380c3e7984e2a114a4a1c62eae3aab5` independently rechecked from mounted MP4.
+- Ning independent Candidate 01 image occupies frames 116–168 (53 frames, ≈1.766667s) of this local extract. PO-approved earlier B V001 remains historical; preferred local treatment becomes B V002.
+- The A/B/V002 decoded PCM was independently reported identical; **word-level segment onset/offset is NOT verified**, and automatic acoustic-pause detection does not identify Chinese words. Do not report full speech alignment PASS.
+- Approval addendum in `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md`; Decision Log BL-D-177.
+- The approved 64.25s `S02_B_ASSEMBLY_V001` video remains canonical and untouched; no formal complete V002 video, no new published Story Shot, no Video Index / Story Shot Index modification or P0.3 Gate PASS.
+- Next gate: verified word/audio identification before declaring formal precision, then a separately authorized full cut review + possible canonical new version; night Mac sync follows RC-029.
