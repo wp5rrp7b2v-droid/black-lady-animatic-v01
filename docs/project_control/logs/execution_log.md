@@ -3806,3 +3806,15 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Exact B-version user approval documented: `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_ab_b_v001_po_editorial_approval_2026-10-13.md`; Decision Log `BL-D-176`.
 - No new aligned MP4 rendered because independent word-level time alignment unavailable from existing manifest or text-only audio analysis. Keep approved B version as treatment authority, perform direct-listening/ASR word-alignment QC before official review edition.
 - `S02_B_ASSEMBLY_V001` unchanged and approved; no video master V002 publication, no canonical Story Shot index update, no registration, no added N27; previous Tail V001/V002 remain not approved.
+
+## 2026-10-13｜NING_REACTION_B_V002_ACOUSTIC_PAUSE_ALIGNMENT_2026_10_13
+
+- PO's post-B-V001 approval instruction: `下一步：精确对白对齐`; this authorized a local review-only timing adjustment, not final video publication.
+- Source audio transcript records S3-MVP1-0021 “这是夫人的要求。各位，请随我来” at APPROX canonical source 02:19.000–02:23.000, rated REVIEWED only, not a precise cue sheet.
+- 2026-09-29 Audio QC record contains prior approximate automatic closing phrase alignment end at source 02:22.560, i.e. S02-B time ~63.810s; original source alignment Artifact no longer available on consulted workflow run.
+- Independently visualized speech signal from SHA256-verified canonical S02-B V001. Acoustic amplitude drops after ~60.65s and rises again near ~62.15s. **These signal events do not identify actual words, so precise word-level PASS remains pending**.
+- Built one local noncanonical B V002 with approved still occupying **frames 116–168** (53 frames, 1.7667s): canonical source time about **60.333334–62.100000**; extended earlier approved B V001 image time at its trailing end by +0.3667s to better avoid cutting into subsequent voice activity. Maintains clean N25→Ning→N26 cuts with no N26 flash before insert.
+- Output `S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4`: 707,624 bytes, SHA256 `748ce5d1648cc2ae1a690278584ee2dad380c3e7984e2a114a4a1c62eae3aab5`; 7.783 seconds / 233 video frames / 366 audio frames.
+- A/B V001/V002 decoded PCM audio SHA256 **identical**: `229b550f5ce8689de72719e34e72e7e3471e7e8bedc518093633144390833baf`. Confirmed only 53 intended image frames differ substantially; all other frames only exhibit minor codec re-encoding differences.
+- Evidence record: `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md`.
+- B V001 editor treatment stays PO-approved. B V002 is a NEW REVIEW VERSION awaiting PO viewing; no canonical master, Video Index or Story Shot Index changes. Evening Mac sync remains per RC-029.
