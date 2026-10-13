@@ -44,7 +44,7 @@
 - `CANONICAL VIDEO FILE IDENTITY`：**PASS**（size + SHA256 与已有批准记录 exact match）。
 - `N25/N26 EDITED VIDEO PIXEL VISUAL REVIEW`：**COMPLETE**（后机位转斜前机位、内部空间家族、明显光色落差已观察）。
 - `NEW INSERT CAMERA DIRECTOR GUIDANCE`：**PROVISIONAL / N26-ALIGNED 3Q LEFT CLOSE SHOT**。
-- `N25/N26 ORIGINAL APPROVED PNG BYTE-IDENTICAL IMAGE VISUAL GATE`：**PENDING**，未直接取得原二进制。
+- `N25 ORIGINAL APPROVED PNG BYTE-IDENTICAL IMAGE VISUAL GATE`：**PASS**（本轮后续从原 N26 V002 已验证 Bundle 提取，原始 PNG 与登记 SHA/bytes/Git blob 完全一致并完成视觉检查）。`N26 ORIGINAL APPROVED PNG BYTE-IDENTICAL IMAGE VISUAL GATE`：**PENDING**，本轮已检查精确批准视频中的 N26 解码帧，但仍未直接取得 N26 原始 PNG。
 - `EDITORIAL AXIS MATHEMATICAL CONTINUITY`：**NOT PROVEN / NO AUTOMATIC PASS CLAIM**。
 - `WORK GENERATION AUTHORIZATION`：**FALSE**，必须取得 Product Owner 另行授权；此前正式 Bundle V001 Artifact 技术核验 PASS 不改变这一点。
 - `S02_B_ASSEMBLY_V001`：**UNCHANGED / APPROVED / CANONICAL**。
@@ -53,3 +53,19 @@
 ## 5｜最小后续步骤
 
 若坚持既有 Scene Reference V0.1 的原始 PNG 审核门槛，应以**只读、可回查、不增加 Work 直接参考、不改变 canonical**的方式取出 N25/N26 原 PNG，完成像素级视觉对照与可能的画面轴线建议后，再征得 PO 对 `TAIL_NING_REACTION_TEST_01 Candidate 01` 的单图 Work 授权。不得因为正式视频画面已审过，就悄悄将这项未通过的原图核验门槛标记为 PASS。
+
+
+## 6｜后续独立取得 N25 原始批准图（追加证据）
+
+2026-10-13 追加取证：复用历史已存在、且当前仍有效的正式 N26 Reference Delivery Bundle V002（未新建 Bundle、未启动 Actions）：
+
+- GitHub Actions Run `37553891715`; artifact `11453927794`; name `N26_REFERENCE_DELIVERY_BUNDLE_V002`。
+- ZIP 中的 `n25_neil_scene_continuity/N25_APPROVED_STORY_SHOT__N25_RAIN_DAY_RULE_NEIL_ANSWERS_WITHOUT_TURNING_APPROVED_V001.png` 为前序已批准 N25 原始图。
+- 完整抽取并计算：941×1672，2,749,858 bytes。
+- 计算 SHA-256 `b855040e30e014275920a1aaebf24c1ea4abb0623708f9901e47214b4dc27733`，与原批准登记完全一致。
+- 计算 Git blob SHA1 `8e523285a832496f1e316fd20737293668cf18db`，与原批准登记完全一致。
+- 原图视觉核验：从入口队伍后方望向内部，尼尔侧背/背面位于主体前方，众人继续向内；左右石柱、尖拱、壁灯、暖橙地面反光明确，整体亮于 N26。
+- N26 的正式母版相邻画面来自本次已验证 Drive canonical 视频，拍摄方向为斜前视角，宁秋水面向画面左方，阴暗光色显著更克制。不能仅因两镜反打就判定违规跨轴。
+- **验证边界：N25 原始 PNG 确实可独立核查且通过；N26 原始 PNG 仍未直接取得，不得把 N26 的视频解帧混称原始 PNG 通过。**
+- 已在本轮生成供 PO 查看之并排审阅图；该合成对照 JPG 是审核材料，不是正式制图候选或注册资产。
+- 保留后续 Work 出图的独立 PO 授权门槛。
