@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R351",
+  "state_revision": "R352",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING RULE REACTION BUNDLE V001 FORMAL BUILD COMPLETED / 1 ARTIFACT / ZIP SHA256 EXACT MATCH / REFERENCES 3/3 INDEPENDENT EXACT MATCH / WORK NOT AUTHORIZED / N25-N26 PIXEL VISUAL CONTINUITY PENDING / S02-B V001 UNCHANGED",
+  "session_status": "2026-10-13 N25 EXACT PNG SOURCE RECOVERED + VERIFIED / N26 APPROVED MASTER VIDEO VISUAL REVIEW COMPLETE / N26 ORIGINAL PNG STILL PENDING / NO WORK GENERATION / S02-B V001 CANONICAL UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "FORMAL BUNDLE V001 VERIFIED / NEXT N25-N26 VISUAL AXIS COMPARISON + SEPARATE PO WORK CANDIDATE 01 AUTHORIZATION",
+  "current_task": "N25-N26 CONTINUITY REVIEW: N25 SOURCE PASS, N26 CANONICAL VIDEO FRAME VIEWED, N26 ORIGINAL PNG SOURCE PENDING / ONE-IMAGE WORK CANDIDATE NOT AUTHORIZED",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Check actual approved N25 and N26 PNG pixels for screen direction, character continuity, light and inner-lobby spatial consistency. If PASS, seek Product Owner Work generation authorization for exactly 1 Ning Qiushui reaction insert PNG using the already exact-verified Bundle V001. Do not change canonical S02-B V001 video or indices. Bundle generation_allowed=true is a technical manifest flag, not PO approval.",
+  "next_action": "Read-only obtain N26_LADYS_RULE_AND_FORWARD_MOTION_APPROVED_V001.png exact canonical binary and compare visually with verified N25 original and approved S02-B V001 master. Once N26 original hash/identity and spatial continuity pass, seek separate PO authorization for exactly one Ning Qiushui reaction Candidate 01 via already-verified Bundle V001. No new Build needed. Keep S02-B V001 unchanged.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,19 +119,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-RULE-REACTION-FORMAL-BUNDLE-R351",
-    "status": "FORMAL BUNDLE BUILT + 1 ARTIFACT + ZIP SHA256 EXACT MATCH + 3/3 PNG INDEPENDENT EXACT / WORK NOT AUTHORIZED",
+    "id": "2026-10-13-S02B-N25-N26-VISUAL-REVIEW-R352",
+    "status": "N25 SOURCE VERIFIED / N26 CANONICAL MASTER PIXELS REVIEWED / N26 SOURCE NOT VERIFIED / WORK NOT AUTHORIZED",
     "completed": [
-      "PO approved formal build and artifact exact verification only.",
-      "Spec updated build_authorized=true, candidate_01_generation_authorized=false; commit de4d0442800e19d87680406bd5b80d8efeac49e7.",
-      "Actions Run 38333161748 completed SUCCESS; job 115087255648 built and uploaded 1 artifact.",
-      "Artifact 11783891178 downloaded; physical ZIP SHA256 314b5bda... equals GitHub digest; ZIP CRC and exact member set PASS.",
-      "Actual packaged PNGs independently verified SHA256, bytes, Git blob, dimensions and Manifest: 3/3 exact match.",
-      "Formal build evidence record written and read back. No Work generation, no candidate, no canonical publication, no register/index changes or video modification."
+      "Exact canonical Google Drive approved S02-B V001 downloaded and SHA256 8ec47720... exact, 3,393,713 bytes, 64.250s.",
+      "N25 approved source PNG recovered from original N26 Reference Delivery Bundle V002 artifact; independently verified SHA256 b855040e..., Git blob 8e523285..., 941x1672 and visually inspected.",
+      "N26 actual video frames inspected, including the cut near 60.333 seconds, confirming distinct oblique front-side camera and stronger darkness than N25.",
+      "New Ning single reaction shot recommended in N26-aligned restrained warm low-key light; recommendation provisional.",
+      "Visual-axis report committed, original binary source for N26 not yet retrieved, and no Work image authorized or generated."
     ],
-    "resume_from": "VISUALLY REVIEW ACTUAL APPROVED N25/N26 PIXELS; THEN ASK FOR SEPARATE PO WORK AUTHORIZATION",
+    "resume_from": "READ-ONLY N26 ORIGINAL PNG RETRIEVAL / EXACT VISUAL CHECK / THEN PO ONE-PNG WORK AUTHORIZATION",
     "blockers": [
-      "N25/N26 screen-space direction and look continuity still not independently pixel-verified."
+      "N26 source approved PNG pixels are not yet directly retrievable through the current GitHub binary connector; using approved video decoding as source-proxy cannot meet the strict original-PNG gate."
     ]
   },
   "visual_asset_management_system": {
@@ -5160,7 +5159,7 @@
       ],
       "source_blob_identity": "3/3 GIT_BLOB MATCH AT GITHUB MAIN",
       "adjacent_binary_blob_identity": "N25 + N26 2/2 GIT_BLOB MATCH",
-      "adjacent_visual_axis": "UNKNOWN / PNG PIXEL INSPECTION PENDING BEFORE CANDIDATE",
+      "adjacent_visual_axis": "CANONICAL APPROVED VIDEO N25->N26 FRAME REVIEW COMPLETE / STAGED PROVISIONAL CAMERA GUIDANCE / N25 ORIGINAL PNG EXACT PASS / N26 ORIGINAL PNG PENDING",
       "spec_path": "production/bundle_specs/TAIL_NING_REACTION_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json",
       "spec_status": "FORMAL-BUILD-AUTHORIZED SPEC + READBACK VERIFIED / ACTIONS BUILD COMPLETED / BUNDLE VERIFIED",
       "build_authorized": true,
@@ -5207,9 +5206,27 @@
         "work_handoff": "PRESENT / REFERENCE IDS CHECKED",
         "builder_generation_allowed": "TRUE TECHNICAL FLAG ONLY / NO PO WORK AUTHORIZATION",
         "work_generation_authorized": false,
-        "visual_axis_check": "PENDING ACTUAL N25/N26 PNG PIXEL REVIEW / BEFORE WORK",
+        "visual_axis_check": "N25 APPROVED ORIGINAL PNG VISUAL + BINARY PASS / N26 CANONICAL MASTER VIDEO FRAME VISUAL REVIEW COMPLETE / N26 SOURCE PNG STILL PENDING BEFORE WORK",
         "verification_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_bundle_v001_formal_build_exact_verification_2026-10-13.md"
       }
+    },
+    "n25_n26_visual_continuity_review": {
+      "date": "2026-10-13",
+      "status": "PARTIAL EVIDENCE PASS / N25 APPROVED SOURCE EXACT VERIFIED / N26 APPROVED VIDEO FRAMES VIEWED / N26 ORIGINAL PNG UNAVAILABLE",
+      "approved_video_file_id": "16No99iizefd_dEzIsZcVLeoXNxiuvit4",
+      "approved_video_sha256": "8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a",
+      "approved_video_byte_size": 3393713,
+      "video_source_identity": "SHA + BYTES + 64.250s VIDEO SPEC EXACT MATCH",
+      "n25_original_source": "N26_REFERENCE_DELIVERY_BUNDLE_V002 RUN 37553891715 / ARTIFACT 11453927794 / EMBEDDED N25_APPROVED_STORY_SHOT PNG",
+      "n25_original_source_sha256": "b855040e30e014275920a1aaebf24c1ea4abb0623708f9901e47214b4dc27733",
+      "n25_original_source_git_blob": "8e523285a832496f1e316fd20737293668cf18db",
+      "n25_binary": "EXACT MATCH / 2,749,858 BYTES / 941x1672",
+      "n25_actual_pixel_review": "PASS / rear group-following view / strong amber candlelight and floor reflection / stone archway",
+      "n26_actual_pixel_review": "CANONICAL VIDEO FRAME VIEWED / not original PNG / oblique front-side view / darker subdued warm light / Ning face toward screen left",
+      "n26_original_binary": "PENDING / NOT OBTAINED / MUST NOT MARK PASS",
+      "camera_guidance": "PROVISIONAL / Ning single close or medium-close 3/4-left from N26-aligned side of moving group; dark low-key as N26; no crop from N26; final exact camera axis requires N26 source PNG verification",
+      "report": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_n25_n26_video_visual_axis_review_2026-10-13.md",
+      "work_generation_authorized": false
     }
   }
 }
