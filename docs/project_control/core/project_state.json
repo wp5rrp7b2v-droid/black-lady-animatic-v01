@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R357",
+  "state_revision": "R358",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING REACTION B V001 PO EDITORIAL APPROVED / NEW B V002 FRAME-EXACT ACOUSTIC-PAUSE ALIGNED 7.783S LOCAL REVIEW EXCERPT READY / SAME DECODED AUDIO SHA / B V002 PO REVIEW PENDING / WORD-LEVEL SPEECH TIMING NOT VERIFIED / CANONICAL S02-B V001 UNCHANGED",
+  "session_status": "2026-10-13 NING REACTION B V002 LOCAL TIMING + VISUAL EDIT PO APPROVED / 7.783 SEC SHA256 748ce5d1... / PCM AUDIO INTACT / WORD-LEVEL SPEECH BOUNDARY NOT VERIFIED / 64.250S S02-B V001 MASTER + VIDEO/SHOT INDEX UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "PO REVIEW B V002 LOCAL TIMING REFINEMENT; DO NOT MISLABEL WAVEFORM PAUSE AS VERIFIED WORD-LEVEL ALIGNMENT OR PUBLISH THE NEW VIDEO",
+  "current_task": "B V002 LOCAL REVIEW APPROVED / RESOLVE WORD-LEVEL NEIL VOICE TIMING BEFORE DECLARING EXACT SPEECH ALIGNMENT / FULL NEW MASTER NOT AUTHORIZED",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "PO compare B V002 7.783s revised local MP4 to earlier PO-approved B V001. New B V002 adjusts Ning still image from original source 60.333334–62.100000s for 53 frames / 1.766667 sec, keeping audio identical and restoring N26 before strong renewed vocal activity ~62.15. Audio word boundary still unverified; require direct listening or verified Chinese ASR to certify exact 这是夫人的要求 / 各位，请随我来 times before any formal full-master publication. S02-B V001, indices, approved N25/N26 PNG untouched. Nightly Mac sync per RC-029.",
+  "next_action": "Verify the exact spoken word intervals of Neil '这是夫人的要求。各位，请随我来。' against approved S02-B V001 using direct-auditory or reliable Chinese forced-alignment evidence. The PO-approved local B V002 timing [60.333334, 62.100000] sec remains the preferred edit treatment. Do not treat acoustic pause as verified phoneme timestamp. After speech cue QC and only with further PO approval, render a separate S02-B full-length review revision; never overwrite approved S02_B_ASSEMBLY_V001. Separate candidate canonical promotion/Story Shot registration remains ungated. At evening closeout, Mac sync per RC-029.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,19 +119,18 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-REACTION-B-V002-PAUSE-QC-R357",
-    "status": "B V002 AUDIO-IDENTICAL 53-FRAME PAUSE-BASED TRIAL READY / AWAITING PO REVIEW / WORD QC UNVERIFIED",
+    "id": "2026-10-13-S02B-NING-REACTION-B-V002-PO-APPROVED-R358",
+    "status": "B V002 PO APPROVED LOCAL EDIT / 3-WAY AUDIO IDENTITY TECH PASS / WORD QC UNVERIFIED / CANONICAL V001 UNCHANGED",
     "completed": [
-      "PO B V001 approval remains authoritative, no extension to canonical master.",
-      "Reviewed S3-MVP1-0020/0021 source-audio transcript classification and historical 2026-09-29 S02-B closing phrase end ≈ source 02:22.560.",
-      "Observed physical sound envelope on approved 64.25s S02-B V001 audio; inference about phrase boundary kept separate from actual word-level evidence.",
-      "Built one B V002 7.783s review-only MP4 with Ning original approved still over 53 exact frames, audio stream bitstream copied from A.",
-      "Verified video 233 frames and audio 366 frames, exact decoded PCM hash match across A, B V001, B V002; no canonical edits.",
-      "Published a transparent acoustic-qualification record and Execution Log entry."
+      "PO explicitly approved the B V002 local 7.783-second preview; exact uploaded MP4 SHA256 748ce5d1... reverified and local size 707624.",
+      "B V002 maintains 53 frames (1.766667sec) Ning still image and 3-way PCM audio match; only trial acoustic pause timing, not precise Chinese spoken-word identification.",
+      "GitHub V002 review Gate amended with PO approval. Decision Log BL-D-177 and Execution Log updated.",
+      "Original approved N25/N26 PNG, canonical 64.250s S02-B V001, Story Shot Index and Video Index remain unmodified.",
+      "No new full formal S02_B_ASSEMBLY_V002, new Story Shot publication/registration or P0.3 Gate PASS."
     ],
-    "resume_from": "PO REVIEW LOCAL B V002 / CONFIRM ACTUAL SPOKEN WORD BOUNDARIES BEFORE FINAL CUT / NO MASTER CHANGE",
+    "resume_from": "VERIFY EXACT NEIL SPOKEN WORD CUE BOUNDARIES BEFORE PROMOTING LOCAL EDIT TO NEW COMPLETE VIDEO / NEED PO AUTHORIZATION",
     "blockers": [
-      "Original voice word-level timing for 这是夫人的要求 and 各位，请随我来 not independently certified; acoustic signal energy alone insufficient."
+      "Unverified Chinese word/syllable boundaries around 这是夫人的要求 / 各位，请随我来 — existing sound-wave pause detection is not word identification."
     ]
   },
   "visual_asset_management_system": {
@@ -5127,7 +5126,7 @@
     "next_time": "Reconsider genuinely distinct storytelling shots and/or actual new camera-angle source images, subject to PO design approval; do not generate them now."
   },
   "s02_b_ning_rule_reaction_insert_2026_10_13": {
-    "status": "PO APPROVED NING REACTION CANDIDATE 01 AND LOCAL B EDITORIAL TREATMENT / PRECISE AUDIO WORD CUT PENDING / FORMAL MASTER UNCHANGED",
+    "status": "PO APPROVED NING REACTION CANDIDATE 01 + B V001 EDITORIAL CONCEPT + B V002 LOCAL PAUSE-ALIGNED PREVIEW / WORD QC NOT VERIFIED / NO CANONICAL NEW VIDEO",
     "temporary_id": "TAIL_NING_REACTION_TEST_01",
     "scope": "One distinct Ning Qiushui 3/4 close reaction insert during '这是夫人的要求' in N26 original audio; N26 ownership and approved image unchanged.",
     "concept_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_editorial_insert_concept_2026-10-13.md",
@@ -5139,7 +5138,7 @@
     ],
     "direct_reference_git_blob_check": "3 OF 3 MATCH / PNG SHA256 FROM EXISTING APPROVED RECORDS / RECOMPUTATION DEFERRED TO BUNDLE",
     "adjacency": "N25 -> NEW TEST INSERT DURING N26 LINE -> N26; preserve N25 and N26 canonical source binaries",
-    "next_gate": "PO REVIEW B V002 TIMING REFINEMENT / WORD-LEVEL AUDIO IDENTIFICATION NOT VERIFIED / NO CANONICAL VIDEO OR STORY SHOT PUBLICATION",
+    "next_gate": "WORD-LEVEL SPEECH TIMING QC FOR NEIL / PO-GATED NEW FULL VIDEO REVISION / NO AUTO STORY SHOT REGISTRATION",
     "candidate_png": "TAIL_NING_REACTION_TEST_01 Candidate 01 PO VISUAL APPROVED / GITHUB CANDIDATE INTAKE VERIFIED EXACT / EDITORIAL A-B PENDING",
     "audio_microcut": "NOT LOCKED / REQUIRE ACTUAL ORIGINAL AUDIO ALIGNMENT",
     "existing_s02b_v001": "APPROVED / CANONICAL / UNCHANGED",
@@ -5285,7 +5284,7 @@
         "word_level_speech_timing": "UNKNOWN / NO VERIFIED ALIGNMENT",
         "audio_qc_status": "PENDING VERIFIED WORD-ONSET/OFFSET REVIEW / DO NOT GUESS",
         "pause_aligned_review_v002": {
-          "status": "RENDERED / TECHNICAL FRAME + PCM AUDIO PASS / PO V002 REVIEW PENDING / EXACT SPOKEN-WORD QC NOT PROVEN",
+          "status": "PRODUCT OWNER APPROVED / FRAME + PCM TECHNICAL QC PASS / EXACT SPOKEN-WORD IDENTIFICATION PENDING / NONCANONICAL",
           "name": "S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4",
           "source": "S02B_NING_REACTION_AB_A_CANONICAL_TAIL_REVIEW.mp4",
           "duration_seconds": 7.783,
@@ -5309,9 +5308,14 @@
           "historical_closing_phrase_approx_source_tc": "00:02:22.560",
           "historical_closing_phrase_approx_s02b_video_sec": 63.81,
           "word_level_alignment_verified": false,
-          "po_approved": false,
+          "po_approved": true,
           "master_publication_authorized": false,
-          "record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md"
+          "record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md",
+          "po_approval_scope": "LOCAL 7.783-SEC B V002 EDIT AS VIEWED ONLY / NO FULL MASTER, STORY SHOT OR VIDEO INDEX AUTHORITY",
+          "po_approval_date": "2026-10-13",
+          "po_decision": "批准",
+          "approval_decision_log_id": "BL-D-177",
+          "approval_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md"
         }
       }
     }
