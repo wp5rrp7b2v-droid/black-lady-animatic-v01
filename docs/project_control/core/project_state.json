@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R358",
+  "state_revision": "R359",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING REACTION B V002 LOCAL TIMING + VISUAL EDIT PO APPROVED / 7.783 SEC SHA256 748ce5d1... / PCM AUDIO INTACT / WORD-LEVEL SPEECH BOUNDARY NOT VERIFIED / 64.250S S02-B V001 MASTER + VIDEO/SHOT INDEX UNCHANGED",
+  "session_status": "2026-10-13 DAILY CLOSEOUT / NING REACTION B V002 7.783S LOCAL EDIT PO APPROVED / CANDIDATE 01 EXACT STAGING INTAKE PASS / SPEECH WORD TIMING NOT VERIFIED / APPROVED S02-B V001 MASTER LOCKED / STORY SHOT 32 + VIDEO 3 INDEX UNCHANGED / EOD MAC SYNC PENDING USER TERMINAL PROOF",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "B V002 LOCAL REVIEW APPROVED / RESOLVE WORD-LEVEL NEIL VOICE TIMING BEFORE DECLARING EXACT SPEECH ALIGNMENT / FULL NEW MASTER NOT AUTHORIZED",
+  "current_task": "2026-10-13 WORK STOPPED BY PO / DAILY CLOUD CLOSEOUT COMPLETE / AWAIT EOD MAC SYNC EVIDENCE; NEXT SESSION EXACT ORIGINAL NEIL SPEECH-WORD CUE QC",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Verify the exact spoken word intervals of Neil '这是夫人的要求。各位，请随我来。' against approved S02-B V001 using direct-auditory or reliable Chinese forced-alignment evidence. The PO-approved local B V002 timing [60.333334, 62.100000] sec remains the preferred edit treatment. Do not treat acoustic pause as verified phoneme timestamp. After speech cue QC and only with further PO approval, render a separate S02-B full-length review revision; never overwrite approved S02_B_ASSEMBLY_V001. Separate candidate canonical promotion/Story Shot registration remains ungated. At evening closeout, Mac sync per RC-029.",
+  "next_action": "At EOD, user Mac Terminal must perform guarded RC-029 fast-forward-only pull on repo main and return status/HEAD/origin/main for exact current GitHub main parity verification; preserve untracked local Console folders. Next production session: independently verify Neil 这是夫人的要求 and 各位，请随我来 word onset/offset against locked canonical audio; retain B V002 visual treatment (1.766667s reaction) unless evidence requires microchange; only after separate PO approval render an independent full new S02-B review revision, without altering canonical S02_B_ASSEMBLY_V001. Do not auto-publish/register the temporary insert.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-10-12 EOD VERIFIED PASS AT CHECKPOINT 7f54c6a / POST-CHECKPOINT CLOUD-ONLY CLOSEOUT RECORDS EXIST; NO SECOND MAC SYNC TONIGHT",
+    "status": "2026-10-13 EOD SAFE LOCAL SYNC PENDING USER TERMINAL PROOF / 2026-10-12 PREVIOUS CHECKPOINT PASS AT 7f54c6a",
     "rule": "RC-029 overrides RC-012 cadence: one safe local Mac sync at each daily evening closeout, not at morning start or after every GitHub write. Canonical GitHub main is daytime source of truth; if formal local work is unavoidable before evening, do safe preflight+sync first or defer local work.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -84,7 +84,7 @@
     "verified_on": "2026-10-12",
     "verified_head": "7f54c6aa4b1951e04e9b2e821e237766f0706a05",
     "verification_evidence": "User Mac terminal 2026-10-12: branch main, tracked worktree clean, only untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ preserved; git-proxy-auto pull --ff-only origin main advanced c940943..7f54c6a, no merge/reset; local HEAD == origin/main == 7f54c6aa4b1951e04e9b2e821e237766f0706a05. This was GitHub main checkpoint at sync. Subsequent cloud-only closeout verification commits advance GitHub main; this is expected and is NOT a claim of current HEAD parity. Do not request additional sync tonight merely for metadata.",
-    "note": "MAC LOCAL SYNC PASS AT THE USER-PROVEN 7f54c6a CHECKPOINT. Later GitHub documentation updates remain cloud-only until next RC-029 scheduled evening sync. Do not imply real-time three-way parity after remote moves."
+    "note": "RC-029: Daily evening one controlled fast-forward-only sync. Current cloud changes after prior 2026-10-12 verified checkpoint do not establish today's Mac parity. Do not mark PASS without status and three-way SHA confirmation; preserve untracked Console folders."
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -119,18 +119,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-S02B-NING-REACTION-B-V002-PO-APPROVED-R358",
-    "status": "B V002 PO APPROVED LOCAL EDIT / 3-WAY AUDIO IDENTITY TECH PASS / WORD QC UNVERIFIED / CANONICAL V001 UNCHANGED",
+    "id": "2026-10-13-S02B-NING-REACTION-EOD-CLOUD-CLOSEOUT-R359",
+    "status": "DAY STOPPED / LOCAL B V002 PO APPROVED / CLOUD EOD DOCUMENTED / MAC SYNC PENDING",
     "completed": [
-      "PO explicitly approved the B V002 local 7.783-second preview; exact uploaded MP4 SHA256 748ce5d1... reverified and local size 707624.",
-      "B V002 maintains 53 frames (1.766667sec) Ning still image and 3-way PCM audio match; only trial acoustic pause timing, not precise Chinese spoken-word identification.",
-      "GitHub V002 review Gate amended with PO approval. Decision Log BL-D-177 and Execution Log updated.",
-      "Original approved N25/N26 PNG, canonical 64.250s S02-B V001, Story Shot Index and Video Index remain unmodified.",
-      "No new full formal S02_B_ASSEMBLY_V002, new Story Shot publication/registration or P0.3 Gate PASS."
+      "Ning Qiushui Candidate 01 visual approval and staging exact-binary GitHub Actions Run 38400935301 PASS, unchanged approved 941x1672 original.",
+      "Ning Reaction Formal Reference Bundle V001 built and 3/3 verified via Run 38333161748, Artifact 11783891178.",
+      "B V001 and B V002 short editorial cuts both approved by PO; B V002 selected preferred 7.783s local treatment with exactly 53 Ning frames and unchanged decoded audio.",
+      "No independent word-level Chinese speech onset/offset established; acoustic pause remains only an editorial timing cue.",
+      "GitHub Index readback: 32 approved Story Shots, 3 approved Video records; approved S02_B_ASSEMBLY_V001 SHA256 8ec47720... preserved. Tail V001/V002 rejected, N16-N17 V004 segment approved.",
+      "Daily closeout evidence record, Decision Log BL-D-176/177, Execution Log reconciled, Dashboard V279 target for derived state R359.",
+      "No formal full new S02_B_ASSEMBLY_V002 rendered, no Story Shot promotion, no master replacement or P0.3 Gate PASS."
     ],
-    "resume_from": "VERIFY EXACT NEIL SPOKEN WORD CUE BOUNDARIES BEFORE PROMOTING LOCAL EDIT TO NEW COMPLETE VIDEO / NEED PO AUTHORIZATION",
+    "resume_from": "NEXT SESSION WORD-LEVEL NEIL AUDIO CUE QC / PO-AUTHORIZED FULL REVIEW CUT ONLY / TONIGHT RC-029 MAC LOCAL SAFE SYNC PENDING",
     "blockers": [
-      "Unverified Chinese word/syllable boundaries around 这是夫人的要求 / 各位，请随我来 — existing sound-wave pause detection is not word identification."
+      "Word-level speech timestamp unavailable from approved audio S3 reviewed transcript or waveform alone.",
+      "2026-10-13 Mac HEAD vs remote main not yet evidenced by user Terminal."
     ]
   },
   "visual_asset_management_system": {
@@ -5126,7 +5129,7 @@
     "next_time": "Reconsider genuinely distinct storytelling shots and/or actual new camera-angle source images, subject to PO design approval; do not generate them now."
   },
   "s02_b_ning_rule_reaction_insert_2026_10_13": {
-    "status": "PO APPROVED NING REACTION CANDIDATE 01 + B V001 EDITORIAL CONCEPT + B V002 LOCAL PAUSE-ALIGNED PREVIEW / WORD QC NOT VERIFIED / NO CANONICAL NEW VIDEO",
+    "status": "EOD LOCKED / NING REACTION CANDIDATE 01 APPROVED EXACT STAGED / LOCAL B V002 PO APPROVED / WORD CUE QC PENDING / NO FULL MASTER OR STORY SHOT REGISTRATION",
     "temporary_id": "TAIL_NING_REACTION_TEST_01",
     "scope": "One distinct Ning Qiushui 3/4 close reaction insert during '这是夫人的要求' in N26 original audio; N26 ownership and approved image unchanged.",
     "concept_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_rule_reaction_editorial_insert_concept_2026-10-13.md",
@@ -5138,7 +5141,7 @@
     ],
     "direct_reference_git_blob_check": "3 OF 3 MATCH / PNG SHA256 FROM EXISTING APPROVED RECORDS / RECOMPUTATION DEFERRED TO BUNDLE",
     "adjacency": "N25 -> NEW TEST INSERT DURING N26 LINE -> N26; preserve N25 and N26 canonical source binaries",
-    "next_gate": "WORD-LEVEL SPEECH TIMING QC FOR NEIL / PO-GATED NEW FULL VIDEO REVISION / NO AUTO STORY SHOT REGISTRATION",
+    "next_gate": "NEXT SESSION SPEECH WORD-LEVEL AUTHORITY / NEW FULL VIDEO REVIEW NEEDS FRESH PO AUTHORIZATION",
     "candidate_png": "TAIL_NING_REACTION_TEST_01 Candidate 01 PO VISUAL APPROVED / GITHUB CANDIDATE INTAKE VERIFIED EXACT / EDITORIAL A-B PENDING",
     "audio_microcut": "NOT LOCKED / REQUIRE ACTUAL ORIGINAL AUDIO ALIGNMENT",
     "existing_s02b_v001": "APPROVED / CANONICAL / UNCHANGED",
@@ -5318,6 +5321,28 @@
           "approval_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_b_v002_acoustic_pause_alignment_review_2026-10-13.md"
         }
       }
+    },
+    "daily_closeout": {
+      "date": "2026-10-13",
+      "status": "CLOUD PROJECT CONTROL DOCUMENTED / EOD LOCAL MAC SYNC NOT YET VERIFIED",
+      "daily_closeout_record": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-13_ning_reaction.md",
+      "decision_logs": [
+        "BL-D-176",
+        "BL-D-177"
+      ],
+      "execution_log": "docs/project_control/logs/execution_log.md",
+      "dashboard_target": "V279",
+      "state_target": "R359",
+      "storyboard_registry": "32 APPROVED / NO NEW TEST SHOT ID",
+      "video_index": "3 APPROVED / S02_B_ASSEMBLY_V001 EXACT LOCKED",
+      "selected_local_preview": "S02B_NING_REACTION_AB_B_SPEECH_PAUSE_ALIGNED_REVIEW_V002.mp4",
+      "selected_local_preview_sha256": "748ce5d1648cc2ae1a690278584ee2dad380c3e7984e2a114a4a1c62eae3aab5",
+      "selected_local_preview_duration_s": 7.783,
+      "selected_local_preview_preservation": "REVIEW MP4 IS A CONVERSATION FILE ONLY / NOT CLAIMED ARCHIVED IN GITHUB OR GOOGLE DRIVE",
+      "exact_spoken_word_timing": "NOT VERIFIED / MUST NOT CLAIM PASS",
+      "canonical_video_publication": "NO NEW VIDEO / NOT AUTHORIZED",
+      "local_mac_sync": "2026-10-13 PENDING TERMINAL PROOF",
+      "last_verified_mac_checkpoint": "2026-10-12 7f54c6aa4b1951e04e9b2e821e237766f0706a05"
     }
   }
 }
