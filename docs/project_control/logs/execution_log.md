@@ -3795,3 +3795,14 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Post-pull `git status --short --branch`: `## main...origin/main`, plus only the two preserved untracked console folders. Recorded verdict: **RC-029 EOD LOCAL SYNC PASS at 7f54c6a (checkpoint parity verified)**.
 - Recording this result into Project Control advances cloud `main` beyond that synced checkpoint; do **not** claim continuing local-vs-current-remote parity or ask for a redundant same-evening pull. The next normal EOD cycle may absorb post-checkpoint metadata commits.
 - Proof in `docs/project_control/gates/P0_3_video_pipeline/s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`.
+
+## 2026-10-13｜NING_REACTION_AB_B_PO_EDITORIAL_APPROVAL_2026_10_13
+
+- Product Owner explicitly approved B version of the **short editorial A/B test**, not the 64.25s S02-B approved canonical master.
+- Confirmed local actual file identity for B: `S02B_NING_REACTION_AB_B_INSERT_PROVISIONAL_V001.mp4`; 604,306 bytes; SHA256 `2822343f1ef9dea14ba2536fd108276a379fec8326edf87bcb233304a67fe4d6`.
+- Control A SHA256 `f23a0738b3660cd1f68079aca3985173fc562e025d16b5f4663d3f87aaf64932`; both 7.783s, source canonical tail 56.466667–64.250s, shared identical decoded PCM content `229b550f5ce8689de72719e34e72e7e3471e7e8bedc518093633144390833baf` verified during rendering.
+- B candidate picture interval: absolute canonical master time 60.333334–61.733334s (approx. 1.4 sec), **trial edit boundary only**. Individual syllable/word timing for Neil's “这是夫人的要求。各位，请随我来。” has not been independently established. No unsupported word-level PASS.
+- Independent approved source PNG GitHub staging verifier remained PASS: Run `38400935301`, evidence Artifact `11814559907`; original blob `907c4cdbd875d67399258dceb29eedd9f8038946`.
+- Exact B-version user approval documented: `docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_ab_b_v001_po_editorial_approval_2026-10-13.md`; Decision Log `BL-D-176`.
+- No new aligned MP4 rendered because independent word-level time alignment unavailable from existing manifest or text-only audio analysis. Keep approved B version as treatment authority, perform direct-listening/ASR word-alignment QC before official review edition.
+- `S02_B_ASSEMBLY_V001` unchanged and approved; no video master V002 publication, no canonical Story Shot index update, no registration, no added N27; previous Tail V001/V002 remain not approved.
