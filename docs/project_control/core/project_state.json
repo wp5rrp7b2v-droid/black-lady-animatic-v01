@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R354",
+  "state_revision": "R355",
   "last_updated": "2026-10-13",
-  "session_status": "2026-10-13 NING REACTION CANDIDATE 01 PO VISUAL APPROVED / USER PNG LOCAL EXACT VERIFIED 941x1672 2471479 BYTES SHA256 cbac98a8... / GITHUB STAGING BINARY PENDING / EDITORIAL A-B AND CANONICAL PUBLICATION NOT AUTHORIZED / S02-B V001 UNCHANGED",
+  "session_status": "2026-10-13 NING REACTION CANDIDATE 01 PO VISUAL APPROVED + EXACT GITHUB STAGING INTAKE SUCCESS / RUN 38400935301 / LOCAL ORIGINAL AUDIO 7.783S A-B REVIEW EXCERPTS RENDERED / PO EDITORIAL REVIEW PENDING / CANONICAL V001 + INDICES UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "STAGE EXACT PO-APPROVED TAIL_NING_REACTION_TEST_01 CANDIDATE 01 PNG AND VERIFY INTAKE; THEN ONE LOCAL N25-INSERT-N26 AUDIO A/B FOR PO EDITORIAL REVIEW",
+  "current_task": "PO REVIEW SHORT LOCAL A-B N25 -> NING REACTION INSERT -> N26 (TIMING PROVISIONAL) / DO NOT REGISTER OR PUBLISH TEST CANDIDATE",
   "blocker": "No active production blocker. Last Mac sync was independently verified at 15140be on 2026-10-09; later GitHub Project Control updates remain to be pulled during daily evening closeout. Do not perform formal local engineering from a stale worktree.",
-  "next_action": "Using exact original user-uploaded image(20261013-124113).png, transfer bytes without reencoding to controlled GitHub candidate staging via local Production Console or Work. Then verify Git blob 907c4cdbd875d67399258dceb29eedd9f8038946, SHA256 cbac98a82763c6c930a3c820c917f4b9b8bc2ed300a49b48143b8b1cd9486c9c, size 2471479 and 941x1672 with Actions. Then prepare shortest original-audio A/B; do not change canonical master or register Story Shot until separate editorial gate.",
+  "next_action": "Product Owner compare A original 7.783s excerpt vs B same-audio 7.783s NING insert provisional picture cut ~60.333–61.733sec of approved S02-B V001. If editorially effective, separately align microcut to Neil line '这是夫人的要求' and seek PO approval for new candidate video revision, never overwrite canonical S02-B V001. Story Shot canonical publication/registration remains separately gated. Evening Mac local sync per RC-029.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -119,18 +119,17 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-13-NING-REACTION-CANDIDATE-01-VISUAL-PO-APPROVED-R354",
-    "status": "PO VISUAL APPROVED / EXACT USER PNG LOCAL VERIFIED / GITHUB STAGING + EDITORIAL A-B STILL PENDING",
+    "id": "2026-10-13-S02B-NING-REACTION-EXACT-STAGING-AND-AB-R355",
+    "status": "GITHUB CANDIDATE INTAKE VERIFIED + NONCANONICAL A-B READY / WAITING PO EDITORIAL REVIEW",
     "completed": [
-      "PO approved single Ning Qiushui reaction Candidate 01 upload.",
-      "Verified original PNG dimensions 941x1672, 2471479 bytes, SHA256 cbac98a8..., Git blob 907c4cdb... without transformations.",
-      "Recorded approval and exact identity in GitHub decision document.",
-      "Approved N25 N26, S02-B canonical master, indices remain unchanged."
+      "GitHub staging upload commit b12d5c51... observed; PNG 2,471,479 bytes, Git blob 907c4cdb... exact local PO-approved source.",
+      "GitHub Actions run 38400935301 success, logs CANDIDATE_INTAKE_VERIFIED=TRUE and expected size/hash/941x1672; evidence Artifact 11814559907 independently downloaded ZIP SHA256 dd549e67... exact.",
+      "Built two short local A/B MP4s of approved S02-B V001 tail, 7.783 sec. Same decoded audio PCM SHA256 229b550f... between A and B; B includes 1.4s Ning reaction overlay during N26 original opening (trial alignment, not exact voice boundary).",
+      "Published exact intake and A/B trial evidence record. Neither test clip is canonical nor uploaded to GitHub or Drive.",
+      "32 Story Shot records (test id absent), 3 approved Video Index records remain unchanged; S02-B V001 remains locked."
     ],
-    "resume_from": "EXACT BINARY GITHUB STAGING / CANDIDATE INTAKE / THEN PO EDITORIAL A-B GATE",
-    "blockers": [
-      "Approved candidate binary not yet present in GitHub staging; current GitHub connector does not import the mounted upload bytes via create_file without base64 bridge."
-    ]
+    "resume_from": "PRODUCT OWNER WATCH A/B TEST / DECIDE EDITORIAL VALUE / LATER ALIGN ORIGINAL VOICE WORDS BEFORE NEW CANONICAL VIDEO REVISION",
+    "blockers": []
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -5137,8 +5136,8 @@
     ],
     "direct_reference_git_blob_check": "3 OF 3 MATCH / PNG SHA256 FROM EXISTING APPROVED RECORDS / RECOMPUTATION DEFERRED TO BUNDLE",
     "adjacency": "N25 -> NEW TEST INSERT DURING N26 LINE -> N26; preserve N25 and N26 canonical source binaries",
-    "next_gate": "EXACT PNG GITHUB STAGING/INTAKE THEN LOCAL EDITORIAL A/B / NO FINAL STORY SHOT REGISTRATION AUTHORIZED",
-    "candidate_png": "TAIL_NING_REACTION_TEST_01 Candidate 01 / PO VISUAL APPROVED / UPLOADED SOURCE LOCAL EXACT VERIFIED / GITHUB INTAKE PENDING",
+    "next_gate": "PO EDITORIAL A-B APPROVAL THEN WORD-LEVEL AUDIO ALIGNMENT / CANONICAL IMAGE PUBLICATION AND REGISTRATION NOT AUTHORIZED",
+    "candidate_png": "TAIL_NING_REACTION_TEST_01 Candidate 01 PO VISUAL APPROVED / GITHUB CANDIDATE INTAKE VERIFIED EXACT / EDITORIAL A-B PENDING",
     "audio_microcut": "NOT LOCKED / REQUIRE ACTUAL ORIGINAL AUDIO ALIGNMENT",
     "existing_s02b_v001": "APPROVED / CANONICAL / UNCHANGED",
     "n16_n17_v004": "APPROVED SEGMENT TREATMENT / UNCHANGED",
@@ -5241,10 +5240,45 @@
       "sha256": "cbac98a82763c6c930a3c820c917f4b9b8bc2ed300a49b48143b8b1cd9486c9c",
       "git_blob": "907c4cdbd875d67399258dceb29eedd9f8038946",
       "staging_path": "staging/story_shot_candidates/TAIL_NING_REACTION_TEST_01/TAIL_NING_REACTION_TEST_01_CANDIDATE_01_PO_APPROVED.png",
-      "staging_status": "PENDING",
+      "staging_status": "GITHUB EXACT VERIFIED / RUN 38400935301 / EVIDENCE ARTIFACT 11814559907",
       "registration_status": "NOT AUTHORIZED",
       "video_master_status": "UNCHANGED",
-      "approval_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_candidate_01_po_approval_exact_identity_2026-10-13.md"
+      "approval_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_candidate_01_po_approval_exact_identity_2026-10-13.md",
+      "staging_commit": "b12d5c51cac78d4cda052c0b3df829086bc35cfc",
+      "intake_workflow": {
+        "status": "PASS / ALL 11 CHECKS TRUE / ORIGINAL SOURCE PNG IDENTICAL",
+        "run_id": 38400935301,
+        "job_id": 115308072859,
+        "run_conclusion": "success",
+        "evidence_artifact_id": 11814559907,
+        "evidence_artifact_digest": "sha256:dd549e67110c3288a5b5db16952da3fb430d7ed025a483028124f8994796ca50",
+        "independent_zip_digest": "MATCH",
+        "candidate_intake_verified": true,
+        "source_staging_git_blob": "907c4cdbd875d67399258dceb29eedd9f8038946",
+        "source_sha256": "cbac98a82763c6c930a3c820c917f4b9b8bc2ed300a49b48143b8b1cd9486c9c",
+        "registration_status": "NOT STARTED / NO CANONICAL PUBLICATION",
+        "proof": "docs/project_control/gates/P0_3_video_pipeline/s02_b_ning_reaction_candidate_01_exact_intake_and_local_ab_review_2026-10-13.md"
+      },
+      "editorial_ab_trial": {
+        "status": "NONCANONICAL 2 LOCAL MP4 EXCERPTS BUILT / PO EDITORIAL DECISION PENDING",
+        "type": "MINIMAL AUDIO-CONTINUOUS A-B",
+        "canonical_video_source": "S02_B_ASSEMBLY_APPROVED_V001 / SOURCE 56.466667–64.25s",
+        "rendered_duration_seconds": 7.783,
+        "trial_reaction_insert_original_video_seconds": [
+          60.333334,
+          61.733334
+        ],
+        "trial_line_alignment": "NOT MEASURED / PROVISIONAL CUT STARTING NEAR N26 PICTURE ENTRY",
+        "a_name": "S02B_NING_REACTION_AB_A_CANONICAL_TAIL_REVIEW.mp4",
+        "a_size_bytes": 453502,
+        "a_sha256": "f23a0738b3660cd1f68079aca3985173fc562e025d16b5f4663d3f87aaf64932",
+        "b_name": "S02B_NING_REACTION_AB_B_INSERT_PROVISIONAL_V001.mp4",
+        "b_size_bytes": 604306,
+        "b_sha256": "2822343f1ef9dea14ba2536fd108276a379fec8326edf87bcb233304a67fe4d6",
+        "a_b_decoded_audio_sha256_identical": "229b550f5ce8689de72719e34e72e7e3471e7e8bedc518093633144390833baf",
+        "note": "Exact original PO-approved source PNG is not reencoded in GitHub; only B review MP4 scales to native 720x1280 preview. Neither local MP4 is formal or uploaded to Drive/GitHub.",
+        "product_owner_editorial_approval": "PENDING"
+      }
     }
   }
 }
