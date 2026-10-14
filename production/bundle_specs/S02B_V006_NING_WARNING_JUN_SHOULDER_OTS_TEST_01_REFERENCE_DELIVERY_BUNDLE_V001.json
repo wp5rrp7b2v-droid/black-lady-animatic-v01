@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01",
+  "sequence_id": "S02-B",
+  "target_candidate": "S02B V006 NEW-01 | Jun shoulder OTS to Ning warning | Candidate 01",
+  "design_revision": "V0.2 Director Design + NEW-01 Scene Reference V0.1",
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "approval_status": "PO_AUTHORIZED_VALIDATION_ONLY",
+  "formal_build_authorization": {
+    "status": "NOT_AUTHORIZED",
+    "scope": "VALIDATION_ONLY_5_OF_5_EXACT_REFERENCES",
+    "product_owner_decision": "2026-10-14 consent to NEW-01 Validation-only 5/5; no formal bundle or generation",
+    "candidate_generation_authorized": false,
+    "publication_authorized": false
+  },
+  "build_authorized": false,
+  "manual_product_owner_reference_upload": 0,
+  "retention_days": 7,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "selected_direct_references": 5,
+    "rule": "DIRECT_VISUAL_INPUT_COUNT_MUST_BE_LESS_THAN_OR_EQUAL_TO_5",
+    "note": "Exactly five direct image inputs. No sixth image. N21/Jun-approved insert are editorial continuity context only, not direct image input."
+  },
+  "references": [
+    {
+      "reference_id": "N20_APPROVED_STORY_SHOT",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N20",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png",
+      "expected_sha256": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+      "expected_byte_size": 2022630,
+      "expected_git_blob": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "n20_camera_axis_continuity",
+      "authority_purpose": "LOCKED_N20_APPROVED_CLOTHING_WALKING_ORIENTATION_LIGHT_SOURCE_AND_RELATIVE_BODY_POSITION_ONLY_NOT_CAMERA_TO_REPRODUCE"
+    },
+    {
+      "reference_id": "N19_APPROVED_STORY_SHOT",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N19",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N19_CONDITIONS_CAN_CHANGE_APPROVED_V001.png",
+      "expected_sha256": "5cc7e09716adf91a56b52f4714cc84945c73a4cbc5ed6162d90f2f3a9b351c7a",
+      "expected_byte_size": 2052606,
+      "expected_git_blob": "c842ad1a0b84b2d504b1e681dd327b01bb57c159",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "n19_camera_axis_continuity",
+      "authority_purpose": "ADJACENT_APPROVED_N19_IDENTITY_SIDE_AND_LIGHT_SOURCE_CONTINUITY_ONLY_NO_LARGE_EXTERIOR_LIGHT"
+    },
+    {
+      "reference_id": "AST_IMG_000033",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_NING_QIUSHUI",
+      "role": "FACE_3Q_RIGHT",
+      "asset_class": "ATOMIC",
+      "authority_class": "AUXILIARY",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/ning_qiushui/CHAR_NING_QIUSHUI_FACE_3Q_RIGHT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "7d2292494ab010b324e608f792912fd2d49766318e279bbe22170445464a5c1e",
+      "expected_byte_size": 2688985,
+      "expected_git_blob": "6b6a802b67a966f8439c5b000f01d00be422f545",
+      "destination_group": "ning_3q_face_identity",
+      "authority_purpose": "NING_QIUSHUI_APPROVED_FACE_3Q_RIGHT_AND_HAIR_IDENTITY_ONLY_FACE_DIRECTION_FOLLOWS_N19_N20_BLOCKING"
+    },
+    {
+      "reference_id": "AST_IMG_000064",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "REAR_3Q_LEFT",
+      "asset_class": "ATOMIC",
+      "authority_class": "AUXILIARY",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_REAR_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "97ad38c259274eced5be61035cda4c28df72babe084fc452fbbc927a2a6da21e",
+      "expected_byte_size": 1941468,
+      "expected_git_blob": "6ebfadfa333159f1ae3871f4a61fd39526360fee",
+      "destination_group": "jun_ots_foreground_identity",
+      "authority_purpose": "JUN_BACK_3Q_SHOULDER_HAIR_AND_BLUE_GREY_COAT_AUTHORITY_ONLY_NO_SECOND_FRONT_PORTRAIT"
+    },
+    {
+      "reference_id": "AST_IMG_000108",
+      "source_type": "ASSET",
+      "entity_id": "SCENE_CASTLE_ENTRANCE_INNER_LOBBY",
+      "role": "SCENE_MASTER",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "CONDITIONAL",
+      "canonical_path": "production/image_library/scene_masters/castle_entrance_inner_lobby/SCENE_CASTLE_ENTRANCE_INNER_LOBBY_SCENE_MASTER_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "f16d98a977eb73c75249cd3692ebfce9e3cd12cfbcbdb171d5b652149cb7c1a3",
+      "expected_byte_size": 2541370,
+      "expected_git_blob": "91471e32dab1c7b51b7e718ffd539305d81daf85",
+      "destination_group": "castle_entrance_inner_lobby_scene",
+      "authority_purpose": "INNER_LOBBY_CASTLE_STONE_ARCHES_CONTROLLED_LOW_KEY_WARM_INTERIOR_NO_BLUE_SKY_OR_SUN_FLOOD"
+    }
+  ],
+  "work_handoff": {
+    "title": "S02-B V006 NEW-01 | Ning Qiushui Warning from Jun Shoulder OTS | Candidate 01 | VALIDATION ONLY",
+    "requirements": [
+      "CURRENT STATUS VALIDATION ONLY. build_authorized=false; no built Bundle, Artifact, Work generation, registration or publication. Work instructions are future design, not present authorization.",
+      "After separate future PO approval and fully exact-verified formal Bundle: one original 941x1672 PNG, exactly one candidate per round, then STOP for PO.",
+      "Five and only five direct refs N20, N19, Ning FACE_3Q_RIGHT AST_IMG_000033, Jun REAR_3Q_LEFT AST_IMG_000064, Inner Lobby AST_IMG_000108. All must match source SHA256/byte size/Git blob/dimension evidence.",
+      "Shot function: within N20 final dialogue, the camera stands beside and behind Jun Luyuan's shoulder looking toward Ning Qiushui speaking, not a Ning portrait or N20 digital crop.",
+      "Jun is partial soft foreground near-shoulder, near-ear/hair and blue-grey jacket; Ning is identifiable midground 3/4 side-front, walking upright and talking naturally. Never show two frontal subjects or pose for photograph.",
+      "Ning natural slightly parted lips mid reminder: '进去之后也记得不要乱放东西'. Calm attentive firm tone, no melodramatic glare. Hands always free, not in pockets.",
+      "Preserve N19/N20 established body left-right relationship, believable inner-castle pathway, body proportions and existing N20 costume. Optical depth, shared shadow and stone background physically integrated, no cutout compositing.",
+      "Dim controlled warm practical light, restrained amber and natural skin; do not brighten scene or show wide exterior blue sky inside castle. Avoid dirty image or artificial studio lighting.",
+      "V006 EDL provisional frames 996:1078 (33.2–35.933s); then connect to previously PO-approved Jun acknowledgment B V002 static at frames 1078:1114 without changing that image, approved N16-N17 opening or audio.",
+      "On any mismatch of exact five approved images or unresolved screen axis conflict, STOP and return to Chat; no substitution or auto-iteration."
+    ],
+    "exclusions": [
+      "No formal Bundle generation or GitHub Actions artifact upload at validation-only gate",
+      "No Work image generation in this gate, no second candidate and no silent extra reference",
+      "No new edits to existing approved N16–N17 V004, N19, N20, Jun approved close-up, Ning tail B V002, S02-B V005 source, Story Shot or Video Index",
+      "No backpack, bag, luggage or shoulder straps; Ning hands in pockets prohibited",
+      "No staged dual-front portrait, posed speaking face, extreme studio keylight or exterior daylight flooding inside",
+      "No reframe, crop or digital enlargement of N20 as the purported independent NEW-01 shot",
+      "No Story Shot registration, canonical publication or main merge"
+    ]
+  }
+}
