@@ -1,0 +1,83 @@
+name: N23 Single Shot Candlelight Control Pilot V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/n23-candlelight-motion-control-v001.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render-and-stage-one-motion-control-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout authorized review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Install deterministic video/audio-free processing dependencies
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil
+          python3 -c 'import numpy, PIL; print("N23_DEPENDENCIES=PASS")'
+
+      - name: Render localized light-only test and source exact verification
+        shell: bash
+        run: |
+          python3 scripts/n23_candlelight_motion_control_test_v001.py
+
+      - name: Stage independent test outputs without touching original image or masters
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,shutil
+          folder=pathlib.Path("production/motion_tests/n23_candlelight_control_v001")
+          assert not folder.exists(),"MOTION_TEST_ALREADY_EXISTS"
+          folder.mkdir(parents=True)
+          source=pathlib.Path("_n23_candlelight_control/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4")
+          evidence=pathlib.Path("_n23_candlelight_control/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001_EVIDENCE.json")
+          r=json.loads(evidence.read_text(encoding="utf-8"))
+          assert r["status"]=="TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING"
+          assert r["human_walk"]=="NOT_IMPLEMENTED"
+          assert r["neil_head_or_gaze_motion"]=="NOT_IMPLEMENTED"
+          assert r["changed_pixels_outside_approved_light_regions"]==0
+          assert hashlib.sha256(source.read_bytes()).hexdigest()==r["video_sha256"]
+          assert source.stat().st_size==r["video_bytes"]
+          dest=folder/source.name
+          shutil.copyfile(source,dest)
+          shutil.copyfile(evidence,folder/evidence.name)
+          assert hashlib.sha256(dest.read_bytes()).hexdigest()==r["video_sha256"]
+          print("N23_TEST_EXACT_BINARY_PERSISTED=PASS")
+          print("N23_TEST_STATUS=TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING")
+          PY
+
+      - name: Commit only test video + verification manifest to review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- production/motion_tests/n23_candlelight_control_v001/
+          python3 - <<'PY'
+          import subprocess
+          got=set(subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines())
+          assert got=={
+           "production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4",
+           "production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001_EVIDENCE.json"
+          },got
+          print("N23_CONTROL_GIT_COMMIT_SCOPE=EXACT_TWO_TEST_PATHS")
+          PY
+          git commit -m "Store single N23 candlelight-only technical motion pilot; PO review pending"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "N23_REVIEW_BRANCH_TEST_PERSISTED=TRUE"
+          echo "N23_APPROVED_STORY_SHOT_UNCHANGED=TRUE"
+          echo "V006_VIDEO_CANDIDATE_UNCHANGED=TRUE"
+          echo "MAIN_NOT_MERGED=TRUE"
