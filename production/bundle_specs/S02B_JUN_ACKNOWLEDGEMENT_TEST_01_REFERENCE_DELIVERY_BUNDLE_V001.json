@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01",
+  "sequence_id": "S02-B",
+  "target_candidate": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01 Candidate 01 | Jun confident close-up reaction",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": false,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "selected_direct_references": 4,
+    "rule": "DIRECT_VISUAL_INPUT_COUNT_MUST_BE_LESS_THAN_OR_EQUAL_TO_5",
+    "note": "4/5 planned. N21 remains editorial context only, not a Work direct image input."
+  },
+  "references": [
+    {
+      "reference_id": "N20_APPROVED_STORY_SHOT",
+      "source_type": "STORY_SHOT",
+      "shot_id": "N20",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/N20_DO_NOT_TOUCH_THINGS_APPROVED_V001.png",
+      "expected_sha256": "a61ab1310e86938b2a416516138981aafaf421add44c1a9d5a80d0ff9ec59a9e",
+      "expected_byte_size": 2022630,
+      "expected_git_blob": "58e145a51c3f993827e5e47964ad0e7f9dd9f0aa",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "n20_continuity",
+      "authority_purpose": "PREVIOUS_APPROVED_SHOT_WARDROBE_WALK_DIRECTION_CASTLE_INTERIOR_LIGHTING_ONLY_NO_REPRODUCTION_OF_N20_CAMERA"
+    },
+    {
+      "reference_id": "AST_IMG_000057",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "CHARACTER_REFERENCE_SHEET",
+      "asset_class": "DERIVED_REFERENCE",
+      "authority_class": "DERIVED",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/derived_reference_sheets/jun_luyuan/CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "e8a0410cfc176ec9d6446b84f89b2c12d0683ec32b927c90353e850c416d909e",
+      "expected_byte_size": 969995,
+      "expected_git_blob": "d11db79f4ceab2bb52139bfb8805f7c8f09b0cfc",
+      "destination_group": "jun_identity",
+      "authority_purpose": "JUN_IDENTITY_WARDROBE_AGE_AND_BODY_PROPORTION_AUTHORITY_NOT_REFERENCE_SHEET_LAYOUT"
+    },
+    {
+      "reference_id": "AST_IMG_000072",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "FACE_3Q_LEFT",
+      "asset_class": "ATOMIC",
+      "authority_class": "AUXILIARY",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "be9f1f39ae303a61a79746b25a0f9f8153797b179ef85d07a5c2fdf1ce02d01b",
+      "expected_byte_size": 2002451,
+      "expected_git_blob": "821c892ffea59ef0739f86585c6c5f8bd1168264",
+      "destination_group": "jun_face_3q_left",
+      "authority_purpose": "JUN_FACE_3Q_LEFT_FACIAL_IDENTITY_AUTHORITY_EXPRESSION_OVERRIDDEN_BY_PO_APPROVED_JUN_ACKNOWLEDGEMENT_DIRECTION"
+    },
+    {
+      "reference_id": "AST_IMG_000108",
+      "source_type": "ASSET",
+      "entity_id": "SCENE_CASTLE_ENTRANCE_INNER_LOBBY",
+      "role": "SCENE_MASTER",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "CONDITIONAL",
+      "canonical_path": "production/image_library/scene_masters/castle_entrance_inner_lobby/SCENE_CASTLE_ENTRANCE_INNER_LOBBY_SCENE_MASTER_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "f16d98a977eb73c75249cd3692ebfce9e3cd12cfbcbdb171d5b652149cb7c1a3",
+      "expected_byte_size": 2541370,
+      "expected_git_blob": "91471e32dab1c7b51b7e718ffd539305d81daf85",
+      "destination_group": "inner_lobby_scene",
+      "authority_purpose": "ARCHITECTURE_AND_LOW_KEY_CONTROLLED_WARM_LIGHTING_CASTLE_INTERIOR_NO_EXTERIOR_LIGHT"
+    }
+  ],
+  "work_handoff": {
+    "title": "S02-B Jun Luyuan | Confident Acknowledgement Close-up | Candidate 01 | DESIGN ONLY",
+    "requirements": [
+      "Current scope: DESIGN/VALIDATION PREP only. build_authorized=false. No formal Bundle artifact and no Work image generation without later explicit Product Owner authorization.",
+      "Exactly 4 direct approved references N20, AST_IMG_000057, AST_IMG_000072, AST_IMG_000108. Do not automatically add N21 or fifth reference.",
+      "Generate only if subsequently authorized: one independent original 941x1672 PNG (vertical 9:16 target) using Work; exactly 1 PNG then stop for PO audit.",
+      "Subject is Jun Luyuan in tight or medium close-up; subtle chin slightly raised, lips gently parted with a trace of natural smile, bright resolute eyes; communicates understanding and readiness to continue inward.",
+      "Do not make Jun visually nod downward, make a speaking lip shape, fear/grief/sadness, excessive smile or look directly at the camera.",
+      "Jun has same hair identity and blue-gray outer jacket as N20; do not re-style hair/wardrobe or add bag/luggage, hands in pockets, or artificial glamour lighting.",
+      "Camera oblique side-front 3/4 LEFT close-up, new genuine shot, not digital crop/reframing from N20. Ning can be absent or only soft partial shoulder/back at frame edge, never dual frontal pose.",
+      "Keep dim restrained warm castle interior, plausible wall/wall-lamp depth, believable subject/background integration, clean details without global brightening or cutout effect.",
+      "New reaction lies editorially between N20 and N21 near approx 35.93s in S02-B V003; source soundtrack remains unchanged and entire film remains 64.250s. Existing N16–N17 V004 and Ning reaction B V002 must stay preserved.",
+      "Treat N21 approved outside-to-inside doorway angle as editorial continuity to be reviewed, not a direct-generation reference. Do not force exterior sky or doors into Jun's close-up.",
+      "Work must inspect delivery_manifest.json / WORK_HANDOFF.md and independently compare all approved image SHA256, byte size and Git blob from the built Bundle before generating; any mismatch STOP.",
+      "After PO approves the one image, perform shortest N20→Jun→N21 A/B editorial test using V003 as the baseline. No full master replacement, publication or Story Shot registration now."
+    ],
+    "exclusions": [
+      "Actual face with lowered chin/nodding animation, moving GIF, forced lip-sync, or unnecessary word-level timing gate",
+      "Unapproved replacement of N16/N17 V004, Ning reaction B V002, N20, N21, or official S02-B V001",
+      "Poster portrait, staring at camera, big grin, teeth-baring, crying, fear, tilted neck or stiff torso",
+      "Exterior large daylight, orange overstaturation, excessively bright eyes/skin, dirty noise, artificial subject-background cutout",
+      "Multiple PNG candidate generations in one call, Work generation without PO authorization, Story Shot index or Video Index mutation",
+      "Fifth direct reference or an N21 direct image without an approved Scene Reference change"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "design_revision": "V0.1",
+  "formal_build_authorization": {
+    "status": "NOT_AUTHORIZED",
+    "date": "2026-10-14",
+    "scope": "SCENE_REFERENCE_AND_BUNDLE_SPEC_DESIGN_ONLY",
+    "validation_only_run_id": null,
+    "candidate_generation_authorized": false,
+    "publication_authorized": false
+  }
+}
