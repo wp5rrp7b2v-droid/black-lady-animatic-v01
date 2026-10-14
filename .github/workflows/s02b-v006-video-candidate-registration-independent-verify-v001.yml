@@ -1,0 +1,80 @@
+name: S02B V006 Video Candidate Registration Exact Verification V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-video-candidate-registration-independent-verify-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-video-candidate-binary-and-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify GitHub-recorded candidate original MP4 and distinct index
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          root=pathlib.Path("production/video_candidates")
+          cand=root/"assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"
+          idx=root/"video_candidate_index.jsonl"
+          assert cand.is_file() and idx.is_file()
+          entries=[json.loads(s) for s in idx.read_text(encoding="utf-8").splitlines() if s.strip()]
+          assert len(entries)==1
+          e=entries[0]
+          assert e["candidate_id"]=="S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001"
+          assert e["asset_class"]=="VIDEO_CANDIDATE"
+          assert e["lifecycle"]=="PO_REVIEW_PENDING"
+          assert e["product_owner_video_approval"] is False
+          assert e["canonical_video_publication"] is False
+          assert e["source_kind"]=="RECONSTRUCTED_ROUGH_REVIEW_NOT_EXACT_V005"
+          assert e["canonical_candidate_path"]==cand.as_posix()
+          assert e["byte_size"]==8712713 and cand.stat().st_size==8712713
+          actual_sha=hashlib.sha256(cand.read_bytes()).hexdigest()
+          assert actual_sha==e["sha256"]=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          blob=subprocess.check_output(["git","hash-object",cand.as_posix()],text=True).strip()
+          assert blob=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          official=subprocess.check_output(["git","rev-parse","HEAD:production/video/video_index.jsonl"],text=True).strip()
+          assert official=="84fb0f70ebd92536b95c6b01c6ac69a27a6986c7","OFFICIAL_VIDEO_INDEX_UNEXPECTEDLY_CHANGED"
+          a1=subprocess.check_output(["git","rev-parse","HEAD:production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png"],text=True).strip()
+          a2=subprocess.check_output(["git","rev-parse","HEAD:production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png"],text=True).strip()
+          assert a1=="7fedcdc93f2b366d1a8597e86ffe8c99006ce027" and a2=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert e["editorial_spec"]=="production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW.json"
+          report={
+            "gate":"S02_B_V006_VIDEO_CANDIDATE_REGISTERED_EXACT_V001",
+            "result":"PASS",
+            "candidate_id":e["candidate_id"],
+            "git_sha256":actual_sha,
+            "git_blob":blob,
+            "size":cand.stat().st_size,
+            "index_rows":len(entries),
+            "candidate_status":"PO_REVIEW_PENDING",
+            "official_video_index_unchanged":True,
+            "new01_new02_stills_unchanged":True,
+            "parent_v005_unavailable":True,
+            "main_not_merged":True,
+            "verify_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+          }
+          out=pathlib.Path("_v006_candidate_registration_proof")
+          out.mkdir(exist_ok=True)
+          (out/"V006_VIDEO_CANDIDATE_EXACT_REGISTRATION.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
+          print("V006_VIDEO_CANDIDATE_REGISTRATION_EXACT=PASS")
+          print("CANDIDATE_SHA256=7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402")
+          print("CANDIDATE_GIT_BLOB=d92d23ac6b5a542e07572e29a9e648e2c4141854")
+          print("OFFICIAL_VIDEO_INDEX_UNCHANGED=YES")
+          print("CANDIDATE_PO_VIDEO_APPROVAL=FALSE")
+          print("CANONICAL_VIDEO_PUBLICATION=FALSE")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_VIDEO_CANDIDATE_REGISTRATION_EXACT_PROOF_V001
+          path: _v006_candidate_registration_proof/V006_VIDEO_CANDIDATE_EXACT_REGISTRATION.json
+          retention-days: 30
+          if-no-files-found: error
