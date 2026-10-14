@@ -1,0 +1,101 @@
+name: S02B V006 NEW-01 Story Shot Registration Verification V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - 'production/story_shots/story_shot_index.jsonl'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-new01-index-unique-exact-registration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout registration commit with parent
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Independently verify indexed exact binary and registration-only change scope
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,struct,subprocess
+          path=pathlib.Path("production/story_shots/story_shot_index.jsonl")
+          old=subprocess.check_output(["git","show","HEAD^:production/story_shots/story_shot_index.jsonl"]).decode("utf-8")
+          new=path.read_text(encoding="utf-8")
+          assert new.startswith(old), "INDEX_EXISTING_CONTENT_CHANGED"
+          assert old.endswith("\n") and new.endswith("\n"), "INDEX_NEWLINE_INVALID"
+          old_rows=[json.loads(s) for s in old.splitlines() if s.strip()]
+          rows=[json.loads(s) for s in new.splitlines() if s.strip()]
+          assert rows[:-1]==old_rows, "PREEXISTING_STORY_INDEX_ROWS_CHANGED"
+          assert len(rows)==len(old_rows)+1, "REGISTRATION_NOT_EXACT_ONE_NEW_ROW"
+          assert len(set(r["shot_id"] for r in rows))==len(rows), "DUPLICATE_SHOT_ID"
+          assert not any(r["shot_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01" for r in old_rows), "EXISTING_NEW01_ENTRY_ALREADY_PRESENT"
+          matches=[r for r in rows if r.get("shot_id")=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01"]
+          assert len(matches)==1 and matches[0]==rows[-1], "NEW01_ENTRY_NOT_UNIQUE_LAST_ROW"
+          s=matches[0]
+          assert s["asset_class"]=="STORY_SHOT"
+          assert s["approval_status"]=="APPROVED" and s["lifecycle"]=="CURRENT"
+          assert s["canonical_path"]=="production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png"
+          assert s["filename"]=="S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png"
+          assert s["dimensions"]=={"width":941,"height":1672}
+          assert s["byte_size"]==1840569
+          assert s["sha256_locked_identity"]=="f3002984a377a31e05cd7490e914c0da4009509c8ddb5eaf45a5d45144775989"
+          assert s["github_blob_sha"]=="7fedcdc93f2b366d1a8597e86ffe8c99006ce027"
+          assert s["canonical_publication_commit"]=="bf691be07dec671be0ebe95fbd1202c73a69566a"
+          assert s["binary_verification_run"]==38549255960
+          assert s["canonical_publication_verification_run"]==38550411737
+          assert s["scene"]=="CASTLE_ENTRANCE_INNER_LOBBY"
+          assert s["characters"]==["NING_QIUSHUI","JUN_LUYUAN"]
+          png=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png")
+          assert png.is_file() and not pathlib.Path("staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png").exists(), "MISSING_CANONICAL_OR_STAGING_NOT_CLEAN"
+          data=png.read_bytes()
+          assert data[:8]==b"\x89PNG\r\n\x1a\n", "BAD_PNG_SIGNATURE"
+          assert struct.unpack(">II",data[16:24])==(941,1672), "BAD_DIMENSIONS"
+          sha=hashlib.sha256(data).hexdigest()
+          blob=subprocess.check_output(["git","hash-object",str(png)],text=True).strip()
+          assert len(data)==1840569 and sha==s["sha256_locked_identity"] and blob==s["github_blob_sha"], "CANONICAL_BINARY_OR_REGISTRY_MISMATCH"
+          changed=subprocess.check_output(["git","-c","core.quotePath=false","diff","--no-renames","--name-only","HEAD^","HEAD"],text=True).splitlines()
+          assert changed==["production/story_shots/story_shot_index.jsonl"], f"UNEXPECTED_REGISTRATION_COMMIT_CHANGES:{changed}"
+          evidence={
+            "gate":"S02B_V006_NEW01_STORY_SHOT_REGISTRATION_VERIFY_V001",
+            "result":"PASS",
+            "shot_id":"S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01",
+            "canonical_path":str(png),
+            "sha256":sha,
+            "github_blob_sha":blob,
+            "byte_size":len(data),
+            "dimensions":{"width":941,"height":1672},
+            "entry_unique":True,
+            "existing_index_rows_unchanged":True,
+            "only_story_shot_index_changed":True,
+            "staging_clean":True,
+            "main_branch_untouched":True,
+            "video_master_untouched":True,
+            "commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+          }
+          e=pathlib.Path("_new01_registration_evidence")
+          e.mkdir(exist_ok=True)
+          (e/"new01_registration_verification.json").write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print("NEW01_STORY_SHOT_REGISTRATION=PASS")
+          print("SHA_MATCH=YES")
+          print("BLOB_MATCH=YES")
+          print("DIMENSIONS_MATCH=YES")
+          print("INDEX_UNIQUENESS=PASS")
+          print("PREEXISTING_INDEX_UNCHANGED=YES")
+          print("STAGING_CLEANUP_PASS")
+          print("VIDEO_MASTER_UNCHANGED=YES")
+          print("REGISTRATION_OVERALL_RESULT=PASS")
+          PY
+
+      - name: Upload exact registration verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW01_STORY_SHOT_REGISTRATION_VERIFICATION_V001_EVIDENCE
+          path: _new01_registration_evidence/new01_registration_verification.json
+          retention-days: 30
+          if-no-files-found: error
