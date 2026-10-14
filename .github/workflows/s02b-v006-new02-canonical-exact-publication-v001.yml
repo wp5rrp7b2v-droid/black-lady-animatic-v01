@@ -1,0 +1,84 @@
+name: S02B V006 NEW-02 Canonical Exact Binary Publication V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - 'production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-new02-exact-git-blob-move:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout publication commit with parent
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Verify original PO-approved exact binary publication
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, struct, subprocess
+          original=pathlib.Path("staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png")
+          dest=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png")
+          approved_sha="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          approved_blob="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert dest.is_file() and not dest.is_symlink(), "CANONICAL_MISSING"
+          assert not original.exists(), "STAGING_SOURCE_STILL_PRESENT"
+          data=dest.read_bytes()
+          assert data[:8]==bytes((137,80,78,71,13,10,26,10)), "PNG_SIGNATURE_INVALID"
+          dims=struct.unpack(">II",data[16:24])
+          assert dims==(941,1672), "DIMENSION_MISMATCH"
+          assert len(data)==1963410, "BYTE_SIZE_MISMATCH"
+          sha=hashlib.sha256(data).hexdigest()
+          blob=hashlib.sha1(("blob "+str(len(data))+"\0").encode("ascii")+data).hexdigest()
+          assert sha==approved_sha, "SHA256_MISMATCH"
+          assert blob==approved_blob, "GIT_BLOB_SHA1_MISMATCH"
+          actual_blob=subprocess.check_output(["git","hash-object",str(dest)],text=True).strip()
+          assert actual_blob==approved_blob, "GIT_HASH_OBJECT_MISMATCH"
+          old_blob=subprocess.check_output(["git","rev-parse","HEAD^:staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png"],text=True).strip()
+          assert old_blob==approved_blob, "PARENT_STAGING_GIT_BLOB_MISMATCH"
+          changed=set(subprocess.check_output(["git","-c","core.quotePath=false","diff","--no-renames","--name-only","HEAD^","HEAD"],text=True).splitlines())
+          assert changed=={"staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png","production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png"}, f"UNAUTHORIZED_PUBLICATION_DIFF:{changed}"
+          output={
+            "gate":"S02B_V006_NEW02_CANONICAL_EXACT_BINARY_PUBLICATION_V001",
+            "overall_result":"PASS",
+            "source_staging_path":"staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png",
+            "canonical_path":"production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+            "png_sha256":sha,
+            "git_blob_sha1":blob,
+            "original_source_blob":old_blob,
+            "bytes":len(data),
+            "dimensions":{"width":dims[0],"height":dims[1]},
+            "source_blob_preserved":True,
+            "staging_clean":True,
+            "only_source_and_destination_changed":True,
+            "video_master_changed":False,
+            "main_merged":False,
+            "commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+          }
+          out=pathlib.Path("_new02_publication_evidence")
+          out.mkdir(exist_ok=True)
+          (out/"new02_canonical_publication.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print("NEW02_CANONICAL_PUBLICATION=PASS")
+          print("EXACT_SOURCE_BINARY_PRESERVED=YES")
+          print("SHA256_MATCH=YES")
+          print("GIT_BLOB_MATCH=YES")
+          print("DIMENSIONS_MATCH=YES")
+          print("STAGING_CLEANUP_PASS")
+          print("PUBLICATION_SCOPE=EXACT_TWO_PATHS")
+          print("VIDEO_MASTER_UNCHANGED=YES")
+          PY
+
+      - name: Upload exact publication evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW02_CANONICAL_EXACT_PUBLICATION_V001_EVIDENCE
+          path: _new02_publication_evidence/new02_canonical_publication.json
+          retention-days: 30
+          if-no-files-found: error
