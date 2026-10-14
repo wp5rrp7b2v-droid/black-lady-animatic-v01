@@ -78,3 +78,24 @@
 - GitHub workflow and exact verification IDs：V006 `38572320667`; N23 `38578211199`; NEW-02 V003 `38587113938`.
 
 **Closeout is complete as an audit document on the review branch; formal main Project Control does not change until PO-authorized main merge.**
+
+---
+
+## 8｜2026-10-14 晚间终端回传｜RC-029 Mac 本地同步验收补记（后于初始收尾）
+
+**状态：LOCAL MAIN SYNC VERIFIED / REVIEW BRANCH FETCH SUCCEEDED / MAIN STILL NOT MERGED。** 本节取代上文旧的 Mac「PENDING 用户终端证据」描述；以上原始收尾记录保留历史原貌。
+
+Product Owner 终端输出证实：
+
+- `git status --short --branch`：`## main...origin/main`；无 tracked 更改；仅 `?? BlackLadyLocalConsole/` 与 `?? BlackLadyLocalConsolePrivate/`，这两份私有/本地目录保持存在且未清理。
+- `git switch main`：`Already on 'main'`、`Your branch is up to date with 'origin/main'`。
+- `git-proxy-auto pull --ff-only origin main`：`Already up to date.`，未发生本地非快进合并或冲突。
+- `git-proxy-auto fetch origin review/s02b-jun-nod-insert-20261014`：成功，创建远端跟踪引用 `origin/review/s02b-jun-nod-insert-20261014`；数据对象进入本地 Git 仓库，没有进入 main 工作树或合并 main。
+- `git rev-parse HEAD` 与 `git rev-parse origin/main` 均输出完整 SHA256? **注意 Git Commit Object ID 为 SHA-1，不是 SHA-256**：`2dc97261be34988d836a7c29840bc07af04df6c5`。
+- Chat 通过 GitHub REST 重新读取远端 `refs/heads/main`，仍为相同 `2dc97261be34988d836a7c29840bc07af04df6c5`。据此 **LOCAL HEAD == LOCAL ORIGIN_MAIN == GITHUB MAIN，三方对应提交在此检查点确实相同**。
+- 无本地代码丢失或覆盖证据；审核分支的媒体仍处于 Git 历史中，未声称下载成 main 文件。
+- **收尾确认本身又向 GitHub 审核分支新增 Project Control 记录**，会使审核分支远端 SHA 在用户刚才 `fetch` 的时间点之后继续前进；这不影响当晚 main 同步 PASS，也不应该仅为补记检查点而让用户重复拉取。
+
+批准边界不变：只有已经批准的 N23/NEW-02 M01 视觉效果；V006 仍只是审核候选；未来要把审核分支发布到 `main` 必须另行取得明确授权。
+
+最终：**EOD MAC MAIN CHECKPOINT VERIFIED / PRODUCTION DAY CLOSED / NEXT DAY NO AUTO RESUME**。
