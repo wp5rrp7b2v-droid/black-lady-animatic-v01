@@ -1,0 +1,73 @@
+{
+  "schema": "ENVIRONMENT_DYNAMIC_ENHANCEMENT_MODULE_REGISTRY_V001",
+  "date": "2026-10-14",
+  "workflow_policy": {
+    "authorized_branch": "review/s02b-jun-nod-insert-20261014",
+    "one_video_per_pilot": true,
+    "approved_source_png_read_only": true,
+    "no_video_master_update": true,
+    "no_video_index_update": true,
+    "no_story_shot_registration": true,
+    "no_main_merge": true,
+    "require_independent_exact_verification": true,
+    "po_video_review_required": true
+  },
+  "modules": [
+    {
+      "id": "M01",
+      "name": "CANDLELIGHT_BASELINE_V001",
+      "effect": "spatially limited unsynchronized practical candle illumination",
+      "status": "N23_REFERENCE_EFFECT_PO_VISUAL_ACCEPTED",
+      "baseline": {
+        "shot_id": "N23",
+        "profile": "scripts/n23_candlelight_motion_control_test_v001.py",
+        "video": "production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4",
+        "sha256": "6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4",
+        "max_raw_channel_delta": 11,
+        "outside_light_mask_changed_pixels": 0,
+        "technical_validation_run_id": 38578211199,
+        "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/n23_stage_a_candlelight_motion_control_po_visual_approval_2026-10-14.md"
+      },
+      "portability_status": "EFFECT_LANGUAGE_REFERENCE_ONLY_NEW_SCENE_NEEDS_NEW_MASK_AND_PO_REVIEW"
+    },
+    {
+      "id": "M02",
+      "name": "SHADOW_BREATH_BASELINE_V001",
+      "effect": "very subtle local shadow edge modulation on architecture",
+      "status": "DESIGN_ONLY_NOT_TESTED"
+    },
+    {
+      "id": "M03",
+      "name": "DUST_BASELINE_V001",
+      "effect": "sparse slow drifting motes restricted to lit empty architectural regions",
+      "status": "NEW02_ONE_TEST_AUTHORIZED_PO_REVIEW_PENDING",
+      "candidate_profile": "production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V001.json",
+      "not_allowed": [
+        "snow filter",
+        "whole-frame noise",
+        "particles on people"
+      ]
+    },
+    {
+      "id": "M04",
+      "name": "HAZE_BASELINE_V001",
+      "effect": "low-opacity localized architectural deep-space air movement",
+      "status": "DESIGN_ONLY_NOT_TESTED"
+    },
+    {
+      "id": "M05",
+      "name": "AMBIENCE_SOUND_BASELINE_V001",
+      "effect": "separate room tone and subtle incidental foley (original AAC invariant)",
+      "status": "DESIGN_ONLY_NOT_TESTED"
+    }
+  ],
+  "next_pilot": {
+    "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+    "enabled": [
+      "M01",
+      "M03"
+    ],
+    "video_count": 1,
+    "status": "NOT_YET_RENDERED"
+  }
+}
