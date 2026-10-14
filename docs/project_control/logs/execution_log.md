@@ -3854,3 +3854,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - **Mac RC-029:** main SHA at the beginning of closeout `2dc97261be34988d836a7c29840bc07af04df6c5`; review branch ahead 110/behind 0 before this closeout's own metadata commits. No user's local Terminal proof for tonight. **LOCAL MAIN SYNC PENDING**, last verified user Mac checkpoint 2026-10-12 `7f54c6aa4b1951e04e9b2e821e237766f0706a05`. Only guarded `git status` then `git-proxy-auto pull --ff-only origin main`; optionally `git fetch origin review/s02b-jun-nod-insert-20261014` to obtain unmerged review Git objects without entering main. Preserve all untracked Console directories; never reset/clean/force.
 - **PO ends production for today**: no further MP4/PNG renders until next request. Next optional module M02 limited design study only; V006 rough cut remains intentionally open for revisions, not final polish.
 
+### 2026-10-14 EOD Mac terminal sync verification (supersedes earlier pending state)
+
+- User Mac terminal proved `main` tracked-clean with only preserved untracked `BlackLadyLocalConsole/` and `BlackLadyLocalConsolePrivate/`.
+- `git switch main` already on main; `git-proxy-auto pull --ff-only origin main` reported `Already up to date.` No reset/clean or forced merge.
+- `git-proxy-auto fetch origin review/s02b-jun-nod-insert-20261014` SUCCESS; created remote-tracking branch reference, without entering review worktree or altering main.
+- `git rev-parse HEAD` = `git rev-parse origin/main` = **`2dc97261be34988d836a7c29840bc07af04df6c5`**; independently checked GitHub `refs/heads/main` at the same commit.
+- **RC-029 MAC LOCAL MAIN SYNC = PASS AT CHECKPOINT**. This is NOT a claim that review-branch assets are merged into main. Subsequent review-branch bookkeeping commits do not negate the validated checkpoint and do not warrant another same-evening pull.
+- Project Control State advanced **R360 → R361**, Dashboard target **V281** solely to register validated Mac sync; no new PO decision, new production artifact, or master change. Production remains stopped for the day.
