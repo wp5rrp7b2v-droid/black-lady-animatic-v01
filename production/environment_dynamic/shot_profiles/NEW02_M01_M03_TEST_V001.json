@@ -1,0 +1,192 @@
+{
+  "schema": "ENVIRONMENT_DYNAMIC_SHOT_PROFILE_V001",
+  "profile_id": "NEW02_M01_M03_TEST_V001",
+  "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+  "source_canonical_path": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "source_identity": {
+    "bytes": 1963410,
+    "sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+    "git_blob": "d8feba3692ebe25afd0e51f5e3ab32358ea19ded",
+    "width": 941,
+    "height": 1672
+  },
+  "output": {
+    "relative_path": "_environment_dynamic_preview/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4",
+    "frames": 120,
+    "fps": 30,
+    "width": 720,
+    "height": 1280,
+    "audio": false
+  },
+  "enabled_modules": [
+    "M01",
+    "M03"
+  ],
+  "intensity_cap_rgb": 16,
+  "random_seed": 230147,
+  "candlelight": {
+    "temporal_profile": "deterministic_multi_frequency_unsynced_with_soft_start_end",
+    "anchors": [
+      {
+        "name": "LEFT_WALL_CHANDELIER",
+        "center": [
+          0.042,
+          0.054
+        ],
+        "radius": [
+          0.095,
+          0.078
+        ],
+        "roi": [
+          0,
+          0.182,
+          0,
+          0.154
+        ],
+        "strength": 5.8,
+        "phase": 0.18
+      },
+      {
+        "name": "MID_CANDLE_WALL",
+        "center": [
+          0.417,
+          0.171
+        ],
+        "radius": [
+          0.068,
+          0.078
+        ],
+        "roi": [
+          0.332,
+          0.485,
+          0.102,
+          0.267
+        ],
+        "strength": 6,
+        "phase": 1.39
+      },
+      {
+        "name": "DEEPER_CANDLE_WALL",
+        "center": [
+          0.655,
+          0.246
+        ],
+        "radius": [
+          0.052,
+          0.07
+        ],
+        "roi": [
+          0.589,
+          0.708,
+          0.194,
+          0.294
+        ],
+        "strength": 5,
+        "phase": 2.67
+      },
+      {
+        "name": "FAR_RIGHT_ARCH_CANDLES",
+        "center": [
+          0.883,
+          0.304
+        ],
+        "radius": [
+          0.053,
+          0.053
+        ],
+        "roi": [
+          0.829,
+          0.945,
+          0.253,
+          0.341
+        ],
+        "strength": 4.4,
+        "phase": 3.43
+      },
+      {
+        "name": "DISTANT_RIGHT_TORCH",
+        "center": [
+          0.981,
+          0.339
+        ],
+        "radius": [
+          0.028,
+          0.052
+        ],
+        "roi": [
+          0.953,
+          1,
+          0.296,
+          0.394
+        ],
+        "strength": 3.5,
+        "phase": 4.67
+      }
+    ]
+  },
+  "dust": {
+    "seed": 230147,
+    "particle_budget": 13,
+    "peak_per_channel_cap": 13,
+    "speed_pixels_per_second": [
+      2,
+      5.5
+    ],
+    "gaussian_radius_px": [
+      1.1,
+      2.3
+    ],
+    "regions": [
+      {
+        "name": "LEFT_MID_UPPER_STONE",
+        "roi": [
+          0.36,
+          0.428,
+          0.079,
+          0.203
+        ],
+        "count": 3
+      },
+      {
+        "name": "UPPER_PILLAR",
+        "roi": [
+          0.501,
+          0.568,
+          0.076,
+          0.23
+        ],
+        "count": 4
+      },
+      {
+        "name": "DARK_DEEP_ARCH",
+        "roi": [
+          0.739,
+          0.794,
+          0.117,
+          0.253
+        ],
+        "count": 3
+      },
+      {
+        "name": "RIGHT_FAR_STONE",
+        "roi": [
+          0.929,
+          0.963,
+          0.165,
+          0.271
+        ],
+        "count": 3
+      }
+    ]
+  },
+  "forbidden": {
+    "full_frame_brightness_modulation": true,
+    "person_or_clothing_pixels_edit": true,
+    "camera_movement": true,
+    "source_png_resave": true,
+    "original_speech_audio_edit": true,
+    "v006_candidate_update": true,
+    "main_merge": true
+  },
+  "status": "RENDER_AUTHORIZED_FOR_ONE_PREVIEW_PO_VISUAL_PENDING"
+}
