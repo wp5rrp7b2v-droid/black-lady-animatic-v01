@@ -1,0 +1,99 @@
+name: NEW02 N23-Paced Natural Candlelight Only V003 Review
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-n23-paced-candlelight-v003-review.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: new02-n23-paced-v003-review
+  cancel-in-progress: false
+
+jobs:
+  single-review-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Install no-cost encoding dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil python3-numpy
+
+      - name: Render exactly one video with N23 motion pacing, no dust
+        run: |
+          python3 scripts/new02_m01_n23_paced_candlelight_v003.py
+
+      - name: Independently check source identity, output, and unchanged V006
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          src=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png")
+          p=pathlib.Path("_new02_m01_v003_n23_paced_control/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4")
+          ev=pathlib.Path("_new02_m01_v003_n23_paced_control/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003_EVIDENCE.json")
+          j=json.loads(ev.read_text())
+          assert hashlib.sha256(src.read_bytes()).hexdigest()=="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert subprocess.check_output(["git","hash-object",str(src)],text=True).strip()=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert j["render_type"]=="EXACT_N23_PACED_LOCALIZED_CANDLELIGHT_CONTROL_ONLY"
+          assert j["gate"]=="NEW02_M01_N23_PACED_CANDLELIGHT_CONTROL_V003"
+          assert j["enabled_modules"]==["M01"] and j["dust_particles"]==0
+          assert j["fps"]==30 and j["frames"]==90 and j["duration_seconds"]==3
+          assert j["changed_pixels_outside_approved_light_regions"]==0
+          assert j["raw_pixel_max_delta"]<=12
+          assert j["first_last_raw_equal_original"] is True
+          assert j["source_unmodified"] is True and j["main_merged"] is False and j["v006_candidate_changed"] is False
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["video_sha256"] and p.stat().st_size==j["video_bytes"]
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4"],text=True).strip()=="2520fa25cbf0fac4e80eafc13076d6002c6f39cf"
+          print("NEW02_V003_ORIGINAL_PNG=UNCHANGED")
+          print("NEW02_V003_M01_ONLY_N23_RHYTHM=PASS")
+          print("NEW02_V003_DUST=ABSENT")
+          print("NEW02_V003_REVIEW_MP4=EXACT_PASS")
+          PY
+
+      - name: Store the one approved-scope test on separate review branch folder
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _new02_m01_v003_n23_paced_control/* "$d/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add -- "$d"
+          python3 - <<'PY'
+          import subprocess
+          p="production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/"
+          changed=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(changed)==2 and all(x.startswith(p) for x in changed), changed
+          assert len([x for x in changed if x.endswith(".mp4")])==1
+          assert len([x for x in changed if x.endswith("_EVIDENCE.json")])==1
+          print("NEW02_V003_GIT_STAGING_ONLY=PASS")
+          PY
+          git commit -m "Save NEW02 V003 N23-paced candlelight-only review video and QC without altering approved material"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "REVIEW_BRANCH_ONLY=TRUE"
+          echo "V006_CANDIDATE_UNCHANGED=TRUE"
+          echo "NO_MAIN_MERGE=TRUE"
+
+      - name: Deliver direct review MP4 file without regeneration
+        uses: actions/upload-artifact@v4
+        with:
+          name: NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003_DIRECT
+          path: |
+            production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4
+            production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003_EVIDENCE.json
+          retention-days: 7
+          if-no-files-found: error
