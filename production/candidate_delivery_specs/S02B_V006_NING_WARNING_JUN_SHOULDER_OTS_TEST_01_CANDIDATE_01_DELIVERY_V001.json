@@ -21,7 +21,7 @@
     "artifact_id": 11882167307,
     "artifact_digest": "sha256:e229a2cdec6401347c0e43cec5c223225b18dbd29d758515ecd98aeb69fbd7bc"
   },
-  "target_staging_path": "staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒(1).png",
+  "target_staging_path": "staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png",
   "downstream_canonical_target": null,
   "publication_status": "NOT AUTHORIZED / STAGING AND EXACT VERIFICATION ONLY",
   "editorial_test_status": "NOT YET PERFORMED / V005 REVIEW SOURCE UNCHANGED",
@@ -41,5 +41,7 @@
     "no_new_image_generation": true,
     "do_not_modify_any_approved_master": true,
     "do_not_register_story_shot": true
-  }
+  },
+  "actual_staging_filename": "烛光回廊里的轻声提醒.png",
+  "staging_name_disposition": "Uploaded GitHub filename omits (1); original chat upload filename retained for provenance. Actual Git blob and byte size match PO-approved attached binary exactly; filename must not be treated as content identity."
 }
