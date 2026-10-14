@@ -1,0 +1,74 @@
+name: N23 Candlelight Motion Control Independent Exact Verification V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/n23-candlelight-motion-control-exact-verify-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  independent-binary-and-scope-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install video decode checks
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+
+      - name: Independently verify GitHub test MP4 original PNG and locked video candidate
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          src=pathlib.Path("production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png")
+          video=pathlib.Path("production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4")
+          evidence=pathlib.Path("production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001_EVIDENCE.json")
+          m=json.loads(evidence.read_text())
+          assert m["gate"]=="N23_STAGE_A_CANDLELIGHT_CONTROL_TEST_V001"
+          assert m["status"]=="TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING"
+          assert m["render_type"]=="LOCALIZED_CANDLELIGHT_CONTROL_ONLY"
+          assert m["human_walk"]=="NOT_IMPLEMENTED"
+          assert m["neil_head_or_gaze_motion"]=="NOT_IMPLEMENTED"
+          assert m["camera_motion"]=="NONE"
+          assert m["source_unmodified"] is True
+          assert m["changed_pixels_outside_approved_light_regions"]==0
+          assert m["raw_pixel_max_delta"]<=12
+          assert src.stat().st_size==2697400
+          assert hashlib.sha256(src.read_bytes()).hexdigest()=="2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973"
+          assert subprocess.check_output(["git","hash-object",str(src)],text=True).strip()=="649ed97addf97f126a05e12d43325720a624ea19"
+          assert video.stat().st_size==m["video_bytes"]==169206
+          actual_sha=hashlib.sha256(video.read_bytes()).hexdigest()
+          assert actual_sha==m["video_sha256"]=="6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4"
+          output_blob=subprocess.check_output(["git","hash-object",str(video)],text=True).strip()
+          assert output_blob=="accb833152ee68e687c67558dae8f21c8d7f72f3"
+          assert m["frames"]==90 and m["fps"]==30 and m["dimensions"]==[720,1280]
+          locked_v006=subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()
+          assert locked_v006=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          video_index=subprocess.check_output(["git","rev-parse","HEAD:production/video/video_index.jsonl"],text=True).strip()
+          assert video_index=="84fb0f70ebd92536b95c6b01c6ac69a27a6986c7"
+          registration_commit="55f7b51dd8a0f60118191c8c8e5843f5299dd3f6"
+          paths=subprocess.check_output(["git","diff-tree","--no-commit-id","--name-only","-r",registration_commit],text=True).splitlines()
+          assert set(paths)=={
+             str(video),str(evidence)
+          },f"UNAUTHORIZED_TEST_COMMIT_SCOPE:{paths}"
+          p=json.loads(subprocess.check_output(["ffprobe","-v","error","-show_entries","stream=nb_frames,width,height,r_frame_rate,codec_name:format=duration","-of","json",str(video)],text=True))
+          stream=p["streams"][0]
+          assert stream["codec_name"]=="h264" and stream["nb_frames"]=="90"
+          assert stream["width"]==720 and stream["height"]==1280 and stream["r_frame_rate"]=="30/1"
+          assert abs(float(p["format"]["duration"])-3.0)<.01
+          subprocess.run(["ffmpeg","-v","error","-xerror","-i",str(video),"-f","null","-"],check=True)
+          print("N23_CONTROL_INDEPENDENT_EXACT=PASS")
+          print("N23_SOURCE_ORIGINAL_IMAGE=UNCHANGED")
+          print("N23_LIGHT_MASK_PROTECTION=PASS")
+          print("N23_CANDIDATE_SHA256_AND_BLOB=PASS")
+          print("N23_90_FRAMES_DECODE=PASS")
+          print("STAGE_B_HUMAN_ANIMATION=NOT_IMPLEMENTED")
+          print("V006_CANDIDATE_AND_VIDEO_INDEX=UNCHANGED")
+          print("MAIN_NOT_MERGED=TRUE")
+          PY
