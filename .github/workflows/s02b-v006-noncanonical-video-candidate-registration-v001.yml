@@ -1,0 +1,121 @@
+name: S02B V006 Noncanonical Rough Video Candidate Registration V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - '.github/workflows/s02b-v006-noncanonical-video-candidate-registration-v001.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: v006-candidate-register-on-review-branch
+  cancel-in-progress: false
+
+jobs:
+  register-verified-review-candidate-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout authorized review branch (no main)
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Download successful V006 candidate Artifact only
+        uses: actions/download-artifact@v4
+        with:
+          name: S02B_V006_CINEMATIC_RECONSTRUCTED_ROUGH_REVIEW_V001
+          run-id: 38569617657
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _v006_registration_source
+
+      - name: Verify immutable video identity and register new candidate separately
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, shutil, subprocess
+          src=pathlib.Path("_v006_registration_source/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_REVIEW_V001.mp4")
+          manifest=pathlib.Path("_v006_registration_source/RENDER_MANIFEST.json")
+          dst=pathlib.Path("production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4")
+          idx=pathlib.Path("production/video_candidates/video_candidate_index.jsonl")
+          assert src.is_file() and manifest.is_file(), "MISSING_ORIGINAL_ACTION_ARTIFACT"
+          expected_sha="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert src.stat().st_size==8712713, "BYTE_SIZE_MISMATCH"
+          assert hashlib.sha256(src.read_bytes()).hexdigest()==expected_sha, "SHA256_MISMATCH"
+          m=json.loads(manifest.read_text(encoding="utf-8"))
+          assert m["status"]=="REVIEW_ONLY_NONCANONICAL_NOT_PO_APPROVED"
+          assert m["output"]["sha256"]==expected_sha and m["output"]["byte_size"]==8712713
+          assert m["frames"]==1927 and (m["fps"],m["width"],m["height"])==(30,720,1280)
+          assert not idx.exists() and not dst.exists(), "VIDEO_CANDIDATE_ALREADY_EXISTS_REFUSE_OVERWRITE"
+          assert pathlib.Path("production/video/video_index.jsonl").exists()
+          dst.parent.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(src,dst)
+          assert dst.stat().st_size==8712713 and hashlib.sha256(dst.read_bytes()).hexdigest()==expected_sha
+          entry={
+            "candidate_id":"S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001",
+            "sequence_id":"S02-B",
+            "asset_class":"VIDEO_CANDIDATE",
+            "version":"V006",
+            "lifecycle":"PO_REVIEW_PENDING",
+            "product_owner_video_approval":False,
+            "canonical_video_publication":False,
+            "source_kind":"RECONSTRUCTED_ROUGH_REVIEW_NOT_EXACT_V005",
+            "canonical_candidate_path":str(dst),
+            "filename":dst.name,
+            "sha256":expected_sha,
+            "byte_size":8712713,
+            "width":720,
+            "height":1280,
+            "fps":30,
+            "video_frames":1927,
+            "duration_seconds":64.25,
+            "audio":"APPROVED_V001_AAC_STREAM_COPY",
+            "audio_packet_count":3013,
+            "editorial_spec":"production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW.json",
+            "original_render_run_id":38569617657,
+            "original_render_artifact_id":11897595436,
+            "original_render_artifact_zip_sha256":"5c80a14adf5ae4762d05c8fdd5f730cfe53af9dfc54d65acd7fb738cc7852965",
+            "review_branch":"review/s02b-jun-nod-insert-20261014",
+            "register_date":"2026-10-14",
+            "scope":"CANDIDATE REGISTRATION ONLY; NO MAIN MERGE OR OFFICIAL VIDEO INDEX CHANGE",
+            "limitation":"V005 source ffd811370e77293e5f519020d611aeaef37590979d5922d5ce715a1cb508d63c unavailable. First 658 frames from approved V004 re-encoded for review; rest reconstructed from approved PNGs. Not exact V005 visual continuation.",
+            "source_image_new01":"production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png",
+            "source_image_new02":"production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+          }
+          idx.write_text(json.dumps(entry,ensure_ascii=False)+"\n",encoding="utf-8")
+          assert json.loads(idx.read_text(encoding="utf-8").strip())==entry
+          print("CANDIDATE_BINARY_SHA256_MATCH=YES")
+          print("CANDIDATE_BYTES_PRESERVED=8712713")
+          print("VIDEO_CANDIDATE_INDEX_NEW_ENTRIES=1")
+          print("CANDIDATE_STATUS=PO_REVIEW_PENDING")
+          print("V005_VISUAL_EXACTNESS_CLAIM=FORBIDDEN")
+          PY
+
+      - name: Persist exact candidate MP4 plus candidate index to review branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add -- production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4 production/video_candidates/video_candidate_index.jsonl
+          python3 - <<'PY'
+          import subprocess
+          got=set(subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines())
+          expected={
+            "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+            "production/video_candidates/video_candidate_index.jsonl",
+          }
+          assert got==expected,f"UNAUTHORIZED_STAGING:{got}"
+          print("CANDIDATE_COMMIT_SCOPE=EXACT_TWO_NEW_PATHS")
+          PY
+          git commit -m "Register noncanonical S02-B V006 rough review MP4 exact binary as PO-review-pending candidate only"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "VIDEO_CANDIDATE_GITHUB_REVIEW_BRANCH_PERSISTED=TRUE"
+          echo "VIDEO_CANONICAL_INDEX_UNCHANGED=TRUE"
+          echo "MAIN_NOT_MERGED=TRUE"
