@@ -1,0 +1,84 @@
+name: S02B V006 NEW-01 Canonical Exact Binary Publication V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - 'production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-exact-blob-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout publication commit and parent
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Verify PO-selected exact-byte canonical publication
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, subprocess, struct
+          canonical=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png")
+          staging=pathlib.Path("staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png")
+          expected_sha="f3002984a377a31e05cd7490e914c0da4009509c8ddb5eaf45a5d45144775989"
+          expected_blob="7fedcdc93f2b366d1a8597e86ffe8c99006ce027"
+          expected_size=1840569
+          assert canonical.is_file(), "CANONICAL_FILE_MISSING"
+          assert not staging.exists(), "STAGING_NOT_CLEANED"
+          data=canonical.read_bytes()
+          sig=b"\x89PNG\r\n\x1a\n"
+          assert data[:8]==sig, "PNG_BAD_SIGNATURE"
+          wh=struct.unpack(">II",data[16:24])
+          sha=hashlib.sha256(data).hexdigest()
+          blob=subprocess.check_output(["git","hash-object",str(canonical)],text=True).strip()
+          assert len(data)==expected_size, "BYTE_SIZE_MISMATCH"
+          assert sha==expected_sha, "SHA256_MISMATCH"
+          assert blob==expected_blob, "GIT_BLOB_MISMATCH"
+          assert wh==(941,1672), "DIMENSIONS_MISMATCH"
+          assert subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()!="", "NO_HEAD"
+          diff=set(subprocess.check_output(["git","diff","--name-only","HEAD^","HEAD"],text=True).splitlines())
+          assert diff=={"production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png","staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png"}, f"UNAUTHORIZED_PUBLICATION_DIFF:{diff}"
+          prior_blob=subprocess.check_output(["git","rev-parse","HEAD^:staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png"],text=True).strip()
+          assert prior_blob==expected_blob, "PRIOR_STAGING_BLOB_MISMATCH"
+          evidence={
+            "gate":"S02B_V006_NEW01_CANONICAL_EXACT_PUBLICATION_V001",
+            "overall_result":"PASS",
+            "canonical_path":str(canonical),
+            "original_staging_path":str(staging),
+            "commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
+            "parent_staging_blob":prior_blob,
+            "canonical_blob":blob,
+            "actual_sha256":sha,
+            "byte_size":len(data),
+            "dimensions":{"width":wh[0],"height":wh[1]},
+            "exact_blob_preserved":True,
+            "staging_cleanup":"PASS",
+            "publication_changed_only_canonical_and_staging":True,
+            "video_master_changed":False,
+            "story_shot_index_changed":False
+          }
+          out=pathlib.Path("_new01_publication_evidence")
+          out.mkdir(exist_ok=True)
+          (out/"canonical_exact_publication.json").write_text(json.dumps(evidence,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print("NEW01_CANONICAL_PUBLICATION=PASS")
+          print("SHA256_MATCH=YES")
+          print("BLOB_MATCH=YES")
+          print("DIMENSIONS_MATCH=YES")
+          print("STAGING_CLEANUP_PASS")
+          print("PUBLICATION_CHANGE_SCOPE=EXACT_TWO_PATHS")
+          print("VIDEO_MASTER_UNCHANGED=YES")
+          PY
+
+      - name: Upload publication evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW01_CANONICAL_EXACT_PUBLICATION_V001_EVIDENCE
+          path: _new01_publication_evidence/canonical_exact_publication.json
+          retention-days: 30
+          if-no-files-found: error
