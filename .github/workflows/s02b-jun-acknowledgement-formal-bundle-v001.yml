@@ -1,0 +1,63 @@
+name: S02B Jun Acknowledgement Formal Bundle V001
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - production/bundle_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json
+permissions:
+  contents: read
+jobs:
+  build-po-authorized-four-reference-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authorized branch commit
+        uses: actions/checkout@v4
+      - name: Verify narrowly scoped PO authorization
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          spec = json.loads(Path("production/bundle_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          assert spec["bundle_id"] == "S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert spec["build_authorized"] is True
+          assert len(spec["references"]) == 4
+          assert [x["reference_id"] for x in spec["references"]] == ["N20_APPROVED_STORY_SHOT","AST_IMG_000057","AST_IMG_000072","AST_IMG_000108"]
+          auth = spec["formal_build_authorization"]
+          assert auth["status"] == "PRODUCT_OWNER_AUTHORIZED"
+          assert auth["scope"] == "FORMAL_BUNDLE_V001_BUILD_AND_ARTIFACT_4_OF_4_EXACT_VERIFICATION_ONLY"
+          assert auth["candidate_generation_authorized"] is False
+          assert auth["publication_authorized"] is False
+          assert auth["precondition_validation_only_run_id"] == 38495681927
+          assert auth["precondition_validation_only_result"] == "4/4 EXACT PASS / ZERO ARTIFACT"
+          print("BUILD_AUTHORIZATION=PO_APPROVED_BUNDLE_ONLY")
+          print("WORK_GENERATION_ALLOWED=FALSE")
+          print("PUBLICATION_ALLOWED=FALSE")
+          PY
+      - name: Build and exact-verify four approved references
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py --spec production/bundle_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json
+      - name: Verify bundle payload before upload
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001")
+          m=json.loads((p/"delivery_manifest.json").read_text(encoding="utf-8"))
+          assert m["overall_result"] == "PASS"
+          assert m["all_reference_checks_pass"] is True
+          assert m["reference_count"] == 4 and len(m["references"]) == 4
+          assert all(r["png_signature"] == "PASS" and r["byte_identical_copy"] == "PASS" for r in m["references"])
+          assert (p/"WORK_HANDOFF.md").is_file()
+          print("PREUPLOAD_BUNDLE_MANIFEST=PASS_4_OF_4")
+          print("CANDIDATE_PNG_GENERATED=FALSE")
+          PY
+      - name: Upload exact reference Bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001
+          path: S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
