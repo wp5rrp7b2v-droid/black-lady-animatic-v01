@@ -1,0 +1,106 @@
+name: S02B V006 NEW-01 Formal Five Reference Bundle V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-new01-formal-bundle-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build-po-authorized-five-reference-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authorized branch commit
+        uses: actions/checkout@v4
+
+      - name: Verify narrow PO formal-build authorization and 5/5 precondition
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path("production/bundle_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          assert s["bundle_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert s["target_shot_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01"
+          assert s["sequence_id"]=="S02-B"
+          assert s["build_authorized"] is True
+          assert s["approval_status"]=="PO_AUTHORIZED_FORMAL_BUNDLE_BUILD_ONLY"
+          assert s["generation_interface_constraints"]["max_direct_referenced_images"]==5
+          assert s["generation_interface_constraints"]["selected_direct_references"]==5
+          assert len(s["references"])==5
+          assert [r["reference_id"] for r in s["references"]]==[
+            "N20_APPROVED_STORY_SHOT",
+            "N19_APPROVED_STORY_SHOT",
+            "AST_IMG_000033",
+            "AST_IMG_000064",
+            "AST_IMG_000108"
+          ]
+          auth=s["formal_build_authorization"]
+          assert auth["status"]=="PRODUCT_OWNER_AUTHORIZED"
+          assert auth["scope"]=="FORMAL_BUNDLE_V001_BUILD_AND_ARTIFACT_5_OF_5_EXACT_VERIFICATION_ONLY"
+          assert auth["precondition_validation_only_run_id"]==38540725413
+          assert auth["precondition_validation_only_result"]=="5/5 EXACT PASS / ZERO ARTIFACT"
+          assert auth["candidate_generation_authorized"] is False
+          assert auth["publication_authorized"] is False
+          assert auth["story_shot_registration_authorized"] is False
+          assert auth["video_edit_authorized"] is False
+          assert auth["main_merge_authorized"] is False
+          print("FORMAL_BUNDLE_BUILD_AUTHORIZATION=PO_APPROVED_BUILD_ONLY")
+          print("VALIDATION_ONLY_PRECONDITION=5_OF_5_PASS")
+          print("WORK_GENERATION_ALLOWED=FALSE")
+          print("PUBLICATION_ALLOWED=FALSE")
+          print("VIDEO_EDIT_ALLOWED=FALSE")
+          PY
+
+      - name: Build exact five source reference Bundle
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec production/bundle_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json
+
+      - name: Independently verify built payload and handoff
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,struct,subprocess
+          b=pathlib.Path("S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001")
+          m=json.loads((b/"delivery_manifest.json").read_text(encoding="utf-8"))
+          s=json.loads(pathlib.Path("production/bundle_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          assert m["bundle_id"]==s["bundle_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert m["reference_count"]==5 and len(m["references"])==5
+          assert m["overall_result"]=="PASS" and m["all_reference_checks_pass"] is True
+          assert [r["reference_id"] for r in m["references"]]==[r["reference_id"] for r in s["references"]]
+          assert (b/"WORK_HANDOFF.md").is_file()
+          assert len(list(b.glob("**/*.png")))==5, "Exactly 5 direct images; no extras"
+          for ref in m["references"]:
+            p=b/ref["bundle_path"]
+            assert p.is_file() and p.suffix.lower()==".png"
+            raw=p.read_bytes()
+            assert raw[:8]==bytes((137,80,78,71,13,10,26,10))
+            w,h=struct.unpack(">II",raw[16:24])
+            sha=hashlib.sha256(raw).hexdigest()
+            blob=subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
+            assert len(raw)==ref["expected_byte_size"]==ref["actual_byte_size"]
+            assert sha==ref["expected_sha256"]==ref["computed_sha256"]
+            assert blob==ref["expected_git_blob"]==ref["actual_git_blob"]
+            assert (w,h)==(ref["dimensions"]["width"],ref["dimensions"]["height"])
+            assert ref["byte_identical_copy"]=="PASS"
+            assert ref["png_signature"]=="PASS"
+            print(f"EXACT_REFERENCE_PASS={ref['reference_id']} size={len(raw)} sha256={sha} git_blob={blob} dims={w}x{h}")
+          assert not list(b.glob("**/*.mp4"))
+          print("PREUPLOAD_BUNDLE_MANIFEST=PASS_5_OF_5")
+          print("EXACT_BINARY_COPY=PASS_5_OF_5")
+          print("CANDIDATE_PNG_GENERATED=FALSE")
+          PY
+
+      - name: Upload exact formal reference Bundle artifact only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001
+          path: S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
