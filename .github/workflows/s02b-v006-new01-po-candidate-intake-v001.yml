@@ -6,6 +6,8 @@ on:
       - review/s02b-jun-nod-insert-20261014
     paths:
       - 'staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/*.png'
+      - '.github/workflows/s02b-v006-new01-po-candidate-intake-v001.yml'
+      - 'production/candidate_delivery_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_CANDIDATE_01_DELIVERY_V001.json'
 
 permissions:
   contents: read
@@ -32,7 +34,7 @@ jobs:
           assert s['expected_identity']['git_blob_sha1']=='7fedcdc93f2b366d1a8597e86ffe8c99006ce027'
           assert s['expected_identity']['byte_size']==1840569
           assert s['expected_identity']['width']==941 and s['expected_identity']['height']==1672
-          assert s['target_staging_path']=='staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒(1).png'
+          assert s['target_staging_path']=='staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png'
           assert Path(s['target_staging_path']).is_file()
           print('PO_APPROVED_NEW01_EXACT_CANDIDATE=TRUE')
           print('CANONICAL_PUBLICATION=FORBIDDEN')
@@ -43,7 +45,7 @@ jobs:
       - name: Run existing independent exact candidate intake verifier
         run: |
           python3 scripts/story_shot_candidate_intake_verifier_v1.py \
-            --candidate 'staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒(1).png'
+            --candidate 'staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png'
 
       - name: Verify evidence exact identity and scope
         shell: bash
