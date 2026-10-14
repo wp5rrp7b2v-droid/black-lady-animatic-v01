@@ -1,0 +1,35 @@
+name: NEW02 M01 M03 Direct Download Package V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-m01-m03-direct-download-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  package-verified-existing-mp4-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify the original committed video bytes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,subprocess
+          p=pathlib.Path("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4")
+          assert p.is_file()
+          assert p.stat().st_size==242703
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=="bc4fd4f87100c0bcae8ab72b21d671ad44ca2de7e49ded6afca17ed06926f05d"
+          assert subprocess.check_output(["git","hash-object",str(p)],text=True).strip()=="0e6388626b14758bfbbdc284a77b571dbd052003"
+          print("NEW02_ORIGINAL_GITHUB_MP4_EXACT=PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001_DIRECT_MP4
+          path: production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4
+          retention-days: 7
+          if-no-files-found: error
