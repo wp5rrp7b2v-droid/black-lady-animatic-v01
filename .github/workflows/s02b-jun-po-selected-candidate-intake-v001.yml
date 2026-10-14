@@ -1,0 +1,72 @@
+name: S02B Jun PO-Selected PNG Exact Candidate Intake V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-jun-po-selected-candidate-intake-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-candidate-no-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout uploaded candidate
+        uses: actions/checkout@v4
+
+      - name: Confirm PO selection, actual upload, and restricted scope
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path("production/candidate_delivery_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_PO_SELECTED_DELIVERY_V001.json").read_text(encoding="utf-8"))
+          assert s["shot_id"]=="S02B_JUN_ACKNOWLEDGEMENT_TEST_01"
+          assert s["product_owner_status"]=="APPROVED"
+          assert s["publication_status"].startswith("NOT AUTHORIZED")
+          assert s["editorial_test_status"].startswith("NOT YET PERFORMED")
+          assert s["expected_identity"]["sha256"]=="1af236000b271d327278e82bf3e744fee08bd49682966eb5fa75f731a67c46e7"
+          assert s["expected_identity"]["git_blob_sha1"]=="1236d88ca8f3e57e23a2372a17b2eae11a33559b"
+          assert s["target_staging_path"]=="staging/story_shot_candidates/S02B_JUN_ACKNOWLEDGEMENT_TEST_01/城堡烛光下的专注侧颜.png"
+          assert Path(s["target_staging_path"]).is_file()
+          print("PO_SELECTED_NEW_CANDIDATE_ONLY=TRUE")
+          print("OLD_REJECTED_CANDIDATE_FORBIDDEN=TRUE")
+          print("CANONICAL_PUBLICATION_ALLOWED=FALSE")
+          print("VIDEO_EDIT_ALLOWED=FALSE")
+          PY
+
+      - name: Independent exact file verification
+        shell: bash
+        run: |
+          python3 scripts/story_shot_candidate_intake_verifier_v1.py \
+            --candidate 'staging/story_shot_candidates/S02B_JUN_ACKNOWLEDGEMENT_TEST_01/城堡烛光下的专注侧颜.png'
+
+      - name: Check verification JSON and output scope
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path("_candidate_intake_evidence/candidate_intake_verification.json").read_text(encoding="utf-8"))
+          assert data["candidate_intake_verified"] is True
+          assert len(data["checks"])>=10 and all(data["checks"].values())
+          actual=data["actual_identity"]
+          assert actual["sha256"]=="1af236000b271d327278e82bf3e744fee08bd49682966eb5fa75f731a67c46e7"
+          assert actual["git_blob_sha1"]=="1236d88ca8f3e57e23a2372a17b2eae11a33559b"
+          assert actual["byte_size"]==2015907
+          assert (actual["width"],actual["height"])==(941,1672)
+          print("CANDIDATE_EXACT_VERIFICATION=PASS")
+          print("SHA256_SIZE_GIT_BLOB_DIMENSIONS=ALL_MATCH")
+          print("STAGING_ONLY=TRUE")
+          PY
+
+      - name: Upload verification evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_JUN_PO_SELECTED_CANDIDATE_INTAKE_V001_EVIDENCE_ONLY
+          path: _candidate_intake_evidence/candidate_intake_verification.json
+          retention-days: 30
+          if-no-files-found: error
