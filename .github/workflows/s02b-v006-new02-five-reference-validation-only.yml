@@ -1,0 +1,78 @@
+name: S02B V006 NEW-02 Five Reference Validation Only
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - '.github/workflows/s02b-v006-new02-five-reference-validation-only.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-new02-exact-5-of-5-no-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch revision
+        uses: actions/checkout@v4
+
+      - name: Validate narrow PO scope and five expected references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path("production/bundle_specs/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          assert s["bundle_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert s["target_shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          assert s["sequence_id"]=="S02-B"
+          assert s["build_authorized"] is False
+          assert s["formal_build_authorization"]["status"]=="NOT_AUTHORIZED"
+          assert s["formal_build_authorization"]["candidate_generation_authorized"] is False
+          assert s["formal_build_authorization"]["publication_authorized"] is False
+          assert s["formal_build_authorization"]["video_edit_authorized"] is False
+          assert s["formal_build_authorization"]["main_merge_authorized"] is False
+          assert s["generation_interface_constraints"]["max_direct_referenced_images"]==5
+          assert s["generation_interface_constraints"]["selected_direct_references"]==5
+          refs=s["references"]
+          assert len(refs)==5
+          assert [r["reference_id"] for r in refs]==[
+            "N21_APPROVED_STORY_SHOT",
+            "N22_APPROVED_STORY_SHOT",
+            "N23_APPROVED_STORY_SHOT",
+            "AST_IMG_000108",
+            "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
+          ]
+          assert refs[0]["expected_width"]==941 and refs[0]["expected_height"]==1671, "Do not resize N21 approved 941x1671 exception"
+          assert refs[4]["source_type"]=="CONTROLLED_REFERENCE"
+          assert refs[4]["manifest_path"].endswith(".manifest.json")
+          for r in refs:
+            assert len(r["expected_sha256"])==64
+            assert len(r["expected_git_blob"])==40
+            assert r["expected_byte_size"]>0
+            assert r["expected_width"]>0 and r["expected_height"]>0
+          print("NEW02_VALIDATION_ONLY_AUTHORIZATION=PASS")
+          print("EXPECTED_DIRECT_REFERENCES=5")
+          print("CONTROLLED_CROWD_MANIFEST_AUTHORITY=ENFORCED")
+          print("N21_DIMENSION_EXCEPTION_941x1671=PROTECTED")
+          print("BUILD_AUTHORIZED=FALSE")
+          print("WORK_GENERATION_AUTHORIZED=FALSE")
+          PY
+
+      - name: Compute original binary checks and verify indices + controlled manifest
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec production/bundle_specs/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json \
+            --validate-only
+
+      - name: Assert no formal reference Bundle artifact
+        shell: bash
+        run: |
+          test ! -e 'S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001'
+          test ! -e _reference_bundle
+          echo "BUNDLE_BUILD=SKIPPED"
+          echo "ARTIFACT_UPLOAD=NONE"
+          echo "WORK_IMAGE_GENERATION=NONE"
+          echo "NEW02_VALIDATION_ONLY=COMPLETE"
