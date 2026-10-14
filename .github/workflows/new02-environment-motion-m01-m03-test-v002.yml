@@ -1,0 +1,112 @@
+name: NEW02 Environment Motion Stronger-But-Natural M01 M03 V002
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-environment-motion-m01-m03-test-v002.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: new02-environment-motion-v002-review
+  cancel-in-progress: false
+
+jobs:
+  render-only-one-enhanced-new02-v002:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout authorized review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Install free reproducible video dependencies
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil
+          python3 -c 'import PIL,numpy; print("NO_PAID_VIDEO_SERVICE=TRUE")'
+
+      - name: Render one stronger V002 MP4 from original SHA-locked NEW02 PNG
+        shell: bash
+        run: |
+          python3 scripts/environment_dynamic_render_v002.py \
+            --profile production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V002.json
+
+      - name: Lock original source, validated output scope and quality evidence
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,shutil,subprocess
+          root=pathlib.Path(".")
+          shot=root/"production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png"
+          source_sha="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert hashlib.sha256(shot.read_bytes()).hexdigest()==source_sha
+          assert subprocess.check_output(["git","hash-object",str(shot)],text=True).strip()=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          old=root/"production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4"
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=="bc4fd4f87100c0bcae8ab72b21d671ad44ca2de7e49ded6afca17ed06926f05d"
+          src=root/"_environment_dynamic_preview/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4"
+          ev=root/"_environment_dynamic_preview/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002_EVIDENCE.json"
+          v=json.loads(ev.read_text())
+          assert v["schema"]=="ENVIRONMENT_DYNAMIC_TEST_EVIDENCE_V002"
+          assert v["profile_id"]=="NEW02_M01_M03_TEST_V002"
+          assert v["gate"]=="TECHNICAL_PASS_PO_VISUAL_PENDING"
+          assert v["source_png_sha256"]==source_sha and v["source_png_unmodified"] is True
+          assert v["raw_pixel_changed_outside_effect_regions"]==0
+          assert v["first_and_last_raw_frames_equal_original"] is True
+          assert 11<v["max_raw_channel_delta"]<=34, v["max_raw_channel_delta"]
+          assert v["dust_particle_budget"]==21
+          assert (v["fps"],v["frames"],v["duration_seconds"])==(30,120,4)
+          assert v["persons_animated"] is False and v["camera_moved"] is False
+          assert src.stat().st_size==v["video_bytes"] and hashlib.sha256(src.read_bytes()).hexdigest()==v["video_sha256"]
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          dst=root/"production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002"
+          assert not dst.exists(),"CANDIDATE_V002_ALREADY_EXISTS"
+          dst.mkdir(parents=True)
+          shutil.copyfile(src,dst/src.name)
+          shutil.copyfile(ev,dst/ev.name)
+          assert hashlib.sha256((dst/src.name).read_bytes()).hexdigest()==v["video_sha256"]
+          print("NEW02_V002_EXACT_BINARY=PASS")
+          print("NEW02_V002_VISIBILITY_IMPROVED_PARAMETER=PASS")
+          print("NEW02_V002_APPROVED_PNG_UNCHANGED=PASS")
+          print("NEW02_V002_TEST_ONLY=TRUE")
+          PY
+
+      - name: Upload direct single MP4 for PO review
+        uses: actions/upload-artifact@v4
+        with:
+          name: NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002_DIRECT
+          path: |
+            production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4
+            production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002_EVIDENCE.json
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Preserve this exact candidate MP4 on GitHub review branch (not main)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/
+          python3 - <<'PY'
+          import subprocess
+          files=set(subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines())
+          expected={
+           "production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4",
+           "production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002_EVIDENCE.json"
+          }
+          assert files==expected, f"UNAUTHORIZED_GITHUB_CHANGES:{files}"
+          print("NEW02_V002_GIT_COMMIT_SCOPE=EXACT_TWO")
+          PY
+          git commit -m "Store independent stronger NEW02 M01+M03 candidate V002 from PO feedback, no originals modified"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "NEW02_V002_TEST_ONLY_PERSISTED=TRUE"
+          echo "V006_CANDIDATE_ORIGINAL_UNCHANGED=TRUE"
+          echo "MAIN_NOT_MERGED=TRUE"
