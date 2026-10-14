@@ -44,7 +44,7 @@ jobs:
           assert blob==expected_blob, "GIT_BLOB_MISMATCH"
           assert wh==(941,1672), "DIMENSIONS_MISMATCH"
           assert subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()!="", "NO_HEAD"
-          diff=set(subprocess.check_output(["git","diff","--no-renames","--name-only","HEAD^","HEAD"],text=True).splitlines())
+          diff=set(subprocess.check_output(["git","-c","core.quotePath=false","diff","--no-renames","--name-only","HEAD^","HEAD"],text=True).splitlines())
           assert diff=={"production/image_library/approved/story_shots/S02B_V006_NEW01_NING_WARNING_JUN_OTS_APPROVED_V001.png","staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png"}, f"UNAUTHORIZED_PUBLICATION_DIFF:{diff}"
           prior_blob=subprocess.check_output(["git","rev-parse","HEAD^:staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒.png"],text=True).strip()
           assert prior_blob==expected_blob, "PRIOR_STAGING_BLOB_MISMATCH"
