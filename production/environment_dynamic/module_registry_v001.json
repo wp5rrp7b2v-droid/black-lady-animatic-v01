@@ -17,7 +17,7 @@
       "id": "M01",
       "name": "CANDLELIGHT_BASELINE_V001",
       "effect": "spatially limited unsynchronized practical candle illumination",
-      "status": "N23_REFERENCE_EFFECT_PO_VISUAL_ACCEPTED",
+      "status": "N23_AND_NEW02_V003_PO_VISUAL_ACCEPTED_TWO_SHOT_STYLE_REFERENCES",
       "baseline": {
         "shot_id": "N23",
         "profile": "scripts/n23_candlelight_motion_control_test_v001.py",
@@ -28,7 +28,30 @@
         "technical_validation_run_id": 38578211199,
         "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/n23_stage_a_candlelight_motion_control_po_visual_approval_2026-10-14.md"
       },
-      "portability_status": "EFFECT_LANGUAGE_REFERENCE_ONLY_NEW_SCENE_NEEDS_NEW_MASK_AND_PO_REVIEW"
+      "portability_status": "STYLE_BASELINE_PROVEN_ON_N23_AND_NEW02_V003;_NEW_SHOT_REQUIRES_INDEPENDENT_MASK_EXACT_AND_PO",
+      "accepted_shot_samples": [
+        {
+          "shot_id": "N23",
+          "video": "production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4",
+          "sha256": "6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4",
+          "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/n23_stage_a_candlelight_motion_control_po_visual_approval_2026-10-14.md",
+          "reference_role": "PRIMARY"
+        },
+        {
+          "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+          "video": "production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4",
+          "sha256": "64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0",
+          "git_blob": "7dc15c6cbea57b7ebeec5b653e31708e8a42d71f",
+          "original_source_png_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+          "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/new02_m01_n23_paced_v003_po_visual_approval_2026-10-14.md",
+          "independent_exact_verification_run_id": 38587113938,
+          "reference_role": "SECOND_VALIDATED_TRANSFER_EXAMPLE",
+          "modules": [
+            "M01"
+          ],
+          "dust_particles": 0
+        }
+      ]
     },
     {
       "id": "M02",
@@ -40,12 +63,44 @@
       "id": "M03",
       "name": "DUST_BASELINE_V001",
       "effect": "sparse slow drifting motes restricted to lit empty architectural regions",
-      "status": "NEW02_ONE_TEST_AUTHORIZED_PO_REVIEW_PENDING",
+      "status": "HOLD_NOT_PO_APPROVED_DO_NOT_DEFAULT_ENABLE",
       "candidate_profile": "production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V001.json",
       "not_allowed": [
         "snow filter",
         "whole-frame noise",
         "particles on people"
+      ],
+      "review_history": [
+        {
+          "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+          "version": "V001",
+          "modules": [
+            "M01",
+            "M03"
+          ],
+          "po_feedback": "ENVIRONMENT_CHANGE_TOO_SUBTLE",
+          "approved": false
+        },
+        {
+          "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+          "version": "V002",
+          "modules": [
+            "M01",
+            "M03"
+          ],
+          "po_feedback": "CHANGE_TOO_STRONG_TOO_FAST",
+          "approved": false
+        },
+        {
+          "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+          "version": "V003",
+          "modules": [
+            "M01"
+          ],
+          "po_feedback": "ACCEPTED",
+          "approved": true,
+          "dust_particles": 0
+        }
       ]
     },
     {
@@ -64,10 +119,10 @@
   "next_pilot": {
     "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
     "enabled": [
-      "M01",
-      "M03"
+      "M01"
     ],
     "video_count": 1,
-    "status": "NOT_YET_RENDERED"
+    "status": "PO_VISUAL_APPROVED_STANDALONE_REVIEW_V003_CLOSED_NO_V006_INTEGRATION",
+    "approved_test_video": "production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4"
   }
 }
