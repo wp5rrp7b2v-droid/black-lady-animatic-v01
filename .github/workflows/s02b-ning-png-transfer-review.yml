@@ -1,0 +1,20 @@
+name: S02B Approved Ning PNG Transfer Review
+on:
+  push:
+    branches: [review/s02b-ning-approved-png-transfer-20261014]
+    paths: [.github/workflows/s02b-ning-png-transfer-review.yml]
+permissions:
+  contents: read
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate approved PNG bytes
+        run: |
+          sha256sum staging/story_shot_candidates/TAIL_NING_REACTION_TEST_01/TAIL_NING_REACTION_TEST_01_CANDIDATE_01_PO_APPROVED.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02B_APPROVED_NING_PNG_REVIEW_COPY
+          path: staging/story_shot_candidates/TAIL_NING_REACTION_TEST_01/TAIL_NING_REACTION_TEST_01_CANDIDATE_01_PO_APPROVED.png
+          retention-days: 1
