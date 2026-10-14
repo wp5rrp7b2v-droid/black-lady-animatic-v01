@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01",
+  "sequence_id": "S02-B",
+  "candidate_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01 | PO-selected replacement for rejected Candidate 01",
+  "product_owner_status": "APPROVED",
+  "candidate_approval_scope": "VISUAL CANDIDATE AS SEEN / FILE UPLOADED IN CHAT AND LOCALLY EXACT VERIFIED / GITHUB INTAKE PENDING / NOT CANONICAL",
+  "source_upload_filename": "城堡烛光下的专注侧颜(1).png",
+  "product_owner_selected_share_url": "https://chatgpt.com/s/m_6acee7af3ad081918088dbaf92e0771a",
+  "supersedes_rejected_sha256": "1020ae12483812271edf6d3ba9c7df033f94b38bc84825c570d8061e7b51b804",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2015907,
+    "sha256": "1af236000b271d327278e82bf3e744fee08bd49682966eb5fa75f731a67c46e7",
+    "git_blob_sha1": "1236d88ca8f3e57e23a2372a17b2eae11a33559b"
+  },
+  "bundle": {
+    "bundle_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 38496020230,
+    "artifact_id": 11863785914,
+    "artifact_digest": "sha256:712c0b5b8e5682c0efe4e19acbd2682ae2727b3bb0f34e94970c8c6be2bd691e"
+  },
+  "target_staging_path": "staging/story_shot_candidates/S02B_JUN_ACKNOWLEDGEMENT_TEST_01/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_PO_SELECTED.png",
+  "downstream_canonical_target": null,
+  "publication_status": "NOT AUTHORIZED / AWAITING EXACT STAGING INTAKE AND SEPARATE PUBLICATION GATE",
+  "editorial_test_status": "NOT YET PERFORMED / V003 LOCKED",
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": false,
+    "work_exact_binary_staging_required": true,
+    "no_new_image_generation": true
+  }
+}
