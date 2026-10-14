@@ -1,0 +1,73 @@
+name: NEW02 N23-Paced V003 Independent Exact Verification
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-n23-paced-v003-independent-verification.yml
+
+permissions:
+  contents: read
+
+jobs:
+  v003-independent-immutable-source-candidate-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install independent MP4 decode validator
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+
+      - name: Verify exact original image and all V001 V002 V003 unmodified
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          paths={
+            "NEW02_APPROVED_SOURCE": ("production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png","d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4","d8feba3692ebe25afd0e51f5e3ab32358ea19ded"),
+            "NEW02_OLD_V001": ("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4","bc4fd4f87100c0bcae8ab72b21d671ad44ca2de7e49ded6afca17ed06926f05d","0e6388626b14758bfbbdc284a77b571dbd052003"),
+            "NEW02_OLD_V002": ("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V002/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4","f87a7ac14c10c643b6b0e83f80181865caec83211a2ab8cc18d21a0b85210a97","2520fa25cbf0fac4e80eafc13076d6002c6f39cf"),
+            "NEW02_N23_PACED_V003": ("production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4","64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0","7dc15c6cbea57b7ebeec5b653e31708e8a42d71f"),
+            "N23_VISUALLY_APPROVED_REFERENCE": ("production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4","6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4","accb833152ee68e687c67558dae8f21c8d7f72f3"),
+            "V006_REVIEW_VIDEO": ("production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4","7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402","d92d23ac6b5a542e07572e29a9e648e2c4141854"),
+          }
+          result={}
+          for name,(path,sha,blob) in paths.items():
+            p=pathlib.Path(path)
+            assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==sha,name+":SHA256"
+            assert subprocess.check_output(["git","hash-object",path],text=True).strip()==blob,name+":GIT_BLOB"
+            result[name]={"sha256":sha,"blob":blob,"bytes":p.stat().st_size,"PASS":True}
+          p=pathlib.Path(paths["NEW02_N23_PACED_V003"][0])
+          ev=p.with_name("NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003_EVIDENCE.json")
+          j=json.loads(ev.read_text())
+          assert j["video_sha256"]==result["NEW02_N23_PACED_V003"]["sha256"]
+          assert j["video_bytes"]==result["NEW02_N23_PACED_V003"]["bytes"]
+          assert j["enabled_modules"]==["M01"] and j["dust_particles"]==0
+          assert j["frames"]==90 and j["fps"]==30 and j["duration_seconds"]==3
+          assert j["raw_pixel_max_delta"]<=12 and j["changed_pixels_outside_approved_light_regions"]==0
+          assert j["source_unmodified"] and j["first_last_raw_equal_original"]
+          meta=json.loads(subprocess.check_output(
+            ["ffprobe","-v","error","-show_entries","stream=codec_type,codec_name,width,height,nb_frames,r_frame_rate:format=duration","-of","json",str(p)],text=True))
+          assert float(meta["format"]["duration"])==3
+          assert meta["streams"]==[{"codec_name":"h264","codec_type":"video","width":720,"height":1280,"r_frame_rate":"30/1","nb_frames":"90"}],meta
+          subprocess.run(["ffmpeg","-v","error","-xerror","-i",str(p),"-map","0:v:0","-f","null","-"],check=True)
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video/video_index.jsonl"],text=True).strip()=="84fb0f70ebd92536b95c6b01c6ac69a27a6986c7"
+          print("NEW02_V003_INDEPENDENT_EXACT_BINARY=PASS")
+          print("NEW02_V003_N23_PACED_90_FRAME_DECODE=PASS")
+          print("NEW02_V003_NO_DUST_AND_UNCHANGED_SOURCE=PASS")
+          print("V006_AND_OLDER_CANDIDATES_UNCHANGED=PASS")
+          print("PO_VISUAL_APPROVAL=PENDING")
+          evidence={"gate":"NEW02_M01_N23_PACED_V003_INDEPENDENT_EXACT","result":"PASS","source_and_prior_binaries":result,"v003_mp4_sha256":j["video_sha256"],"status":"PO_VISUAL_REVIEW_PENDING"}
+          pathlib.Path("NEW02_V003_INDEPENDENT_VERIFICATION.json").write_text(json.dumps(evidence,indent=2)+"\n")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NEW02_M01_N23_PACED_V003_EXACT_VERIFICATION
+          path: NEW02_V003_INDEPENDENT_VERIFICATION.json
+          retention-days: 30
+          if-no-files-found: error
