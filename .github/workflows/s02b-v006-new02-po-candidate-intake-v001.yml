@@ -1,0 +1,94 @@
+name: S02B V006 NEW-02 PO-Approved Exact Candidate Intake V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - 'staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/*.png'
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-01-exact-intake-no-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact submitted candidate revision
+        uses: actions/checkout@v4
+
+      - name: Select the one original PO-approved PNG with exact filename alias control
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,subprocess
+          shot="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          path=pathlib.Path(f"production/candidate_delivery_specs/{shot}_CANDIDATE_01_DELIVERY_V001.json")
+          original=json.loads(path.read_text(encoding="utf-8"))
+          assert original["shot_id"]==shot
+          assert original["product_owner_status"]=="APPROVED"
+          assert original["publication_status"].startswith("NOT AUTHORIZED")
+          assert original["constraints"]["exact_product_owner_approved_png_only"] is True
+          for k in ["reencode_allowed","resize_allowed","screenshot_allowed","no_new_image_generation","do_not_register_story_shot","do_not_merge_main"]:
+            expected = False if k in ("reencode_allowed","resize_allowed","screenshot_allowed") else True
+            assert original["constraints"][k] is expected, k
+          exp=original["expected_identity"]
+          assert exp["sha256"]=="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert exp["git_blob_sha1"]=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert (exp["width"],exp["height"],exp["byte_size"])==(941,1672,1963410)
+          folder=pathlib.Path("staging/story_shot_candidates")/shot
+          files=sorted(folder.glob("*.png"))
+          assert len(files)==1, f"EXACTLY_ONE_STAGING_PNG_REQUIRED found={len(files)}"
+          candidate=files[0].as_posix()
+          assert candidate in original["allowed_actual_staging_paths"],f"UNAPPROVED_FILENAME:{candidate}"
+          # Existing generic candidate intake verifier accepts exactly one target_staging_path.
+          # In GitHub runner workspace ONLY, select an explicitly whitelisted basename;
+          # no update is committed and original PNG bytes are never changed.
+          if original["target_staging_path"] != candidate:
+            original["target_staging_path"]=candidate
+            path.write_text(json.dumps(original,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+            print("VALIDATION_WORKSPACE_ONLY_PATH_ALIAS_SELECTED=TRUE")
+          else:
+            print("VALIDATION_WORKSPACE_ONLY_PATH_ALIAS_SELECTED=FALSE")
+          pathlib.Path("_new02_candidate_path.txt").write_text(candidate,encoding="utf-8")
+          print("PO_APPROVED_CANDIDATE_SCOPE=TRUE")
+          print("EXACTLY_ONE_STAGING_IMAGE=TRUE")
+          print("CANONICAL_PUBLICATION=FORBIDDEN")
+          print("STORY_SHOT_REGISTRATION=FORBIDDEN")
+          print("VIDEO_MASTER_MODIFICATION=FORBIDDEN")
+          PY
+
+      - name: Verify original candidate bytes via standard independent intake script
+        shell: bash
+        run: |
+          python3 scripts/story_shot_candidate_intake_verifier_v1.py \
+            --candidate "$(cat _new02_candidate_path.txt)"
+
+      - name: Cross-check independently computed evidence and single-image boundary
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          e=json.loads(pathlib.Path("_candidate_intake_evidence/candidate_intake_verification.json").read_text(encoding="utf-8"))
+          assert e["shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          assert e["candidate_path"]==pathlib.Path("_new02_candidate_path.txt").read_text(encoding="utf-8")
+          assert e["candidate_intake_verified"] is True
+          assert all(e["checks"].values())
+          a=e["actual_identity"]
+          assert a["sha256"]=="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert a["git_blob_sha1"]=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert (a["width"],a["height"],a["byte_size"])==(941,1672,1963410)
+          assert len(list(pathlib.Path("staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01").glob("*.png")))==1
+          print("NEW02_PO_CANDIDATE_EXACT_INTAKE=PASS")
+          print("CANONICAL_PUBLICATION=NOT_AUTHORIZED")
+          print("STORY_SHOT_REGISTRATION=NOT_AUTHORIZED")
+          print("VIDEO_MODIFICATION=NOT_AUTHORIZED")
+          PY
+
+      - name: Upload verification evidence only, not Candidate PNG
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW02_PO_CANDIDATE_01_EXACT_INTAKE_EVIDENCE
+          path: _candidate_intake_evidence/candidate_intake_verification.json
+          retention-days: 30
+          if-no-files-found: error
