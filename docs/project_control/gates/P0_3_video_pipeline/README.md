@@ -1870,3 +1870,14 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - **P0.3 remains IN PROGRESS**. No Video Index mutation, new shots, canonical publication, or promotion of the experimental tails; source branches/Actions evidence retained.
 - Before any new tail candidate, redesign the narrative cutaways and assess genuinely new angles/detail source shots through Director → Scene Reference → Bundle → Work → PO if justified; never generate extra Story Shot PNG without fresh PO authorization.
 - Closeout record: `s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`, decision `BL-D-175`; local Mac EOD sync must be verified with user's real terminal output and exact GitHub main parity, not assumed.
+
+## 2026-10-14 EOD｜NEW-01/NEW-02 registered; V006 rough candidate; N23 and NEW02 candlelight M01 visual baseline
+
+**Latest scoped current state on review branch** `review/s02b-jun-nod-insert-20261014`. The older 2026-10-03/04/12/13 notes remain historical and are not current counts.
+- NEW-01 and NEW-02: PO-approved source images, exact binary canonical publication and independent Story Shot registration verification **SUCCESS**; review branch Story Shot Index **34**.
+- S02-B V006 cinematic rough cut: **64.250 seconds, 1927 video frames, 30fps, 720×1280, unchanged original-source V001 AAC packets**. One registered candidate at `production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4` with original SHA256 `7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402`, run `38572320667` independently Exact-verified. **PO_REVIEW_PENDING / NONCANONICAL / reconstructed, not exact V005**. Official Video Index **3** unchanged.
+- N23 M01 3-second candlelight visual approved; NEW-02 V003 M01 borrowed identical N23 pacing/amplitude with local NEW02 candle masking and **no dust**, user confirmed “对，这样就可以了”, exact run `38587113938` SUCCESS. The two approved examples are **effect-level** references only.
+- NEW-02 V001 effect too subtle; V002 effect too strong/fast; M03 dust **HOLD / DISABLED by default**. M02/M04/M05 design-only. No paid video generation service required; no real person video motion claim.
+- P0.3 remains IN PROGRESS; `main` unmerged and unmodified. Project Control updates on this review branch are a pending publication package, not current main canonical.
+- Decision Log BL-D-178–180; Project State target R360 / Dashboard V280 on review branch; next session open-ended M02 design or further user-approved storyboard work only, no pre-authorized video render, no official V007. Word-level original voice timing not yet independently verified.
+- EOD: `p0_3_daily_closeout_2026-10-14.md`; RC-029 Mac main sync pending real Terminal evidence, reviewed untracked local Console folders must stay protected.
