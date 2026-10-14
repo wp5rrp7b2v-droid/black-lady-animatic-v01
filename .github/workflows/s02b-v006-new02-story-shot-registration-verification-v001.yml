@@ -1,0 +1,67 @@
+name: S02B V006 NEW-02 Story Shot Registration Verification V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - production/story_shots/story_shot_index.jsonl
+
+permissions:
+  contents: read
+
+jobs:
+  verify-new02-unique-index-and-canonical-binary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Verify only one new Story Shot and exact immutable PNG
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,struct,subprocess,pathlib
+          old=subprocess.check_output(["git","show","HEAD^:production/story_shots/story_shot_index.jsonl"]).decode()
+          new=pathlib.Path("production/story_shots/story_shot_index.jsonl").read_text()
+          assert old.endswith("\n") and new.startswith(old) and new.endswith("\n")
+          old_rows=[json.loads(x) for x in old.splitlines()]
+          rows=[json.loads(x) for x in new.splitlines()]
+          assert len(rows)==len(old_rows)+1 and rows[:-1]==old_rows
+          assert len(set(x["shot_id"] for x in rows))==len(rows)
+          assert not any(x["shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01" for x in old_rows)
+          s=rows[-1]
+          assert s["shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01" and s["asset_class"]=="STORY_SHOT"
+          assert s["approval_status"]=="APPROVED" and s["lifecycle"]=="CURRENT"
+          assert s["canonical_path"]=="production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png"
+          assert s["sha256_locked_identity"]=="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert s["github_blob_sha"]=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          assert s["canonical_publication_commit"]=="155fd65184e578a00513042a13e0081f700868b1"
+          assert s["canonical_publication_verification_run"]==38567423616
+          assert s["binary_verification_run"]==38558807970
+          assert s["byte_size"]==1963410 and s["dimensions"]=={"width":941,"height":1672}
+          png=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png")
+          assert png.is_file() and not pathlib.Path("staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png").exists()
+          data=png.read_bytes()
+          assert data[:8]==bytes((137,80,78,71,13,10,26,10))
+          assert struct.unpack(">II",data[16:24])==(941,1672)
+          sha=hashlib.sha256(data).hexdigest()
+          blob=hashlib.sha1(("blob "+str(len(data))+"\0").encode()+data).hexdigest()
+          assert sha==s["sha256_locked_identity"] and blob==s["github_blob_sha"] and len(data)==s["byte_size"]
+          diff=subprocess.check_output(["git","-c","core.quotePath=false","diff","--no-renames","--name-only","HEAD^","HEAD"],text=True).splitlines()
+          assert diff==["production/story_shots/story_shot_index.jsonl"],diff
+          evidence={"result":"PASS","shot_id":"S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01","sha256":sha,"git_blob":blob,"bytes":len(data),"dimensions":[941,1672],"previous_entries_preserved":len(old_rows),"total_entries":len(rows),"staging_clean":True,"index_change_only":True,"video_unmodified":True,"commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()}
+          out=pathlib.Path("_new02_registration_evidence");out.mkdir(exist_ok=True)
+          (out/"registration_verification.json").write_text(json.dumps(evidence,indent=2)+"\n")
+          print("NEW02_REGISTRATION_PASS")
+          print("SHA_MATCH=YES")
+          print("BLOB_MATCH=YES")
+          print("OLD_INDEX_UNCHANGED=YES")
+          print("REGISTRATION_OVERALL_RESULT=PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW02_STORY_SHOT_REGISTRATION_V001_EVIDENCE
+          path: _new02_registration_evidence/registration_verification.json
+          retention-days: 30
+          if-no-files-found: error
