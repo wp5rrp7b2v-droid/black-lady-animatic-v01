@@ -22,7 +22,7 @@
     "artifact_id": 11863785914,
     "artifact_digest": "sha256:712c0b5b8e5682c0efe4e19acbd2682ae2727b3bb0f34e94970c8c6be2bd691e"
   },
-  "target_staging_path": "staging/story_shot_candidates/S02B_JUN_ACKNOWLEDGEMENT_TEST_01/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_PO_SELECTED.png",
+  "target_staging_path": "staging/story_shot_candidates/S02B_JUN_ACKNOWLEDGEMENT_TEST_01/城堡烛光下的专注侧颜.png",
   "downstream_canonical_target": null,
   "publication_status": "NOT AUTHORIZED / AWAITING EXACT STAGING INTAKE AND SEPARATE PUBLICATION GATE",
   "editorial_test_status": "NOT YET PERFORMED / V003 LOCKED",
@@ -34,5 +34,7 @@
     "manual_product_owner_github_upload_required": false,
     "work_exact_binary_staging_required": true,
     "no_new_image_generation": true
-  }
+  },
+  "github_uploaded_filename": "城堡烛光下的专注侧颜.png",
+  "delivery_note": "PO-approved original file uploaded to GitHub under the above Chinese filename; do not rename/re-encode binary. Original conversation attachment filename was 城堡烛光下的专注侧颜(1).png; byte identity is governed by exact digest."
 }
