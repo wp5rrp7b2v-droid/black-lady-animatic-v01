@@ -1,0 +1,71 @@
+name: S02B V006 NEW-01 PO-Approved PNG Exact Candidate Intake V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - 'staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/*.png'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-po-approved-new01-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact submitted revision
+        uses: actions/checkout@v4
+
+      - name: Validate PO approval scope and original attached binary identity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('production/candidate_delivery_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_CANDIDATE_01_DELIVERY_V001.json')
+          s=json.loads(p.read_text(encoding='utf-8'))
+          assert s['shot_id']=='S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01'
+          assert s['product_owner_status']=='APPROVED'
+          assert s['publication_status'].startswith('NOT AUTHORIZED')
+          assert s['expected_identity']['sha256']=='f3002984a377a31e05cd7490e914c0da4009509c8ddb5eaf45a5d45144775989'
+          assert s['expected_identity']['git_blob_sha1']=='7fedcdc93f2b366d1a8597e86ffe8c99006ce027'
+          assert s['expected_identity']['byte_size']==1840569
+          assert s['expected_identity']['width']==941 and s['expected_identity']['height']==1672
+          assert s['target_staging_path']=='staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒(1).png'
+          assert Path(s['target_staging_path']).is_file()
+          print('PO_APPROVED_NEW01_EXACT_CANDIDATE=TRUE')
+          print('CANONICAL_PUBLICATION=FORBIDDEN')
+          print('STORY_SHOT_REGISTRATION=FORBIDDEN')
+          print('VIDEO_MASTER_MODIFICATION=FORBIDDEN')
+          PY
+
+      - name: Run existing independent exact candidate intake verifier
+        run: |
+          python3 scripts/story_shot_candidate_intake_verifier_v1.py \
+            --candidate 'staging/story_shot_candidates/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01/烛光回廊里的轻声提醒(1).png'
+
+      - name: Verify evidence exact identity and scope
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          e=json.loads(Path('_candidate_intake_evidence/candidate_intake_verification.json').read_text(encoding='utf-8'))
+          assert e['candidate_intake_verified'] is True
+          assert all(e['checks'].values())
+          a=e['actual_identity']
+          assert a['sha256']=='f3002984a377a31e05cd7490e914c0da4009509c8ddb5eaf45a5d45144775989'
+          assert a['git_blob_sha1']=='7fedcdc93f2b366d1a8597e86ffe8c99006ce027'
+          assert (a['width'],a['height'],a['byte_size'])==(941,1672,1840569)
+          print('NEW01_PO_CANDIDATE_EXACT_INTAKE=PASS')
+          print('CANDIDATE_ONLY_NO_PUBLICATION=TRUE')
+          PY
+
+      - name: Upload evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_NEW01_PO_APPROVED_PNG_EXACT_INTAKE_EVIDENCE_ONLY
+          path: _candidate_intake_evidence/candidate_intake_verification.json
+          retention-days: 30
+          if-no-files-found: error
