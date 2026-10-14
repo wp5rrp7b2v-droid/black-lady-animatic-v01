@@ -67,3 +67,19 @@ Authority: PO 已同意建立可复用环境动态方案，以 NEW-02 为第二�
 Director/Framework Design → 单镜头参数校准 → GitHub Actions 仅 1 个试验 MP4 → 原图身份+渲染机器验收 → GitHub 审核分支备份 → 独立 Exact Verification → PO 视觉审批 → 锁定局部模块风格基线 → 待后续明确授权才集成到新一版视频。
 
 **现阶段 M01（N23）视觉样式通过；M03（NEW-02）仍待视觉审核。V006 候选状态不改变。**
+
+
+---
+
+## 8. 2026-10-14 更新｜NEW-02 V003 PO 视觉审核通过（优先于旧测试计划状态）
+
+> 本节是对第 2、5、7 节中尚未完成的旧测试计划与状态描述的**后续裁定**，而非修改历史事实。
+
+- PO 评语：「对，这样就可以了」；直接针对 NEW-02 **V003**。本镜头 **M01 烛光自然动态视觉通过**，可以作为继 N23 之后第二个通过的 M01 风格范例。
+- V003 只保留烛光，无浮尘；时长 3 秒 / 90 帧 / 720×1280，准确继承 N23 已获认可的节奏、柔和包络与颜色幅度，按 NEW-02 自己的烛台位置配置遮罩。
+- V003 MP4：`production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4`；SHA256 `64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0`。独立精确核验 Run `38587113938` 成功。
+- 审批记录：`docs/project_control/gates/P0_3_video_pipeline/new02_m01_n23_paced_v003_po_visual_approval_2026-10-14.md`。
+- **M01 状态：N23 + NEW-02 V003 两个已通过的镜头级参考**；其他镜头仍须根据其实际烛台位置重新设定遮罩，并经独立质量审核和 PO 视觉审核。
+- **M03 状态：HOLD / 未视觉通过。** V001 变化太弱，V002 强度与速度过度；PO 最终认可的是去掉浮尘的 V003，因此默认关闭 M03，不自动复用或批量添加。
+- M02/M04/M05 仍为设计状态。不得把该批准扩展为 V006 候选视频剪辑通过，不允许修改或发布正式视频、图片，不允许未经授权合并 main。
+- 机读有效状态以 `production/environment_dynamic/module_registry_v001.json` 的最新登记为准。
