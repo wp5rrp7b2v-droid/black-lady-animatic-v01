@@ -63,15 +63,16 @@ jobs:
       - name: Install controlled image-render dependency
         shell: bash
         run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil
           command -v ffmpeg
           command -v ffprobe
-          python3 -m venv _v006_python
-          _v006_python/bin/pip install --disable-pip-version-check pillow==11.3.0
+          python3 -c 'from PIL import Image; print("PIL_AVAILABLE=YES", Image.__version__)'
 
       - name: Render noncanonical 64.25-second review video from verified approved sources
         shell: bash
         run: |
-          _v006_python/bin/python scripts/s02b_v006_editorial_rough_render_v001.py
+          python3 scripts/s02b_v006_editorial_rough_render_v001.py
 
       - name: Upload review-only MP4 and technical report
         uses: actions/upload-artifact@v4
