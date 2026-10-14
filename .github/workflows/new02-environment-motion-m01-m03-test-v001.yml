@@ -1,0 +1,92 @@
+name: NEW02 Environment Motion M01 Candlelight M03 Sparse Dust V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-environment-motion-m01-m03-test-v001.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: new02-environment-motion-v001-on-review
+  cancel-in-progress: false
+
+jobs:
+  render-one-new02-environment-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout authorized review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Install deterministic dependency set (no paid model)
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil
+          python3 -c 'from PIL import Image; import numpy; print("NO_PAID_VIDEO_SERVICE_DEPENDENCY=PASS")'
+
+      - name: Check exact source and profile; render single M01+M03 MP4
+        shell: bash
+        run: |
+          python3 scripts/environment_dynamic_render_v001.py \
+            --profile production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V001.json
+
+      - name: Safely store exact test MP4 and evidence (no other assets)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, shutil
+          src=pathlib.Path("_environment_dynamic_preview/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4")
+          ev=src.with_name("NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001_EVIDENCE.json")
+          folder=pathlib.Path("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001")
+          assert not folder.exists(),"CANDIDATE_EXISTS_REFUSE_OVERWRITE"
+          report=json.loads(ev.read_text(encoding="utf-8"))
+          assert report["gate"]=="TECHNICAL_PASS_PO_VISUAL_PENDING"
+          assert report["modules"]==["M01","M03"]
+          assert report["frames"]==120 and report["fps"]==30 and report["duration_seconds"]==4
+          assert report["raw_pixel_changed_outside_effect_regions"]==0
+          assert report["first_and_last_raw_frames_equal_original"] is True
+          assert report["source_png_unmodified"] is True
+          assert report["persons_animated"] is False
+          assert report["audio_streams"]==0
+          assert src.stat().st_size==report["video_bytes"]
+          assert hashlib.sha256(src.read_bytes()).hexdigest()==report["video_sha256"]
+          folder.mkdir(parents=True)
+          shutil.copyfile(src,folder/src.name)
+          shutil.copyfile(ev,folder/ev.name)
+          assert hashlib.sha256((folder/src.name).read_bytes()).hexdigest()==report["video_sha256"]
+          print("NEW02_REVIEW_TEST_EXACT_COPY=PASS")
+          print("NEW02_REVIEW_STATUS=TECHNICAL_PASS_PO_VISUAL_PENDING")
+          PY
+
+      - name: Commit only isolated review test on review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/
+          python3 - <<'PY'
+          import subprocess
+          actual=set(subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines())
+          expected={
+            "production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4",
+            "production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001_EVIDENCE.json"
+          }
+          assert actual==expected, f"UNAUTHORIZED_COMMIT_PATHS:{actual}"
+          print("ONLY_TWO_NEW_ENVIRONMENT_TEST_PATHS=PASS")
+          PY
+          git commit -m "Store isolated NEW02 M01+M03 environmental-motion pilot MP4 and exact QC; PO review pending"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "NEW02_ENVIRONMENT_TEST_GITHUB_PERSISTED=TRUE"
+          echo "APPROVED_NEW02_PNG_IMMUTABLE=TRUE"
+          echo "V006_CANDIDATE_UNCHANGED=TRUE"
+          echo "MAIN_NOT_MERGED=TRUE"
