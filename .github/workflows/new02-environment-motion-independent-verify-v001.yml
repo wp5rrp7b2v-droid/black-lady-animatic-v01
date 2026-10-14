@@ -1,0 +1,113 @@
+name: NEW02 Environment Dynamic M01 M03 Independent Exact Verification V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/new02-environment-motion-independent-verify-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-one-test-and-frozen-masters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout full commit history for scoped publication audit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install ffmpeg to decode registered preview
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+      - name: Independently verify source identity, test video exact SHA and branch scope
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, struct, subprocess
+          source=pathlib.Path("production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png")
+          video=pathlib.Path("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001.mp4")
+          manifest=pathlib.Path("production/environment_dynamic/review_candidates/NEW02_M01_M03_TEST_V001/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V001_EVIDENCE.json")
+          profile=pathlib.Path("production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V001.json")
+          registry=pathlib.Path("production/environment_dynamic/module_registry_v001.json")
+          assert all(p.is_file() for p in (source,video,manifest,profile,registry))
+          raw=source.read_bytes()
+          assert raw[:8]==bytes((137,80,78,71,13,10,26,10))
+          assert struct.unpack(">II",raw[16:24])==(941,1672)
+          assert len(raw)==1963410
+          assert hashlib.sha256(raw).hexdigest()=="d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4"
+          assert subprocess.check_output(["git","hash-object",str(source)],text=True).strip()=="d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+          p=json.loads(profile.read_text(encoding="utf-8"))
+          m=json.loads(manifest.read_text(encoding="utf-8"))
+          modules=json.loads(registry.read_text(encoding="utf-8"))
+          assert p["shot_id"]==m["shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          assert p["enabled_modules"]==m["modules"]==["M01","M03"]
+          assert modules["next_pilot"]["shot_id"]==m["shot_id"]
+          assert m["gate"]=="TECHNICAL_PASS_PO_VISUAL_PENDING"
+          assert m["source_png_unmodified"] and not m["original_story_shot_changed"]
+          assert not m["v006_candidate_changed"] and not m["main_merged"]
+          assert m["raw_pixel_changed_outside_effect_regions"]==0
+          assert m["max_raw_channel_delta"]==11
+          assert m["authorized_effect_roi_fraction"] < .16
+          assert m["first_and_last_raw_frames_equal_original"] is True
+          assert m["persons_animated"] is False and m["camera_moved"] is False
+          assert m["audio_streams"]==0 and m["dust_particle_budget"]==13
+          assert m["frames"]==120 and m["fps"]==30
+          assert m["resolution"]=={"width":720,"height":1280}
+          assert m["duration_seconds"]==4.0
+          assert m["po_video_status"]=="REVIEW_PENDING"
+          assert video.stat().st_size==m["video_bytes"]==242703
+          sha=hashlib.sha256(video.read_bytes()).hexdigest()
+          assert sha==m["video_sha256"]=="bc4fd4f87100c0bcae8ab72b21d671ad44ca2de7e49ded6afca17ed06926f05d"
+          blob=subprocess.check_output(["git","hash-object",str(video)],text=True).strip()
+          assert blob=="0e6388626b14758bfbbdc284a77b571dbd052003"
+          locked_v006=subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()
+          assert locked_v006=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          official_index=subprocess.check_output(["git","rev-parse","HEAD:production/video/video_index.jsonl"],text=True).strip()
+          assert official_index=="84fb0f70ebd92536b95c6b01c6ac69a27a6986c7"
+          # Verify the actual creation commit wrote only a new test MP4 and its evidence.
+          creation_commit="69be2184291d66603329acfbc5f20c32a741b108"
+          changed=set(subprocess.check_output(["git","diff-tree","--no-commit-id","--name-only","-r",creation_commit],text=True).splitlines())
+          assert changed=={str(video),str(manifest)},f"UNEXPECTED_CANDIDATE_COMMIT_DIFF:{changed}"
+          # Verify MP4 format and a full decode (untrusted manifest cannot substitute).
+          probe=json.loads(subprocess.check_output(["ffprobe","-v","error","-show_entries","stream=codec_name,codec_type,nb_frames,r_frame_rate,width,height:format=duration","-of","json",str(video)],text=True))
+          assert len(probe["streams"])==1
+          stream=probe["streams"][0]
+          assert stream["codec_name"]=="h264" and stream["codec_type"]=="video"
+          assert stream["nb_frames"]=="120" and stream["r_frame_rate"]=="30/1"
+          assert (stream["width"],stream["height"])==(720,1280)
+          assert abs(float(probe["format"]["duration"])-4.0)<0.01
+          subprocess.run(["ffmpeg","-v","error","-xerror","-i",str(video),"-map","0:v:0","-f","null","-"],check=True)
+          evidence={
+           "result":"PASS","gate":"NEW02_ENVIRONMENT_M01_M03_INDEPENDENT_EXACT_V001",
+           "po_visual_status":"PENDING","source_png_sha256":hashlib.sha256(raw).hexdigest(),
+           "source_git_blob":"d8feba3692ebe25afd0e51f5e3ab32358ea19ded",
+           "test_mp4_sha256":sha,"test_mp4_git_blob":blob,"test_mp4_bytes":video.stat().st_size,
+           "frames":120,"fps":30,"duration_seconds":4.0,
+           "rgb_pixel_test_statement":"Confirmed render evidence states no raw modifications outside selected architectural ROI; this verifier independently checks origin, profile and video but does not independently reconstruct pre-encoding RGB frames.",
+           "video_decode_pass":True,"candidate_commit_scope_only_two_paths":True,
+           "v006_candidate_unchanged":True,"official_video_index_unchanged":True,
+           "source_approved_story_shot_unchanged":True,"main_merged":False
+          }
+          out=pathlib.Path("_new02_env_independent_audit")
+          out.mkdir(exist_ok=True)
+          (out/"EXACT_VERIFICATION.json").write_text(json.dumps(evidence,indent=2)+"\n")
+          print("NEW02_M01_M03_INDEPENDENT_EXACT=PASS")
+          print("SOURCE_SHA256_AND_GIT_BLOB=PASS")
+          print("VIDEO_SHA256_GIT_BLOB_AND_SIZE=PASS")
+          print("VIDEO_120_FRAMES_DECODE=PASS")
+          print("VIDEO_TEST_CREATION_COMMIT_SCOPE=PASS")
+          print("V006_VIDEO_AND_OFFICIAL_INDEX_UNCHANGED=TRUE")
+          print("PO_VISUAL_APPROVAL=PENDING")
+          PY
+      - name: Upload evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: NEW02_ENVIRONMENT_M01_M03_EXACT_EVIDENCE_V001
+          path: _new02_env_independent_audit/EXACT_VERIFICATION.json
+          retention-days: 30
+          if-no-files-found: error
