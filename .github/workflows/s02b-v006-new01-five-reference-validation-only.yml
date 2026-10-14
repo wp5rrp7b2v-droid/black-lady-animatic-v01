@@ -1,0 +1,70 @@
+name: S02B V006 NEW-01 Five Reference Validation Only
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-new01-five-reference-validation-only.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate-five-exact-references-no-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact validation commit
+        uses: actions/checkout@v4
+
+      - name: Enforce strict validation-only PO authorization
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path("production/bundle_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json")
+          spec=json.loads(path.read_text(encoding="utf-8"))
+          assert spec["bundle_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert spec["target_shot_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01"
+          assert spec["sequence_id"]=="S02-B"
+          assert spec["build_authorized"] is False
+          assert spec["approval_status"]=="PO_AUTHORIZED_VALIDATION_ONLY"
+          assert spec["formal_build_authorization"]["status"]=="NOT_AUTHORIZED"
+          assert spec["formal_build_authorization"]["candidate_generation_authorized"] is False
+          assert spec["formal_build_authorization"]["publication_authorized"] is False
+          assert spec["generation_interface_constraints"]["max_direct_referenced_images"]==5
+          assert spec["generation_interface_constraints"]["selected_direct_references"]==5
+          assert len(spec["references"])==5
+          assert [r["reference_id"] for r in spec["references"]]==[
+            "N20_APPROVED_STORY_SHOT",
+            "N19_APPROVED_STORY_SHOT",
+            "AST_IMG_000033",
+            "AST_IMG_000064",
+            "AST_IMG_000108",
+          ], "Reference-set identity/order changed"
+          for ref in spec["references"]:
+            assert ref["expected_sha256"] and ref["expected_byte_size"]>0 and ref["expected_git_blob"]
+          print("VALIDATION_ONLY_AUTHORIZATION=PASS")
+          print("EXPECTED_REFERENCE_COUNT=5")
+          print("BUILD_AUTHORIZED=FALSE")
+          print("CANDIDATE_GENERATION_AUTHORIZED=FALSE")
+          print("PUBLICATION_AUTHORIZED=FALSE")
+          PY
+
+      - name: Independently calculate exact bytes and verify registry or Story Shot index
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec production/bundle_specs/S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json \
+            --validate-only
+
+      - name: Assert no built bundle or upload artifact
+        shell: bash
+        run: |
+          test ! -e 'S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001'
+          test ! -e _reference_bundle
+          echo "BUNDLE_BUILD=SKIPPED"
+          echo "ARTIFACT_UPLOAD=NONE"
+          echo "WORK_IMAGE_GENERATION=NONE"
+          echo "EXACT_VALIDATION_ONLY=COMPLETE"
