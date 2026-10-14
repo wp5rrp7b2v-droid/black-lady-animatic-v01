@@ -1,0 +1,84 @@
+name: S02B V006 Cinematic Reconstructed Rough Cut V001 Review Only
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-cinematic-reconstructed-rough-render-v001.yml
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  render-v006-rough-review-noncanonical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v4
+
+      - name: Download immutable PO-approved N16-N17 V004 segment via historical run
+        uses: actions/download-artifact@v4
+        with:
+          name: S02B_N16_N17_V004_QUALITY_TEST
+          run-id: 38253241059
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _v006_rough_work
+
+      - name: Download approved full-length S02-B V001 original AAC source
+        uses: actions/download-artifact@v4
+        with:
+          name: S02_B_DIRECTOR_REVIEW_V001
+          run-id: 37894629986
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _v006_rough_work
+
+      - name: Verify download provenance, locked source and exact EDL coverage
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          from subprocess import check_output
+          folder=pathlib.Path("_v006_rough_work")
+          for f,expected in [
+            ("S02B_N16_N17_V004_QUALITY_TEST.mp4","7f30596a60ada54a8393f8207ad7f59f92702ca8278d0bd257fc258911877018"),
+            ("S02_B_DIRECTOR_REVIEW_V001.mp4","8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a")
+          ]:
+            p=folder/f
+            assert p.is_file(), "MISSING_SOURCE:" + f
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==expected,"BAD_HISTORICAL_SOURCE:"+f
+            print("VERIFIED_HISTORICAL_VIDEO_SOURCE",f,expected)
+          e=json.loads(pathlib.Path("production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V001.json").read_text())
+          chunks=e["timeline"]
+          assert chunks[0]["start_frame"]==0 and chunks[-1]["end_frame_exclusive"]==1927
+          assert all(a["end_frame_exclusive"]==b["start_frame"] for a,b in zip(chunks,chunks[1:]))
+          assert [s for s in chunks if s["id"]=="V006_NEW_01"][0]["source_shot_id"]=="S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01"
+          assert [s for s in chunks if s["id"]=="V006_NEW_02"][0]["source_shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          print("V006_EDL_FRAME_COVERAGE=1927_CONTIGUOUS")
+          print("V005_UNAVAILABLE_DO_NOT_CLAIM_BIT_EXACT_CONTINUITY=TRUE")
+          PY
+
+      - name: Install controlled image-render dependency
+        shell: bash
+        run: |
+          command -v ffmpeg
+          command -v ffprobe
+          python3 -m venv _v006_python
+          _v006_python/bin/pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Render noncanonical 64.25-second review video from verified approved sources
+        shell: bash
+        run: |
+          _v006_python/bin/python scripts/s02b_v006_editorial_rough_render_v001.py
+
+      - name: Upload review-only MP4 and technical report
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_CINEMATIC_RECONSTRUCTED_ROUGH_REVIEW_V001
+          path: |
+            _v006_rough_work/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_REVIEW_V001.mp4
+            _v006_rough_work/RENDER_MANIFEST.json
+          retention-days: 7
+          if-no-files-found: error
