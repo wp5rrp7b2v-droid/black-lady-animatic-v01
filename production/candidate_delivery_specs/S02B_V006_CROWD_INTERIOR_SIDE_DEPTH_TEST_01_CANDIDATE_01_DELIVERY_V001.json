@@ -21,12 +21,12 @@
     "artifact_id": 11887079610,
     "artifact_digest": "sha256:f3bf0ca2f4de860a4c47ba7276ff2b8653196c0bc1a747a5fbdfb8b9d9f084b7"
   },
-  "target_staging_path": "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群(1).png",
+  "target_staging_path": "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png",
   "allowed_actual_staging_paths": [
     "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群(1).png",
     "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png"
   ],
-  "actual_staging_path_status": "AWAITING_GITHUB_PNG_UPLOAD; APPROVED ORIGINAL BYTES KNOWN",
+  "actual_staging_path_status": "GITHUB_ORIGINAL_PNG_EXACT_INTAKE_VERIFIED",
   "downstream_canonical_target": null,
   "publication_status": "NOT AUTHORIZED / STAGING AND EXACT VERIFICATION ONLY",
   "editorial_test_status": "NOT PERFORMED / V005 REVIEW SOURCE UNCHANGED",
@@ -47,5 +47,16 @@
     "do_not_modify_any_approved_master": true,
     "do_not_register_story_shot": true,
     "do_not_merge_main": true
+  },
+  "actual_staging_filename": "城堡幽暗拱廊中的穿行人群.png",
+  "staging_name_disposition": "Original Chat filename has (1); actual GitHub staging filename omits (1), a validated alias. Original PNG unchanged. GitHub Actions Run 38558807970 independently verified original candidate SHA-256, Git blob, dimensions and bytes.",
+  "candidate_intake_verification": {
+    "result": "PASS",
+    "run_id": 38558807970,
+    "job_id": 115834485174,
+    "evidence_artifact_id": 11890872274,
+    "evidence_artifact_digest": "sha256:3eeb303da4d180672ac26c6cb3caa83a0bfa4db8c61c86547a83c35e02c9b18f",
+    "branch_upload_commit": "531a9ca805f9ac3975308e9ae284fffc1ac36971",
+    "exact_original_binary_verified": true
   }
 }
