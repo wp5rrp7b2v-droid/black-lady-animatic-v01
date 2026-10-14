@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+  "sequence_id": "S02-B",
+  "candidate_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01 Candidate 01 | Cohort Interior Side-Depth Camera",
+  "product_owner_status": "APPROVED",
+  "candidate_approval_scope": "2026-10-14 PO VISUAL APPROVAL OF EXACT USER-UPLOADED PNG ONLY; GITHUB STAGING INTAKE REQUIRED; CANONICAL PUBLICATION, STORY SHOT REGISTRATION AND VIDEO EDIT NOT AUTHORIZED",
+  "source_upload_filename": "城堡幽暗拱廊中的穿行人群(1).png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 1963410,
+    "sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+    "git_blob_sha1": "d8feba3692ebe25afd0e51f5e3ab32358ea19ded"
+  },
+  "bundle": {
+    "bundle_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001",
+    "validation_only_run_id": 38551894857,
+    "formal_workflow_run_id": 38553600591,
+    "artifact_id": 11887079610,
+    "artifact_digest": "sha256:f3bf0ca2f4de860a4c47ba7276ff2b8653196c0bc1a747a5fbdfb8b9d9f084b7"
+  },
+  "target_staging_path": "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群(1).png",
+  "allowed_actual_staging_paths": [
+    "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群(1).png",
+    "staging/story_shot_candidates/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01/城堡幽暗拱廊中的穿行人群.png"
+  ],
+  "actual_staging_path_status": "AWAITING_GITHUB_PNG_UPLOAD; APPROVED ORIGINAL BYTES KNOWN",
+  "downstream_canonical_target": null,
+  "publication_status": "NOT AUTHORIZED / STAGING AND EXACT VERIFICATION ONLY",
+  "editorial_test_status": "NOT PERFORMED / V005 REVIEW SOURCE UNCHANGED",
+  "editorial_v006_provisional": {
+    "start_frame": 1299,
+    "end_frame_exclusive": 1366,
+    "position": "N21→N22→NEW-02→N23",
+    "audio_unchanged": true,
+    "approved_N21_N22_N23_source_unchanged": true
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true,
+    "no_new_image_generation": true,
+    "do_not_modify_any_approved_master": true,
+    "do_not_register_story_shot": true,
+    "do_not_merge_main": true
+  }
+}
