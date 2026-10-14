@@ -1,0 +1,30 @@
+{
+  "gate": "N23_STAGE_A_CANDLELIGHT_CONTROL_TEST_V001",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "source_png": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+  "source_original_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+  "source_git_blob": "649ed97addf97f126a05e12d43325720a624ea19",
+  "source_original_bytes": 2697400,
+  "source_unmodified": true,
+  "render_type": "LOCALIZED_CANDLELIGHT_CONTROL_ONLY",
+  "human_walk": "NOT_IMPLEMENTED",
+  "neil_head_or_gaze_motion": "NOT_IMPLEMENTED",
+  "camera_motion": "NONE",
+  "video_only_reframe_to_720x1280": true,
+  "fps": 30,
+  "frames": 90,
+  "dimensions": [
+    720,
+    1280
+  ],
+  "duration_seconds": 3.0,
+  "raw_pixel_max_delta": 11,
+  "changed_pixels_outside_approved_light_regions": 0,
+  "max_changed_pixels_per_frame": 174915,
+  "video_sha256": "6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4",
+  "video_bytes": 169206,
+  "audio": "NONE",
+  "canonical_story_shot_changed": false,
+  "v006_candidate_changed": false,
+  "main_merged": false
+}
