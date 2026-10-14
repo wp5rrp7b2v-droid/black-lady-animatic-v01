@@ -1,0 +1,52 @@
+name: S02B Jun Acknowledgement 4-Reference Validation Only
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-jun-acknowledgement-validation-only.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate-four-exact-references:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout validation branch commit
+        uses: actions/checkout@v4
+
+      - name: Enforce validation-only authorization
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("production/bundle_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json")
+          spec = json.loads(path.read_text(encoding="utf-8"))
+          assert spec["build_authorized"] is False, "Formal build must not be authorized"
+          assert len(spec["references"]) == 4, "Exactly four canonical references expected"
+          assert spec["bundle_id"] == "S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert spec["formal_build_authorization"]["candidate_generation_authorized"] is False
+          assert spec["formal_build_authorization"]["publication_authorized"] is False
+          print("VALIDATION_ONLY_AUTHORIZATION_CHECK=PASS")
+          print("BUILD_AUTHORIZED=FALSE")
+          print("EXPECTED_REFERENCES=4")
+          PY
+
+      - name: Verify exact registered source bytes without building
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec production/bundle_specs/S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json \
+            --validate-only
+
+      - name: Assert zero built Bundle directories
+        shell: bash
+        run: |
+          test ! -e S02B_JUN_ACKNOWLEDGEMENT_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001
+          echo "BUNDLE_BUILD=SKIPPED"
+          echo "ARTIFACT_UPLOAD=NONE"
+          echo "WORK_IMAGE_GENERATION=NONE"
+          echo "VALIDATION_ONLY_FINISHED=TRUE"
