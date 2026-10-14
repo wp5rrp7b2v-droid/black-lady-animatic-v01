@@ -1,0 +1,132 @@
+name: S02B V006 NEW-02 Formal Five Reference Bundle V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-new02-formal-bundle-v001.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build-po-authorized-five-reference-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PO-authorized reference set
+        uses: actions/checkout@v4
+
+      - name: Enforce strictly limited PO authority and exact reference identities
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path("production/bundle_specs/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          assert s["bundle_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert s["target_shot_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01"
+          assert s["sequence_id"]=="S02-B"
+          assert s["build_authorized"] is True
+          assert s["approval_status"]=="PO_AUTHORIZED_FORMAL_BUNDLE_BUILD_ONLY"
+          assert s["generation_interface_constraints"]["max_direct_referenced_images"]==5
+          assert s["generation_interface_constraints"]["selected_direct_references"]==5
+          refs=s["references"]
+          assert len(refs)==5
+          assert [r["reference_id"] for r in refs]==[
+            "N21_APPROVED_STORY_SHOT",
+            "N22_APPROVED_STORY_SHOT",
+            "N23_APPROVED_STORY_SHOT",
+            "AST_IMG_000108",
+            "BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q"
+          ], "Five reference IDs/order changed"
+          assert refs[0]["expected_width"]==941 and refs[0]["expected_height"]==1671, "N21 approved dimension exception must not be altered"
+          assert refs[4]["source_type"]=="CONTROLLED_REFERENCE"
+          assert refs[4]["manifest_path"]=="production/human_references/generic_guest_crowd_core_set_v001/BLACK_LADY_GENERIC_GUEST_CROWD_CORE_SET_V001_REAR_3Q.manifest.json"
+          auth=s["formal_build_authorization"]
+          assert auth["status"]=="PRODUCT_OWNER_AUTHORIZED"
+          assert auth["scope"]=="FORMAL_BUNDLE_V001_BUILD_AND_ARTIFACT_5_OF_5_EXACT_BINARY_VERIFICATION_ONLY"
+          assert auth["precondition_validation_only_run_id"]==38551894857
+          assert auth["precondition_validation_only_result"]=="5/5 EXACT PASS / ZERO ARTIFACT"
+          for field in ["candidate_generation_authorized","publication_authorized","story_shot_registration_authorized","video_edit_authorized","main_merge_authorized"]:
+            assert auth[field] is False, field
+          print("NEW02_FORMAL_BUNDLE_AUTHORIZATION=PASS")
+          print("VALIDATION_ONLY_38551894857_PRECONDITION=PASS")
+          print("N21_APPROVED_941x1671_DIMENSION_EXCEPTION=PROTECTED")
+          print("CONTROLLED_REFERENCE_MANIFEST_AUTHORITY=ENFORCED")
+          print("WORK_GENERATION_ALLOWED=FALSE")
+          print("VIDEO_EDIT_ALLOWED=FALSE")
+          print("PUBLICATION_ALLOWED=FALSE")
+          print("MAIN_MERGE_ALLOWED=FALSE")
+          PY
+
+      - name: Build exact five source references into formal Bundle
+        shell: bash
+        run: |
+          python3 scripts/story_shot_reference_bundle_builder_v1.py \
+            --spec production/bundle_specs/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json
+
+      - name: Independently verify copied PNG payloads and write authorization-scope fence
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,struct,subprocess
+          folder=pathlib.Path("S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001")
+          spec=json.loads(pathlib.Path("production/bundle_specs/S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001.json").read_text(encoding="utf-8"))
+          manifest=json.loads((folder/"delivery_manifest.json").read_text(encoding="utf-8"))
+          assert manifest["bundle_id"]==spec["bundle_id"]=="S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001"
+          assert manifest["target_shot_id"]==spec["target_shot_id"]
+          assert manifest["overall_result"]=="PASS"
+          assert manifest["all_reference_checks_pass"] is True
+          assert manifest["reference_count"]==len(manifest["references"])==len(spec["references"])==5
+          assert (folder/"WORK_HANDOFF.md").is_file()
+          assert len(list(folder.rglob("*.png")))==5
+          assert [r["reference_id"] for r in manifest["references"]]==[r["reference_id"] for r in spec["references"]]
+          assert manifest["references"][0]["dimensions"]=={"width":941,"height":1671}
+          for ref,sref in zip(manifest["references"],spec["references"]):
+            assert ref["canonical_path"]==sref["canonical_path"]
+            assert ref["expected_sha256"]==sref["expected_sha256"]
+            assert ref["expected_git_blob"]==sref["expected_git_blob"]
+            assert ref["expected_byte_size"]==sref["expected_byte_size"]
+            assert ref["png_signature"]=="PASS" and ref["byte_identical_copy"]=="PASS"
+            src=pathlib.Path(ref["canonical_path"])
+            dst=folder/ref["bundle_path"]
+            assert src.is_file() and dst.is_file() and dst.suffix.lower()==".png"
+            a,b=src.read_bytes(),dst.read_bytes()
+            assert a==b, "Copied reference bytes differ from canonical"
+            assert b[:8]==bytes((137,80,78,71,13,10,26,10))
+            width,height=struct.unpack(">II",b[16:24])
+            actual_sha=hashlib.sha256(b).hexdigest()
+            actual_blob=hashlib.sha1(("blob "+str(len(b))+"\0").encode("ascii")+b).hexdigest()
+            assert len(b)==ref["expected_byte_size"]==ref["actual_byte_size"]
+            assert actual_sha==ref["expected_sha256"]==ref["computed_sha256"]
+            assert actual_blob==ref["expected_git_blob"]==ref["actual_git_blob"]
+            assert (width,height)==(ref["dimensions"]["width"],ref["dimensions"]["height"])
+            print(f"EXACT_REFERENCE_PASS={ref['reference_id']} bytes={len(b)} sha256={actual_sha} blob={actual_blob} dimensions={width}x{height}")
+          assert not list(folder.rglob("*.mp4")) and not list(folder.rglob("*.gif"))
+          scope=(
+            "# PO authorization scope for this exact NEW-02 reference bundle\n\n"
+            "Only the five approved original reference PNGs are delivered.\n"
+            "**Formal Bundle and Artifact exact verification only.**\n"
+            "**Work image generation is NOT authorized** by this run, even if the generic "
+            "delivery_manifest.json technical field says generation_allowed=true.\n"
+            "No candidate PNG, GIF, MP4, canonical publication, Story Shot registration, "
+            "video master change, or main merge is permitted in this gate.\n"
+            "Further Work image generation requires a separate PO approval and exactly one "
+            "941x1672 PNG per round.\n"
+            "Preserve N21 source exception 941x1671 exactly.\n"
+          )
+          (folder/"PO_AUTHORIZATION_SCOPE.md").write_text(scope,encoding="utf-8")
+          print("NEW02_PREUPLOAD_EXACT_BINARY=PASS_5_OF_5")
+          print("BUNDLE_IMAGE_COUNT=5")
+          print("N21_SOURCE_DIMENSIONS=941x1671")
+          print("CANDIDATE_PNG_GENERATED=FALSE")
+          PY
+
+      - name: Upload formal five-reference Bundle artifact only
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001
+          path: S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01_REFERENCE_DELIVERY_BUNDLE_V001/
+          retention-days: 7
+          if-no-files-found: error
