@@ -1,0 +1,37 @@
+{
+  "gate": "NEW02_M01_N23_PACED_CANDLELIGHT_CONTROL_V003",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "source_png": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "source_original_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_git_blob": "d8feba3692ebe25afd0e51f5e3ab32358ea19ded",
+  "source_original_bytes": 1963410,
+  "source_unmodified": true,
+  "render_type": "EXACT_N23_PACED_LOCALIZED_CANDLELIGHT_CONTROL_ONLY",
+  "temporal_algorithm_reference": "scripts/n23_candlelight_motion_control_test_v001.py",
+  "dust_particles": 0,
+  "enabled_modules": [
+    "M01"
+  ],
+  "first_last_raw_equal_original": true,
+  "human_walk": "NOT_IMPLEMENTED",
+  "neil_head_or_gaze_motion": "NOT_IMPLEMENTED",
+  "camera_motion": "NONE",
+  "video_only_reframe_to_720x1280": true,
+  "fps": 30,
+  "frames": 90,
+  "dimensions": [
+    720,
+    1280
+  ],
+  "duration_seconds": 3.0,
+  "raw_pixel_max_delta": 11,
+  "changed_pixels_outside_approved_light_regions": 0,
+  "max_changed_pixels_per_frame": 74770,
+  "authorized_candle_mask_pixels": 74770,
+  "video_sha256": "64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0",
+  "video_bytes": 175626,
+  "audio": "NONE",
+  "canonical_story_shot_changed": false,
+  "v006_candidate_changed": false,
+  "main_merged": false
+}
