@@ -1,0 +1,41 @@
+{
+  "schema": "ENVIRONMENT_DYNAMIC_TEST_EVIDENCE_V002",
+  "profile_id": "NEW02_M01_M03_TEST_V002",
+  "gate": "TECHNICAL_PASS_PO_VISUAL_PENDING",
+  "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+  "modules": [
+    "M01",
+    "M03"
+  ],
+  "source_original": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "source_png_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_git_blob": "d8feba3692ebe25afd0e51f5e3ab32358ea19ded",
+  "source_png_bytes": 1963410,
+  "source_png_unmodified": true,
+  "video_path": "_environment_dynamic_preview/NEW02_M01_M03_ENVIRONMENT_MOTION_TEST_V002.mp4",
+  "video_sha256": "f87a7ac14c10c643b6b0e83f80181865caec83211a2ab8cc18d21a0b85210a97",
+  "video_bytes": 287168,
+  "frames": 120,
+  "fps": 30,
+  "resolution": {
+    "width": 720,
+    "height": 1280
+  },
+  "duration_seconds": 4.0,
+  "raw_pixel_changed_outside_effect_regions": 0,
+  "max_raw_channel_delta": 32,
+  "ramp_seconds": 0.32,
+  "max_changed_pixels_in_single_frame": 77166,
+  "authorized_effect_roi_pixels": 96146,
+  "authorized_effect_roi_fraction": 0.10432508680555555,
+  "first_and_last_raw_frames_equal_original": true,
+  "dust_particle_budget": 21,
+  "audio_streams": 0,
+  "persons_animated": false,
+  "camera_moved": false,
+  "original_story_shot_changed": false,
+  "v006_candidate_changed": false,
+  "main_merged": false,
+  "encoding_note": "H264 has normal lossy pixel changes; pre-encoding RGB was altered only in explicitly authorized architecture/dust areas",
+  "po_video_status": "REVIEW_PENDING"
+}
