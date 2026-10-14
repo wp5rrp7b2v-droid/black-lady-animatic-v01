@@ -326,3 +326,12 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - SCENE_CASTLE_ENTRANCE / SCENE_FIRST_HALL / SCENE_MANOR_GATE now resolve to V002 CURRENT; their V001 binaries remain preserved as SUPERSEDED historical authorities.
 - No production blocker is active.
 
+## P0.3 Current Validation Note｜2026-10-14 EOD（supersedes older N24 UNSTARTED/29 or 32-shot current wording）
+
+- P0.1 / P0.2 remain **PASS**; P0.3 **IN PROGRESS / NOT YET VALIDATED**. Do not treat one approved shot/effect or a provisional rough cut as P0.3 Gate PASS.
+- On review branch `review/s02b-jun-nod-insert-20261014`, NEW-01 and NEW-02 both passed original PNG exact-binary canonical publication + Story Shot registration verification; **34 approved Story Shot Index entries on review branch**, versus previously 32 (N24/N25/N26 historical "UNSTARTED" notes are superseded for this review branch).
+- The official Video Index remains **3 approved/current** videos; S02-B V001 parent continues protected. S02-B V006 has **1 review candidate registered**, SHA256 `7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402`; registration exact verification Run `38572320667` PASS. The candidate is `RECONSTRUCTED_ROUGH_REVIEW_NOT_EXACT_V005`, not PO final video approval.
+- Environment enhancement M01 N23 3s control and NEW-02 V003 N23-paced 3s control both independently machine-verified **and** separately PO visually approved. V003 Run `38587113938` SUCCESS, SHA256 `64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0`; this verifies the **micro-candlelight effect only**. It does not imply moving character animation, V006 media integration, source-audio syllable alignment or a new official video master.
+- M03 dust remains **HOLD / NOT APPROVED** after overly weak V001 and overly strong/fast V002; approved V003 removed dust entirely. M02 shadows, M04 haze and M05 ambience sound are **DESIGN ONLY**.
+- Approval/verification chain remains separate: exact source identity, candidate registration, video PO review, final Video Index publication, P0.3 Gate approval, and main merge are different authorities. **Main merge NOT authorized; current data remains on review branch until further explicit PO decision.**
+- Details: `p0_3_daily_closeout_2026-10-14.md`, `new02_m01_n23_paced_v003_po_visual_approval_2026-10-14.md`, `ENVIRONMENT_DYNAMIC_ENHANCEMENT_FRAMEWORK_V001.md`.
