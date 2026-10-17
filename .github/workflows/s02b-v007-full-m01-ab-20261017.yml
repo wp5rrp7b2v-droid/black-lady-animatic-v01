@@ -1,0 +1,109 @@
+name: S02B V007 Full M01 Coverage and AB Review V001
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v007-full-m01-ab-20261017.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: s02b-v007-full-m01-ab-review-v001
+  cancel-in-progress: false
+
+jobs:
+  render-exactly-two-po-review-mp4s:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout active review branch only
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Install FFmpeg and scientific image dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -hide_banner -filters | grep drawtext
+
+      - name: Render exactly one V007 full M01 MP4 and one full synchronized AB MP4
+        run: |
+          python3 scripts/s02b_v007_full_m01_with_ab_20261017.py
+
+      - name: Independently validate renderer output and all 17 node decisions
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          d=pathlib.Path("_s02b_v007_full_m01")
+          report=json.loads((d/"S02_B_V007_FULL_M01_AND_AB_QC_V001.json").read_text())
+          assert report["status"]=="TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING"
+          assert report["base_V006_exact_sha256"]=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert report["total_nodes"]==17 and report["m01_enabled_nodes"]==15
+          assert report["eligible_coverage_frames"]==1433
+          assert report["exempt_nodes"]==["N16_PART_2","N17"]
+          assert report["audio_packet_count"]==3013
+          assert report["v007_original_AAC_packet_contents_and_timestamps_identical"] is True
+          assert report["AB_original_AAC_packet_contents_and_timestamps_identical"] is True
+          assert report["globally_modulated_frame_count"]==0
+          assert report["m02_m03_m04_m05_enabled"] is False
+          for name in ("v007","ab"):
+              details=report[name];path=d/details["file"]
+              assert path.is_file() and path.stat().st_size==details["bytes"]
+              h=hashlib.sha256(path.read_bytes()).hexdigest()
+              assert h==details["sha256"]
+              print("INDEPENDENT_RENDER_BINARY_PASS",name,details["file"],details["bytes"],h)
+          for sid,x in report["node_exact_raw_region_protection_and_boundaries"].items():
+              assert x["first_raw_frame_matches_source"] is True
+              assert x["last_raw_frame_matches_source"] is True
+              assert x["changed_pixels_outside_mask"]==0
+              assert x["max_raw_rgb_delta"]<=12
+              assert x["frames"]==x["end_frame_exclusive"]-x["start_frame"]
+          assert subprocess.check_output(["git","status","--porcelain","--untracked-files=no"],text=True).strip()==""
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/review_m01_v001/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4"],text=True).strip()=="97cbe97837542c182f700822cd9b4c4a9ecec698"
+          print("ORIGINAL_APPROVED_ASSETS_UNMODIFIED_AND_SHOT_MASKS_QC_PASS")
+          PY
+
+      - name: Save review-only V007 and AB files to GitHub for direct download
+        run: |
+          set -euo pipefail
+          dest=production/video_candidates/review_m01_v001/v007_full_coverage_review_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _s02b_v007_full_m01/S02_B_V007_FULL_M01_CANDLELIGHT_REVIEW_V001.mp4 "$dest/"
+          cp _s02b_v007_full_m01/S02_B_V007_AB_ORIGINAL_VS_FULL_M01_REVIEW_V001.mp4 "$dest/"
+          cp _s02b_v007_full_m01/S02_B_V007_FULL_M01_AND_AB_QC_V001.json "$dest/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add "$dest"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==3,p
+          assert all(x.startswith("production/video_candidates/review_m01_v001/v007_full_coverage_review_v001/") for x in p)
+          assert len([x for x in p if x.endswith(".mp4")])==2
+          assert len([x for x in p if x.endswith(".json")])==1
+          PY
+          git commit -m "Store V007 full-coverage M01 and synchronous A/B review MP4s with exact QC"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "CANDIDATE_REVIEW_ONLY=TRUE"
+          echo "OFFICIAL_VIDEO_INDEX_UNMODIFIED=TRUE"
+          echo "MAIN_MERGE=FALSE"
+
+      - name: Upload both directly viewable review MP4s and QC as one artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_B_V007_FULL_M01_AND_AB_REVIEW_V001
+          path: |
+            production/video_candidates/review_m01_v001/v007_full_coverage_review_v001/S02_B_V007_FULL_M01_CANDLELIGHT_REVIEW_V001.mp4
+            production/video_candidates/review_m01_v001/v007_full_coverage_review_v001/S02_B_V007_AB_ORIGINAL_VS_FULL_M01_REVIEW_V001.mp4
+            production/video_candidates/review_m01_v001/v007_full_coverage_review_v001/S02_B_V007_FULL_M01_AND_AB_QC_V001.json
+          retention-days: 7
+          if-no-files-found: error
