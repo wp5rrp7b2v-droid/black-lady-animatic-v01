@@ -1,0 +1,67 @@
+name: M01 Stage A1 N17 Late Candle Source Evidence V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-n17-source-evidence-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-n17-source-evidence-v001
+  cancel-in-progress: false
+jobs:
+  exact-source-late-flame-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout M01 isolated engine calibration branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install independent source-frame imaging
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Extract 8-frame N17 sconce timeline and person-mask source
+        run: python3 scripts/m01_a1_n17_source_timeline_v001.py
+      - name: Independently verify data and preserve on branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_source_diagnostic_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_a1_n17_source_localization/* "$dest/"
+          python3 - <<'PY'
+          import base64,hashlib,json,pathlib
+          d=pathlib.Path("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_source_diagnostic_v001")
+          j=json.loads((d/"M01_A1_N17_SOURCE_DIAGNOSTIC_V001.json").read_text())
+          assert j["status"]=="SOURCE_FRAMES_EXTRACTED_NOT_CANDLE_GROUND_TRUTH"
+          assert len(j["frames"])==8 and sum(f["frame_hash_validated"] for f in j["frames"])==3
+          assert j["original_N17_mid_light_markers"]==0 and j["no_flame_position_approved"]
+          assert j["no_video_rendered"] and j["no_main_merge"]
+          for pkey,hkey in (("timeline_image","timeline_image_sha256"),("person_overlay_image","person_overlay_image_sha256")):
+            p=d/j[pkey]
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==j[hkey]
+            assert base64.b64decode((d/(p.name+".b64.txt")).read_text().strip())==p.read_bytes()
+          print("EXACT_N17_SOURCE_AND_PROTECTION_DIAGNOSTIC_QC_PASS")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          git commit -m "Record N17 8-frame sconce arrival and face protection evidence for A1 flame localization"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "CANDLE_GT_STILL_PENDING; MASTER_UNCHANGED"
+      - name: Upload candle source evidence for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_N17_SOURCE_EVIDENCE_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_source_diagnostic_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_source_diagnostic_v001/*.json
+          retention-days: 14
+          if-no-files-found: error
