@@ -284,7 +284,7 @@
         "approval_scope": "User: 我觉得这次的效果可以; visual style accepted for N23 and NEW02 V012 only, no full engine/batch approval"
       },
       "engine_v1_3": {
-        "status": "UNIFIED_ONE_ALGORITHM_CORE_READY__N23_NEW02_FLAME_CALIBRATION_PENDING",
+        "status": "V013_WARM_PIXEL_CANDIDATES_REJECTED_BY_PO_WRONG_FLAME_ALIGNMENT",
         "run_id": 39043964649,
         "work": "N17,N23,NEW02 use identical independent candle signal and linked local halo; flame core masks are provenance-dependent not a different candle mode",
         "flame_profiles": [
@@ -303,7 +303,9 @@
         "technical_gate_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_UNIFIED_CANDLE_ENGINE_V013_SINGLE_ALGORITHM_EXECUTION_2026-10-17.md",
         "batch_release": false,
         "main_merge": false,
-        "next": "Validate actual visible flames in N23/NEW02 and safe core masks then render single-engine A/B; followed by untested S02-B and cross-scene holdout"
+        "next": "Inspect exact original N23 and NEW02 image visually; correct only verifiable flame cores, don't reuse warm-pixel maxima as source points.",
+        "po_alignment_feedback": "火苗没有定位准确",
+        "previous_candidate_status": "INVALID_FOR_FLAME_REGISTRATION_NO_PROMOTION"
       }
     },
     {
