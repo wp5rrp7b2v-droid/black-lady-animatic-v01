@@ -1,0 +1,89 @@
+name: M01 Stage A1 Priority Flame and Person Calibration V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-priority-calibration-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-priority-calibration-v001
+  cancel-in-progress: false
+jobs:
+  high-resolution-source-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout immutable Stage A machine benchmark sources
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install exact video decoding and original-mask imaging
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Generate N24, NEW-01 and N18 source and person-mask plates
+        run: |
+          python3 scripts/m01_stage_a1_priority_calibration_evidence_v001.py
+      - name: Independently verify nine exact source frame hashes and contact sheet binaries
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,hashlib,base64
+          root=pathlib.Path("_m01_stage_a1_priority_calibration")
+          j=json.loads((root/"M01_STAGE_A1_PRIORITY_CALIBRATION_EVIDENCE_V001.json").read_text())
+          assert j["schema"]=="M01_STAGE_A1_PRIORITY_CALIBRATION_EVIDENCE_V001"
+          assert j["priority_shots"]==["N24","V006_NEW_01","N18"]
+          assert j["light_proposals_not_ground_truth"] and j["person_masks_not_ground_truth"]
+          assert j["no_video_rendered"] and j["no_main_merge"]
+          assert len(j["cases"])==3
+          frames=0
+          for c in j["cases"]:
+              assert not c["source_geometry_approved"] and not c["human_protection_approved"]
+              assert len(c["three_sample_frames"])==3
+              frames+=3
+              for name,sha in (("zoom_plate","zoom_plate_sha256"),
+                               ("mid_zoom","mid_zoom_sha256"),
+                               ("person_fullframe","person_fullframe_sha256")):
+                  p=root/c[name]
+                  b=p.read_bytes()
+                  assert hashlib.sha256(b).hexdigest()==c[sha]
+                  assert base64.b64decode((root/(p.name+".b64.txt")).read_text().strip())==b
+              assert all(x["flame_core_ground_truth"]=="PENDING" and x["human_protection_ground_truth"]=="PENDING" for x in c["three_sample_frames"])
+          assert frames==9
+          print("EXACT_N24_NEW01_N18_CANDIDATE_EVIDENCE_PASS_NO_GROUND_TRUTH_APPROVAL")
+          PY
+      - name: Preserve A1 draft evidence on independent engine branch
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_priority_calibration_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_stage_a1_priority_calibration/* "$dest/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==19,p
+          assert all(s.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_priority_calibration_v001/") for s in p)
+          assert len([x for x in p if x.endswith(".jpg")])==9
+          assert len([x for x in p if x.endswith(".b64.txt")])==9
+          assert len([x for x in p if x.endswith(".json")])==1
+          PY
+          git commit -m "Record Stage A1 N24 NEW01 N18 exact source zoom panels and person mask evidence without approving ground truth"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "M01_ENGINE_BATCH_HOLD_REMAINS"
+      - name: Upload Stage A1 visual review sheets
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_PRIORITY_CALIBRATION_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_priority_calibration_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_priority_calibration_v001/*.json
+          retention-days: 14
+          if-no-files-found: error
