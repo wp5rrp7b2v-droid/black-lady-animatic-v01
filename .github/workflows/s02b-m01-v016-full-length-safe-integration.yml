@@ -1,0 +1,101 @@
+name: S02-B Full-Length M01 V016 Safe Registered Integration AB
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/s02b-m01-v016-full-length-safe-integration.yml
+permissions:
+  contents: write
+concurrency:
+  group: s02b-m01-v016-registered-full-review
+  cancel-in-progress: false
+jobs:
+  apply-one-engine-to-full-v006-timeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout immutable source and M01 engine feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Install video encoder and pixel runtime
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Run unchanged universal core regression and approved-source checks
+        run: |
+          python3 scripts/test_m01_engine_v1.py
+          python3 - <<'PY'
+          import json,pathlib,hashlib
+          root=pathlib.Path(".")
+          edl=json.loads((root/"production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V001.json").read_text())["timeline"]
+          assert len(edl)==17 and edl[-1]["end_frame_exclusive"]==1927
+          assert all(a["end_frame_exclusive"]==b["start_frame"] for a,b in zip(edl,edl[1:]))
+          source=root/"production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"
+          assert hashlib.sha256(source.read_bytes()).hexdigest()=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          for shot,n in (("N23",5),("NEW02",11)):
+            p=json.loads((root/f"production/environment_dynamic/m01_engine_v1/profiles/{shot}_UNIFIED_CANDLE_PO_REVIEW_V015.json").read_text())
+            assert len(p["static_core_masks"]["flame_ids"])==n
+            assert p["release_allowed"] is False
+          print("S02B_M01_V016_EDL_AND_PINNED_ASSETS_PASS")
+          PY
+      - name: Render full S02-B preview and original-versus-M01 A/B with exact AAC
+        run: |
+          python3 -u scripts/s02b_m01_v016_full_length_safe_integration.py
+      - name: Independently read full-length QC and video file hashes
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,subprocess
+          root=pathlib.Path("_m01_s02b_v016_full_integration")
+          qc=json.loads((root/"S02_B_M01_V016_INTEGRATION_QC.json").read_text())
+          assert qc["status"]=="FULL_LENGTH_VIDEO_RENDERED_THREE_REGISTERED_LIGHTING_NODES_FOURTEEN_PASS_THROUGH_PENDING_PO_AND_CALIBRATION"
+          assert qc["source_exact_sha256"]=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert qc["total_timeline_nodes"]==17
+          assert set(qc["registered_nodes"])=={"N17","V006_NEW_02","N23"}
+          assert qc["pass_through_unverified_count"]==14
+          assert qc["total_frames"]==1927 and qc["fps"]==30
+          assert qc["audio_identical_source_AAC_packet_hash_and_timestamps"]
+          assert qc["registered_coverage_percent"]<40
+          assert qc["all_17_shots_have_real_flame_effects"] is False
+          assert qc["old_v007_po_rejected_guessed_masks_reused"] is False
+          assert not qc["full_s02b_m01_coverage_approved"]
+          assert not qc["PO_final_full_video_approval"]
+          assert qc["no_canonical_publication"] and qc["no_main_merge"]
+          for key in ("preview","ab"):
+            item=qc[key];p=root/item["file"]
+            assert p.stat().st_size==item["bytes"]
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==item["sha256"]
+            assert p.stat().st_size<90_000_000,("VIDEO_TOO_LARGE_FOR_GITHUB",p)
+          print("S02B_V016_FULL_SOURCE_AND_AUDIO_A_B_BINARIES_VERIFIED")
+          PY
+      - name: Publish full review movies only on separate feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/review_candidates/S02_B_M01_V016_FULL_LENGTH_REGISTERED_CANDLE_REVIEW
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_s02b_v016_full_integration/*.mp4 _m01_s02b_v016_full_integration/*.json "$dest/"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          python3 - <<'PY'
+          import subprocess
+          files=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(files)==3 and sum(x.endswith(".mp4") for x in files)==2 and sum(x.endswith(".json") for x in files)==1,files
+          assert all(x.startswith("production/environment_dynamic/review_candidates/S02_B_M01_V016_FULL_LENGTH_REGISTERED_CANDLE_REVIEW/") for x in files)
+          PY
+          git commit -m "Render S02-B full-length M01 universal-engine 3 registered shots plus 14 safe raw pass-through segments and complete 64s AB"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Expose full-review media in workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_B_M01_V016_1927_FRAME_REVIEW_AND_AB
+          path: |
+            production/environment_dynamic/review_candidates/S02_B_M01_V016_FULL_LENGTH_REGISTERED_CANDLE_REVIEW/*.mp4
+            production/environment_dynamic/review_candidates/S02_B_M01_V016_FULL_LENGTH_REGISTERED_CANDLE_REVIEW/*.json
+          retention-days: 14
+          if-no-files-found: error
