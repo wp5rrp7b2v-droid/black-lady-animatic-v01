@@ -1,0 +1,260 @@
+{
+  "task": "S02_B_V007_FULL_M01_CANDLELIGHT_AND_AB_REVIEW_V001",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "base_V006_exact_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "baseline": "N23_AND_NEW02_V003_PO_ACCEPTED_M01_ONLY",
+  "shot_review_evidence": "production/video_candidates/review_m01_v001/analysis/S02B_V007_SHOT_CONTACT_SHEET_V001.jpg.b64.txt",
+  "total_nodes": 17,
+  "m01_enabled_nodes": 15,
+  "exempt_nodes": [
+    "N16_PART_2",
+    "N17"
+  ],
+  "eligible_coverage_frames": 1433,
+  "eligible_coverage_seconds": 47.766666666666666,
+  "overall_timeline_coverage_percent": 74.364,
+  "source_shots_with_no_supported_practical": {
+    "N16_PART_2": "sunlight dominates; no identified candle in reviewed mid-frame",
+    "N17": "daylit character close-up without identified in-frame flame"
+  },
+  "all_m01_masks_are_local_architecture_or_candle_regions": true,
+  "globally_modulated_frame_count": 0,
+  "m02_m03_m04_m05_enabled": false,
+  "frame_count": 1927,
+  "fps": 30,
+  "duration_seconds": 64.25,
+  "audio_packet_count": 3013,
+  "v007_original_AAC_packet_contents_and_timestamps_identical": true,
+  "AB_original_AAC_packet_contents_and_timestamps_identical": true,
+  "v007": {
+    "file": "S02_B_V007_FULL_M01_CANDLELIGHT_REVIEW_V001.mp4",
+    "bytes": 8900147,
+    "sha256": "7d4b5ebcea3bbe08b75dfc7272aab3c829fb4b186b42fae1fae6a271a48ab34e",
+    "dimensions": [
+      720,
+      1280
+    ]
+  },
+  "ab": {
+    "file": "S02_B_V007_AB_ORIGINAL_VS_FULL_M01_REVIEW_V001.mp4",
+    "bytes": 12684537,
+    "sha256": "4efe9e63740633d5e7348632f720ffaabd1656ef3c03d0a976de456bb92c26de",
+    "dimensions": [
+      1440,
+      1352
+    ]
+  },
+  "node_exact_raw_region_protection_and_boundaries": {
+    "N16_PART_1": {
+      "start_frame": 0,
+      "end_frame_exclusive": 164,
+      "enabled": true,
+      "mask_pixels": 13138,
+      "frames": 164,
+      "max_raw_rgb_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N16_PART_2": {
+      "start_frame": 164,
+      "end_frame_exclusive": 281,
+      "enabled": false,
+      "mask_pixels": 0,
+      "frames": 117,
+      "max_raw_rgb_delta": 0,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": "sunlight dominates; no identified candle in reviewed mid-frame"
+    },
+    "N17": {
+      "start_frame": 281,
+      "end_frame_exclusive": 658,
+      "enabled": false,
+      "mask_pixels": 0,
+      "frames": 377,
+      "max_raw_rgb_delta": 0,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": "daylit character close-up without identified in-frame flame"
+    },
+    "N18": {
+      "start_frame": 658,
+      "end_frame_exclusive": 839,
+      "enabled": true,
+      "mask_pixels": 29795,
+      "frames": 181,
+      "max_raw_rgb_delta": 9,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N19": {
+      "start_frame": 839,
+      "end_frame_exclusive": 949,
+      "enabled": true,
+      "mask_pixels": 18718,
+      "frames": 110,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N20_FIRST": {
+      "start_frame": 949,
+      "end_frame_exclusive": 996,
+      "enabled": true,
+      "mask_pixels": 69723,
+      "frames": 47,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "V006_NEW_01": {
+      "start_frame": 996,
+      "end_frame_exclusive": 1078,
+      "enabled": true,
+      "mask_pixels": 76490,
+      "frames": 82,
+      "max_raw_rgb_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "JUN_APPROVED_REACTION": {
+      "start_frame": 1078,
+      "end_frame_exclusive": 1114,
+      "enabled": true,
+      "mask_pixels": 52427,
+      "frames": 36,
+      "max_raw_rgb_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N21": {
+      "start_frame": 1114,
+      "end_frame_exclusive": 1222,
+      "enabled": true,
+      "mask_pixels": 53794,
+      "frames": 108,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N22_FIRST": {
+      "start_frame": 1222,
+      "end_frame_exclusive": 1299,
+      "enabled": true,
+      "mask_pixels": 47817,
+      "frames": 77,
+      "max_raw_rgb_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "V006_NEW_02": {
+      "start_frame": 1299,
+      "end_frame_exclusive": 1366,
+      "enabled": true,
+      "mask_pixels": 74770,
+      "frames": 67,
+      "max_raw_rgb_delta": 11,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N23": {
+      "start_frame": 1366,
+      "end_frame_exclusive": 1448,
+      "enabled": true,
+      "mask_pixels": 174950,
+      "frames": 82,
+      "max_raw_rgb_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "A06": {
+      "start_frame": 1448,
+      "end_frame_exclusive": 1575,
+      "enabled": true,
+      "mask_pixels": 44898,
+      "frames": 127,
+      "max_raw_rgb_delta": 11,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N24": {
+      "start_frame": 1575,
+      "end_frame_exclusive": 1694,
+      "enabled": true,
+      "mask_pixels": 55829,
+      "frames": 119,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N25": {
+      "start_frame": 1694,
+      "end_frame_exclusive": 1810,
+      "enabled": true,
+      "mask_pixels": 55168,
+      "frames": 116,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "NING_REACTION_APPROVED": {
+      "start_frame": 1810,
+      "end_frame_exclusive": 1863,
+      "enabled": true,
+      "mask_pixels": 40997,
+      "frames": 53,
+      "max_raw_rgb_delta": 12,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    },
+    "N26": {
+      "start_frame": 1863,
+      "end_frame_exclusive": 1927,
+      "enabled": true,
+      "mask_pixels": 57341,
+      "frames": 64,
+      "max_raw_rgb_delta": 11,
+      "changed_pixels_outside_mask": 0,
+      "first_raw_frame_matches_source": true,
+      "last_raw_frame_matches_source": true,
+      "exemption_reason": null
+    }
+  },
+  "source_mp4_unchanged": true,
+  "approved_PNGs_unchanged": true,
+  "official_video_index_unchanged": true,
+  "no_canonical_publication": true,
+  "no_main_merge": true,
+  "po_approved_final_video": false,
+  "note": "All 17 shots individually evaluated; 15 with verified local practical candle masks and 2 daylight/no-candle exceptions. MP4 compression changes pixels globally but pre-encode RAW outside effect masks unchanged."
+}
