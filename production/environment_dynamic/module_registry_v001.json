@@ -251,6 +251,20 @@
         "approved_cross_scene_product": false,
         "release_allowed": false,
         "next_test": "PO review 3 A/B videos, then run unchanged generic core on previously untested S02-B fixtures; afterward independent cross-scene test"
+      },
+      "engine_v1_1": {
+        "status": "N17_STRENGTH_N23_NEW02_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "standard": "N17 independent rhythm and visible flicker strength, not identical numerical core+halo delta",
+        "run_id": 39037134457,
+        "review_dir": "production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB",
+        "N23_max_raw_rgb_delta": 36,
+        "NEW02_max_raw_rgb_delta": 39,
+        "N17_reference_max_raw_rgb_delta": 37,
+        "N17_approved_AB_sha256": "bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+        "N17_unchanged": true,
+        "PO_approval_pending": true,
+        "source_or_master_changed": false,
+        "production_gate": "HOLD"
       }
     },
     {
