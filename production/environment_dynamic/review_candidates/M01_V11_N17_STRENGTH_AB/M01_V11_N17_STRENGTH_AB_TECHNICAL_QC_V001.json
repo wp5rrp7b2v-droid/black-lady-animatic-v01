@@ -1,0 +1,40 @@
+{
+  "schema": "M01_V11_N17_STRENGTH_AB_RESULT",
+  "status": "TWO_STRONGER_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+  "standard": "N17 rhythm and perceptible fluctuation; N17 original approved A/B retained byte-for-byte",
+  "modified_only": [
+    "N23",
+    "NEW02"
+  ],
+  "N17_original_approved_ab_unchanged": true,
+  "exact_n17_reference_sha256": "bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+  "new_comparisons": [
+    {
+      "shot": "N23",
+      "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+      "render_file": "M01_N23_N17_STRENGTH_V011_REVIEW_V001.mp4",
+      "render_sha256": "6d64b4a6730d14283eb96f2f056b0eb6fe43e404dcd2620cc06360f0fb781f53",
+      "ab_file": "M01_N23_N17_STRENGTH_V011_AB_V001.mp4",
+      "ab_sha256": "3a71dd771cc54368a672224bb78aab1a0b3d2f079e766d04d57d501b6cbb31ca",
+      "changed_frames": 88,
+      "max_raw_rgb_delta": 36
+    },
+    {
+      "shot": "NEW02",
+      "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+      "render_file": "M01_NEW02_N17_STRENGTH_V011_REVIEW_V001.mp4",
+      "render_sha256": "13d1f312df29a2d8df9c0acb2fc7c16f7777e37de29eb6b12a6a157324fada92",
+      "ab_file": "M01_NEW02_N17_STRENGTH_V011_AB_V001.mp4",
+      "ab_sha256": "c994d1adf14f5f26fd3bd2ab349a2ae49ca3a978f85e98457b9eeed3347a399a",
+      "changed_frames": 88,
+      "max_raw_rgb_delta": 39
+    }
+  ],
+  "uniform_core_script": "scripts/m01_engine_v1.py",
+  "independent_unseen_scene_validation_passed": false,
+  "N23_NEW02_PO_visual_approved": false,
+  "s02b_release_allowed": false,
+  "m01_batch_gate": "HOLD",
+  "no_main_merge": true,
+  "no_master_or_shot_registration": true
+}
