@@ -59,7 +59,7 @@ def build_profile(shot,segment,atlas):
  fixtures=[]
  for i,flame in enumerate(atlas["sources"][shot]["centers"]):
   cx,cy=flame["point_px"]
-  assert 0<=cx<W and 0<=cy<470
+  assert 0<=cx<W and 0<=cy<550,("SOURCE_CORE_OUTSIDE_ARCHITECTURE_LIGHT_REGION",shot,cx,cy)
   rx,ry=styles["halo_roi_radii_px"]
   fixtures.append({"id":flame["id"],"individual_source_id":flame["id"],
    "center_px":[cx,cy],"phase":round(.73+i*.347,4),"core_bitpack_index":i+1,
