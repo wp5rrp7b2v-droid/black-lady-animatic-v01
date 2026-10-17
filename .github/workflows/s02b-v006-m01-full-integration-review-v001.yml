@@ -1,0 +1,64 @@
+name: S02B V006 M01 Full Integration Review V001
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-m01-full-integration-review-v001.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s02b-v006-m01-full-integration-review-v001
+  cancel-in-progress: false
+
+jobs:
+  render-one-full-review-mp4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact review source
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+
+      - name: Install FFmpeg and no-cost image dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil
+          ffmpeg -version | head -n 1
+
+      - name: Build exactly one full 64.25s V006 M01-only review video
+        run: |
+          python3 scripts/s02b_v006_m01_full_integration_review_v001.py
+
+      - name: Check output against recorded evidence without modifying any source
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          root=pathlib.Path("_s02b_v006_m01_full_review")
+          j=json.loads((root/"M01_FULL_INTEGRATION_QC_V001.json").read_text())
+          p=root/j["output_filename"]
+          assert p.is_file()
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["output_sha256"]
+          assert j["frames"]==1927 and j["fps"]==30
+          assert j["audio_packet_hash_and_pts_duration_match"] is True
+          assert j["m01_only"] is True and j["m02_m03_m04_m05_disabled"] is True
+          assert j["segments"]=={"NEW02":[1299,1366],"N23":[1366,1448]}
+          assert j["po_full_video_approval"] is False and j["canonical_publication"] is False
+          assert subprocess.check_output(["git","status","--porcelain"],text=True).strip()=="", "TRACKED_WORKTREE_MODIFIED"
+          assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
+          print("EXACT_SOURCE_PRESERVATION_AND_M01_REVIEW_GATE_PASS")
+          print("MP4_SHA256",j["output_sha256"],"BYTES",j["output_bytes"])
+          PY
+
+      - name: Upload ONE full MP4 and technical QC as review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_M01_FULL_INTEGRATION_REVIEW_V001
+          path: |
+            _s02b_v006_m01_full_review/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4
+            _s02b_v006_m01_full_review/M01_FULL_INTEGRATION_QC_V001.json
+          retention-days: 7
+          if-no-files-found: error
