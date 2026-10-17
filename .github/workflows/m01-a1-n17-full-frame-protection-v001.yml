@@ -1,0 +1,113 @@
+name: M01 A1 N17 Full 377-Frame Person and Flame Mask Audit V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-a1-n17-full-frame-protection-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-a1-n17-full-frame-protection-v001
+  cancel-in-progress: false
+jobs:
+  full-n17-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Checkout isolated M01 source branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install pinned CPU inference tools and source decoding
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python3 -m pip install --upgrade pip
+          python3 -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          python3 -m pip install "ultralytics==8.3.220" "opencv-python-headless>=4.8" "pillow>=10" "numpy<2"
+      - name: Derive frame-specific flame and person candidate masks from exact V006 source
+        run: |
+          python3 -u scripts/m01_a1_n17_all_frame_masks_v001.py
+      - name: Independently audit binary provenance and mask pack frame coverage
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,zipfile
+          root=pathlib.Path("_m01_stage_a1_n17_all_frame_masks_v001")
+          j=json.loads((root/"M01_A1_N17_ALL_377_FRAMES_PROTECTION_FLAME_QA_V001.json").read_text())
+          assert j["schema"]=="M01_A1_N17_ALL_FRAME_FLAME_PERSON_MACHINE_AUDIT_V001"
+          assert j["status"]=="MACHINE_MASKS_BUILT__VISUAL_GT_PENDING__BATCH_HOLD"
+          assert j["start_frame"]==281 and j["end_frame_inclusive"]==657
+          assert len(j["frames"])==j["source_frame_count"]==377
+          assert j["PO_approval_scope"]=="PO_VISUAL_APPROVED_F601_LOCATOR_CENTERS_ONLY"
+          assert j["PO_approved_frame_601_centers"]==[[618,54],[624,40],[645,22],[688,42]]
+          assert [f["frame_index"] for f in j["frames"]]==list(range(281,658))
+          assert j["person_model_sha256"]=="55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152"
+          assert j["all_frame_person_protection_approved"] is False
+          assert j["all_frame_flame_shapes_approved"] is False
+          assert j["automatic_light_registration_release"] is False
+          assert j["s02b_pilot_approved"] is False
+          assert j["cross_scene_engine_approved"] is False
+          assert j["m01_batch_gate"]=="HOLD"
+          assert j["no_video_rendered"] and j["no_main_merge"]
+          for key,sha in (("mask_package","mask_package_sha256"),("preview","preview_sha256")):
+            p=root/j[key]
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==j[sha]
+          with zipfile.ZipFile(root/j["mask_package"]) as z:
+            names=set(z.namelist())
+            person=[x for x in names if x.startswith("persons/")]
+            uncertain=[x for x in names if x.startswith("uncertain_bbox_regions/")]
+            flames=[x for x in names if x.startswith("flames_")]
+            assert len(person)==377 and len(uncertain)==377 and len(flames)==108*4,(len(person),len(flames))
+            for f in j["frames"]:
+              for key,sha in [("person_mask_file","person_mask_sha256"),("uncertainty_file","uncertainty_sha256")]:
+                assert hashlib.sha256(z.read(f[key])).hexdigest()==f[sha]
+              assert len(f["flame_core_mask_files"])==(4 if f["frame_index"]>=550 else 0)
+              for fl in f["flame_core_mask_files"]:
+                assert hashlib.sha256(z.read(fl["path"])).hexdigest()==fl["sha256"]
+              assert f["mask_person_intersection_after_exclusion"]==0
+              assert not f["frame_protection_ground_truth_approved"]
+              assert not f["flame_shape_ground_truth_approved"]
+          original=pathlib.Path("production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4")
+          assert hashlib.sha256(original.read_bytes()).hexdigest()==j["source_video_sha256"]
+          print("ALL_377_FRAME_MASK_AND_HASH_PROVENANCE_QC_PASS")
+          print("NO_PRODUCTION_GT_APPROVAL=TRUE")
+          PY
+      - name: Save review-only A1 machine mask evidence into GitHub branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_stage_a1_n17_all_frame_masks_v001/* "$dest/"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==4,p
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/") for x in p)
+          assert sum(x.endswith(".json") for x in p)==1
+          assert sum(x.endswith(".jpg") for x in p)==1
+          assert sum(x.endswith(".zip") for x in p)==1
+          assert sum(x.endswith(".b64.txt") for x in p)==1
+          PY
+          git commit -m "Save N17 all-377-frame person masks and four-flame candidate outlines (review only)"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "M01_ENGINE_BULK_PRODUCTION_GATE_REMAINS_HOLD"
+      - name: Attach summary audit without changing original video
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_N17_ALL_FRAME_MASKS_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_ALL_377_FRAMES_PROTECTION_FLAME_QA_V001.json
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_377_FRAME_CANDLE_PERSON_PROTECTION_QA_V001.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_MACHINE_MASK_PROPOSALS_377_FRAMES_V001.zip
+          retention-days: 14
+          if-no-files-found: error
