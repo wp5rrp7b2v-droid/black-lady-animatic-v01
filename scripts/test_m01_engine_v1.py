@@ -49,6 +49,25 @@ class M01EngineCoreTests(unittest.TestCase):
   self.assertTrue(np.array_equal(first[person|uncertain],rgb[person|uncertain]))
   self.assertTrue(np.array_equal(first[1000:,:,:],rgb[1000:,:,:]))
   self.assertGreater(report["changed"],0)
+ def test_soft_architecture_halo_is_not_flame_core(self):
+  p=eng.read_profile("N23_N17_NATURAL_V012.json")
+  self.assertEqual(p["temporal"]["style"],"unsynced_independent")
+  self.assertEqual(p["temporal"]["halo_fast_harmonics_mix"],0.22)
+  old=eng.read_profile("N23_N17_STRENGTH_V011.json")
+  self.assertLess(p["fixtures"][0]["region"]["sigma_px"][0],old["fixtures"][0]["region"]["sigma_px"][0])
+  image=np.ones((eng.H,eng.W,3),np.uint8)*75
+  new,stat=eng.calculate_frame(image,p,31,31)
+  old_img,old_stat=eng.calculate_frame(image,old,31,31)
+  self.assertLess(stat["max_delta"],old_stat["max_delta"])
+  self.assertTrue(np.array_equal(new[900:,:,:],image[900:,:,:]))
+  n17=eng.read_profile("N17_APPROVED_VISUAL_RESULT_V001.json")
+  self.assertNotIn("halo_fast_harmonics_mix",n17["temporal"])
+  self.assertEqual(n17["fixtures"][0]["halo_gain_rgb"],[7.5,4.3,1.3])
+ def test_reject_unbounded_fast_halo_mix(self):
+  p=eng.read_profile("NEW02_N17_NATURAL_V012.json")
+  p["temporal"]["halo_fast_harmonics_mix"]=2.0
+  with self.assertRaisesRegex(AssertionError,"BAD_HALO_HARMONICS_MIX"):
+   eng.validate(p)
  def test_visible_flame_guard_and_temporal_gate(self):
   p=eng.read_profile("N17_APPROVED_VISUAL_RESULT_V001.json")
   p["fixtures"]=p["fixtures"][:1]
