@@ -137,7 +137,7 @@ def main():
                 cv2.ellipse(limited,(x,y),(24,37),0,0,360,1,-1)
                 preliminary=int(np.count_nonzero(limited))
                 lost=int(np.count_nonzero((limited>0)&protected))
-                limited=limited & (~protected)
+                limited=(limited>0) & (~protected)
                 valid_render_sources+=int(np.count_nonzero(limited)>0)
                 safe_union|=limited
             else:
