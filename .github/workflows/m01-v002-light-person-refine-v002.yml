@@ -1,0 +1,81 @@
+name: M01 V002 Light and Person Protection Refinement V002
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-light-person-refine-v002.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v002-light-person-refine-v002
+  cancel-in-progress: false
+jobs:
+  refine-seven-source-evidence-shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout existing review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+      - name: Set up CPU Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install already validated CPU segmentation packages
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          python -m pip install "ultralytics==8.3.220" "opencv-python-headless>=4.8" "pillow>=10" "numpy<2"
+      - name: Generate seven core-vs-human segmentation overlays
+        run: |
+          python scripts/m01_v002_light_person_refine_v002.py
+      - name: Independently validate diagnostic and save only to review branch
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_REFINE_V002
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_v002_registration_refine_v002/* "$d/"
+          python - <<'PY'
+          import json,hashlib,pathlib,base64
+          d=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_REFINE_V002")
+          j=json.loads((d/"M01_V002_FLAME_PERSON_MASK_REFINEMENT_V002.json").read_text())
+          assert j["status"]=="DIAGNOSTIC_PASS_FOR_INFORMATION__PRODUCTION_GATE_FAIL"
+          assert j["project_batch_m01"]=="HOLD" and j["visual_core_protection_gate"]=="NOT_APPROVED"
+          assert j["human_safety_gate"]=="NOT_APPROVED"
+          assert j["total_nodes"]==7 and len(j["nodes"])==7
+          assert all(not x["source_localization_pass"] and not x["human_protection_pass"] for x in j["nodes"])
+          p=d/j["image_file"]
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["image_sha256"]
+          assert base64.b64decode((d/(j["image_file"]+".b64.txt")).read_text().strip())==p.read_bytes()
+          print("DIAGNOSTIC_BINARY_EXACT_PASS")
+          print("PRODUCTION_LIGHT_PERSON_GATES_STILL_HOLD")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add "$d"
+          python - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==3,p
+          assert all(x.startswith("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_REFINE_V002/") for x in p)
+          PY
+          git commit -m "Save M01 V002 real-source human segmentation and warm-core refinement evidence"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "NO_VIDEO_RENDER_OR_MASTER_UPDATE"
+      - name: Upload strictly diagnostic images and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V002_LIGHT_PERSON_REFINEMENT_V002_QA
+          path: |
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_REFINE_V002/M01_V002_FLAME_PERSON_MASK_REFINEMENT_V002.jpg
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_REFINE_V002/M01_V002_FLAME_PERSON_MASK_REFINEMENT_V002.json
+          retention-days: 7
+          if-no-files-found: error
