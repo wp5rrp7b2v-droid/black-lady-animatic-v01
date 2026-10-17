@@ -51,6 +51,9 @@ def validate(p):
  assert p["protection"]["mode"] in ("roi_only_unverified","bitpack_masks_unverified")
  assert p["protection"]["do_not_claim_complete_person_protection"] is True
  assert p["temporal"]["style"] in ("n23_paced","unsynced_independent")
+ if "halo_fast_harmonics_mix" in p["temporal"]:
+  mix=p["temporal"]["halo_fast_harmonics_mix"]
+  assert isinstance(mix,(int,float)) and math.isfinite(float(mix)) and 0<=mix<=1,"BAD_HALO_HARMONICS_MIX"
  if p["source"]["type"]=="still_png":assert size["frame_start"]==0
  for fixture in p["fixtures"]:
   assert isinstance(fixture["id"],str) and fixture["id"]
@@ -182,9 +185,20 @@ def calculate_frame(rgb,profile,absolute,relative,person=None,uncertain=None,fla
   local[local<.003]=0
   allowed=(local>0)&(~protect[y0:y1,x0:x1])
   if not allowed.any():continue
-  light_signal=signal(relative/profile["render"]["fps"],float(f["phase"]),profile["temporal"]["style"])
+  t=relative/profile["render"]["fps"]
+  phase=float(f["phase"])
+  full_signal=signal(t,phase,profile["temporal"]["style"])
+  # Independent candle-core response is unchanged. Slow architectural reflected
+  # light may attenuate high harmonics: large walls must not strobe like flames.
+  # Optional per-Atlas control; default 1.0 preserves existing approved N17.
+  mix=float(profile["temporal"].get("halo_fast_harmonics_mix",1.0))
+  if profile["temporal"]["style"]=="unsynced_independent":
+   slow_component=.56*math.sin(t*2*math.pi*(1.05+.12*phase)+phase*1.7)
+  else:
+   slow_component=.50*math.sin(2*math.pi*.94*t+phase)
+  halo_signal=slow_component*(1-mix)+full_signal*mix
   amps=np.array(f.get("halo_gain_rgb",profile["temporal"]["rgb_cap"]),dtype=np.float32)
-  delta=light_signal*gain*local[:,:,None]*amps[None,None,:]
+  delta=halo_signal*gain*local[:,:,None]*amps[None,None,:]
   roi=result[y0:y1,x0:x1].astype(np.float32)
   changed=np.clip(roi+delta,0,255).astype(np.uint8)
   masked=result[y0:y1,x0:x1]
@@ -198,7 +212,7 @@ def calculate_frame(rgb,profile,absolute,relative,person=None,uncertain=None,fla
     safe=mask[y0:y1,x0:x1]&(~protect[y0:y1,x0:x1])
     if safe.any():
      fire=masked.astype(np.float32)
-     flame_change=light_signal*gain*np.array(f["core_gain_rgb"],dtype=np.float32)
+     flame_change=full_signal*gain*np.array(f["core_gain_rgb"],dtype=np.float32)
      flame_new=np.clip(fire+flame_change,0,255).astype(np.uint8)
      masked[safe]=flame_new[safe]
      authorized[y0:y1,x0:x1]|=safe
