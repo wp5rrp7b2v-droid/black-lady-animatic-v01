@@ -196,7 +196,16 @@
           "mask_shape_warning_frames": 35,
           "flame_onset_boundary_approved": false,
           "flame_core_shapes_ground_truth_approved": false,
-          "full_video_masks_created": true
+          "full_video_masks_created": true,
+          "targeted_warning_onset_run": 39021061134,
+          "targeted_warning_onset_report": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001/M01_N17_TARGETED_35_WARNINGS_AND_ONSET_QA_V001.json",
+          "targeted_warning_onset_decision": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_N17_TARGETED_WARNING_ONSET_FINDINGS_2026-10-17.md",
+          "fixed_150px_warning_status": "TRIAGED_AS_THRESHOLD_ONLY_NOT_PER_FRAME_REWORK",
+          "old_warning_unique_frames": 35,
+          "visual_transition": "F544 crossfade faint / F547 clear / no hard candle switch",
+          "exact_onset_frame_not_required": true,
+          "final_flame_core_GT_approved": false,
+          "complete_person_protection_approved": false
         }
       }
     },
