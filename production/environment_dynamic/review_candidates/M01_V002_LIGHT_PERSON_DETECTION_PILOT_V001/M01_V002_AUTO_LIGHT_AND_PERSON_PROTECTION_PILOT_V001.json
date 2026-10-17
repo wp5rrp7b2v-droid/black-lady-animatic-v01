@@ -1,0 +1,1391 @@
+{
+  "task": "M01_V002_AUTO_LIGHT_PERSON_LOCALIZATION_PILOT",
+  "status": "DIAGNOSTIC_ONLY_FAIL_CLOSED",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "segmentation_model": "ultralytics:yolo11n-seg.pt",
+  "segmentation_model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "ultralytics_version": "8.3.220",
+  "python_version": "3.11.17",
+  "light_core_detector": "deterministic warm high-value localized connected components",
+  "flame_candidate_confidence": "NOT_VALIDATED_CALIBRATION",
+  "person_protection_policy": "union detected person instance masks + expanded human boxes",
+  "human_protection_is_complete": "UNVERIFIED_PENDING_VISUAL_REVIEW",
+  "person_undetected_risk": "YES",
+  "source_registration_pass": false,
+  "reuse_as_production_light_atlas": false,
+  "full_video_render_allowed": false,
+  "no_new_video_or_story_shot": true,
+  "originals_unchanged": true,
+  "no_main_merge": true,
+  "contact_sheet": "M01_V002_AUTO_LIGHT_AND_PERSON_PROTECTION_PILOT_V001.jpg",
+  "contact_sheet_sha256": "360fcb24aa393befc7976a70ea35bfdf2be2f70d2d0a9e6f675e67e98a1fb1fa",
+  "legend": {
+    "red_ring": "old V007 estimated anchor",
+    "magenta_ring": "PO direction corrected search hint, not confirmed",
+    "green_cross": "detected candidate warm bright source, not visually approved",
+    "yellow_pixels": "warm high-luminance classifier proposals; includes false positives",
+    "blue_regions": "person protection regions (detected people only)"
+  },
+  "shots": [
+    {
+      "node": "N16_PART_1",
+      "mid_frame": 81,
+      "sample_time": 2.717,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.811,
+          "bbox": [
+            0,
+            126,
+            299,
+            1159
+          ]
+        },
+        {
+          "id": 2,
+          "score": 0.801,
+          "bbox": [
+            288,
+            169,
+            720,
+            1207
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 746393,
+      "person_protected_fraction": 0.80989,
+      "candidate_warm_components": 41,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.894,
+            0.055
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.86273,
+            0.03953
+          ],
+          "candidates": [
+            {
+              "center": [
+                621.1623616236162,
+                50.59778597785978
+              ],
+              "rect": [
+                613,
+                34,
+                18,
+                34
+              ],
+              "area": 271,
+              "peak": 255,
+              "mean_rgb": [
+                184.4,
+                140.0,
+                94.6
+              ],
+              "match_score": 1.4481,
+              "distance_normalized": [
+                -0.0313,
+                -0.0155
+              ]
+            },
+            {
+              "center": [
+                646.3050847457627,
+                24.635593220338983
+              ],
+              "rect": [
+                642,
+                15,
+                10,
+                20
+              ],
+              "area": 118,
+              "peak": 255,
+              "mean_rgb": [
+                192.3,
+                149.4,
+                103.2
+              ],
+              "match_score": 1.4305,
+              "distance_normalized": [
+                0.0036,
+                -0.0358
+              ]
+            },
+            {
+              "center": [
+                687.4848484848485,
+                44.333333333333336
+              ],
+              "rect": [
+                683,
+                34,
+                11,
+                20
+              ],
+              "area": 132,
+              "peak": 255,
+              "mean_rgb": [
+                195.8,
+                149.1,
+                102.5
+              ],
+              "match_score": 1.0376,
+              "distance_normalized": [
+                0.0608,
+                -0.0204
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "N18",
+      "mid_frame": 748,
+      "sample_time": 24.95,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.769,
+          "bbox": [
+            125,
+            225,
+            720,
+            1280
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 627725,
+      "person_protected_fraction": 0.68113,
+      "candidate_warm_components": 93,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.91,
+            0.155
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.90004,
+            0.14787
+          ],
+          "candidates": [
+            {
+              "center": [
+                648.0295857988166,
+                189.27218934911244
+              ],
+              "rect": [
+                643,
+                174,
+                10,
+                36
+              ],
+              "area": 169,
+              "peak": 255,
+              "mean_rgb": [
+                193.5,
+                132.1,
+                76.7
+              ],
+              "match_score": 1.6379,
+              "distance_normalized": [
+                -0.01,
+                -0.0071
+              ]
+            },
+            {
+              "center": [
+                666.5690607734807,
+                172.3646408839779
+              ],
+              "rect": [
+                662,
+                157,
+                10,
+                29
+              ],
+              "area": 181,
+              "peak": 255,
+              "mean_rgb": [
+                201.0,
+                147.3,
+                97.1
+              ],
+              "match_score": 1.5423,
+              "distance_normalized": [
+                0.0158,
+                -0.0203
+              ]
+            },
+            {
+              "center": [
+                633.1415094339623,
+                207.38679245283018
+              ],
+              "rect": [
+                629,
+                197,
+                9,
+                20
+              ],
+              "area": 106,
+              "peak": 255,
+              "mean_rgb": [
+                201.0,
+                141.8,
+                89.4
+              ],
+              "match_score": 1.4877,
+              "distance_normalized": [
+                -0.0306,
+                0.007
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.94,
+            0.17
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.9459,
+            0.14922
+          ],
+          "candidates": [
+            {
+              "center": [
+                681.0508474576271,
+                191.0
+              ],
+              "rect": [
+                677,
+                180,
+                9,
+                21
+              ],
+              "area": 118,
+              "peak": 255,
+              "mean_rgb": [
+                204.0,
+                141.0,
+                84.1
+              ],
+              "match_score": 1.5773,
+              "distance_normalized": [
+                0.0059,
+                -0.0208
+              ]
+            },
+            {
+              "center": [
+                700.5462962962963,
+                193.2962962962963
+              ],
+              "rect": [
+                696,
+                183,
+                10,
+                20
+              ],
+              "area": 108,
+              "peak": 255,
+              "mean_rgb": [
+                207.5,
+                144.7,
+                87.3
+              ],
+              "match_score": 1.4096,
+              "distance_normalized": [
+                0.033,
+                -0.019
+              ]
+            },
+            {
+              "center": [
+                666.5690607734807,
+                172.3646408839779
+              ],
+              "rect": [
+                662,
+                157,
+                10,
+                29
+              ],
+              "area": 181,
+              "peak": 255,
+              "mean_rgb": [
+                201.0,
+                147.3,
+                97.1
+              ],
+              "match_score": 1.4047,
+              "distance_normalized": [
+                -0.0142,
+                -0.0353
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "N20_FIRST",
+      "mid_frame": 972,
+      "sample_time": 32.417,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.851,
+          "bbox": [
+            340,
+            233,
+            668,
+            1202
+          ]
+        },
+        {
+          "id": 2,
+          "score": 0.805,
+          "bbox": [
+            38,
+            182,
+            364,
+            1136
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 607164,
+      "person_protected_fraction": 0.65882,
+      "candidate_warm_components": 10,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.191,
+            0.183
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.20062,
+            0.13022
+          ],
+          "candidates": [
+            {
+              "center": [
+                144.44444444444446,
+                166.67521367521368
+              ],
+              "rect": [
+                141,
+                156,
+                8,
+                26
+              ],
+              "area": 117,
+              "peak": 255,
+              "mean_rgb": [
+                182.3,
+                121.4,
+                67.7
+              ],
+              "match_score": 1.1859,
+              "distance_normalized": [
+                0.0096,
+                -0.0528
+              ]
+            },
+            {
+              "center": [
+                127.6,
+                165.9857142857143
+              ],
+              "rect": [
+                123,
+                153,
+                9,
+                29
+              ],
+              "area": 140,
+              "peak": 255,
+              "mean_rgb": [
+                192.5,
+                130.0,
+                73.2
+              ],
+              "match_score": 1.1648,
+              "distance_normalized": [
+                -0.0138,
+                -0.0533
+              ]
+            },
+            {
+              "center": [
+                156.45535714285714,
+                161.23214285714286
+              ],
+              "rect": [
+                152,
+                149,
+                10,
+                23
+              ],
+              "area": 112,
+              "peak": 255,
+              "mean_rgb": [
+                182.8,
+                130.2,
+                83.6
+              ],
+              "match_score": 1.0475,
+              "distance_normalized": [
+                0.0263,
+                -0.057
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.539,
+            0.217
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.49596,
+            0.13846
+          ],
+          "candidates": [
+            {
+              "center": [
+                357.09090909090907,
+                177.22727272727272
+              ],
+              "rect": [
+                355,
+                175,
+                5,
+                5
+              ],
+              "area": 22,
+              "peak": 232,
+              "mean_rgb": [
+                226.1,
+                128.4,
+                50.4
+              ],
+              "match_score": 0.6317,
+              "distance_normalized": [
+                -0.043,
+                -0.0785
+              ]
+            },
+            {
+              "center": [
+                342.2280701754386,
+                178.89473684210526
+              ],
+              "rect": [
+                336,
+                174,
+                12,
+                8
+              ],
+              "area": 57,
+              "peak": 242,
+              "mean_rgb": [
+                227.6,
+                129.8,
+                48.1
+              ],
+              "match_score": 0.5086,
+              "distance_normalized": [
+                -0.0637,
+                -0.0772
+              ]
+            },
+            {
+              "center": [
+                332.0,
+                181.0
+              ],
+              "rect": [
+                332,
+                181,
+                1,
+                1
+              ],
+              "area": 1,
+              "peak": 232,
+              "mean_rgb": [
+                229.0,
+                130.4,
+                52.4
+              ],
+              "match_score": 0.2603,
+              "distance_normalized": [
+                -0.0779,
+                -0.0756
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "proposal": [
+            0.94,
+            0.208
+          ],
+          "status": "SINGLE_UNVERIFIED_CANDIDATE",
+          "flame_core_center": [
+            0.97014,
+            0.15117
+          ],
+          "candidates": [
+            {
+              "center": [
+                698.5,
+                193.5
+              ],
+              "rect": [
+                698,
+                193,
+                2,
+                2
+              ],
+              "area": 2,
+              "peak": 223,
+              "mean_rgb": [
+                204.7,
+                121.6,
+                53.7
+              ],
+              "match_score": 0.6574,
+              "distance_normalized": [
+                0.0301,
+                -0.0568
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "V006_NEW_01",
+      "mid_frame": 1036,
+      "sample_time": 34.55,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.823,
+          "bbox": [
+            357,
+            440,
+            720,
+            1280
+          ]
+        },
+        {
+          "id": 2,
+          "score": 0.773,
+          "bbox": [
+            0,
+            167,
+            435,
+            1092
+          ]
+        },
+        {
+          "id": 3,
+          "score": 0.35,
+          "bbox": [
+            386,
+            165,
+            720,
+            1117
+          ]
+        },
+        {
+          "id": 4,
+          "score": 0.18,
+          "bbox": [
+            572,
+            156,
+            720,
+            537
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 736244,
+      "person_protected_fraction": 0.79888,
+      "candidate_warm_components": 6,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.205,
+            0.188
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.2199,
+            0.12003
+          ],
+          "candidates": [
+            {
+              "center": [
+                158.32575757575756,
+                153.6439393939394
+              ],
+              "rect": [
+                152,
+                133,
+                18,
+                34
+              ],
+              "area": 264,
+              "peak": 255,
+              "mean_rgb": [
+                191.4,
+                137.9,
+                87.0
+              ],
+              "match_score": 0.9405,
+              "distance_normalized": [
+                0.0149,
+                -0.068
+              ]
+            },
+            {
+              "center": [
+                185.31578947368422,
+                159.59649122807016
+              ],
+              "rect": [
+                181,
+                154,
+                10,
+                13
+              ],
+              "area": 57,
+              "peak": 255,
+              "mean_rgb": [
+                204.1,
+                154.2,
+                107.7
+              ],
+              "match_score": 0.7569,
+              "distance_normalized": [
+                0.0524,
+                -0.0633
+              ]
+            },
+            {
+              "center": [
+                125.41269841269842,
+                114.76190476190476
+              ],
+              "rect": [
+                118,
+                108,
+                14,
+                13
+              ],
+              "area": 63,
+              "peak": 245,
+              "mean_rgb": [
+                211.8,
+                123.4,
+                55.4
+              ],
+              "match_score": 0.4702,
+              "distance_normalized": [
+                -0.0308,
+                -0.0983
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.614,
+            0.206
+          ],
+          "status": "NO_FLAME_CORE_FOUND",
+          "candidates": [],
+          "flame_core_center": null
+        },
+        {
+          "id": 3,
+          "proposal": [
+            0.966,
+            0.168
+          ],
+          "status": "SINGLE_UNVERIFIED_CANDIDATE",
+          "flame_core_center": [
+            0.99655,
+            0.09929
+          ],
+          "candidates": [
+            {
+              "center": [
+                717.5192307692307,
+                127.09615384615384
+              ],
+              "rect": [
+                715,
+                114,
+                5,
+                28
+              ],
+              "area": 104,
+              "peak": 255,
+              "mean_rgb": [
+                225.8,
+                129.0,
+                42.4
+              ],
+              "match_score": 0.8564,
+              "distance_normalized": [
+                0.0306,
+                -0.0687
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "N21",
+      "mid_frame": 1167,
+      "sample_time": 38.917,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.825,
+          "bbox": [
+            103,
+            236,
+            296,
+            1008
+          ]
+        },
+        {
+          "id": 2,
+          "score": 0.807,
+          "bbox": [
+            252,
+            278,
+            521,
+            1109
+          ]
+        },
+        {
+          "id": 3,
+          "score": 0.746,
+          "bbox": [
+            418,
+            299,
+            580,
+            999
+          ]
+        },
+        {
+          "id": 4,
+          "score": 0.644,
+          "bbox": [
+            570,
+            227,
+            720,
+            1054
+          ]
+        },
+        {
+          "id": 5,
+          "score": 0.594,
+          "bbox": [
+            531,
+            306,
+            659,
+            894
+          ]
+        },
+        {
+          "id": 6,
+          "score": 0.141,
+          "bbox": [
+            643,
+            459,
+            720,
+            1220
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 511547,
+      "person_protected_fraction": 0.55506,
+      "candidate_warm_components": 11,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.518,
+            0.172
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.57828,
+            0.14411
+          ],
+          "candidates": [
+            {
+              "center": [
+                416.3636363636364,
+                184.45454545454547
+              ],
+              "rect": [
+                415,
+                183,
+                4,
+                4
+              ],
+              "area": 11,
+              "peak": 219,
+              "mean_rgb": [
+                201.2,
+                125.4,
+                59.0
+              ],
+              "match_score": 0.9272,
+              "distance_normalized": [
+                0.0603,
+                -0.0279
+              ]
+            },
+            {
+              "center": [
+                351.0,
+                225.0
+              ],
+              "rect": [
+                351,
+                225,
+                1,
+                1
+              ],
+              "area": 1,
+              "peak": 217,
+              "mean_rgb": [
+                188.1,
+                112.3,
+                38.7
+              ],
+              "match_score": 0.9047,
+              "distance_normalized": [
+                -0.0305,
+                0.0038
+              ]
+            },
+            {
+              "center": [
+                429.5072463768116,
+                182.28985507246378
+              ],
+              "rect": [
+                422,
+                180,
+                17,
+                6
+              ],
+              "area": 69,
+              "peak": 226,
+              "mean_rgb": [
+                198.4,
+                127.2,
+                65.6
+              ],
+              "match_score": 0.715,
+              "distance_normalized": [
+                0.0785,
+                -0.0296
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.848,
+            0.182
+          ],
+          "status": "SINGLE_UNVERIFIED_CANDIDATE",
+          "flame_core_center": [
+            0.89583,
+            0.12461
+          ],
+          "candidates": [
+            {
+              "center": [
+                645.0,
+                159.5
+              ],
+              "rect": [
+                645,
+                157,
+                1,
+                6
+              ],
+              "area": 6,
+              "peak": 237,
+              "mean_rgb": [
+                199.5,
+                111.1,
+                24.9
+              ],
+              "match_score": 0.6797,
+              "distance_normalized": [
+                0.0478,
+                -0.0574
+              ]
+            },
+            {
+              "center": [
+                665.5,
+                181.0
+              ],
+              "rect": [
+                665,
+                180,
+                2,
+                3
+              ],
+              "area": 4,
+              "peak": 226,
+              "mean_rgb": [
+                203.5,
+                119.3,
+                34.9
+              ],
+              "match_score": 0.4979,
+              "distance_normalized": [
+                0.0763,
+                -0.0406
+              ]
+            },
+            {
+              "center": [
+                671.2950819672132,
+                154.50819672131146
+              ],
+              "rect": [
+                668,
+                147,
+                8,
+                16
+              ],
+              "area": 61,
+              "peak": 255,
+              "mean_rgb": [
+                204.2,
+                142.0,
+                72.4
+              ],
+              "match_score": 0.4721,
+              "distance_normalized": [
+                0.0844,
+                -0.0613
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "A06",
+      "mid_frame": 1511,
+      "sample_time": 50.383,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.864,
+          "bbox": [
+            337,
+            278,
+            656,
+            1210
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 297308,
+      "person_protected_fraction": 0.3226,
+      "candidate_warm_components": 180,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.146,
+            0.27
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.09979,
+            0.217
+          ],
+          "candidates": [
+            {
+              "center": [
+                71.84705882352941,
+                277.7647058823529
+              ],
+              "rect": [
+                69,
+                270,
+                6,
+                18
+              ],
+              "area": 85,
+              "peak": 236,
+              "mean_rgb": [
+                191.4,
+                119.7,
+                61.6
+              ],
+              "match_score": 0.9146,
+              "distance_normalized": [
+                -0.0462,
+                -0.053
+              ]
+            },
+            {
+              "center": [
+                128.0,
+                278.5
+              ],
+              "rect": [
+                128,
+                275,
+                1,
+                8
+              ],
+              "area": 8,
+              "peak": 221,
+              "mean_rgb": [
+                191.2,
+                115.8,
+                53.8
+              ],
+              "match_score": 0.8921,
+              "distance_normalized": [
+                0.0318,
+                -0.0524
+              ]
+            },
+            {
+              "center": [
+                166.97333333333333,
+                379.92
+              ],
+              "rect": [
+                164,
+                374,
+                8,
+                14
+              ],
+              "area": 75,
+              "peak": 248,
+              "mean_rgb": [
+                180.5,
+                148.7,
+                133.4
+              ],
+              "match_score": 0.6507,
+              "distance_normalized": [
+                0.0859,
+                0.0268
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.959,
+            0.236
+          ],
+          "status": "MULTIPLE_CORE_CANDIDATES",
+          "flame_core_center": [
+            0.91261,
+            0.18195
+          ],
+          "candidates": [
+            {
+              "center": [
+                657.0813953488372,
+                232.8953488372093
+              ],
+              "rect": [
+                653,
+                225,
+                9,
+                18
+              ],
+              "area": 86,
+              "peak": 255,
+              "mean_rgb": [
+                196.2,
+                133.6,
+                80.4
+              ],
+              "match_score": 0.9214,
+              "distance_normalized": [
+                -0.0464,
+                -0.0541
+              ]
+            },
+            {
+              "center": [
+                719.0,
+                224.5
+              ],
+              "rect": [
+                719,
+                216,
+                1,
+                18
+              ],
+              "area": 18,
+              "peak": 227,
+              "mean_rgb": [
+                201.6,
+                123.8,
+                58.8
+              ],
+              "match_score": 0.8715,
+              "distance_normalized": [
+                0.0396,
+                -0.0606
+              ]
+            },
+            {
+              "center": [
+                691.0,
+                235.0
+              ],
+              "rect": [
+                691,
+                234,
+                1,
+                3
+              ],
+              "area": 3,
+              "peak": 212,
+              "mean_rgb": [
+                182.4,
+                112.1,
+                56.2
+              ],
+              "match_score": 0.8002,
+              "distance_normalized": [
+                0.0007,
+                -0.0524
+              ]
+            }
+          ]
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    },
+    {
+      "node": "N24",
+      "mid_frame": 1634,
+      "sample_time": 54.483,
+      "protection_method": "YOLO11N_SEG_INSTANCE_UNION_WITH_EXPANDED_PERSON_BOUNDING_BOXES",
+      "person_boxes": [
+        {
+          "id": 1,
+          "score": 0.748,
+          "bbox": [
+            5,
+            112,
+            668,
+            1167
+          ]
+        },
+        {
+          "id": 2,
+          "score": 0.59,
+          "bbox": [
+            0,
+            283,
+            124,
+            1122
+          ]
+        },
+        {
+          "id": 3,
+          "score": 0.579,
+          "bbox": [
+            460,
+            242,
+            698,
+            744
+          ]
+        },
+        {
+          "id": 4,
+          "score": 0.458,
+          "bbox": [
+            611,
+            292,
+            720,
+            949
+          ]
+        },
+        {
+          "id": 5,
+          "score": 0.164,
+          "bbox": [
+            457,
+            243,
+            700,
+            1111
+          ]
+        },
+        {
+          "id": 6,
+          "score": 0.16,
+          "bbox": [
+            99,
+            380,
+            172,
+            461
+          ]
+        },
+        {
+          "id": 7,
+          "score": 0.156,
+          "bbox": [
+            0,
+            282,
+            125,
+            688
+          ]
+        }
+      ],
+      "person_protected_pixel_count": 744611,
+      "person_protected_fraction": 0.80795,
+      "candidate_warm_components": 2,
+      "source_results": [
+        {
+          "id": 1,
+          "proposal": [
+            0.091,
+            0.179
+          ],
+          "status": "SINGLE_UNVERIFIED_CANDIDATE",
+          "flame_core_center": [
+            0.00352,
+            0.14606
+          ],
+          "candidates": [
+            {
+              "center": [
+                2.5319148936170213,
+                186.95744680851064
+              ],
+              "rect": [
+                0,
+                182,
+                5,
+                16
+              ],
+              "area": 47,
+              "peak": 255,
+              "mean_rgb": [
+                232.0,
+                159.2,
+                77.0
+              ],
+              "match_score": 0.6089,
+              "distance_normalized": [
+                -0.0875,
+                -0.0329
+              ]
+            },
+            {
+              "center": [
+                2.0,
+                145.5
+              ],
+              "rect": [
+                0,
+                138,
+                5,
+                16
+              ],
+              "area": 80,
+              "peak": 255,
+              "mean_rgb": [
+                250.9,
+                175.7,
+                81.9
+              ],
+              "match_score": 0.4116,
+              "distance_normalized": [
+                -0.0882,
+                -0.0653
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "proposal": [
+            0.973,
+            0.208
+          ],
+          "status": "NO_FLAME_CORE_FOUND",
+          "candidates": [],
+          "flame_core_center": null
+        }
+      ],
+      "light_registration": "NOT_APPROVED",
+      "human_mask_quality": "VISUAL_REVIEW_PENDING",
+      "auto_render_eligible": false
+    }
+  ]
+}
