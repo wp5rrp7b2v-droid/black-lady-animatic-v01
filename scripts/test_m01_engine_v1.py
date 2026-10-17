@@ -56,10 +56,14 @@ class M01EngineCoreTests(unittest.TestCase):
   old=eng.read_profile("N23_N17_STRENGTH_V011.json")
   self.assertLess(p["fixtures"][0]["region"]["sigma_px"][0],old["fixtures"][0]["region"]["sigma_px"][0])
   image=np.ones((eng.H,eng.W,3),np.uint8)*75
-  new,stat=eng.calculate_frame(image,p,31,31)
-  old_img,old_stat=eng.calculate_frame(image,old,31,31)
-  self.assertLess(stat["max_delta"],old_stat["max_delta"])
-  self.assertTrue(np.array_equal(new[900:,:,:],image[900:,:,:]))
+  new_peaks=[];old_peaks=[]
+  for frame in (8,15,22,29,36,43,50,57,64,71):
+   new,stat=eng.calculate_frame(image,p,frame,frame)
+   old_img,old_stat=eng.calculate_frame(image,old,frame,frame)
+   new_peaks.append(stat["max_delta"]);old_peaks.append(old_stat["max_delta"])
+   self.assertTrue(np.array_equal(new[900:,:,:],image[900:,:,:]))
+  self.assertGreater(max(new_peaks),0)
+  self.assertLess(max(new_peaks),max(old_peaks))
   n17=eng.read_profile("N17_APPROVED_VISUAL_RESULT_V001.json")
   self.assertNotIn("halo_fast_harmonics_mix",n17["temporal"])
   self.assertEqual(n17["fixtures"][0]["halo_gain_rgb"],[7.5,4.3,1.3])
