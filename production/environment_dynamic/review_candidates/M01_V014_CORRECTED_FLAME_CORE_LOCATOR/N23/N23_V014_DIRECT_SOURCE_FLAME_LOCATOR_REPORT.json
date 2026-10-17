@@ -1,0 +1,84 @@
+{
+  "schema": "M01_V014_DIRECT_VISUAL_FLAME_LOCATOR_REVIEW",
+  "status": "PO_VISUAL_REVIEW_PENDING_NOT_APPROVED",
+  "shot": "N23",
+  "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+  "source_exact": true,
+  "draft_sha256": "88922d6b3a0ac016577d3acaab0fdb84b43faa8e064b7b9c74a40ca90d322dba",
+  "flames": [
+    {
+      "fixture": "N23_LEFT_CHANDELIER",
+      "id": "N23_MAIN_F01",
+      "center": [
+        195,
+        75
+      ]
+    },
+    {
+      "fixture": "N23_LEFT_CHANDELIER",
+      "id": "N23_MAIN_F02",
+      "center": [
+        212,
+        65
+      ]
+    },
+    {
+      "fixture": "N23_LEFT_CHANDELIER",
+      "id": "N23_MAIN_F03",
+      "center": [
+        233,
+        43
+      ]
+    },
+    {
+      "fixture": "N23_LEFT_CHANDELIER",
+      "id": "N23_MAIN_F04",
+      "center": [
+        254,
+        67
+      ]
+    },
+    {
+      "fixture": "N23_LEFT_CHANDELIER",
+      "id": "N23_MAIN_F05",
+      "center": [
+        268,
+        78
+      ]
+    }
+  ],
+  "deferred": [
+    {
+      "region": "N23_RIGHT_FRAME_EDGE_TOP",
+      "reason": "bright source and/or incomplete flame cropped at right frame boundary, do not promote"
+    },
+    {
+      "region": "N23_RIGHT_FRAME_EDGE_LOWER",
+      "reason": "bright near person and cropped by right frame boundary, cannot establish complete flame core"
+    }
+  ],
+  "registered_flame_core_masks_created": false,
+  "scope": "visual source-position draft only, no actual flame segmentation GT, no person masks and no video render",
+  "images": [
+    {
+      "file": "N23_V014_DIRECT_SOURCE_FLAME_POINT_OVERLAY.jpg",
+      "sha256": "20e989f1ad93002592f349c3630f6c273b7888a8b3a3e553ccb5c5afcffb7805",
+      "bytes": 208840,
+      "dims": [
+        720,
+        1280
+      ]
+    },
+    {
+      "file": "N23_V014_DIRECT_SOURCE_ENLARGED_FLAME_REVIEW.jpg",
+      "sha256": "bfa2507c383121a3e2b47063d71ad1c061722351350568832d4c00a22e43a8fd",
+      "bytes": 76944,
+      "dims": [
+        550,
+        653
+      ]
+    }
+  ],
+  "reference_V012_unchanged": true,
+  "publication_allowed": false
+}

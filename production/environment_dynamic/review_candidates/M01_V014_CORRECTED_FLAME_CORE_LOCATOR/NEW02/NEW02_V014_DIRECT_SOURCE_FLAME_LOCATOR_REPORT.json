@@ -1,0 +1,136 @@
+{
+  "schema": "M01_V014_DIRECT_VISUAL_FLAME_LOCATOR_REVIEW",
+  "status": "PO_VISUAL_REVIEW_PENDING_NOT_APPROVED",
+  "shot": "NEW02",
+  "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_exact": true,
+  "draft_sha256": "88922d6b3a0ac016577d3acaab0fdb84b43faa8e064b7b9c74a40ca90d322dba",
+  "flames": [
+    {
+      "fixture": "NEW02_LEFT_CROPPED_CHANDELIER",
+      "id": "NEW02_LEFT_F01",
+      "center": [
+        58,
+        26
+      ]
+    },
+    {
+      "fixture": "NEW02_MID_CHANDELIER",
+      "id": "NEW02_MID_F01",
+      "center": [
+        283,
+        201
+      ]
+    },
+    {
+      "fixture": "NEW02_MID_CHANDELIER",
+      "id": "NEW02_MID_F02",
+      "center": [
+        300,
+        193
+      ]
+    },
+    {
+      "fixture": "NEW02_MID_CHANDELIER",
+      "id": "NEW02_MID_F03",
+      "center": [
+        319,
+        211
+      ]
+    },
+    {
+      "fixture": "NEW02_MID_CHANDELIER",
+      "id": "NEW02_MID_F04",
+      "center": [
+        333,
+        218
+      ]
+    },
+    {
+      "fixture": "NEW02_DEEP_CHANDELIER",
+      "id": "NEW02_DEEP_F01",
+      "center": [
+        468,
+        308
+      ]
+    },
+    {
+      "fixture": "NEW02_DEEP_CHANDELIER",
+      "id": "NEW02_DEEP_F02",
+      "center": [
+        479,
+        314
+      ]
+    },
+    {
+      "fixture": "NEW02_DEEP_CHANDELIER",
+      "id": "NEW02_DEEP_F03",
+      "center": [
+        487,
+        300
+      ]
+    },
+    {
+      "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "id": "NEW02_RIGHT_F01",
+      "center": [
+        640,
+        365
+      ]
+    },
+    {
+      "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "id": "NEW02_RIGHT_F02",
+      "center": [
+        655,
+        358
+      ]
+    },
+    {
+      "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "id": "NEW02_RIGHT_F03",
+      "center": [
+        664,
+        369
+      ]
+    }
+  ],
+  "deferred": [
+    {
+      "region": "NEW02_LEFT_ABOVE_TOP_EDGE",
+      "reason": "additional candles clipped by upper edge, no complete flame core visible"
+    },
+    {
+      "region": "NEW02_FAR_RIGHT_EDGE",
+      "reason": "isolated warm bright points near right edge not securely a flame core; defer"
+    },
+    {
+      "region": "NEW02_LEFT_CROPPED_33_8",
+      "reason": "upper candle top partially cropped by frame; intentionally excluded pending image-level review"
+    }
+  ],
+  "registered_flame_core_masks_created": false,
+  "scope": "visual source-position draft only, no actual flame segmentation GT, no person masks and no video render",
+  "images": [
+    {
+      "file": "NEW02_V014_DIRECT_SOURCE_FLAME_POINT_OVERLAY.jpg",
+      "sha256": "f03a790a98aadc5055f279652c72dd11c2885630b125002ff0ddeb1ec68f4124",
+      "bytes": 227328,
+      "dims": [
+        720,
+        1280
+      ]
+    },
+    {
+      "file": "NEW02_V014_DIRECT_SOURCE_ENLARGED_FLAME_REVIEW.jpg",
+      "sha256": "d8ad699592467c77ef239fa42f45b4d9648f9f89c7c181810f96f559d2af84ec",
+      "bytes": 172390,
+      "dims": [
+        530,
+        1979
+      ]
+    }
+  ],
+  "reference_V012_unchanged": true,
+  "publication_allowed": false
+}
