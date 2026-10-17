@@ -1,0 +1,386 @@
+{
+  "schema": "M01_SCENE_LIGHT_ATLAS_V1",
+  "profile_id": "N17_APPROVED_VISUAL_RESULT_V001",
+  "scene_id": "CASTLE_ENTRANCE_N17",
+  "review_status": "PO_VISUAL_STYLE_APPROVED_N17_RESULT_ONLY",
+  "registration_status": "F601_CORE_CENTERS_PO_APPROVED_FULL_PERSON_GT_UNVERIFIED",
+  "source": {
+    "type": "video_mp4",
+    "path": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+    "sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+    "input_dimensions": [
+      720,
+      1280
+    ]
+  },
+  "render": {
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "frames": 377,
+    "frame_start": 281,
+    "preserve_audio": true
+  },
+  "temporal": {
+    "style": "unsynced_independent",
+    "rgb_cap": [
+      12,
+      7,
+      2
+    ],
+    "fade_in_frames": 0,
+    "fade_out_frames": 0,
+    "envelope": "keyframed"
+  },
+  "protection": {
+    "mode": "bitpack_masks_unverified",
+    "audit_json": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_ALL_377_FRAMES_PROTECTION_FLAME_QA_V001.json",
+    "mask_zip": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_MACHINE_MASK_PROPOSALS_377_FRAMES_V001.zip",
+    "mask_zip_sha256": "6869a9d2437b413c52bee803376e2073c7a8e8d59d73b33f9a97593c46e3bbe6",
+    "do_not_claim_complete_person_protection": true
+  },
+  "fixtures": [
+    {
+      "id": "N17_RIGHT_SCONCE_01",
+      "individual_source_id": "N17_FLAME_1",
+      "center_px": [
+        618,
+        54
+      ],
+      "track_px": [
+        [
+          550,
+          615,
+          57
+        ],
+        [
+          580,
+          615,
+          53
+        ],
+        [
+          601,
+          618,
+          54
+        ],
+        [
+          630,
+          615,
+          50
+        ],
+        [
+          645,
+          614,
+          50
+        ]
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          49,
+          69
+        ],
+        "roi_px": [
+          525,
+          0,
+          720,
+          320
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "visibility_keyframes": [
+        [
+          281,
+          0
+        ],
+        [
+          542,
+          0
+        ],
+        [
+          552,
+          1
+        ],
+        [
+          650,
+          1
+        ],
+        [
+          657,
+          0
+        ]
+      ],
+      "phase": 1,
+      "core_bitpack_index": 1,
+      "core_gain_rgb": [
+        29,
+        20,
+        9
+      ],
+      "halo_gain_rgb": [
+        7.5,
+        4.3,
+        1.3
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01",
+      "individual_source_id": "N17_FLAME_2",
+      "center_px": [
+        624,
+        40
+      ],
+      "track_px": [
+        [
+          550,
+          624,
+          41
+        ],
+        [
+          580,
+          624,
+          39
+        ],
+        [
+          601,
+          624,
+          40
+        ],
+        [
+          630,
+          623,
+          35
+        ],
+        [
+          645,
+          622,
+          36
+        ]
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          49,
+          69
+        ],
+        "roi_px": [
+          525,
+          0,
+          720,
+          320
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "visibility_keyframes": [
+        [
+          281,
+          0
+        ],
+        [
+          542,
+          0
+        ],
+        [
+          552,
+          1
+        ],
+        [
+          650,
+          1
+        ],
+        [
+          657,
+          0
+        ]
+      ],
+      "phase": 2,
+      "core_bitpack_index": 2,
+      "core_gain_rgb": [
+        29,
+        20,
+        9
+      ],
+      "halo_gain_rgb": [
+        7.5,
+        4.3,
+        1.3
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01",
+      "individual_source_id": "N17_FLAME_3",
+      "center_px": [
+        645,
+        22
+      ],
+      "track_px": [
+        [
+          550,
+          648,
+          23
+        ],
+        [
+          580,
+          645,
+          26
+        ],
+        [
+          601,
+          645,
+          22
+        ],
+        [
+          630,
+          644,
+          16
+        ],
+        [
+          645,
+          644,
+          16
+        ]
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          49,
+          69
+        ],
+        "roi_px": [
+          525,
+          0,
+          720,
+          320
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "visibility_keyframes": [
+        [
+          281,
+          0
+        ],
+        [
+          542,
+          0
+        ],
+        [
+          552,
+          1
+        ],
+        [
+          650,
+          1
+        ],
+        [
+          657,
+          0
+        ]
+      ],
+      "phase": 3,
+      "core_bitpack_index": 3,
+      "core_gain_rgb": [
+        29,
+        20,
+        9
+      ],
+      "halo_gain_rgb": [
+        7.5,
+        4.3,
+        1.3
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01",
+      "individual_source_id": "N17_FLAME_4",
+      "center_px": [
+        688,
+        42
+      ],
+      "track_px": [
+        [
+          550,
+          687,
+          43
+        ],
+        [
+          580,
+          688,
+          46
+        ],
+        [
+          601,
+          688,
+          42
+        ],
+        [
+          630,
+          687,
+          36
+        ],
+        [
+          645,
+          687,
+          36
+        ]
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          49,
+          69
+        ],
+        "roi_px": [
+          525,
+          0,
+          720,
+          320
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "visibility_keyframes": [
+        [
+          281,
+          0
+        ],
+        [
+          542,
+          0
+        ],
+        [
+          552,
+          1
+        ],
+        [
+          650,
+          1
+        ],
+        [
+          657,
+          0
+        ]
+      ],
+      "phase": 4,
+      "core_bitpack_index": 4,
+      "core_gain_rgb": [
+        29,
+        20,
+        9
+      ],
+      "halo_gain_rgb": [
+        7.5,
+        4.3,
+        1.3
+      ]
+    }
+  ],
+  "release_allowed": false,
+  "legacy_reference": {
+    "accepted_m01_video": "production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_CANDLE_ENGINE_RESULT_REVIEW_V001.mp4",
+    "sha256": "46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62",
+    "warning": "comparison is visual reference; identical pixel output not claimed"
+  }
+}
