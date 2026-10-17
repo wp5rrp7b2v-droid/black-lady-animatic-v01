@@ -80,14 +80,18 @@ jobs:
           subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y",
               "-i",str(a),"-i",str(b),"-filter_complex",vf,
               "-map","[v]","-map","0:a:0","-c:v","libx264","-preset","veryfast",
-              "-crf","20","-pix_fmt","yuv420p","-r","30","-frames:v","1927",
-              "-c:a","copy","-movflags","+faststart",str(out)],check=True)
+              "-crf","20","-pix_fmt","yuv420p","-r","30",
+              "-c:a","copy","-copyts","-start_at_zero",
+              "-movflags","+faststart",str(out)],check=True)
           x=probe(out)
           vid=next(s for s in x["streams"] if s["codec_type"]=="video")
           assert (vid["width"],vid["height"],vid["r_frame_rate"],int(vid["nb_frames"]))==(1440,1352,"30/1",1927)
           assert len([s for s in x["streams"] if s["codec_type"]=="audio"])==1
           assert abs(float(x["format"]["duration"])-64.25)<.035
-          assert packets(out)==p_a, "AUDIO_PACKETS_CHANGED"
+          out_packets=packets(out)
+          assert len(out_packets)==len(p_a), f"AUDIO_PACKET_COUNT_CHANGED: source={len(p_a)} result={len(out_packets)}"
+          assert out_packets==p_a, next((f"AUDIO_PACKET_MISMATCH_AT_{i}: source={x} result={y}"
+                                        for i,(x,y) in enumerate(zip(p_a,out_packets)) if x!=y),"AUDIO_PACKETS_CHANGED")
           for typ in ("v:0","a:0"):
               subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror",
                   "-i",str(out),"-map","0:"+typ,"-f","null","-"],check=True)
