@@ -32,6 +32,7 @@ VIDEO=OUT/"S02_B_M01_V016_FULL_LENGTH_REGISTERED_CANDLE_PREVIEW_V001.mp4"
 AB=OUT/"S02_B_M01_V016_FULL_LENGTH_V006_VS_M01_AB_V001.mp4"
 REPORT=OUT/"S02_B_M01_V016_INTEGRATION_QC.json"
 TEMP=OUT/"S02_B_M01_V016_SILENT_INTERMEDIATE.mp4"
+TEMP_AB=OUT/"S02_B_M01_V016_AB_VIDEO_ONLY_INTERMEDIATE.mp4"
 
 def probe(path):
  return json.loads(subprocess.check_output(["ffprobe","-v","error",
@@ -160,11 +161,18 @@ def main():
  "[1:v]pad=iw:ih+72:0:72:black,"
  "drawtext=text='B M01 V016 REVIEW':fontsize=29:fontcolor=white:x=24:y=18[b];"
  "[a][b]hstack=inputs=2[v]")
+ # First encode only the hstack video. Then reuse source audio through the
+ # SAME video-only + untouched source AAC remux strategy as the preview.
+ # Muxing AAC alongside a filtered hstack previously changed packet timestamps.
  subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-y",
   "-i",str(SOURCE),"-i",str(VIDEO),"-filter_complex",filter_graph,
-  "-map","[v]","-map","0:a:0","-c:v","libx264","-preset","veryfast",
+  "-map","[v]","-an","-c:v","libx264","-preset","veryfast",
   "-crf","22","-pix_fmt","yuv420p","-r","30","-frames:v",str(TOTAL),
-  "-c:a","copy","-copyts","-start_at_zero","-movflags","+faststart",str(AB)],check=True)
+  "-movflags","+faststart",str(TEMP_AB)],check=True)
+ subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-y",
+  "-i",str(TEMP_AB),"-i",str(SOURCE),"-map","0:v:0","-map","1:a:0",
+  "-c:v","copy","-c:a","copy","-copyts","-start_at_zero",
+  "-movflags","+faststart",str(AB)],check=True)
  abprobe=probe(AB)
  av=next(s for s in abprobe["streams"] if s["codec_type"]=="video")
  assert (int(av["nb_frames"]),av["width"],av["height"],av["r_frame_rate"])==(TOTAL,1440,1352,"30/1")
@@ -174,6 +182,7 @@ def main():
    subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-i",str(path),"-map","0:"+st,"-f","null","-"],check=True)
  assert m01.sha(SOURCE)==SOURCE_SHA
  TEMP.unlink(missing_ok=True)
+ TEMP_AB.unlink(missing_ok=True)
  enabled_frame_count=sum(s["total_frames"] for s in spanstats.values() if s["lighting_added"])
  rep={"schema":"S02_B_M01_V016_PARTIAL_REGISTERED_FULL_LENGTH_INTEGRATION",
    "status":"FULL_LENGTH_VIDEO_RENDERED_THREE_REGISTERED_LIGHTING_NODES_FOURTEEN_PASS_THROUGH_PENDING_PO_AND_CALIBRATION",
