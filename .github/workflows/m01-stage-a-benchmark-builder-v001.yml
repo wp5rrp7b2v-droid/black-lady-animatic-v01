@@ -1,0 +1,111 @@
+name: M01 Stage A Ground-Truth Benchmark Dataset Builder V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a-benchmark-builder-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a-benchmark-builder-v001
+  cancel-in-progress: false
+jobs:
+  establish-reviewable-source-grounded-test-set:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout independent M01 engine branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Use reproducible CPU Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned segmentation and source-frame extraction tools
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          python -m pip install "ultralytics==8.3.220" "opencv-python-headless>=4.8" "pillow>=10" "numpy<2"
+      - name: Build 11-shot 33-frame M01 benchmark and annotation queue
+        run: |
+          python scripts/m01_stage_a_benchmark_builder_v001.py
+      - name: Independently verify all 33 frame-derived machine proposals
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          root=pathlib.Path("_m01_stage_a_v001")
+          spec=json.loads(pathlib.Path("production/environment_dynamic/benchmarks/m01_stage_a_v001/M01_STAGE_A_CASE_SPEC_V001.json").read_text())
+          report=json.loads((root/"M01_STAGE_A_MACHINE_BENCHMARK_V001.json").read_text())
+          queue=json.loads((root/"M01_STAGE_A_GROUND_TRUTH_REVIEW_QUEUE_V001.json").read_text())
+          assert report["schema"]=="M01_STAGE_A_MACHINE_BENCHMARK_V001"
+          assert report["dataset_status"]=="MACHINE_CANDIDATE_GENERATED_NOT_GROUND_TRUTH"
+          assert report["source_video_sha256"]==spec["source_video_sha256"]
+          assert report["case_spec_sha256"]==hashlib.sha256(pathlib.Path("production/environment_dynamic/benchmarks/m01_stage_a_v001/M01_STAGE_A_CASE_SPEC_V001.json").read_bytes()).hexdigest()
+          assert report["cases"]==11 and report["source_frames"]==33
+          assert report["known_po_alignment_failures"]==7
+          assert report["style_reference_shots"]==2 and report["negative_control_shots"]==2
+          assert report["machine_person_proposals"]==33 and len(report["samples"])==11
+          assert report["all_frame_annotations_approved"] is False and report["all_light_core_labels_approved"] is False
+          assert report["s02b_engine_ready"] is False and report["cross_scene_engine_ready"] is False
+          assert queue["status"]=="HUMAN_REVIEW_REQUIRED_TO_LOCK_GROUND_TRUTH"
+          assert len(queue["cases"])==11 and all(x["approved"] is False for x in queue["cases"])
+          count=0
+          for shot in report["samples"]:
+              assert len(shot["frames"])==3
+              for f in shot["frames"]:
+                  p=root/f["person_mask_proposal"]
+                  assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==f["person_mask_sha256"]
+                  assert f["human_review_status"]=="PENDING"
+                  assert len(f["decoded_rgb_sha256"])==64
+                  count+=1
+          assert count==33 and len(list((root/"person_mask_proposals").glob("*.png")))==33
+          for contact in report["contact_sheets"]:
+              p=root/contact["file"]
+              assert p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==contact["sha256"]
+          assert report["no_video_production"] is True and report["no_main_merge"] is True
+          print("STAGE_A_11_SHOT_33_FRAME_MACHINE_DATASET_VERIFIED; NO_GROUND_TRUTH_APPROVED")
+          PY
+      - name: Save all benchmark evidence to independent work branch without promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp -a _m01_stage_a_v001/. "$dest/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==39,paths
+          assert len([x for x in paths if x.endswith(".png")])==33
+          assert len([x for x in paths if x.endswith(".jpg")])==2
+          assert len([x for x in paths if x.endswith(".b64.txt")])==2
+          assert len([x for x in paths if x.endswith(".json")])==2
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/") for x in paths)
+          print("TRACKED_BENCHMARK_FILES",len(paths))
+          PY
+          git commit -m "Record 11-shot, 33-frame M01 Stage A calibration benchmark and unapproved review labels"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "STAGE_A_DATASET_RECORDED_NO_MAIN_MERGE=TRUE"
+      - name: Publish inspectable diagnostic evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_STAGE_A_V001_11_SHOT_33_FRAME_BENCHMARK_REVIEW
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/M01_STAGE_A_CONTACT_FAIL7_V001.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/M01_STAGE_A_CONTACT_CONTROLS4_V001.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/M01_STAGE_A_MACHINE_BENCHMARK_V001.json
+            production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/M01_STAGE_A_GROUND_TRUTH_REVIEW_QUEUE_V001.json
+            production/environment_dynamic/benchmarks/m01_stage_a_v001/evidence/person_mask_proposals/
+          retention-days: 14
+          if-no-files-found: error
