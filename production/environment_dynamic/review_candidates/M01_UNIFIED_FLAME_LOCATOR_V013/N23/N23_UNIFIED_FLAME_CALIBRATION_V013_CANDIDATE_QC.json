@@ -1,0 +1,214 @@
+{
+  "schema": "M01_UNIFIED_CANDLE_FLAME_REGISTRATION_PROPOSALS_V013",
+  "status": "CALIBRATION_REQUIRED_NO_FLAME_CORE_REGISTRATION",
+  "profile_id": "N23_UNIFIED_FLAME_CALIBRATION_V013",
+  "profile_sha256": "50339039a2e560ba896f61d48d49fe3ffeb5bdfaab2257a9b2b5fd37139e2070",
+  "source_png": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+  "exact_source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+  "source_unchanged": true,
+  "one_algorithm_for_core_and_halo": true,
+  "reference_style": "M01_STYLE_BASELINE_V012",
+  "roi_scope": "PREVIOUS_PO_ACCEPTABLE_V012_ARCHITECTURAL_LIGHT_AREAS_AS_HYPOTHESIS_SEARCH_BOUNDARY",
+  "candidate_method": "BRIGHT_WARM_PIXEL_LOCAL_CONTRAST_NONAUTHORITATIVE",
+  "camera_scale": [
+    720,
+    1280
+  ],
+  "fixtures": [
+    {
+      "id": "N23_LIGHT_01",
+      "fixture": "N23_LEFT_ARCH_01",
+      "roi_px": [
+        0,
+        0,
+        570,
+        286
+      ],
+      "candidate_pixels": [
+        {
+          "x": 162,
+          "y": 83,
+          "score": 173.7,
+          "rgb": [
+            248,
+            181,
+            63
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 372,
+          "y": 256,
+          "score": 171.2,
+          "rgb": [
+            247,
+            160,
+            62
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 388,
+          "y": 272,
+          "score": 151.2,
+          "rgb": [
+            230,
+            157,
+            82
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 170,
+          "y": 100,
+          "score": 125.2,
+          "rgb": [
+            255,
+            160,
+            38
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 232,
+          "y": 179,
+          "score": 120.8,
+          "rgb": [
+            176,
+            102,
+            36
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 163020,
+        "warm_pixels": 8922,
+        "distinct_peak_pixels": 4899,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "N23_LIGHT_02",
+      "fixture": "N23_RIGHT_HIGH_02",
+      "roi_px": [
+        690,
+        0,
+        720,
+        300
+      ],
+      "candidate_pixels": [
+        {
+          "x": 715,
+          "y": 118,
+          "score": 118.9,
+          "rgb": [
+            255,
+            185,
+            69
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 716,
+          "y": 59,
+          "score": 94.2,
+          "rgb": [
+            187,
+            100,
+            26
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 717,
+          "y": 137,
+          "score": 56.8,
+          "rgb": [
+            220,
+            122,
+            41
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 717,
+          "y": 155,
+          "score": 51.5,
+          "rgb": [
+            178,
+            94,
+            31
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 9000,
+        "warm_pixels": 150,
+        "distinct_peak_pixels": 150,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "N23_LIGHT_03",
+      "fixture": "N23_RIGHT_LOW_03",
+      "roi_px": [
+        695,
+        285,
+        720,
+        566
+      ],
+      "candidate_pixels": [
+        {
+          "x": 715,
+          "y": 433,
+          "score": 88.6,
+          "rgb": [
+            254,
+            224,
+            133
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 719,
+          "y": 460,
+          "score": 52.2,
+          "rgb": [
+            192,
+            118,
+            57
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 7025,
+        "warm_pixels": 126,
+        "distinct_peak_pixels": 122,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    }
+  ],
+  "aggregate_candidate_count": 11,
+  "registration_PO_approved": false,
+  "people_mask_ground_truth_approved": false,
+  "full_engine_flame_render_authorized": false,
+  "no_fabricated_flames": true,
+  "original_png_unmodified": true,
+  "no_video_or_master_replacement": true,
+  "no_main_merge": true,
+  "next": "Inspect candidate overlay against source, confirm or reject actual cores; no automatic promotion.",
+  "review_overlay": "N23_UNIFIED_FLAME_CALIBRATION_V013_SOURCE_CANDIDATE_OVERLAY_V001.jpg",
+  "review_overlay_sha256": "26491ecf494c760c2f6be763eec3b2678f3b1e6c2a5f743110af8f5b6094bdc4"
+}

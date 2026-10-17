@@ -1,0 +1,32 @@
+{
+  "schema": "M01_V013_UNIFIED_FLAME_ATLAS_CALIBRATION",
+  "status": "ONE_CORE_READY_N23_NEW02_FLAME_CALIBRATION_PENDING",
+  "core": "scripts/m01_engine_v1.py",
+  "calibration": "scripts/m01_unified_flame_locator_v013.py",
+  "approved_reference_V012_binary_preserved": true,
+  "registration_proposals": [
+    {
+      "shot": "N23",
+      "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+      "overlay": "N23_UNIFIED_FLAME_CALIBRATION_V013_SOURCE_CANDIDATE_OVERLAY_V001.jpg",
+      "overlay_sha256": "26491ecf494c760c2f6be763eec3b2678f3b1e6c2a5f743110af8f5b6094bdc4",
+      "suggested_warm_spots": 11,
+      "fixtures": 3,
+      "status": "PO_REVIEW_CALIBRATION_REQUIRED"
+    },
+    {
+      "shot": "NEW02",
+      "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+      "overlay": "NEW02_UNIFIED_FLAME_CALIBRATION_V013_SOURCE_CANDIDATE_OVERLAY_V001.jpg",
+      "overlay_sha256": "6ee45bd85e386d0602b4a4b13ef6207bd2361ff8ac7f90e6c38319df35a166af",
+      "suggested_warm_spots": 22,
+      "fixtures": 5,
+      "status": "PO_REVIEW_CALIBRATION_REQUIRED"
+    }
+  ],
+  "flames_all_verified": false,
+  "new_video_render_allowed": false,
+  "multi_scene_product_approved": false,
+  "project_batch_gate": "HOLD",
+  "no_main_merge": true
+}

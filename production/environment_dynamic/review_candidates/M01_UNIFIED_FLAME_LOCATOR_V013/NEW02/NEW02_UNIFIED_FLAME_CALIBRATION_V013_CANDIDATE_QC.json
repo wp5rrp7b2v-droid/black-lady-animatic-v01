@@ -1,0 +1,377 @@
+{
+  "schema": "M01_UNIFIED_CANDLE_FLAME_REGISTRATION_PROPOSALS_V013",
+  "status": "CALIBRATION_REQUIRED_NO_FLAME_CORE_REGISTRATION",
+  "profile_id": "NEW02_UNIFIED_FLAME_CALIBRATION_V013",
+  "profile_sha256": "8a31e13df8d9ac341b2802fb780ab3fdfb2dd06b34b07a57e44f7ee5bf8e8bad",
+  "source_png": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "exact_source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_unchanged": true,
+  "one_algorithm_for_core_and_halo": true,
+  "reference_style": "M01_STYLE_BASELINE_V012",
+  "roi_scope": "PREVIOUS_PO_ACCEPTABLE_V012_ARCHITECTURAL_LIGHT_AREAS_AS_HYPOTHESIS_SEARCH_BOUNDARY",
+  "candidate_method": "BRIGHT_WARM_PIXEL_LOCAL_CONTRAST_NONAUTHORITATIVE",
+  "camera_scale": [
+    720,
+    1280
+  ],
+  "fixtures": [
+    {
+      "id": "NEW02_LIGHT_1",
+      "fixture": "NEW02_LEFT_WALL",
+      "roi_px": [
+        0,
+        0,
+        131.04,
+        197.12
+      ],
+      "candidate_pixels": [
+        {
+          "x": 28,
+          "y": 50,
+          "score": 158.7,
+          "rgb": [
+            255,
+            164,
+            50
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 11,
+          "y": 83,
+          "score": 157.0,
+          "rgb": [
+            222,
+            152,
+            59
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 38,
+          "y": 98,
+          "score": 152.1,
+          "rgb": [
+            229,
+            145,
+            61
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 5,
+          "y": 55,
+          "score": 140.8,
+          "rgb": [
+            245,
+            150,
+            43
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 22,
+          "y": 126,
+          "score": 127.8,
+          "rgb": [
+            188,
+            114,
+            37
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 25807,
+        "warm_pixels": 3702,
+        "distinct_peak_pixels": 2318,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "NEW02_LIGHT_2",
+      "fixture": "NEW02_MID_WALL",
+      "roi_px": [
+        239.04000000000002,
+        130.56,
+        349.2,
+        341.76
+      ],
+      "candidate_pixels": [
+        {
+          "x": 304,
+          "y": 238,
+          "score": 112.7,
+          "rgb": [
+            247,
+            151,
+            52
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 322,
+          "y": 239,
+          "score": 101.9,
+          "rgb": [
+            231,
+            132,
+            37
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 293,
+          "y": 253,
+          "score": 101.4,
+          "rgb": [
+            183,
+            100,
+            31
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 265,
+          "y": 203,
+          "score": 93.9,
+          "rgb": [
+            251,
+            152,
+            50
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 246,
+          "y": 202,
+          "score": 89.1,
+          "rgb": [
+            255,
+            190,
+            85
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 23210,
+        "warm_pixels": 5335,
+        "distinct_peak_pixels": 3249,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "NEW02_LIGHT_3",
+      "fixture": "NEW02_DEEPER_WALL",
+      "roi_px": [
+        424.08,
+        248.32,
+        509.76,
+        376.32
+      ],
+      "candidate_pixels": [
+        {
+          "x": 487,
+          "y": 295,
+          "score": 109.3,
+          "rgb": [
+            254,
+            236,
+            190
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 506,
+          "y": 312,
+          "score": 94.7,
+          "rgb": [
+            233,
+            128,
+            23
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 472,
+          "y": 335,
+          "score": 83.3,
+          "rgb": [
+            192,
+            99,
+            20
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 456,
+          "y": 305,
+          "score": 73.1,
+          "rgb": [
+            255,
+            193,
+            93
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 481,
+          "y": 314,
+          "score": 69.4,
+          "rgb": [
+            254,
+            239,
+            194
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 11008,
+        "warm_pixels": 1460,
+        "distinct_peak_pixels": 1142,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "NEW02_LIGHT_4",
+      "fixture": "NEW02_FAR_RIGHT_ARCH",
+      "roi_px": [
+        596.88,
+        323.84000000000003,
+        680.4,
+        436.48
+      ],
+      "candidate_pixels": [
+        {
+          "x": 654,
+          "y": 351,
+          "score": 68.6,
+          "rgb": [
+            255,
+            201,
+            107
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 624,
+          "y": 360,
+          "score": 66.9,
+          "rgb": [
+            253,
+            160,
+            55
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 642,
+          "y": 388,
+          "score": 66.9,
+          "rgb": [
+            172,
+            90,
+            6
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 660,
+          "y": 384,
+          "score": 65.6,
+          "rgb": [
+            199,
+            107,
+            18
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 625,
+          "y": 333,
+          "score": 61.4,
+          "rgb": [
+            221,
+            116,
+            21
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 9296,
+        "warm_pixels": 1967,
+        "distinct_peak_pixels": 1379,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    },
+    {
+      "id": "NEW02_LIGHT_5",
+      "fixture": "NEW02_DISTANT_RIGHT",
+      "roi_px": [
+        686.16,
+        378.88,
+        720,
+        504.32000000000005
+      ],
+      "candidate_pixels": [
+        {
+          "x": 706,
+          "y": 461,
+          "score": 139.3,
+          "rgb": [
+            254,
+            237,
+            183
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        },
+        {
+          "x": 717,
+          "y": 442,
+          "score": 97.4,
+          "rgb": [
+            254,
+            186,
+            76
+          ],
+          "status": "UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+        }
+      ],
+      "search_statistics": {
+        "count_pixels": 4250,
+        "warm_pixels": 112,
+        "distinct_peak_pixels": 112,
+        "reason": "NONPO_PROPOSALS_REQUIRING_VISUAL_REVIEW"
+      },
+      "approved_flame_cores": 0,
+      "individual_light_has_verified_flame": false,
+      "human_overlap_protection_verified": false
+    }
+  ],
+  "aggregate_candidate_count": 22,
+  "registration_PO_approved": false,
+  "people_mask_ground_truth_approved": false,
+  "full_engine_flame_render_authorized": false,
+  "no_fabricated_flames": true,
+  "original_png_unmodified": true,
+  "no_video_or_master_replacement": true,
+  "no_main_merge": true,
+  "next": "Inspect candidate overlay against source, confirm or reject actual cores; no automatic promotion.",
+  "review_overlay": "NEW02_UNIFIED_FLAME_CALIBRATION_V013_SOURCE_CANDIDATE_OVERLAY_V001.jpg",
+  "review_overlay_sha256": "6ee45bd85e386d0602b4a4b13ef6207bd2361ff8ac7f90e6c38319df35a166af"
+}
