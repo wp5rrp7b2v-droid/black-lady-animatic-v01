@@ -121,6 +121,11 @@ def main():
         plate.save(jpg,"JPEG",quality=82,optimize=True)
         b64=OUT/(jpg.name+".b64.txt")
         b64.write_text(base64.b64encode(jpg.read_bytes()).decode()+"\n")
+        # Separate mid-frame double panel keeps GitHub text transport below large-file limits.
+        midplate=plate.crop((0,835,2190,1670))
+        midfile=OUT/(fileprefix+"_MIDFRAME_ZOOM_V001.jpg")
+        midplate.save(midfile,"JPEG",quality=81,optimize=True)
+        (OUT/(midfile.name+".b64.txt")).write_text(base64.b64encode(midfile.read_bytes()).decode()+"\n")
         # Full-frame person review at one sampled frame, distinct to top zoom.
         mid=item["frames"][1];fr=mid["frame_index"]
         src=np.frombuffer(rawframes[fr],dtype=np.uint8).reshape(H,W,3)
@@ -134,6 +139,7 @@ def main():
              "three_sample_frames":cases,
              "zoom_plate":jpg.name,"zoom_plate_sha256":sha(jpg.read_bytes()),
              "person_fullframe":perimg.name,"person_fullframe_sha256":sha(perimg.read_bytes()),
+             "mid_zoom":midfile.name,"mid_zoom_sha256":sha(midfile.read_bytes()),
              "source_geometry_approved":False,
              "human_protection_approved":False,
              "calibration_work_queue":"Use source flames visible in left panels, not magenta hints; verify all visible people incl hair, faces, clothing, background."})
