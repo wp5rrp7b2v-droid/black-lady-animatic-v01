@@ -7,7 +7,7 @@ on:
       - .github/workflows/s02b-v006-m01-full-integration-review-v001.yml
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: s02b-v006-m01-full-integration-review-v001
@@ -47,11 +47,39 @@ jobs:
           assert j["m01_only"] is True and j["m02_m03_m04_m05_disabled"] is True
           assert j["segments"]=={"NEW02":[1299,1366],"N23":[1366,1448]}
           assert j["po_full_video_approval"] is False and j["canonical_publication"] is False
-          assert subprocess.check_output(["git","status","--porcelain"],text=True).strip()=="", "TRACKED_WORKTREE_MODIFIED"
+          assert subprocess.check_output(["git","status","--porcelain","--untracked-files=no"],text=True).strip()=="", "TRACKED_WORKTREE_MODIFIED"
           assert subprocess.check_output(["git","rev-parse","HEAD:production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"],text=True).strip()=="d92d23ac6b5a542e07572e29a9e648e2c4141854"
           print("EXACT_SOURCE_PRESERVATION_AND_M01_REVIEW_GATE_PASS")
           print("MP4_SHA256",j["output_sha256"],"BYTES",j["output_bytes"])
           PY
+
+      - name: Save only the verified review MP4 on review branch for direct download
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/video_candidates/review_m01_v001
+          test ! -e "$dest/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4"
+          mkdir -p "$dest"
+          cp "_s02b_v006_m01_full_review/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4" "$dest/"
+          cp "_s02b_v006_m01_full_review/M01_FULL_INTEGRATION_QC_V001.json" "$dest/"
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          d=pathlib.Path("production/video_candidates/review_m01_v001")
+          j=json.loads((d/"M01_FULL_INTEGRATION_QC_V001.json").read_text())
+          p=d/"S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4"
+          assert p.stat().st_size==j["output_bytes"]
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["output_sha256"]
+          print("DIRECT_REVIEW_MP4_VERIFIED",j["output_sha256"])
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add -- "$dest/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4" "$dest/M01_FULL_INTEGRATION_QC_V001.json"
+          git diff --cached --name-only | grep -v "^production/video_candidates/review_m01_v001/" && exit 1 || true
+          test "$(git diff --cached --name-only | wc -l)" -eq 2
+          git commit -m "Save PO-requested S02-B M01 full review MP4 and technical proof on review branch only"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "DIRECT_REVIEW_ASSET_SAVED_NO_MAIN_MERGE=TRUE"
 
       - name: Upload ONE full MP4 and technical QC as review artifact
         uses: actions/upload-artifact@v4
