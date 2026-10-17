@@ -226,6 +226,31 @@
         "status": "READY_TO_START",
         "instruction": "Refactor approved N23, NEW02, N17 candle logic into one configurable versioned engine and GitHub Actions entry. Migrate fixture positions, people protection and crossfade timing into Scene Light Atlas input, never embed shot ID / timestamps in common engine. Show PO meaningful A/B and holdout scene outcomes before broad rollout. Stop N17-only fine tuning.",
         "doc": "docs/project_control/gates/P0_3_video_pipeline/M01_N17_VISUAL_RESULT_PO_APPROVAL_AND_ENGINE_REFOCUS_2026-10-17.md"
+      },
+      "engine_v1": {
+        "status": "GENERIC_CORE_THREE_PROFILE_TECHNICAL_PASS_PO_VIDEO_REVIEW_PENDING",
+        "date": "2026-10-17",
+        "code": "scripts/m01_engine_v1.py",
+        "unit_tests": "scripts/test_m01_engine_v1.py",
+        "atlas_path": "production/environment_dynamic/m01_engine_v1/profiles",
+        "workflow": ".github/workflows/m01-engine-v1-unified-three-profile-pilot.yml",
+        "workflow_run_success": 39026880994,
+        "source_shots": [
+          "N23",
+          "V006_NEW_02",
+          "N17"
+        ],
+        "outputs_root": "production/environment_dynamic/review_candidates/M01_GENERIC_ENGINE_V1_THREE_PROFILE_PILOT",
+        "record": "docs/project_control/gates/P0_3_video_pipeline/M01_GENERIC_ENGINE_V1_THREE_PROFILE_TECHNICAL_GATE_2026-10-17.md",
+        "source_and_binary_tests": "PASS",
+        "generic_same_core_used": true,
+        "unknown_scene_behavior": "CALIBRATION_REQUIRED_NO_RENDER",
+        "person_gt_ready": false,
+        "approved_three_new_video_results": false,
+        "approved_S02B_batch": false,
+        "approved_cross_scene_product": false,
+        "release_allowed": false,
+        "next_test": "PO review 3 A/B videos, then run unchanged generic core on previously untested S02-B fixtures; afterward independent cross-scene test"
       }
     },
     {
