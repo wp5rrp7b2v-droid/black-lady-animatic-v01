@@ -145,7 +145,7 @@
         "overall_benchmark_frames": 33,
         "remaining_eight_candle_fixtures_not_yet_approved": true,
         "n17_candle_localization": {
-          "status": "FOUR_FLAME_SOURCE_CANDIDATES_REGISTERED_PO_VISUAL_REVIEW_PENDING",
+          "status": "FOUR_F601_CENTERS_PO_APPROVED_377_FRAME_MACHINE_MASK_AUDIT_QC_PASS_GT_PENDING",
           "fixture_id": "N17_RIGHT_SCONCE_01",
           "candidate_centers_F601_px": [
             [
@@ -183,7 +183,20 @@
           ],
           "gt_approved": false,
           "full_video_person_protection_verified": false,
-          "batch_render_authorized": false
+          "batch_render_authorized": false,
+          "po_approved_centers": true,
+          "po_approved_scope": "N17 F601 four individual candle center coordinates only",
+          "po_approval_record": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_N17_PO_POSITION_APPROVAL_2026-10-17.json",
+          "full_n17_frame_audit_run": 39020334729,
+          "full_n17_frame_audit_report": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_ALL_377_FRAMES_PROTECTION_FLAME_QA_V001.json",
+          "full_n17_frame_audit_binary": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_full_frame_masks_v001/M01_A1_N17_MACHINE_MASK_PROPOSALS_377_FRAMES_V001.zip",
+          "full_n17_frame_audit_summary": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_N17_377FRAME_MASK_AUDIT_CLOSEOUT_2026-10-17.md",
+          "full_frame_count": 377,
+          "flame_visible_proposed_frames": 108,
+          "mask_shape_warning_frames": 35,
+          "flame_onset_boundary_approved": false,
+          "flame_core_shapes_ground_truth_approved": false,
+          "full_video_masks_created": true
         }
       }
     },
