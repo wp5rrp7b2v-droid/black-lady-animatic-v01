@@ -1,0 +1,85 @@
+name: M01 A1 N17 Targeted Warning and Onset QA V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-a1-n17-targeted-warning-onset-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-a1-n17-targeted-warning-onset-v001
+  cancel-in-progress: false
+jobs:
+  bounded-n17-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout M01 isolated engine branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Minimal dependencies; no model installation
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Audit existing 35 frame warnings and 31 source frames for flame entry
+        run: |
+          python3 scripts/m01_a1_n17_targeted_warnings_onset_v001.py
+      - name: Verify exact source and save scoped review diagnostics only
+        shell: bash
+        run: |
+          set -euo pipefail
+          src=_m01_a1_n17_targeted_qc_v001
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp "$src"/* "$dest/"
+          python3 - <<'PY'
+          import pathlib,json,hashlib,base64
+          root=pathlib.Path("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001")
+          j=json.loads((root/"M01_N17_TARGETED_35_WARNINGS_AND_ONSET_QA_V001.json").read_text())
+          assert j["schema"]=="M01_STAGE_A1_N17_TARGETED_QA_V001"
+          assert j["status"]=="TARGETED_REVIEW_COMPLETE_MACHINE_QA_ONLY"
+          assert j["old_warning_frame_count"]==len(j["old_warning_frames"])==35
+          assert len(j["per_flame_stats"])==4
+          assert j["per_flame_stats"][0]["frames_over_legacy_150_px"]==33
+          assert j["no_missing_flame_masks_in_F550_F657"] is True
+          assert len(j["onset_samples"])==31
+          assert j["exact_onset_frame"]=="UNDETERMINED"
+          assert j["onset_visual_annotation_approved"] is False
+          assert j["no_new_human_segmentation_rerun"] is True and j["person_masks_reused_unchanged"] is True
+          assert j["no_video_rendered"] and j["no_GT_promotion"] and j["no_main_merge"]
+          assert j["m01_batch_gate"]=="HOLD"
+          for sheet in j["contact_sheets"]:
+            p=root/sheet["file"]
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==sheet["sha256"]
+            assert base64.b64decode((root/(p.name+".b64.txt")).read_text().strip())==p.read_bytes()
+          print("SCOPED_N17_35_WARNINGS_AND_ONSET_EXACT_QC_PASS_NO_GT")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==5,p
+          assert len([x for x in p if x.endswith(".jpg")])==2
+          assert len([x for x in p if x.endswith(".b64.txt")])==2
+          assert len([x for x in p if x.endswith(".json")])==1
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001/") for x in p)
+          PY
+          git commit -m "Review N17 35 threshold warnings and F520-550 candle entry with minimal exact-frame evidence"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Upload just two evidence JPEGs and JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_N17_TARGETED_WARNING_ONSET_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_targeted_warning_onset_v001/*.json
+          retention-days: 7
+          if-no-files-found: error
