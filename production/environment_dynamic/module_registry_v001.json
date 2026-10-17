@@ -223,9 +223,9 @@
         }
       },
       "next_engine_milestone": {
-        "status": "READY_TO_START",
-        "instruction": "Refactor approved N23, NEW02, N17 candle logic into one configurable versioned engine and GitHub Actions entry. Migrate fixture positions, people protection and crossfade timing into Scene Light Atlas input, never embed shot ID / timestamps in common engine. Show PO meaningful A/B and holdout scene outcomes before broad rollout. Stop N17-only fine tuning.",
-        "doc": "docs/project_control/gates/P0_3_video_pipeline/M01_N17_VISUAL_RESULT_PO_APPROVAL_AND_ENGINE_REFOCUS_2026-10-17.md"
+        "status": "V015_VISUAL_APPROVED_READY_FOR_INDEPENDENT_HOLDOUT",
+        "instruction": "Select genuinely untuned real S02-B candle frame, create independent atlas and mask registration without changing core; provide A/B PO review; then independent cross-scene held-out test; no canonical publication until explicit approvals.",
+        "doc": "docs/project_control/gates/P0_3_video_pipeline/M01_V015_UNIVERSAL_CANDLE_PO_VISUAL_APPROVAL_2026-10-17.md"
       },
       "engine_v1": {
         "status": "GENERIC_CORE_THREE_PROFILE_TECHNICAL_PASS_PO_VIDEO_REVIEW_PENDING",
@@ -329,7 +329,7 @@
         "center_approval_scope": "N23 five and NEW02 eleven drawn on V014 true-source diagrams; exact masks or V015 video not yet PO-approved"
       },
       "engine_v1_5": {
-        "status": "ONE_COMMON_ENGINE_V015_TWO_SHOT_AB_TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+        "status": "PO_VISUAL_APPROVED_TWO_SHOTS_SAME_CORE__INDEPENDENT_HOLDOUT_PENDING",
         "run_id": 39046576395,
         "branch": "feature/m01-v002-engine-stage-a-20261017",
         "common_engine": "scripts/m01_engine_v1.py",
@@ -349,12 +349,22 @@
         "NEW02_V012_AB_SHA256": "015badfba29dc6da366b583e89f4953920e6d3e81e59a381c7d1d891a4d0d74b",
         "baseline_v012_binary_preserved": true,
         "raw_changes_only_within_po_center_core_roi": true,
-        "new_visual_PO_approved": false,
+        "new_visual_PO_approved": true,
         "full_people_ground_truth_approved": false,
         "cross_scene_unseen_holdout_passed": false,
         "batch_release_allowed": false,
         "main_merge_authorized": false,
-        "next": "PO visual review V012-versus-V015 videos. Once approved, validate independent S02-B holdout then cross-scene reuse; no unauthorized canonical publication."
+        "next": "Test the unchanged core on one genuinely unseen S02-B candle shot using only an independent atlas; then a different scene before product qualification.",
+        "n23_visual_po_approved": true,
+        "new02_visual_po_approved": true,
+        "approved_video_shas": {
+          "N23": "2b5dd22ea0e0a845107963c3a274f1e54d89d546ff01cd5fdcbfc210e9eff801",
+          "NEW02": "db55f740f0fa659c87978dd63cade34443e44365be989c791a27ba08b0e2168a"
+        },
+        "po_visual_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_V015_UNIVERSAL_CANDLE_PO_VISUAL_APPROVAL_2026-10-17.md",
+        "po_approval_scope": "Visual appearance and core+halo linked flicker for exact V015 N23 and NEW02 videos only; includes agreed flame centers, not GT across humans or full batch / multi-scene product approval",
+        "po_visual_feedback": "视觉审核OK",
+        "mask_visual_effect_acceptable": true
       }
     },
     {
