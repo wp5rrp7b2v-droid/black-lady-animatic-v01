@@ -17,7 +17,7 @@
       "id": "M01",
       "name": "CANDLELIGHT_BASELINE_V001",
       "effect": "spatially limited unsynchronized practical candle illumination",
-      "status": "N23_AND_NEW02_V003_PO_VISUAL_ACCEPTED_TWO_SHOT_STYLE_REFERENCES",
+      "status": "N23_NEW02_V003_N17_SINGLE_SHOT_M01_VISUAL_APPROVED_ENGINE_REUSE_UNPROVEN",
       "baseline": {
         "shot_id": "N23",
         "profile": "scripts/n23_candlelight_motion_control_test_v001.py",
@@ -28,7 +28,7 @@
         "technical_validation_run_id": 38578211199,
         "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/n23_stage_a_candlelight_motion_control_po_visual_approval_2026-10-14.md"
       },
-      "portability_status": "STYLE_BASELINE_PROVEN_ON_N23_AND_NEW02_V003;_NEW_SHOT_REQUIRES_INDEPENDENT_MASK_EXACT_AND_PO",
+      "portability_status": "THREE_PO_APPROVED_VISUAL_EXAMPLES_DIFFERENT_SCENE_SPECIFIC_ADAPTATIONS; NOT_REUSABLE_ENGINE_VALIDATED",
       "accepted_shot_samples": [
         {
           "shot_id": "N23",
@@ -50,6 +50,17 @@
             "M01"
           ],
           "dust_particles": 0
+        },
+        {
+          "shot_id": "N17",
+          "video": "production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_CANDLE_ENGINE_RESULT_REVIEW_V001.mp4",
+          "sha256": "46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62",
+          "ab_comparison": "production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_ORIGINAL_VS_CANDLE_RESULT_AB_V001.mp4",
+          "ab_sha256": "bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+          "po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_N17_VISUAL_RESULT_PO_APPROVAL_AND_ENGINE_REFOCUS_2026-10-17.md",
+          "review_technical_run_id": 39021685049,
+          "reference_role": "THIRD_PO_APPROVED_VISUAL_RESULT_NOT_GENERAL_REUSE_PROOF",
+          "approval_scope": "N17 single-shot candle motion visual result and A/B only; NOT batch, master replacement or reusable engine release"
         }
       ],
       "batch_gate_status": "HOLD__LIGHT_REGISTRATION_FAIL__PERSON_PROTECTION_NOT_VERIFIED",
@@ -109,7 +120,7 @@
         "status_note": "All proposed core markers and YOLO people masks remain unapproved. Stage A dataset is regression fixture, not independently held-out cross-scene product qualification."
       },
       "stage_A1": {
-        "status": "PRIORITY_THREE_PO_VISUAL_OK_REMAINING_EIGHT_REVIEW_READY",
+        "status": "N17_HOLE_CLOSED_PO_VIDEO_APPROVED__RESUME_GENERIC_ENGINE_BUILD_AND_REMAINING_S02B_PILOT",
         "date": "2026-10-17",
         "branch": "feature/m01-v002-engine-stage-a-20261017",
         "source_benchmark": "production/environment_dynamic/benchmarks/m01_stage_a_v002/evidence/M01_STAGE_A_MACHINE_BENCHMARK_V002.json",
@@ -205,8 +216,16 @@
           "visual_transition": "F544 crossfade faint / F547 clear / no hard candle switch",
           "exact_onset_frame_not_required": true,
           "final_flame_core_GT_approved": false,
-          "complete_person_protection_approved": false
+          "complete_person_protection_approved": false,
+          "n17_m01_video_visual_approved": true,
+          "n17_m01_video_po_approval_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_N17_VISUAL_RESULT_PO_APPROVAL_AND_ENGINE_REFOCUS_2026-10-17.md",
+          "n17_further_microvalidation_paused": true
         }
+      },
+      "next_engine_milestone": {
+        "status": "READY_TO_START",
+        "instruction": "Refactor approved N23, NEW02, N17 candle logic into one configurable versioned engine and GitHub Actions entry. Migrate fixture positions, people protection and crossfade timing into Scene Light Atlas input, never embed shot ID / timestamps in common engine. Show PO meaningful A/B and holdout scene outcomes before broad rollout. Stop N17-only fine tuning.",
+        "doc": "docs/project_control/gates/P0_3_video_pipeline/M01_N17_VISUAL_RESULT_PO_APPROVAL_AND_ENGINE_REFOCUS_2026-10-17.md"
       }
     },
     {
