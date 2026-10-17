@@ -58,11 +58,23 @@ def validate(p):
   assert u["canonical_temporal_signal"]==p["temporal"]["style"]=="unsynced_independent"
   assert all(f["same_signal_drives_core_and_halo"] is True for f in p["fixtures"])
   assert p["render_full_flame_output_authorized"] is False
-  assert u["registration_status"] in ("PENDING_CALIBRATION_NO_NEW_FLAME_RENDER","PROVISIONAL_EXISTING_CORE_MASKS_VISUAL_REFERENCE")
+  assert u["registration_status"] in ("PENDING_CALIBRATION_NO_NEW_FLAME_RENDER","PROVISIONAL_EXISTING_CORE_MASKS_VISUAL_REFERENCE","PO_CENTERS_APPROVED_STATIC_CORE_MASK_QC_PASS_VIDEO_PO_REVIEW_PENDING")
   if u["registration_status"]=="PENDING_CALIBRATION_NO_NEW_FLAME_RENDER":
    assert all(f["flame_core_registration"]=="NOT_REGISTERED_CORE_CANDIDATE_REQUIRED" for f in p["fixtures"])
-  else:
+  elif u["registration_status"]=="PROVISIONAL_EXISTING_CORE_MASKS_VISUAL_REFERENCE":
    assert all(f["flame_core_registration"]=="PROPOSED_MACHINE_MASK_CORE_PRESENT" for f in p["fixtures"])
+  else:
+   assert p["source"]["type"]=="still_png"
+   assert "static_core_masks" in p
+   ids=p["static_core_masks"]["flame_ids"]
+   assert len(ids)>0 and len(ids)==len(set(ids))
+   idx=[f["core_static_flame_id"] for f in p["fixtures"] if "core_static_flame_id" in f]
+   assert len(idx)==len(ids) and set(idx)==set(ids)
+   assert all(f["flame_core_registration"] in ("APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW","V012_STYLE_REFLECTOR_ONLY") for f in p["fixtures"])
+   assert all(f["flame_core_registration"]=="APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW" for f in p["fixtures"] if "core_static_flame_id" in f)
+   assert all(f["flame_core_registration"]=="V012_STYLE_REFLECTOR_ONLY" for f in p["fixtures"] if "core_static_flame_id" not in f)
+   assert all(f["region"]["roi_px"][0]<=f["center_px"][0]<f["region"]["roi_px"][2] and f["region"]["roi_px"][1]<=f["center_px"][1]<f["region"]["roi_px"][3] for f in p["fixtures"] if "core_static_flame_id" in f)
+
 
  if "halo_fast_harmonics_mix" in p["temporal"]:
   mix=p["temporal"]["halo_fast_harmonics_mix"]
@@ -108,6 +120,34 @@ def load_inputs(profile):
   span=range(profile["render"]["frame_start"],profile["render"]["frame_start"]+profile["render"]["frames"])
   assert all(i in mask["frames"] for i in span),"MASK_FRAMES_MISSING"
  return src,mask
+
+def load_static_flame_masks(profile):
+ """Load real-source-pixel masks once. Existing N17 temporal bitpack path unchanged."""
+ data=profile.get("static_core_masks")
+ if data is None:return {}
+ zip_path=path_from_repo(data["zip_path"])
+ manifest_path=path_from_repo(data["manifest_path"])
+ assert zip_path.is_file() and sha(zip_path)==data["zip_sha256"],"STATIC_FLAME_PACK_SHA_MISMATCH"
+ assert manifest_path.is_file() and sha(manifest_path)==data["manifest_sha256"],"STATIC_FLAME_MANIFEST_SHA_MISMATCH"
+ manifest=json.loads(manifest_path.read_text())
+ assert manifest["source_sha256"]==profile["source"]["sha256"],"STATIC_FLAME_SOURCE_SHA_MISMATCH"
+ assert manifest["status"]=="APPROVED_CENTERS_MACHINE_MASKS_PO_VIDEO_REVIEW_PENDING"
+ assert set(manifest["flames"])==set(data["flame_ids"])
+ out={}
+ with zipfile.ZipFile(zip_path) as z:
+  for name in data["flame_ids"]:
+   record=manifest["flames"][name]
+   center=record["approved_center"]
+   f=next(x for x in profile["fixtures"] if x.get("core_static_flame_id")==name)
+   assert center==f["center_px"],"STATIC_FLAME_CENTER_NOT_PO_APPROVED"
+   mask=packmask(z,record["mask_filename"])
+   assert int(mask.sum())==record["mask_pixels"]>0
+   cx,cy=center
+   assert mask[cy,cx] or np.any(mask[max(0,cy-3):cy+4,max(0,cx-3):cx+4])
+   yy,xx=np.where(mask)
+   assert np.max(np.abs(xx-cx))<=10 and np.max(np.abs(yy-cy))<=17,"FLAME_MASK_TOO_BROAD"
+   out[name]=mask
+ return out
 
 def signal(t,phase,style):
  if style=="n23_paced":
@@ -218,8 +258,9 @@ def calculate_frame(rgb,profile,absolute,relative,person=None,uncertain=None,fla
   masked[allowed]=changed[allowed]
   authorized[y0:y1,x0:x1]|=allowed
   effects+=1
-  if "core_bitpack_index" in f:
-   mask=flame_by_index.get(int(f["core_bitpack_index"]))
+  if "core_bitpack_index" in f or "core_static_flame_id" in f:
+   mask_key=int(f["core_bitpack_index"]) if "core_bitpack_index" in f else f["core_static_flame_id"]
+   mask=flame_by_index.get(mask_key)
    if mask is not None:
     # Don't create fire before the source is visible / mask exists.
     safe=mask[y0:y1,x0:x1]&(~protect[y0:y1,x0:x1])
@@ -318,6 +359,7 @@ def run(name,output,mode,ab):
   print("M01_ENGINE_V1_DIAGNOSTIC_SOURCE_PROFILE_PASS",profile["profile_id"])
   return 0
  if mode!="pilot":raise ValueError("UNKNOWN_MODE")
+ static_flames=load_static_flame_masks(profile)
  dec,still=open_ffmpeg_source(src,profile)
  name_safe=profile["profile_id"]
  video,encoder=encode_video(output,f"M01_{name_safe}_REVIEW_V001.mp4",profile["render"]["frames"],profile["render"]["fps"])
@@ -332,6 +374,8 @@ def run(name,output,mode,ab):
     if mask and "decoded_source_rgb_sha256" in mask["frames"][absolute]:
      assert hashlib.sha256(source.tobytes()).hexdigest()==mask["frames"][absolute]["decoded_source_rgb_sha256"],"SOURCE_FRAME_HASH_DRIFT"
     person,uncertain,flames=per_frame_masks(mask,z,absolute)
+    if static_flames:
+     flames.update(static_flames)
     new,stat=calculate_frame(source,profile,absolute,k,person,uncertain,flames)
     encoder.stdin.write(new.tobytes())
     stats.append(stat)
