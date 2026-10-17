@@ -1,0 +1,264 @@
+{
+  "schema": "M01_STAGE_A1_VISUALLY_GUIDED_FLAME_FIXTURE_DRAFT_V001",
+  "status": "CHAT_VISUAL_ESTIMATE_NOT_VERIFIED_GROUND_TRUTH",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "coordinate_space": "V006_DECODED_FRAME_720x1280_ABSOLUTE_PIXELS",
+  "review_method": "Frame F1634/F1036/F0748 inspected at original-frame scale; coordinates are visually guided proposals, not PO-approved flame cores.",
+  "source_policy": "Each fixture stable ID; each physically distinct visible flame gets a separate seed; remove duplicates and confirm partial/occluded light sources before promotion.",
+  "cases": {
+    "N24": {
+      "frame_index": 1634,
+      "fixtures": [
+        {
+          "id": "N24_LEFT_EDGE_SCONCE_01",
+          "bbox": [
+            0,
+            100,
+            90,
+            210
+          ],
+          "flames": [
+            [
+              6,
+              165
+            ],
+            [
+              28,
+              164
+            ],
+            [
+              46,
+              145
+            ],
+            [
+              72,
+              173
+            ]
+          ],
+          "visibility": "PARTIALLY_CROPPED",
+          "review": "Source is partly beyond left boundary; discard out-of-frame components only, keep remaining visibly lit flames."
+        },
+        {
+          "id": "N24_RIGHT_SCONCE_02",
+          "bbox": [
+            623,
+            92,
+            720,
+            208
+          ],
+          "flames": [
+            [
+              644,
+              162
+            ],
+            [
+              669,
+              145
+            ],
+            [
+              694,
+              115
+            ],
+            [
+              712,
+              160
+            ]
+          ],
+          "visibility": "PARTIALLY_CROPPED",
+          "review": "Primary right fixture must be centered on luminous cores; old mask was too far left."
+        },
+        {
+          "id": "N24_LEFT_REAR_SCONCE_03",
+          "bbox": [
+            92,
+            225,
+            160,
+            310
+          ],
+          "flames": [
+            [
+              113,
+              281
+            ],
+            [
+              128,
+              263
+            ]
+          ],
+          "visibility": "SMALL_BACKGROUND_CANDIDATE",
+          "review": "Multiple warm points; verify actual candle flames in review, no forced flame segmentation."
+        },
+        {
+          "id": "N24_RIGHT_REAR_SCONCE_04",
+          "bbox": [
+            428,
+            205,
+            476,
+            292
+          ],
+          "flames": [
+            [
+              451,
+              257
+            ],
+            [
+              461,
+              238
+            ]
+          ],
+          "visibility": "SMALL_BACKGROUND_CANDIDATE",
+          "review": "Partially occluded by rear guest; must protect person and reject false-light match."
+        }
+      ]
+    },
+    "V006_NEW_01": {
+      "frame_index": 1036,
+      "fixtures": [
+        {
+          "id": "NEW01_LEFT_WALL_SCONCE_01",
+          "bbox": [
+            120,
+            122,
+            209,
+            233
+          ],
+          "flames": [
+            [
+              144,
+              170
+            ],
+            [
+              158,
+              148
+            ],
+            [
+              177,
+              170
+            ],
+            [
+              192,
+              173
+            ]
+          ],
+          "visibility": "VISIBLE",
+          "review": "Old machine prediction at x112, y186 is left of flame cores."
+        },
+        {
+          "id": "NEW01_MIDDLE_WALL_SCONCE_02",
+          "bbox": [
+            407,
+            175,
+            468,
+            249
+          ],
+          "flames": [
+            [
+              429,
+              202
+            ],
+            [
+              445,
+              215
+            ]
+          ],
+          "visibility": "PARTLY_NEAR_CHARACTER_HEAD",
+          "review": "Exclude foreground hair, face and costume; do not let halo enter character."
+        },
+        {
+          "id": "NEW01_RIGHT_EDGE_SCONCE_03",
+          "bbox": [
+            652,
+            80,
+            720,
+            178
+          ],
+          "flames": [
+            [
+              670,
+              120
+            ],
+            [
+              690,
+              111
+            ],
+            [
+              710,
+              129
+            ]
+          ],
+          "visibility": "PARTIALLY_CROPPED",
+          "review": "Near right person cropped silhouette; ensure clamp and exclusion."
+        },
+        {
+          "id": "NEW01_REAR_DEEP_SCONCE_04",
+          "bbox": [
+            491,
+            240,
+            554,
+            329
+          ],
+          "flames": [
+            [
+              511,
+              285
+            ],
+            [
+              526,
+              294
+            ]
+          ],
+          "visibility": "SMALL_BACKGROUND_CANDIDATE",
+          "review": "Background wall flame group, verify real source identity and foreground occlusion."
+        }
+      ]
+    },
+    "N18": {
+      "frame_index": 748,
+      "fixtures": [
+        {
+          "id": "N18_RIGHT_WALL_SCONCE_01",
+          "bbox": [
+            621,
+            136,
+            720,
+            247
+          ],
+          "flames": [
+            [
+              636,
+              210
+            ],
+            [
+              651,
+              191
+            ],
+            [
+              670,
+              163
+            ],
+            [
+              684,
+              191
+            ],
+            [
+              705,
+              194
+            ]
+          ],
+          "visibility": "VISIBLE",
+          "review": "Both historic anchors refer to ONE physical candelabra; 5 individual flame seeds."
+        }
+      ]
+    }
+  },
+  "all_fixtures_approved": false,
+  "people_mask_approved": false,
+  "production_render_allowed": false,
+  "scene_atlas_publish_allowed": false,
+  "known_limitations": [
+    "Centers approximated from source-frame visual zoom, not measured precise flame segmentation",
+    "Partial left/right boundary flames may lack full profile",
+    "Small background luminous points may not be real flames",
+    "Person segmentation proposal can miss parts of hair/background characters"
+  ]
+}
