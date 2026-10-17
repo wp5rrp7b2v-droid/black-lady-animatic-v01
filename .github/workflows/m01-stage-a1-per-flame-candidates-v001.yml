@@ -1,0 +1,83 @@
+name: M01 Stage A1 Per-Flame Source Calibration Candidate V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-per-flame-candidates-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-per-flame-candidates-v001
+  cancel-in-progress: false
+jobs:
+  register-per-flame-source-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout current M01 V002 Stage A1 review branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Install source extraction and drawing libraries
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Draw true-source fixture ROIs, individual seeds, and protection masks
+        run: python3 scripts/m01_stage_a1_flame_fixture_seed_overlay_v001.py
+      - name: Independently check exact binary and unapproved registration state
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,base64
+          d=pathlib.Path("_m01_stage_a1_flame_seed_visual_review")
+          p=d/"M01_STAGE_A1_FLAME_SOURCE_VISUAL_PROPOSALS_V001.json"
+          j=json.loads(p.read_text())
+          assert j["status"]=="VISUAL_FLAME_SEEDS_NOT_VERIFIED_GROUND_TRUTH"
+          assert j["batch_video_render_authorized"] is False
+          assert j["light_fixture_atlas_approved"] is False and j["person_mask_approved"] is False
+          assert len(j["selected_images"])==3
+          assert sum(x["fixture_count"] for x in j["selected_images"])==9
+          assert sum(x["individual_flame_seeds"] for x in j["selected_images"])==28
+          assert {s["shot_id"] for s in j["selected_images"]}=={"N24","V006_NEW_01","N18"}
+          for s in j["selected_images"]:
+              p=d/s["image_file"];data=p.read_bytes()
+              assert hashlib.sha256(data).hexdigest()==s["image_sha256"]
+              assert base64.b64decode((d/(p.name+".b64.txt")).read_text().strip())==data
+              for fixture in s["lamp_groups"]:
+                  assert fixture["calibration_status"]=="NEEDS_INDEPENDENT_POSITION_AND_HUMAN_CONFIRMATION"
+                  assert all(x["position_verified"] is False and x["flame_core_mask_verified"] is False for x in fixture["flames"])
+          print("M01_STAGE_A1_FLAME_GROUP_VISUAL_BINARY_QC_PASS_NO_GT")
+          PY
+      - name: Save only evidence on isolated stage A branch
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_stage_a1_flame_seed_visual_review/* "$d/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git add "$d"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==7,paths
+          assert sum(x.endswith(".jpg") for x in paths)==3
+          assert sum(x.endswith(".b64.txt") for x in paths)==3
+          assert sum(x.endswith(".json") for x in paths)==1
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001/") for x in paths)
+          PY
+          git commit -m "Save A1 N24 NEW01 N18 multi-flame fixture proposals, exact-source overlays, and person flags"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "CANDLE_REGISTRATION_NOT_APPROVED; M01_BATCH_HOLD"
+      - name: Upload original flame position and people protection proposals for PO
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_STAGE_A1_PER_FLAME_AND_PERSON_PROTECTION_REVIEW_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001/*.json
+          retention-days: 14
+          if-no-files-found: error
