@@ -1,10 +1,10 @@
 {
   "schema": "M01_V014_SOURCE_VISUAL_FLAME_CORE_CORRECTION_DRAFT",
-  "status": "CHAT_DIRECT_VISUAL_SOURCE_INSPECTION_PENDING_PO_APPROVAL",
+  "status": "PO_APPROVED_CENTER_LOCATIONS_ONLY",
   "source_frames": "N23 and NEW02 exact SHA-pinned approved PNG downsampled to 720x1280 pixel space",
   "coordinate_space": "720x1280_VIDEO_FRAME_PIXELS",
   "method": "Manual direct inspection of full true source image and 4x crop; no color-maxima driven flame registration",
-  "approval_status": "NOT_APPROVED_NO_CORE_MASKS_CREATED",
+  "approval_status": "PO_APPROVED_VISUAL_FLAME_CENTERS_N23_5_NEW02_11",
   "shots": {
     "N23": {
       "source_profile": "N23_UNIFIED_FLAME_CALIBRATION_V013.json",
@@ -172,15 +172,18 @@
     }
   },
   "safety": {
-    "no_core_render_authorized": true,
+    "no_core_render_authorized": false,
     "person_segmentation_complete": false,
     "no_master_modification": true,
     "frame_relative_coordinates_only": true,
     "not_a_published_atlas": true,
-    "visual_review_required": true
+    "visual_review_required": false,
+    "full_core_shapes_unapproved": true,
+    "review_candidate_render_only": true
   },
   "sources": [
     "production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/N23/SOURCE_CANDLE_CLOSEUP_MANIFEST.json",
     "production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/NEW02/SOURCE_CANDLE_CLOSEUP_MANIFEST.json"
-  ]
+  ],
+  "approved_scope": "Center positions only: PO said 定位OK. No mask shape approval, no final video approval, no main publication."
 }
