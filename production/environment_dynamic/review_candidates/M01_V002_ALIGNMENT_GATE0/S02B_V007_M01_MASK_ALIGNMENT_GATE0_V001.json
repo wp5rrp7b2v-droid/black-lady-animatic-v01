@@ -1,0 +1,389 @@
+{
+  "gate": "M01_V002_ALIGNMENT_GATE0",
+  "status": "PRELIMINARY_DIAGNOSTIC_ONLY__NOT_LIGHT_REGISTRATION_PASS",
+  "baseline_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_frames_extracted_from_original_V006": true,
+  "no_new_image_generation": true,
+  "visible_red_masks": "EXISTING_V007_WALL_AND_LIGHT_MASKS",
+  "proven_flame_core_positions": 0,
+  "per_shot_automatic_reuse_authorized": false,
+  "no_video_created": true,
+  "no_main_merge": true,
+  "sheet_file": "S02B_V007_M01_MASKS_ON_REAL_FRAMES_GATE0_V001.jpg",
+  "sheet_sha256": "95541aa46cbb505c7ef3f077e0f34767cc14130dd34a166d8d10607666e5f83f",
+  "nodes": [
+    {
+      "node": "N16_PART_1",
+      "sample_time_seconds": 2.733,
+      "mask_pixels": 13138,
+      "mask_pct": 1.426,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.894,
+          0.105,
+          0.027,
+          0.042
+        ]
+      ]
+    },
+    {
+      "node": "N16_PART_2",
+      "sample_time_seconds": 7.417,
+      "mask_pixels": 0,
+      "mask_pct": 0.0,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": []
+    },
+    {
+      "node": "N17",
+      "sample_time_seconds": 15.65,
+      "mask_pixels": 0,
+      "mask_pct": 0.0,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": []
+    },
+    {
+      "node": "N18",
+      "sample_time_seconds": 24.95,
+      "mask_pixels": 29795,
+      "mask_pct": 3.233,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.81,
+          0.18,
+          0.035,
+          0.053
+        ],
+        [
+          0.875,
+          0.195,
+          0.028,
+          0.046
+        ]
+      ]
+    },
+    {
+      "node": "N19",
+      "sample_time_seconds": 29.8,
+      "mask_pixels": 18718,
+      "mask_pct": 2.031,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.058,
+          0.215,
+          0.03,
+          0.054
+        ]
+      ]
+    },
+    {
+      "node": "N20_FIRST",
+      "sample_time_seconds": 32.417,
+      "mask_pixels": 69723,
+      "mask_pct": 7.565,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.116,
+          0.183,
+          0.041,
+          0.048
+        ],
+        [
+          0.479,
+          0.217,
+          0.032,
+          0.046
+        ],
+        [
+          0.835,
+          0.208,
+          0.043,
+          0.06
+        ]
+      ]
+    },
+    {
+      "node": "V006_NEW_01",
+      "sample_time_seconds": 34.567,
+      "mask_pixels": 76490,
+      "mask_pct": 8.3,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.125,
+          0.188,
+          0.046,
+          0.051
+        ],
+        [
+          0.494,
+          0.206,
+          0.035,
+          0.054
+        ],
+        [
+          0.926,
+          0.168,
+          0.043,
+          0.057
+        ]
+      ]
+    },
+    {
+      "node": "JUN_APPROVED_REACTION",
+      "sample_time_seconds": 36.533,
+      "mask_pixels": 52427,
+      "mask_pct": 5.689,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.077,
+          0.236,
+          0.043,
+          0.065
+        ],
+        [
+          0.902,
+          0.24,
+          0.033,
+          0.054
+        ]
+      ]
+    },
+    {
+      "node": "N21",
+      "sample_time_seconds": 38.933,
+      "mask_pixels": 53794,
+      "mask_pct": 5.837,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.608,
+          0.172,
+          0.038,
+          0.051
+        ],
+        [
+          0.893,
+          0.182,
+          0.043,
+          0.063
+        ]
+      ]
+    },
+    {
+      "node": "N22_FIRST",
+      "sample_time_seconds": 42.017,
+      "mask_pixels": 47817,
+      "mask_pct": 5.188,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.119,
+          0.162,
+          0.037,
+          0.054
+        ],
+        [
+          0.647,
+          0.183,
+          0.041,
+          0.052
+        ]
+      ]
+    },
+    {
+      "node": "V006_NEW_02",
+      "sample_time_seconds": 44.417,
+      "mask_pixels": 74770,
+      "mask_pct": 8.113,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": "legacy per-shot custom mask"
+    },
+    {
+      "node": "N23",
+      "sample_time_seconds": 46.9,
+      "mask_pixels": 174950,
+      "mask_pct": 18.983,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": "legacy per-shot custom mask"
+    },
+    {
+      "node": "A06",
+      "sample_time_seconds": 50.383,
+      "mask_pixels": 44898,
+      "mask_pct": 4.872,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.086,
+          0.355,
+          0.032,
+          0.053
+        ],
+        [
+          0.894,
+          0.311,
+          0.037,
+          0.059
+        ]
+      ]
+    },
+    {
+      "node": "N24",
+      "sample_time_seconds": 54.483,
+      "mask_pixels": 55829,
+      "mask_pct": 6.058,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.091,
+          0.179,
+          0.04,
+          0.053
+        ],
+        [
+          0.888,
+          0.208,
+          0.045,
+          0.06
+        ]
+      ]
+    },
+    {
+      "node": "N25",
+      "sample_time_seconds": 58.4,
+      "mask_pixels": 55168,
+      "mask_pct": 5.986,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.112,
+          0.215,
+          0.042,
+          0.052
+        ],
+        [
+          0.899,
+          0.267,
+          0.043,
+          0.06
+        ]
+      ]
+    },
+    {
+      "node": "NING_REACTION_APPROVED",
+      "sample_time_seconds": 61.217,
+      "mask_pixels": 40997,
+      "mask_pct": 4.448,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.11,
+          0.195,
+          0.039,
+          0.058
+        ],
+        [
+          0.952,
+          0.402,
+          0.026,
+          0.05
+        ]
+      ]
+    },
+    {
+      "node": "N26",
+      "sample_time_seconds": 63.167,
+      "mask_pixels": 57341,
+      "mask_pct": 6.222,
+      "light_geometry_grounding": "V007_ESTIMATED_NOT_CALIBRATED",
+      "visual_alignment": "REQUIRES_VISUAL_CHECK",
+      "flame_core_mask_present": false,
+      "flame_movement_supported_by_v007": false,
+      "overlay_color": "RED denotes old V007 effect mask, not detected flame",
+      "manual_source_anchors": [
+        [
+          0.115,
+          0.176,
+          0.043,
+          0.052
+        ],
+        [
+          0.864,
+          0.191,
+          0.046,
+          0.059
+        ]
+      ]
+    }
+  ]
+}
