@@ -1,0 +1,36 @@
+{
+  "task": "M01_PO_REJECTED_V013_CORES_SOURCE_VISUAL_REALIGNMENT",
+  "status": "SOURCE_VISUAL_INSPECTION_ONLY_NO_FLAME_POINTS_ASSIGNED",
+  "profile": "NEW02_UNIFIED_FLAME_CALIBRATION_V013.json",
+  "source": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_exact": true,
+  "screen_dims": [
+    720,
+    1280
+  ],
+  "padded_or_synthetic_flames": false,
+  "lighting_mode_separation": false,
+  "images": [
+    {
+      "image": "EXACT_SOURCE_NO_MARKERS.jpg",
+      "bytes": 142850,
+      "sha256": "c86331005bbc372369392bfb1720d27fd074ac1b94e3b445d87941deb83d035c",
+      "base64_sidecar": "EXACT_SOURCE_NO_MARKERS.b64.txt",
+      "dims": [
+        720,
+        1280
+      ]
+    },
+    {
+      "image": "EXPANDED_REAL_SOURCE_ROI_CONTACT.jpg",
+      "bytes": 96551,
+      "sha256": "c5e323d883c8ada17d1a0ecaae951841b73fd448ab417b33a924f55370f9a8d8",
+      "base64_sidecar": "EXPANDED_REAL_SOURCE_ROI_CONTACT.b64.txt",
+      "dims": [
+        1400,
+        1155
+      ]
+    }
+  ]
+}

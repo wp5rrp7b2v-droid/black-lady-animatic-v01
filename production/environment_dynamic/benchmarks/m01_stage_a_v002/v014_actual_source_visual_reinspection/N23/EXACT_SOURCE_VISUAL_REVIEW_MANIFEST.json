@@ -1,0 +1,36 @@
+{
+  "task": "M01_PO_REJECTED_V013_CORES_SOURCE_VISUAL_REALIGNMENT",
+  "status": "SOURCE_VISUAL_INSPECTION_ONLY_NO_FLAME_POINTS_ASSIGNED",
+  "profile": "N23_UNIFIED_FLAME_CALIBRATION_V013.json",
+  "source": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+  "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+  "source_exact": true,
+  "screen_dims": [
+    720,
+    1280
+  ],
+  "padded_or_synthetic_flames": false,
+  "lighting_mode_separation": false,
+  "images": [
+    {
+      "image": "EXACT_SOURCE_NO_MARKERS.jpg",
+      "bytes": 130008,
+      "sha256": "c70ae4463cd729d3ee76b13344d7b1f79a7e4b9627dcc1645d236d1645d6db3e",
+      "base64_sidecar": "EXACT_SOURCE_NO_MARKERS.b64.txt",
+      "dims": [
+        720,
+        1280
+      ]
+    },
+    {
+      "image": "EXPANDED_REAL_SOURCE_ROI_CONTACT.jpg",
+      "bytes": 75811,
+      "sha256": "4ac1255c12d44416aba9efa5afe2a08f16a53f006a328c2415f63141e764bfc3",
+      "base64_sidecar": "EXPANDED_REAL_SOURCE_ROI_CONTACT.b64.txt",
+      "dims": [
+        1400,
+        770
+      ]
+    }
+  ]
+}
