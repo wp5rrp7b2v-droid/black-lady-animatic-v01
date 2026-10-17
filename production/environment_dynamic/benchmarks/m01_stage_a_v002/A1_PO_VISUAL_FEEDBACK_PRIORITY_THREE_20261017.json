@@ -1,0 +1,33 @@
+{
+  "schema": "M01_STAGE_A1_PO_VISUAL_FEEDBACK_V001",
+  "date": "2026-10-17",
+  "user_statement": "我觉得OK",
+  "assessed_material": "N24, V006_NEW_01, N18 per-fixture per-flame and person-overlay pictures in preceding Chat review",
+  "source_ref": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001/M01_STAGE_A1_FLAME_SOURCE_VISUAL_PROPOSALS_V001.json",
+  "scope": {
+    "shots": [
+      "N24",
+      "V006_NEW_01",
+      "N18"
+    ],
+    "sampled_frames": [
+      1634,
+      1036,
+      748
+    ],
+    "visual_marking_acceptance": "PO_VISUAL_OK_AS_DRAFT_CALIBRATION_BASELINE",
+    "po_did_not_explicitly_approve": [
+      "exact pixel-mask ground truth",
+      "all 3 sampled frames for each shot",
+      "complete per-frame human protection",
+      "all flame core outlines",
+      "automatic light registration accuracy",
+      "production engine readiness",
+      "cross-scene reusable engine release"
+    ]
+  },
+  "status": "PRIORITY_THREE_MIDFRAME_VISUAL_OK_NARROW_SCOPE",
+  "ground_truth_status": "PENDING_INDEPENDENT_ANNOTATION_AND_COMPLETE_FRAME_REVIEW",
+  "next_work": "Continue Stage A1 other eight cases and all-frame protection checks; no video render.",
+  "main_merge": false
+}
