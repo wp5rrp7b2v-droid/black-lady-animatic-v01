@@ -1,0 +1,167 @@
+{
+  "schema": "M01_SCENE_LIGHT_ATLAS_V1",
+  "profile_id": "NEW02_STYLE_REFERENCE_V001",
+  "scene_id": "CASTLE_INNER_CROWD",
+  "review_status": "PILOT_REFERENCE_ONLY",
+  "registration_status": "ARCHITECTURAL_ROI_VISUAL_STYLE_ACCEPTED_PERSON_MASK_UNVERIFIED",
+  "source": {
+    "type": "still_png",
+    "path": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+    "sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+    "input_dimensions": [
+      941,
+      1672
+    ]
+  },
+  "render": {
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "frames": 90,
+    "frame_start": 0,
+    "preserve_audio": false
+  },
+  "temporal": {
+    "style": "n23_paced",
+    "rgb_cap": [
+      12,
+      7,
+      1.7
+    ],
+    "fade_in_frames": 0,
+    "fade_out_frames": 0,
+    "envelope": "sin_soft_edges"
+  },
+  "protection": {
+    "mode": "roi_only_unverified",
+    "do_not_claim_complete_person_protection": true
+  },
+  "fixtures": [
+    {
+      "id": "NEW02_LEFT_WALL",
+      "individual_source_id": "NEW02_LIGHT_1",
+      "center_px": [
+        30.240000000000002,
+        69.12
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          68.4,
+          99.84
+        ],
+        "roi_px": [
+          0,
+          0,
+          131.04,
+          197.12
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 0.18
+    },
+    {
+      "id": "NEW02_MID_WALL",
+      "individual_source_id": "NEW02_LIGHT_2",
+      "center_px": [
+        300.24,
+        218.88000000000002
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          48.96,
+          99.84
+        ],
+        "roi_px": [
+          239.04000000000002,
+          130.56,
+          349.2,
+          341.76
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1.39
+    },
+    {
+      "id": "NEW02_DEEPER_WALL",
+      "individual_source_id": "NEW02_LIGHT_3",
+      "center_px": [
+        471.6,
+        314.88
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          37.44,
+          89.60000000000001
+        ],
+        "roi_px": [
+          424.08,
+          248.32,
+          509.76,
+          376.32
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 2.67
+    },
+    {
+      "id": "NEW02_FAR_RIGHT_ARCH",
+      "individual_source_id": "NEW02_LIGHT_4",
+      "center_px": [
+        635.76,
+        389.12
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          38.16,
+          67.84
+        ],
+        "roi_px": [
+          596.88,
+          323.84000000000003,
+          680.4,
+          436.48
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 3.43
+    },
+    {
+      "id": "NEW02_DISTANT_RIGHT",
+      "individual_source_id": "NEW02_LIGHT_5",
+      "center_px": [
+        706.3199999999999,
+        433.92
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          20.16,
+          66.56
+        ],
+        "roi_px": [
+          686.16,
+          378.88,
+          720,
+          504.32000000000005
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 4.67
+    }
+  ],
+  "legacy_reference": {
+    "accepted_m01_video": "production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4",
+    "sha256": "64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0",
+    "warning": "style only; dynamic may be independently phased rather than bitwise identical"
+  },
+  "release_allowed": false
+}
