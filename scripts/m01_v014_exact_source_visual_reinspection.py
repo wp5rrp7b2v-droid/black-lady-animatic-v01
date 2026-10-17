@@ -21,7 +21,7 @@ def store(image,dest,stem,quality=74):
  image.save(jpg,quality=quality,optimize=True,subsampling=0)
  with jpg.open("rb") as f:
   b=f.read()
- (dest/f"{stem}.b64.txt").write_text(base64.b64encode(b).decode("ascii"),encoding="ascii")
+ (dest/f"{stem}.b64.txt").write_text("\n".join(base64.b64encode(b).decode("ascii")[i:i+4000] for i in range(0,len(base64.b64encode(b)),4000))+"\n",encoding="ascii")
  return {"image":jpg.name,"bytes":len(b),"sha256":engine.sha(jpg),
          "base64_sidecar":f"{stem}.b64.txt","dims":list(image.size)}
 
