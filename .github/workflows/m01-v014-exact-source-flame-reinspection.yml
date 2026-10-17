@@ -1,0 +1,79 @@
+name: M01 V014 Exact-Source Flame Visual Reinspection
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-v014-exact-source-flame-reinspection.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v014-exact-source-inspection
+  cancel-in-progress: false
+jobs:
+  prepare-human-review-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout source-exact feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Install image inspection libraries
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-pil python3-numpy fonts-dejavu-core
+      - name: Reinspect untouched exact source images and extract ROI crop sheets
+        run: |
+          python3 scripts/m01_v014_exact_source_visual_reinspection.py --profile N23_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_v014/N23
+          python3 scripts/m01_v014_exact_source_visual_reinspection.py --profile NEW02_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_v014/NEW02
+      - name: Verify exact source identities and image reproduction manifest
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,base64
+          for shot in ("N23","NEW02"):
+            p=pathlib.Path("_m01_v014")/shot
+            manifest=json.loads((p/"EXACT_SOURCE_VISUAL_REVIEW_MANIFEST.json").read_text())
+            assert manifest["source_exact"] and manifest["status"]=="SOURCE_VISUAL_INSPECTION_ONLY_NO_FLAME_POINTS_ASSIGNED"
+            assert manifest["screen_dims"]==[720,1280] and len(manifest["images"])==2
+            assert manifest["padded_or_synthetic_flames"] is False
+            for item in manifest["images"]:
+              image=p/item["image"]
+              assert hashlib.sha256(image.read_bytes()).hexdigest()==item["sha256"]
+              assert base64.b64decode((p/item["base64_sidecar"]).read_text())==image.read_bytes()
+            print("V014_EXACT_IMAGE_REINSPECTION_BINARY_QC_PASS",shot)
+          PY
+      - name: Save candidate visual inspection pack on R&D branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_visual_reinspection
+          test ! -e "$dst"
+          mkdir -p "$dst/N23" "$dst/NEW02"
+          cp -a _m01_v014/N23/. "$dst/N23/"
+          cp -a _m01_v014/NEW02/. "$dst/NEW02/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dst"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==10,paths
+          assert len([x for x in paths if x.endswith(".jpg")])==4
+          assert len([x for x in paths if x.endswith(".txt")])==4
+          assert len([x for x in paths if x.endswith(".json")])==2
+          assert all("v014_actual_source_visual_reinspection" in p for p in paths)
+          PY
+          git commit -m "Prepare true source frames and enlarged ROI evidence to repair PO-rejected M01 flame coordinates"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Review source overlays
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V014_N23_NEW02_TRUE_IMAGE_REINSPECTION
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_visual_reinspection/*/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_visual_reinspection/*/*.json
+          retention-days: 14
+          if-no-files-found: error
