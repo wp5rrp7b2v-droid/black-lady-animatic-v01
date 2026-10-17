@@ -1,0 +1,53 @@
+{
+  "task_id": "S02B_V006_M01_FULL_INTEGRATION_REVIEW_01",
+  "gate": "TECHNICAL_PASS_REVIEW_ONLY_PO_PENDING",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_kind": "RECONSTRUCTED_ROUGH_REVIEW_NOT_EXACT_V005",
+  "output_filename": "S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4",
+  "output_sha256": "5b1daec95ec14b7298aa463b55ce72174c50bca92e1e08dc879edec4137bfaea",
+  "output_bytes": 8779786,
+  "frames": 1927,
+  "fps": 30,
+  "width": 720,
+  "height": 1280,
+  "duration_container_seconds": 64.25,
+  "source_audio": "UNMODIFIED_S02B_V006_APPROVED_V001_AAC_PACKET_STREAM_COPY",
+  "audio_packet_count": 3013,
+  "audio_packet_hash_and_pts_duration_match": true,
+  "segments": {
+    "NEW02": [
+      1299,
+      1366
+    ],
+    "N23": [
+      1366,
+      1448
+    ]
+  },
+  "m01_only": true,
+  "m02_m03_m04_m05_disabled": true,
+  "input_pngs_unchanged": true,
+  "input_video_unchanged": true,
+  "official_video_index_unchanged": true,
+  "unmodified_spans_written_from_source_decoded_frames": true,
+  "note": "Output video reencoded once: decoded non-target input frames fed unchanged to encoder, but H264 compression need not be pixel/byte identical.",
+  "states": {
+    "NEW02": {
+      "frames": 67,
+      "max_raw_channel_delta": 11,
+      "changed_pixels_outside_mask": 0,
+      "first_boundary_matches": true,
+      "last_boundary_matches": true
+    },
+    "N23": {
+      "frames": 82,
+      "max_raw_channel_delta": 10,
+      "changed_pixels_outside_mask": 0,
+      "first_boundary_matches": true,
+      "last_boundary_matches": true
+    }
+  },
+  "canonical_publication": false,
+  "main_merge": false,
+  "po_full_video_approval": false
+}
