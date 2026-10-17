@@ -1,0 +1,143 @@
+name: S02B V006 Original vs M01 Full AB Comparison V001
+
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v006-m01-ab-comparison-v001.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: s02b-v006-m01-ab-comparison-v001
+  cancel-in-progress: false
+
+jobs:
+  make-one-ab-review-mp4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout locked input candidates
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+
+      - name: Check encoder tools
+        run: |
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -hide_banner -filters | grep drawtext
+
+      - name: Create exactly one full-length synchronized side-by-side MP4 and QC
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          a=pathlib.Path("production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4")
+          b=pathlib.Path("production/video_candidates/review_m01_v001/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4")
+          target=pathlib.Path("production/video_candidates/review_m01_v001/ab_comparison_v001")
+          assert not target.exists(), "AB_CANDIDATE_ALREADY_EXISTS; DO_NOT_OVERWRITE"
+          target.mkdir(parents=True)
+          out=target/"S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001.mp4"
+          evidence=target/"S02_B_V006_AB_ORIGINAL_VS_M01_QC_V001.json"
+          def digest(path):
+              h=hashlib.sha256()
+              with path.open("rb") as f:
+                  for x in iter(lambda:f.read(1048576),b""):h.update(x)
+              return h.hexdigest()
+          def probe(path):
+              return json.loads(subprocess.check_output(["ffprobe","-v","error",
+                  "-show_entries","stream=codec_type,codec_name,nb_frames,r_frame_rate,width,height:format=duration",
+                  "-of","json",str(path)],text=True))
+          def packets(path):
+              j=json.loads(subprocess.check_output(["ffprobe","-v","error","-select_streams","a:0",
+                  "-show_packets","-show_entries","packet=pts_time,duration_time,data_hash",
+                  "-show_data_hash","sha256","-of","json",str(path)],text=True))
+              return [(p.get("pts_time"),p.get("duration_time"),p.get("data_hash")) for p in j["packets"]]
+          assert digest(a)=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert digest(b)=="5b1daec95ec14b7298aa463b55ce72174c50bca92e1e08dc879edec4137bfaea"
+          for src in (a,b):
+              x=probe(src)
+              vid=next(s for s in x["streams"] if s["codec_type"]=="video")
+              assert (vid["width"],vid["height"],vid["r_frame_rate"],int(vid["nb_frames"]))==(720,1280,"30/1",1927)
+              assert abs(float(x["format"]["duration"])-64.25)<.035
+          p_a=packets(a);p_b=packets(b)
+          assert len(p_a)==3013 and p_a==p_b
+          vf=(
+              "[0:v]pad=iw:ih+72:0:72:black,"
+              "drawtext=text='A  V006 ORIGINAL':fontsize=29:fontcolor=white:x=24:y=18,"
+              "drawbox=x=0:y=69:w=iw:h=3:color=white@0.55:t=fill[va];"
+              "[1:v]pad=iw:ih+72:0:72:black,"
+              "drawtext=text='B  M01 CANDLELIGHT (43-48s)':fontsize=27:fontcolor=white:x=24:y=18,"
+              "drawbox=x=0:y=69:w=iw:h=3:color=yellow@0.85:t=fill[vb];"
+              "[va][vb]hstack=inputs=2[v]"
+          )
+          subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y",
+              "-i",str(a),"-i",str(b),"-filter_complex",vf,
+              "-map","[v]","-map","0:a:0","-c:v","libx264","-preset","veryfast",
+              "-crf","20","-pix_fmt","yuv420p","-r","30","-frames:v","1927",
+              "-c:a","copy","-movflags","+faststart",str(out)],check=True)
+          x=probe(out)
+          vid=next(s for s in x["streams"] if s["codec_type"]=="video")
+          assert (vid["width"],vid["height"],vid["r_frame_rate"],int(vid["nb_frames"]))==(1440,1352,"30/1",1927)
+          assert len([s for s in x["streams"] if s["codec_type"]=="audio"])==1
+          assert abs(float(x["format"]["duration"])-64.25)<.035
+          assert packets(out)==p_a, "AUDIO_PACKETS_CHANGED"
+          for typ in ("v:0","a:0"):
+              subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror",
+                  "-i",str(out),"-map","0:"+typ,"-f","null","-"],check=True)
+          assert digest(a)=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert digest(b)=="5b1daec95ec14b7298aa463b55ce72174c50bca92e1e08dc879edec4137bfaea"
+          result={
+              "task_id":"S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001",
+              "status":"TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+              "a_source":str(a),"a_source_sha256":digest(a),
+              "b_source":str(b),"b_source_sha256":digest(b),
+              "comparison_mode":"FULL_LENGTH_SIDE_BY_SIDE_SYNCHRONIZED",
+              "left":"A_original_reconstructed_V006","right":"B_M01_integrated_V006",
+              "full_length_seconds":64.25,"fps":30,"frames":1927,
+              "dimensions":[1440,1352],"candlelight_difference_window_seconds":[43.3,48.266667],
+              "audio_stream":"A_UNMODIFIED_AAC_PACKET_COPY",
+              "audio_packets":3013,"audio_payload_and_timing_exact_match":True,
+              "output_path":str(out),"output_bytes":out.stat().st_size,
+              "output_sha256":digest(out),"originals_unchanged":True,
+              "video_index_unchanged":True,"main_merge":False,
+              "publication":"TEMPORARY_REVIEW_ONLY_NOT_CANONICAL"}
+          evidence.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
+          print("AB_COMPARISON_EXACT_TECHNICAL_PASS",json.dumps(result,ensure_ascii=False),flush=True)
+          PY
+
+      - name: Save only new AB review binary and QC on review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          d=production/video_candidates/review_m01_v001/ab_comparison_v001
+          test -s "$d/S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001.mp4"
+          test -s "$d/S02_B_V006_AB_ORIGINAL_VS_M01_QC_V001.json"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add -- "$d"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==2 and all(x.startswith("production/video_candidates/review_m01_v001/ab_comparison_v001/") for x in paths),paths
+          assert len([x for x in paths if x.endswith(".mp4")])==1
+          PY
+          git commit -m "Save V006 original-versus-M01 synchronized full A/B comparison review video"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "REVIEW_ONLY_MAIN_UNCHANGED=TRUE"
+
+      - name: Upload AB MP4 and exact QC as one artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V006_FULL_AB_ORIGINAL_VS_M01_REVIEW_V001
+          path: |
+            production/video_candidates/review_m01_v001/ab_comparison_v001/S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001.mp4
+            production/video_candidates/review_m01_v001/ab_comparison_v001/S02_B_V006_AB_ORIGINAL_VS_M01_QC_V001.json
+          retention-days: 7
+          if-no-files-found: error
