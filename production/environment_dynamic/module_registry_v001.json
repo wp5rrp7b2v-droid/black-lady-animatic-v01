@@ -107,6 +107,34 @@
         "batch_render_authorized": false,
         "cross_scene_reuse_authorized": false,
         "status_note": "All proposed core markers and YOLO people masks remain unapproved. Stage A dataset is regression fixture, not independently held-out cross-scene product qualification."
+      },
+      "stage_A1": {
+        "status": "PRIORITY_THREE_SHOT_CALIBRATION_CANDIDATES_READY_FOR_PO_REVIEW",
+        "date": "2026-10-17",
+        "branch": "feature/m01-v002-engine-stage-a-20261017",
+        "source_benchmark": "production/environment_dynamic/benchmarks/m01_stage_a_v002/evidence/M01_STAGE_A_MACHINE_BENCHMARK_V002.json",
+        "position_seed_draft": "production/environment_dynamic/benchmarks/m01_stage_a_v002/M01_A1_VISUAL_FLAME_FIXTURE_DRAFT_V001.json",
+        "annotated_review": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_flame_fixture_drafts_v001/M01_STAGE_A1_FLAME_SOURCE_VISUAL_PROPOSALS_V001.json",
+        "status_record": "production/environment_dynamic/benchmarks/m01_stage_a_v002/STAGE_A1_PRIORITY_THREE_QA_STATUS_2026-10-17.md",
+        "qa_runs": [
+          39016814374,
+          39017073338
+        ],
+        "cases": [
+          "N24",
+          "V006_NEW_01",
+          "N18"
+        ],
+        "fixture_seed_count": 9,
+        "single_flame_seed_count": 28,
+        "midframe_seeds_overlapping_detected_people": 0,
+        "ground_truth_approved": false,
+        "complete_person_protection_approved": false,
+        "n24_clipped_sources_review_required": true,
+        "new01_hair_occlusion_review_required": true,
+        "n18_one_fixture_multiple_flames": true,
+        "remaining_eight_shot_review_pending": true,
+        "batch_render_authorized": false
       }
     },
     {
