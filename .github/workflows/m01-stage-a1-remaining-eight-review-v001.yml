@@ -1,0 +1,90 @@
+name: M01 Stage A1 Remaining Eight Source and Human Mask Review V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-remaining-eight-review-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-remaining-eight-review-v001
+  cancel-in-progress: false
+jobs:
+  prepare-one-a1-eight-shot-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout M01 engine isolated branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install exact-frame source inspection dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Produce 8-shot, 24-frame inspection overlays with light clues and person protection
+        run: |
+          python3 scripts/m01_stage_a1_remaining_eight_review_builder_v001.py
+      - name: Independently verify exact source proof, image hashes and no accidental GT promotion
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,json,base64
+          d=pathlib.Path("_m01_a1_remaining_eight_v001")
+          p=d/"M01_STAGE_A1_REMAINING_EIGHT_REVIEW_V001.json"
+          j=json.loads(p.read_text())
+          assert j["schema"]=="M01_STAGE_A1_REMAINING_EIGHT_REVIEW_V001"
+          assert j["status"]=="SOURCE_PROTECTION_DIAGNOSTICS_READY_NOT_GROUND_TRUTH"
+          assert j["frames"]==24 and len(j["remaining_shots"])==8 and len(j["cases"])==8
+          assert j["test_groups"]=={"po_alignment_failure":4,"accepted_style_reference":2,"daylight_negative":1,"temporal_mixed_visibility":1}
+          assert j["remaining_frames_approved"] is False and j["protect_all_people_not_yet_verified"] is True
+          assert j["no_video_render"] is True and j["m01_batch_gate"]=="HOLD"
+          assert j["source_video_sha256"]=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          base=d/j["visual_overview"]
+          assert hashlib.sha256(base.read_bytes()).hexdigest()==j["visual_overview_sha256"]
+          assert base64.b64decode((d/(base.name+".b64.txt")).read_text().strip())==base.read_bytes()
+          for shot in j["cases"]:
+              f=d/shot["file"]
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==shot["file_sha256"]
+              assert len(shot["frames"])==3 and all(not x["person_mask_human_approved"] and not x["flame_position_approved"] for x in shot["frames"])
+              assert not shot["flame_sources_approved"] and not shot["all_frame_person_protection_approved"]
+          n17=next(c for c in j["cases"] if c["shot_id"]=="N17")
+          assert n17["frames"][-1]["visible_light_hypothesis"]=="VISIBLE_WALL_SCONCE_CANDIDATE"
+          print("A1_REMAINING_EIGHT_SOURCE_FRAME_HASH_AND_UNAPPROVED_GT_QC_PASS")
+          PY
+      - name: Save only new A1 review image evidence on isolated branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_a1_remaining_eight_v001/* "$dest/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==11,paths
+          assert sum(x.endswith(".jpg") for x in paths)==9
+          assert sum(x.endswith(".b64.txt") for x in paths)==1
+          assert sum(x.endswith(".json") for x in paths)==1
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/") for x in paths)
+          print("A1_REVIEW_FILES_TO_BE_COMMITTED",len(paths))
+          PY
+          git commit -m "Record remaining eight A1 shot overlays and 24 exact-source person-mask evidence snapshots"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "M01_STILL_HOLD_NO_VIDEO_RENDER"
+      - name: Publish eight shot overlays and audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_STAGE_A1_REMAINING_EIGHT_SHOTS_VISUAL_REVIEW_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/*.json
+          retention-days: 14
+          if-no-files-found: error
