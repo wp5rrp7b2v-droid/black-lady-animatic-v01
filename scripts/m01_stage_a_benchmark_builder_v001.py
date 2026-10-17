@@ -139,7 +139,6 @@ def make_sheet(records,names,output_path,title):
     for row,sid in enumerate(names):
         rec=records[sid]; yy=row*cellh
         for i,frame in enumerate(rec["frames"]):
-            raw=Image.open(OUT/frame["preview_clean_mid_jpeg"]).convert("RGB") if False else None
             # Contact JPEG crops are rebuilt directly from in-memory preview
             # images created in the frame loop and stored under OUT/previews.
             origin=Image.open(OUT/frame["internal_original_jpeg"]).convert("RGB")
@@ -205,7 +204,7 @@ def main():
             img,rawsha=allframes[frame]
             mask,uncertain,people=mask_person(img,model)
             assert mask.shape==(H,W) and mask.dtype==np.uint8
-            assert not np.any(mask>0 & uncertain) if False else True
+            assert not np.any((mask>0) & uncertain), "MACHINE_PERSON_MASK_AND_BBOX_UNCERTAINTY_OVERLAP"
             outfile=f"PERSON_PROPOSAL_{sid}_F{frame:04d}.png"
             pp=SAMPLES/outfile
             Image.fromarray(mask,mode="L").save(pp,optimize=True)
