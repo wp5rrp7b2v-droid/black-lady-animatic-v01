@@ -308,7 +308,7 @@
         "previous_candidate_status": "INVALID_FOR_FLAME_REGISTRATION_NO_PROMOTION"
       },
       "engine_v1_4": {
-        "status": "REAL_SOURCE_FLAME_CENTER_CORRECTION_CANDIDATE_BUILT_PO_VISUAL_REVIEW_PENDING",
+        "status": "FLAME_CENTER_POSITIONS_PO_APPROVED_5_N23_11_NEW02",
         "po_trigger": "火苗没有定位准确",
         "source_reinspection_run": 39044929468,
         "magnified_source_run": 39045106780,
@@ -324,7 +324,37 @@
         "no_new_video_rendered": true,
         "V012_style_preserved": true,
         "cross_scene_release": false,
-        "next": "PO check two corrected visual source flame center overlays; only after confirmation derive core masks and render same universal engine A/B; no synthetic flame or wall-bloom."
+        "next": "PO check two corrected visual source flame center overlays; only after confirmation derive core masks and render same universal engine A/B; no synthetic flame or wall-bloom.",
+        "centers_po_approved": true,
+        "center_approval_scope": "N23 five and NEW02 eleven drawn on V014 true-source diagrams; exact masks or V015 video not yet PO-approved"
+      },
+      "engine_v1_5": {
+        "status": "ONE_COMMON_ENGINE_V015_TWO_SHOT_AB_TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+        "run_id": 39046576395,
+        "branch": "feature/m01-v002-engine-stage-a-20261017",
+        "common_engine": "scripts/m01_engine_v1.py",
+        "manifest": "production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/M01_V015_TWO_AB_REVIEW_QC.json",
+        "po_approved_position_counts": {
+          "N23": 5,
+          "NEW02": 11
+        },
+        "source_real_pixel_mask_packages": [
+          "production/environment_dynamic/m01_engine_v1/masks_v015/N23/N23_PO_CENTERS_REAL_PIXEL_CORE_CANDIDATES_V015.zip",
+          "production/environment_dynamic/m01_engine_v1/masks_v015/NEW02/NEW02_PO_CENTERS_REAL_PIXEL_CORE_CANDIDATES_V015.zip"
+        ],
+        "source_masks_po_shape_approved": false,
+        "N23_video_sha256": "2b5dd22ea0e0a845107963c3a274f1e54d89d546ff01cd5fdcbfc210e9eff801",
+        "NEW02_video_sha256": "db55f740f0fa659c87978dd63cade34443e44365be989c791a27ba08b0e2168a",
+        "N23_V012_AB_SHA256": "9063b774aea4fc58cdb404f1c98a6e18593c07d2b4947e472358479ea4b5c730",
+        "NEW02_V012_AB_SHA256": "015badfba29dc6da366b583e89f4953920e6d3e81e59a381c7d1d891a4d0d74b",
+        "baseline_v012_binary_preserved": true,
+        "raw_changes_only_within_po_center_core_roi": true,
+        "new_visual_PO_approved": false,
+        "full_people_ground_truth_approved": false,
+        "cross_scene_unseen_holdout_passed": false,
+        "batch_release_allowed": false,
+        "main_merge_authorized": false,
+        "next": "PO visual review V012-versus-V015 videos. Once approved, validate independent S02-B holdout then cross-scene reuse; no unauthorized canonical publication."
       }
     },
     {
