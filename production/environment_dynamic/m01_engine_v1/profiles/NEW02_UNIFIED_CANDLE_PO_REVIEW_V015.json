@@ -1,0 +1,646 @@
+{
+  "schema": "M01_SCENE_LIGHT_ATLAS_V1",
+  "profile_id": "NEW02_UNIFIED_CANDLE_PO_REVIEW_V015",
+  "scene_id": "CASTLE_INNER_CROWD",
+  "review_status": "PILOT_REFERENCE_ONLY",
+  "registration_status": "PO_APPROVED_CENTERS_CORE_SHAPES_MACHINE_PROPOSALS_PO_VIDEO_PENDING",
+  "source": {
+    "type": "still_png",
+    "path": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+    "sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+    "input_dimensions": [
+      941,
+      1672
+    ]
+  },
+  "render": {
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "frames": 90,
+    "frame_start": 0,
+    "preserve_audio": false
+  },
+  "temporal": {
+    "style": "unsynced_independent",
+    "rgb_cap": [
+      19,
+      10.5,
+      2.5
+    ],
+    "fade_in_frames": 0,
+    "fade_out_frames": 0,
+    "envelope": "sin_soft_edges",
+    "halo_fast_harmonics_mix": 0.22
+  },
+  "protection": {
+    "mode": "roi_only_unverified",
+    "do_not_claim_complete_person_protection": true
+  },
+  "fixtures": [
+    {
+      "id": "NEW02_LEFT_WALL",
+      "individual_source_id": "NEW02_LIGHT_1",
+      "center_px": [
+        30.240000000000002,
+        69.12
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          44.46,
+          64.9
+        ],
+        "roi_px": [
+          0,
+          0,
+          131.04,
+          197.12
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1,
+      "halo_gain_rgb": [
+        19,
+        10.5,
+        2.5
+      ],
+      "flame_core_registration": "V012_STYLE_REFLECTOR_ONLY",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_MID_WALL",
+      "individual_source_id": "NEW02_LIGHT_2",
+      "center_px": [
+        300.24,
+        218.88000000000002
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          31.82,
+          64.9
+        ],
+        "roi_px": [
+          239.04000000000002,
+          130.56,
+          349.2,
+          341.76
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 2,
+      "halo_gain_rgb": [
+        19,
+        10.5,
+        2.5
+      ],
+      "flame_core_registration": "V012_STYLE_REFLECTOR_ONLY",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_DEEPER_WALL",
+      "individual_source_id": "NEW02_LIGHT_3",
+      "center_px": [
+        471.6,
+        314.88
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          24.34,
+          58.24
+        ],
+        "roi_px": [
+          424.08,
+          248.32,
+          509.76,
+          376.32
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 3,
+      "halo_gain_rgb": [
+        19,
+        10.5,
+        2.5
+      ],
+      "flame_core_registration": "V012_STYLE_REFLECTOR_ONLY",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_FAR_RIGHT_ARCH",
+      "individual_source_id": "NEW02_LIGHT_4",
+      "center_px": [
+        635.76,
+        389.12
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          24.8,
+          44.1
+        ],
+        "roi_px": [
+          596.88,
+          323.84000000000003,
+          680.4,
+          436.48
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 4,
+      "halo_gain_rgb": [
+        19,
+        10.5,
+        2.5
+      ],
+      "flame_core_registration": "V012_STYLE_REFLECTOR_ONLY",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_DISTANT_RIGHT",
+      "individual_source_id": "NEW02_LIGHT_5",
+      "center_px": [
+        706.3199999999999,
+        433.92
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          13.1,
+          43.26
+        ],
+        "roi_px": [
+          686.16,
+          378.88,
+          720,
+          504.32000000000005
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 5,
+      "halo_gain_rgb": [
+        19,
+        10.5,
+        2.5
+      ],
+      "flame_core_registration": "V012_STYLE_REFLECTOR_ONLY",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_LEFT_CROPPED_CHANDELIER",
+      "individual_source_id": "NEW02_LEFT_F01",
+      "center_px": [
+        58,
+        26
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          47,
+          8,
+          70,
+          45
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 0.7,
+      "core_static_flame_id": "NEW02_LEFT_F01",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_MID_CHANDELIER",
+      "individual_source_id": "NEW02_MID_F01",
+      "center_px": [
+        283,
+        201
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          272,
+          183,
+          295,
+          220
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1.017,
+      "core_static_flame_id": "NEW02_MID_F01",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_MID_CHANDELIER",
+      "individual_source_id": "NEW02_MID_F02",
+      "center_px": [
+        300,
+        193
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          289,
+          175,
+          312,
+          212
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1.334,
+      "core_static_flame_id": "NEW02_MID_F02",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_MID_CHANDELIER",
+      "individual_source_id": "NEW02_MID_F03",
+      "center_px": [
+        319,
+        211
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          308,
+          193,
+          331,
+          230
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1.651,
+      "core_static_flame_id": "NEW02_MID_F03",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_MID_CHANDELIER",
+      "individual_source_id": "NEW02_MID_F04",
+      "center_px": [
+        333,
+        218
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          322,
+          200,
+          345,
+          237
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 1.968,
+      "core_static_flame_id": "NEW02_MID_F04",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_DEEP_CHANDELIER",
+      "individual_source_id": "NEW02_DEEP_F01",
+      "center_px": [
+        468,
+        308
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          457,
+          290,
+          480,
+          327
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 2.285,
+      "core_static_flame_id": "NEW02_DEEP_F01",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_DEEP_CHANDELIER",
+      "individual_source_id": "NEW02_DEEP_F02",
+      "center_px": [
+        479,
+        314
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          468,
+          296,
+          491,
+          333
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 2.602,
+      "core_static_flame_id": "NEW02_DEEP_F02",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_DEEP_CHANDELIER",
+      "individual_source_id": "NEW02_DEEP_F03",
+      "center_px": [
+        487,
+        300
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          476,
+          282,
+          499,
+          319
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 2.919,
+      "core_static_flame_id": "NEW02_DEEP_F03",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "individual_source_id": "NEW02_RIGHT_F01",
+      "center_px": [
+        640,
+        365
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          629,
+          347,
+          652,
+          384
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 3.236,
+      "core_static_flame_id": "NEW02_RIGHT_F01",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "individual_source_id": "NEW02_RIGHT_F02",
+      "center_px": [
+        655,
+        358
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          644,
+          340,
+          667,
+          377
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 3.553,
+      "core_static_flame_id": "NEW02_RIGHT_F02",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    },
+    {
+      "id": "NEW02_RIGHT_ARCH_CHANDELIER",
+      "individual_source_id": "NEW02_RIGHT_F03",
+      "center_px": [
+        664,
+        369
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          7.0,
+          11.0
+        ],
+        "roi_px": [
+          653,
+          351,
+          676,
+          388
+        ],
+        "weight": 1,
+        "tapers": []
+      },
+      "phase": 3.87,
+      "core_static_flame_id": "NEW02_RIGHT_F03",
+      "core_gain_rgb": [
+        14,
+        10,
+        4
+      ],
+      "halo_gain_rgb": [
+        0.9,
+        0.55,
+        0.15
+      ],
+      "flame_core_registration": "APPROVED_CENTER_MASK_CANDIDATE_PO_REVIEW",
+      "same_signal_drives_core_and_halo": true
+    }
+  ],
+  "legacy_reference": {
+    "accepted_m01_video": "production/environment_dynamic/review_candidates/NEW02_M01_N23_PACED_TEST_V003/NEW02_M01_N23_PACED_CANDLELIGHT_TEST_V003.mp4",
+    "sha256": "64993bca4c0531e86012c6d1a2ec7842c7f82b50a319909c73bb6599e5287ef0",
+    "warning": "style only; dynamic may be independently phased rather than bitwise identical"
+  },
+  "release_allowed": false,
+  "m01_strength_standard": "N17_REFERENCED_NATURAL_PERCEIVED_AMBIENT_FLUCTUATION__HALO_SOFTER_THAN_FLAME_CORE",
+  "m01_strength_note": "User rejected V011: broad overly aggressive architecture pulse. This V012 keeps N17 temporal identity and phase independence but softens only wall-halo higher harmonics, tightens each registered source's effect footprint, and uses perceptual comparison; does NOT attempt 37RGB flame-core amplitude on architectural surfaces.",
+  "regression_source_profile": "NEW02_N17_NATURAL_V012.json",
+  "unified_flame_engine": {
+    "schema": "M01_UNIFIED_FLAME_PROVENANCE_V013",
+    "one_candle_algorithm": true,
+    "canonical_temporal_signal": "unsynced_independent",
+    "style_reference": "M01_STYLE_BASELINE_V012",
+    "flame_core_source": "V014_PO_APPROVED_VISUAL_CENTERS_RESTRICTED_SOURCE_PIXEL_CONNECTED_MASKS",
+    "registration_status": "PO_CENTERS_APPROVED_STATIC_CORE_MASK_QC_PASS_VIDEO_PO_REVIEW_PENDING",
+    "human_gt_approved": false,
+    "po_core_registration_approved": true,
+    "flame_shape_ground_truth_approved": false,
+    "same_common_engine_module": true
+  },
+  "render_full_flame_output_authorized": false,
+  "static_core_masks": {
+    "zip_path": "production/environment_dynamic/m01_engine_v1/masks_v015/NEW02/NEW02_PO_CENTERS_REAL_PIXEL_CORE_CANDIDATES_V015.zip",
+    "zip_sha256": "d57f89a6098374dc78ddab5b6c03e867efcec47e3dcc2c53eb193e898b21572e",
+    "manifest_path": "production/environment_dynamic/m01_engine_v1/masks_v015/NEW02/NEW02_STATIC_CORE_MASK_MANIFEST_V015.json",
+    "manifest_sha256": "0bb764b4df2cdbdcbd728601abf420f16f484d78b688566a67bff5be3da62d29",
+    "flame_ids": [
+      "NEW02_LEFT_F01",
+      "NEW02_MID_F01",
+      "NEW02_MID_F02",
+      "NEW02_MID_F03",
+      "NEW02_MID_F04",
+      "NEW02_DEEP_F01",
+      "NEW02_DEEP_F02",
+      "NEW02_DEEP_F03",
+      "NEW02_RIGHT_F01",
+      "NEW02_RIGHT_F02",
+      "NEW02_RIGHT_F03"
+    ]
+  },
+  "flame_core_visual_mask_report": "M01_V015_FLAME_CORE_MASK_REVIEW_ONLY"
+}

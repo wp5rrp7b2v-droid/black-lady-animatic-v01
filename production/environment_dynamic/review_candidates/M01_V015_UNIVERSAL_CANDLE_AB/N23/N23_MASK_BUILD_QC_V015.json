@@ -1,0 +1,12 @@
+{
+  "shot": "N23",
+  "flame_count": 5,
+  "source_exact": true,
+  "mask_pack_sha256": "8797b373af88ee77e442c5850b3254f962c398894e08af02c9be775f583cecef",
+  "manifest_sha256": "832c1be9ff738b14dd02c1bbc8160a3c5871b6fc93778fcd1a083269c2de8ee4",
+  "PO_approved_center_count": 5,
+  "machine_core_shape_PO_approved": false,
+  "people_mask_GT_approved": false,
+  "release_allowed": false,
+  "source_core_mask_overlay_sha256": "b6b91853e1db9e473474d80d43547e5d97bc89cce8e1b49cfbcfcca49ff45e1b"
+}

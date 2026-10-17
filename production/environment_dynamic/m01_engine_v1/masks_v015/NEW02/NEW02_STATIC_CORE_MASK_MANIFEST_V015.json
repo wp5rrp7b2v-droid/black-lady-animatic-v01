@@ -1,0 +1,268 @@
+{
+  "schema": "M01_V015_APPROVED_CENTER_REAL_PIXEL_MASK_MANIFEST",
+  "status": "APPROVED_CENTERS_MACHINE_MASKS_PO_VIDEO_REVIEW_PENDING",
+  "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_path": "production/image_library/approved/story_shots/S02B_V006_NEW02_CROWD_INTERIOR_SIDE_DEPTH_APPROVED_V001.png",
+  "centers_approval_source": "PO approved V014 corrected visual diagrams in chat",
+  "centers_draft_sha256": "3ce50730fe1e61a0b71c859fa3c3e88aaa432dd854e515adc5a639a477f5e0f1",
+  "coordinate_space": "720x1280",
+  "flame_count": 11,
+  "flames": {
+    "NEW02_LEFT_F01": {
+      "approved_center": [
+        58,
+        26
+      ],
+      "mask_filename": "masks/NEW02_LEFT_F01.bitpack",
+      "mask_pixels": 102,
+      "bounds_px": [
+        52,
+        15,
+        63,
+        37
+      ],
+      "mask_centroid_px": [
+        57.31,
+        26.77
+      ],
+      "max_offset": [
+        6,
+        11
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_MID_F01": {
+      "approved_center": [
+        283,
+        201
+      ],
+      "mask_filename": "masks/NEW02_MID_F01.bitpack",
+      "mask_pixels": 79,
+      "bounds_px": [
+        278,
+        190,
+        287,
+        212
+      ],
+      "mask_centroid_px": [
+        282.24,
+        200.65
+      ],
+      "max_offset": [
+        5,
+        11
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_MID_F02": {
+      "approved_center": [
+        300,
+        193
+      ],
+      "mask_filename": "masks/NEW02_MID_F02.bitpack",
+      "mask_pixels": 130,
+      "bounds_px": [
+        294,
+        182,
+        307,
+        203
+      ],
+      "mask_centroid_px": [
+        299.84,
+        192.68
+      ],
+      "max_offset": [
+        6,
+        11
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_MID_F03": {
+      "approved_center": [
+        319,
+        211
+      ],
+      "mask_filename": "masks/NEW02_MID_F03.bitpack",
+      "mask_pixels": 94,
+      "bounds_px": [
+        313,
+        202,
+        324,
+        221
+      ],
+      "mask_centroid_px": [
+        318.67,
+        210.94
+      ],
+      "max_offset": [
+        6,
+        9
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_MID_F04": {
+      "approved_center": [
+        333,
+        218
+      ],
+      "mask_filename": "masks/NEW02_MID_F04.bitpack",
+      "mask_pixels": 69,
+      "bounds_px": [
+        328,
+        208,
+        338,
+        224
+      ],
+      "mask_centroid_px": [
+        332.46,
+        216.2
+      ],
+      "max_offset": [
+        5,
+        10
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_DEEP_F01": {
+      "approved_center": [
+        468,
+        308
+      ],
+      "mask_filename": "masks/NEW02_DEEP_F01.bitpack",
+      "mask_pixels": 62,
+      "bounds_px": [
+        463,
+        301,
+        474,
+        315
+      ],
+      "mask_centroid_px": [
+        468.21,
+        308.03
+      ],
+      "max_offset": [
+        5,
+        7
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_DEEP_F02": {
+      "approved_center": [
+        479,
+        314
+      ],
+      "mask_filename": "masks/NEW02_DEEP_F02.bitpack",
+      "mask_pixels": 42,
+      "bounds_px": [
+        475,
+        307,
+        484,
+        319
+      ],
+      "mask_centroid_px": [
+        479.24,
+        312.71
+      ],
+      "max_offset": [
+        4,
+        7
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_DEEP_F03": {
+      "approved_center": [
+        487,
+        300
+      ],
+      "mask_filename": "masks/NEW02_DEEP_F03.bitpack",
+      "mask_pixels": 36,
+      "bounds_px": [
+        483,
+        293,
+        490,
+        309
+      ],
+      "mask_centroid_px": [
+        486.42,
+        300.83
+      ],
+      "max_offset": [
+        4,
+        8
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_RIGHT_F01": {
+      "approved_center": [
+        640,
+        365
+      ],
+      "mask_filename": "masks/NEW02_RIGHT_F01.bitpack",
+      "mask_pixels": 40,
+      "bounds_px": [
+        635,
+        357,
+        644,
+        369
+      ],
+      "mask_centroid_px": [
+        639.5,
+        363.7
+      ],
+      "max_offset": [
+        5,
+        8
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_RIGHT_F02": {
+      "approved_center": [
+        655,
+        358
+      ],
+      "mask_filename": "masks/NEW02_RIGHT_F02.bitpack",
+      "mask_pixels": 65,
+      "bounds_px": [
+        651,
+        350,
+        660,
+        365
+      ],
+      "mask_centroid_px": [
+        655.29,
+        358.11
+      ],
+      "max_offset": [
+        4,
+        8
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    },
+    "NEW02_RIGHT_F03": {
+      "approved_center": [
+        664,
+        369
+      ],
+      "mask_filename": "masks/NEW02_RIGHT_F03.bitpack",
+      "mask_pixels": 27,
+      "bounds_px": [
+        661,
+        362,
+        669,
+        371
+      ],
+      "mask_centroid_px": [
+        663.78,
+        367.59
+      ],
+      "max_offset": [
+        4,
+        7
+      ],
+      "method": "RGB-WARM_CONNECTED_REAL_PIXELS_ELLIPSE_LOCAL_AROUND_PO_APPROVED_CENTER"
+    }
+  },
+  "full_person_gt_approved": false,
+  "flame_core_shapes_PO_approved": false,
+  "release_allowed": false
+}

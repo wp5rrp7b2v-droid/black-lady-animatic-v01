@@ -1,0 +1,50 @@
+{
+  "schema": "M01_V015_UNIVERSAL_CANDLE_AB_TECHNICAL_QC",
+  "status": "SAME_ENGINE_TWO_APPROVED_CENTER_CANDIDATE_AB_TECHNICAL_PASS_PO_VISUAL_PENDING",
+  "engine": "scripts/m01_engine_v1.py",
+  "source_centers_approved_only": true,
+  "machine_flame_core_shapes_PO_approved": false,
+  "style_reference": "M01_STYLE_BASELINE_V012",
+  "person_ground_truth_approved": false,
+  "render_to_canonical_authorized": false,
+  "main_merge_authorized": false,
+  "cross_scene_reuse_approved": false,
+  "review_output": [
+    {
+      "shot": "N23",
+      "approved_flame_centers": 5,
+      "candidate_core_pixel_count": 576,
+      "sampled_frames_with_changed_core": 10,
+      "sampled_core_pixel_changes": 5180,
+      "max_raw_rgb_delta_added_over_accepted_V012": 10,
+      "accepted_V012_unchanged_sha256": "0c9bf4cf8a901ac0cf7b306faf8cfd6e0cf650beb1cbc025cd3847e2f047fc0e",
+      "candidate_video": "M01_N23_UNIFIED_CANDLE_PO_REVIEW_V015_REVIEW_V001.mp4",
+      "candidate_video_sha256": "2b5dd22ea0e0a845107963c3a274f1e54d89d546ff01cd5fdcbfc210e9eff801",
+      "original_vs_candidate_ab": "M01_N23_UNIFIED_CANDLE_PO_REVIEW_V015_AB_V001.mp4",
+      "original_vs_candidate_ab_sha256": "8cc039a2ecfc49dfea0e4c39b44bc59733b7dd5608e83f1768df73cc4a35b70f",
+      "v012_vs_candidate_ab": "M01_N23_V012_BASELINE_VS_UNIFIED_FLAME_V015_AB_V001.mp4",
+      "v012_vs_candidate_ab_sha256": "9063b774aea4fc58cdb404f1c98a6e18593c07d2b4947e472358479ea4b5c730",
+      "mask_manifest_path": "production/environment_dynamic/m01_engine_v1/masks_v015/N23/N23_STATIC_CORE_MASK_MANIFEST_V015.json",
+      "mask_manifest_sha256": "832c1be9ff738b14dd02c1bbc8160a3c5871b6fc93778fcd1a083269c2de8ee4",
+      "atlas_sha256": "29adff8b563f9f08b9bd094b88572fb1d380132f371142dfed17d1cff00cc76e"
+    },
+    {
+      "shot": "NEW02",
+      "approved_flame_centers": 11,
+      "candidate_core_pixel_count": 746,
+      "sampled_frames_with_changed_core": 10,
+      "sampled_core_pixel_changes": 7018,
+      "max_raw_rgb_delta_added_over_accepted_V012": 12,
+      "accepted_V012_unchanged_sha256": "3899aaa97266af2a6133ee7210e97340aaf70921dbfe7c38dafdcf7eda54de02",
+      "candidate_video": "M01_NEW02_UNIFIED_CANDLE_PO_REVIEW_V015_REVIEW_V001.mp4",
+      "candidate_video_sha256": "db55f740f0fa659c87978dd63cade34443e44365be989c791a27ba08b0e2168a",
+      "original_vs_candidate_ab": "M01_NEW02_UNIFIED_CANDLE_PO_REVIEW_V015_AB_V001.mp4",
+      "original_vs_candidate_ab_sha256": "27af847ac058300599e712d1a4586c768b616a2bd29899ce6bfbf42f3a16df53",
+      "v012_vs_candidate_ab": "M01_NEW02_V012_BASELINE_VS_UNIFIED_FLAME_V015_AB_V001.mp4",
+      "v012_vs_candidate_ab_sha256": "015badfba29dc6da366b583e89f4953920e6d3e81e59a381c7d1d891a4d0d74b",
+      "mask_manifest_path": "production/environment_dynamic/m01_engine_v1/masks_v015/NEW02/NEW02_STATIC_CORE_MASK_MANIFEST_V015.json",
+      "mask_manifest_sha256": "0bb764b4df2cdbdcbd728601abf420f16f484d78b688566a67bff5be3da62d29",
+      "atlas_sha256": "1c6073364c46bdaa9d94b63f3722e7c1fe200a80a73df202772dc21ed14b6471"
+    }
+  ]
+}
