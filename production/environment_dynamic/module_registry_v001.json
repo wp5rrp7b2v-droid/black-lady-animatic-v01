@@ -109,7 +109,7 @@
         "status_note": "All proposed core markers and YOLO people masks remain unapproved. Stage A dataset is regression fixture, not independently held-out cross-scene product qualification."
       },
       "stage_A1": {
-        "status": "PRIORITY_THREE_SHOT_CALIBRATION_CANDIDATES_READY_FOR_PO_REVIEW",
+        "status": "PRIORITY_THREE_PO_VISUAL_OK_REMAINING_EIGHT_REVIEW_READY",
         "date": "2026-10-17",
         "branch": "feature/m01-v002-engine-stage-a-20261017",
         "source_benchmark": "production/environment_dynamic/benchmarks/m01_stage_a_v002/evidence/M01_STAGE_A_MACHINE_BENCHMARK_V002.json",
@@ -134,7 +134,16 @@
         "new01_hair_occlusion_review_required": true,
         "n18_one_fixture_multiple_flames": true,
         "remaining_eight_shot_review_pending": true,
-        "batch_render_authorized": false
+        "batch_render_authorized": false,
+        "priority_three_po_visual_ok_record": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_PO_VISUAL_FEEDBACK_PRIORITY_THREE_20261017.json",
+        "priority_three_po_visual_review": "PASSED_AS_DRAFT_POSITIONS_AND_DISPLAYED_MIDFRAME_PERSON_REGIONS_ONLY",
+        "priority_three_all_frame_ground_truth_approved": false,
+        "remaining_eight_review_workflow": 39018059892,
+        "remaining_eight_review_report": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/M01_STAGE_A1_REMAINING_EIGHT_REVIEW_V001.json",
+        "remaining_eight_preview": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/M01_STAGE_A1_REMAINING_EIGHT_OVERVIEW_V001.jpg",
+        "remaining_eight_frame_count": 24,
+        "overall_benchmark_frames": 33,
+        "remaining_eight_candle_fixtures_not_yet_approved": true
       }
     },
     {
