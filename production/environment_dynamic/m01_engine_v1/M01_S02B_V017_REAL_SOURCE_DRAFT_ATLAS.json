@@ -1,0 +1,932 @@
+{
+  "schema": "M01_S02B_V017_VISUAL_CANDLE_CANDIDATE_ATLAS",
+  "status": "CHAT_VISUAL_REAL_VIDEO_MIDFRAME_SOURCE_CENTERS_PREVIEW_ONLY_NOT_PO_APPROVED",
+  "purpose": "Enable full-duration S02-B candidate A/B with one universal candle algorithm on actual visible existing candle cores, source evidence from exact 720x1280 V006 frames.",
+  "original_source": {
+    "path": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+    "sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+    "frames": 1927,
+    "width": 720,
+    "height": 1280,
+    "fps": 30
+  },
+  "edl": "production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V001.json",
+  "evidence_root": "production/environment_dynamic/benchmarks/m01_stage_a_v002/v017_full_shot_source_frames",
+  "core_algorithm": "scripts/m01_engine_v1.py",
+  "calibration": "Source-local real RGB connected cores around independently visually inspected actual midframe flame centers; midframe alignment data is draft, per-frame extraction must fail closed for unlit/unreliable cores.",
+  "style": {
+    "name": "M01_STYLE_BASELINE_V012_V015",
+    "temporal_signal": "unsynced_independent",
+    "halo_fast_harmonics_mix": 0.22,
+    "halo_gain_per_flame_rgb": [
+      1.6,
+      0.85,
+      0.22
+    ],
+    "core_gain_rgb": [
+      14,
+      10,
+      4
+    ],
+    "halo_sigma_px": [
+      21,
+      33
+    ],
+    "halo_roi_radii_px": [
+      40,
+      52
+    ],
+    "core_search_radii_px": [
+      8,
+      12
+    ],
+    "core_mask_ellipse_px": [
+      5,
+      8
+    ],
+    "full_scene_modulation": false
+  },
+  "sources": {
+    "N16_PART_1": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N16_PART_1_FLAME_01",
+          "point_px": [
+            618,
+            58
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N16_PART_1_FLAME_02",
+          "point_px": [
+            627,
+            42
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N16_PART_1_FLAME_03",
+          "point_px": [
+            647,
+            29
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N16_PART_1_FLAME_04",
+          "point_px": [
+            689,
+            46
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N18": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N18_FLAME_01",
+          "point_px": [
+            633,
+            207
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N18_FLAME_02",
+          "point_px": [
+            650,
+            181
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N18_FLAME_03",
+          "point_px": [
+            667,
+            158
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N18_FLAME_04",
+          "point_px": [
+            686,
+            189
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N18_FLAME_05",
+          "point_px": [
+            703,
+            205
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N20_FIRST": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N20_FIRST_FLAME_01",
+          "point_px": [
+            129,
+            166
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_02",
+          "point_px": [
+            136,
+            143
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_03",
+          "point_px": [
+            158,
+            164
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_04",
+          "point_px": [
+            349,
+            197
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_05",
+          "point_px": [
+            370,
+            184
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_06",
+          "point_px": [
+            388,
+            198
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_07",
+          "point_px": [
+            680,
+            164
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N20_FIRST_FLAME_08",
+          "point_px": [
+            706,
+            151
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "V006_NEW_01": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "V006_NEW_01_FLAME_01",
+          "point_px": [
+            143,
+            168
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_02",
+          "point_px": [
+            158,
+            145
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_03",
+          "point_px": [
+            174,
+            171
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_04",
+          "point_px": [
+            187,
+            173
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_05",
+          "point_px": [
+            428,
+            198
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_06",
+          "point_px": [
+            437,
+            213
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_07",
+          "point_px": [
+            448,
+            214
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_08",
+          "point_px": [
+            670,
+            134
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_09",
+          "point_px": [
+            690,
+            118
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_10",
+          "point_px": [
+            706,
+            126
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "V006_NEW_01_FLAME_11",
+          "point_px": [
+            511,
+            286
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "JUN_APPROVED_REACTION": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "JUN_APPROVED_REACTION_FLAME_01",
+          "point_px": [
+            49,
+            246
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "JUN_APPROVED_REACTION_FLAME_02",
+          "point_px": [
+            77,
+            229
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "JUN_APPROVED_REACTION_FLAME_03",
+          "point_px": [
+            104,
+            253
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "JUN_APPROVED_REACTION_FLAME_04",
+          "point_px": [
+            584,
+            378
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "JUN_APPROVED_REACTION_FLAME_05",
+          "point_px": [
+            603,
+            375
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N21": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N21_FLAME_01",
+          "point_px": [
+            346,
+            186
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_02",
+          "point_px": [
+            363,
+            181
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_03",
+          "point_px": [
+            379,
+            194
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_04",
+          "point_px": [
+            660,
+            156
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_05",
+          "point_px": [
+            675,
+            149
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_06",
+          "point_px": [
+            687,
+            145
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_07",
+          "point_px": [
+            702,
+            155
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_08",
+          "point_px": [
+            711,
+            155
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_09",
+          "point_px": [
+            131,
+            331
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N21_FLAME_10",
+          "point_px": [
+            150,
+            340
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N22_FIRST": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N22_FIRST_FLAME_01",
+          "point_px": [
+            18,
+            143
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_02",
+          "point_px": [
+            41,
+            124
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_03",
+          "point_px": [
+            64,
+            165
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_04",
+          "point_px": [
+            80,
+            145
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_05",
+          "point_px": [
+            417,
+            178
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_06",
+          "point_px": [
+            429,
+            162
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N22_FIRST_FLAME_07",
+          "point_px": [
+            451,
+            182
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "A06": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "A06_FLAME_01",
+          "point_px": [
+            86,
+            285
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_02",
+          "point_px": [
+            96,
+            267
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_03",
+          "point_px": [
+            104,
+            279
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_04",
+          "point_px": [
+            116,
+            284
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_05",
+          "point_px": [
+            494,
+            284
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_06",
+          "point_px": [
+            510,
+            267
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_07",
+          "point_px": [
+            522,
+            277
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_08",
+          "point_px": [
+            658,
+            229
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_09",
+          "point_px": [
+            671,
+            215
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_10",
+          "point_px": [
+            683,
+            204
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "A06_FLAME_11",
+          "point_px": [
+            702,
+            236
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N24": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N24_FLAME_01",
+          "point_px": [
+            27,
+            168
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_02",
+          "point_px": [
+            48,
+            185
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_03",
+          "point_px": [
+            114,
+            291
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_04",
+          "point_px": [
+            129,
+            278
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_05",
+          "point_px": [
+            142,
+            298
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_06",
+          "point_px": [
+            447,
+            261
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_07",
+          "point_px": [
+            455,
+            252
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_08",
+          "point_px": [
+            648,
+            164
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_09",
+          "point_px": [
+            675,
+            151
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_10",
+          "point_px": [
+            696,
+            115
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N24_FLAME_11",
+          "point_px": [
+            712,
+            159
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N25": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N25_FLAME_01",
+          "point_px": [
+            22,
+            155
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_02",
+          "point_px": [
+            34,
+            191
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_03",
+          "point_px": [
+            74,
+            172
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_04",
+          "point_px": [
+            494,
+            304
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_05",
+          "point_px": [
+            503,
+            287
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_06",
+          "point_px": [
+            513,
+            302
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_07",
+          "point_px": [
+            526,
+            300
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_08",
+          "point_px": [
+            693,
+            293
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N25_FLAME_09",
+          "point_px": [
+            707,
+            282
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "NING_REACTION_APPROVED": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_01",
+          "point_px": [
+            45,
+            234
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_02",
+          "point_px": [
+            77,
+            208
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_03",
+          "point_px": [
+            89,
+            254
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_04",
+          "point_px": [
+            103,
+            253
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_05",
+          "point_px": [
+            584,
+            451
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_06",
+          "point_px": [
+            593,
+            449
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_07",
+          "point_px": [
+            643,
+            478
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "NING_REACTION_APPROVED_FLAME_08",
+          "point_px": [
+            656,
+            489
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    },
+    "N26": {
+      "status": "VISUAL_SEED_CANDIDATES_NEED_FULL_VIDEO_PO_REVIEW",
+      "coordinate_space": "720x1280_GLOBAL_IMAGE_PIXELS",
+      "source_midframe": true,
+      "centers": [
+        {
+          "id": "N26_FLAME_01",
+          "point_px": [
+            20,
+            102
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_02",
+          "point_px": [
+            48,
+            116
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_03",
+          "point_px": [
+            83,
+            144
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_04",
+          "point_px": [
+            583,
+            209
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_05",
+          "point_px": [
+            596,
+            200
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_06",
+          "point_px": [
+            606,
+            217
+          ],
+          "registered_as_PO_approved": false
+        },
+        {
+          "id": "N26_FLAME_07",
+          "point_px": [
+            614,
+            225
+          ],
+          "registered_as_PO_approved": false
+        }
+      ],
+      "missing_uncertain_flames_intentionally_excluded": true
+    }
+  },
+  "carry_approved": [
+    "N17",
+    "V006_NEW_02",
+    "N23"
+  ],
+  "deliberate_no_supported_flame": [
+    "N16_PART_2",
+    "N19"
+  ],
+  "invariants": {
+    "po_approved_N17_N23_NEW02_unchanged_reference_binary": true,
+    "release_allowed": false,
+    "no_stories_merged": true,
+    "no_canonical_video_replacement": true,
+    "person_segmentation_GT_complete": false,
+    "old_v007_wrong_source_masks_reused": false
+  }
+}
