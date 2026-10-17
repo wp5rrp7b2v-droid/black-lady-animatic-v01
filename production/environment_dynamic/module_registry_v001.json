@@ -269,17 +269,41 @@
         "further_use_authorized": false
       },
       "engine_v1_2": {
-        "status": "N23_NEW02_NATURAL_REDUCED_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "status": "PO_VISUAL_ACCEPTABLE_REFERENCE_NOT_ENGINE_RELEASE",
         "run_id": 39037927334,
         "review_dir": "production/environment_dynamic/review_candidates/M01_V12_NATURAL_AB",
         "base_N17_unchanged": true,
         "n23_max_raw_delta": 11,
         "new02_max_raw_delta": 13,
         "mechanism": "Slow reflected illumination higher harmonics softened (0.22 full-spectrum), 65% Gaussian source halo footprint, 19/10.5/2.5 halo gains vs rejected 40/26/10; each source remains independent",
-        "new_videos_po_approved": false,
+        "new_videos_po_approved": true,
         "auto_registration_passed": false,
         "batch_gate": "HOLD",
-        "main_merge": false
+        "main_merge": false,
+        "visual_style_baseline": "production/environment_dynamic/m01_engine_v1/M01_STYLE_BASELINE_V012.json",
+        "approval_scope": "User: 我觉得这次的效果可以; visual style accepted for N23 and NEW02 V012 only, no full engine/batch approval"
+      },
+      "engine_v1_3": {
+        "status": "UNIFIED_ONE_ALGORITHM_CORE_READY__N23_NEW02_FLAME_CALIBRATION_PENDING",
+        "run_id": 39043964649,
+        "work": "N17,N23,NEW02 use identical independent candle signal and linked local halo; flame core masks are provenance-dependent not a different candle mode",
+        "flame_profiles": [
+          "production/environment_dynamic/m01_engine_v1/profiles/N17_UNIFIED_REGISTERED_REFERENCE_V013.json",
+          "production/environment_dynamic/m01_engine_v1/profiles/N23_UNIFIED_FLAME_CALIBRATION_V013.json",
+          "production/environment_dynamic/m01_engine_v1/profiles/NEW02_UNIFIED_FLAME_CALIBRATION_V013.json"
+        ],
+        "calibration_script": "scripts/m01_unified_flame_locator_v013.py",
+        "candidate_report": "production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013/M01_V013_CALIBRATION_SUMMARY.json",
+        "N23_warm_pixel_candidates": 11,
+        "NEW02_warm_pixel_candidates": 22,
+        "candidate_flame_gt_approved": false,
+        "blocked_missing_core_registration": true,
+        "baseline_v012_binary_preserved": true,
+        "new_AB_not_rendered": true,
+        "technical_gate_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_UNIFIED_CANDLE_ENGINE_V013_SINGLE_ALGORITHM_EXECUTION_2026-10-17.md",
+        "batch_release": false,
+        "main_merge": false,
+        "next": "Validate actual visible flames in N23/NEW02 and safe core masks then render single-engine A/B; followed by untested S02-B and cross-scene holdout"
       }
     },
     {
