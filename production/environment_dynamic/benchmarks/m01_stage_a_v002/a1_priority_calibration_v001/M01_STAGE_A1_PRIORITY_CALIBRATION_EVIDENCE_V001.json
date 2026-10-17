@@ -1,0 +1,215 @@
+{
+  "schema": "M01_STAGE_A1_PRIORITY_CALIBRATION_EVIDENCE_V001",
+  "status": "EVIDENCE_BUILT_VISUAL_LABELS_NOT_YET_APPROVED",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "stage_A_spec_sha256": "c9a61e7e0b1bbf33f356ba3f03a57c3b187cae42e60a63f5e43e7c8d412392e7",
+  "stage_A_machine_benchmark_sha256": "0cc0669f818a9baa6417e717acbdf7df99dbdd8634192b75edb0ad38a886e7b2",
+  "priority_shots": [
+    "N24",
+    "V006_NEW_01",
+    "N18"
+  ],
+  "image_markings": "left source exact pixels; right YOLO human protection blue and previous experiment PO-unverified magenta source hints",
+  "no_video_rendered": true,
+  "no_main_merge": true,
+  "person_masks_not_ground_truth": true,
+  "light_proposals_not_ground_truth": true,
+  "cases": [
+    {
+      "shot": "N24",
+      "source_type": "V006_LOCKED_EXACT_FRAMES",
+      "source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        }
+      ],
+      "three_sample_frames": [
+        {
+          "frame_index": 1593,
+          "decoded_rgb_sha256": "bc537be4916d6ef48f7d9fa93aa32cba4d00786d1610d6f4b52ff8543e050342",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N24_F1593.png",
+          "person_mask_sha256": "a78032e4fdf7181620f621c10f5063a0db001f2962d0a4e150215437ce4c7a1e",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 1634,
+          "decoded_rgb_sha256": "638fcfcad4018356449a3a347c06b39e887a909d53d0662ebab2e8c1b47319a9",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N24_F1634.png",
+          "person_mask_sha256": "01957be54648b35f359c4873027e78654c55dca80e4c694824032f574bdd599a",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 1675,
+          "decoded_rgb_sha256": "6f5a458fbb473d126821f527fdcfde391dca4ace3041914630436637b163977b",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N24_F1675.png",
+          "person_mask_sha256": "133b90853bce170cbd4bdc20571bf866aba5b2ec29604f64ab7ef9e8a8804f35",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        }
+      ],
+      "zoom_plate": "M01_A1_N24_THREE_FRAMES_ZOOM_V001.jpg",
+      "zoom_plate_sha256": "afb80d3bf5c101b63f90f8cf34688190fb78e3cf15abb6f4d5b36f1a84f29976",
+      "person_fullframe": "M01_A1_N24_PERSON_FULLFRAME_MID_V001.jpg",
+      "person_fullframe_sha256": "adf5d9270d5ec4c16f5a095a250ca261b4ceb2945141154ae195ddf4b70a940d",
+      "mid_zoom": "M01_A1_N24_MIDFRAME_ZOOM_V001.jpg",
+      "mid_zoom_sha256": "341e18cdf604822b32d3893332bc8963e89d453aecd99278071715c0c4b1ed7d",
+      "source_geometry_approved": false,
+      "human_protection_approved": false,
+      "calibration_work_queue": "Use source flames visible in left panels, not magenta hints; verify all visible people incl hair, faces, clothing, background."
+    },
+    {
+      "shot": "V006_NEW_01",
+      "source_type": "V006_LOCKED_EXACT_FRAMES",
+      "source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.15601,
+            0.14572
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.61975,
+            0.16715
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.99715,
+            0.09859
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "three_sample_frames": [
+        {
+          "frame_index": 1008,
+          "decoded_rgb_sha256": "681650d0c9690e4e91fcc78286ea346bf499da57a9e89231e58d5ad48200165c",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1008.png",
+          "person_mask_sha256": "9f92901670ca3a4fef1d3a1a70bfe19ee606f0e090f82f9c719c7cc389669a3e",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 1036,
+          "decoded_rgb_sha256": "0883994aa55351db7246f0173ee2b4f674e3d7f743a822db3f0e0e429746ae31",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1036.png",
+          "person_mask_sha256": "a77ae97f92a3293cdd8997a026c59c152cc0026577eb833b5517936a531543ef",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 1065,
+          "decoded_rgb_sha256": "f7a423c7a32325cfa0256c0b54b1bf822ac803a7f9003ccc880fd12edd9122a6",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1065.png",
+          "person_mask_sha256": "ad299763631cbe637143ba34e3296b06c7624713e54fbaf8a131389663af091e",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        }
+      ],
+      "zoom_plate": "M01_A1_V006_NEW_01_THREE_FRAMES_ZOOM_V001.jpg",
+      "zoom_plate_sha256": "c76e7ff3085c04013a443449c00c0e3c00b6db2595d4dcf167ee4fa753b516bc",
+      "person_fullframe": "M01_A1_V006_NEW_01_PERSON_FULLFRAME_MID_V001.jpg",
+      "person_fullframe_sha256": "77315bec42d70df340395ef3d92e861776e30c3dce005319c589b8d7504c162b",
+      "mid_zoom": "M01_A1_V006_NEW_01_MIDFRAME_ZOOM_V001.jpg",
+      "mid_zoom_sha256": "7d7d8c57780a640c9f94621b1699376f31b6bbd9bce03d64ffe9ac942608b440",
+      "source_geometry_approved": false,
+      "human_protection_approved": false,
+      "calibration_work_queue": "Use source flames visible in left panels, not magenta hints; verify all visible people incl hair, faces, clothing, background."
+    },
+    {
+      "shot": "N18",
+      "source_type": "V006_LOCKED_EXACT_FRAMES",
+      "source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "three_sample_frames": [
+        {
+          "frame_index": 685,
+          "decoded_rgb_sha256": "b3a2969d1a2d0f338420ab7b1f16a67a84139b48e8b2b76bd4b7c8dd4b48134b",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N18_F0685.png",
+          "person_mask_sha256": "8a17ec53e117f11faf75ff0b396e18e486e9782217eeb93ac70595f37bd81c44",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 748,
+          "decoded_rgb_sha256": "fdd7d9deaa0c846e7ed0cfa9e5e1cb716f2686543fa27192b71a6b8dc659a0ed",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N18_F0748.png",
+          "person_mask_sha256": "1ae181c2703ee4f1cf31b478f63b10a8c5a3f77145beb9cc55af5f2041679748",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        },
+        {
+          "frame_index": 811,
+          "decoded_rgb_sha256": "45e959adc469f8b3ac699b3654f3a2aed3b007725a14245942a8c55d243f9117",
+          "person_mask_path": "person_mask_proposals/PERSON_PROPOSAL_N18_F0811.png",
+          "person_mask_sha256": "1e59c81ef3291e054c705c9050fe44012fb91be9a01f3d479c2884a2051fa912",
+          "human_protection_ground_truth": "PENDING",
+          "flame_core_ground_truth": "PENDING",
+          "source_status": "UNVERIFIED_VISUAL_CALIBRATION"
+        }
+      ],
+      "zoom_plate": "M01_A1_N18_THREE_FRAMES_ZOOM_V001.jpg",
+      "zoom_plate_sha256": "cef503c243db464a5d8c77a6abeb054b2411cc97c110d96e03958db048c95393",
+      "person_fullframe": "M01_A1_N18_PERSON_FULLFRAME_MID_V001.jpg",
+      "person_fullframe_sha256": "bac5233141168c78340d5e941f096a0310a9ccb27ed1736734330ae2d0b6a16d",
+      "mid_zoom": "M01_A1_N18_MIDFRAME_ZOOM_V001.jpg",
+      "mid_zoom_sha256": "957fc471e3aa7f1ec53050f33d573cff34a0252d448b852933f01b1b00cc6715",
+      "source_geometry_approved": false,
+      "human_protection_approved": false,
+      "calibration_work_queue": "Use source flames visible in left panels, not magenta hints; verify all visible people incl hair, faces, clothing, background."
+    }
+  ]
+}
