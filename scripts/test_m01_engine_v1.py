@@ -66,6 +66,12 @@ class M01EngineCoreTests(unittest.TestCase):
    self.assertTrue(np.array_equal(visible[protected],rgb[protected]))
    self.assertTrue(np.array_equal(visible[500:,:,:],rgb[500:,:,:]))
   self.assertGreater(active,0)
+ def test_temporal_keyframes_must_be_clip_local(self):
+  p=eng.read_profile("N17_APPROVED_VISUAL_RESULT_V001.json")
+  self.assertEqual(p["fixtures"][0]["visibility_keyframes"],[[0,0],[261,0],[271,1],[369,1],[376,0]])
+  p["fixtures"][0]["visibility_keyframes"]=[[281,0],[542,0],[552,1],[650,1],[657,0]]
+  with self.assertRaisesRegex(AssertionError,"VISIBILITY_KEYS_MUST_USE_CLIP_LOCAL_FRAMES"):
+   eng.validate(p)
  def test_spectral_signals_are_independent_and_deterministic(self):
   a=[eng.signal(i/30,0.3,"unsynced_independent") for i in range(30)]
   b=[eng.signal(i/30,2.0,"unsynced_independent") for i in range(30)]
