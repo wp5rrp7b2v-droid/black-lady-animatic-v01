@@ -1,0 +1,74 @@
+name: S02-B M01 V017 Exact Midframe Candle Registration Prep
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/s02b-m01-v017-exact-source-midframes.yml
+permissions:
+  contents: write
+jobs:
+  extract_12_source_midframes_for_flame_registration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Prepare runtime
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Extract evidence images from exact full V006 timeline
+        run: |
+          python3 scripts/s02b_m01_v017_extract_real_candle_source_frames.py
+      - name: Verify immutable input and all 12 sampled images
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,base64
+          root=pathlib.Path("_s02b_v017_registration_frames")
+          j=json.loads((root/"S02B_V017_SOURCE_MIDFRAME_MANIFEST.json").read_text())
+          assert j["status"]=="EXACT_SOURCE_FRAMES_EXTRACTED_REGISTRATION_GT_NOT_APPROVED"
+          assert len(j["source_frames"])==12
+          assert j["source_sha256"]=="7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402"
+          assert j["no_guessed_flame_positions"] and j["no_old_rejected_V007_mask_reuse"]
+          for img in j["source_frames"]:
+            file=root/img["shot"]/img["file"]
+            assert hashlib.sha256(file.read_bytes()).hexdigest()==img["sha256"]
+            assert base64.b64decode((root/img["shot"]/img["base64_text"]).read_text())==file.read_bytes()
+          print("S02B_V017_ACTUAL_ORIGINAL_FRAME_EVIDENCE_PASS",len(j["source_frames"]))
+          PY
+      - name: Save source images in R&D branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/benchmarks/m01_stage_a_v002/v017_full_shot_source_frames
+          test ! -e "$dst"
+          mkdir -p "$dst"
+          cp -a _s02b_v017_registration_frames/. "$dst/"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dst"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==29,paths
+          assert len([x for x in paths if x.endswith(".jpg")])==14
+          assert len([x for x in paths if x.endswith(".txt")])==14
+          assert len([x for x in paths if x.endswith(".json")])==1
+          assert all("v017_full_shot_source_frames" in p for p in paths)
+          PY
+          git commit -m "Capture 12 exact full V006 source flame midframes for S02-B M01 full-candle integration; no V007 guesses"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Upload original midframe evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_B_M01_V017_12_ACTUAL_CANDLE_MIDFRAMES
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v017_full_shot_source_frames/*/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v017_full_shot_source_frames/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v017_full_shot_source_frames/*.json
+          retention-days: 14
+          if-no-files-found: error
