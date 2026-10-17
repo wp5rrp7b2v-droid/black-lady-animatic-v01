@@ -1,0 +1,81 @@
+name: M01 V002 Multi-feature Light Registration and Person Gate V003
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-multiscale-light-gate-v003.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v002-multiscale-light-gate-v003
+  cancel-in-progress: false
+jobs:
+  seven-shot-light-and-person-diagnostics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout read-only production source
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+      - name: Configure CPU Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install repeatable open-source computer vision dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          python -m pip install "ultralytics==8.3.220" "opencv-python-headless>=4.8" "pillow>=10" "numpy<2"
+      - name: Diagnose source clustering and exact people exclusions in seven shots
+        run: python scripts/m01_v002_multiscale_cluster_v003.py
+      - name: Independently validate Atlas remains unapproved and publish QA evidence only
+        shell: bash
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_v002_multiscale_core_v003/* "$d/"
+          python - <<'PY'
+          import pathlib,json,hashlib,base64
+          p=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003")
+          q=json.loads((p/"M01_V002_CANDLE_SOURCE_CLUSTER_AND_PERSON_SAFE_V003.json").read_text())
+          a=json.loads((p/"M01_V002_SCENE_LIGHT_ATLAS_CANDIDATES_V001.json").read_text())
+          assert q["status"]=="DIAGNOSTIC_COMPLETED_PRODUCTION_BLOCKED"
+          assert q["source_frames"]==7
+          assert all(n["person_gate"]=="HOLD_PENDING_UNDETECTED_PERSON_REVIEW" for n in q["source_reports"])
+          assert all(n["source_registration_gate"]=="HOLD" for n in q["source_reports"])
+          assert all(n["proposed_halo_mask_and_person_overlap_pixels"]==0 for n in q["source_reports"])
+          assert a["status"]=="DRAFT_UNAPPROVED" and a["no_batch_render_authority"] is True
+          assert q["rendered_mp4"] is False
+          img=p/q["preview_file"]
+          assert hashlib.sha256(img.read_bytes()).hexdigest()==q["preview_sha256"]
+          assert base64.b64decode((p/(q["preview_file"]+".b64.txt")).read_text().strip())==img.read_bytes()
+          print("GATE1C_ATLAS_DRAFT_CHECK=PASS_NO_BATCH")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$d"
+          python - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==4 and all(x.startswith("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003/") for x in paths),paths
+          PY
+          git commit -m "Save unapproved candle source clustering and human-exclusion QA plus draft scene light atlas"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+      - name: Upload source localization contact sheet and unapproved Atlas
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V002_LIGHT_REGISTRATION_G1C_V003_QA
+          path: |
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003/M01_V002_CANDLE_SOURCE_CLUSTER_AND_PERSON_SAFE_V003.jpg
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003/M01_V002_CANDLE_SOURCE_CLUSTER_AND_PERSON_SAFE_V003.json
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003/M01_V002_SCENE_LIGHT_ATLAS_CANDIDATES_V001.json
+          retention-days: 7
+          if-no-files-found: error
