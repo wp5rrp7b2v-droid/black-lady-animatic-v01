@@ -1,0 +1,506 @@
+{
+  "schema": "M01_STAGE_A1_REMAINING_EIGHT_REVIEW_V001",
+  "status": "SOURCE_PROTECTION_DIAGNOSTICS_READY_NOT_GROUND_TRUTH",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_manifest_sha256": "0cc0669f818a9baa6417e717acbdf7df99dbdd8634192b75edb0ad38a886e7b2",
+  "reviewed_priority_three_visual_record": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_PO_VISUAL_FEEDBACK_PRIORITY_THREE_20261017.json",
+  "remaining_shots": [
+    "N16_PART_1",
+    "N20_FIRST",
+    "N21",
+    "A06",
+    "N23",
+    "V006_NEW_02",
+    "N16_PART_2",
+    "N17"
+  ],
+  "frames": 24,
+  "test_groups": {
+    "po_alignment_failure": 4,
+    "accepted_style_reference": 2,
+    "daylight_negative": 1,
+    "temporal_mixed_visibility": 1
+  },
+  "remaining_frames_approved": false,
+  "not_yet_confirmed_flame_mask_geometry": true,
+  "protect_all_people_not_yet_verified": true,
+  "n17_warning": "daylight close-up to visible candles; shot-level no-light status is invalid",
+  "machine_position_status": "DIAGNOSTIC_HINTS_NEVER_GROUND_TRUTH",
+  "visual_overview": "M01_STAGE_A1_REMAINING_EIGHT_OVERVIEW_V001.jpg",
+  "visual_overview_sha256": "f65d39f31eb3148eaa31c35aa42dde8d9f7373af8bafa7b34e75702b405b4756",
+  "no_video_render": true,
+  "main_unchanged": true,
+  "m01_batch_gate": "HOLD",
+  "cases": [
+    {
+      "shot_id": "N16_PART_1",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "file": "M01_STAGE_A1_N16_PART_1_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "ba57fca2e5b76a9c61e3ef6f8b58037c5ea93c21c9e41cafc31f2df548c49ba4",
+      "frames": [
+        {
+          "index": 24,
+          "rgb_sha256": "2b4cc13c9df8513dc8046d8afb63765ea8731957830392327db36a5748d04ced",
+          "person_mask_sha256": "a0900664e0d3222db6d1bffc8b7d0ac7680e07d8887183fadffc1f20d0c112b8",
+          "person_proposal_mask_area_pct": 65.9935,
+          "bbox_only_uncertainty_pct": 11.3904,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 82,
+          "rgb_sha256": "0419b9980d6827fb829eaba72f11a30ff4840e5afb5ec7a6ca515472803b46bc",
+          "person_mask_sha256": "d3d5eb75034897e8bc5ff511cb245f51f72094f0512ad205b0282f3adcd9badc",
+          "person_proposal_mask_area_pct": 66.9816,
+          "bbox_only_uncertainty_pct": 13.397,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 139,
+          "rgb_sha256": "cc006d395836402140b5c71a2ff2da91f886066c374f8c6ee95281f3a52fdc62",
+          "person_mask_sha256": "308efd0636f427e0afd1e9fe2890b7f514ea48c0d14adfe49ccc19a1afb1e6c0",
+          "person_proposal_mask_area_pct": 66.4417,
+          "bbox_only_uncertainty_pct": 14.0552,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.89757,
+            0.01912
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "file": "M01_STAGE_A1_N20_FIRST_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "2015fd75b0df8aa3ba516774c7c7393f56949ace12147d9d686447b5c629391a",
+      "frames": [
+        {
+          "index": 956,
+          "rgb_sha256": "594fca64368c520cf806ef1dedff8e9c29207d6beff4d54f4f946b921a541ef3",
+          "person_mask_sha256": "dc54d17b7ccf92b3ca8f3eba474ee387af631f601399f37f0d47d60e3130bdaf",
+          "person_proposal_mask_area_pct": 43.2221,
+          "bbox_only_uncertainty_pct": 23.5882,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 972,
+          "rgb_sha256": "d15c460e5fc5fddbc39f082c762aca521b233474be6099894c0c9af6230c7b1c",
+          "person_mask_sha256": "7dfd014c1051818338f57355f3d3cfb419d66761cc712ad5d6353c1bc86cd502",
+          "person_proposal_mask_area_pct": 42.4664,
+          "bbox_only_uncertainty_pct": 22.2311,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 988,
+          "rgb_sha256": "6ec344a7906d1c53489039e0515c3a3c2ff5535751b19a278f79fc3cce8ee7e3",
+          "person_mask_sha256": "6c291e4bd6425518aebdd2477145a1e3069a02ee5757824ad816a85976ae143d",
+          "person_proposal_mask_area_pct": 42.2905,
+          "bbox_only_uncertainty_pct": 22.1867,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.19622,
+            0.12254
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.50069,
+            0.15361
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.97578,
+            0.13064
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "N21",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "file": "M01_STAGE_A1_N21_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "b0140b5d710a13c5c38502d918a1c85f8b2b7e6e3975f1eec59c7f428c5b2b1a",
+      "frames": [
+        {
+          "index": 1130,
+          "rgb_sha256": "888ce1fb9739c7ab6c213d711d8871336a7d89ec9cbcaa537f5e843e403a0b61",
+          "person_mask_sha256": "b126e50cf097b9163835c0ee572b2d895c79bb461bfe6ca077af2720a29b606e",
+          "person_proposal_mask_area_pct": 42.5577,
+          "bbox_only_uncertainty_pct": 10.4836,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1168,
+          "rgb_sha256": "2389dbff836b7c0750c0da009d2201fc2dc4bde2c7c7fd0320ac5cb4f80b0e8a",
+          "person_mask_sha256": "dde1327f8ebdeef26b80753c4032062b4b9d383a2b12672823685ca6c63662f2",
+          "person_proposal_mask_area_pct": 42.839,
+          "bbox_only_uncertainty_pct": 11.5614,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1205,
+          "rgb_sha256": "0ed18cea308c2273fd6e562eb8ca993bc197976f30da245493ee68de54297458",
+          "person_mask_sha256": "0bc74c7c2c683562922a40b2c29783461e4e31c32f2d6bba4742de301d19e36e",
+          "person_proposal_mask_area_pct": 42.832,
+          "bbox_only_uncertainty_pct": 11.5522,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.52371,
+            0.1477
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94289,
+            0.12379
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "A06",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "file": "M01_STAGE_A1_A06_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "f59950696fa4a7947e796f6409f5cf4a10be86c2ecde360dd3a0b7ac62c44551",
+      "frames": [
+        {
+          "index": 1467,
+          "rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_proposal_mask_area_pct": 20.5698,
+          "bbox_only_uncertainty_pct": 11.0135,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1511,
+          "rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_proposal_mask_area_pct": 20.5698,
+          "bbox_only_uncertainty_pct": 11.0135,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1555,
+          "rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_proposal_mask_area_pct": 20.5698,
+          "bbox_only_uncertainty_pct": 11.0135,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.13978,
+            0.21514
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94431,
+            0.17375
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "N23",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "file": "M01_STAGE_A1_N23_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "fe8edc1f5b62950cd69d2c7ed278cee13ec0f053173ca35e2f1dbce3d3564c75",
+      "frames": [
+        {
+          "index": 1378,
+          "rgb_sha256": "dd17f94602a7252c7ab6b62e288128425674aa5493025788e5c123c2f70eacf3",
+          "person_mask_sha256": "a53a927b0f95e00bff80285881d0b3c4bc07c93365a3cd9e71b49a9339751e8e",
+          "person_proposal_mask_area_pct": 46.9391,
+          "bbox_only_uncertainty_pct": 11.1146,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1406,
+          "rgb_sha256": "dd12b0531915d7183798b65859f04b2435ce9b2a9d57148b04eda68ab8c4406e",
+          "person_mask_sha256": "e5de6a0e013e62c542eba87b4a368f8f9faf30e93363f959a0350b76e9171546",
+          "person_proposal_mask_area_pct": 46.9337,
+          "bbox_only_uncertainty_pct": 11.1131,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1435,
+          "rgb_sha256": "383328c69ec294d71071b0d2b72e7d9d9908b66e43f15c949ff6bc4036501996",
+          "person_mask_sha256": "c88cc0820f21c36a94629cebf07bcc6f32342e11b314ffe0fe0beb06614b4a0b",
+          "person_proposal_mask_area_pct": 46.9372,
+          "bbox_only_uncertainty_pct": 11.1165,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "NO_REGISTERED_PIXEL_CORE",
+          "center": null,
+          "review_status": "NEEDS_MANUAL_CALIBRATION"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "V006_NEW_02",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "file": "M01_STAGE_A1_V006_NEW_02_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "15aa47050ba178a752f6af8bfb63d2e141c94b99eaefca6ea63e7d09c913802f",
+      "frames": [
+        {
+          "index": 1309,
+          "rgb_sha256": "0998a68847e2f3b214b5ce52e053311a7e9026dadb605e63d71b98d9bf2cd32f",
+          "person_mask_sha256": "980ba324bef30b451fe8b885ddeb56bdcf582f521a77b55541ceea998b61e33e",
+          "person_proposal_mask_area_pct": 53.7924,
+          "bbox_only_uncertainty_pct": 5.8409,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1332,
+          "rgb_sha256": "0e6976f7d285cafd00d9bbc852768d79c247091299c8c307141e7d2e1b617c1c",
+          "person_mask_sha256": "980ba324bef30b451fe8b885ddeb56bdcf582f521a77b55541ceea998b61e33e",
+          "person_proposal_mask_area_pct": 53.7924,
+          "bbox_only_uncertainty_pct": 5.8409,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 1355,
+          "rgb_sha256": "fb94c199f89c744e6b884ff8bf3707aa1dad51205ae8533d44ba3c517d99a067",
+          "person_mask_sha256": "b5e9125794c78d0e1e55c8b95a5be91fefe456ac78e84518525e964df3bcd1cf",
+          "person_proposal_mask_area_pct": 53.789,
+          "bbox_only_uncertainty_pct": 5.8444,
+          "visible_light_hypothesis": "UNKNOWN_PENDING_VISUAL_REVIEW",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [
+        {
+          "source_index": 1,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.042,
+            0.054
+          ],
+          "name": "LEFT_WALL_CHANDELIER",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 2,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.417,
+            0.171
+          ],
+          "name": "MID_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 3,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.655,
+            0.246
+          ],
+          "name": "DEEPER_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 4,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.883,
+            0.304
+          ],
+          "name": "FAR_RIGHT_ARCH_CANDLES",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 5,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.981,
+            0.339
+          ],
+          "name": "DISTANT_RIGHT_TORCH",
+          "review_status": "NOT_GROUND_TRUTH"
+        }
+      ],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "N16_PART_2",
+      "group": "NEGATIVE_DAYLIGHT",
+      "file": "M01_STAGE_A1_N16_PART_2_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "507abbf2dcaac7c9b9c476e9af89ecae731ed5258674a321e285921a8c476107",
+      "frames": [
+        {
+          "index": 181,
+          "rgb_sha256": "96fd31b6105afa5f5278cd2e2240c108f2ee7a0bc756a1f29cee3ed581588faf",
+          "person_mask_sha256": "7a1b2a123c64619d9d22da678ef0d098994f789049891edbde949700d98694bd",
+          "person_proposal_mask_area_pct": 64.4222,
+          "bbox_only_uncertainty_pct": 14.59,
+          "visible_light_hypothesis": "NO_VISIBLE_PRACTICAL_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 222,
+          "rgb_sha256": "4c83b13d391af73e31db1eb9e122a849898694eff30704e1280c50d7bdfa6d85",
+          "person_mask_sha256": "1547f3582813e55e8188d4bd4b34f435ec7ae962fb1985aab6c57640c2daa8ba",
+          "person_proposal_mask_area_pct": 64.3426,
+          "bbox_only_uncertainty_pct": 14.6471,
+          "visible_light_hypothesis": "NO_VISIBLE_PRACTICAL_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 263,
+          "rgb_sha256": "6f222613f1ee375abe0f175fb4a0e567d2b9822ed18d1e4aa0eb3f0c4dd43cd2",
+          "person_mask_sha256": "078d3cd8d572b36d720c504d99a1cf726f5ad7f53401e486fad72a1486ab1ed1",
+          "person_proposal_mask_area_pct": 64.1974,
+          "bbox_only_uncertainty_pct": 14.7338,
+          "visible_light_hypothesis": "NO_VISIBLE_PRACTICAL_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    },
+    {
+      "shot_id": "N17",
+      "group": "TEMPORAL_MIXED_VISIBILITY",
+      "file": "M01_STAGE_A1_N17_ALL_THREE_FRAMES_REVIEW_V001.jpg",
+      "file_sha256": "246e08073c120b3f0d6f638bcb7a67a6a64f5b3ced3f413f82340fb45aae1924",
+      "frames": [
+        {
+          "index": 337,
+          "rgb_sha256": "9cad514d01c2387003a746c08ec54e292a7bfa398db2ec36ff43034ca5646305",
+          "person_mask_sha256": "c4a292912c5f18c3740e71acc3ed101e3f43e662ad0d45afa0da471e9b5651dc",
+          "person_proposal_mask_area_pct": 66.9706,
+          "bbox_only_uncertainty_pct": 15.0263,
+          "visible_light_hypothesis": "NO_VISIBLE_PRACTICAL_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 469,
+          "rgb_sha256": "d2e2ca9d4de6c05b9878e15190df62513eac8c428d08c301bd176f824acfb866",
+          "person_mask_sha256": "1e520906db4fa50b6dc516e17e024b324ffacf01c962aa3754159b04a96df8b2",
+          "person_proposal_mask_area_pct": 68.0331,
+          "bbox_only_uncertainty_pct": 14.5987,
+          "visible_light_hypothesis": "NO_VISIBLE_PRACTICAL_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        },
+        {
+          "index": 601,
+          "rgb_sha256": "45795aeaca01c9c3785dfcd5063cbcc3edceab6a1bba7ea473da6bb1193c8ee0",
+          "person_mask_sha256": "dc748cbf4246b5f3a5533c0ae8c6d1c73f5de6a3f3574448bf035ab452975409",
+          "person_proposal_mask_area_pct": 66.7783,
+          "bbox_only_uncertainty_pct": 14.1862,
+          "visible_light_hypothesis": "VISIBLE_WALL_SCONCE_CANDIDATE",
+          "person_mask_human_approved": false,
+          "flame_position_approved": false
+        }
+      ],
+      "machine_source_proposals": [],
+      "flame_sources_approved": false,
+      "all_frame_person_protection_approved": false
+    }
+  ]
+}
