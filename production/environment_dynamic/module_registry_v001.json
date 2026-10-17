@@ -253,7 +253,7 @@
         "next_test": "PO review 3 A/B videos, then run unchanged generic core on previously untested S02-B fixtures; afterward independent cross-scene test"
       },
       "engine_v1_1": {
-        "status": "N17_STRENGTH_N23_NEW02_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "status": "REJECTED_PO_VISUAL_TOO_AGGRESSIVE_UNNATURAL_EXCEEDS_N17",
         "standard": "N17 independent rhythm and visible flicker strength, not identical numerical core+halo delta",
         "run_id": 39037134457,
         "review_dir": "production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB",
@@ -264,7 +264,22 @@
         "N17_unchanged": true,
         "PO_approval_pending": true,
         "source_or_master_changed": false,
-        "production_gate": "HOLD"
+        "production_gate": "HOLD",
+        "PO_feedback": "不行 太不自然了 而且感觉比N17强烈",
+        "further_use_authorized": false
+      },
+      "engine_v1_2": {
+        "status": "N23_NEW02_NATURAL_REDUCED_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "run_id": 39037927334,
+        "review_dir": "production/environment_dynamic/review_candidates/M01_V12_NATURAL_AB",
+        "base_N17_unchanged": true,
+        "n23_max_raw_delta": 11,
+        "new02_max_raw_delta": 13,
+        "mechanism": "Slow reflected illumination higher harmonics softened (0.22 full-spectrum), 65% Gaussian source halo footprint, 19/10.5/2.5 halo gains vs rejected 40/26/10; each source remains independent",
+        "new_videos_po_approved": false,
+        "auto_registration_passed": false,
+        "batch_gate": "HOLD",
+        "main_merge": false
       }
     },
     {
