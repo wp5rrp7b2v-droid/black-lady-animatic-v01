@@ -131,7 +131,7 @@ def main():
         for idx,old in enumerate(refs[sid]["source_candidates"]):
             hint=old["po_directional_hint"]
             chosen,top,status=choose_cluster(groups,hint)
-            limited=np.zeros_like(protected)
+            limited=np.zeros(protected.shape,dtype=np.uint8)
             if chosen is not None:
                 x=int(chosen[0]*720);y=int(chosen[1]*1280)
                 cv2.ellipse(limited,(x,y),(24,37),0,0,360,1,-1)
