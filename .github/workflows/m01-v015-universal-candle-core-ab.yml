@@ -1,0 +1,97 @@
+name: M01 V015 Universal Candle Core and Halo AB
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-v015-universal-candle-core-ab.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v015-unified-review
+  cancel-in-progress: false
+jobs:
+  one-core-real-pixel-masks-and-ab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout isolated branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Install runtime
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Construct source-pixel masks at PO-approved candle centers
+        run: |
+          python3 scripts/m01_v015_build_real_flame_masks.py --shot N23 --out _m01_v015/N23
+          python3 scripts/m01_v015_build_real_flame_masks.py --shot NEW02 --out _m01_v015/NEW02
+      - name: Register immutable mask packs and temporary V015 atlas in review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          for shot in N23 NEW02; do
+            mkdir -p production/environment_dynamic/m01_engine_v1/masks_v015/$shot
+            cp _m01_v015/$shot/*.zip _m01_v015/$shot/*MANIFEST*.json production/environment_dynamic/m01_engine_v1/masks_v015/$shot/
+            cp _m01_v015/$shot/*UNIFIED_CANDLE_PO_REVIEW_V015.json production/environment_dynamic/m01_engine_v1/profiles/
+          done
+          python3 scripts/test_m01_engine_v1.py
+          python3 - <<'PY'
+          import importlib.util,pathlib
+          spec=importlib.util.spec_from_file_location("m01","scripts/m01_engine_v1.py")
+          m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+          for shot,n in (("N23",5),("NEW02",11)):
+            p=m.read_profile(shot+"_UNIFIED_CANDLE_PO_REVIEW_V015.json")
+            src,_=m.load_inputs(p); masks=m.load_static_flame_masks(p)
+            assert len(masks)==n and all(mask.any() for mask in masks.values())
+            assert len(p["fixtures"])==({"N23":3,"NEW02":5}[shot]+n)
+            assert p["unified_flame_engine"]["registration_status"]=="PO_CENTERS_APPROVED_STATIC_CORE_MASK_QC_PASS_VIDEO_PO_REVIEW_PENDING"
+            assert not p["render_full_flame_output_authorized"] and not p["release_allowed"]
+            print("V015_EXACT_SOURCE_CORE_MASKS_QC_PASS",shot,n)
+          PY
+      - name: Render original-versus-new candidate A/B using the same engine
+        run: |
+          python3 scripts/m01_engine_v1.py --profile N23_UNIFIED_CANDLE_PO_REVIEW_V015.json --mode pilot --ab --output-dir _m01_v015/N23
+          python3 scripts/m01_engine_v1.py --profile NEW02_UNIFIED_CANDLE_PO_REVIEW_V015.json --mode pilot --ab --output-dir _m01_v015/NEW02
+      - name: A/B accepted V012 versus added flame cores and bounded-change QC
+        run: |
+          python3 scripts/m01_v015_universal_core_ab_qc.py --root _m01_v015
+      - name: Publish review candidates and exact masks to isolated branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB
+          test ! -e "$dst"
+          mkdir -p "$dst/N23" "$dst/NEW02"
+          for shot in N23 NEW02; do
+            cp _m01_v015/$shot/*.mp4 _m01_v015/$shot/M01_ENGINE_V1_PILOT_QC.json _m01_v015/$shot/*MASK_BUILD_QC*.json _m01_v015/$shot/*_CORE_MASK_QA.jpg "$dst/$shot/"
+          done
+          cp _m01_v015/M01_V015_TWO_AB_REVIEW_QC.json "$dst/"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/environment_dynamic/m01_engine_v1/masks_v015 production/environment_dynamic/m01_engine_v1/profiles/*UNIFIED_CANDLE_PO_REVIEW_V015.json "$dst"
+          python3 - <<'PY'
+          import subprocess
+          files=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert all(p.startswith("production/environment_dynamic/m01_engine_v1/masks_v015/") or p.startswith("production/environment_dynamic/m01_engine_v1/profiles/") or p.startswith("production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/") for p in files),files
+          assert len([p for p in files if p.endswith(".mp4")])==6,files
+          assert len([p for p in files if p.endswith(".zip")])==2,files
+          assert len([p for p in files if p.endswith(".jpg")])==2,files
+          assert len([p for p in files if p.endswith("_UNIFIED_CANDLE_PO_REVIEW_V015.json")])==2,files
+          PY
+          git commit -m "M01 V015 same engine flame core+halo preview N23 NEW02 A/B and SHA-locked masks; PO review pending"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Save reviewer media
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V015_SAME_ENGINE_N23_NEW02_REAL_FLAME_CORE_AB
+          path: |
+            production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/*/*.mp4
+            production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/*/*.jpg
+            production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/*/*.json
+            production/environment_dynamic/review_candidates/M01_V015_UNIVERSAL_CANDLE_AB/*.json
+          retention-days: 14
+          if-no-files-found: error
