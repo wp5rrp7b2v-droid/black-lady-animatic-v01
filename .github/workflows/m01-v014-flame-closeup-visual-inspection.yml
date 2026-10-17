@@ -1,0 +1,64 @@
+name: M01 V014 Exact Flame Core Zoom Inspection
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-v014-flame-closeup-visual-inspection.yml
+permissions:
+  contents: write
+jobs:
+  exact_source_closeups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Install source inspection dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-numpy python3-pil fonts-dejavu-core
+      - name: Prepare 8 exact original-frame candle fixture zoom crops
+        run: |
+          python3 scripts/m01_v014_true_flame_closeup.py --shot N23 --profile N23_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_closeup/N23
+          python3 scripts/m01_v014_true_flame_closeup.py --shot NEW02 --profile NEW02_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_closeup/NEW02
+      - name: Exact sources, coordinate windows and binary sidecar checks
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,base64
+          for shot in ("N23","NEW02"):
+            d=pathlib.Path("_m01_closeup")/shot
+            j=json.loads((d/"SOURCE_CANDLE_CLOSEUP_MANIFEST.json").read_text())
+            assert j["source_verified"] and j["status"]=="ZOOMED_SOURCE_ONLY_NO_FLAME_ASSIGNMENTS"
+            assert len(j["crops"])=={"N23":3,"NEW02":5}[shot]
+            for crop in j["crops"]:
+              file=d/crop["filename"]
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==crop["sha256"]
+              assert base64.b64decode((d/file.name.replace(".jpg",".b64.txt")).read_text())==file.read_bytes()
+          print("EXACT_ORIGINAL_SOURCE_CANDLE_ZOOMS_OK")
+          PY
+      - name: Archive only source viewing references on isolated feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups
+          test ! -e "$dst"
+          mkdir -p "$dst/N23" "$dst/NEW02"
+          cp -a _m01_closeup/N23/. "$dst/N23/"
+          cp -a _m01_closeup/NEW02/. "$dst/NEW02/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dst"
+          git commit -m "Save exact N23 and NEW02 candle fixture closeups for correction of PO rejected flame positions"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Review crop assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V014_SOURCE_FLAME_CLOSEUPS
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/*/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/*/*.json
+          retention-days: 14
