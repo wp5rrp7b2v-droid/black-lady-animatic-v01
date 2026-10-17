@@ -1,0 +1,172 @@
+{
+  "schema": "S02B_M01_V017_SOURCE_MIDFRAME_EVIDENCE",
+  "status": "EXACT_SOURCE_FRAMES_EXTRACTED_REGISTRATION_GT_NOT_APPROVED",
+  "source_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "frame_shape": [
+    720,
+    1280
+  ],
+  "total_frames": 1927,
+  "full_timeline_nodes": 17,
+  "registration_suspect_shots": [
+    "A06",
+    "JUN_APPROVED_REACTION",
+    "N16_PART_1",
+    "N18",
+    "N20_FIRST",
+    "N21",
+    "N22_FIRST",
+    "N24",
+    "N25",
+    "N26",
+    "NING_REACTION_APPROVED",
+    "V006_NEW_01"
+  ],
+  "registered_existing_shots": [
+    "N17",
+    "V006_NEW_02",
+    "N23"
+  ],
+  "source_without_candle_or_uncertain": [
+    "N16_PART_2",
+    "N19"
+  ],
+  "source_frames": [
+    {
+      "shot": "N16_PART_1",
+      "frame_index": 82,
+      "start_frame": 0,
+      "end_frame_exclusive": 164,
+      "decoded_rgb_sha256": "0419b9980d6827fb829eaba72f11a30ff4840e5afb5ec7a6ca515472803b46bc",
+      "file": "N16_PART_1_EXACT_SOURCE_MIDFRAME_82.jpg",
+      "bytes": 138530,
+      "sha256": "e865c74db69947517e98df1b7df8ff2fac42bd68d2d6e8cfc61415be5f08cb19",
+      "base64_text": "N16_PART_1_EXACT_SOURCE_MIDFRAME_82.b64.txt"
+    },
+    {
+      "shot": "N18",
+      "frame_index": 748,
+      "start_frame": 658,
+      "end_frame_exclusive": 839,
+      "decoded_rgb_sha256": "fdd7d9deaa0c846e7ed0cfa9e5e1cb716f2686543fa27192b71a6b8dc659a0ed",
+      "file": "N18_EXACT_SOURCE_MIDFRAME_748.jpg",
+      "bytes": 191206,
+      "sha256": "45c3ab5448bd2c56c69ca90e679a86779636a6aa16e3fc1c4f2120792f14edd5",
+      "base64_text": "N18_EXACT_SOURCE_MIDFRAME_748.b64.txt"
+    },
+    {
+      "shot": "N20_FIRST",
+      "frame_index": 972,
+      "start_frame": 949,
+      "end_frame_exclusive": 996,
+      "decoded_rgb_sha256": "d15c460e5fc5fddbc39f082c762aca521b233474be6099894c0c9af6230c7b1c",
+      "file": "N20_FIRST_EXACT_SOURCE_MIDFRAME_972.jpg",
+      "bytes": 176882,
+      "sha256": "b26a0bd6bc1b37ea9baa74200e48b14cde3c52fdf8fa3acb3f3d01fb369248dc",
+      "base64_text": "N20_FIRST_EXACT_SOURCE_MIDFRAME_972.b64.txt"
+    },
+    {
+      "shot": "V006_NEW_01",
+      "frame_index": 1037,
+      "start_frame": 996,
+      "end_frame_exclusive": 1078,
+      "decoded_rgb_sha256": "09687fba486e15dffdcb6ab22bec4503d1d7913a7ff7db17242ef8451f487147",
+      "file": "V006_NEW_01_EXACT_SOURCE_MIDFRAME_1037.jpg",
+      "bytes": 130869,
+      "sha256": "74a09551e33bc6a6da1968b13220e769b984f194bc8458843a8265dfdd7ed7f7",
+      "base64_text": "V006_NEW_01_EXACT_SOURCE_MIDFRAME_1037.b64.txt"
+    },
+    {
+      "shot": "JUN_APPROVED_REACTION",
+      "frame_index": 1096,
+      "start_frame": 1078,
+      "end_frame_exclusive": 1114,
+      "decoded_rgb_sha256": "3c586ca5119e500a6e53a588525d4bea03c9d8239ee2555941f3eb13ae94b3d6",
+      "file": "JUN_APPROVED_REACTION_EXACT_SOURCE_MIDFRAME_1096.jpg",
+      "bytes": 137264,
+      "sha256": "8ffb6b5c9a8a51a7034af823c96a8d59c901002d18664d0b68f8b564da068984",
+      "base64_text": "JUN_APPROVED_REACTION_EXACT_SOURCE_MIDFRAME_1096.b64.txt"
+    },
+    {
+      "shot": "N21",
+      "frame_index": 1168,
+      "start_frame": 1114,
+      "end_frame_exclusive": 1222,
+      "decoded_rgb_sha256": "2389dbff836b7c0750c0da009d2201fc2dc4bde2c7c7fd0320ac5cb4f80b0e8a",
+      "file": "N21_EXACT_SOURCE_MIDFRAME_1168.jpg",
+      "bytes": 221384,
+      "sha256": "db4899c7359a226a407d7e031afc920fbede4d15100712646c2de5befd73b464",
+      "base64_text": "N21_EXACT_SOURCE_MIDFRAME_1168.b64.txt"
+    },
+    {
+      "shot": "N22_FIRST",
+      "frame_index": 1260,
+      "start_frame": 1222,
+      "end_frame_exclusive": 1299,
+      "decoded_rgb_sha256": "6d4d48d08de4e254d264d7c0d6ff6d19f01bc0a11834f04f7bd9fcdc2b3a0308",
+      "file": "N22_FIRST_EXACT_SOURCE_MIDFRAME_1260.jpg",
+      "bytes": 154570,
+      "sha256": "b7aa66665ff3f9108fdefda8de0217cc297e59c8364d111268057a4d5186ce28",
+      "base64_text": "N22_FIRST_EXACT_SOURCE_MIDFRAME_1260.b64.txt"
+    },
+    {
+      "shot": "A06",
+      "frame_index": 1511,
+      "start_frame": 1448,
+      "end_frame_exclusive": 1575,
+      "decoded_rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+      "file": "A06_EXACT_SOURCE_MIDFRAME_1511.jpg",
+      "bytes": 199793,
+      "sha256": "f25e037d85da0f363ad279f3deaf1672ccb0494a6b10def98b5247344d9adaa0",
+      "base64_text": "A06_EXACT_SOURCE_MIDFRAME_1511.b64.txt"
+    },
+    {
+      "shot": "N24",
+      "frame_index": 1634,
+      "start_frame": 1575,
+      "end_frame_exclusive": 1694,
+      "decoded_rgb_sha256": "638fcfcad4018356449a3a347c06b39e887a909d53d0662ebab2e8c1b47319a9",
+      "file": "N24_EXACT_SOURCE_MIDFRAME_1634.jpg",
+      "bytes": 136710,
+      "sha256": "5657338086570a345220d3eb4c31e75911a2e9e48a103c83fee8d4ec41b9c384",
+      "base64_text": "N24_EXACT_SOURCE_MIDFRAME_1634.b64.txt"
+    },
+    {
+      "shot": "N25",
+      "frame_index": 1752,
+      "start_frame": 1694,
+      "end_frame_exclusive": 1810,
+      "decoded_rgb_sha256": "5c648249fcabc635d9a28e0d5a62e481d413828d08d8b63969e52c191e6e84aa",
+      "file": "N25_EXACT_SOURCE_MIDFRAME_1752.jpg",
+      "bytes": 185588,
+      "sha256": "72f64ab049e578581d24c26aa7b8b33ab1e236e64e222ee2e35971d8608d859a",
+      "base64_text": "N25_EXACT_SOURCE_MIDFRAME_1752.b64.txt"
+    },
+    {
+      "shot": "NING_REACTION_APPROVED",
+      "frame_index": 1836,
+      "start_frame": 1810,
+      "end_frame_exclusive": 1863,
+      "decoded_rgb_sha256": "ea367f25d2f6234f9d67e622392824e4ecb154ff46aed99077476f598b05aa67",
+      "file": "NING_REACTION_APPROVED_EXACT_SOURCE_MIDFRAME_1836.jpg",
+      "bytes": 113553,
+      "sha256": "7ea33588a7aa0dc218451655ef084324ce5a6d5946bcac136ace6126ed9cc517",
+      "base64_text": "NING_REACTION_APPROVED_EXACT_SOURCE_MIDFRAME_1836.b64.txt"
+    },
+    {
+      "shot": "N26",
+      "frame_index": 1895,
+      "start_frame": 1863,
+      "end_frame_exclusive": 1927,
+      "decoded_rgb_sha256": "8c8f45a563e007985bdc45da02bb772cdac3e4358fd78c296c62e43a5428072d",
+      "file": "N26_EXACT_SOURCE_MIDFRAME_1895.jpg",
+      "bytes": 138302,
+      "sha256": "77c67a20e40494e70f92afa752599253f54e6d3ebd27bb5ff2513321470ba9af",
+      "base64_text": "N26_EXACT_SOURCE_MIDFRAME_1895.b64.txt"
+    }
+  ],
+  "no_guessed_flame_positions": true,
+  "no_old_rejected_V007_mask_reuse": true,
+  "no_video_created": true,
+  "no_canonical_publication": true
+}
