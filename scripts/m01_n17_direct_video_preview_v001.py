@@ -146,8 +146,6 @@ def main():
      # Pre-F550 transition starts with haloes only; no in-frame source-created flame pixels.
      candle=[]
     clamped=float(min(max(idx,550),645))
-    halo_coords=np.column_stack([np.interp(clamped,track_frames,coords[:,j,0]) for j in range(4)]).T
-    halo_coords[:,1]=[np.interp(clamped,track_frames,coords[:,j,1]) for j in range(4)] if False else halo_coords[:,1]
     # Explicit interpolated normalized centers j x 2, safe on constant scene ROI.
     anchors=np.array([[np.interp(clamped,track_frames,coords[:,j,0]),
                        np.interp(clamped,track_frames,coords[:,j,1])] for j in range(4)])
