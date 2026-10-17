@@ -1,0 +1,56 @@
+{
+  "schema": "M01_STAGE_A1_PO_SCOPED_POSITION_APPROVAL_V001",
+  "date": "2026-10-17",
+  "user_decision": "批准",
+  "approval_context": "User approved the just-shown N17 F601 four visible flame center comparison, based on exact source frame and V002 image.",
+  "fixture_id": "N17_RIGHT_SCONCE_01",
+  "source_frame": 601,
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "flames": [
+    {
+      "id": "N17_RIGHT_SCONCE_01_FLAME_01",
+      "center_px": [
+        618,
+        54
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01_FLAME_02",
+      "center_px": [
+        624,
+        40
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01_FLAME_03",
+      "center_px": [
+        645,
+        22
+      ]
+    },
+    {
+      "id": "N17_RIGHT_SCONCE_01_FLAME_04",
+      "center_px": [
+        688,
+        42
+      ]
+    }
+  ],
+  "approved_item": "F601 center points and 1 fixture / 4 source arrangement",
+  "approval_scope": "PO_VISUAL_APPROVED_F601_LOCATOR_CENTERS_ONLY",
+  "not_yet_approved": [
+    "pixel-accurate flame-core/edge segmentation",
+    "flame temporal tracking over all N17 frames",
+    "human silhouette/face/hair/clothing masks over full N17",
+    "light receiving-wall region masks",
+    "M01 animation, preview, or final video",
+    "general reusable M01 engine",
+    "merge to main, canonical publication"
+  ],
+  "source_record": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v002/M01_A1_N17_LATE_CANDLE_LOCATOR_V002.json",
+  "next_step": "Run temporal per-flame core segmentation and independent person protection full-shot audit; preserve fail-closed status.",
+  "gt_flame_shape_status": "PENDING",
+  "person_protection_status": "PENDING",
+  "m01_batch_gate": "HOLD",
+  "main_merge": false
+}
