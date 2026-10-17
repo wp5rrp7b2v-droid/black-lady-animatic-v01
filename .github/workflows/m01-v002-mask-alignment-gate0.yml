@@ -1,0 +1,60 @@
+name: M01 V002 Light Mask Alignment Gate0 Diagnostic
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-mask-alignment-gate0.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v002-gate0-alignment
+  cancel-in-progress: false
+jobs:
+  inspect-existing-mask-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Read review source without changing approved artifacts
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+      - name: Install no-cost image diagnostics
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil
+      - name: Generate diagnostic only, not video or new Story Shot
+        run: python3 scripts/m01_v002_mask_alignment_gate0.py
+      - name: Verify and save evidence on review branch only
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_v002_gate0/* "$dest/"
+          python3 - <<'PY'
+          import json,hashlib,pathlib
+          root=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0")
+          j=json.loads((root/"S02B_V007_M01_MASK_ALIGNMENT_GATE0_V001.json").read_text())
+          p=root/j["sheet_file"]
+          assert len(j["nodes"])==17
+          assert j["per_shot_automatic_reuse_authorized"] is False
+          assert j["no_video_created"] is True
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["sheet_sha256"]
+          print("GATE0_EVIDENCE_HASH_PASS")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git add -- "$dest"
+          git commit -m "Save M01 V002 real-frame mask-overlay QC evidence for initial alignment audit"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+      - name: Attach JPEG and QA report for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V002_GATE0_ALIGNMENT_AUDIT
+          path: production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0/
+          retention-days: 7
+          if-no-files-found: error
