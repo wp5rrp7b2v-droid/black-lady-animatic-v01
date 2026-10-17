@@ -1,0 +1,32 @@
+{
+  "task_id": "S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "a_source": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+  "a_source_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "b_source": "production/video_candidates/review_m01_v001/S02_B_V006_CINEMATIC_ROUGH_M01_INTEGRATED_REVIEW_V001.mp4",
+  "b_source_sha256": "5b1daec95ec14b7298aa463b55ce72174c50bca92e1e08dc879edec4137bfaea",
+  "comparison_mode": "FULL_LENGTH_SIDE_BY_SIDE_SYNCHRONIZED",
+  "left": "A_original_reconstructed_V006",
+  "right": "B_M01_integrated_V006",
+  "full_length_seconds": 64.25,
+  "fps": 30,
+  "frames": 1927,
+  "dimensions": [
+    1440,
+    1352
+  ],
+  "candlelight_difference_window_seconds": [
+    43.3,
+    48.266667
+  ],
+  "audio_stream": "A_UNMODIFIED_AAC_PACKET_COPY",
+  "audio_packets": 3013,
+  "audio_payload_and_timing_exact_match": true,
+  "output_path": "production/video_candidates/review_m01_v001/ab_comparison_v001/S02_B_V006_AB_ORIGINAL_VS_M01_FULL_20261017_V001.mp4",
+  "output_bytes": 12404576,
+  "output_sha256": "76b1d137e0a05c0674451038ff023a0ad1dab7599cd6ec4692eab705e0aa5fae",
+  "originals_unchanged": true,
+  "video_index_unchanged": true,
+  "main_merge": false,
+  "publication": "TEMPORARY_REVIEW_ONLY_NOT_CANONICAL"
+}
