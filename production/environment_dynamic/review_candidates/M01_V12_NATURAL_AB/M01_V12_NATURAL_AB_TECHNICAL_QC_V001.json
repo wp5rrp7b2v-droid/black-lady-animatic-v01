@@ -1,0 +1,40 @@
+{
+  "schema": "M01_V12_NATURAL_AB_RESULT",
+  "status": "TWO_NATURAL_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+  "standard": "Natural, reduced architectural halo and softened higher harmonics; N17 original approved A/B retained byte-for-byte",
+  "modified_only": [
+    "N23",
+    "NEW02"
+  ],
+  "N17_original_approved_ab_unchanged": true,
+  "exact_n17_reference_sha256": "bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+  "new_comparisons": [
+    {
+      "shot": "N23",
+      "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+      "render_file": "M01_N23_N17_NATURAL_V012_REVIEW_V001.mp4",
+      "render_sha256": "0c9bf4cf8a901ac0cf7b306faf8cfd6e0cf650beb1cbc025cd3847e2f047fc0e",
+      "ab_file": "M01_N23_N17_NATURAL_V012_AB_V001.mp4",
+      "ab_sha256": "aa04ba21600860a79a3df8a011b9ab19df59509a639d5118c2b7a71d4d3e87df",
+      "changed_frames": 88,
+      "max_raw_rgb_delta": 11
+    },
+    {
+      "shot": "NEW02",
+      "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+      "render_file": "M01_NEW02_N17_NATURAL_V012_REVIEW_V001.mp4",
+      "render_sha256": "3899aaa97266af2a6133ee7210e97340aaf70921dbfe7c38dafdcf7eda54de02",
+      "ab_file": "M01_NEW02_N17_NATURAL_V012_AB_V001.mp4",
+      "ab_sha256": "e04f699354af074926004141cbf1ddee69c9620024f69f284a656a4fce1ba288",
+      "changed_frames": 88,
+      "max_raw_rgb_delta": 13
+    }
+  ],
+  "uniform_core_script": "scripts/m01_engine_v1.py",
+  "independent_unseen_scene_validation_passed": false,
+  "N23_NEW02_PO_visual_approved": false,
+  "s02b_release_allowed": false,
+  "m01_batch_gate": "HOLD",
+  "no_main_merge": true,
+  "no_master_or_shot_registration": true
+}
