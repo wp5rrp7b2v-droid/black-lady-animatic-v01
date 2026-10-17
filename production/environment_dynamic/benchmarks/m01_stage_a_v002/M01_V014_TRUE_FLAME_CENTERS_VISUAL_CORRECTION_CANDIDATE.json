@@ -1,0 +1,186 @@
+{
+  "schema": "M01_V014_SOURCE_VISUAL_FLAME_CORE_CORRECTION_DRAFT",
+  "status": "CHAT_DIRECT_VISUAL_SOURCE_INSPECTION_PENDING_PO_APPROVAL",
+  "source_frames": "N23 and NEW02 exact SHA-pinned approved PNG downsampled to 720x1280 pixel space",
+  "coordinate_space": "720x1280_VIDEO_FRAME_PIXELS",
+  "method": "Manual direct inspection of full true source image and 4x crop; no color-maxima driven flame registration",
+  "approval_status": "NOT_APPROVED_NO_CORE_MASKS_CREATED",
+  "shots": {
+    "N23": {
+      "source_profile": "N23_UNIFIED_FLAME_CALIBRATION_V013.json",
+      "flames": [
+        {
+          "fixture": "N23_LEFT_CHANDELIER",
+          "id": "N23_MAIN_F01",
+          "center": [
+            195,
+            75
+          ]
+        },
+        {
+          "fixture": "N23_LEFT_CHANDELIER",
+          "id": "N23_MAIN_F02",
+          "center": [
+            212,
+            65
+          ]
+        },
+        {
+          "fixture": "N23_LEFT_CHANDELIER",
+          "id": "N23_MAIN_F03",
+          "center": [
+            233,
+            43
+          ]
+        },
+        {
+          "fixture": "N23_LEFT_CHANDELIER",
+          "id": "N23_MAIN_F04",
+          "center": [
+            254,
+            67
+          ]
+        },
+        {
+          "fixture": "N23_LEFT_CHANDELIER",
+          "id": "N23_MAIN_F05",
+          "center": [
+            268,
+            78
+          ]
+        }
+      ],
+      "deferred": [
+        {
+          "region": "N23_RIGHT_FRAME_EDGE_TOP",
+          "reason": "bright source and/or incomplete flame cropped at right frame boundary, do not promote"
+        },
+        {
+          "region": "N23_RIGHT_FRAME_EDGE_LOWER",
+          "reason": "bright near person and cropped by right frame boundary, cannot establish complete flame core"
+        }
+      ],
+      "expected_clear_flame_count": 5
+    },
+    "NEW02": {
+      "source_profile": "NEW02_UNIFIED_FLAME_CALIBRATION_V013.json",
+      "flames": [
+        {
+          "fixture": "NEW02_LEFT_CROPPED_CHANDELIER",
+          "id": "NEW02_LEFT_F01",
+          "center": [
+            58,
+            26
+          ]
+        },
+        {
+          "fixture": "NEW02_MID_CHANDELIER",
+          "id": "NEW02_MID_F01",
+          "center": [
+            283,
+            201
+          ]
+        },
+        {
+          "fixture": "NEW02_MID_CHANDELIER",
+          "id": "NEW02_MID_F02",
+          "center": [
+            300,
+            193
+          ]
+        },
+        {
+          "fixture": "NEW02_MID_CHANDELIER",
+          "id": "NEW02_MID_F03",
+          "center": [
+            319,
+            211
+          ]
+        },
+        {
+          "fixture": "NEW02_MID_CHANDELIER",
+          "id": "NEW02_MID_F04",
+          "center": [
+            333,
+            218
+          ]
+        },
+        {
+          "fixture": "NEW02_DEEP_CHANDELIER",
+          "id": "NEW02_DEEP_F01",
+          "center": [
+            468,
+            308
+          ]
+        },
+        {
+          "fixture": "NEW02_DEEP_CHANDELIER",
+          "id": "NEW02_DEEP_F02",
+          "center": [
+            479,
+            314
+          ]
+        },
+        {
+          "fixture": "NEW02_DEEP_CHANDELIER",
+          "id": "NEW02_DEEP_F03",
+          "center": [
+            487,
+            300
+          ]
+        },
+        {
+          "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+          "id": "NEW02_RIGHT_F01",
+          "center": [
+            640,
+            365
+          ]
+        },
+        {
+          "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+          "id": "NEW02_RIGHT_F02",
+          "center": [
+            655,
+            358
+          ]
+        },
+        {
+          "fixture": "NEW02_RIGHT_ARCH_CHANDELIER",
+          "id": "NEW02_RIGHT_F03",
+          "center": [
+            664,
+            369
+          ]
+        }
+      ],
+      "deferred": [
+        {
+          "region": "NEW02_LEFT_ABOVE_TOP_EDGE",
+          "reason": "additional candles clipped by upper edge, no complete flame core visible"
+        },
+        {
+          "region": "NEW02_FAR_RIGHT_EDGE",
+          "reason": "isolated warm bright points near right edge not securely a flame core; defer"
+        },
+        {
+          "region": "NEW02_LEFT_CROPPED_33_8",
+          "reason": "upper candle top partially cropped by frame; intentionally excluded pending image-level review"
+        }
+      ],
+      "expected_clear_flame_count": 11
+    }
+  },
+  "safety": {
+    "no_core_render_authorized": true,
+    "person_segmentation_complete": false,
+    "no_master_modification": true,
+    "frame_relative_coordinates_only": true,
+    "not_a_published_atlas": true,
+    "visual_review_required": true
+  },
+  "sources": [
+    "production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/N23/SOURCE_CANDLE_CLOSEUP_MANIFEST.json",
+    "production/environment_dynamic/benchmarks/m01_stage_a_v002/v014_actual_source_flame_closeups/NEW02/SOURCE_CANDLE_CLOSEUP_MANIFEST.json"
+  ]
+}
