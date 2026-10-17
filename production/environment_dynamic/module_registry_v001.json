@@ -143,7 +143,48 @@
         "remaining_eight_preview": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_remaining_eight_v001/M01_STAGE_A1_REMAINING_EIGHT_OVERVIEW_V001.jpg",
         "remaining_eight_frame_count": 24,
         "overall_benchmark_frames": 33,
-        "remaining_eight_candle_fixtures_not_yet_approved": true
+        "remaining_eight_candle_fixtures_not_yet_approved": true,
+        "n17_candle_localization": {
+          "status": "FOUR_FLAME_SOURCE_CANDIDATES_REGISTERED_PO_VISUAL_REVIEW_PENDING",
+          "fixture_id": "N17_RIGHT_SCONCE_01",
+          "candidate_centers_F601_px": [
+            [
+              618,
+              54
+            ],
+            [
+              624,
+              40
+            ],
+            [
+              645,
+              22
+            ],
+            [
+              688,
+              42
+            ]
+          ],
+          "case_role": "TEMPORAL_MIXED_VISIBILITY",
+          "candidate_tracking_frames": [
+            550,
+            580,
+            601,
+            630,
+            645
+          ],
+          "exact_frame_source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+          "active_candidate": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v002/M01_A1_N17_LATE_CANDLE_LOCATOR_V002.json",
+          "active_visual": "production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v002/M01_A1_N17_F601_EXACT_FLAME_CORES_V002.jpg",
+          "rectification": "production/environment_dynamic/benchmarks/m01_stage_a_v002/A1_N17_LIGHT_SOURCE_RECTIFICATION_20261017.md",
+          "supersedes": [
+            "a1_legible_locators_v002 N17 NO CORE REGISTERED",
+            "a1_n17_flame_locator_v001 two-of-four missed"
+          ],
+          "gt_approved": false,
+          "full_video_person_protection_verified": false,
+          "batch_render_authorized": false
+        }
       }
     },
     {
