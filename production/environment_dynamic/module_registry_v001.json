@@ -51,7 +51,17 @@
           ],
           "dust_particles": 0
         }
-      ]
+      ],
+      "batch_gate_status": "HOLD__LIGHT_REGISTRATION_FAIL__PERSON_PROTECTION_NOT_VERIFIED",
+      "batch_gate_review_date": "2026-10-17",
+      "batch_gate_blockers": [
+        "Seven PO-identified candle alignment defects in V007 Gate0 audit",
+        "Human/face intersection visible in some V007 masks",
+        "Flame-core animation and source tracking not validated"
+      ],
+      "batch_gate_record": "docs/project_control/gates/P0_3_video_pipeline/M01_V007_ALIGNMENT_GATE_FAIL_PO_FEEDBACK_20261017.md",
+      "next_calibration_draft": "production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_CANDIDATE_V001/M01_V002_SEVEN_SHOT_DIRECTIONAL_ALIGNMENT_DRAFT_V001.json",
+      "batch_gate_note": "Keep approved N23 and NEW02 V003 as style references only; no auto-promotion of any V007 raw mask, positions remain unapproved."
     },
     {
       "id": "M02",
