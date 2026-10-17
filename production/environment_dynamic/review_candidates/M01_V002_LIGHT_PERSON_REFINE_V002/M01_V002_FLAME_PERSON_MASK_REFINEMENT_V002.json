@@ -1,0 +1,1051 @@
+{
+  "schema": "M01_V002_LIGHT_REGISTRATION_PERSON_PROTECTION_GATE1_V002",
+  "status": "DIAGNOSTIC_PASS_FOR_INFORMATION__PRODUCTION_GATE_FAIL",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "detection_model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "segmentation_version": "8.3.220",
+  "python_version": "3.11.17",
+  "person_protection": "instance segmentation enlarged 13px, full bboxes retained as separate diagnostics only",
+  "person_bbox_problem": "Full YOLO person bboxes can cover real candles; do not default to bbox as precise segmentation",
+  "light_candidates": "warm high-luminance compact components in upper .42 height, PO hints used as search area",
+  "not_actual_flame_or_people_truth": "both detectors subject to misses and false positives",
+  "visual_core_protection_gate": "NOT_APPROVED",
+  "human_safety_gate": "NOT_APPROVED",
+  "project_batch_m01": "HOLD",
+  "no_video_or_original_png_modified": true,
+  "no_main_merge": true,
+  "image_file": "M01_V002_FLAME_PERSON_MASK_REFINEMENT_V002.jpg",
+  "image_sha256": "d6501ee0d4eec80ee455a76ba01c7d70a2b399fbf272b8432427399a99abced6",
+  "total_nodes": 7,
+  "nodes": [
+    {
+      "shot_id": "N16_PART_1",
+      "frame_index": 81,
+      "time_seconds": 2.717,
+      "segmentation_person_instances": 2,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.811,
+          "expanded_box": [
+            0,
+            131,
+            297,
+            1152
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 2,
+          "confidence": 0.801,
+          "expanded_box": [
+            289,
+            174,
+            720,
+            1201
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 66.982,
+      "legacy_bbox_protected_area_pct": 80.084,
+      "bbox_only_not_instance_mask_pct": 13.397,
+      "old_v007_mask_pixels": 13138,
+      "old_v007_mask_overlapping_segmentation_pixels": 923,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 3593,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.894,
+            0.055
+          ],
+          "candidate_core_center": [
+            0.86307,
+            0.03939
+          ],
+          "candidate_status": "MULTIPLE_CANDIDATES",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 130.9,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                621.41,
+                50.42
+              ],
+              "normalized_center": [
+                0.86307,
+                0.03939
+              ],
+              "score_rank": 0.8812,
+              "area": 302
+            },
+            {
+              "center_px": [
+                646.23,
+                24.99
+              ],
+              "normalized_center": [
+                0.89754,
+                0.01952
+              ],
+              "score_rank": 0.8605,
+              "area": 137
+            },
+            {
+              "center_px": [
+                687.18,
+                44.96
+              ],
+              "normalized_center": [
+                0.95442,
+                0.03513
+              ],
+              "score_rank": 0.6576,
+              "area": 156
+            }
+          ]
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "N18",
+      "frame_index": 748,
+      "time_seconds": 24.95,
+      "segmentation_person_instances": 1,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.769,
+          "expanded_box": [
+            127,
+            230,
+            720,
+            1280
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 41.698,
+      "legacy_bbox_protected_area_pct": 67.562,
+      "bbox_only_not_instance_mask_pct": 25.911,
+      "old_v007_mask_pixels": 29795,
+      "old_v007_mask_overlapping_segmentation_pixels": 11014,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 16102,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.91,
+            0.155
+          ],
+          "candidate_core_center": [
+            0.90058,
+            0.14913
+          ],
+          "candidate_status": "MULTIPLE_CANDIDATES",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 59.6,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                648.42,
+                190.89
+              ],
+              "normalized_center": [
+                0.90058,
+                0.14913
+              ],
+              "score_rank": 0.987,
+              "area": 218
+            },
+            {
+              "center_px": [
+                666.81,
+                172.9
+              ],
+              "normalized_center": [
+                0.92612,
+                0.13508
+              ],
+              "score_rank": 0.9291,
+              "area": 195
+            },
+            {
+              "center_px": [
+                633.28,
+                207.45
+              ],
+              "normalized_center": [
+                0.87956,
+                0.16207
+              ],
+              "score_rank": 0.9044,
+              "area": 116
+            },
+            {
+              "center_px": [
+                681.2,
+                191.1
+              ],
+              "normalized_center": [
+                0.94611,
+                0.1493
+              ],
+              "score_rank": 0.872,
+              "area": 136
+            },
+            {
+              "center_px": [
+                705.06,
+                197.87
+              ],
+              "normalized_center": [
+                0.97925,
+                0.15459
+              ],
+              "score_rank": 0.613,
+              "area": 305
+            }
+          ]
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.94,
+            0.17
+          ],
+          "candidate_core_center": [
+            0.94611,
+            0.1493
+          ],
+          "candidate_status": "MULTIPLE_CANDIDATES",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 84.3,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                681.2,
+                191.1
+              ],
+              "normalized_center": [
+                0.94611,
+                0.1493
+              ],
+              "score_rank": 0.9469,
+              "area": 136
+            },
+            {
+              "center_px": [
+                666.81,
+                172.9
+              ],
+              "normalized_center": [
+                0.92612,
+                0.13508
+              ],
+              "score_rank": 0.8488,
+              "area": 195
+            },
+            {
+              "center_px": [
+                705.06,
+                197.87
+              ],
+              "normalized_center": [
+                0.97925,
+                0.15459
+              ],
+              "score_rank": 0.8308,
+              "area": 305
+            },
+            {
+              "center_px": [
+                648.42,
+                190.89
+              ],
+              "normalized_center": [
+                0.90058,
+                0.14913
+              ],
+              "score_rank": 0.8105,
+              "area": 218
+            },
+            {
+              "center_px": [
+                633.28,
+                207.45
+              ],
+              "normalized_center": [
+                0.87956,
+                0.16207
+              ],
+              "score_rank": 0.6837,
+              "area": 116
+            }
+          ]
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "frame_index": 972,
+      "time_seconds": 32.417,
+      "segmentation_person_instances": 2,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.851,
+          "expanded_box": [
+            341,
+            238,
+            665,
+            1196
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 2,
+          "confidence": 0.805,
+          "expanded_box": [
+            40,
+            187,
+            361,
+            1130
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 42.465,
+      "legacy_bbox_protected_area_pct": 64.589,
+      "bbox_only_not_instance_mask_pct": 22.251,
+      "old_v007_mask_pixels": 69723,
+      "old_v007_mask_overlapping_segmentation_pixels": 6582,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 48748,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.191,
+            0.183
+          ],
+          "candidate_core_center": [
+            0.20061,
+            0.13293
+          ],
+          "candidate_status": "MULTIPLE_CANDIDATES",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 63.2,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                144.44,
+                170.15
+              ],
+              "normalized_center": [
+                0.20061,
+                0.13293
+              ],
+              "score_rank": 0.7363,
+              "area": 141
+            },
+            {
+              "center_px": [
+                127.47,
+                167.69
+              ],
+              "normalized_center": [
+                0.17704,
+                0.13101
+              ],
+              "score_rank": 0.7119,
+              "area": 173
+            },
+            {
+              "center_px": [
+                156.16,
+                162.65
+              ],
+              "normalized_center": [
+                0.21689,
+                0.12707
+              ],
+              "score_rank": 0.6449,
+              "area": 129
+            },
+            {
+              "center_px": [
+                136.06,
+                144.48
+              ],
+              "normalized_center": [
+                0.18897,
+                0.11287
+              ],
+              "score_rank": 0.5586,
+              "area": 126
+            },
+            {
+              "center_px": [
+                110.73,
+                152.95
+              ],
+              "normalized_center": [
+                0.15379,
+                0.11949
+              ],
+              "score_rank": 0.5387,
+              "area": 22
+            }
+          ]
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.539,
+            0.217
+          ],
+          "candidate_core_center": null,
+          "candidate_status": "NO_FLAME_CANDIDATE",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": null,
+          "ranked_candidates": []
+        },
+        {
+          "source_index": 3,
+          "po_directional_hint": [
+            0.94,
+            0.208
+          ],
+          "candidate_core_center": null,
+          "candidate_status": "NO_FLAME_CANDIDATE",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": null,
+          "ranked_candidates": []
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "V006_NEW_01",
+      "frame_index": 1036,
+      "time_seconds": 34.55,
+      "segmentation_person_instances": 4,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.823,
+          "expanded_box": [
+            359,
+            445,
+            720,
+            1280
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 2,
+          "confidence": 0.773,
+          "expanded_box": [
+            0,
+            172,
+            432,
+            1086
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 3,
+          "confidence": 0.35,
+          "expanded_box": [
+            388,
+            170,
+            720,
+            1111
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 4,
+          "confidence": 0.18,
+          "expanded_box": [
+            573,
+            162,
+            720,
+            530
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 61.427,
+      "legacy_bbox_protected_area_pct": 79.205,
+      "bbox_only_not_instance_mask_pct": 17.906,
+      "old_v007_mask_pixels": 76490,
+      "old_v007_mask_overlapping_segmentation_pixels": 37602,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 61586,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.205,
+            0.188
+          ],
+          "candidate_core_center": [
+            0.25639,
+            0.1407
+          ],
+          "candidate_status": "PERSON_BOX_PROXIMITY_REVIEW_REQUIRED",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": true,
+          "distance_to_person_mask_px": 35.8,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                184.6,
+                180.09
+              ],
+              "normalized_center": [
+                0.25639,
+                0.1407
+              ],
+              "score_rank": 0.5861,
+              "area": 326
+            }
+          ]
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.614,
+            0.206
+          ],
+          "candidate_core_center": null,
+          "candidate_status": "NO_FLAME_CANDIDATE",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": null,
+          "ranked_candidates": []
+        },
+        {
+          "source_index": 3,
+          "po_directional_hint": [
+            0.966,
+            0.168
+          ],
+          "candidate_core_center": null,
+          "candidate_status": "NO_FLAME_CANDIDATE",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": null,
+          "ranked_candidates": []
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "N21",
+      "frame_index": 1167,
+      "time_seconds": 38.917,
+      "segmentation_person_instances": 6,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.825,
+          "expanded_box": [
+            105,
+            242,
+            293,
+            1002
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 2,
+          "confidence": 0.807,
+          "expanded_box": [
+            254,
+            284,
+            519,
+            1102
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 3,
+          "confidence": 0.746,
+          "expanded_box": [
+            420,
+            305,
+            578,
+            992
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 4,
+          "confidence": 0.644,
+          "expanded_box": [
+            572,
+            232,
+            720,
+            1047
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 5,
+          "confidence": 0.594,
+          "expanded_box": [
+            532,
+            311,
+            656,
+            887
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 6,
+          "confidence": 0.141,
+          "expanded_box": [
+            645,
+            465,
+            720,
+            1213
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 42.839,
+      "legacy_bbox_protected_area_pct": 54.376,
+      "bbox_only_not_instance_mask_pct": 11.561,
+      "old_v007_mask_pixels": 53794,
+      "old_v007_mask_overlapping_segmentation_pixels": 10023,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 20428,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.518,
+            0.172
+          ],
+          "candidate_core_center": [
+            0.48836,
+            0.17452
+          ],
+          "candidate_status": "VISUAL_CONFIRM_REQUIRED",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 65.7,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                351.62,
+                223.38
+              ],
+              "normalized_center": [
+                0.48836,
+                0.17452
+              ],
+              "score_rank": 0.8831,
+              "area": 16
+            },
+            {
+              "center_px": [
+                426.24,
+                182.67
+              ],
+              "normalized_center": [
+                0.592,
+                0.14271
+              ],
+              "score_rank": 0.5167,
+              "area": 234
+            }
+          ]
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.848,
+            0.182
+          ],
+          "candidate_core_center": [
+            0.89583,
+            0.12461
+          ],
+          "candidate_status": "VISUAL_CONFIRM_REQUIRED",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 84.9,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                645.0,
+                159.5
+              ],
+              "normalized_center": [
+                0.89583,
+                0.12461
+              ],
+              "score_rank": 0.5183,
+              "area": 16
+            },
+            {
+              "center_px": [
+                671.29,
+                155.0
+              ],
+              "normalized_center": [
+                0.93235,
+                0.12109
+              ],
+              "score_rank": 0.3119,
+              "area": 70
+            },
+            {
+              "center_px": [
+                677.5,
+                168.79
+              ],
+              "normalized_center": [
+                0.94097,
+                0.13187
+              ],
+              "score_rank": 0.3074,
+              "area": 76
+            },
+            {
+              "center_px": [
+                686.36,
+                154.98
+              ],
+              "normalized_center": [
+                0.95328,
+                0.12108
+              ],
+              "score_rank": 0.208,
+              "area": 107
+            },
+            {
+              "center_px": [
+                687.46,
+                139.21
+              ],
+              "normalized_center": [
+                0.95481,
+                0.10876
+              ],
+              "score_rank": 0.1655,
+              "area": 24
+            }
+          ]
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "A06",
+      "frame_index": 1511,
+      "time_seconds": 50.383,
+      "segmentation_person_instances": 1,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.864,
+          "expanded_box": [
+            338,
+            284,
+            653,
+            1204
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 20.57,
+      "legacy_bbox_protected_area_pct": 31.445,
+      "bbox_only_not_instance_mask_pct": 11.013,
+      "old_v007_mask_pixels": 44898,
+      "old_v007_mask_overlapping_segmentation_pixels": 3010,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 14113,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.146,
+            0.27
+          ],
+          "candidate_core_center": [
+            0.09917,
+            0.21653
+          ],
+          "candidate_status": "VISUAL_CONFIRM_REQUIRED",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 343.8,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                71.4,
+                277.16
+              ],
+              "normalized_center": [
+                0.09917,
+                0.21653
+              ],
+              "score_rank": 0.57,
+              "area": 134
+            },
+            {
+              "center_px": [
+                157.42,
+                416.58
+              ],
+              "normalized_center": [
+                0.21864,
+                0.32545
+              ],
+              "score_rank": 0.3651,
+              "area": 12
+            },
+            {
+              "center_px": [
+                170.5,
+                368.5
+              ],
+              "normalized_center": [
+                0.23681,
+                0.28789
+              ],
+              "score_rank": 0.3182,
+              "area": 4
+            },
+            {
+              "center_px": [
+                168.5,
+                386.0
+              ],
+              "normalized_center": [
+                0.23403,
+                0.30156
+              ],
+              "score_rank": 0.2956,
+              "area": 2
+            },
+            {
+              "center_px": [
+                158.0,
+                434.5
+              ],
+              "normalized_center": [
+                0.21944,
+                0.33945
+              ],
+              "score_rank": 0.239,
+              "area": 2
+            }
+          ]
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.959,
+            0.236
+          ],
+          "candidate_core_center": [
+            0.91247,
+            0.18152
+          ],
+          "candidate_status": "MULTIPLE_CANDIDATES",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": 128.9,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                656.98,
+                232.34
+              ],
+              "normalized_center": [
+                0.91247,
+                0.18152
+              ],
+              "score_rank": 0.5643,
+              "area": 121
+            },
+            {
+              "center_px": [
+                649.67,
+                238.33
+              ],
+              "normalized_center": [
+                0.90232,
+                0.1862
+              ],
+              "score_rank": 0.5372,
+              "area": 21
+            }
+          ]
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    },
+    {
+      "shot_id": "N24",
+      "frame_index": 1634,
+      "time_seconds": 54.483,
+      "segmentation_person_instances": 7,
+      "detected_person_boxes": [
+        {
+          "box_id": 1,
+          "confidence": 0.748,
+          "expanded_box": [
+            6,
+            117,
+            666,
+            1160
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 2,
+          "confidence": 0.59,
+          "expanded_box": [
+            0,
+            289,
+            121,
+            1116
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 3,
+          "confidence": 0.579,
+          "expanded_box": [
+            461,
+            247,
+            695,
+            738
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 4,
+          "confidence": 0.458,
+          "expanded_box": [
+            613,
+            297,
+            720,
+            942
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 5,
+          "confidence": 0.164,
+          "expanded_box": [
+            458,
+            248,
+            698,
+            1105
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 6,
+          "confidence": 0.16,
+          "expanded_box": [
+            101,
+            386,
+            169,
+            455
+          ],
+          "has_instance_mask": true
+        },
+        {
+          "box_id": 7,
+          "confidence": 0.156,
+          "expanded_box": [
+            0,
+            288,
+            122,
+            682
+          ],
+          "has_instance_mask": true
+        }
+      ],
+      "segmentation_protected_area_pct": 69.286,
+      "legacy_bbox_protected_area_pct": 79.752,
+      "bbox_only_not_instance_mask_pct": 10.735,
+      "old_v007_mask_pixels": 55829,
+      "old_v007_mask_overlapping_segmentation_pixels": 14847,
+      "old_v007_mask_overlapping_detection_boxes_pixels": 51269,
+      "source_candidates": [
+        {
+          "source_index": 1,
+          "po_directional_hint": [
+            0.091,
+            0.179
+          ],
+          "candidate_core_center": null,
+          "candidate_status": "NO_FLAME_CANDIDATE",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": false,
+          "distance_to_person_mask_px": null,
+          "ranked_candidates": []
+        },
+        {
+          "source_index": 2,
+          "po_directional_hint": [
+            0.973,
+            0.208
+          ],
+          "candidate_core_center": [
+            0.89801,
+            0.13855
+          ],
+          "candidate_status": "PERSON_BOX_PROXIMITY_REVIEW_REQUIRED",
+          "candidate_center_not_auto_approved": true,
+          "possible_human_bbox_overlap": true,
+          "distance_to_person_mask_px": 100.2,
+          "ranked_candidates": [
+            {
+              "center_px": [
+                646.57,
+                177.34
+              ],
+              "normalized_center": [
+                0.89801,
+                0.13855
+              ],
+              "score_rank": 0.3183,
+              "area": 288
+            }
+          ]
+        }
+      ],
+      "unmatched_person_risk": "UNKNOWN_REQUIRES_VISUAL_CONFIRMATION",
+      "source_localization_pass": false,
+      "human_protection_pass": false
+    }
+  ]
+}
