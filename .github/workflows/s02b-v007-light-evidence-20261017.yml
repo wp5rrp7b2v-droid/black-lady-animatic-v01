@@ -1,0 +1,50 @@
+name: S02B V007 Shot Light Evidence Contact Sheet
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/s02b-v007-light-evidence-20261017.yml
+permissions:
+  contents: write
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+      - name: Install media dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil
+      - name: Extract real mid-shot samples and labeled contact sheet
+        run: |
+          python3 - <<'PY'
+          import base64,io,json,pathlib,subprocess
+          from PIL import Image,ImageDraw
+          edl=json.loads(pathlib.Path("production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V001.json").read_text())["timeline"]
+          source="production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4"
+          im=Image.new("RGB",(300*5,575*4),(12,12,12));d=ImageDraw.Draw(im)
+          for i,shot in enumerate(edl):
+              frame=(shot["start_frame"]+shot["end_frame_exclusive"]-1)//2
+              secs=(frame+0.5)/30
+              raw=subprocess.check_output(["ffmpeg","-hide_banner","-loglevel","error","-ss",str(secs),"-i",source,"-frames:v","1","-f","image2pipe","-vcodec","mjpeg","-"])
+              x=(i%5)*300;y=(i//5)*575
+              img=Image.open(io.BytesIO(raw)).convert("RGB").resize((285,507))
+              im.paste(img,(x+7,y+35))
+              d.text((x+7,y+7),f"{i+1:02d} {shot['id']}  [{secs:.2f}s]",fill=(255,255,255))
+          output=pathlib.Path("production/video_candidates/review_m01_v001/analysis")
+          output.mkdir(parents=True,exist_ok=True)
+          b=io.BytesIO();im.save(b,format="JPEG",quality=74,optimize=True)
+          (output/"S02B_V007_SHOT_CONTACT_SHEET_V001.jpg.b64.txt").write_text(base64.b64encode(b.getvalue()).decode()+"\n")
+          print("CONTACT_SHEET_JPEG_BYTES",len(b.getvalue()))
+          PY
+      - name: Store visual QA evidence text in review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review_m01_v001/analysis/S02B_V007_SHOT_CONTACT_SHEET_V001.jpg.b64.txt
+          git commit -m "Record labeled V007 shot frame contact sheet for light-region evidence"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
