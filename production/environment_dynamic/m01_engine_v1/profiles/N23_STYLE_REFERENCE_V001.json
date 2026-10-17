@@ -1,0 +1,143 @@
+{
+  "schema": "M01_SCENE_LIGHT_ATLAS_V1",
+  "profile_id": "N23_STYLE_REFERENCE_V001",
+  "scene_id": "CASTLE_ENTRANCE",
+  "review_status": "PILOT_REFERENCE_ONLY",
+  "registration_status": "ROI_STYLE_APPROVED_BUT_PERSON_MASK_UNVERIFIED",
+  "source": {
+    "type": "still_png",
+    "path": "production/image_library/approved/story_shots/N23_NEIL_AT_OPEN_DOOR_APPROVED_V001.png",
+    "sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+    "input_dimensions": [
+      941,
+      1672
+    ]
+  },
+  "render": {
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "frames": 90,
+    "frame_start": 0,
+    "preserve_audio": false
+  },
+  "temporal": {
+    "style": "n23_paced",
+    "rgb_cap": [
+      12,
+      7,
+      1.7
+    ],
+    "fade_in_frames": 0,
+    "fade_out_frames": 0,
+    "envelope": "sin_soft_edges"
+  },
+  "protection": {
+    "mode": "roi_only_unverified",
+    "do_not_claim_complete_person_protection": true
+  },
+  "fixtures": [
+    {
+      "id": "N23_LEFT_ARCH_01",
+      "individual_source_id": "N23_LIGHT_01",
+      "center_px": [
+        231,
+        128
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          99,
+          111
+        ],
+        "roi_px": [
+          0,
+          0,
+          570,
+          286
+        ],
+        "weight": 1,
+        "tapers": [
+          {
+            "axis": "y",
+            "from": 238,
+            "to": 286,
+            "from_weight": 1,
+            "to_weight": 0
+          }
+        ]
+      },
+      "phase": 0
+    },
+    {
+      "id": "N23_RIGHT_HIGH_02",
+      "individual_source_id": "N23_LIGHT_02",
+      "center_px": [
+        711,
+        123
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          36,
+          55
+        ],
+        "roi_px": [
+          690,
+          0,
+          720,
+          300
+        ],
+        "weight": 0.64,
+        "tapers": [
+          {
+            "axis": "x",
+            "from": 690,
+            "to": 707,
+            "from_weight": 0,
+            "to_weight": 1
+          }
+        ]
+      },
+      "phase": 1.1
+    },
+    {
+      "id": "N23_RIGHT_LOW_03",
+      "individual_source_id": "N23_LIGHT_03",
+      "center_px": [
+        712,
+        433
+      ],
+      "region": {
+        "kind": "gaussian",
+        "sigma_px": [
+          38,
+          60
+        ],
+        "roi_px": [
+          695,
+          285,
+          720,
+          566
+        ],
+        "weight": 0.6,
+        "tapers": [
+          {
+            "axis": "x",
+            "from": 694,
+            "to": 711,
+            "from_weight": 0,
+            "to_weight": 1
+          }
+        ]
+      },
+      "phase": 2.2
+    }
+  ],
+  "legacy_reference": {
+    "accepted_m01_video": "production/motion_tests/n23_candlelight_control_v001/N23_CANDLELIGHT_MOTION_CONTROL_TEST_V001.mp4",
+    "sha256": "6e8f7411cf40f957bd87c3b69a4304004501a1a6dd103900f574c047a6e830a4",
+    "warning": "style only; this common engine output is not claimed exact reproduction"
+  },
+  "release_allowed": false
+}
