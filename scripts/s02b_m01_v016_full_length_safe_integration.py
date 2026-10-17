@@ -120,7 +120,10 @@ def main():
        person=np.zeros((H,W),bool)
        unsure=np.zeros((H,W),bool)
        flames=info["static"]
-       absolute=i;relative=i
+       absolute=i
+       # Map the full source shot span onto its calibrated 90-frame envelope.
+       # Prevent a false light jump at editorial cuts even when shot duration differs.
+       relative=round(i*(p["render"]["frames"]-1)/(length-1))
       new,stats=m01.calculate_frame(original,p,absolute,relative,person,unsure,flames)
       if stats["protected_changed"] or stats["outside_authorized"]:
        raise ValueError("RAW_REGION_VIOLATION")
