@@ -51,6 +51,19 @@ def validate(p):
  assert p["protection"]["mode"] in ("roi_only_unverified","bitpack_masks_unverified")
  assert p["protection"]["do_not_claim_complete_person_protection"] is True
  assert p["temporal"]["style"] in ("n23_paced","unsynced_independent")
+ if "unified_flame_engine" in p:
+  u=p["unified_flame_engine"]
+  assert u["schema"]=="M01_UNIFIED_FLAME_PROVENANCE_V013"
+  assert u["one_candle_algorithm"] is True
+  assert u["canonical_temporal_signal"]==p["temporal"]["style"]=="unsynced_independent"
+  assert all(f["same_signal_drives_core_and_halo"] is True for f in p["fixtures"])
+  assert p["render_full_flame_output_authorized"] is False
+  assert u["registration_status"] in ("PENDING_CALIBRATION_NO_NEW_FLAME_RENDER","PROVISIONAL_EXISTING_CORE_MASKS_VISUAL_REFERENCE")
+  if u["registration_status"]=="PENDING_CALIBRATION_NO_NEW_FLAME_RENDER":
+   assert all(f["flame_core_registration"]=="NOT_REGISTERED_CORE_CANDIDATE_REQUIRED" for f in p["fixtures"])
+  else:
+   assert all(f["flame_core_registration"]=="PROPOSED_MACHINE_MASK_CORE_PRESENT" for f in p["fixtures"])
+
  if "halo_fast_harmonics_mix" in p["temporal"]:
   mix=p["temporal"]["halo_fast_harmonics_mix"]
   assert isinstance(mix,(int,float)) and math.isfinite(float(mix)) and 0<=mix<=1,"BAD_HALO_HARMONICS_MIX"
@@ -284,6 +297,15 @@ def run(name,output,mode,ab):
   print("CALIBRATION_REQUIRED",str(exc),file=sys.stderr)
   return 3
  src,mask=load_inputs(profile)
+ if mode=="pilot" and profile.get("unified_flame_engine",{}).get("registration_status")=="PENDING_CALIBRATION_NO_NEW_FLAME_RENDER":
+  report={"schema":"M01_ENGINE_V1_RESULT","status":"CALIBRATION_REQUIRED",
+    "reason":"VISIBLE_FLAME_CORES_NOT_REGISTERED__ONE_ENGINE_NO_SYNTHETIC_FLAMES",
+    "profile_id":profile["profile_id"],"source_sha256":sha(src),
+    "rendered":False,"release_allowed":False,
+    "legacy_V012_ambient_visual_reference_unchanged":True}
+  (output/"M01_ENGINE_V1_FAIL_CLOSED.json").write_text(json.dumps(report,indent=2)+"\n")
+  print("CALIBRATION_REQUIRED",report["reason"],file=sys.stderr)
+  return 3
  if mode=="review_full":
   raise ValueError("REVIEW_FULL_NOT_YET_RELEASED_NEEDS_CROSS_SCENE_ACCEPTANCE")
  if mode=="diagnostic":
