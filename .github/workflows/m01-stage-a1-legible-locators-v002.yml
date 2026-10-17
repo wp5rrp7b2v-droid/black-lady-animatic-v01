@@ -1,0 +1,90 @@
+name: M01 Stage A1 Legible Locator Overlays V002
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-legible-locators-v002.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-legible-locators-v002
+  cancel-in-progress: false
+jobs:
+  review-visible-candidate-locators:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout development branch, not main
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install FFmpeg and lightweight image annotations
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil python3-numpy fonts-dejavu-core
+      - name: Generate eight readable source candidate sheets plus two overviews
+        run: |
+          python3 scripts/m01_stage_a1_legible_locators_v002.py
+      - name: Exact source / output QA and NO GT promotion
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,json,base64
+          root=pathlib.Path("_m01_a1_legible_locators_v002")
+          j=json.loads((root/"M01_A1_LOCATORS_LEGIBILITY_QA_V002.json").read_text())
+          assert j["schema"]=="M01_STAGE_A1_LEGIBLE_MARKER_REVIEW_V002"
+          assert j["status"]=="PRESENTATION_FIX_ONLY_ANNOTATIONS_NOT_GROUND_TRUTH"
+          assert j["source_marker_positions_not_changed"] is True
+          assert j["person_masks_not_changed"] is True
+          assert j["input_png_and_mp4_not_changed"] is True
+          assert j["no_video_render"] is True and j["no_gt_promotion"] is True
+          assert len(j["shots"])==8 and len(j["overview"])==2
+          assert sum(len(s["marker_location_data"]) for s in j["shots"])==13
+          assert next(s for s in j["shots"] if s["shot_id"]=="N23")["legacy_candidate_count"]==0
+          assert next(s for s in j["shots"] if s["shot_id"]=="N17")["legacy_candidate_count"]==0
+          assert next(s for s in j["shots"] if s["shot_id"]=="N16_PART_2")["legacy_candidate_count"]==0
+          for shot in j["shots"]:
+              p=root/shot["image"]
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==shot["image_sha256"]
+              assert shot["ground_truth_approved"] is False
+          for name in j["overview"]:
+              p=root/name
+              assert p.is_file() and p.stat().st_size>10000
+              assert base64.b64decode((root/(name+".b64.txt")).read_text().strip())==p.read_bytes()
+          print("A1_LEGIBLE_EIGHT_LOCATOR_SHEETS_HASH_QC_PASS_NO_GROUND_TRUTH")
+          PY
+      - name: Save only new review overlays on independent branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_legible_locators_v002
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_a1_legible_locators_v002/* "$dest/"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==13,p
+          assert sum(x.endswith(".jpg") for x in p)==10
+          assert sum(x.endswith(".b64.txt") for x in p)==2
+          assert sum(x.endswith(".json") for x in p)==1
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_legible_locators_v002/") for x in p)
+          PY
+          git commit -m "Replace tiny A1 source markers with readable numbered candidate location plates"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "REVIEW_MARKERS_ONLY_NOT_GROUND_TRUTH"
+      - name: Upload correction for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_VISIBLE_LOCATORS_V002_REVIEW
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_legible_locators_v002/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_legible_locators_v002/*.json
+          retention-days: 14
+          if-no-files-found: error
