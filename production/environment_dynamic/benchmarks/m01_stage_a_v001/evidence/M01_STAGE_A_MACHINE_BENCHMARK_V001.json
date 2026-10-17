@@ -1,0 +1,1979 @@
+{
+  "schema": "M01_STAGE_A_MACHINE_BENCHMARK_V001",
+  "date": "2026-10-17",
+  "dataset_status": "MACHINE_CANDIDATE_GENERATED_NOT_GROUND_TRUTH",
+  "first_goal": "S02B_GROUND_TRUTH_BENCHMARK_CONSTRUCTION",
+  "ultimate_goal": "CROSS_SCENE_REUSABLE_CANDLE_ENGINE",
+  "source_video": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_edl_sha256": "1c6376469af1e7825897d41f91b8a224ad291769330b06a8e1f5dc3653b02ef7",
+  "case_spec_sha256": "546afa6118ad96a3d1a4d80a28661f1a1e56de232b075ae0b3851c9a4bded187",
+  "decoded_frame_method": "Exact 0-based ffmpeg select=eq(n,index) frame indices",
+  "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "segmentation_model": "Ultralytics YOLO11n-seg",
+  "segmentation_model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "ultralytics_version": "8.3.220",
+  "person_mask_policy": "machine instance segmentation; dilated by 13px; unreviewed, not final protection",
+  "light_proposals": "previous experimental flame source candidates and approved-style ROIs; NOT calibrated ground truth",
+  "cases": 11,
+  "source_frames": 33,
+  "machine_person_proposals": 33,
+  "known_po_alignment_failures": 7,
+  "style_reference_shots": 2,
+  "negative_control_shots": 2,
+  "all_frame_annotations_approved": false,
+  "all_light_core_labels_approved": false,
+  "s02b_engine_ready": false,
+  "cross_scene_engine_ready": false,
+  "no_video_production": true,
+  "no_official_video_index_update": true,
+  "no_main_merge": true,
+  "contact_sheets": [
+    {
+      "file": "M01_STAGE_A_CONTACT_FAIL7_V001.jpg",
+      "sha256": "39c316a418da0d425ec46b6df4ee1bd702e10cb381b46ad72e9b13000b9fc974",
+      "source_cases": [
+        "N16_PART_1",
+        "N18",
+        "N20_FIRST",
+        "V006_NEW_01",
+        "N21",
+        "A06",
+        "N24"
+      ]
+    },
+    {
+      "file": "M01_STAGE_A_CONTACT_CONTROLS4_V001.jpg",
+      "sha256": "e78365ad5d4545c12bf43fe01fbefceb47e407f3c9ea1df835c649343f842a06",
+      "source_cases": [
+        "N23",
+        "V006_NEW_02",
+        "N16_PART_2",
+        "N17"
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "shot_id": "N16_PART_1",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.89757,
+            0.01912
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 24,
+          "absolute_time_seconds": 0.81667,
+          "decoded_rgb_sha256": "2b4cc13c9df8513dc8046d8afb63765ea8731957830392327db36a5748d04ced",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_1_F0024.png",
+          "person_mask_sha256": "a0900664e0d3222db6d1bffc8b7d0ac7680e07d8887183fadffc1f20d0c112b8",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                366,
+                223,
+                720,
+                1178
+              ],
+              "confidence": 0.84049,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                181,
+                372,
+                1198
+              ],
+              "confidence": 0.80474,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 65.9935,
+          "bbox_only_uncertainty_area_pct": 11.3904,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 82,
+          "absolute_time_seconds": 2.75,
+          "decoded_rgb_sha256": "0419b9980d6827fb829eaba72f11a30ff4840e5afb5ec7a6ca515472803b46bc",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_1_F0082.png",
+          "person_mask_sha256": "d3d5eb75034897e8bc5ff511cb245f51f72094f0512ad205b0282f3adcd9badc",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                131,
+                297,
+                1152
+              ],
+              "confidence": 0.81051,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                289,
+                174,
+                720,
+                1201
+              ],
+              "confidence": 0.80131,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 66.9816,
+          "bbox_only_uncertainty_area_pct": 13.397,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 139,
+          "absolute_time_seconds": 4.65,
+          "decoded_rgb_sha256": "cc006d395836402140b5c71a2ff2da91f886066c374f8c6ee95281f3a52fdc62",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_1_F0139.png",
+          "person_mask_sha256": "308efd0636f427e0afd1e9fe2890b7f514ea48c0d14adfe49ccc19a1afb1e6c0",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                279,
+                174,
+                720,
+                1200
+              ],
+              "confidence": 0.78622,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                130,
+                289,
+                1155
+              ],
+              "confidence": 0.78066,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 66.4417,
+          "bbox_only_uncertainty_area_pct": 14.0552,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N18",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 685,
+          "absolute_time_seconds": 22.85,
+          "decoded_rgb_sha256": "b3a2969d1a2d0f338420ab7b1f16a67a84139b48e8b2b76bd4b7c8dd4b48134b",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N18_F0685.png",
+          "person_mask_sha256": "8a17ec53e117f11faf75ff0b396e18e486e9782217eeb93ac70595f37bd81c44",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                125,
+                228,
+                720,
+                1280
+              ],
+              "confidence": 0.76643,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 41.8377,
+          "bbox_only_uncertainty_area_pct": 26.1285,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 748,
+          "absolute_time_seconds": 24.95,
+          "decoded_rgb_sha256": "fdd7d9deaa0c846e7ed0cfa9e5e1cb716f2686543fa27192b71a6b8dc659a0ed",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N18_F0748.png",
+          "person_mask_sha256": "1ae181c2703ee4f1cf31b478f63b10a8c5a3f77145beb9cc55af5f2041679748",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                127,
+                230,
+                720,
+                1280
+              ],
+              "confidence": 0.77006,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 41.7002,
+          "bbox_only_uncertainty_area_pct": 25.909,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 811,
+          "absolute_time_seconds": 27.05,
+          "decoded_rgb_sha256": "45e959adc469f8b3ac699b3654f3a2aed3b007725a14245942a8c55d243f9117",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N18_F0811.png",
+          "person_mask_sha256": "1e59c81ef3291e054c705c9050fe44012fb91be9a01f3d479c2884a2051fa912",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                129,
+                230,
+                720,
+                1280
+              ],
+              "confidence": 0.77414,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 41.5435,
+          "bbox_only_uncertainty_area_pct": 25.8373,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.19622,
+            0.12254
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.50069,
+            0.15361
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.97578,
+            0.13064
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 956,
+          "absolute_time_seconds": 31.88333,
+          "decoded_rgb_sha256": "594fca64368c520cf806ef1dedff8e9c29207d6beff4d54f4f946b921a541ef3",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N20_FIRST_F0956.png",
+          "person_mask_sha256": "dc54d17b7ccf92b3ca8f3eba474ee387af631f601399f37f0d47d60e3130bdaf",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                340,
+                237,
+                664,
+                1198
+              ],
+              "confidence": 0.83672,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                40,
+                180,
+                364,
+                1186
+              ],
+              "confidence": 0.83211,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 43.2221,
+          "bbox_only_uncertainty_area_pct": 23.5882,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 972,
+          "absolute_time_seconds": 32.41667,
+          "decoded_rgb_sha256": "d15c460e5fc5fddbc39f082c762aca521b233474be6099894c0c9af6230c7b1c",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N20_FIRST_F0972.png",
+          "person_mask_sha256": "7dfd014c1051818338f57355f3d3cfb419d66761cc712ad5d6353c1bc86cd502",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                341,
+                238,
+                665,
+                1196
+              ],
+              "confidence": 0.85085,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                40,
+                187,
+                361,
+                1129
+              ],
+              "confidence": 0.80444,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 42.4664,
+          "bbox_only_uncertainty_area_pct": 22.2311,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 988,
+          "absolute_time_seconds": 32.95,
+          "decoded_rgb_sha256": "6ec344a7906d1c53489039e0515c3a3c2ff5535751b19a278f79fc3cce8ee7e3",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N20_FIRST_F0988.png",
+          "person_mask_sha256": "6c291e4bd6425518aebdd2477145a1e3069a02ee5757824ad816a85976ae143d",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                342,
+                241,
+                668,
+                1197
+              ],
+              "confidence": 0.84422,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                43,
+                188,
+                363,
+                1125
+              ],
+              "confidence": 0.80847,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 42.2905,
+          "bbox_only_uncertainty_area_pct": 22.1867,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "V006_NEW_01",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.15601,
+            0.14572
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.61975,
+            0.16715
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.99715,
+            0.09859
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1008,
+          "absolute_time_seconds": 33.61667,
+          "decoded_rgb_sha256": "681650d0c9690e4e91fcc78286ea346bf499da57a9e89231e58d5ad48200165c",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1008.png",
+          "person_mask_sha256": "9f92901670ca3a4fef1d3a1a70bfe19ee606f0e090f82f9c719c7cc389669a3e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 4,
+          "person_boxes": [
+            {
+              "bbox": [
+                359,
+                445,
+                720,
+                1280
+              ],
+              "confidence": 0.82307,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                172,
+                432,
+                1086
+              ],
+              "confidence": 0.77259,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                388,
+                170,
+                720,
+                1110
+              ],
+              "confidence": 0.35037,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                573,
+                162,
+                720,
+                530
+              ],
+              "confidence": 0.18305,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 61.4263,
+          "bbox_only_uncertainty_area_pct": 17.9067,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1036,
+          "absolute_time_seconds": 34.55,
+          "decoded_rgb_sha256": "0883994aa55351db7246f0173ee2b4f674e3d7f743a822db3f0e0e429746ae31",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1036.png",
+          "person_mask_sha256": "a77ae97f92a3293cdd8997a026c59c152cc0026577eb833b5517936a531543ef",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 4,
+          "person_boxes": [
+            {
+              "bbox": [
+                359,
+                445,
+                720,
+                1280
+              ],
+              "confidence": 0.82343,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                172,
+                432,
+                1086
+              ],
+              "confidence": 0.77301,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                388,
+                170,
+                720,
+                1111
+              ],
+              "confidence": 0.35029,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                573,
+                162,
+                720,
+                530
+              ],
+              "confidence": 0.18045,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 61.4277,
+          "bbox_only_uncertainty_area_pct": 17.9053,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1065,
+          "absolute_time_seconds": 35.51667,
+          "decoded_rgb_sha256": "f7a423c7a32325cfa0256c0b54b1bf822ac803a7f9003ccc880fd12edd9122a6",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_01_F1065.png",
+          "person_mask_sha256": "ad299763631cbe637143ba34e3296b06c7624713e54fbaf8a131389663af091e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 4,
+          "person_boxes": [
+            {
+              "bbox": [
+                359,
+                445,
+                720,
+                1280
+              ],
+              "confidence": 0.82332,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                172,
+                432,
+                1086
+              ],
+              "confidence": 0.77256,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                388,
+                170,
+                720,
+                1110
+              ],
+              "confidence": 0.34885,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                573,
+                162,
+                720,
+                530
+              ],
+              "confidence": 0.18338,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 61.4259,
+          "bbox_only_uncertainty_area_pct": 17.9071,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N21",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.52371,
+            0.1477
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94289,
+            0.12379
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1130,
+          "absolute_time_seconds": 37.68333,
+          "decoded_rgb_sha256": "888ce1fb9739c7ab6c213d711d8871336a7d89ec9cbcaa537f5e843e403a0b61",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N21_F1130.png",
+          "person_mask_sha256": "b126e50cf097b9163835c0ee572b2d895c79bb461bfe6ca077af2720a29b606e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 5,
+          "person_boxes": [
+            {
+              "bbox": [
+                105,
+                242,
+                293,
+                1001
+              ],
+              "confidence": 0.82501,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                254,
+                284,
+                518,
+                1102
+              ],
+              "confidence": 0.80766,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                305,
+                578,
+                992
+              ],
+              "confidence": 0.74787,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                571,
+                232,
+                720,
+                1048
+              ],
+              "confidence": 0.64484,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                532,
+                311,
+                656,
+                887
+              ],
+              "confidence": 0.591,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 42.5577,
+          "bbox_only_uncertainty_area_pct": 10.4836,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1168,
+          "absolute_time_seconds": 38.95,
+          "decoded_rgb_sha256": "2389dbff836b7c0750c0da009d2201fc2dc4bde2c7c7fd0320ac5cb4f80b0e8a",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N21_F1168.png",
+          "person_mask_sha256": "dde1327f8ebdeef26b80753c4032062b4b9d383a2b12672823685ca6c63662f2",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 6,
+          "person_boxes": [
+            {
+              "bbox": [
+                105,
+                242,
+                293,
+                1002
+              ],
+              "confidence": 0.8251,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                254,
+                284,
+                519,
+                1102
+              ],
+              "confidence": 0.80741,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                305,
+                578,
+                992
+              ],
+              "confidence": 0.74617,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                572,
+                232,
+                720,
+                1047
+              ],
+              "confidence": 0.64414,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                532,
+                311,
+                656,
+                887
+              ],
+              "confidence": 0.59357,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                645,
+                465,
+                720,
+                1213
+              ],
+              "confidence": 0.14081,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 42.839,
+          "bbox_only_uncertainty_area_pct": 11.5614,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1205,
+          "absolute_time_seconds": 40.18333,
+          "decoded_rgb_sha256": "0ed18cea308c2273fd6e562eb8ca993bc197976f30da245493ee68de54297458",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N21_F1205.png",
+          "person_mask_sha256": "0bc74c7c2c683562922a40b2c29783461e4e31c32f2d6bba4742de301d19e36e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 6,
+          "person_boxes": [
+            {
+              "bbox": [
+                105,
+                242,
+                293,
+                1001
+              ],
+              "confidence": 0.82499,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                254,
+                284,
+                519,
+                1102
+              ],
+              "confidence": 0.80739,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                305,
+                578,
+                992
+              ],
+              "confidence": 0.746,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                572,
+                232,
+                720,
+                1047
+              ],
+              "confidence": 0.64425,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                532,
+                311,
+                656,
+                887
+              ],
+              "confidence": 0.59327,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                645,
+                465,
+                720,
+                1213
+              ],
+              "confidence": 0.14026,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 42.832,
+          "bbox_only_uncertainty_area_pct": 11.5522,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "A06",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.13978,
+            0.21514
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94431,
+            0.17375
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1467,
+          "absolute_time_seconds": 48.91667,
+          "decoded_rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_A06_F1467.png",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                338,
+                284,
+                653,
+                1204
+              ],
+              "confidence": 0.86395,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 20.5698,
+          "bbox_only_uncertainty_area_pct": 11.0135,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1511,
+          "absolute_time_seconds": 50.38333,
+          "decoded_rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_A06_F1511.png",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                338,
+                284,
+                653,
+                1204
+              ],
+              "confidence": 0.86395,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 20.5698,
+          "bbox_only_uncertainty_area_pct": 11.0135,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1555,
+          "absolute_time_seconds": 51.85,
+          "decoded_rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_A06_F1555.png",
+          "person_mask_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 1,
+          "person_boxes": [
+            {
+              "bbox": [
+                338,
+                284,
+                653,
+                1204
+              ],
+              "confidence": 0.86395,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 20.5698,
+          "bbox_only_uncertainty_area_pct": 11.0135,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N24",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1593,
+          "absolute_time_seconds": 53.11667,
+          "decoded_rgb_sha256": "bc537be4916d6ef48f7d9fa93aa32cba4d00786d1610d6f4b52ff8543e050342",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N24_F1593.png",
+          "person_mask_sha256": "a78032e4fdf7181620f621c10f5063a0db001f2962d0a4e150215437ce4c7a1e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 7,
+          "person_boxes": [
+            {
+              "bbox": [
+                6,
+                117,
+                666,
+                1160
+              ],
+              "confidence": 0.74787,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                289,
+                121,
+                1116
+              ],
+              "confidence": 0.59065,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                461,
+                247,
+                695,
+                738
+              ],
+              "confidence": 0.5793,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                613,
+                297,
+                720,
+                943
+              ],
+              "confidence": 0.45906,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                458,
+                248,
+                697,
+                1104
+              ],
+              "confidence": 0.16351,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                386,
+                169,
+                455
+              ],
+              "confidence": 0.15956,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                288,
+                122,
+                682
+              ],
+              "confidence": 0.15227,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 69.2905,
+          "bbox_only_uncertainty_area_pct": 10.7105,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1634,
+          "absolute_time_seconds": 54.48333,
+          "decoded_rgb_sha256": "638fcfcad4018356449a3a347c06b39e887a909d53d0662ebab2e8c1b47319a9",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N24_F1634.png",
+          "person_mask_sha256": "01957be54648b35f359c4873027e78654c55dca80e4c694824032f574bdd599a",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 7,
+          "person_boxes": [
+            {
+              "bbox": [
+                6,
+                117,
+                666,
+                1160
+              ],
+              "confidence": 0.74787,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                289,
+                121,
+                1116
+              ],
+              "confidence": 0.59067,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                461,
+                247,
+                695,
+                738
+              ],
+              "confidence": 0.57911,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                613,
+                297,
+                720,
+                942
+              ],
+              "confidence": 0.45803,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                458,
+                248,
+                698,
+                1105
+              ],
+              "confidence": 0.16364,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                386,
+                169,
+                455
+              ],
+              "confidence": 0.15949,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                288,
+                122,
+                682
+              ],
+              "confidence": 0.15201,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 69.2856,
+          "bbox_only_uncertainty_area_pct": 10.7359,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1675,
+          "absolute_time_seconds": 55.85,
+          "decoded_rgb_sha256": "6f5a458fbb473d126821f527fdcfde391dca4ace3041914630436637b163977b",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N24_F1675.png",
+          "person_mask_sha256": "133b90853bce170cbd4bdc20571bf866aba5b2ec29604f64ab7ef9e8a8804f35",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 7,
+          "person_boxes": [
+            {
+              "bbox": [
+                6,
+                117,
+                666,
+                1160
+              ],
+              "confidence": 0.74777,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                289,
+                121,
+                1116
+              ],
+              "confidence": 0.58969,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                461,
+                247,
+                695,
+                738
+              ],
+              "confidence": 0.57892,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                613,
+                297,
+                720,
+                942
+              ],
+              "confidence": 0.45804,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                458,
+                248,
+                698,
+                1105
+              ],
+              "confidence": 0.16406,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                386,
+                169,
+                455
+              ],
+              "confidence": 0.15956,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                288,
+                122,
+                682
+              ],
+              "confidence": 0.15559,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 69.2862,
+          "bbox_only_uncertainty_area_pct": 10.7352,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N23",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "NO_REGISTERED_PIXEL_CORE",
+          "center": null,
+          "review_status": "NEEDS_MANUAL_CALIBRATION"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1378,
+          "absolute_time_seconds": 45.95,
+          "decoded_rgb_sha256": "dd17f94602a7252c7ab6b62e288128425674aa5493025788e5c123c2f70eacf3",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N23_F1378.png",
+          "person_mask_sha256": "a53a927b0f95e00bff80285881d0b3c4bc07c93365a3cd9e71b49a9339751e8e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 5,
+          "person_boxes": [
+            {
+              "bbox": [
+                180,
+                377,
+                575,
+                1188
+              ],
+              "confidence": 0.82111,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                260,
+                347,
+                1086
+              ],
+              "confidence": 0.79683,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                582,
+                376,
+                720,
+                1041
+              ],
+              "confidence": 0.79184,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                434,
+                364,
+                720,
+                1129
+              ],
+              "confidence": 0.77986,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                308,
+                229,
+                454,
+                471
+              ],
+              "confidence": 0.61135,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 46.9391,
+          "bbox_only_uncertainty_area_pct": 11.1146,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1406,
+          "absolute_time_seconds": 46.88333,
+          "decoded_rgb_sha256": "dd12b0531915d7183798b65859f04b2435ce9b2a9d57148b04eda68ab8c4406e",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N23_F1406.png",
+          "person_mask_sha256": "e5de6a0e013e62c542eba87b4a368f8f9faf30e93363f959a0350b76e9171546",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 5,
+          "person_boxes": [
+            {
+              "bbox": [
+                180,
+                377,
+                575,
+                1188
+              ],
+              "confidence": 0.82121,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                260,
+                348,
+                1086
+              ],
+              "confidence": 0.79666,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                582,
+                376,
+                720,
+                1041
+              ],
+              "confidence": 0.79169,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                434,
+                364,
+                719,
+                1129
+              ],
+              "confidence": 0.77971,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                308,
+                229,
+                454,
+                471
+              ],
+              "confidence": 0.61183,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 46.9337,
+          "bbox_only_uncertainty_area_pct": 11.1131,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1435,
+          "absolute_time_seconds": 47.85,
+          "decoded_rgb_sha256": "383328c69ec294d71071b0d2b72e7d9d9908b66e43f15c949ff6bc4036501996",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N23_F1435.png",
+          "person_mask_sha256": "c88cc0820f21c36a94629cebf07bcc6f32342e11b314ffe0fe0beb06614b4a0b",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 5,
+          "person_boxes": [
+            {
+              "bbox": [
+                180,
+                377,
+                575,
+                1188
+              ],
+              "confidence": 0.82139,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                101,
+                260,
+                348,
+                1086
+              ],
+              "confidence": 0.79685,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                582,
+                376,
+                720,
+                1041
+              ],
+              "confidence": 0.79215,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                434,
+                364,
+                720,
+                1129
+              ],
+              "confidence": 0.77995,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                308,
+                229,
+                454,
+                471
+              ],
+              "confidence": 0.61206,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 46.9372,
+          "bbox_only_uncertainty_area_pct": 11.1165,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "V006_NEW_02",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [
+        {
+          "source_index": 1,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.042,
+            0.054
+          ],
+          "name": "LEFT_WALL_CHANDELIER",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 2,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.417,
+            0.171
+          ],
+          "name": "MID_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 3,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.655,
+            0.246
+          ],
+          "name": "DEEPER_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 4,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.883,
+            0.304
+          ],
+          "name": "FAR_RIGHT_ARCH_CANDLES",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 5,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.981,
+            0.339
+          ],
+          "name": "DISTANT_RIGHT_TORCH",
+          "review_status": "NOT_GROUND_TRUTH"
+        }
+      ],
+      "frames": [
+        {
+          "frame_index": 1309,
+          "absolute_time_seconds": 43.65,
+          "decoded_rgb_sha256": "0998a68847e2f3b214b5ce52e053311a7e9026dadb605e63d71b98d9bf2cd32f",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_02_F1309.png",
+          "person_mask_sha256": "980ba324bef30b451fe8b885ddeb56bdcf582f521a77b55541ceea998b61e33e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 6,
+          "person_boxes": [
+            {
+              "bbox": [
+                550,
+                409,
+                706,
+                916
+              ],
+              "confidence": 0.83403,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                385,
+                576,
+                930
+              ],
+              "confidence": 0.83225,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                128,
+                371,
+                315,
+                1015
+              ],
+              "confidence": 0.83045,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                258,
+                365,
+                480,
+                1056
+              ],
+              "confidence": 0.82545,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                578,
+                496,
+                720,
+                1280
+              ],
+              "confidence": 0.78609,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                399,
+                214,
+                1280
+              ],
+              "confidence": 0.71852,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 53.7924,
+          "bbox_only_uncertainty_area_pct": 5.8409,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1332,
+          "absolute_time_seconds": 44.41667,
+          "decoded_rgb_sha256": "0e6976f7d285cafd00d9bbc852768d79c247091299c8c307141e7d2e1b617c1c",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_02_F1332.png",
+          "person_mask_sha256": "980ba324bef30b451fe8b885ddeb56bdcf582f521a77b55541ceea998b61e33e",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 6,
+          "person_boxes": [
+            {
+              "bbox": [
+                550,
+                409,
+                706,
+                916
+              ],
+              "confidence": 0.83403,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                385,
+                576,
+                930
+              ],
+              "confidence": 0.83225,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                128,
+                371,
+                315,
+                1015
+              ],
+              "confidence": 0.83045,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                258,
+                365,
+                480,
+                1056
+              ],
+              "confidence": 0.82545,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                578,
+                496,
+                720,
+                1280
+              ],
+              "confidence": 0.7861,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                399,
+                214,
+                1280
+              ],
+              "confidence": 0.71852,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 53.7924,
+          "bbox_only_uncertainty_area_pct": 5.8409,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 1355,
+          "absolute_time_seconds": 45.18333,
+          "decoded_rgb_sha256": "fb94c199f89c744e6b884ff8bf3707aa1dad51205ae8533d44ba3c517d99a067",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_V006_NEW_02_F1355.png",
+          "person_mask_sha256": "b5e9125794c78d0e1e55c8b95a5be91fefe456ac78e84518525e964df3bcd1cf",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 6,
+          "person_boxes": [
+            {
+              "bbox": [
+                550,
+                409,
+                706,
+                916
+              ],
+              "confidence": 0.83388,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                420,
+                385,
+                576,
+                930
+              ],
+              "confidence": 0.83231,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                128,
+                371,
+                315,
+                1015
+              ],
+              "confidence": 0.8305,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                258,
+                365,
+                480,
+                1056
+              ],
+              "confidence": 0.82545,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                578,
+                496,
+                720,
+                1280
+              ],
+              "confidence": 0.78526,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                399,
+                214,
+                1280
+              ],
+              "confidence": 0.7184,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 53.789,
+          "bbox_only_uncertainty_area_pct": 5.8444,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N16_PART_2",
+      "group": "NEGATIVE_DAYLIGHT",
+      "expected_light": "NO_VISIBLE_CANDLE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [],
+      "frames": [
+        {
+          "frame_index": 181,
+          "absolute_time_seconds": 6.05,
+          "decoded_rgb_sha256": "96fd31b6105afa5f5278cd2e2240c108f2ee7a0bc756a1f29cee3ed581588faf",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_2_F0181.png",
+          "person_mask_sha256": "7a1b2a123c64619d9d22da678ef0d098994f789049891edbde949700d98694bd",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                144,
+                473,
+                1152
+              ],
+              "confidence": 0.8069,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                465,
+                186,
+                720,
+                1190
+              ],
+              "confidence": 0.75542,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 64.4222,
+          "bbox_only_uncertainty_area_pct": 14.59,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 222,
+          "absolute_time_seconds": 7.41667,
+          "decoded_rgb_sha256": "4c83b13d391af73e31db1eb9e122a849898694eff30704e1280c50d7bdfa6d85",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_2_F0222.png",
+          "person_mask_sha256": "1547f3582813e55e8188d4bd4b34f435ec7ae962fb1985aab6c57640c2daa8ba",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                144,
+                475,
+                1153
+              ],
+              "confidence": 0.82376,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                470,
+                185,
+                720,
+                1188
+              ],
+              "confidence": 0.74337,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 64.3426,
+          "bbox_only_uncertainty_area_pct": 14.6471,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 263,
+          "absolute_time_seconds": 8.78333,
+          "decoded_rgb_sha256": "6f222613f1ee375abe0f175fb4a0e567d2b9822ed18d1e4aa0eb3f0c4dd43cd2",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N16_PART_2_F0263.png",
+          "person_mask_sha256": "078d3cd8d572b36d720c504d99a1cf726f5ad7f53401e486fad72a1486ab1ed1",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                145,
+                479,
+                1153
+              ],
+              "confidence": 0.83046,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                470,
+                184,
+                720,
+                1186
+              ],
+              "confidence": 0.74809,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 64.1974,
+          "bbox_only_uncertainty_area_pct": 14.7338,
+          "human_review_status": "PENDING"
+        }
+      ]
+    },
+    {
+      "shot_id": "N17",
+      "group": "NEGATIVE_DAYLIGHT",
+      "expected_light": "NO_VISIBLE_CANDLE_EXPECTED",
+      "source_alignment_status": "NOT_VERIFIED",
+      "human_ground_truth_status": "NOT_VERIFIED",
+      "source_core_proposals": [],
+      "frames": [
+        {
+          "frame_index": 337,
+          "absolute_time_seconds": 11.25,
+          "decoded_rgb_sha256": "9cad514d01c2387003a746c08ec54e292a7bfa398db2ec36ff43034ca5646305",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N17_F0337.png",
+          "person_mask_sha256": "c4a292912c5f18c3740e71acc3ed101e3f43e662ad0d45afa0da471e9b5651dc",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 3,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                120,
+                720,
+                1148
+              ],
+              "confidence": 0.78653,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                493,
+                61,
+                720,
+                641
+              ],
+              "confidence": 0.25912,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                497,
+                100,
+                720,
+                1051
+              ],
+              "confidence": 0.15634,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 66.9706,
+          "bbox_only_uncertainty_area_pct": 15.0263,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 469,
+          "absolute_time_seconds": 15.65,
+          "decoded_rgb_sha256": "d2e2ca9d4de6c05b9878e15190df62513eac8c428d08c301bd176f824acfb866",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N17_F0469.png",
+          "person_mask_sha256": "1e520906db4fa50b6dc516e17e024b324ffacf01c962aa3754159b04a96df8b2",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                0,
+                109,
+                720,
+                1151
+              ],
+              "confidence": 0.80569,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                569,
+                58,
+                720,
+                753
+              ],
+              "confidence": 0.33555,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 68.0331,
+          "bbox_only_uncertainty_area_pct": 14.5987,
+          "human_review_status": "PENDING"
+        },
+        {
+          "frame_index": 601,
+          "absolute_time_seconds": 20.05,
+          "decoded_rgb_sha256": "45795aeaca01c9c3785dfcd5063cbcc3edceab6a1bba7ea473da6bb1193c8ee0",
+          "person_mask_proposal": "person_mask_proposals/PERSON_PROPOSAL_N17_F0601.png",
+          "person_mask_sha256": "dc748cbf4246b5f3a5533c0ae8c6d1c73f5de6a3f3574448bf035ab452975409",
+          "person_mask_origin": "YOLO11N_SEG_MACHINE_PROPOSAL_NOT_GROUND_TRUTH",
+          "people_detected": 2,
+          "person_boxes": [
+            {
+              "bbox": [
+                276,
+                168,
+                720,
+                1200
+              ],
+              "confidence": 0.80734,
+              "has_instance_segmentation": true
+            },
+            {
+              "bbox": [
+                0,
+                124,
+                285,
+                1155
+              ],
+              "confidence": 0.79078,
+              "has_instance_segmentation": true
+            }
+          ],
+          "segmentation_proposal_area_pct": 66.7783,
+          "bbox_only_uncertainty_area_pct": 14.1862,
+          "human_review_status": "PENDING"
+        }
+      ]
+    }
+  ]
+}

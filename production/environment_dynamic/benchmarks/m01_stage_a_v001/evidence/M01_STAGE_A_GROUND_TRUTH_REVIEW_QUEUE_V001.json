@@ -1,0 +1,349 @@
+{
+  "schema": "M01_STAGE_A_GROUND_TRUTH_REVIEW_QUEUE_V001",
+  "status": "HUMAN_REVIEW_REQUIRED_TO_LOCK_GROUND_TRUTH",
+  "first_pass_acceptance": "Flame-core and protected-person masks per frame; no missing candle, no person spill",
+  "cross_scene_acceptance_not_granted": true,
+  "cases": [
+    {
+      "shot_id": "N16_PART_1",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.89757,
+            0.01912
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask too low; calibration source direction upward",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "N18",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.92393,
+            0.14626
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask shifted left; two old anchors incorrectly converged on same fixture",
+      "approved": false,
+      "first_priority": true
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.19622,
+            0.12254
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.50069,
+            0.15361
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.97578,
+            0.13064
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask shifted left; three fixture candidates require tracking",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "V006_NEW_01",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.15601,
+            0.14572
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.61975,
+            0.16715
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 3,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.99715,
+            0.09859
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask shifted left; left source ambiguous; protect faces",
+      "approved": false,
+      "first_priority": true
+    },
+    {
+      "shot_id": "N21",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.52371,
+            0.1477
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94289,
+            0.12379
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask shifted right; multiple persons",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "A06",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.13978,
+            0.21514
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": [
+            0.94431,
+            0.17375
+          ],
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "VISUAL_REVIEW_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Mask too far left/down; daylight and candles coexist",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "N24",
+      "role": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        },
+        {
+          "source_index": 2,
+          "kind": "UNVERIFIED_MACHINE_CORE_POINT",
+          "center": null,
+          "review_status": "NEEDS_PO_OR_INDEPENDENT_VISUAL_CONFIRMATION",
+          "machine_status": "CALIBRATION_REQUIRED"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "Right source shifted left; old machine cluster detector unresolved",
+      "approved": false,
+      "first_priority": true
+    },
+    {
+      "shot_id": "N23",
+      "role": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "NO_REGISTERED_PIXEL_CORE",
+          "center": null,
+          "review_status": "NEEDS_MANUAL_CALIBRATION"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "PO-accepted M01 style; source location still needs ground-truth calibration",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "V006_NEW_02",
+      "role": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [
+        {
+          "source_index": 1,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.042,
+            0.054
+          ],
+          "name": "LEFT_WALL_CHANDELIER",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 2,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.417,
+            0.171
+          ],
+          "name": "MID_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 3,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.655,
+            0.246
+          ],
+          "name": "DEEPER_CANDLE_WALL",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 4,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.883,
+            0.304
+          ],
+          "name": "FAR_RIGHT_ARCH_CANDLES",
+          "review_status": "NOT_GROUND_TRUTH"
+        },
+        {
+          "source_index": 5,
+          "kind": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE",
+          "center": [
+            0.981,
+            0.339
+          ],
+          "name": "DISTANT_RIGHT_TORCH",
+          "review_status": "NOT_GROUND_TRUTH"
+        }
+      ],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "PO-accepted M01 V003 style; prior 5 sources are ROI anchors, not pixel-core truth",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "N16_PART_2",
+      "role": "NEGATIVE_DAYLIGHT",
+      "expected_light": "NO_VISIBLE_CANDLE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "No confirmed in-frame flame; human reviewer must verify all sampled frames",
+      "approved": false,
+      "first_priority": false
+    },
+    {
+      "shot_id": "N17",
+      "role": "NEGATIVE_DAYLIGHT",
+      "expected_light": "NO_VISIBLE_CANDLE_EXPECTED",
+      "fixture_review_status": "PENDING",
+      "person_review_status": "PENDING",
+      "proposed_fixtures_mid_frame": [],
+      "calibration_instructions": "For each actual candle flame, verify/adjust core center or mark false positive. Validate face, hair, clothing and partial people on all 3 frames; approve or request correction.",
+      "po_notes": "No confirmed in-frame flame; visually verify because editing and framing can change",
+      "approved": false,
+      "first_priority": false
+    }
+  ]
+}
