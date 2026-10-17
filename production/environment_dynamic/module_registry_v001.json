@@ -76,7 +76,38 @@
         }
       },
       "completion_rule": "M01 COMPLETE only after BOTH s02b_pilot PASS and cross_scene_reuse PASS with PO approvals; GITHUB_ACTIONS_SUCCESS or S02B_ONLY_PASS is insufficient",
-      "product_spec": "docs/project_control/gates/P0_3_video_pipeline/M01_CANDLE_ENGINE_V002_SCALE_READINESS_DESIGN_2026-10-17.md"
+      "product_spec": "docs/project_control/gates/P0_3_video_pipeline/M01_CANDLE_ENGINE_V002_SCALE_READINESS_DESIGN_2026-10-17.md",
+      "stage_A": {
+        "status": "V002_MACHINE_BENCHMARK_BUILT_GROUND_TRUTH_REVIEW_PENDING",
+        "branch": "feature/m01-v002-engine-stage-a-20261017",
+        "workflows": [
+          {
+            "run_id": 39014363226,
+            "status": "SUCCESS_SUPERSEDED_V001_FALSE_N17_NEGATIVE"
+          },
+          {
+            "run_id": 39014710268,
+            "status": "SUCCESS_ACTIVE_V002_MACHINE_QC_ONLY"
+          }
+        ],
+        "active_spec": "production/environment_dynamic/benchmarks/m01_stage_a_v002/M01_STAGE_A_CASE_SPEC_V002.json",
+        "active_manifest": "production/environment_dynamic/benchmarks/m01_stage_a_v002/evidence/M01_STAGE_A_MACHINE_BENCHMARK_V002.json",
+        "active_review_queue": "production/environment_dynamic/benchmarks/m01_stage_a_v002/evidence/M01_STAGE_A_GROUND_TRUTH_REVIEW_QUEUE_V002.json",
+        "sample_count": {
+          "shots": 11,
+          "source_frames": 33,
+          "human_mask_proposals": 33,
+          "po_alignment_failures": 7,
+          "style_references": 2,
+          "daylight_negative_shots": 1,
+          "mixed_visibility_shots": 1
+        },
+        "corrected_false_negative": "N17 late clip frame 601 includes visible wall sconce",
+        "gate": "STAGE_A1_GROUND_TRUTH_NOT_APPROVED",
+        "batch_render_authorized": false,
+        "cross_scene_reuse_authorized": false,
+        "status_note": "All proposed core markers and YOLO people masks remain unapproved. Stage A dataset is regression fixture, not independently held-out cross-scene product qualification."
+      }
     },
     {
       "id": "M02",
