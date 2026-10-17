@@ -1,0 +1,89 @@
+name: M01 N17 Direct Candle Result and AB Review V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-n17-direct-result-video-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-n17-direct-result-video-v001
+  cancel-in-progress: false
+jobs:
+  create-po-viewable-result:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout isolated M01 engine branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Lightweight renderer dependencies (no model inference)
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Produce real 12.567s N17 candle motion MP4 and side-by-side AB
+        run: |
+          python3 -u scripts/m01_n17_direct_video_preview_v001.py
+      - name: Verify finished MP4s and scope
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          p=pathlib.Path("_m01_n17_visual_result_v001")
+          j=json.loads((p/"M01_N17_CANDLE_ENGINE_RESULT_QC_V001.json").read_text())
+          assert j["status"]=="REVIEW_MP4_RENDERED_PO_VISUAL_DECISION_PENDING"
+          assert j["scope"]=="N17_ONLY_PREVIEW_NOT_MASTER"
+          assert j["frames"]==377 and j["fps"]==30
+          assert j["individual_candle_signals"]==4
+          assert j["modified_person_or_uncertain_pixels_raw"]==0
+          assert j["modified_pixels_outside_spatial_candle_window"]==0
+          assert j["changed_raw_frame_count"]>80
+          assert not j["new_video_PO_approved"]
+          assert j["no_canonical_publication"] and j["no_main_merge"] and j["original_source_unchanged"]
+          assert j["batch_gate"]=="HOLD"
+          for name in ("video","comparison"):
+            part=j[name]
+            file=p/part["file"]
+            assert hashlib.sha256(file.read_bytes()).hexdigest()==part["sha256"]
+            assert file.stat().st_size==part["size"]
+            subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror",
+              "-i",str(file),"-map","0:v:0","-f","null","-"],check=True)
+          original=pathlib.Path("production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4")
+          assert hashlib.sha256(original.read_bytes()).hexdigest()==j["source_video_sha256"]
+          print("N17_REAL_CANDLE_RESULT_MP4_AND_AB_QC_PASS; PO_REVIEW_PENDING")
+          PY
+      - name: Save N17 results only in review candidate directory (never main)
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp _m01_n17_visual_result_v001/*.mp4 _m01_n17_visual_result_v001/*.json "$dest/"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          python3 - <<'PY'
+          import subprocess
+          files=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(files)==3,files
+          assert sum(x.endswith(".mp4") for x in files)==2
+          assert sum(x.endswith(".json") for x in files)==1
+          assert all(x.startswith("production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/") for x in files)
+          PY
+          git commit -m "Deliver N17 real 12.57s candle motion video and original-vs-M01 A/B for PO visual review"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "VISUAL_REVIEW_CANDIDATE_ONLY_NO_MASTER_REPLACEMENT"
+      - name: Upload playable review videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_N17_CANDLE_MOTION_REVIEW_VIDEO_AND_AB_V001
+          path: |
+            production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/*.mp4
+            production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/*.json
+          retention-days: 14
+          if-no-files-found: error
