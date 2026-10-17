@@ -12,6 +12,34 @@ PROFILE="NEW02_STYLE_REFERENCE_V001.json"
 class M01EngineCoreTests(unittest.TestCase):
  def get(self):
   return eng.read_profile(PROFILE)
+ def test_v013_is_one_algorithm_not_two_modes(self):
+  for name in ("N17_UNIFIED_REGISTERED_REFERENCE_V013.json",
+               "N23_UNIFIED_FLAME_CALIBRATION_V013.json",
+               "NEW02_UNIFIED_FLAME_CALIBRATION_V013.json"):
+   p=eng.read_profile(name)
+   self.assertEqual(p["temporal"]["style"],"unsynced_independent")
+   self.assertTrue(p["unified_flame_engine"]["one_candle_algorithm"])
+   self.assertTrue(all(f["same_signal_drives_core_and_halo"] for f in p["fixtures"]))
+   self.assertFalse(p["render_full_flame_output_authorized"])
+  for name in ("N23_UNIFIED_FLAME_CALIBRATION_V013.json",
+               "NEW02_UNIFIED_FLAME_CALIBRATION_V013.json"):
+   p=eng.read_profile(name)
+   self.assertEqual(p["unified_flame_engine"]["registration_status"],"PENDING_CALIBRATION_NO_NEW_FLAME_RENDER")
+   self.assertTrue(all(f["flame_core_registration"]=="NOT_REGISTERED_CORE_CANDIDATE_REQUIRED" for f in p["fixtures"]))
+ def test_v013_unregistered_flames_refuse_full_candle_video(self):
+  import tempfile
+  with tempfile.TemporaryDirectory() as tmp:
+   code=eng.run("N23_UNIFIED_FLAME_CALIBRATION_V013.json",tmp,"pilot",True)
+   self.assertEqual(code,3)
+   report=json.loads((pathlib.Path(tmp)/"M01_ENGINE_V1_FAIL_CLOSED.json").read_text())
+   self.assertEqual(report["status"],"CALIBRATION_REQUIRED")
+   self.assertFalse(report["rendered"])
+   self.assertFalse(report["release_allowed"])
+ def test_n17_reference_is_originally_configured(self):
+  p=eng.read_profile("N17_UNIFIED_REGISTERED_REFERENCE_V013.json")
+  self.assertEqual(len(p["fixtures"]),4)
+  self.assertTrue(all(f.get("core_bitpack_index")==i for i,f in enumerate(p["fixtures"],1)))
+  self.assertEqual(p["source"]["sha256"],"7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402")
  def test_three_configurations_are_valid_and_have_no_coded_scene_name(self):
   ids=[]
   for name in ["N23_STYLE_REFERENCE_V001.json",PROFILE,"N17_APPROVED_VISUAL_RESULT_V001.json"]:
