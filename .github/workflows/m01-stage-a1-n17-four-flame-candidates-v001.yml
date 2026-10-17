@@ -1,0 +1,77 @@
+name: M01 Stage A1 N17 Four Flame Position Candidates V001
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-stage-a1-n17-four-flame-candidates-v001.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-stage-a1-n17-flame-candidates-v001
+  cancel-in-progress: false
+jobs:
+  track-real-n17-candle-position:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout M01 engine development branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install exact frame and visual QA tools
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil python3-numpy fonts-dejavu-core
+      - name: Locate N17 late candle fixture and individual flame centers
+        run: python3 scripts/m01_a1_n17_flame_locator_candidate_v001.py
+      - name: Independently inspect provenance and fail-closed source candidate QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v001
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_a1_n17_flames_candidate_v001/* "$d/"
+          python3 - <<'PY'
+          import base64,hashlib,json,pathlib
+          root=pathlib.Path("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v001")
+          j=json.loads((root/"M01_A1_N17_LATE_CANDLE_LOCATOR_V001.json").read_text())
+          assert j["status"]=="SOURCE_LOCALIZED_CANDIDATES_PO_VISUAL_REVIEW_PENDING"
+          assert j["physical_fixture_groups"]==1 and j["source_flames_count_candidate"]==4
+          assert len(j["source_tracks"])==5 and [f["frame"] for f in j["source_tracks"]]==[550,580,601,630,645]
+          assert j["individual_flame_ground_truth_approved"] is False
+          assert j["human_protection_on_all_frames_approved"] is False
+          assert j["no_video_rendered"] and j["no_main_merge"] and not j["atlas_promotion_authorized"]
+          assert all(len(f["flames"])==4 and all(not a["ground_truth_approved"] for a in f["flames"]) for f in j["source_tracks"])
+          for k,sha in (("annotated_overview","annotated_overview_sha256"),
+                        ("f601_review_image","f601_review_image_sha256")):
+            p=root/j[k]
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==j[sha]
+            assert base64.b64decode((root/(p.name+".b64.txt")).read_text().strip())==p.read_bytes()
+          print("N17_ACTUAL_SOURCE_LOCATOR_REVIEW_CANDIDATES_QC_PASS_NOT_PRODUCTION_APPROVED")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git add -- "$d"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==5,paths
+          assert all(x.startswith("production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v001/") for x in paths)
+          PY
+          git commit -m "Record N17 candle fixture four flame location candidates with exact-source proof and human mask"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "N17_ALIGNMENT_VISUAL_REVIEW_PENDING; NO_BATCH_RENDER"
+      - name: Upload new N17 flame locators and source proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_A1_N17_FOUR_FLAME_CANDIDATES_V001
+          path: |
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v001/*.jpg
+            production/environment_dynamic/benchmarks/m01_stage_a_v002/a1_n17_flame_locator_v001/*.json
+          retention-days: 14
+          if-no-files-found: error
