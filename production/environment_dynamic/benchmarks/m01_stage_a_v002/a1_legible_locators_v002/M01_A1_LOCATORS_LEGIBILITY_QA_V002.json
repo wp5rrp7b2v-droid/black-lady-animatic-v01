@@ -1,0 +1,241 @@
+{
+  "schema": "M01_STAGE_A1_LEGIBLE_MARKER_REVIEW_V002",
+  "status": "PRESENTATION_FIX_ONLY_ANNOTATIONS_NOT_GROUND_TRUTH",
+  "source_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "original_benchmark_sha256": "0cc0669f818a9baa6417e717acbdf7df99dbdd8634192b75edb0ad38a886e7b2",
+  "purpose": "Make hard-to-see magenta candidate centers visibly labeled and mark missing sources explicitly.",
+  "source_marker_positions_not_changed": true,
+  "person_masks_not_changed": true,
+  "input_png_and_mp4_not_changed": true,
+  "no_video_render": true,
+  "no_gt_promotion": true,
+  "output_files": [
+    "M01_A1_N16_PART_1_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_N20_FIRST_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_N21_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_A06_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_N23_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_V006_NEW_02_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_N16_PART_2_LOCATORS_LARGE_V002.jpg",
+    "M01_A1_N17_LOCATORS_LARGE_V002.jpg"
+  ],
+  "overview": [
+    "M01_A1_LOCATORS_OVERVIEW_GROUP_1_V002.jpg",
+    "M01_A1_LOCATORS_OVERVIEW_GROUP_2_V002.jpg"
+  ],
+  "shots": [
+    {
+      "shot_id": "N16_PART_1",
+      "source_frame": 82,
+      "exact_raw_rgb_sha256": "0419b9980d6827fb829eaba72f11a30ff4840e5afb5ec7a6ca515472803b46bc",
+      "source_person_proposal_sha256": "d3d5eb75034897e8bc5ff511cb245f51f72094f0512ad205b0282f3adcd9badc",
+      "legacy_candidate_count": 1,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [
+        {
+          "index": 1,
+          "normalized": [
+            0.89757,
+            0.01912
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        }
+      ],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N16_PART_1_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "e455529776e9d574c50a4982f969966f1633d4cfd32f5dfb25d082917ba0aaa3",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "source_frame": 972,
+      "exact_raw_rgb_sha256": "d15c460e5fc5fddbc39f082c762aca521b233474be6099894c0c9af6230c7b1c",
+      "source_person_proposal_sha256": "7dfd014c1051818338f57355f3d3cfb419d66761cc712ad5d6353c1bc86cd502",
+      "legacy_candidate_count": 3,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [
+        {
+          "index": 1,
+          "normalized": [
+            0.19622,
+            0.12254
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        },
+        {
+          "index": 2,
+          "normalized": [
+            0.50069,
+            0.15361
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        },
+        {
+          "index": 3,
+          "normalized": [
+            0.97578,
+            0.13064
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        }
+      ],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N20_FIRST_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "a034c4f21f4c5330a43766ce2d70db2be3ed6360dcff54269f5172f25da6315b",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "N21",
+      "source_frame": 1168,
+      "exact_raw_rgb_sha256": "2389dbff836b7c0750c0da009d2201fc2dc4bde2c7c7fd0320ac5cb4f80b0e8a",
+      "source_person_proposal_sha256": "dde1327f8ebdeef26b80753c4032062b4b9d383a2b12672823685ca6c63662f2",
+      "legacy_candidate_count": 2,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [
+        {
+          "index": 1,
+          "normalized": [
+            0.52371,
+            0.1477
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        },
+        {
+          "index": 2,
+          "normalized": [
+            0.94289,
+            0.12379
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        }
+      ],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N21_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "a36e6661b6a8860675426206e2a1b95229e5387bf431fc24136cd353e787166c",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "A06",
+      "source_frame": 1511,
+      "exact_raw_rgb_sha256": "2b4e165cc6e3683d603101b68c74dff1458b2144f19a23ea6b85edabb867795d",
+      "source_person_proposal_sha256": "b49e15aba9836f26c62302f04f6e49043035de424997faaa24b66ecbbaa1b1d5",
+      "legacy_candidate_count": 2,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [
+        {
+          "index": 1,
+          "normalized": [
+            0.13978,
+            0.21514
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        },
+        {
+          "index": 2,
+          "normalized": [
+            0.94431,
+            0.17375
+          ],
+          "basis": "UNVERIFIED_MACHINE_CORE_POINT"
+        }
+      ],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_A06_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "5e04f7ba091b24843a2e615a386461c466cc4ec7369a23a381856f42035998b1",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "N23",
+      "source_frame": 1406,
+      "exact_raw_rgb_sha256": "dd12b0531915d7183798b65859f04b2435ce9b2a9d57148b04eda68ab8c4406e",
+      "source_person_proposal_sha256": "e5de6a0e013e62c542eba87b4a368f8f9faf30e93363f959a0350b76e9171546",
+      "legacy_candidate_count": 0,
+      "unlocated_candidate_count": 1,
+      "marker_location_data": [],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N23_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "aa887287224a826ebcf6c820536cdbe6604220f5beff7c0a61981ff3b51ff215",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "V006_NEW_02",
+      "source_frame": 1332,
+      "exact_raw_rgb_sha256": "0e6976f7d285cafd00d9bbc852768d79c247091299c8c307141e7d2e1b617c1c",
+      "source_person_proposal_sha256": "980ba324bef30b451fe8b885ddeb56bdcf582f521a77b55541ceea998b61e33e",
+      "legacy_candidate_count": 5,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [
+        {
+          "index": 1,
+          "normalized": [
+            0.042,
+            0.054
+          ],
+          "basis": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE"
+        },
+        {
+          "index": 2,
+          "normalized": [
+            0.417,
+            0.171
+          ],
+          "basis": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE"
+        },
+        {
+          "index": 3,
+          "normalized": [
+            0.655,
+            0.246
+          ],
+          "basis": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE"
+        },
+        {
+          "index": 4,
+          "normalized": [
+            0.883,
+            0.304
+          ],
+          "basis": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE"
+        },
+        {
+          "index": 5,
+          "normalized": [
+            0.981,
+            0.339
+          ],
+          "basis": "LEGACY_LIGHTING_ROI_CENTER_NOT_FLAME_CORE"
+        }
+      ],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_V006_NEW_02_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "3bc87f84ed4228e575b42a26005fb9a389d928a06dfb49b6bfdaaeefebfaccd2",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "N16_PART_2",
+      "source_frame": 222,
+      "exact_raw_rgb_sha256": "4c83b13d391af73e31db1eb9e122a849898694eff30704e1280c50d7bdfa6d85",
+      "source_person_proposal_sha256": "1547f3582813e55e8188d4bd4b34f435ec7ae962fb1985aab6c57640c2daa8ba",
+      "legacy_candidate_count": 0,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N16_PART_2_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "d88c32d52307ef9bf8b3a40e615d12ba863797c0ec8f6de87f3cb52a544ae7a7",
+      "ground_truth_approved": false
+    },
+    {
+      "shot_id": "N17",
+      "source_frame": 601,
+      "exact_raw_rgb_sha256": "45795aeaca01c9c3785dfcd5063cbcc3edceab6a1bba7ea473da6bb1193c8ee0",
+      "source_person_proposal_sha256": "dc748cbf4246b5f3a5533c0ae8c6d1c73f5de6a3f3574448bf035ab452975409",
+      "legacy_candidate_count": 0,
+      "unlocated_candidate_count": 0,
+      "marker_location_data": [],
+      "marking_policy": "VISIBLE_BRIGHT_MAGENTA_RING_NUMERIC_LABEL_WITH_LEADER; NOT_APPROVED",
+      "image": "M01_A1_N17_LOCATORS_LARGE_V002.jpg",
+      "image_sha256": "d393c21b150591ee7abceb05168321922a3c309dc2252d2edfd213643b422e0e",
+      "ground_truth_approved": false
+    }
+  ]
+}
