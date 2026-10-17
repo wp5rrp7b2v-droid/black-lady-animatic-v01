@@ -1,0 +1,63 @@
+name: M01 V002 Seven Shot Directional Alignment Draft
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-seven-shot-calibration-draft.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v002-seven-shot-calibration-draft
+  cancel-in-progress: false
+jobs:
+  source-grounded-offset-overlay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout existing review branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+      - name: Install controlled image processing utilities
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-pil python3-numpy fonts-dejavu-core
+      - name: Render seven-shot original versus positional-candidate evidence ONLY
+        run: python3 scripts/m01_v002_7shot_alignment_draft_v001.py
+      - name: Validate and record temporary alignment draft on review branch
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_CANDIDATE_V001
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_v002_directional_candidate/* "$d/"
+          python3 - <<'PY'
+          import json,hashlib,base64,pathlib
+          d=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_CANDIDATE_V001")
+          r=json.loads((d/"M01_V002_SEVEN_SHOT_DIRECTIONAL_ALIGNMENT_DRAFT_V001.json").read_text())
+          j=d/r["overlay_file"]
+          assert len(r["candidates"])==7
+          assert r["status"]=="DRAFT_REQUIRES_VISUAL_ALIGNMENT_AND_HUMAN_PROTECTION_APPROVAL"
+          assert r["person_protection_gate"]=="FAILED_NOT_YET_REMEDIATED"
+          assert r["fully_automatic_batch_authorized"] is False and r["v007_or_any_video_changed"] is False
+          assert hashlib.sha256(j.read_bytes()).hexdigest()==r["overlay_sha256"]
+          assert base64.b64decode((d/(j.name+".b64.txt")).read_text().strip())==j.read_bytes()
+          print("M01_ALIGNMENT_CANDIDATE_DIAGNOSTIC_HASH_PASS")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git add "$d"
+          git commit -m "Save seven user-guided M01 light-alignment overlay drafts with pending gates"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+      - name: Upload draft overlay and evidence for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V002_DIRECTIONAL_CALIBRATION_DRAFT_V001
+          path: |
+            production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_CANDIDATE_V001/M01_V002_SEVEN_SHOT_DIRECTIONAL_ALIGNMENT_DRAFT_V001.jpg
+            production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_CANDIDATE_V001/M01_V002_SEVEN_SHOT_DIRECTIONAL_ALIGNMENT_DRAFT_V001.json
+          retention-days: 7
+          if-no-files-found: error
