@@ -1,0 +1,118 @@
+name: M01 Unified Flame Atlas V013 Calibration Evidence
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-unified-flame-atlas-v013-calibration.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-unified-flame-atlas-v013
+  cancel-in-progress: false
+jobs:
+  build-real-flame-proposals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout isolated R&D feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install runtime
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-numpy python3-pil ffmpeg fonts-dejavu-core
+      - name: Verify one shared engine and two known input assets
+        run: |
+          python3 scripts/test_m01_engine_v1.py
+          python3 scripts/m01_engine_v1.py --profile N23_UNIFIED_FLAME_CALIBRATION_V013.json --mode diagnostic --output-dir _m01_v013/N23_DIG
+          python3 scripts/m01_engine_v1.py --profile NEW02_UNIFIED_FLAME_CALIBRATION_V013.json --mode diagnostic --output-dir _m01_v013/NEW02_DIG
+          python3 scripts/m01_engine_v1.py --profile N17_UNIFIED_REGISTERED_REFERENCE_V013.json --mode diagnostic --output-dir _m01_v013/N17_DIG
+      - name: Produce real-pixel candidate overlays for stills without asserting cores
+        run: |
+          python3 scripts/m01_unified_flame_locator_v013.py --profile N23_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_v013/N23
+          python3 scripts/m01_unified_flame_locator_v013.py --profile NEW02_UNIFIED_FLAME_CALIBRATION_V013.json --out _m01_v013/NEW02
+      - name: Verify proposals stay in actual source ROIs, not approved flame geometry
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          base=pathlib.Path("_m01_v013")
+          summary=[]
+          for name,expected in (("N23",3),("NEW02",5)):
+            files=list((base/name).glob("*_CANDIDATE_QC.json"))
+            assert len(files)==1,(name,files)
+            j=json.loads(files[0].read_text())
+            assert j["schema"]=="M01_UNIFIED_CANDLE_FLAME_REGISTRATION_PROPOSALS_V013"
+            assert j["status"]=="CALIBRATION_REQUIRED_NO_FLAME_CORE_REGISTRATION"
+            assert j["source_unchanged"] and j["no_fabricated_flames"]
+            assert not j["full_engine_flame_render_authorized"]
+            assert not j["people_mask_ground_truth_approved"]
+            assert not j["registration_PO_approved"]
+            assert len(j["fixtures"])==expected
+            for f in j["fixtures"]:
+              x0,y0,x1,y1=f["roi_px"]
+              assert not f["individual_light_has_verified_flame"]
+              for c in f["candidate_pixels"]:
+                assert x0<=c["x"]<x1 and y0<=c["y"]<y1
+                assert c["status"]=="UNVERIFIED_WARM_PIXEL_HYPOTHESIS_NOT_FLAME_GT"
+            jpg=base/name/j["review_overlay"]
+            assert jpg.is_file()
+            assert hashlib.sha256(jpg.read_bytes()).hexdigest()==j["review_overlay_sha256"]
+            summary.append({"shot":name,"source_sha256":j["exact_source_sha256"],
+              "overlay":jpg.name,"overlay_sha256":j["review_overlay_sha256"],
+              "suggested_warm_spots":j["aggregate_candidate_count"],
+              "fixtures":len(j["fixtures"]),"status":"PO_REVIEW_CALIBRATION_REQUIRED"})
+          original="production/environment_dynamic/review_candidates/M01_V12_NATURAL_AB/"
+          for label,file,expected in (
+            ("N23", "M01_N23_N17_NATURAL_V012_REVIEW_V001.mp4","0c9bf4cf8a901ac0cf7b306faf8cfd6e0cf650beb1cbc025cd3847e2f047fc0e"),
+            ("NEW02","M01_NEW02_N17_NATURAL_V012_REVIEW_V001.mp4","3899aaa97266af2a6133ee7210e97340aaf70921dbfe7c38dafdcf7eda54de02")):
+            p=pathlib.Path(original+label+"/"+file)
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==expected
+          n17=pathlib.Path("production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_CANDLE_ENGINE_RESULT_REVIEW_V001.mp4")
+          assert hashlib.sha256(n17.read_bytes()).hexdigest()=="46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62"
+          j={"schema":"M01_V013_UNIFIED_FLAME_ATLAS_CALIBRATION","status":"ONE_CORE_READY_N23_NEW02_FLAME_CALIBRATION_PENDING",
+            "core":"scripts/m01_engine_v1.py","calibration":"scripts/m01_unified_flame_locator_v013.py",
+            "approved_reference_V012_binary_preserved":True,
+            "registration_proposals":summary,"flames_all_verified":False,
+            "new_video_render_allowed":False,"multi_scene_product_approved":False,
+            "project_batch_gate":"HOLD","no_main_merge":True}
+          (base/"M01_V013_CALIBRATION_SUMMARY.json").write_text(json.dumps(j,indent=2)+"\n")
+          print("M01_V013_UNIFIED_ENGINE_ATLAS_CANDIDATE_EVIDENCE_PASS",summary)
+          PY
+      - name: Publish evidence to isolated branch, no master/story shot changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013
+          test ! -e "$dest"
+          mkdir -p "$dest/N23" "$dest/NEW02"
+          for name in N23 NEW02; do
+            cp _m01_v013/"$name"/*.jpg _m01_v013/"$name"/*.json "$dest/$name/"
+          done
+          cp _m01_v013/M01_V013_CALIBRATION_SUMMARY.json "$dest/"
+          test "$(git branch --show-current)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python3 - <<'PY'
+          import subprocess
+          files=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(files)==5,files
+          assert len([x for x in files if x.endswith(".jpg")])==2
+          assert len([x for x in files if x.endswith(".json")])==3
+          assert all(x.startswith("production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013/") for x in files)
+          PY
+          git commit -m "M01 V013 shared engine flame locator calibration proposals N23 NEW02, original images untouched"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Save candidate overlays as CI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_UNIFIED_FLAME_ATLAS_V013_PRE_APPROVAL
+          path: |
+            production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013/*/*.jpg
+            production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013/*/*.json
+            production/environment_dynamic/review_candidates/M01_UNIFIED_FLAME_LOCATOR_V013/*.json
+          retention-days: 14
