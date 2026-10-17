@@ -1,4 +1,5 @@
 name: M01 Engine V1 Unified Three-Profile Pilot
+# V1 run 2: test temporal non-zero across frames, not a single phase crossing.
 on:
   push:
     branches:
