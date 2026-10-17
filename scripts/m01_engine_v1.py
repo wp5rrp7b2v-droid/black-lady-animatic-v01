@@ -69,6 +69,7 @@ def validate(p):
   if "visibility_keyframes" in fixture:
    keys=fixture["visibility_keyframes"]
    assert all(a[0]<b[0] for a,b in zip(keys,keys[1:]))
+   assert all(0<=frame<size["frames"] for frame,_ in keys),"VISIBILITY_KEYS_MUST_USE_CLIP_LOCAL_FRAMES"
    assert all(0<=v<=1 for _,v in keys)
   for fade in reg.get("tapers",[]):
    assert fade["axis"] in ("x","y")
