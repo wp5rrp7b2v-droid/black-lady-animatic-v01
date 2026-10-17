@@ -1,0 +1,403 @@
+{
+  "schema": "M01_STAGE_A1_N17_LATE_CANDLE_LOCATOR_V001",
+  "status": "SOURCE_LOCALIZED_CANDIDATES_PO_VISUAL_REVIEW_PENDING",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "fixture_id": "N17_RIGHT_SCONCE_01",
+  "physical_fixture_groups": 1,
+  "source_flames_count_candidate": 4,
+  "flame_locators_method": "F601 original frame rough visual seeds refined to nearest plausible warm high-luminance core, repeated on F550 F580 F601 F630 F645",
+  "visible_window_hypothesis": "F520 not visible, F550 and later visible in inspected frames; exact onset not yet measured",
+  "timing_note": "Indices are absolute V006 frames; the whole V006 source is 30 fps",
+  "machine_human_protection_F601_sha256": "dc748cbf4246b5f3a5533c0ae8c6d1c73f5de6a3f3574448bf035ab452975409",
+  "human_protection_on_all_frames_approved": false,
+  "individual_flame_ground_truth_approved": false,
+  "machine_pixel_candidates_not_verified_flame_shapes": true,
+  "additional_light_in_background_or_crop_not_ruled_out": true,
+  "source_tracks": [
+    {
+      "frame": 550,
+      "time_seconds": 18.35,
+      "rgb_sha256": "089dce17bfcb0c1996d82ad102e99a7255d03497f0ad89e99cb8ee3e74259f18",
+      "detected_local_bright_core_pixels": [
+        30,
+        187,
+        122,
+        0
+      ],
+      "flames": [
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_01",
+          "rough_visual_seed_px": [
+            616,
+            87
+          ],
+          "brightness_peak_candidate_px": [
+            617,
+            66
+          ],
+          "normalized_coordinate": [
+            0.856944,
+            0.051562
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_02",
+          "rough_visual_seed_px": [
+            630,
+            70
+          ],
+          "brightness_peak_candidate_px": [
+            620,
+            63
+          ],
+          "normalized_coordinate": [
+            0.861111,
+            0.049219
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_03",
+          "rough_visual_seed_px": [
+            645,
+            47
+          ],
+          "brightness_peak_candidate_px": [
+            647,
+            32
+          ],
+          "normalized_coordinate": [
+            0.898611,
+            0.025
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_04",
+          "rough_visual_seed_px": [
+            689,
+            83
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        }
+      ]
+    },
+    {
+      "frame": 580,
+      "time_seconds": 19.35,
+      "rgb_sha256": "fe1b1ad24dd4f7b3dec4b86087980e8298283500965310bf4259e2321e2d922d",
+      "detected_local_bright_core_pixels": [
+        8,
+        160,
+        119,
+        0
+      ],
+      "flames": [
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_01",
+          "rough_visual_seed_px": [
+            616,
+            87
+          ],
+          "brightness_peak_candidate_px": [
+            616,
+            64
+          ],
+          "normalized_coordinate": [
+            0.855556,
+            0.05
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_02",
+          "rough_visual_seed_px": [
+            630,
+            70
+          ],
+          "brightness_peak_candidate_px": [
+            619,
+            60
+          ],
+          "normalized_coordinate": [
+            0.859722,
+            0.046875
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_03",
+          "rough_visual_seed_px": [
+            645,
+            47
+          ],
+          "brightness_peak_candidate_px": [
+            627,
+            44
+          ],
+          "normalized_coordinate": [
+            0.870833,
+            0.034375
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_04",
+          "rough_visual_seed_px": [
+            689,
+            83
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        }
+      ]
+    },
+    {
+      "frame": 601,
+      "time_seconds": 20.05,
+      "rgb_sha256": "45795aeaca01c9c3785dfcd5063cbcc3edceab6a1bba7ea473da6bb1193c8ee0",
+      "detected_local_bright_core_pixels": [
+        0,
+        101,
+        66,
+        0
+      ],
+      "flames": [
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_01",
+          "rough_visual_seed_px": [
+            616,
+            87
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_02",
+          "rough_visual_seed_px": [
+            630,
+            70
+          ],
+          "brightness_peak_candidate_px": [
+            618,
+            56
+          ],
+          "normalized_coordinate": [
+            0.858333,
+            0.04375
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": false,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_03",
+          "rough_visual_seed_px": [
+            645,
+            47
+          ],
+          "brightness_peak_candidate_px": [
+            626,
+            40
+          ],
+          "normalized_coordinate": [
+            0.869444,
+            0.03125
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": false,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_04",
+          "rough_visual_seed_px": [
+            689,
+            83
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        }
+      ]
+    },
+    {
+      "frame": 630,
+      "time_seconds": 21.017,
+      "rgb_sha256": "bfc3e96e242643cdcd56296723efcc28778015c53576e7c765fcd71004e95428",
+      "detected_local_bright_core_pixels": [
+        0,
+        57,
+        21,
+        0
+      ],
+      "flames": [
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_01",
+          "rough_visual_seed_px": [
+            616,
+            87
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_02",
+          "rough_visual_seed_px": [
+            630,
+            70
+          ],
+          "brightness_peak_candidate_px": [
+            616,
+            52
+          ],
+          "normalized_coordinate": [
+            0.855556,
+            0.040625
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_03",
+          "rough_visual_seed_px": [
+            645,
+            47
+          ],
+          "brightness_peak_candidate_px": [
+            625,
+            34
+          ],
+          "normalized_coordinate": [
+            0.868056,
+            0.026562
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_04",
+          "rough_visual_seed_px": [
+            689,
+            83
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        }
+      ]
+    },
+    {
+      "frame": 645,
+      "time_seconds": 21.517,
+      "rgb_sha256": "5708817193f964f13b5e5cfec9baed9f65c87d67769bb2242437d6433ba93833",
+      "detected_local_bright_core_pixels": [
+        0,
+        52,
+        20,
+        0
+      ],
+      "flames": [
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_01",
+          "rough_visual_seed_px": [
+            616,
+            87
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_02",
+          "rough_visual_seed_px": [
+            630,
+            70
+          ],
+          "brightness_peak_candidate_px": [
+            615,
+            52
+          ],
+          "normalized_coordinate": [
+            0.854167,
+            0.040625
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_03",
+          "rough_visual_seed_px": [
+            645,
+            47
+          ],
+          "brightness_peak_candidate_px": [
+            625,
+            34
+          ],
+          "normalized_coordinate": [
+            0.868056,
+            0.026562
+          ],
+          "peak_found": true,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        },
+        {
+          "flame_id": "N17_RIGHT_SCONCE_01_FLAME_04",
+          "rough_visual_seed_px": [
+            689,
+            83
+          ],
+          "brightness_peak_candidate_px": null,
+          "normalized_coordinate": null,
+          "peak_found": false,
+          "overlap_F601_machine_person_mask": null,
+          "ground_truth_approved": false
+        }
+      ]
+    }
+  ],
+  "annotated_overview": "M01_A1_N17_F550_F645_FOUR_FLAME_LOCATORS_V001.jpg",
+  "annotated_overview_sha256": "252317a880c228607000d3f50807075afee138ac319eaee577f3fb4fe3ff1e28",
+  "f601_review_image": "M01_A1_N17_F601_EXACT_FLAME_CORES_V001.jpg",
+  "f601_review_image_sha256": "c0df6176121e051b2465432eab65501a4b858f63bc4981a45c32c63bef3c67c2",
+  "no_video_rendered": true,
+  "no_main_merge": true,
+  "atlas_promotion_authorized": false,
+  "m01_batch_gate": "HOLD"
+}
