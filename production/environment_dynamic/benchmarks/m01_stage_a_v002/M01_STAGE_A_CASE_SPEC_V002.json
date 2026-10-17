@@ -1,0 +1,200 @@
+{
+  "schema": "M01_STAGE_A_CASE_SPEC_V002",
+  "date": "2026-10-17",
+  "project": "诡舍·黑衣夫人",
+  "stage": "A_STANDARD_VALIDATION_DATASET",
+  "scope": "Reusable generic candle engine first proving ground on S02-B; not an S02-B hard-coded solution",
+  "source_video": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_edl": "production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V001.json",
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "total_frames": 1927,
+  "baseline_candidate_atlas": "production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_CLUSTER_V003/M01_V002_SCENE_LIGHT_ATLAS_CANDIDATES_V001.json",
+  "NEW02_stylistic_reference_profile": "production/environment_dynamic/shot_profiles/NEW02_M01_M03_TEST_V001.json",
+  "labeling_policy": {
+    "human_gt_not_automatically_generated": true,
+    "flame_gt_not_automatically_generated": true,
+    "machine_proposal_must_never_be_called_truth": true,
+    "person_segmentation_model": "yolo11n-seg.pt",
+    "person_protection_dilation_pixels": 13,
+    "model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+    "human_outline_candidate_format": "full-frame uint8 PNG for each sampled frame",
+    "candidate_source_point_format": "normalized x,y at the middle frame only",
+    "no_invisible_scene_invention": true,
+    "no_render_or_main_merge": true,
+    "unknown_or_missing_flame_requires_calibration": true
+  },
+  "release_promotion": "DRAFT_ONLY until image-level fixture annotations, person exclusions, independent verification and PO visuals approved",
+  "cross_scene_holdout_policy": "Reserve independent scenes after engine freeze; do not tune on holdouts or count this S02-B benchmark as cross-scene acceptance",
+  "cases": [
+    {
+      "shot_id": "N16_PART_1",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask too low; calibration source direction upward",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N18",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask shifted left; two old anchors incorrectly converged on same fixture",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N20_FIRST",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask shifted left; three fixture candidates require tracking",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "V006_NEW_01",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask shifted left; left source ambiguous; protect faces",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N21",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask shifted right; multiple persons",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "A06",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Mask too far left/down; daylight and candles coexist",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N24",
+      "group": "PO_REPORTED_ALIGNMENT_ERROR",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "Right source shifted left; old machine cluster detector unresolved",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N23",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "PO-accepted M01 style; source location still needs ground-truth calibration",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "V006_NEW_02",
+      "group": "STYLE_REFERENCE_POSITIVE",
+      "expected_light": "VISIBLE_CANDLE_OR_SCONCE_EXPECTED",
+      "issue": "PO-accepted M01 V003 style; prior 5 sources are ROI anchors, not pixel-core truth",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING"
+    },
+    {
+      "shot_id": "N16_PART_2",
+      "group": "NEGATIVE_DAYLIGHT",
+      "expected_light": "NO_VISIBLE_CANDLE_EXPECTED",
+      "issue": "No confirmed in-frame flame; human reviewer must verify all sampled frames",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING",
+      "frame_light_hypotheses": [
+        "NO_VISIBLE_PRACTICAL_CANDIDATE",
+        "NO_VISIBLE_PRACTICAL_CANDIDATE",
+        "NO_VISIBLE_PRACTICAL_CANDIDATE"
+      ]
+    },
+    {
+      "shot_id": "N17",
+      "group": "TEMPORAL_MIXED_VISIBILITY",
+      "expected_light": "VISIBLE_PRACTICAL_LATE_IN_CLIP__EARLY_FRAMES_DAYLIGHT_DOMINANT",
+      "issue": "Contact sheet inspection: f337 and f469 show daylight-dominated close-up, while f601 visibly shows a lit wall sconce; never label all N17 as negative.",
+      "source_geometry_truth": "UNVERIFIED_PENDING_VISUAL_ANNOTATION",
+      "person_segmentation_truth": "MACHINE_CANDIDATE_PENDING_VISUAL_ANNOTATION",
+      "frame_sample_ratios": [
+        0.15,
+        0.5,
+        0.85
+      ],
+      "annotation_review_status": "PO_OR_INDEPENDENT_REVIEW_PENDING",
+      "frame_light_hypotheses": [
+        "NO_VISIBLE_PRACTICAL_CANDIDATE",
+        "NO_VISIBLE_PRACTICAL_CANDIDATE",
+        "VISIBLE_WALL_SCONCE_CANDIDATE"
+      ]
+    }
+  ],
+  "supersedes": "M01_STAGE_A_CASE_SPEC_V001",
+  "supersession_reason": "N17 is NOT a valid shot-level no-flame control: frame ~601 contains visible wall candles; the case is a TEMPORAL_MIXED source-visibility stress control.",
+  "calibration_notes": "Frame visibility hypotheses are human-visible QA leads, not PO-approved truth."
+}
