@@ -1,0 +1,85 @@
+name: M01 V014 Actual Flame Centers Corrected Visual Review
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-v014-direct-flame-centers-review.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v014-corrected-flame-review
+  cancel-in-progress: false
+jobs:
+  draw_true_source_center_proposals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+      - name: Dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-numpy python3-pil fonts-dejavu-core
+      - name: Render 2 true original source diagrams and 2 enlarged flame overlays
+        run: |
+          python3 scripts/m01_v014_draw_true_flame_centers.py --shot N23 --out _m01_corrected_v014/N23
+          python3 scripts/m01_v014_draw_true_flame_centers.py --shot NEW02 --out _m01_corrected_v014/NEW02
+      - name: Source/coordinate/binary and no-publication QC
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,hashlib,base64
+          for shot,n in (("N23",5),("NEW02",11)):
+            root=pathlib.Path("_m01_corrected_v014")/shot
+            p=root/f"{shot}_V014_DIRECT_SOURCE_FLAME_LOCATOR_REPORT.json"
+            j=json.loads(p.read_text())
+            assert j["status"]=="PO_VISUAL_REVIEW_PENDING_NOT_APPROVED"
+            assert j["source_exact"] and not j["publication_allowed"]
+            assert j["reference_V012_unchanged"]
+            assert not j["registered_flame_core_masks_created"]
+            assert len(j["flames"])==n
+            assert len({f["id"] for f in j["flames"]})==n
+            assert len({tuple(f["center"]) for f in j["flames"]})==n
+            for f in j["flames"]:
+              x,y=f["center"]; assert 0<=x<720 and 0<=y<1280
+            for spec in j["images"]:
+              b=(root/spec["file"]).read_bytes()
+              assert hashlib.sha256(b).hexdigest()==spec["sha256"]
+              assert base64.b64decode((root/spec["file"].replace(".jpg",".b64.txt")).read_text())==b
+            print("V014_SOURCE_FLAME_CORRECTION_QC_PASS",shot,n)
+          PY
+      - name: Commit only candidate diagrams in isolated development branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/review_candidates/M01_V014_CORRECTED_FLAME_CORE_LOCATOR
+          test ! -e "$dst"
+          mkdir -p "$dst/N23" "$dst/NEW02"
+          for shot in N23 NEW02; do
+            cp _m01_corrected_v014/"$shot"/*.jpg _m01_corrected_v014/"$shot"/*.json _m01_corrected_v014/"$shot"/*.txt "$dst/$shot/"
+          done
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dst"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==10,paths
+          assert len([p for p in paths if p.endswith(".jpg")])==4
+          assert len([p for p in paths if p.endswith(".json")])==2
+          assert len([p for p in paths if p.endswith(".txt")])==4
+          assert all("M01_V014_CORRECTED_FLAME_CORE_LOCATOR" in p for p in paths)
+          PY
+          git commit -m "PO-review draft: 5 N23 and 11 NEW02 real source candle centers after rejected warm-pixel locations"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Archive review diagram artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V014_CORRECTED_FLAME_CORE_LOCATOR_REVIEW
+          path: |
+            production/environment_dynamic/review_candidates/M01_V014_CORRECTED_FLAME_CORE_LOCATOR/*/*.jpg
+            production/environment_dynamic/review_candidates/M01_V014_CORRECTED_FLAME_CORE_LOCATOR/*/*.json
+          retention-days: 14
