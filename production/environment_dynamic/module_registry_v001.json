@@ -306,6 +306,25 @@
         "next": "Inspect exact original N23 and NEW02 image visually; correct only verifiable flame cores, don't reuse warm-pixel maxima as source points.",
         "po_alignment_feedback": "火苗没有定位准确",
         "previous_candidate_status": "INVALID_FOR_FLAME_REGISTRATION_NO_PROMOTION"
+      },
+      "engine_v1_4": {
+        "status": "REAL_SOURCE_FLAME_CENTER_CORRECTION_CANDIDATE_BUILT_PO_VISUAL_REVIEW_PENDING",
+        "po_trigger": "火苗没有定位准确",
+        "source_reinspection_run": 39044929468,
+        "magnified_source_run": 39045106780,
+        "annotated_candidate_run": 39045428738,
+        "candidate_path": "production/environment_dynamic/benchmarks/m01_stage_a_v002/M01_V014_TRUE_FLAME_CENTERS_VISUAL_CORRECTION_CANDIDATE.json",
+        "visual_review_root": "production/environment_dynamic/review_candidates/M01_V014_CORRECTED_FLAME_CORE_LOCATOR",
+        "n23_clear_source_point_candidates": 5,
+        "new02_clear_source_point_candidates": 11,
+        "excluded_sources": "N23 right frame edge; NEW02 partly cropped upper left and far-right edge bright dots",
+        "candidate_source": "Human visual reading of unchanged exact original PNG and 4x enlarged image, not V013 warm-pixel peak heuristic",
+        "model_core_segmentation_done": false,
+        "corrected_positions_po_approved": false,
+        "no_new_video_rendered": true,
+        "V012_style_preserved": true,
+        "cross_scene_release": false,
+        "next": "PO check two corrected visual source flame center overlays; only after confirmation derive core masks and render same universal engine A/B; no synthetic flame or wall-bloom."
       }
     },
     {
