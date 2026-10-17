@@ -1,0 +1,83 @@
+name: M01 V002 Light Core Person Protection Pilot
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-light-person-detection-pilot.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v002-light-person-detection-pilot
+  cancel-in-progress: false
+jobs:
+  source-localization-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout source without editing approved materials
+        uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+          persist-credentials: true
+      - name: Prepare Python CPU CV environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install open-source people segmentation and video inspection dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          python -m pip install "ultralytics==8.3.220" "opencv-python-headless>=4.8" "pillow>=10" "numpy<2"
+          python -c 'import torch,ultralytics,cv2;print("PILOT_DEPENDENCIES_PASS",torch.__version__,ultralytics.__version__,cv2.__version__)'
+      - name: Extract seven actual source frames and detect warm cores and persons
+        run: |
+          python scripts/m01_v002_light_person_detection_pilot.py
+      - name: Save strict diagnostic-only images and source-protection report on review branch
+        run: |
+          set -euo pipefail
+          d=production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_DETECTION_PILOT_V001
+          test ! -e "$d"
+          mkdir -p "$d"
+          cp _m01_v002_flame_person_detection_pilot/* "$d/"
+          python - <<'PY'
+          import json,base64,pathlib,hashlib
+          d=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_DETECTION_PILOT_V001")
+          j=json.loads((d/"M01_V002_AUTO_LIGHT_AND_PERSON_PROTECTION_PILOT_V001.json").read_text())
+          p=d/j["contact_sheet"]
+          assert len(j["shots"])==7
+          assert j["status"]=="DIAGNOSTIC_ONLY_FAIL_CLOSED"
+          assert j["full_video_render_allowed"] is False
+          assert j["reuse_as_production_light_atlas"] is False
+          assert j["source_registration_pass"] is False
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==j["contact_sheet_sha256"]
+          (d/(p.name+".b64.txt")).write_text(base64.b64encode(p.read_bytes()).decode()+"\n")
+          print("DIAGNOSTIC_BINARY_PASS")
+          PY
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test "$(git symbolic-ref --short HEAD)" = "review/s02b-jun-nod-insert-20261014"
+          git add "$d"
+          python - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==3
+          assert all(p.startswith("production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_DETECTION_PILOT_V001/") for p in paths)
+          PY
+          git commit -m "Save fail-closed seven-shot M01 automated flame and person segmentation pilot QA"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
+          echo "STORY_SHOTS_UNCHANGED=TRUE"
+          echo "NO_MP4_RENDER=TRUE"
+          echo "MAIN_UNCHANGED=TRUE"
+      - name: Upload original diagnostic overlay and machine findings for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V002_LIGHT_PERSON_PILOT_V001
+          path: |
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_DETECTION_PILOT_V001/M01_V002_AUTO_LIGHT_AND_PERSON_PROTECTION_PILOT_V001.jpg
+            production/environment_dynamic/review_candidates/M01_V002_LIGHT_PERSON_DETECTION_PILOT_V001/M01_V002_AUTO_LIGHT_AND_PERSON_PROTECTION_PILOT_V001.json
+          retention-days: 7
+          if-no-files-found: error
