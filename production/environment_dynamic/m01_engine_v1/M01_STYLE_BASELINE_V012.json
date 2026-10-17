@@ -1,0 +1,49 @@
+{
+  "schema": "M01_STYLE_BASELINE_V012",
+  "date": "2026-10-17",
+  "product_owner_feedback": "我觉得这次的效果可以",
+  "approval_scope": "CURRENT_VISUAL_STYLE_ACCEPTABLE_REFERENCE_ONLY_NOT_NEW_ENGINE_RELEASE",
+  "single_candle_engine_principle": "All candles use the same independent oscillator and linked local halo. Missing flame masks are registration work pending, NOT a separate 'ambient engine mode'.",
+  "reference_videos": [
+    {
+      "shot": "N17",
+      "role": "APPROVED_FLAME_AND_HALO_REFERENCE",
+      "source": "production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_CANDLE_ENGINE_RESULT_REVIEW_V001.mp4",
+      "sha256": "46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62",
+      "legacy_core_masks": "PROVISIONAL_MACHINE_MASKS_PO_APPROVED_F601_4_CENTERS"
+    },
+    {
+      "shot": "N23",
+      "role": "PO_ACCEPTABLE_LOCAL_ILLUMINATION",
+      "source": "production/environment_dynamic/review_candidates/M01_V12_NATURAL_AB/N23/M01_N23_N17_NATURAL_V012_REVIEW_V001.mp4",
+      "sha256": "0c9bf4cf8a901ac0cf7b306faf8cfd6e0cf650beb1cbc025cd3847e2f047fc0e",
+      "flame_core_status": "UNREGISTERED"
+    },
+    {
+      "shot": "NEW02",
+      "role": "PO_ACCEPTABLE_LOCAL_ILLUMINATION",
+      "source": "production/environment_dynamic/review_candidates/M01_V12_NATURAL_AB/NEW02/M01_NEW02_N17_NATURAL_V012_REVIEW_V001.mp4",
+      "sha256": "3899aaa97266af2a6133ee7210e97340aaf70921dbfe7c38dafdcf7eda54de02",
+      "flame_core_status": "UNREGISTERED"
+    }
+  ],
+  "rejected_baseline": {
+    "id": "M01_V011_OVERSTRONG",
+    "reason": "PO said unnatural and felt stronger than N17",
+    "promotion_forbidden": true
+  },
+  "locked_visual_rules": [
+    "Do not enlarge architecture region or force N17 flame-core RGB delta onto wall halos",
+    "Keep N17 original byte-for-byte",
+    "Keep N23 and NEW02 V012 bytes unchanged as style references",
+    "No manmade luminous points in unregistered flames"
+  ],
+  "pending_acceptance": [
+    "Review real flame core proposals in N23, NEW02",
+    "Test core+halo without harming V012 look",
+    "Unseen S02-B holdout",
+    "Different interior scene reuse and PO review"
+  ],
+  "release": false,
+  "engine_completion": false
+}
