@@ -1,0 +1,129 @@
+name: M01 V1.1 N17 Strength Unified AB Review
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-v11-n17-strength-ab-review.yml
+permissions:
+  contents: write
+concurrency:
+  group: m01-v11-n17-strength-ab-review
+  cancel-in-progress: false
+jobs:
+  calibrated-n17-strength-ab-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout isolated M01 engine R&D branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install lightweight render requirements
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Validate single common engine and N17 golden baseline
+        run: |
+          python3 scripts/test_m01_engine_v1.py
+          python3 - <<'PY'
+          import json,hashlib,pathlib
+          p=pathlib.Path("production/environment_dynamic/review_candidates/M01_N17_CANDLE_MOTION_RESULT_V001/M01_N17_CANDLE_ENGINE_RESULT_QC_V001.json")
+          j=json.loads(p.read_text())
+          assert j["video"]["sha256"]=="46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62"
+          assert j["comparison"]["sha256"]=="bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f"
+          base=p.parent/j["comparison"]["file"]
+          assert hashlib.sha256(base.read_bytes()).hexdigest()==j["comparison"]["sha256"]
+          assert j["only_review_output"] and j["batch_gate"]=="HOLD"
+          print("APPROVED_N17_GOLDEN_AB_BINARY_UNCHANGED")
+          PY
+      - name: Render N23 and NEW02 with N17 rhythm and stronger local glow
+        run: |
+          python3 scripts/m01_engine_v1.py --profile N23_N17_STRENGTH_V011.json --mode pilot --ab --output-dir _m01_v11_n17_strength/N23
+          python3 scripts/m01_engine_v1.py --profile NEW02_N17_STRENGTH_V011.json --mode pilot --ab --output-dir _m01_v11_n17_strength/NEW02
+      - name: Check precise source identity and review MP4 A-B integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          root=pathlib.Path("_m01_v11_n17_strength")
+          baselines={
+            "N23":"production/environment_dynamic/m01_engine_v1/profiles/N23_N17_STRENGTH_V011.json",
+            "NEW02":"production/environment_dynamic/m01_engine_v1/profiles/NEW02_N17_STRENGTH_V011.json",
+          }
+          records=[]
+          for label,profile_path in baselines.items():
+            j=json.loads((root/label/"M01_ENGINE_V1_PILOT_QC.json").read_text())
+            profile=json.loads(pathlib.Path(profile_path).read_text())
+            assert j["status"]=="COMMON_ENGINE_TECHNICAL_PILOT_PO_REVIEW_PENDING"
+            assert j["frame_count"]==90
+            assert j["source_sha256"]==profile["source"]["sha256"]
+            assert profile["temporal"]["style"]=="unsynced_independent"
+            assert profile["m01_strength_standard"]=="N17_V001_INDEPENDENT_RHYTHM_AND_COMPARABLE_VISUAL_FLUCTUATION"
+            assert len(profile["fixtures"])>0
+            assert j["changed_protected_pixels"]==0
+            assert j["changed_pixels_outside_authorized"]==0
+            assert j["changed_frames"]>70
+            assert 20<=j["max_raw_rgb_delta"]<=46,j["max_raw_rgb_delta"]
+            assert not j["release_allowed"] and not j["person_protection_ground_truth_approved"]
+            assert j["no_canonical_publication"] and j["no_main_merge"]
+            for key,hkey in (("video_file","video_sha256"),("comparison_file","comparison_sha256")):
+              file=root/label/j[key]
+              assert file.is_file()
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==j[hkey]
+              subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-i",str(file),"-map","0:v:0","-f","null","-"],check=True)
+            records.append({"shot":label,"source_sha256":j["source_sha256"],
+              "render_file":j["video_file"],"render_sha256":j["video_sha256"],
+              "ab_file":j["comparison_file"],"ab_sha256":j["comparison_sha256"],
+              "changed_frames":j["changed_frames"],"max_raw_rgb_delta":j["max_raw_rgb_delta"]})
+            print("M01_V11_N17_STRENGTH_AB_BINARY_QC_PASS",label,j["max_raw_rgb_delta"])
+          result={"schema":"M01_V11_N17_STRENGTH_AB_RESULT",
+            "status":"TWO_STRONGER_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_PENDING",
+            "standard":"N17 rhythm and perceptible fluctuation; N17 original approved A/B retained byte-for-byte",
+            "modified_only":["N23","NEW02"],"N17_original_approved_ab_unchanged":True,
+            "exact_n17_reference_sha256":"bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+            "new_comparisons":records,"uniform_core_script":"scripts/m01_engine_v1.py",
+            "independent_unseen_scene_validation_passed":False,
+            "N23_NEW02_PO_visual_approved":False,
+            "s02b_release_allowed":False,"m01_batch_gate":"HOLD",
+            "no_main_merge":True,"no_master_or_shot_registration":True}
+          (root/"M01_V11_N17_STRENGTH_AB_TECHNICAL_QC_V001.json").write_text(json.dumps(result,indent=2)+"\n")
+          PY
+      - name: Publish reviewer candidates only to the isolated feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB
+          test ! -e "$dst"
+          mkdir -p "$dst/N23" "$dst/NEW02"
+          for shot in N23 NEW02; do
+            cp _m01_v11_n17_strength/"$shot"/*.mp4 _m01_v11_n17_strength/"$shot"/*.json "$dst/$shot/"
+          done
+          cp _m01_v11_n17_strength/M01_V11_N17_STRENGTH_AB_TECHNICAL_QC_V001.json "$dst/"
+          test "$(git branch --show-current)" = "feature/m01-v002-engine-stage-a-20261017"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dst"
+          python3 - <<'PY'
+          import subprocess
+          p=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(p)==7,p
+          assert len([x for x in p if x.endswith(".mp4")])==4,p
+          assert len([x for x in p if x.endswith(".json")])==3,p
+          assert all(x.startswith("production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB/") for x in p)
+          PY
+          git commit -m "Deliver N17-strength N23 and NEW02 M01 v1.1 review A/B; preserve approved N17 unchanged"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+      - name: Upload two A-B results
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_V11_N17_STRENGTH_N23_NEW02_AB_REVIEW
+          path: |
+            production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB/*/*.mp4
+            production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB/*/*.json
+            production/environment_dynamic/review_candidates/M01_V11_N17_STRENGTH_AB/*.json
+          retention-days: 14
+          if-no-files-found: error
