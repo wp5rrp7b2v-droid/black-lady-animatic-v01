@@ -1,0 +1,62 @@
+{
+  "task": "M01_N17_CANDLE_ENGINE_DIRECT_VISUAL_RESULT_V001",
+  "status": "REVIEW_MP4_RENDERED_PO_VISUAL_DECISION_PENDING",
+  "source_video_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "scope": "N17_ONLY_PREVIEW_NOT_MASTER",
+  "source_frame_range": [
+    281,
+    657
+  ],
+  "frames": 377,
+  "fps": 30,
+  "duration_seconds": 12.566666666666666,
+  "reference_flames": "N17_RIGHT_SCONCE_01_4_CENTERS_PO_APPROVED_F601",
+  "effect": "Independent per-candle warm glow, light-bound core flicker, soft transition with preexisting crossfade",
+  "mask_provenance_sha256": "6869a9d2437b413c52bee803376e2073c7a8e8d59d73b33f9a97593c46e3bbe6",
+  "individual_candle_signals": 4,
+  "exclude_people_and_bbox_uncertain_regions_in_all_frames": true,
+  "modified_pixels_outside_spatial_candle_window": 0,
+  "modified_person_or_uncertain_pixels_raw": 0,
+  "changed_raw_frame_count": 114,
+  "max_raw_rgb_delta": 37,
+  "approved_original_visual": true,
+  "new_video_PO_approved": false,
+  "video": {
+    "file": "M01_N17_CANDLE_ENGINE_RESULT_REVIEW_V001.mp4",
+    "sha256": "46eb426b0f01ded40b749d892ec4b85b8f3715450a25fee748779e7185bcdd62",
+    "size": 2565913
+  },
+  "comparison": {
+    "file": "M01_N17_ORIGINAL_VS_CANDLE_RESULT_AB_V001.mp4",
+    "sha256": "bc265e735c07f3d200906bddbd34c737a90f02a829abc48a4b093c6302f48c8f",
+    "size": 2936436
+  },
+  "frames_summary": {
+    "first": {
+      "frame_index": 281,
+      "gate": 0,
+      "changed": 0,
+      "protected_changed": 0,
+      "max_abs_delta": 0
+    },
+    "middle": {
+      "frame_index": 591,
+      "gate": 1.0,
+      "changed": 25020,
+      "protected_changed": 0,
+      "max_abs_delta": 26
+    },
+    "last": {
+      "frame_index": 657,
+      "gate": 0,
+      "changed": 0,
+      "protected_changed": 0,
+      "max_abs_delta": 0
+    }
+  },
+  "no_canonical_publication": true,
+  "no_main_merge": true,
+  "original_source_unchanged": true,
+  "batch_gate": "HOLD",
+  "only_review_output": true
+}
