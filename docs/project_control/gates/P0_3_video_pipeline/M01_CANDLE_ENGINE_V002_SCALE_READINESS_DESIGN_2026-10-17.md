@@ -57,3 +57,41 @@ Exact visibility/geometry acceptance tolerances must be empirically established 
 ## 5. Do not treat existing approval as blanket approval
 
 The N23 and NEW-02 V003 candlelight samples were accepted as visual style references. They are **not** approvals of inaccurate mask placement, the V007 implementation or any new flame-shape algorithm. All changes remain review-only pending PO.
+
+---
+
+## 6. 2026-10-17 Product Owner correction: reusable ENGINE is the deliverable, not merely S02-B success
+
+**PO decision:** The purpose of M01 is a **reusable, cross-shot and cross-scene candlefire engine** for many future films and scenes. Passing S02-B is a **necessary prerequisite** and first acceptance gate, **not proof the engine is reusable nor sufficient to close the project**.
+
+### Two distinct approval milestones
+
+- **G-S02B / Pilot validation:** Calibrated M01 locates real candle cores and nearby light-receiving geometry in S02-B, protects people in all frames, creates independent natural flame + reflected-light motion, and passes PO-reviewed A/B at normal speed. Passing this gate allows **S02-B pilot use only**, not general batch production.
+- **G-REUSE / Product acceptance:** A *frozen* M01 engine, without per-shot manual recoding or source coordinate guessing, runs on **independent never-used-for-tuning scenes**. It must automatically recover known approved Scene Light Atlas profiles, propose well-grounded sources in unregistered scenes, flag ambiguous/missing sources for calibration instead of rendering, protect human pixels, and deliver visual and binary QA. Only this gate supports the designation **REUSABLE M01 CANDLE ENGINE**.
+
+Do not promote an engine because the workflow ran successfully, because all S02-B clips were covered, or because a fixed set of S02-B source coordinates passed. S02-B-only scripts are test fixtures and must not become the permanent engine API.
+
+### Cross-scene release test matrix (preserve independent holdouts)
+
+Test scenes must be selected from the repository's available approved/registered environments and have verifiable source imagery, without assuming every environment contains candles.
+
+1. **Same scene, changed framing:** wide shot, close-up, crop, scale, or shifted camera. Light locations follow the actual image/camera transform, not a copied fixed pixel coordinate.
+2. **Different castle interiors:** at least two visually distinct sets such as an entrance lobby, corridor, guest room, gallery or hall **where a visible or evidenced practical light is actually present**. Do not choose/test an invented fixture.
+3. **Adverse cases:** candelabra with multiple flames; partial candle occlusion; candle behind a foreground moving/person mask; overexposed or pale flame; person wearing dark clothes; a flickering reflection near a face.
+4. **Negative cases:** daylight or no reliable candle source, another bright object imitating a flame. Must return `NO_PRACTICAL` or `CALIBRATION_REQUIRED`, not manufacture flicker.
+5. **Repeatability and regression:** same input identity + profile + seed yields deterministic output; changing input or source profile invalidates cached locations as appropriate. Accepted scene profiles are reused without additional manual XY tuning.
+6. **Visual product acceptance:** review short natural-speed A/B clips from S02-B and independent unseen scenes. PO approves perceptibility, realism, continuity and subject protection, not a single pixel-based PASS.
+
+### Release deliverables
+
+- Independently versioned engine code and CLI/Action interface: `input`, `output`, `scene_profile=auto|approved:<version>`, `mode=diagnostic|pilot|review_full`, `ab=true|false`; no S02-B-specific constants in common engine.
+- Versioned `Scene Light Atlas` with stable fixture IDs, reference frame/transform, per-flame segmentation and receiving-light regions, person exclusion, confidence and review status. Reuse from approved atlas where reliable; unfamiliar sets require initial profile calibration, then become repeatable.
+- Per-input machine-readable localization and human-protection assessment, source masks/overlays, visible-flame-movement/illuminance evidence, error/uncertainty and source/model version provenance.
+- Cloud GitHub Actions single-run invocation for batch *eligible* inputs, deterministic versioning, independent verification and downloadable video or explicit fail-closed report. No PO bypass, main merge or canonical publication.
+- Release dashboard / acceptance matrix that differentiates **S02-B PILOT PASS** from **CROSS-SCENE REUSABLE ENGINE PASS**.
+
+### Change to milestone order
+
+The earlier Gate 4 is not an optional later enhancement. Following S02-B pilot validation (G-S02B), cross-scene holdout tests, fail-closed automation and approval (G-REUSE) are **required** before M01 can be considered complete or offered as a reliable one-click effect across future video batches.
+
+**Current measured status:** V007 Gate0 position failed; human protection unverified on all frames; N24 and NEW-01 localization unresolved in subsequent Gate1C diagnostics. `G-S02B=BLOCKED`, `G-REUSE=NOT_STARTED`, batch rendering `HOLD`. Existing completed diagnostic Actions do **not** alter this status.
