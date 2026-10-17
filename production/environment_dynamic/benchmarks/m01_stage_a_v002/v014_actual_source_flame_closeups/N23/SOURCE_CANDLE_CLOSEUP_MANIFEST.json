@@ -1,0 +1,54 @@
+{
+  "source_sha256": "2d94488e36d878ccb6ae7c3f9f3bf2a122eebca5ae01ad0e5b3105de4d535973",
+  "source_verified": true,
+  "shot": "N23",
+  "status": "ZOOMED_SOURCE_ONLY_NO_FLAME_ASSIGNMENTS",
+  "coordinate_space": "720x1280",
+  "crops": [
+    {
+      "label": "MAIN_CANDLE_CHANDELIER",
+      "pixel_window": [
+        170,
+        20,
+        285,
+        165
+      ],
+      "filename": "MAIN_CANDLE_CHANDELIER_SOURCE_ZOOM.jpg",
+      "sha256": "ffa0d062691838274bfa00b656c3c56dfd378ede86ad6fc68455bfb3aa470cbd",
+      "dimensions": [
+        540,
+        640
+      ]
+    },
+    {
+      "label": "RIGHT_TOP_PARTIAL",
+      "pixel_window": [
+        695,
+        50,
+        720,
+        170
+      ],
+      "filename": "RIGHT_TOP_PARTIAL_SOURCE_ZOOM.jpg",
+      "sha256": "363e8ad13cb47b82419248a74e2c74cd2fe64b906a955ba4bb6cbdec7fcf544e",
+      "dimensions": [
+        180,
+        540
+      ]
+    },
+    {
+      "label": "RIGHT_LOWER_PARTIAL",
+      "pixel_window": [
+        695,
+        400,
+        720,
+        480
+      ],
+      "filename": "RIGHT_LOWER_PARTIAL_SOURCE_ZOOM.jpg",
+      "sha256": "281c19067beba92484364cbf143b3583b6af1e97b9a6c0dbee0f437f5601195e",
+      "dimensions": [
+        180,
+        380
+      ]
+    }
+  ]
+}

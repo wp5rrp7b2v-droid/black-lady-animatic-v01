@@ -1,0 +1,84 @@
+{
+  "source_sha256": "d1866a667d7a24b8c5ae5b7670486b8b312e6f4a8fbce457763668e84d843bd4",
+  "source_verified": true,
+  "shot": "NEW02",
+  "status": "ZOOMED_SOURCE_ONLY_NO_FLAME_ASSIGNMENTS",
+  "coordinate_space": "720x1280",
+  "crops": [
+    {
+      "label": "LEFT_CROPPED_CHANDELIER",
+      "pixel_window": [
+        0,
+        0,
+        85,
+        145
+      ],
+      "filename": "LEFT_CROPPED_CHANDELIER_SOURCE_ZOOM.jpg",
+      "sha256": "127abe54402b1dfc89d617782d7418d8cd2ae20bb880aa665df43b8110db04bb",
+      "dimensions": [
+        420,
+        640
+      ]
+    },
+    {
+      "label": "MID_CHANDELIER",
+      "pixel_window": [
+        258,
+        160,
+        348,
+        263
+      ],
+      "filename": "MID_CHANDELIER_SOURCE_ZOOM.jpg",
+      "sha256": "307a01e136b59bc5106349edd20c96e12c4ad55b2cccc7b5113d74341999de1b",
+      "dimensions": [
+        440,
+        472
+      ]
+    },
+    {
+      "label": "DEEPER_WALL_CHANDELIER",
+      "pixel_window": [
+        442,
+        268,
+        505,
+        360
+      ],
+      "filename": "DEEPER_WALL_CHANDELIER_SOURCE_ZOOM.jpg",
+      "sha256": "92102df65c66f9382f342480b7ffb392e30263f15cdc5d418392b7cd0fb36c52",
+      "dimensions": [
+        332,
+        428
+      ]
+    },
+    {
+      "label": "RIGHT_ARCH_CHANDELIER",
+      "pixel_window": [
+        625,
+        328,
+        686,
+        409
+      ],
+      "filename": "RIGHT_ARCH_CHANDELIER_SOURCE_ZOOM.jpg",
+      "sha256": "90154e4377a1b463097b96973ec179c1587235874ef5082a8a16227a06788562",
+      "dimensions": [
+        324,
+        384
+      ]
+    },
+    {
+      "label": "FAR_RIGHT_PARTIAL",
+      "pixel_window": [
+        690,
+        405,
+        720,
+        485
+      ],
+      "filename": "FAR_RIGHT_PARTIAL_SOURCE_ZOOM.jpg",
+      "sha256": "329e4afd879810eadc05b3d5d6fab856f076bfdb7541cd6db257260571ec652c",
+      "dimensions": [
+        200,
+        380
+      ]
+    }
+  ]
+}
