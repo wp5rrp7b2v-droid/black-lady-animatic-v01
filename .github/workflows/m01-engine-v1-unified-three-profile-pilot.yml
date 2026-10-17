@@ -1,0 +1,132 @@
+name: M01 Engine V1 Unified Three-Profile Pilot
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/m01-engine-v1-unified-three-profile-pilot.yml
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: 'Run source diagnostic only, or pilot renders'
+        required: true
+        type: choice
+        options:
+          - diagnostic
+          - pilot
+        default: pilot
+permissions:
+  contents: write
+concurrency:
+  group: m01-engine-v1-unified-three-profile
+  cancel-in-progress: false
+jobs:
+  unified-engine-technical-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout M01 isolated R&D branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/m01-v002-engine-stage-a-20261017
+          persist-credentials: true
+      - name: Install only lightweight FFmpeg, numpy and pillow
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg python3-numpy python3-pil fonts-dejavu-core
+      - name: Common engine deterministic/core safety tests
+        run: |
+          python3 scripts/test_m01_engine_v1.py
+      - name: Three-configuration exact-input diagnostics and unknown-scene fail-closed
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _m01_engine_v1_pilot/DIAGNOSTICS
+          python3 scripts/m01_engine_v1.py --profile N23_STYLE_REFERENCE_V001.json --mode diagnostic --output-dir _m01_engine_v1_pilot/DIAGNOSTICS/N23
+          python3 scripts/m01_engine_v1.py --profile NEW02_STYLE_REFERENCE_V001.json --mode diagnostic --output-dir _m01_engine_v1_pilot/DIAGNOSTICS/NEW02
+          python3 scripts/m01_engine_v1.py --profile N17_APPROVED_VISUAL_RESULT_V001.json --mode diagnostic --output-dir _m01_engine_v1_pilot/DIAGNOSTICS/N17
+          if python3 scripts/m01_engine_v1.py --profile auto --mode pilot --output-dir _m01_engine_v1_pilot/DIAGNOSTICS/UNKNOWN; then
+             echo "UNREGISTERED_SCENE_WAS_UNSAFELY_RENDERED"; exit 1
+          else
+             python3 - <<'PY'
+          import json
+          j=json.load(open("_m01_engine_v1_pilot/DIAGNOSTICS/UNKNOWN/M01_ENGINE_V1_FAIL_CLOSED.json"))
+          assert j["status"]=="CALIBRATION_REQUIRED" and j["rendered"] is False
+          print("UNKNOWN_SCENE_FAIL_CLOSED_PASS")
+          PY
+          fi
+      - name: Generate three review-only video/A-B comparisons using ONE engine
+        if: github.event_name == 'push' || inputs.run_mode == 'pilot'
+        run: |
+          python3 scripts/m01_engine_v1.py --profile N23_STYLE_REFERENCE_V001.json --mode pilot --ab --output-dir _m01_engine_v1_pilot/N23
+          python3 scripts/m01_engine_v1.py --profile NEW02_STYLE_REFERENCE_V001.json --mode pilot --ab --output-dir _m01_engine_v1_pilot/NEW02
+          python3 scripts/m01_engine_v1.py --profile N17_APPROVED_VISUAL_RESULT_V001.json --mode pilot --ab --output-dir _m01_engine_v1_pilot/N17
+      - name: Verify review video identities, three profiles and no production promotion
+        if: github.event_name == 'push' || inputs.run_mode == 'pilot'
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          root=pathlib.Path("_m01_engine_v1_pilot")
+          cases={"N23":90,"NEW02":90,"N17":377}
+          source=set()
+          for case,n in cases.items():
+            d=root/case
+            j=json.loads((d/"M01_ENGINE_V1_PILOT_QC.json").read_text())
+            assert j["schema"]=="M01_ENGINE_V1_RESULT"
+            assert j["status"]=="COMMON_ENGINE_TECHNICAL_PILOT_PO_REVIEW_PENDING"
+            assert j["frame_count"]==n
+            assert j["changed_protected_pixels"]==0
+            assert j["changed_pixels_outside_authorized"]==0
+            assert not j["release_allowed"] and not j["approved_scene_light_atlas_for_batch"]
+            assert not j["person_protection_ground_truth_approved"]
+            assert j["no_canonical_publication"] and j["no_main_merge"]
+            assert j["changed_frames"]>5
+            assert j["comparison_file"]
+            assert j["atlas_sha256"] not in source
+            source.add(j["atlas_sha256"])
+            for name,expected in ((j["video_file"],j["video_sha256"]),(j["comparison_file"],j["comparison_sha256"])):
+              p=d/name
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==expected
+              subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-i",str(p),"-map","0:v:0","-f","null","-"],check=True)
+            print("M01_COMMON_ENGINE_PILOT_QC",case,j["changed_frames"],j["max_raw_rgb_delta"],j["video_sha256"])
+          assert len(source)==3
+          print("THREE_PROFILE_COMMON_ENGINE_PILOT_BINARY_QC_PASS__NOT_PO_REUSABILITY_APPROVAL")
+          PY
+      - name: Archive only reviewer prototypes in independent branch
+        if: github.event_name == 'push' || inputs.run_mode == 'pilot'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest=production/environment_dynamic/review_candidates/M01_GENERIC_ENGINE_V1_THREE_PROFILE_PILOT
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          for shot in N23 NEW02 N17; do
+            mkdir -p "$dest/$shot"
+            cp _m01_engine_v1_pilot/"$shot"/*.mp4 _m01_engine_v1_pilot/"$shot"/*.json "$dest/$shot/"
+          done
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test "$(git symbolic-ref --short HEAD)" = "feature/m01-v002-engine-stage-a-20261017"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$dest"
+          python3 - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(["git","diff","--cached","--name-only"],text=True).splitlines()
+          assert len(paths)==9,paths
+          assert len([x for x in paths if x.endswith(".mp4")])==6
+          assert len([x for x in paths if x.endswith(".json")])==3
+          assert all(x.startswith("production/environment_dynamic/review_candidates/M01_GENERIC_ENGINE_V1_THREE_PROFILE_PILOT/") for x in paths)
+          PY
+          git commit -m "Save 3-profile N23 NEW02 N17 common M01 engine V1 pilot videos, A/B and exact source QC"
+          git push origin HEAD:refs/heads/feature/m01-v002-engine-stage-a-20261017
+          echo "M01_V1_ENGINE_COMMON_CODE_RUNS; M01_BATCH_GATE_HOLD"
+      - name: Upload review artifacts
+        if: github.event_name == 'push' || inputs.run_mode == 'pilot'
+        uses: actions/upload-artifact@v4
+        with:
+          name: M01_GENERIC_ENGINE_V1_3_PROFILE_PILOT
+          path: |
+            production/environment_dynamic/review_candidates/M01_GENERIC_ENGINE_V1_THREE_PROFILE_PILOT/*/*.mp4
+            production/environment_dynamic/review_candidates/M01_GENERIC_ENGINE_V1_THREE_PROFILE_PILOT/*/*.json
+          retention-days: 14
+          if-no-files-found: error
