@@ -1,0 +1,35 @@
+name: M01 V002 Gate0 Visual Inspection Export
+on:
+  push:
+    branches:
+      - review/s02b-jun-nod-insert-20261014
+    paths:
+      - .github/workflows/m01-v002-gate0-visual-export.yml
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: review/s02b-jun-nod-insert-20261014
+      - name: Preserve exact visual audit JPEG as base64 for detailed inspection
+        run: |
+          python3 - <<'PY'
+          import pathlib,base64,hashlib
+          p=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0/S02B_V007_M01_MASKS_ON_REAL_FRAMES_GATE0_V001.jpg")
+          b=p.read_bytes()
+          assert b[:3]==bytes((255,216,255))
+          target=pathlib.Path("production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0/S02B_V007_M01_MASKS_ON_REAL_FRAMES_GATE0_V001.jpg.b64.txt")
+          assert not target.exists()
+          target.write_text(base64.b64encode(b).decode()+"\n")
+          print("SOURCE_JPEG_SHA256",hashlib.sha256(b).hexdigest())
+          PY
+      - name: Save format transport for review only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/environment_dynamic/review_candidates/M01_V002_ALIGNMENT_GATE0/S02B_V007_M01_MASKS_ON_REAL_FRAMES_GATE0_V001.jpg.b64.txt
+          git commit -m "Add inspection encoding for original M01 V007 alignment overlay JPEG"
+          git push origin HEAD:refs/heads/review/s02b-jun-nod-insert-20261014
