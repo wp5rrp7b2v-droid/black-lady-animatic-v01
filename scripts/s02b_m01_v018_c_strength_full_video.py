@@ -138,7 +138,7 @@ def main():
  j["PO_visual_review_pending"]=True
  render.REPORT.write_text(json.dumps(j,ensure_ascii=False,indent=2)+"\n")
  assert render.m01.sha(PREV_VIDEO)==PREV_VIDEO_SHA
- assert render.m01.sha(PREV_QC)==PREV_QC_SHA
+ check_inputs()  # Recheck immutable V017 preview and original QC Git-blob identity.
  print("M01_S02B_V018_C_GROUP_MORE_VISIBLE_FULL_AND_AB_READY",json.dumps({
   "full":j["preview"],"original_ab":j["ab"],"v017_vs_v018":j["previous_v017_to_v018_ab"],
   "C_group_max_changes":weak,"average_C_delta_increase":j["C_group_max_rgb_mean_increase"],
