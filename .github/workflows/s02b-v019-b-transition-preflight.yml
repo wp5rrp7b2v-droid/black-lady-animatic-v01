@@ -1,0 +1,42 @@
+name: S02-B V019-B Cut Preflight (Review Only)
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-b-transition-proof-20261018
+    paths:
+      - ".github/workflows/s02b-v019-b-transition-preflight.yml"
+      - "scripts/s02b_v019_b_transition_preflight.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout isolated test branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Install Pillow
+        run: python3 -m pip install --user Pillow
+      - name: Verify and extract exact V018 cut evidence
+        run: python3 scripts/s02b_v019_b_transition_preflight.py
+      - name: Upload noncanonical review evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V019_B_TRANSITION_PREFLIGHT_V001
+          path: production/video_candidates/review/v019_b_transition_preflight_v001/
+          retention-days: 14
+          if-no-files-found: error
+      - name: Preserve review evidence on test branch
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/v019_b_transition_preflight_v001/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive V019-B cut preflight review only (not canonical)"
+            git push origin HEAD:experiment/s02b-v019-b-transition-proof-20261018
+          fi
