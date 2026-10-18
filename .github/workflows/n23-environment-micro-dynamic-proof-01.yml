@@ -1,0 +1,40 @@
+name: N23 Environment Micro Dynamic Proof 01 (review only)
+on:
+  push:
+    branches:
+      - experiment/n23-environment-micro-dynamic-proof-01
+    paths:
+      - ".github/workflows/n23-environment-micro-dynamic-proof-01.yml"
+      - "scripts/n23_environment_micro_dynamic_proof_01.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout experiment branch
+        uses: actions/checkout@v4
+      - name: Install image + media prerequisites
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user numpy Pillow
+      - name: Render one N23 environment-air proof and verify audio
+        run: python3 scripts/n23_environment_micro_dynamic_proof_01.py
+      - name: Upload full review bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: N23_ENVIRONMENT_MICRO_DYNAMIC_PROOF_01
+          path: production/video_candidates/review/n23_environment_micro_dynamic_proof_01/
+          retention-days: 14
+          if-no-files-found: error
+      - name: Preserve noncanonical review media on experiment branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/n23_environment_micro_dynamic_proof_01/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive noncanonical N23 environment microdynamic proof and exact QC"
+            git push origin HEAD:experiment/n23-environment-micro-dynamic-proof-01
+          fi
