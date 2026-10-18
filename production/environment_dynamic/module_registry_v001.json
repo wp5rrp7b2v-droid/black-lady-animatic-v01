@@ -223,8 +223,9 @@
         }
       },
       "next_engine_milestone": {
-        "status": "S02B_V018_FULL_LENGTH_MORE_VISIBLE_C_AND_AB_TECH_PASS_WAITING_PO",
-        "instruction": "Ask PO to review V017-vs-V018 A/B as primary and V018 full video as secondary. Do not auto-register Story Shot or change master/main.",
+        "status": "S02B_V018_PO_VISUAL_APPROVED_READY_FOR_PUBLICATION_DECISION",
+        "instruction": "Retain exact approved V018 movie and QA. Verify existing canonical S02-B video index and deliver a safe publication proposal for PO authorization, without replacing or merging by default.",
+        "approval_doc": "docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_FULL_VIDEO_PO_VISUAL_APPROVAL_2026-10-18.md",
         "review_root": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW"
       },
       "engine_v1": {
@@ -415,7 +416,7 @@
         "next": "PO watch exact V017 full 64.25s and A/B, review 12 newly added candle segments; fix only identified visual issues before potential batch release authorization"
       },
       "s02b_v018": {
-        "status": "V018_C_12_SHOTS_MODERATELY_ENHANCED_FULL_VIDEO_AND_TWO_AB_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "status": "V018_S02B_FULL_LENGTH_EXACT_VIDEO_PO_VISUAL_APPROVED_CANONICAL_PUBLICATION_PENDING",
         "run_id": 39087681027,
         "change_scope": "12 unapproved C group shots: core RGB [14,10,4] -> [21,15,6] and local halo RGB [1.6,0.85,0.22] -> [3.2,1.7,0.45], unchanged halo spatial and temporal settings",
         "atlas": "production/environment_dynamic/m01_engine_v1/M01_S02B_V018_MORE_VISIBLE_C_GROUP_DRAFT_ATLAS.json",
@@ -441,13 +442,19 @@
         "avg_c_raw_channel_peak_increase": 7.42,
         "full_video_frames": 1927,
         "frame_rate": 30,
-        "po_visual_approved": false,
-        "candidate_positions_po_approved": false,
+        "po_visual_approved": true,
+        "candidate_positions_po_approved": true,
         "person_full_GT_approved": false,
         "full_batch_release_authorized": false,
         "main_merge_authorized": false,
         "canonical_publication_authorized": false,
-        "next": "Ask PO to visually judge V017 vs V018. Only after PO acceptance consider further release authorization."
+        "next": "Prepare non-destructive proposal for promoting the exact approved V018 movie to canonical S02-B candidate/master, require explicit PO authorization for publication/master replacement and main merge.",
+        "po_visual_decision": "V018视觉审核通过",
+        "po_visual_approval_date": "2026-10-18",
+        "po_visual_approval_document": "docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_FULL_VIDEO_PO_VISUAL_APPROVAL_2026-10-18.md",
+        "approved_scope": "Exact 64.2333s V018 all S02-B visual candidate; 12 C shots with brighter flame and restrained local halo approved; 3 previously approved samples preserved, 2 no-candle segments untouched.",
+        "approved_visual_binary_locked": true,
+        "candidate_positions_po_approval_scope": "Visible placement as part of the approved composed V018 movie; NOT individual per-frame flame/people full-pixel ground truth"
       }
     },
     {
