@@ -223,9 +223,9 @@
         }
       },
       "next_engine_milestone": {
-        "status": "V015_VISUAL_APPROVED_READY_FOR_INDEPENDENT_HOLDOUT",
-        "instruction": "Select genuinely untuned real S02-B candle frame, create independent atlas and mask registration without changing core; provide A/B PO review; then independent cross-scene held-out test; no canonical publication until explicit approvals.",
-        "doc": "docs/project_control/gates/P0_3_video_pipeline/M01_V015_UNIVERSAL_CANDLE_PO_VISUAL_APPROVAL_2026-10-17.md"
+        "status": "S02B_V017_FULL_LENGTH_AB_DELIVERED_PO_VISUAL_REVIEW_PENDING",
+        "instruction": "Review 64.25s V017 A/B. Record PO visual decision; do not assume release, main merge or cross-scene portability from technical success.",
+        "review_root": "production/environment_dynamic/review_candidates/S02_B_M01_V017_FULL_LENGTH_ALL_CANDLE_SOURCES_REVIEW"
       },
       "engine_v1": {
         "status": "GENERIC_CORE_THREE_PROFILE_TECHNICAL_PASS_PO_VIDEO_REVIEW_PENDING",
@@ -365,6 +365,54 @@
         "po_approval_scope": "Visual appearance and core+halo linked flicker for exact V015 N23 and NEW02 videos only; includes agreed flame centers, not GT across humans or full batch / multi-scene product approval",
         "po_visual_feedback": "视觉审核OK",
         "mask_visual_effect_acceptable": true
+      },
+      "s02b_v017": {
+        "status": "FULL_LENGTH_1927_FRAME_15_CANDLE_LIT_SHOT_CANDIDATE_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "workflow_run_id": 39084848061,
+        "reference_V006_source_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+        "full_mp4": "production/environment_dynamic/review_candidates/S02_B_M01_V017_FULL_LENGTH_ALL_CANDLE_SOURCES_REVIEW/S02_B_M01_V017_FULL_LENGTH_REGISTERED_CANDLE_PREVIEW_V001.mp4",
+        "full_mp4_sha256": "2f12fd18000f8f515f62b7e1d79bd9456d897e69ce22a20398480039e6446327",
+        "full_ab_mp4": "production/environment_dynamic/review_candidates/S02_B_M01_V017_FULL_LENGTH_ALL_CANDLE_SOURCES_REVIEW/S02_B_M01_V017_FULL_LENGTH_V006_VS_M01_AB_V001.mp4",
+        "full_ab_mp4_sha256": "e3f56cd5d07a175384485b272a13a91614e1aaae9deeadea00a89ba114bc1cff",
+        "technical_qc": "production/environment_dynamic/review_candidates/S02_B_M01_V017_FULL_LENGTH_ALL_CANDLE_SOURCES_REVIEW/S02_B_M01_V017_INTEGRATION_QC.json",
+        "gate_record": "docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V017_FULL_LENGTH_CANDLE_INTEGRATION_TECHNICAL_REVIEW_2026-10-18.md",
+        "reviewed_duration_seconds": 64.25,
+        "total_shots": 17,
+        "previous_visual_po_approved_shots": [
+          "N17",
+          "V006_NEW_02",
+          "N23"
+        ],
+        "new_visual_po_pending_shots": [
+          "N16_PART_1",
+          "N18",
+          "N20_FIRST",
+          "V006_NEW_01",
+          "JUN_APPROVED_REACTION",
+          "N21",
+          "N22_FIRST",
+          "A06",
+          "N24",
+          "N25",
+          "NING_REACTION_APPROVED",
+          "N26"
+        ],
+        "unchanged_no_candle_shots": [
+          "N16_PART_2",
+          "N19"
+        ],
+        "candidate_candle_shot_count": 15,
+        "lit_coverage_percent": 88.22,
+        "aac_original_packet_content_and_pts_identical": true,
+        "new_flame_locations_po_approved": false,
+        "full_s02b_visual_po_approved": false,
+        "person_segmentation_gt_complete": false,
+        "approved_source_videos_unchanged": true,
+        "unseen_cross_scene_reuse_approved": false,
+        "release_allowed": false,
+        "no_canonical_publication": true,
+        "main_merge_allowed": false,
+        "next": "PO watch exact V017 full 64.25s and A/B, review 12 newly added candle segments; fix only identified visual issues before potential batch release authorization"
       }
     },
     {
