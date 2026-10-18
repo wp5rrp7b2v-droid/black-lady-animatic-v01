@@ -29,12 +29,12 @@ def sha(path):
     with open(path, "rb") as f:
         return hashlib.file_digest(f,"sha256").hexdigest()
 
-def frames(path):
+def frames(path, expected_size=(W,H)):
     p=json.loads(run("ffprobe","-v","error","-count_frames","-select_streams","v:0",
         "-show_entries","stream=nb_read_frames,width,height,r_frame_rate",
         "-of","json",path))
     s=p["streams"][0]
-    assert (int(s["width"]),int(s["height"]),s["r_frame_rate"]) == (W,H,"30/1"),s
+    assert (int(s["width"]),int(s["height"]),s["r_frame_rate"]) == (*expected_size,"30/1"),s
     return int(s["nb_read_frames"])
 
 def packet_hash(path):
@@ -165,7 +165,7 @@ def main():
         "-map","[v]","-map","0:a:0","-c:v","libx264","-preset","fast",
         "-crf","22","-pix_fmt","yuv420p","-c:a","copy",
         "-movflags","+faststart",AB)
-    assert frames(AB)==N
+    assert frames(AB, expected_size=(1080,960))==N
     assert packet_hash(AB)==a_hash
     report=dict(
         project="BLACK-LADY-001",
