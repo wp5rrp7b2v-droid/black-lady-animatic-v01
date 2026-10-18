@@ -36,6 +36,10 @@ jobs:
             docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_FULL_VIDEO_PO_VISUAL_APPROVAL_2026-10-18.md \
             docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_C_GROUP_BOOST_FULL_AB_TECHNICAL_REVIEW_2026-10-18.md \
             production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW.json
+      - name: Install ffmpeg to verify archived videos decode
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
       - name: Verify exact V006 reference, V018 approved movie and A/B bytes and ledger identities
         shell: bash
         run: |
