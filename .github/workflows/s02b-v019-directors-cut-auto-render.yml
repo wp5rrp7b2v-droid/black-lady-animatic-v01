@@ -1,0 +1,58 @@
+name: S02-B V019 Directors Cut Auto Render (3 image gate)
+on:
+  push:
+    branches:
+      - feature/s02b-v019-directors-cut-20261018
+    paths:
+      - "production/video_candidates/v019_directors_cut/assets/*.png"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  director-review-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Determine whether all three authorized new story stills exist
+        id: assets
+        shell: bash
+        run: |
+          prefix="production/video_candidates/v019_directors_cut/assets"
+          if test -s "$prefix/D01_JUN_SISTER_QUESTION_LISTEN_CANDIDATE_V001.png" && \
+             test -s "$prefix/D02_NING_WARNING_SPACE_CANDIDATE_V001.png" && \
+             test -s "$prefix/D03_JUN_LISTENS_LOOKS_OUTSIDE_CANDIDATE_V001.png"; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Waiting for all three reviewed Work PNGs; no partial film render."
+          fi
+      - name: Install required local media tools
+        if: steps.assets.outputs.ready == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user Pillow
+      - name: Render exact-identity V019 director review MP4
+        if: steps.assets.outputs.ready == 'true'
+        run: python3 scripts/s02b_v019_directors_cut_renderer.py
+      - name: Upload full video review and QC
+        if: steps.assets.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001_NONCANONICAL
+          path: |
+            production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4
+            production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_QC_V001.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Keep review binary and QC on experiment branch only
+        if: steps.assets.outputs.ready == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/v019_directors_cut/review/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive noncanonical S02-B V019 director cut full review and QC"
+            git push origin HEAD:feature/s02b-v019-directors-cut-20261018
+          fi
