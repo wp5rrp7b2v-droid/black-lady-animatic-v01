@@ -1,5 +1,5 @@
 name: S02-B Full-Length M01 V017 All Candle-Lit Shots AB
-# Rebuild with generic fractional fade endpoint negative-roundoff protection and 53-frame regression.
+# Rebuild with exact-zero M01 boundary for 53-frame reaction and N17 377 frames; regression required.
 on:
   push:
     branches:
