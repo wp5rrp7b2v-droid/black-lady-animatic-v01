@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "note": "Exact sources recovered after scratch reset; two format-normalized PNGs reproduced with original filter and proven identical by original QC SHA256. No image regeneration, no new video render. Original internal asset-review JSON was not persisted; this is a new recovery receipt, not a claimed recovery of that lost JSON.",
+  "checks": [
+    {
+      "path": "production/video_candidates/v019_directors_cut/assets/D01_JUN_SISTER_QUESTION_LISTEN_CANDIDATE_V001.png",
+      "sha256": "730068da011b679447577b808872f6d364a0e7e60094f9365dd85a09c3514439",
+      "status": "EXACT_MATCH_ORIGINAL_QC"
+    },
+    {
+      "path": "production/video_candidates/v019_directors_cut/assets/D02_NING_WARNING_SPACE_CANDIDATE_V001.png",
+      "sha256": "c3764c9ddb5db61ea5a3c5761d98c04d05a132802679a4cabd954de985c739cd",
+      "status": "EXACT_MATCH_ORIGINAL_QC"
+    },
+    {
+      "path": "production/video_candidates/v019_directors_cut/assets/D03_JUN_LISTENS_LOOKS_OUTSIDE_CANDIDATE_V001.png",
+      "sha256": "c9160ee8427dd58443686e062986ea8d8a5e73d25815ddd609c21d37a9c1fe8c",
+      "status": "EXACT_MATCH_ORIGINAL_QC"
+    },
+    {
+      "path": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
+      "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+      "status": "EXACT_MATCH_ORIGINAL_QC"
+    }
+  ]
+}

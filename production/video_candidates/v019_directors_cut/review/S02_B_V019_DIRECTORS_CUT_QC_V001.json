@@ -1,0 +1,56 @@
+{
+  "schema": "S02_B_V019_DIRECTORS_CUT_QC_V001",
+  "status": "MACHINE_PASS / FULL_PO_VISUAL_REVIEW_PENDING / NOT_CANONICAL",
+  "input_v018_path": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4",
+  "input_v018_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "output": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
+  "output_sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+  "frames": 1927,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "audio_aac_adts_input_sha256": "d1e12748ce836c6c191148c3abf10b3a5144a932042c6474512303c79b87e5e9",
+  "audio_aac_adts_output_sha256": "d1e12748ce836c6c191148c3abf10b3a5144a932042c6474512303c79b87e5e9",
+  "audio_exact_packet_copy": true,
+  "image_sources": [
+    {
+      "id": "D01_JUN_SISTER_QUESTION_LISTEN",
+      "path": "production/video_candidates/v019_directors_cut/assets/D01_JUN_SISTER_QUESTION_LISTEN_CANDIDATE_V001.png",
+      "sha256": "730068da011b679447577b808872f6d364a0e7e60094f9365dd85a09c3514439"
+    },
+    {
+      "id": "D02_NING_WARNING_SPACE",
+      "path": "production/video_candidates/v019_directors_cut/assets/D02_NING_WARNING_SPACE_CANDIDATE_V001.png",
+      "sha256": "c3764c9ddb5db61ea5a3c5761d98c04d05a132802679a4cabd954de985c739cd"
+    },
+    {
+      "id": "D03_JUN_LISTENS_LOOKS_OUTSIDE",
+      "path": "production/video_candidates/v019_directors_cut/assets/D03_JUN_LISTENS_LOOKS_OUTSIDE_CANDIDATE_V001.png",
+      "sha256": "c9160ee8427dd58443686e062986ea8d8a5e73d25815ddd609c21d37a9c1fe8c"
+    }
+  ],
+  "no_paid_ai_video": true,
+  "no_character_animation": true,
+  "no_transition_fx": true,
+  "unchanged_canonical_assets": true,
+  "mandatory_next_gate": "PO views full candidate and judges story/identity/continuity; machine PASS != artwork approval",
+  "main_merge_authorized": false,
+  "execution_environment": "LOCAL_SAME_APPROVED_RENDERER_GITHUB_PUSH_BLOCKED_NOT_ACTIONS",
+  "github_actions_completed": false,
+  "full_decode_no_errors": true,
+  "existing_approved_assets_diff": "ZERO against c59077882e9707a64fe8f0f02e50fad7ea1c05c2",
+  "asset_visual_review_report": "production/video_candidates/v019_directors_cut/WORK_INTERNAL_ASSET_REVIEW_V001.json",
+  "visual_inspection": {
+    "coverage": "19 segment midpoint samples across full film plus frame pairs 163/164,280/281,425/426,518/519,657/658",
+    "finding": "No obvious identity, screen-direction or blank-frame failure in inspected samples; aesthetic improvement remains PO judgment.",
+    "method": "Decoded frame inspection, not a claim of real-time audiovisual playback"
+  },
+  "blackdetect": {
+    "duration_threshold_seconds": 0.03,
+    "pixel_threshold": 0.02,
+    "picture_threshold": 0.98,
+    "intervals_detected": 0
+  }
+}
