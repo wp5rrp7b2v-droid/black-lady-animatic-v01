@@ -1,0 +1,461 @@
+{
+  "schema": "S02_B_M01_V018_MORE_VISIBLE_C_GROUP_FULL_LENGTH_INTEGRATION",
+  "status": "S02B_V018_ONLY_12_C_GROUP_INTENSITIES_BOOSTED_AB_RENDERED_TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "source_exact_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+  "source_limit": "V006 reconstructed rough candidate not original unavailable V005",
+  "renderer": "scripts/s02b_m01_v018_c_strength_full_video.py (reuses unchanged S02B V017 integrator and M01 core)",
+  "common_engine": "scripts/m01_engine_v1.py",
+  "total_timeline_nodes": 17,
+  "total_frames": 1927,
+  "fps": 30,
+  "duration_seconds": 64.23333333333333,
+  "registered_nodes": [
+    "N17",
+    "V006_NEW_02",
+    "N23"
+  ],
+  "registered_node_count": 3,
+  "candidate_nodes": [
+    "A06",
+    "JUN_APPROVED_REACTION",
+    "N16_PART_1",
+    "N18",
+    "N20_FIRST",
+    "N21",
+    "N22_FIRST",
+    "N24",
+    "N25",
+    "N26",
+    "NING_REACTION_APPROVED",
+    "V006_NEW_01"
+  ],
+  "candidate_node_count": 12,
+  "pass_through_non_candle_nodes": [
+    "N16_PART_2",
+    "N19"
+  ],
+  "pass_through_non_candle_count": 2,
+  "reviewed_enabled_frames": 1700,
+  "applied_lit_footage_percent": 88.22,
+  "all_15_candle_shots_rendered_by_same_m01_core": true,
+  "flame_candidate_atlas_sha256": "e32d63374aafd6090fc45e49212f1ae9154e7a18bcbf895c162d4b4488d5ce80",
+  "candidate_flame_positions_po_approved": false,
+  "old_v007_po_rejected_guessed_masks_reused": false,
+  "N17_approved_reference_binary_preserved": true,
+  "N23_NEW02_po_approved_v015_reference_binaries_preserved": true,
+  "per_shot": {
+    "N16_PART_1": {
+      "start_frame": 0,
+      "end_frame_exclusive": 164,
+      "total_frames": 164,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 111,
+      "max_raw_rgb_delta": 21,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 4,
+      "real_source_core_frames": 112,
+      "real_source_core_pixels": 33674,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N16_PART_2": {
+      "start_frame": 164,
+      "end_frame_exclusive": 281,
+      "total_frames": 117,
+      "lighting_added": false,
+      "status": "PASS_THROUGH_NO_VISIBLE_CANDLE",
+      "reason": "Original footage has no registered visible candle; no synthesized light",
+      "frames_with_raw_change": 0,
+      "max_raw_rgb_delta": 0,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 0,
+      "real_source_core_frames": 0,
+      "real_source_core_pixels": 0,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N17": {
+      "start_frame": 281,
+      "end_frame_exclusive": 658,
+      "total_frames": 377,
+      "lighting_added": true,
+      "status": "PO_APPROVED_THREE_SHOT_REVIEW",
+      "reason": null,
+      "frames_with_raw_change": 114,
+      "max_raw_rgb_delta": 38,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 4,
+      "real_source_core_frames": 0,
+      "real_source_core_pixels": 0,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N18": {
+      "start_frame": 658,
+      "end_frame_exclusive": 839,
+      "total_frames": 181,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 179,
+      "max_raw_rgb_delta": 21,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 5,
+      "real_source_core_frames": 181,
+      "real_source_core_pixels": 54834,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N19": {
+      "start_frame": 839,
+      "end_frame_exclusive": 949,
+      "total_frames": 110,
+      "lighting_added": false,
+      "status": "PASS_THROUGH_NO_VISIBLE_CANDLE",
+      "reason": "Original footage has no registered visible candle; no synthesized light",
+      "frames_with_raw_change": 0,
+      "max_raw_rgb_delta": 0,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 0,
+      "real_source_core_frames": 0,
+      "real_source_core_pixels": 0,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N20_FIRST": {
+      "start_frame": 949,
+      "end_frame_exclusive": 996,
+      "total_frames": 47,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 45,
+      "max_raw_rgb_delta": 22,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 8,
+      "real_source_core_frames": 47,
+      "real_source_core_pixels": 32265,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "V006_NEW_01": {
+      "start_frame": 996,
+      "end_frame_exclusive": 1078,
+      "total_frames": 82,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 80,
+      "max_raw_rgb_delta": 24,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 11,
+      "real_source_core_frames": 82,
+      "real_source_core_pixels": 67732,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "JUN_APPROVED_REACTION": {
+      "start_frame": 1078,
+      "end_frame_exclusive": 1114,
+      "total_frames": 36,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 34,
+      "max_raw_rgb_delta": 16,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 5,
+      "real_source_core_frames": 36,
+      "real_source_core_pixels": 12996,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N21": {
+      "start_frame": 1114,
+      "end_frame_exclusive": 1222,
+      "total_frames": 108,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 106,
+      "max_raw_rgb_delta": 24,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 10,
+      "real_source_core_frames": 108,
+      "real_source_core_pixels": 69660,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N22_FIRST": {
+      "start_frame": 1222,
+      "end_frame_exclusive": 1299,
+      "total_frames": 77,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 75,
+      "max_raw_rgb_delta": 22,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 7,
+      "real_source_core_frames": 77,
+      "real_source_core_pixels": 41965,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "V006_NEW_02": {
+      "start_frame": 1299,
+      "end_frame_exclusive": 1366,
+      "total_frames": 67,
+      "lighting_added": true,
+      "status": "PO_APPROVED_THREE_SHOT_REVIEW",
+      "reason": null,
+      "frames_with_raw_change": 65,
+      "max_raw_rgb_delta": 27,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 16,
+      "real_source_core_frames": 0,
+      "real_source_core_pixels": 0,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N23": {
+      "start_frame": 1366,
+      "end_frame_exclusive": 1448,
+      "total_frames": 82,
+      "lighting_added": true,
+      "status": "PO_APPROVED_THREE_SHOT_REVIEW",
+      "reason": null,
+      "frames_with_raw_change": 80,
+      "max_raw_rgb_delta": 20,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 8,
+      "real_source_core_frames": 0,
+      "real_source_core_pixels": 0,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "A06": {
+      "start_frame": 1448,
+      "end_frame_exclusive": 1575,
+      "total_frames": 127,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 125,
+      "max_raw_rgb_delta": 24,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 11,
+      "real_source_core_frames": 127,
+      "real_source_core_pixels": 110363,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N24": {
+      "start_frame": 1575,
+      "end_frame_exclusive": 1694,
+      "total_frames": 119,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 117,
+      "max_raw_rgb_delta": 24,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 11,
+      "real_source_core_frames": 119,
+      "real_source_core_pixels": 102935,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N25": {
+      "start_frame": 1694,
+      "end_frame_exclusive": 1810,
+      "total_frames": 116,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 114,
+      "max_raw_rgb_delta": 24,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 9,
+      "real_source_core_frames": 116,
+      "real_source_core_pixels": 75168,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "NING_REACTION_APPROVED": {
+      "start_frame": 1810,
+      "end_frame_exclusive": 1863,
+      "total_frames": 53,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 51,
+      "max_raw_rgb_delta": 20,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 8,
+      "real_source_core_frames": 53,
+      "real_source_core_pixels": 44679,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    },
+    "N26": {
+      "start_frame": 1863,
+      "end_frame_exclusive": 1927,
+      "total_frames": 64,
+      "lighting_added": true,
+      "status": "V017_SOURCE_FRAME_LOCATOR_PO_REVIEW_PENDING",
+      "reason": null,
+      "frames_with_raw_change": 62,
+      "max_raw_rgb_delta": 21,
+      "raw_unauthorized_changes": 0,
+      "registered_source_count": 7,
+      "real_source_core_frames": 64,
+      "real_source_core_pixels": 25088,
+      "raw_first_frame_original": true,
+      "raw_last_frame_original": true
+    }
+  },
+  "preview": {
+    "file": "S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4",
+    "sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+    "bytes": 43787957
+  },
+  "ab": {
+    "file": "S02_B_M01_V018_FULL_LENGTH_V006_VS_V018_AB_V001.mp4",
+    "sha256": "850c76d69b5bd69d5674b50d84d70b03698e972cdf371f048f56b555a998161b",
+    "bytes": 10361250
+  },
+  "audio_identical_source_AAC_packet_hash_and_timestamps": true,
+  "input_video_unchanged": true,
+  "official_video_index_unchanged": true,
+  "original_story_shot_images_unchanged": true,
+  "all_17_shots_have_real_flame_effects": false,
+  "all_15_identified_candle_lit_shots_have_candidate_effects": true,
+  "full_s02b_m01_coverage_approved": false,
+  "person_full_gt_approved": false,
+  "PO_final_full_video_approval": false,
+  "no_canonical_publication": true,
+  "no_main_merge": true,
+  "style_parameter_change": {
+    "group": "C_ONLY_12_SHOTS",
+    "V017_core_gain_rgb": [
+      14,
+      10,
+      4
+    ],
+    "V018_core_gain_rgb": [
+      21,
+      15,
+      6
+    ],
+    "V017_halo_gain_rgb": [
+      1.6,
+      0.85,
+      0.22
+    ],
+    "V018_halo_gain_rgb": [
+      3.2,
+      1.7,
+      0.45
+    ],
+    "halo_sigma_px_unchanged": [
+      21,
+      33
+    ],
+    "halo_roi_radius_px_unchanged": [
+      40,
+      52
+    ],
+    "halo_fast_harmonics_mix_unchanged": 0.22,
+    "same_unique_source_points": true,
+    "time_signal_unchanged": true,
+    "approved_three_shots_unchanged": true,
+    "no_candle_two_shots_unchanged": true
+  },
+  "V017_previous_review_video_sha256": "2f12fd18000f8f515f62b7e1d79bd9456d897e69ce22a20398480039e6446327",
+  "V017_previous_qc_git_blob_sha1": "dba82d4dc540f0cfb179d2cdc913c30b8d64d899",
+  "C_group_actual_max_change_comparison": [
+    {
+      "shot": "A06",
+      "V017_max_rgb": 16,
+      "V018_max_rgb": 24,
+      "increase": 8
+    },
+    {
+      "shot": "JUN_APPROVED_REACTION",
+      "V017_max_rgb": 11,
+      "V018_max_rgb": 16,
+      "increase": 5
+    },
+    {
+      "shot": "N16_PART_1",
+      "V017_max_rgb": 14,
+      "V018_max_rgb": 21,
+      "increase": 7
+    },
+    {
+      "shot": "N18",
+      "V017_max_rgb": 15,
+      "V018_max_rgb": 21,
+      "increase": 6
+    },
+    {
+      "shot": "N20_FIRST",
+      "V017_max_rgb": 13,
+      "V018_max_rgb": 22,
+      "increase": 9
+    },
+    {
+      "shot": "N21",
+      "V017_max_rgb": 16,
+      "V018_max_rgb": 24,
+      "increase": 8
+    },
+    {
+      "shot": "N22_FIRST",
+      "V017_max_rgb": 15,
+      "V018_max_rgb": 22,
+      "increase": 7
+    },
+    {
+      "shot": "N24",
+      "V017_max_rgb": 15,
+      "V018_max_rgb": 24,
+      "increase": 9
+    },
+    {
+      "shot": "N25",
+      "V017_max_rgb": 15,
+      "V018_max_rgb": 24,
+      "increase": 9
+    },
+    {
+      "shot": "N26",
+      "V017_max_rgb": 14,
+      "V018_max_rgb": 21,
+      "increase": 7
+    },
+    {
+      "shot": "NING_REACTION_APPROVED",
+      "V017_max_rgb": 13,
+      "V018_max_rgb": 20,
+      "increase": 7
+    },
+    {
+      "shot": "V006_NEW_01",
+      "V017_max_rgb": 17,
+      "V018_max_rgb": 24,
+      "increase": 7
+    }
+  ],
+  "C_group_max_rgb_mean_increase": 7.42,
+  "previous_v017_to_v018_ab": {
+    "file": "S02_B_M01_V018_FULL_LENGTH_V017_VS_V018_AB_V001.mp4",
+    "sha256": "d8606cf08cef31ef3f561818bc93aa0176b8c8b9167669856d42201b52c710d1",
+    "bytes": 11041607
+  },
+  "user_feedback": "C部分感觉还是不够明显 — increase C candle and local halo modestly; avoid broad strong flashing",
+  "PO_visual_review_pending": true
+}

@@ -1,0 +1,281 @@
+{
+  "schema": "S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW",
+  "status": "RENDERED_REVIEW_ONLY_FROM_VERIFIED_V004_INTRO_AND_APPROVED_V001_AAC_V005_SOURCE_NOT_AVAILABLE_NOT_CANONICAL",
+  "date": "2026-10-14",
+  "parent_video_name": "S02B_N16_N17_V004_QUALITY_TEST.mp4 (0:658) + PO-approved exact PNGs (658:1927) + S02_B_DIRECTOR_REVIEW_V001.mp4 AAC stream copy",
+  "parent_video_sha256": null,
+  "format": {
+    "fps_num": 30,
+    "fps_den": 1,
+    "width": 720,
+    "height": 1280,
+    "video_frames": 1927,
+    "nominal_audio_length_seconds": 64.25
+  },
+  "source_audio": {
+    "parent": "APPROVED_S02_B_V001_ORIGINAL_AAC",
+    "policy": "AAC_COMPRESSED_PACKET_STREAM_COPY_ZERO_RETIME",
+    "offset_frames": 0,
+    "retime": false,
+    "cut": false,
+    "mix": false,
+    "proof": "3,013 AAC packet payload hashes, pts_time and duration_time identical to verified V001 source"
+  },
+  "protected_edits": [
+    "N16–N17 V004 source treatment frames 0:658",
+    "Jun B V002 1078:1114",
+    "Ning B V002 1810:1863",
+    "Original approved still assets"
+  ],
+  "publication": {
+    "canonical_authorized": false,
+    "story_shot_registration_authorized": false,
+    "main_merge_authorized": false,
+    "po_approved_for_video_review": false,
+    "review_only": true
+  },
+  "missing_shots": [],
+  "sound_picture_cues": [
+    {
+      "name": "Jun speaks about not touching objects",
+      "start_frame": 996,
+      "source_status": "EDITORIAL_ESTIMATE_ONLY",
+      "action": "OTS from Jun to Ning warning; cut returns to Jun existing approval at frame 1078"
+    },
+    {
+      "name": "Neil turns",
+      "start_frame": 1448,
+      "source_status": "REVIEWED_TRANSCRIPT_APPROXIMATE",
+      "action": "Cut to A06 open door"
+    },
+    {
+      "name": "Guang Yong voice leads picture",
+      "audio_start_frame_approx": 1567,
+      "picture_start_frame": 1575,
+      "source_status": "REVIEWED_TRANSCRIPT_APPROXIMATE",
+      "action": "Natural 0.27s J-cut without changing audio stream; confirm by ear"
+    }
+  ],
+  "timeline": [
+    {
+      "id": "N16_PART_1",
+      "start_frame": 0,
+      "end_frame_exclusive": 164,
+      "duration_frames": 164,
+      "duration_seconds": 5.466667,
+      "source_kind": "po_approved_v004_segment_preview_reencoded",
+      "source_shot_id": "N16",
+      "approval_scope": "LOCKED_TREATMENT",
+      "purpose": "Existing approved N16-N17 V004"
+    },
+    {
+      "id": "N16_PART_2",
+      "start_frame": 164,
+      "end_frame_exclusive": 281,
+      "duration_frames": 117,
+      "duration_seconds": 3.9,
+      "source_kind": "po_approved_v004_segment_preview_reencoded",
+      "source_shot_id": "N16",
+      "approval_scope": "LOCKED_TREATMENT",
+      "purpose": "Existing approved N16-N17 V004"
+    },
+    {
+      "id": "N17",
+      "start_frame": 281,
+      "end_frame_exclusive": 658,
+      "duration_frames": 377,
+      "duration_seconds": 12.566667,
+      "source_kind": "po_approved_v004_segment_preview_reencoded",
+      "source_shot_id": "N17",
+      "approval_scope": "LOCKED_TREATMENT",
+      "purpose": "DO NOT edit N16-N17 approved opening"
+    },
+    {
+      "id": "N18",
+      "start_frame": 658,
+      "end_frame_exclusive": 839,
+      "duration_frames": 181,
+      "duration_seconds": 6.033333,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N18",
+      "approval_scope": "KEEP",
+      "purpose": "Jun sees sky / clear-sky doubt"
+    },
+    {
+      "id": "N19",
+      "start_frame": 839,
+      "end_frame_exclusive": 949,
+      "duration_frames": 110,
+      "duration_seconds": 3.666667,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N19",
+      "approval_scope": "KEEP",
+      "purpose": "Ning warns conditions change"
+    },
+    {
+      "id": "N20_FIRST",
+      "start_frame": 949,
+      "end_frame_exclusive": 996,
+      "duration_frames": 47,
+      "duration_seconds": 1.566667,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N20",
+      "approval_scope": "KEEP",
+      "purpose": "Ning moves in, begins final warning"
+    },
+    {
+      "id": "V006_NEW_01",
+      "start_frame": 996,
+      "end_frame_exclusive": 1078,
+      "duration_frames": 82,
+      "duration_seconds": 2.733333,
+      "source_kind": "approved_canonical_new_story_shot",
+      "source_shot_id": "S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01",
+      "approval_scope": "PO_APPROVED_STILL_ONLY_VIDEO_REVIEW_PENDING",
+      "purpose": "Jun OTS to speaking Ning, proper 3/4 axis, no re-encoded N20 crop"
+    },
+    {
+      "id": "JUN_APPROVED_REACTION",
+      "start_frame": 1078,
+      "end_frame_exclusive": 1114,
+      "duration_frames": 36,
+      "duration_seconds": 1.2,
+      "source_kind": "po_approved_verified_staging_test_insert",
+      "source_shot_id": "S02B_JUN_ACKNOWLEDGEMENT_TEST_01",
+      "approval_scope": "LOCKED_APPROVED_B_V002",
+      "purpose": "PO-selected exact PNG existing 1.2s Jun close-up"
+    },
+    {
+      "id": "N21",
+      "start_frame": 1114,
+      "end_frame_exclusive": 1222,
+      "duration_frames": 108,
+      "duration_seconds": 3.6,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N21",
+      "approval_scope": "KEEP",
+      "purpose": "Group entrance establishes scale"
+    },
+    {
+      "id": "N22_FIRST",
+      "start_frame": 1222,
+      "end_frame_exclusive": 1299,
+      "duration_frames": 77,
+      "duration_seconds": 2.566667,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N22",
+      "approval_scope": "KEEP",
+      "purpose": "Character diversity in moving crowd"
+    },
+    {
+      "id": "V006_NEW_02",
+      "start_frame": 1299,
+      "end_frame_exclusive": 1366,
+      "duration_frames": 67,
+      "duration_seconds": 2.233333,
+      "source_kind": "approved_canonical_new_story_shot",
+      "source_shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+      "approval_scope": "PO_APPROVED_STILL_ONLY_VIDEO_REVIEW_PENDING",
+      "purpose": "Low side-angle within crowd, layered moving guests"
+    },
+    {
+      "id": "N23",
+      "start_frame": 1366,
+      "end_frame_exclusive": 1448,
+      "duration_frames": 82,
+      "duration_seconds": 2.733333,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N23",
+      "approval_scope": "KEEP",
+      "purpose": "Neil remains by door, visual lead into turning narration"
+    },
+    {
+      "id": "A06",
+      "start_frame": 1448,
+      "end_frame_exclusive": 1575,
+      "duration_frames": 127,
+      "duration_seconds": 4.233333,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "A06",
+      "approval_scope": "PROVISIONAL_DURATION_CHANGE",
+      "purpose": "Door open visual, restrained video-only grade; source approved PNG unchanged"
+    },
+    {
+      "id": "N24",
+      "start_frame": 1575,
+      "end_frame_exclusive": 1694,
+      "duration_frames": 119,
+      "duration_seconds": 3.966667,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N24",
+      "approval_scope": "PROVISIONAL_DURATION_CHANGE",
+      "purpose": "Guang Yong question: voice approx 52.25 precedes picture 52.50; source audio fixed"
+    },
+    {
+      "id": "N25",
+      "start_frame": 1694,
+      "end_frame_exclusive": 1810,
+      "duration_frames": 116,
+      "duration_seconds": 3.866667,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N25",
+      "approval_scope": "KEEP",
+      "purpose": "Neil answers rain rule"
+    },
+    {
+      "id": "NING_REACTION_APPROVED",
+      "start_frame": 1810,
+      "end_frame_exclusive": 1863,
+      "duration_frames": 53,
+      "duration_seconds": 1.766667,
+      "source_kind": "po_approved_verified_staging_test_insert",
+      "source_shot_id": "TAIL_NING_REACTION_TEST_01",
+      "approval_scope": "LOCKED_APPROVED_B_V002",
+      "purpose": "Ning reaction approved insert unchanged"
+    },
+    {
+      "id": "N26",
+      "start_frame": 1863,
+      "end_frame_exclusive": 1927,
+      "duration_frames": 64,
+      "duration_seconds": 2.133333,
+      "source_kind": "po_approved_story_shot_assembled_from_approved_png",
+      "source_shot_id": "N26",
+      "approval_scope": "KEEP",
+      "purpose": "Follow Neil deeper into castle"
+    }
+  ],
+  "version_revision_note": "V001 was structural only and had two missing assets; V002 records actual rendered source resolution without overwriting V001",
+  "historically_missing_shots_resolved": [
+    {
+      "shot_id": "S02B_V006_NING_WARNING_JUN_SHOULDER_OTS_TEST_01",
+      "start_frame": 996,
+      "end_frame_exclusive": 1078,
+      "duration_seconds": 2.7333333333333334,
+      "reference_approach": "N20 approved + Ning identity + Jun body / costume + inner entrance scene",
+      "image_specs": "941x1672 PNG 1 image per Work round; needs new director+scene ref+bundle exact verification"
+    },
+    {
+      "shot_id": "S02B_V006_CROWD_INTERIOR_SIDE_DEPTH_TEST_01",
+      "start_frame": 1299,
+      "end_frame_exclusive": 1366,
+      "duration_seconds": 2.2333333333333334,
+      "reference_approach": "N21 N22 approved + entrance lobby scene + anonymous guest crowd sheets",
+      "image_specs": "941x1672 PNG 1 image per Work round; needs new director+scene ref+bundle exact verification"
+    }
+  ],
+  "v005_unavailable_sha256": "ffd811370e77293e5f519020d611aeaef37590979d5922d5ce715a1cb508d63c",
+  "rendered_artifact": {
+    "workflow_run_id": 38569617657,
+    "artifact_id": 11897595436,
+    "zip_sha256": "5c80a14adf5ae4762d05c8fdd5f730cfe53af9dfc54d65acd7fb738cc7852965",
+    "mp4_sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+    "mp4_bytes": 8712713,
+    "frames": 1927,
+    "fps": 30,
+    "width": 720,
+    "height": 1280,
+    "format_duration_seconds": 64.25,
+    "source_visual_limit": "0:658 V004 decoded/re-encoded, 658:1927 storyboard-derived from approved images, NOT V005 exact sequence"
+  }
+}
