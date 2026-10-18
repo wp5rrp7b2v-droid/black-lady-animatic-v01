@@ -1,0 +1,225 @@
+{
+  "project": "BLACK-LADY-001",
+  "candidate": "S02_B_V019_SPATIAL_AUDIO_FULL_V003",
+  "status": "TECHNICAL_PASS_PO_FULL_LENGTH_REVIEW_PENDING",
+  "source_V018_exact_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "N23_reference_PO_approved_V002_sha256": "9b58bd86c47d276daffb40e24d34c3d88303b847d8c271c3f8bb90df123c709e",
+  "scope": "full S02-B 1927 frames; added subtle N16 and N19-N20 walking, stopped A06 before Guang Yong dialogue; other movement preserved",
+  "video_approved_reorder": [
+    "N21",
+    "V006_NEW_02",
+    "N22_FIRST",
+    "N23"
+  ],
+  "other_cut_positions": "unchanged",
+  "full_video_frames_A_B": 1927,
+  "N23_full_context_foley_to_original_RMS": 0.11687111312920076,
+  "N23_V002_PO_approved_reference_foley_to_original_RMS": 0.11687111244,
+  "N23_reference_level_gate": "PASS within 0.105..0.130",
+  "fps": 30,
+  "format": "720x1280",
+  "input_aac_adts_sha256": "d1e12748ce836c6c191148c3abf10b3a5144a932042c6474512303c79b87e5e9",
+  "A_original_AAC_packet_equal_source": true,
+  "B_reencoded_AAC_due_to_mixing": true,
+  "original_audio_PCM_unity_in_B_mix_input": true,
+  "full_A_B_picture_elementary_H264_SHA256": "6eb12c12a4e790d7302d9e07e0b050af6da9a064c5ac7916a9190ef5a3e77ea1",
+  "audio_added_only_in_walking_story_shots": [
+    "N16_EARLY_PAIR_WALKING",
+    "N19_N20_TWO_PERSONS_MOVING",
+    "N21_NEW02_N22_COHORT",
+    "N23_NEIL_OPEN_DOOR_APPROVED_V002",
+    "A06_NEIL_START_MOVING",
+    "N25_NEIL_WALKS_WHILE_ANSWERING",
+    "N26_DEEPER_INTO_CASTLE"
+  ],
+  "selected_cues": [
+    {
+      "shot": "N16_EARLY_PAIR_WALKING",
+      "source_frames": [
+        0,
+        281
+      ],
+      "timeline_sec": [
+        0.0,
+        9.366666666666667
+      ],
+      "reason": "N16 approved original front-facing paired walk",
+      "relative_layer_rms_to_original": 0.030878391747050708,
+      "target_ratio": 0.036,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.2804410553282751,
+      "min_100ms_relative_scale": 0.6306960424724388,
+      "source_sample_offset_sec": 1.5,
+      "fade_in_out_seconds": [
+        0.48,
+        0.6
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N19_N20_TWO_PERSONS_MOVING",
+      "source_frames": [
+        928,
+        996
+      ],
+      "timeline_sec": [
+        30.933333333333334,
+        33.2
+      ],
+      "reason": "N19 final beats and N20 moving inward toward the threshold",
+      "relative_layer_rms_to_original": 0.03918764324286615,
+      "target_ratio": 0.046,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.3,
+      "min_100ms_relative_scale": 0.7074943354084429,
+      "source_sample_offset_sec": 8.0,
+      "fade_in_out_seconds": [
+        0.26,
+        0.42
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N21_NEW02_N22_COHORT",
+      "source_frames": [
+        1114,
+        1366
+      ],
+      "timeline_sec": [
+        37.13333333333333,
+        45.53333333333333
+      ],
+      "reason": "cohort walks past entrance and inward",
+      "relative_layer_rms_to_original": 0.034521455203572006,
+      "target_ratio": 0.08,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.17187909578112903,
+      "min_100ms_relative_scale": 0.20892451932010495,
+      "source_sample_offset_sec": 13.0,
+      "fade_in_out_seconds": [
+        0.42,
+        0.22
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N23_NEIL_OPEN_DOOR_APPROVED_V002",
+      "source_frames": [
+        1366,
+        1448
+      ],
+      "timeline_sec": [
+        45.53333333333333,
+        48.266666666666666
+      ],
+      "reason": "people pass Neil; reuse PO-approved local sound profile",
+      "relative_layer_rms_to_original": 0.11687111312920076,
+      "target_ratio": 0.11687111244,
+      "speech_energy_ducking_applied": false,
+      "max_speech_ducking_factor": 0.0,
+      "min_100ms_relative_scale": 1.0,
+      "source_sample_offset_sec": 6.5,
+      "fade_in_out_seconds": [
+        0.22,
+        0.22
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "A06_NEIL_START_MOVING",
+      "source_frames": [
+        1448,
+        1551
+      ],
+      "timeline_sec": [
+        48.266666666666666,
+        51.7
+      ],
+      "reason": "Neil moving; sound ends 51.70s, well before Guang Yong addresses him at ~52.25s",
+      "relative_layer_rms_to_original": 0.03106749108821473,
+      "target_ratio": 0.05,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.14270035317457958,
+      "min_100ms_relative_scale": 0.27688249340788124,
+      "source_sample_offset_sec": 3.0,
+      "fade_in_out_seconds": [
+        0.26,
+        0.48
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N25_NEIL_WALKS_WHILE_ANSWERING",
+      "source_frames": [
+        1694,
+        1810
+      ],
+      "timeline_sec": [
+        56.46666666666667,
+        60.333333333333336
+      ],
+      "reason": "guide moving amid group during rain-day answer",
+      "relative_layer_rms_to_original": 0.034292769258495025,
+      "target_ratio": 0.054,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.16164208766971846,
+      "min_100ms_relative_scale": 0.2873934114441586,
+      "source_sample_offset_sec": 19.0,
+      "fade_in_out_seconds": [
+        0.28,
+        0.42
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N26_DEEPER_INTO_CASTLE",
+      "source_frames": [
+        1863,
+        1927
+      ],
+      "timeline_sec": [
+        62.1,
+        64.23333333333333
+      ],
+      "reason": "final group walking inward",
+      "relative_layer_rms_to_original": 0.037931364598493555,
+      "target_ratio": 0.058,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.3,
+      "min_100ms_relative_scale": 0.4062811813448392,
+      "source_sample_offset_sec": 10.0,
+      "fade_in_out_seconds": [
+        0.25,
+        0.35
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    }
+  ],
+  "no_footsteps_in_nonmovement_shots": true,
+  "new_early_N16_walking_added": true,
+  "new_N19_N20_movement_added": true,
+  "guang_yong_ni_er_guan_jia_approx_onset_frame": 1567.5,
+  "A06_added_footsteps_stop_frame_exclusive": 1551,
+  "guang_yong_call_reserved_mute_from_frame": 1551,
+  "guang_yong_call_footstep_overlay_sample_exact_zero": true,
+  "early_audio_reasoning": "Visual inspection of V018 frames: N16 walking posture; N19/N20 moving inward; no movement SFX under question N24.",
+  "original_audio_energy_overlays": "conservative, max 100ms window; reduce overlay on high program energy",
+  "mix_peak": 0.9430209994316101,
+  "added_footsteps_overall_relative_rms": 0.03889183375181816,
+  "sfx_public_domain": "https://commons.wikimedia.org/wiki/File:Church_people_walking_steps_with_reverb.ogg",
+  "sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445",
+  "sfx_contains_some_room_murmurs": true,
+  "audio_limitations": "Sound energy ducking is not a semantic speech detector; actual listening is required. N23 same approved SFX settings but remixed against full source (not binary-identical to prior isolated V002).",
+  "full_audio_context_PO_approval": false,
+  "artistic_approval_not_implied": true,
+  "no_paid_AI_video": true,
+  "no_new_images": true,
+  "V018_canonical_unchanged": true,
+  "no_main_merge": true,
+  "A_full_review_sha256": "2defc8989a038822f39284eed815499a4f4812996b5ff8103a7ad298a81a0250",
+  "B_full_review_sha256": "c5ce6835e1d7cb938274fd180d09d946777c62326f101110176fa73632dc5f20",
+  "V002_full_sha256_reverified": "ac41ab42aae4cab691919a3a85933eefc636a15985a39e150690e99ccddffd21",
+  "AB_N16_sha256": "07b0f913a4b79be439226b2909e05b97a9bff6766c190666c254634f4e14c4bd",
+  "AB_N19N20_sha256": "18c671611b5d04093e002ca6e4debde49d5d57e422ce7a622d897771d1230a82",
+  "AB_GuangYong_sha256": "ba006fae66c51695a461326811e38f6ad4272617d54fc403dd7fcb44e98ca9e9"
+}
