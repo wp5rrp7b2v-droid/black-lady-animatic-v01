@@ -1,5 +1,5 @@
 name: S02-B Full-Length M01 V017 All Candle-Lit Shots AB
-# Rebuild with corrected valid 720x1280 real flame bounds, including y489 NING reaction candidate.
+# Rebuild with generic fractional fade endpoint negative-roundoff protection and 53-frame regression.
 on:
   push:
     branches:
