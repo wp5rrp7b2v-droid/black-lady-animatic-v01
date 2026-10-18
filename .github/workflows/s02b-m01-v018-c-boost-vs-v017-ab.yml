@@ -1,5 +1,5 @@
 name: S02-B M01 V018 Stronger C Candle Flicker V017 AB
-# Same M01 core & centers; change only C's two RGB amplitude arrays. 3 reference shots unchanged.
+# Rebuild after fixing V018 review closeout previous V017 QC variable reference; M01 core and C amplitude are unchanged.
 on:
   push:
     branches:
