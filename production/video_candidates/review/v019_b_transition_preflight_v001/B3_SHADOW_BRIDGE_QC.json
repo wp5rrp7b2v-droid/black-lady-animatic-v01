@@ -1,0 +1,43 @@
+{
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "approval_scope": "NO_NEW_APPROVAL; B ORDER APPROVED BY PO ONLY",
+  "version": "B3",
+  "order": [
+    "N21",
+    "NEW02",
+    "N22",
+    "N23"
+  ],
+  "source_B_sha256": "14a41d0985f12e3de489467b2fb643660f1e4dac073813a66c35d5beb9bcd5b9",
+  "B3_sha256": "0bccac904a147ad607450aa60fa7a1b1f058442586afd17459b48f0bb5111625",
+  "frame_count_B": 334,
+  "frame_count_B3": 334,
+  "transition_cuts_relative_frames": [
+    108,
+    175,
+    252
+  ],
+  "edited_ranges_inclusive": [
+    [
+      102,
+      113
+    ],
+    [
+      169,
+      180
+    ],
+    [
+      246,
+      257
+    ]
+  ],
+  "duration_each_seconds": 0.4,
+  "transition_method": "One-source-at-a-time frame dimming; zero double-exposure.",
+  "min_brightness_multiplier": 0.32,
+  "audio_packet_sha256_B_B3_AB": "e7fa76135b4515c9de9e8c9dbe53923f2ce2ac4f0a88fe8acafe284775225a54",
+  "audio_packet_identical": true,
+  "image_generated": false,
+  "paid_AI_generation": false,
+  "V018_and_approved_B_source_unchanged": true,
+  "visual_limit": "Repeated dark dips might appear as flashes or slideshow fades; technical PASS is not an artistic PASS."
+}
