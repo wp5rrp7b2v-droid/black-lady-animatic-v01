@@ -1,0 +1,37 @@
+{
+  "status": "REVIEW_CANDIDATE_TECHNICAL_PASS_PENDING_PO",
+  "approved_reorder_preserved": [
+    "N21",
+    "NEW02",
+    "N22",
+    "N23"
+  ],
+  "source_B_sha256": "14a41d0985f12e3de489467b2fb643660f1e4dac073813a66c35d5beb9bcd5b9",
+  "source_B2_sha256": "75c4050e4a4ebb3470872a3bc3db91575170eff7f54c15942e0c28ea587c7459",
+  "frame_count": 334,
+  "cut_frames": {
+    "N21_NEW02": 108,
+    "NEW02_N22": 175,
+    "N22_N23": 252
+  },
+  "edited_windows": [
+    [
+      106,
+      109
+    ],
+    [
+      173,
+      176
+    ]
+  ],
+  "N22_N23_hard_cut": "PRESERVED",
+  "source_AAC_packet_sha256": "e7fa76135b4515c9de9e8c9dbe53923f2ce2ac4f0a88fe8acafe284775225a54",
+  "B2_AAC_packet_sha256": "e7fa76135b4515c9de9e8c9dbe53923f2ce2ac4f0a88fe8acafe284775225a54",
+  "AB_AAC_packet_sha256": "e7fa76135b4515c9de9e8c9dbe53923f2ce2ac4f0a88fe8acafe284775225a54",
+  "aesthetic_status": "PENDING_ACTUAL_VISUAL_REVIEW",
+  "risk": "Short dissolves may create double-exposure/ghosting; no assertion of artistic PASS.",
+  "source_V018": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "visual_B_approved_scope": "REORDER_ONLY",
+  "canonical_or_main_change": false,
+  "new_AIG_video": false
+}
