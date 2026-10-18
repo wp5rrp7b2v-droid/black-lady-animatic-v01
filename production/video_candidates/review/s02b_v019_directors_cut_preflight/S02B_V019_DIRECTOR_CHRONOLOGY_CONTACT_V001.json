@@ -1,0 +1,211 @@
+{
+  "source_v018_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "source_edl": "S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW.json",
+  "state": "READ_ONLY_EDITORIAL_DIAGNOSTIC",
+  "cells": [
+    {
+      "id": "N16_PART_1",
+      "time": 1.1,
+      "frame": 33,
+      "location": "EARLY"
+    },
+    {
+      "id": "N16_PART_1",
+      "time": 4.1,
+      "frame": 123,
+      "location": "LATE"
+    },
+    {
+      "id": "N16_PART_2",
+      "time": 6.233333333333333,
+      "frame": 187,
+      "location": "EARLY"
+    },
+    {
+      "id": "N16_PART_2",
+      "time": 8.4,
+      "frame": 252,
+      "location": "LATE"
+    },
+    {
+      "id": "N17",
+      "time": 11.866666666666667,
+      "frame": 356,
+      "location": "EARLY"
+    },
+    {
+      "id": "N17",
+      "time": 18.8,
+      "frame": 564,
+      "location": "LATE"
+    },
+    {
+      "id": "N18",
+      "time": 23.133333333333333,
+      "frame": 694,
+      "location": "EARLY"
+    },
+    {
+      "id": "N18",
+      "time": 26.466666666666665,
+      "frame": 794,
+      "location": "LATE"
+    },
+    {
+      "id": "N19",
+      "time": 28.7,
+      "frame": 861,
+      "location": "EARLY"
+    },
+    {
+      "id": "N19",
+      "time": 30.7,
+      "frame": 921,
+      "location": "LATE"
+    },
+    {
+      "id": "N20_FIRST",
+      "time": 31.933333333333334,
+      "frame": 958,
+      "location": "EARLY"
+    },
+    {
+      "id": "N20_FIRST",
+      "time": 32.8,
+      "frame": 984,
+      "location": "LATE"
+    },
+    {
+      "id": "V006_NEW_01",
+      "time": 33.733333333333334,
+      "frame": 1012,
+      "location": "EARLY"
+    },
+    {
+      "id": "V006_NEW_01",
+      "time": 35.266666666666666,
+      "frame": 1058,
+      "location": "LATE"
+    },
+    {
+      "id": "JUN_APPROVED_REACTION",
+      "time": 36.166666666666664,
+      "frame": 1085,
+      "location": "EARLY"
+    },
+    {
+      "id": "JUN_APPROVED_REACTION",
+      "time": 36.833333333333336,
+      "frame": 1105,
+      "location": "LATE"
+    },
+    {
+      "id": "N21",
+      "time": 37.86666666666667,
+      "frame": 1136,
+      "location": "EARLY"
+    },
+    {
+      "id": "N21",
+      "time": 39.833333333333336,
+      "frame": 1195,
+      "location": "LATE"
+    },
+    {
+      "id": "N22_FIRST",
+      "time": 41.233333333333334,
+      "frame": 1237,
+      "location": "EARLY"
+    },
+    {
+      "id": "N22_FIRST",
+      "time": 42.666666666666664,
+      "frame": 1280,
+      "location": "LATE"
+    },
+    {
+      "id": "V006_NEW_02",
+      "time": 43.733333333333334,
+      "frame": 1312,
+      "location": "EARLY"
+    },
+    {
+      "id": "V006_NEW_02",
+      "time": 44.96666666666667,
+      "frame": 1349,
+      "location": "LATE"
+    },
+    {
+      "id": "N23",
+      "time": 46.06666666666667,
+      "frame": 1382,
+      "location": "EARLY"
+    },
+    {
+      "id": "N23",
+      "time": 47.6,
+      "frame": 1428,
+      "location": "LATE"
+    },
+    {
+      "id": "A06",
+      "time": 49.1,
+      "frame": 1473,
+      "location": "EARLY"
+    },
+    {
+      "id": "A06",
+      "time": 51.43333333333333,
+      "frame": 1543,
+      "location": "LATE"
+    },
+    {
+      "id": "N24",
+      "time": 53.3,
+      "frame": 1599,
+      "location": "EARLY"
+    },
+    {
+      "id": "N24",
+      "time": 55.46666666666667,
+      "frame": 1664,
+      "location": "LATE"
+    },
+    {
+      "id": "N25",
+      "time": 57.233333333333334,
+      "frame": 1717,
+      "location": "EARLY"
+    },
+    {
+      "id": "N25",
+      "time": 59.36666666666667,
+      "frame": 1781,
+      "location": "LATE"
+    },
+    {
+      "id": "NING_REACTION_APPROVED",
+      "time": 60.7,
+      "frame": 1821,
+      "location": "EARLY"
+    },
+    {
+      "id": "NING_REACTION_APPROVED",
+      "time": 61.666666666666664,
+      "frame": 1850,
+      "location": "LATE"
+    },
+    {
+      "id": "N26",
+      "time": 62.53333333333333,
+      "frame": 1876,
+      "location": "EARLY"
+    },
+    {
+      "id": "N26",
+      "time": 63.7,
+      "frame": 1911,
+      "location": "LATE"
+    }
+  ]
+}
