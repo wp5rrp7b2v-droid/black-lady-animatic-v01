@@ -1,0 +1,80 @@
+{
+  "source": "V018 exact visual-approved clip",
+  "source_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "status": "CUT_CANDIDATE_PREFLIGHT_ONLY_NOT_VIDEO_APPROVED",
+  "no_paid_video_ai": true,
+  "no_original_approved_binaries_changed": true,
+  "fps": 30,
+  "expected_total_frames": 1927,
+  "review_span_frames": [
+    1114,
+    1448
+  ],
+  "review_span_seconds": [
+    37.133333,
+    48.266667
+  ],
+  "cuts": [
+    {
+      "cut": "N21_TO_N22",
+      "cut_frame": 1222,
+      "time_seconds": 40.733333333333334,
+      "adjacent_frames": [
+        {
+          "frame": 1221,
+          "mean_luminance": 68.39,
+          "left_edge_luminance": 69.26,
+          "right_edge_luminance": 58.41
+        },
+        {
+          "frame": 1222,
+          "mean_luminance": 47.67,
+          "left_edge_luminance": 42.55,
+          "right_edge_luminance": 56.24
+        }
+      ]
+    },
+    {
+      "cut": "N22_TO_NEW02",
+      "cut_frame": 1299,
+      "time_seconds": 43.3,
+      "adjacent_frames": [
+        {
+          "frame": 1298,
+          "mean_luminance": 47.65,
+          "left_edge_luminance": 42.51,
+          "right_edge_luminance": 56.22
+        },
+        {
+          "frame": 1299,
+          "mean_luminance": 53.87,
+          "left_edge_luminance": 75.43,
+          "right_edge_luminance": 46.6
+        }
+      ]
+    },
+    {
+      "cut": "NEW02_TO_N23",
+      "cut_frame": 1366,
+      "time_seconds": 45.53333333333333,
+      "adjacent_frames": [
+        {
+          "frame": 1365,
+          "mean_luminance": 53.87,
+          "left_edge_luminance": 75.4,
+          "right_edge_luminance": 46.62
+        },
+        {
+          "frame": 1366,
+          "mean_luminance": 53.87,
+          "left_edge_luminance": 91.64,
+          "right_edge_luminance": 24.65
+        }
+      ]
+    }
+  ],
+  "interpretation": "Numerical edge/luma readings do not prove spatial/eyeline/movement continuity. Judge actual images before any B/C treatment.",
+  "next_gate": "Select one cut after image review; design B hard cut timing/visual relationship. Try C only if visible real foreground cover exists; no synthetic wipe.",
+  "audio_policy": "Original V018 AAC copied as-is into context excerpt; no time stretching or remixing.",
+  "output_class": "NONCANONICAL_REVIEW_ONLY"
+}
