@@ -86,7 +86,7 @@ jobs:
           python3 - <<'PY'
           import subprocess
           changes=subprocess.check_output(["git","diff","--name-status","origin/main"],text=True).splitlines()
-          changes += subprocess.check_output(["git","diff","--cached","--name-status","HEAD"],text=True).splitlines()
+          # git diff origin/main already includes both committed and staged additions.
           assert changes, "NO_APPEND_ONLY_CHANGES"
           assert all(x.startswith("A\t") for x in changes),changes
           assert len(changes)==11, changes
