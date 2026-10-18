@@ -1,0 +1,107 @@
+{
+  "input_SHA256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "frames": [
+    {
+      "shot": "N16 A",
+      "frame": 30,
+      "time": 1.0
+    },
+    {
+      "shot": "N16 A",
+      "frame": 115,
+      "time": 3.8333333333333335
+    },
+    {
+      "shot": "N16 B",
+      "frame": 190,
+      "time": 6.333333333333333
+    },
+    {
+      "shot": "N16 B",
+      "frame": 260,
+      "time": 8.666666666666666
+    },
+    {
+      "shot": "N17",
+      "frame": 360,
+      "time": 12.0
+    },
+    {
+      "shot": "N17",
+      "frame": 530,
+      "time": 17.666666666666668
+    },
+    {
+      "shot": "N17",
+      "frame": 620,
+      "time": 20.666666666666668
+    },
+    {
+      "shot": "N18",
+      "frame": 720,
+      "time": 24.0
+    },
+    {
+      "shot": "N18",
+      "frame": 825,
+      "time": 27.5
+    },
+    {
+      "shot": "N19",
+      "frame": 865,
+      "time": 28.833333333333332
+    },
+    {
+      "shot": "N19",
+      "frame": 925,
+      "time": 30.833333333333332
+    },
+    {
+      "shot": "N20",
+      "frame": 968,
+      "time": 32.266666666666666
+    },
+    {
+      "shot": "N20",
+      "frame": 988,
+      "time": 32.93333333333333
+    },
+    {
+      "shot": "NEW-01",
+      "frame": 1040,
+      "time": 34.666666666666664
+    },
+    {
+      "shot": "REACTION",
+      "frame": 1095,
+      "time": 36.5
+    },
+    {
+      "shot": "N21",
+      "frame": 1170,
+      "time": 39.0
+    },
+    {
+      "shot": "A06",
+      "frame": 1475,
+      "time": 49.166666666666664
+    },
+    {
+      "shot": "A06",
+      "frame": 1540,
+      "time": 51.333333333333336
+    },
+    {
+      "shot": "A06 / Guang Yong J-cut",
+      "frame": 1571,
+      "time": 52.36666666666667
+    },
+    {
+      "shot": "N24",
+      "frame": 1600,
+      "time": 53.333333333333336
+    }
+  ],
+  "caveat": "Contact sheet is evidence of visible posture only. Static storyboard depiction of walking does not prove audible real-time footsteps; PO audio review required.",
+  "no_video_or_audio_change": true
+}
