@@ -1,0 +1,40 @@
+name: N23 Spatial Audio Minimum Proof 01 (review only)
+on:
+  push:
+    branches:
+      - experiment/n23-spatial-audio-proof-01
+    paths:
+      - ".github/workflows/n23-spatial-audio-proof-01.yml"
+      - "scripts/n23_spatial_audio_proof_01.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  n23-audio-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout isolated experiment branch
+        uses: actions/checkout@v4
+      - name: Install FFmpeg and NumPy
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user numpy
+      - name: Render A/B N23 room audio and exact-picture checks
+        run: python3 scripts/n23_spatial_audio_proof_01.py
+      - name: Upload noncanonical review videos and source provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: N23_SPATIAL_AUDIO_PROOF_01_REVIEW_ONLY
+          path: production/video_candidates/review/n23_spatial_audio_proof_01/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Archive noncanonical review artifacts on experiment branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/n23_spatial_audio_proof_01/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive N23 audio A/B, provenance and technical review (not canonical)"
+            git push origin HEAD:experiment/n23-spatial-audio-proof-01
+          fi
