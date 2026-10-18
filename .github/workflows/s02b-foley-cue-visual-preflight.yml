@@ -1,0 +1,42 @@
+name: S02-B V019 Footstep Placement Visual Preflight
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-spatial-audio-full-v001-20261018
+    paths:
+      - ".github/workflows/s02b-foley-cue-visual-preflight.yml"
+      - "scripts/s02b_foley_cue_visual_preflight.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user Pillow
+      - name: Inspect actual V018 picture frames
+        run: python3 scripts/s02b_foley_cue_visual_preflight.py
+      - name: Save evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_FOLEY_PLACEMENT_EARLY_VISUAL_PREFLIGHT
+          path: |
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02B_FOLEY_CUE_EARLY_FRAMES_CONTACT_V001.jpg
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02B_FOLEY_CUE_EARLY_FRAMES_V001.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Commit evidence only to experiment branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/s02b_full_spatial_audio_v001/S02B_FOLEY_CUE_EARLY_FRAMES_CONTACT_V001.jpg
+          git add production/video_candidates/review/s02b_full_spatial_audio_v001/S02B_FOLEY_CUE_EARLY_FRAMES_V001.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive evidence for S02-B early-motion Foley placement"
+            git push origin HEAD:experiment/s02b-v019-spatial-audio-full-v001-20261018
+          fi
