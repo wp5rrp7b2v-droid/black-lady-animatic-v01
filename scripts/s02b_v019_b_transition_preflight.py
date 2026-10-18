@@ -87,7 +87,7 @@ def main():
         "-pix_fmt","yuv420p","-movflags","+faststart",b_silent)
     run("ffmpeg","-hide_banner","-loglevel","error","-y",
         "-i",b_silent,"-i",a_path,"-map","0:v:0","-map","1:a:0",
-        "-c:v","copy","-c:a","copy","-shortest","-movflags","+faststart",b_path)
+        "-c:v","copy","-c:a","copy","-movflags","+faststart",b_path)
     def decoded_frames(p):
         info=json.loads(run("ffprobe","-v","error","-count_frames",
             "-select_streams","v:0","-show_entries","stream=nb_read_frames",
