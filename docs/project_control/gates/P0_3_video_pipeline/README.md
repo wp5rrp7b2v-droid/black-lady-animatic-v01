@@ -1870,3 +1870,12 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - **P0.3 remains IN PROGRESS**. No Video Index mutation, new shots, canonical publication, or promotion of the experimental tails; source branches/Actions evidence retained.
 - Before any new tail candidate, redesign the narrative cutaways and assess genuinely new angles/detail source shots through Director → Scene Reference → Bundle → Work → PO if justified; never generate extra Story Shot PNG without fresh PO authorization.
 - Closeout record: `s02_b_tail_v001_v002_po_hold_daily_closeout_2026-10-12.md`, decision `BL-D-175`; local Mac EOD sync must be verified with user's real terminal output and exact GitHub main parity, not assumed.
+
+## 2026-10-18｜M01 Unified Candle Engine / S02-B V018 Full-Length PO Visual Approval
+
+- M01 V014 correct centers (N23 5 / NEW02 11), V015 common core+halo 2-shot PO visual PASS; rejected V013 warm-peak positioning remains invalid historical evidence.
+- PO authorized M01 use across whole S02-B; V016 technical 3/17, V017 candidate 15/17 at 88.22%, both **not PO approved as complete visuals**.
+- V018 increased **C group** local core `[21,15,6]` and surrounding halo `[3.2,1.7,0.45]`; 1,927 frames / 30fps, exact SHA `6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427`. PO「V018视觉审核通过」。No broader full person GT or cross-scene portability PASS inferred.
+- PO adopted RC-030 version append-only: PR #23 merged exact V006 source/reference + exact V018 approved version and comparative videos into `main`, while preserving approved V001; main canonical video index still unchanged (3 approved video entries); no silent replacement.
+- Gate remains **IN PROGRESS / NOT YET VALIDATED**; no authorization for final episode master replacement, Story Shot registration or P0.3 gate PASS. EOD local Mac sync pending actual terminal proof.
+- Full evidence / next-session handoff: `p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md` and `s02b_2026-10-18_mac_fast_forward_and_new_chat_handoff.md`.
