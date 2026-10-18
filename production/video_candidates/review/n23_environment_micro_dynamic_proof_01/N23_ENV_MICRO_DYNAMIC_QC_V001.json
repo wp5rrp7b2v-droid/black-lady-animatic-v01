@@ -1,0 +1,46 @@
+{
+  "project": "BLACK-LADY-001",
+  "shot": "N23",
+  "type": "SINGLE_SHOT_ENVIRONMENT_MICRO_DYNAMIC_PROOF_01",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING",
+  "original_V018_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "time_range_seconds": [
+    45.533333,
+    48.266667
+  ],
+  "source_frames": [
+    1366,
+    1447
+  ],
+  "frame_count": 82,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "allowed_regions": "Upper-background only, y<376,x>108, excluding bright flames/fixtures",
+  "processing_stage_pixels_y_376_plus_changed": 0,
+  "processing_stage_pixels_x_0_107_changed": 0,
+  "effect_components": [
+    "small sparse drifting dust",
+    "very low contrast upper-arch air veil"
+  ],
+  "actual_changed_upper_pixels_accumulated": 7959755,
+  "maximum_raw_pixel_delta": 24,
+  "raw_rgb_delta_sum_upper": 15531927,
+  "audio_AAC_ADTS_SHA256_A_B_AB": "0b0208dd356aaeb99ee6a63e74666bf0bb5bc3714bf9e9a505314eb8954373c4",
+  "source_audio_no_reencode": true,
+  "no_AI_video": true,
+  "no_character_motion": true,
+  "no_transition_change": true,
+  "visual_result_not_yet_approved": true,
+  "visual_caveat": "A/B encoded H264 naturally produces small compression differences outside mask; processing-stage zero-difference is the preservation proof.",
+  "filenames": {
+    "A": "N23_A_V018_ORIGINAL_SEGMENT_REVIEW.mp4",
+    "B": "N23_B_AMBIENT_AIR_MICRO_DYNAMIC_CANDIDATE_V001.mp4",
+    "AB": "N23_A_B_SIDE_BY_SIDE_AMBIENT_AIR_REVIEW_V001.mp4"
+  },
+  "A_sha256": "cdbb2632a2deb4995efcdd0499613db25e95453d003c76543353f4efb2b7f2a2",
+  "B_sha256": "dd99dbf88ffff4188532961089cce4a1524c6990ef1d6922841a0009b511a4f9",
+  "AB_sha256": "7a3daff941d391d0fd580027562fc0b1dfad383551ea8108f43159c6ec1c4ba5"
+}
