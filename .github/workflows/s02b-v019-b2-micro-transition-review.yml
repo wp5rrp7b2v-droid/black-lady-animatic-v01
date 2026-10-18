@@ -1,0 +1,45 @@
+name: S02-B V019-B2 Micro Transition Review (isolated)
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-b-transition-proof-20261018
+    paths:
+      - ".github/workflows/s02b-v019-b2-micro-transition-review.yml"
+      - "scripts/s02b_v019_b_micro_transition_v001.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout isolated branch
+        uses: actions/checkout@v4
+      - name: Install FFmpeg and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user Pillow
+      - name: Render 4-frame edit and exact audio QC
+        run: python3 scripts/s02b_v019_b_micro_transition_v001.py
+      - name: Upload review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V019_B2_TRANSITION_REVIEW
+          path: |
+            production/video_candidates/review/v019_b_transition_preflight_v001/B2_MICRO_DISSOLVE_4FRAME_CONTEXT_REVIEW.mp4
+            production/video_candidates/review/v019_b_transition_preflight_v001/AB_B_APPROVED_ORDER_VS_B2_TRANSITION_EASE.mp4
+            production/video_candidates/review/v019_b_transition_preflight_v001/B2_TRANSITION_BEFORE_AFTER_FRAMES.jpg
+            production/video_candidates/review/v019_b_transition_preflight_v001/B2_MICRO_TRANSITION_QC.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Archive review output on isolated branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/v019_b_transition_preflight_v001/B2*
+          git add production/video_candidates/review/v019_b_transition_preflight_v001/AB_B_APPROVED_ORDER_VS_B2_TRANSITION_EASE.mp4
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive noncanonical B2 micro-transition review and QC"
+            git push origin HEAD:experiment/s02b-v019-b-transition-proof-20261018
+          fi
