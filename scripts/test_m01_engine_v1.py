@@ -35,6 +35,18 @@ class M01EngineCoreTests(unittest.TestCase):
    self.assertEqual(report["status"],"CALIBRATION_REQUIRED")
    self.assertFalse(report["rendered"])
    self.assertFalse(report["release_allowed"])
+ def test_fractional_fade_endpoints_are_real_and_exactly_zero(self):
+  # A former complex-number crash occurred at the last frame of a 53-frame shot.
+  for frames in (36,47,53,64,82,90,116,181,377):
+   f={"visibility_keyframes":None}
+   f.pop("visibility_keyframes")
+   start=eng.visibility(f,0,frames,"sin_soft_edges")
+   middle=eng.visibility(f,frames//2,frames,"sin_soft_edges")
+   end=eng.visibility(f,frames-1,frames,"sin_soft_edges")
+   self.assertEqual(start,0.0)
+   self.assertEqual(end,0.0)
+   self.assertIsInstance(end,float)
+   self.assertGreater(middle,0.9)
  def test_n17_reference_is_originally_configured(self):
   p=eng.read_profile("N17_UNIFIED_REGISTERED_REFERENCE_V013.json")
   self.assertEqual(len(p["fixtures"]),4)
