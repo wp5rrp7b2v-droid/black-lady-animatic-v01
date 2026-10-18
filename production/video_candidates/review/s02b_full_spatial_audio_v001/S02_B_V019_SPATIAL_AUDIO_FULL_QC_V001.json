@@ -1,0 +1,164 @@
+{
+  "project": "BLACK-LADY-001",
+  "candidate": "S02_B_V019_SPATIAL_AUDIO_FULL_V001",
+  "status": "TECHNICAL_PASS_PO_FULL_LENGTH_REVIEW_PENDING",
+  "source_V018_exact_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "N23_reference_PO_approved_V002_sha256": "9b58bd86c47d276daffb40e24d34c3d88303b847d8c271c3f8bb90df123c709e",
+  "scope": "full S02-B 1927 frames; selected walking beats only",
+  "video_approved_reorder": [
+    "N21",
+    "V006_NEW_02",
+    "N22_FIRST",
+    "N23"
+  ],
+  "other_cut_positions": "unchanged",
+  "full_video_frames_A_B": 1927,
+  "fps": 30,
+  "format": "720x1280",
+  "input_aac_adts_sha256": "d1e12748ce836c6c191148c3abf10b3a5144a932042c6474512303c79b87e5e9",
+  "A_original_AAC_packet_equal_source": true,
+  "B_reencoded_AAC_due_to_mixing": true,
+  "original_audio_PCM_unity_in_B_mix_input": true,
+  "full_A_B_picture_elementary_H264_SHA256": "6eb12c12a4e790d7302d9e07e0b050af6da9a064c5ac7916a9190ef5a3e77ea1",
+  "audio_added_only_in_walking_story_shots": [
+    "N21_NEW02_N22_COHORT",
+    "N23_NEIL_OPEN_DOOR_APPROVED_V002",
+    "A06_NEIL_START_MOVING",
+    "N25_NEIL_WALKS_WHILE_ANSWERING",
+    "N26_DEEPER_INTO_CASTLE"
+  ],
+  "selected_cues": [
+    {
+      "shot": "N21_NEW02_N22_COHORT",
+      "source_frames": [
+        1114,
+        1366
+      ],
+      "timeline_sec": [
+        37.13333333333333,
+        45.53333333333333
+      ],
+      "reason": "cohort walks past entrance and inward",
+      "relative_layer_rms_to_original": 0.03236045337555899,
+      "target_ratio": 0.08,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.17187909578112903,
+      "min_100ms_relative_scale": 0.14297015868266294,
+      "source_sample_offset_sec": 13.0,
+      "fade_in_out_seconds": [
+        0.42,
+        0.22
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N23_NEIL_OPEN_DOOR_APPROVED_V002",
+      "source_frames": [
+        1366,
+        1448
+      ],
+      "timeline_sec": [
+        45.53333333333333,
+        48.266666666666666
+      ],
+      "reason": "people pass Neil; reuse PO-approved local sound profile",
+      "relative_layer_rms_to_original": 0.03232477869540923,
+      "target_ratio": 0.11687111244,
+      "speech_energy_ducking_applied": false,
+      "max_speech_ducking_factor": 0.0,
+      "min_100ms_relative_scale": 0.18971795528540245,
+      "source_sample_offset_sec": 6.5,
+      "fade_in_out_seconds": [
+        0.22,
+        0.22
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "A06_NEIL_START_MOVING",
+      "source_frames": [
+        1448,
+        1575
+      ],
+      "timeline_sec": [
+        48.266666666666666,
+        52.5
+      ],
+      "reason": "guide leaves open doorway; fewer receding steps",
+      "relative_layer_rms_to_original": 0.030915294609911236,
+      "target_ratio": 0.05,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.17978003165896117,
+      "min_100ms_relative_scale": 0.17564449121739564,
+      "source_sample_offset_sec": 3.0,
+      "fade_in_out_seconds": [
+        0.26,
+        0.42
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N25_NEIL_WALKS_WHILE_ANSWERING",
+      "source_frames": [
+        1694,
+        1810
+      ],
+      "timeline_sec": [
+        56.46666666666667,
+        60.333333333333336
+      ],
+      "reason": "guide moving amid group during rain-day answer",
+      "relative_layer_rms_to_original": 0.0328235537025967,
+      "target_ratio": 0.054,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.16164208766971846,
+      "min_100ms_relative_scale": 0.18860192626022904,
+      "source_sample_offset_sec": 19.0,
+      "fade_in_out_seconds": [
+        0.28,
+        0.42
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    },
+    {
+      "shot": "N26_DEEPER_INTO_CASTLE",
+      "source_frames": [
+        1863,
+        1927
+      ],
+      "timeline_sec": [
+        62.1,
+        64.23333333333333
+      ],
+      "reason": "final group walking inward",
+      "relative_layer_rms_to_original": 0.0349883117403139,
+      "target_ratio": 0.058,
+      "speech_energy_ducking_applied": true,
+      "max_speech_ducking_factor": 0.3,
+      "min_100ms_relative_scale": 0.26662202525755074,
+      "source_sample_offset_sec": 10.0,
+      "fade_in_out_seconds": [
+        0.25,
+        0.35
+      ],
+      "recorded_sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445"
+    }
+  ],
+  "no_footsteps_in_nonmovement_shots": true,
+  "original_audio_energy_overlays": "conservative, max 100ms window; reduce overlay on high program energy",
+  "mix_peak": 0.947106659412384,
+  "added_footsteps_overall_relative_rms": 0.02130671325583594,
+  "sfx_public_domain": "https://commons.wikimedia.org/wiki/File:Church_people_walking_steps_with_reverb.ogg",
+  "sfx_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445",
+  "sfx_contains_some_room_murmurs": true,
+  "audio_limitations": "Sound energy ducking is not a semantic speech detector; actual listening is required. N23 same approved SFX settings but remixed against full source (not binary-identical to prior isolated V002).",
+  "full_audio_context_PO_approval": false,
+  "artistic_approval_not_implied": true,
+  "no_paid_AI_video": true,
+  "no_new_images": true,
+  "V018_canonical_unchanged": true,
+  "no_main_merge": true,
+  "A_full_review_sha256": "2defc8989a038822f39284eed815499a4f4812996b5ff8103a7ad298a81a0250",
+  "B_full_review_sha256": "4c9ee3033db0dc3982c25c5815f234fd8456f3d8b9f83d25201743280d1a9898",
+  "AB_selected_excerpt_sha256": "0ac4a0ac884d15f2a741b487b6f706865562859b04ceedcc847b20eff578eea0"
+}
