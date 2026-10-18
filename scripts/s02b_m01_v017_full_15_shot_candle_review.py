@@ -60,7 +60,7 @@ def build_profile(shot,segment,atlas):
  for i,flame in enumerate(atlas["sources"][shot]["centers"]):
   cx,cy=flame["point_px"]
   assert 0<=cx<W and 0<=cy<H,("SOURCE_CORE_OUTSIDE_IMAGE_BOUNDS",shot,cx,cy)
-  assert cy<max(550, max(z["point_px"][1] for z in atlas["sources"][shot]["centers"])+1),("UNEXPECTED_CANDLE_REGION",shot,cx,cy)
+  assert cy<550,("CANDLE_OUTSIDE_EVIDENCE_REVIEWED_UPPER_ZONE",shot,cx,cy)
   rx,ry=styles["halo_roi_radii_px"]
   fixtures.append({"id":flame["id"],"individual_source_id":flame["id"],
    "center_px":[cx,cy],"phase":round(.73+i*.347,4),"core_bitpack_index":i+1,
