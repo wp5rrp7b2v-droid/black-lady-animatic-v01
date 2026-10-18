@@ -109,7 +109,7 @@ def main():
     filt=(
         "[0:v]setpts=PTS-STARTPTS,drawtext=text='B V001':"
         "fontcolor=white:fontsize=28:x=18:y=22:box=1:boxcolor=black@0.65[v0];"
-        "[1:v]setpts=PTS-STARTPTS,drawtext=text='B V002 -15%% FOOTSTEPS':"
+        "[1:v]setpts=PTS-STARTPTS,drawtext=text='B V002 LIGHTER FOOTSTEPS':"
         "fontcolor=white:fontsize=28:x=18:y=22:box=1:boxcolor=black@0.65[v1];"
         "[0:a]aresample=48000,asetpts=PTS-STARTPTS[a0];"
         "[1:a]aresample=48000,asetpts=PTS-STARTPTS[a1];"
