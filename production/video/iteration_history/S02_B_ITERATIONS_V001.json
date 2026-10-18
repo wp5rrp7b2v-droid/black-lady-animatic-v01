@@ -1,0 +1,83 @@
+{
+  "schema": "S02_B_APPEND_ONLY_VIDEO_ITERATION_LEDGER_V001",
+  "updated_at": "2026-10-18",
+  "governance": "docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md",
+  "rule": "Every approved visual iteration is independently retained in main by exact SHA256; no later version replaces any prior version. Reference candidates are retained without invented approvals.",
+  "official_canonical_video_index_unchanged": true,
+  "versions": [
+    {
+      "iteration": "V001",
+      "video_id": "S02_B_ASSEMBLY_V001",
+      "role": "HISTORICAL_APPROVED_BASELINE",
+      "visual_approval": "PO_APPROVED_2026-10-09",
+      "publication_status": "PREVIOUSLY_REGISTERED_OFFICIAL",
+      "storage": "GOOGLE_DRIVE",
+      "path": "gdrive://16No99iizefd_dEzIsZcVLeoXNxiuvit4",
+      "sha256": "8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a",
+      "registry": "production/video/video_index.jsonl",
+      "superseded": false,
+      "preserved": true
+    },
+    {
+      "iteration": "V006",
+      "video_id": "S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001",
+      "role": "RETAINED_BASE_EDIT_REFERENCE",
+      "visual_approval": "PO_REVIEW_PENDING_NOT_ESTABLISHED",
+      "publication_status": "REFERENCE_CANDIDATE_NOT_FORMALLY_RELEASED",
+      "storage": "GITHUB_MAIN_APPEND_ONLY",
+      "path": "production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4",
+      "sha256": "7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402",
+      "duration_seconds": 64.25,
+      "frame_count": 1927,
+      "width": 720,
+      "height": 1280,
+      "provenance_limit": "Reconstructed from V004 first 658 frames, approved stills and approved V001 AAC; NOT byte/pixel identical to unavailable V005 source.",
+      "derived_from": "S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW",
+      "superseded": false,
+      "preserved": true,
+      "approval_exception_note": "PO required retaining V006 as the baseline that V018 derives from; retention does not manufacture separate V006 visual signoff."
+    },
+    {
+      "iteration": "V018",
+      "video_id": "S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001",
+      "role": "PO_VISUAL_APPROVED_ITERATION",
+      "visual_approval": "APPROVED_2026-10-18",
+      "publication_status": "APPEND_ONLY_APPROVED_ITERATION_NOT_CANONICAL_MASTER_REPLACEMENT",
+      "storage": "GITHUB_MAIN_APPEND_ONLY",
+      "path": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4",
+      "sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+      "duration_seconds": 64.23333333333333,
+      "frame_count": 1927,
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "derived_from": "S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001",
+      "approval_document": "docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_FULL_VIDEO_PO_VISUAL_APPROVAL_2026-10-18.md",
+      "technical_qc": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_INTEGRATION_QC.json",
+      "configuration": "production/environment_dynamic/m01_engine_v1/M01_S02B_V018_MORE_VISIBLE_C_GROUP_DRAFT_ATLAS.json",
+      "audio_identical_to_V006": true,
+      "po_visual_approved": true,
+      "canonical_publication_authorized": false,
+      "main_merge_under_po_append_only_instruction": true,
+      "superseded": false,
+      "preserved": true,
+      "comparisons": [
+        {
+          "role": "V017_vs_V018_visual_review",
+          "path": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V017_VS_V018_AB_V001.mp4",
+          "sha256": "d8606cf08cef31ef3f561818bc93aa0176b8c8b9167669856d42201b52c710d1"
+        },
+        {
+          "role": "V006_vs_V018_visual_review",
+          "path": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V006_VS_V018_AB_V001.mp4",
+          "sha256": "850c76d69b5bd69d5674b50d84d70b03698e972cdf371f048f56b555a998161b"
+        }
+      ]
+    }
+  ],
+  "not_promoted_versions": [
+    "V016",
+    "V017"
+  ],
+  "future_updates": "Append new per-version records without deleting/rewriting approved historical data; separate latest pointer from immutable iteration identities."
+}
