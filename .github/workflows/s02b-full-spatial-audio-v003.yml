@@ -1,0 +1,47 @@
+name: S02-B V019 Full Spatial Audio V003 (Early Steps / Guang Yong Silence)
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-spatial-audio-full-v001-20261018
+    paths:
+      - ".github/workflows/s02b-full-spatial-audio-v003.yml"
+      - "scripts/s02b_full_spatial_audio_v003.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout isolated review branch
+        uses: actions/checkout@v4
+      - name: Install media dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user numpy
+      - name: Render V003 and verify full original soundtrack, images and dialogue-only gaps
+        run: python3 scripts/s02b_full_spatial_audio_v003.py
+      - name: Publish standalone review files
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V019_FULL_SPATIAL_AUDIO_V003_REVIEW_ONLY
+          path: |
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02_B_V019_SPATIAL_AUDIO_B_FULL_CANDIDATE_V003.mp4
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02_B_V019_SPATIAL_AUDIO_B_V002_VS_V003_N16_COMPARE.mp4
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02_B_V019_SPATIAL_AUDIO_B_V002_VS_V003_N19_N20_COMPARE.mp4
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02_B_V019_SPATIAL_AUDIO_B_V002_VS_V003_A06_N24_COMPARE.mp4
+            production/video_candidates/review/s02b_full_spatial_audio_v001/S02_B_V019_SPATIAL_AUDIO_FULL_QC_V003.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Save only V003 files on experiment branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/s02b_full_spatial_audio_v001/*V003*
+          git diff --cached --name-status
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive S02-B audio V003 early footsteps and Guang Yong voice protection"
+            git push origin HEAD:experiment/s02b-v019-spatial-audio-full-v001-20261018
+          fi
