@@ -79,8 +79,8 @@
       "display_name": "S02-B 自主导演版 V001",
       "role": "PO_VISUAL_ACCEPTED_DIRECTOR_ITERATION",
       "visual_approval": "PO_ACCEPTED_2026-10-18_2059",
-      "publication_status": "PREPARED_LOCAL_BRANCH_NOT_PUSHED_NOT_FINAL_RELEASE",
-      "storage": "WORKING_BRANCH_PENDING_PUBLIC_UPLOAD",
+      "publication_status": "FEATURE_BRANCH_ARCHIVED_VISUAL_ACCEPTED_NOT_FINAL_RELEASE",
+      "storage": "GITHUB_PUBLIC_FEATURE_BRANCH",
       "branch": "feature/s02b-v019-directors-cut-20261018",
       "prepared_commit": "fe9d87770c155c1f6f856ef3c53fd163b7272e5d",
       "path": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
@@ -91,7 +91,8 @@
       "height": 1280,
       "superseded": false,
       "preserved": true,
-      "canonical_publication_authorized": false
+      "canonical_publication_authorized": false,
+      "published_commit": "cbc4f61cee2f097e3c02a2c6be0cf030dd5a03fa"
     }
   ],
   "not_promoted_versions": [

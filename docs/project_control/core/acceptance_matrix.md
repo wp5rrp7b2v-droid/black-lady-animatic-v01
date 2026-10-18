@@ -339,3 +339,5 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - 联合开篇前提短样V004：技术PASS，PO暂不批准，视觉/叙事审批未通过，本轮HOLD，不扩展全片。
 - GitHub公开归档：未完成，自动审批拦截待明确确认；Mac本地同步：PENDING，不标PASS。
 - P0.3仍IN PROGRESS。详见 docs/project_control/gates/P0_3_video_pipeline/DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md。
+
+2026-10-18 21:52后补充：两公开工作分支归档及树一致性复核PASS，原公开上传阻碍已解除；main未改，V004仍HOLD，Mac同步仍PENDING实际Terminal证据。

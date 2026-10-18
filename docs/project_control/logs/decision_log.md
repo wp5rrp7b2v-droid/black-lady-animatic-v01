@@ -274,3 +274,5 @@
 | BL-D-183 | 2026-10-18 晚 | PO认可S02-B V019为自主导演版V001；仍有提升空间，非无需改进或最终发布，保留全部旧批准版本。 | VISUAL ACCEPTED / PUBLIC ARCHIVE PENDING |
 | BL-D-184 | 2026-10-18 晚 | PO授权Opening + S02-A + S02-B联合提升，补齐原文任务和提示；先验证开篇短样，禁止未通过即扩展整片。 | JOINT REVISION AUTHORIZED / MINIMUM PILOT FIRST |
 | BL-D-185 | 2026-10-18 21:37 | PO对开篇短样V004表示先不批准，今天停止制作，收尾和Mac同步；V002/V003否定结论保留。 | V004 NOT APPROVED / PRODUCTION HOLD / EOD ARCHIVE PENDING |
+
+| BL-D-186 | 2026-10-18 21:52 | PO对明确公开归档确认问题回复继续，授权今晚成果归档到现有公开GitHub的两条工作分支；不合并main、不转为正式发布。 | PUBLIC FEATURE ARCHIVE AUTHORIZED / COMPLETED / MAC PENDING |

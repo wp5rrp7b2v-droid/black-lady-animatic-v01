@@ -3856,3 +3856,7 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 ## 2026-10-18 晚：制作停止与收尾准备
 
 V019精确候选恢复并匹配原QC的3张PNG/MP4散列；未重新生成。开篇V001-V004与脚本、字形、许可、QC保留；V004未批准。状态R361、Dashboard V281为工作分支待发布。公开上传此前被自动审批拒绝，本次不绕过、不伪称远端完成；Mac仅拉取GitHub，待公开归档授权及远端核验后执行。详见 docs/project_control/gates/P0_3_video_pipeline/DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md。
+
+### 2026-10-18 21:52后：真实公开归档核验
+
+PO确认公开归档范围后，CLI push失败为无用户名凭据；通过已连接GitHub接口提交同一批内容。V019远端cbc4f61，联合开篇首次归档5f90e6a；全部Git blob SHA与两棵根树均精确匹配准备稿，公开fetch与git diff --quiet复核通过。main未改，V004仍未批准，无新渲染。Project State R362 / Dashboard V282将阻碍改为仅Mac Terminal证据待回传。
