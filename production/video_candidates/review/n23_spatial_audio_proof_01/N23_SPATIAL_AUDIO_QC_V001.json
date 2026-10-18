@@ -1,0 +1,45 @@
+{
+  "experiment": "N23_SPATIAL_AUDIO_MINIMUM_PROOF_V001",
+  "review": "TECHNICAL_PASS_PO_LISTENING_REVIEW_PENDING",
+  "original_V018_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "shot": "N23",
+  "source_frame_inclusive": [
+    1366,
+    1447
+  ],
+  "frames_each": 82,
+  "fps": 30,
+  "picture_elementary_h264_sha256_A_equals_B": "be2f98edde3c74442614e40dac12e1e2980b15d271100454da7842362d1fc023",
+  "original_A_AAC_ADTS_sha256": "0b0208dd356aaeb99ee6a63e74666bf0bb5bc3714bf9e9a505314eb8954373c4",
+  "extracted_source_AAC_ADTS_sha256": "0b0208dd356aaeb99ee6a63e74666bf0bb5bc3714bf9e9a505314eb8954373c4",
+  "B_AAC_ADTS_sha256": "00e397d4a7f81c81916c8255a01d68993b65ae3fe8b0a94b57ce7924dfd70848",
+  "A_B_audio_intentionally_different": true,
+  "B_audio_unity_original_plus_independent_foley": true,
+  "B_mix_pcm_peak": 0.9660361886396547,
+  "B_overlay_to_A_rms_ratio": 0.1374954264,
+  "B_audio_sample_rate": 48000,
+  "SFX_public_domain_source_page": "https://commons.wikimedia.org/wiki/File:Church_people_walking_steps_with_reverb.ogg",
+  "SFX_download_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Church_people_walking_steps_with_reverb.ogg",
+  "SFX_source_bytes": 858271,
+  "SFX_source_sha1": "8b2a6abb78bad2c5def0ab4496c4330472601445",
+  "selected_sfx_offset_sec": 6.5,
+  "selection_method": "transient_rise_heuristic",
+  "source_recording_contains_possible_distant_murmurs": true,
+  "foley_treatment": "HP 110 Hz, LP 3300 Hz, L/R bias, .22s fades, recession",
+  "source_original_AAC_kept_separate": true,
+  "no_visual_edit": true,
+  "no_transition_edit": true,
+  "no_paid_video_AI": true,
+  "no_modification_to_V018_or_canonical_files": true,
+  "pending_review": "Does added real-world room sound improve spatial depth without masking narration or sounding out of place?",
+  "files": {
+    "A": "N23_AUDIO_A_V018_ORIGINAL.mp4",
+    "B": "N23_AUDIO_B_STONE_FOOTSTEPS_SPACE_CANDIDATE_V001.mp4",
+    "AB": "N23_AUDIO_AB_A_THEN_B_LISTENING_COMPARISON.mp4"
+  },
+  "sha256": {
+    "A": "2d885c6ac63481781571e8d054f1c2645c0ae96c2ebc664e17370b30a97d2f42",
+    "B": "3c246a4fa6c7bb804a650e389f5d648b7f565b8a74e9bdcb88ca1f22de21a908",
+    "AB": "0db2ca4805ae0974d4ee96694d35ffff7fddf0e19113bc0ab96486ee09de925a"
+  }
+}
