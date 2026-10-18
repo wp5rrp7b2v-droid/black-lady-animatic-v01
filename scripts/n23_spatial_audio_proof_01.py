@@ -157,7 +157,8 @@ def main():
     run("ffmpeg","-v","error","-y","-i",a_out,"-i",b_out,
         "-filter_complex",filter_ab,"-map","[vo]","-map","[ao]",
         "-c:v","libx264","-preset","fast","-crf","21","-pix_fmt","yuv420p",
-        "-c:a","aac","-b:a","192k","-movflags","+faststart",ab_out)
+        "-c:a","aac","-b:a","192k","-fps_mode:v","passthrough",
+        "-movflags","+faststart",ab_out)
     assert count_frames(ab_out)==N*2
     report={
        "experiment":"N23_SPATIAL_AUDIO_MINIMUM_PROOF_V001",
