@@ -1,0 +1,32 @@
+{
+  "status": "TECHNICAL_PASS_PO_TYPE_STYLE_REVIEW_PENDING",
+  "frames": 617,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "output_sha256": "82a3763aae1b67b618c1fbc4cb22b4f05734d390debc8ace21499e69895bf8d5",
+  "change": "Horror angular torn brush lettering on both cards; 血门任务 is now the largest typography; exact task and hint wording retained.",
+  "generation": "Built-in image_gen; task page edited from V001; hints edited from V001 with V002 task as style reference; one PNG per call.",
+  "prompt_summary": "Replace plain sans typography with uncanny angular knife-cut distorted brush characters, ragged dry strokes and restrained blood tails; huge crimson main title, smaller bone-white body; preserve exact Chinese words and wood background.",
+  "assets": [
+    {
+      "path": "production/video_candidates/episode_unified_director_v001/assets/BLOOD_DOOR_TASK_HORROR_TYPE_V002.png",
+      "sha256": "6f7333e5fcbfaeea2b072af4cafa8668108b652bad4c65ef343b24ab789d444c"
+    },
+    {
+      "path": "production/video_candidates/episode_unified_director_v001/assets/BLOOD_DOOR_HINTS_HORROR_TYPE_V002.png",
+      "sha256": "c273c9bde59463da78f6d631c47be57e0222d32f31f4705cc2c33b41a9c2db9d"
+    }
+  ],
+  "visual_text_check": "Task and both hints compared character by character with V001 and canonical source; no wording change observed.",
+  "audio_payload_sha256": "00b00607814a3642858c0c9e60aef8f43ec5ddef23b3745b3e59e5f80641e81f",
+  "audio_identical_to_V001": true,
+  "welcome_tail_decoded_sha256": "SHA256=b08a3d433c941523f2625b51662fba85106a63e18976f3e7ac529d9e30f3b104",
+  "welcome_frames_identical_to_V001": true,
+  "duration_and_cut_points_unchanged": true,
+  "full_decode": "PASS",
+  "canonical_assets_modified": false,
+  "public_upload": false
+}

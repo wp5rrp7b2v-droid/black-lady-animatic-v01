@@ -1,0 +1,37 @@
+{
+  "status": "TECHNICAL_PASS_PO_TYPOGRAPHY_REVIEW_PENDING",
+  "output_sha256": "2230367d4d2854df2df30394562f742640f3d6df0e6de8d0700e1822639b2c87",
+  "frames": 617,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "typography": "Long Cang handwritten font; 96px main titles, 38-46px body; muted red titles and aged-ivory body; no blood effects.",
+  "layout": "Text block approx 403-813px vertically (32% of 1280px); content centered, substantial negative space.",
+  "text": {
+    "TASK": [
+      "血门任务",
+      "在莫妮卡夫人的庄园中",
+      "活过五日",
+      "并找到离开庄园的",
+      "大门钥匙"
+    ],
+    "HINTS": [
+      "血门提示",
+      "提示一",
+      "不要淋雨",
+      "提示二",
+      "不要长时间和它对视"
+    ]
+  },
+  "font_sha256": "e5bf2c3f24ef2327c6f136d8f73e2f9dfdf44896fdbeb35a9515f44777bb91bc",
+  "audio_identical_to_V001": true,
+  "audio_payload_sha256": "00b00607814a3642858c0c9e60aef8f43ec5ddef23b3745b3e59e5f80641e81f",
+  "welcome_frames_identical_to_V001": true,
+  "welcome_tail_decoded_sha256": "SHA256=b08a3d433c941523f2625b51662fba85106a63e18976f3e7ac529d9e30f3b104",
+  "full_decode": "PASS",
+  "canonical_assets_modified": false,
+  "public_upload": false,
+  "github_actions_run": false
+}

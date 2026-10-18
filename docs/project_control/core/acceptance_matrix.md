@@ -332,3 +332,10 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - V018 已按 RC-030 **只增不覆**进入 main 历史迭代档案，V006 基础剪辑候选亦独立保留且未冒称视频 PO 已批准，正式 S02-B V001 canonical 仍保持原记录；PR #23 MERGED / 11 additions / 0 replacements。
 - 这次验证补充了真实代表性视频证据，但**不满足整个 P0.3 Gate 的剩余必需验证，也不构成其 PO Gate PASS 授权**。单镜头 M01 真实来源定位与人物遮挡的全 GT、跨场景可移植产品认证仍未达完整发布门槛。人物微动作 / 对白逐字精对齐亦未因烛火审批自动通过。
 - 状态：`P0.3 IN PROGRESS / S02-B V018 VISUAL PASS / FINAL VIDEO MASTER NOT AUTHORIZED`。权威收尾：`gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md`。
+
+## 2026-10-18 晚间工作分支收尾补充
+
+- V019 / 自主导演版V001：技术PASS，PO视觉认可，非最终发布；正式母版与Story Shot登记不变。
+- 联合开篇前提短样V004：技术PASS，PO暂不批准，视觉/叙事审批未通过，本轮HOLD，不扩展全片。
+- GitHub公开归档：未完成，自动审批拦截待明确确认；Mac本地同步：PENDING，不标PASS。
+- P0.3仍IN PROGRESS。详见 docs/project_control/gates/P0_3_video_pipeline/DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md。

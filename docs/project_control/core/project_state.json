@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R360",
+  "state_revision": "R361",
   "last_updated": "2026-10-18",
-  "session_status": "2026-10-18 OCT17–18 EOD CLOUD CLOSEOUT / S02-B M01 V018 FULL 1927-FRAME PO VISUAL APPROVED / V006 REFERENCE + V018 ITERATION KEPT IN MAIN APPEND-ONLY PR23 / M01 RESEARCH FEATURE BRANCH PRESERVED / P0.3 IN PROGRESS / MAC USER-TERMINAL FF SYNC PENDING",
+  "session_status": "EVENING WORK STOPPED / V019 AUTONOMOUS DIRECTOR V001 VISUAL ACCEPTED / PREMISE V004 NOT APPROVED HOLD / ARCHIVE PREPARED NOT PUBLICLY PUSHED / MAC SYNC PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "2026-10-18 EOD CLOUD REGISTRATION COMPLETE / MAC FAST-FORWARD LOCAL MAIN PARITY PENDING USER TERMINAL OUTPUT; NEXT SESSION DISCUSS NEXT S02-B VIDEO ITERATION AFTER V018 VISUAL APPROVAL",
-  "blocker": "No active GitHub cloud archive blocker. Local Mac parity remains unverified until actual user Terminal git pull and exact HEAD comparison. M01 cross-scene portability and full person segmentation GT have not been validated; they do not cancel the PO visual approval of exact V018.",
-  "next_action": "User Mac: run the guarded RC-029 main ff-only pull from canonical GitHub plus fetch M01 development branch (not checkout), return local HEAD / origin-main / status for verification. New Chat: read main Project State R360, Oct17–18 closeout, S02-B append-only iteration ledger; continue next approved S02-B cinematic/video iteration from V018 as visual reference without replacing V001/V006/V018; never repeat already approved V018 candle effects. No formal master replacement/cross-scene product release without separate authority.",
+  "current_task": "制作暂停；完成今晚两分支归档准备，等待公开GitHub上传确认，再核验远端与Mac拉取。",
+  "blocker": "Public GitHub push was rejected by automatic approval review; explicit public-upload confirmation remains pending. Tonight assets are committed in working branches but not remote. Mac has no new remote data to pull yet.",
+  "next_action": "仅在明确确认公开归档后推送两工作分支并核验，不合并main、不重渲染；随后按RC-029给出Mac ff-only pull与两分支fetch并收集SHA。下次制作从未批准的开篇V004版式继续，不提前扩展联合全片。",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -531,13 +531,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V280",
+    "version": "V281",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED CURRENT 2026-10-18 EOD / R360 / V018 APPROVED / APPEND-ONLY ITERATION HISTORY / MAC SYNC PENDING",
-    "derived_from_revision": "R360",
+    "status": "WORKING BRANCH DERIVED / PUBLIC ARCHIVE PENDING",
+    "derived_from_revision": "R361",
     "last_updated": "2026-10-18",
-    "current_task": "MAC SAFE FF PULL AND USER HEAD PROOF; THEN START NEXT S02-B VIDEO ITERATION FROM V018"
+    "current_task": "V019视觉认可保留；开篇V004未批准；今晚制作停止；先完成公开归档授权与Mac同步。"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -552,8 +552,8 @@
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md",
-    "last_daily_closeout_status": "2026-10-18 OCT17–18 CLOUD FACT CONSISTENCY COMPLETE / MAC SYNC USER TERMINAL PROOF PENDING",
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md",
+    "last_daily_closeout_status": "EVENING WORKING_COPY_CLOSEOUT_PREPARED / PUBLIC_ARCHIVE_BLOCKED / MAC_NOT_SYNCED",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
     "last_formal_closeout_status": "S02-B V001 PRODUCT OWNER APPROVED / EXACT DRIVE VERIFIED / REGISTERED"
   },
@@ -2040,7 +2040,7 @@
     "current_boundary": "N21 / N22 / N23 CLOSED / N24 UNSTARTED / GENERIC GUEST CROWD CORE SET V001 CLOSED"
   },
   "episode_opening_premise_gap": {
-    "status": "DEFERRED / DO NOT PATCH INTO S02-B",
+    "status": "JOINT_OPENING_REVISION_AUTHORIZED_20261018 / PILOT_V004_NOT_APPROVED / ORIGINAL_MASTERS_PRESERVED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/episode_opening_premise_gap_backlog_2026-09-30.md",
     "scope": [
       "SURVIVE_FIVE_DAYS",
@@ -2048,7 +2048,7 @@
       "DO_NOT_GET_WET",
       "DO_NOT_KEEP_GAZE_FIXED_TOO_LONG"
     ],
-    "future_action": "EPISODE OPENING MASTER REVISION / SEPARATE PRODUCT OWNER AUTHORIZATION REQUIRED"
+    "future_action": "RESUME_FROM_PILOT_V004_WHEN_PO_REOPENS_WORK; DO_NOT_SCALE_BEFORE_PILOT_PASS"
   },
   "s02_b_director_shot_design_v0_3_review_patch_01": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -4892,7 +4892,7 @@
     "final_candidate": "N26 Candidate 03｜Controlled Modification",
     "final_disposition": "N26 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED"
   },
-  "local_sync_status": "2026-10-18 PENDING USER MAC TERMINAL EVIDENCE / NO LOCAL MACHINE ACCESS / PRIOR VERIFIED 2026-10-12 SHA 7f54c6a",
+  "local_sync_status": "PENDING_PUBLIC_ARCHIVE_AND_USER_MAC_TERMINAL_PROOF / NO NEW REMOTE_BRANCHES_YET",
   "daily_closeout_2026_10_06": {
     "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
@@ -5386,5 +5386,28 @@
     "append_only_policy": "docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md",
     "closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md",
     "mac_sync": "WAITING_USER_TERMINAL"
+  },
+  "evening_director_closeout_20261018": {
+    "path": "docs/project_control/gates/P0_3_video_pipeline/DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md",
+    "v019": {
+      "name": "S02-B 自主导演版V001",
+      "production_iteration": "V019",
+      "visual_status": "PO_VISUAL_ACCEPTED_NOT_FINAL_RELEASE",
+      "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+      "branch": "feature/s02b-v019-directors-cut-20261018",
+      "prepared_commit": "fe9d87770c155c1f6f856ef3c53fd163b7272e5d",
+      "publication_status": "NOT_PUSHED"
+    },
+    "premise": {
+      "latest": "V004",
+      "status": "NOT_APPROVED_HOLD_PO_20261018_2137",
+      "sha256": "2230367d4d2854df2df30394562f742640f3d6df0e6de8d0700e1822639b2c87",
+      "branch": "feature/episode-unified-premise-pilot-20261018",
+      "publication_status": "NOT_PUSHED"
+    },
+    "main_observed": "c57854d8bd49a8b26eca4c2e0c1035aec2f59f5f",
+    "main_merge_authorized": false,
+    "story_shot_approved_count": 32,
+    "official_video_count": 3
   }
 }

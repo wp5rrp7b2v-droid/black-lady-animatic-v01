@@ -73,6 +73,25 @@
           "sha256": "850c76d69b5bd69d5674b50d84d70b03698e972cdf371f048f56b555a998161b"
         }
       ]
+    },
+    {
+      "iteration": "V019",
+      "display_name": "S02-B 自主导演版 V001",
+      "role": "PO_VISUAL_ACCEPTED_DIRECTOR_ITERATION",
+      "visual_approval": "PO_ACCEPTED_2026-10-18_2059",
+      "publication_status": "PREPARED_LOCAL_BRANCH_NOT_PUSHED_NOT_FINAL_RELEASE",
+      "storage": "WORKING_BRANCH_PENDING_PUBLIC_UPLOAD",
+      "branch": "feature/s02b-v019-directors-cut-20261018",
+      "prepared_commit": "fe9d87770c155c1f6f856ef3c53fd163b7272e5d",
+      "path": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
+      "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+      "frame_count": 1927,
+      "fps": 30,
+      "width": 720,
+      "height": 1280,
+      "superseded": false,
+      "preserved": true,
+      "canonical_publication_authorized": false
     }
   ],
   "not_promoted_versions": [

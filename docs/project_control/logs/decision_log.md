@@ -270,3 +270,7 @@
 | BL-D-180 | 2026-10-17～18 | PO 明确要求「直接用于整个S02-B」并授权「开始执行」。按统一 M01 引擎完整集成 S02-B；V016 3 段 27.3% 预览，V017 15/17 段 88.22% 全长技术 PASS，未获单独视觉批准，不可覆盖以前版本。 | FULL S02-B CANDIDATE INTEGRATION AUTHORIZED / V016-V017 TECHNICAL ONLY |
 | BL-D-181 | 2026-10-18 | PO 认为 V017 C 组烛火「还是不够明显」并授权继续，C 组 12 段 V018 `core_gain_rgb=[21,15,6]`、`halo_gain_per_flame_rgb=[3.2,1.7,0.45]`，中心/ROI/节奏不变；Product Owner 观看后明确「V018视觉审核通过」。绑定 exact 完整 MP4 SHA-256 `6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427`；正式母版未授权替换。 | V018 FULL PO VISUAL APPROVED / EXACT VIDEO LOCKED / NO MASTER REPLACEMENT |
 | BL-D-182 | 2026-10-18 | PO 锁定**视频每一次获批都是长期可追溯的有效迭代**，新版本只追加，不得取代旧版或在定稿前清理。PR #23 `017efbcb54e4ae72a07761262babbd25738dec1f` 已按 append-only 合入 `main`，保留 V001，独立保存 V006 基础剪辑参考（独立 PO 视频审核仍待确认）与获视觉审批 V018，11 新文件 / 0 改动 / 0 删除。最终定稿与发布另须审批。见 `docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md`。 | RC-030 / APPEND-ONLY ITERATIONS ACTIVE / MAIN ARCHIVE VERIFIED |
+
+| BL-D-183 | 2026-10-18 晚 | PO认可S02-B V019为自主导演版V001；仍有提升空间，非无需改进或最终发布，保留全部旧批准版本。 | VISUAL ACCEPTED / PUBLIC ARCHIVE PENDING |
+| BL-D-184 | 2026-10-18 晚 | PO授权Opening + S02-A + S02-B联合提升，补齐原文任务和提示；先验证开篇短样，禁止未通过即扩展整片。 | JOINT REVISION AUTHORIZED / MINIMUM PILOT FIRST |
+| BL-D-185 | 2026-10-18 21:37 | PO对开篇短样V004表示先不批准，今天停止制作，收尾和Mac同步；V002/V003否定结论保留。 | V004 NOT APPROVED / PRODUCTION HOLD / EOD ARCHIVE PENDING |

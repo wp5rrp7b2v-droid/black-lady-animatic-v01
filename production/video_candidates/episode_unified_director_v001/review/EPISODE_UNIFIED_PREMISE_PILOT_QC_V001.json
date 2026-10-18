@@ -1,0 +1,57 @@
+{
+  "status": "TECHNICAL_PASS_CONTENT_SOURCE_PASS_PO_NARRATIVE_REVIEW_PENDING",
+  "output": "production/video_candidates/episode_unified_director_v001/review/EPISODE_UNIFIED_PREMISE_PILOT_V001.mp4",
+  "sha256": "ac25d2d6906a555a7bd5a9fabecaea87fe361a05ece4e064c184b6b82b5b2aa0",
+  "frames": 617,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "timeline": [
+    {
+      "id": "TASK",
+      "start": 0,
+      "end": 7.5
+    },
+    {
+      "id": "HINTS",
+      "start": 7.5,
+      "end": 14
+    },
+    {
+      "id": "OPENING_FIRST_TWO_LINES",
+      "start": 14,
+      "end": 20.566666666666666
+    }
+  ],
+  "source_opening_sha256": "70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a",
+  "source_opening_exact_identity": true,
+  "source_text": "source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt",
+  "source_task": "在莫妮卡夫人的庄园中活过五日并找到离开庄园的大门钥匙",
+  "source_hints": [
+    "不要淋雨",
+    "不要长时间和它对视"
+  ],
+  "backplate_sha256": "a15420932a74ed0d644a7b8844533d921e3e0c9dfa76315dc695fb4bdfadce4b",
+  "typography": "Noto Sans SC Medium; clean deterministic Chinese typesetting",
+  "audio": "First 14s silent; source opening audio 0-6.55s starts at 14s; speed unchanged; candidate AAC re-encoded, no exact packet-copy claim.",
+  "new_voice_music_or_foley": false,
+  "character_animation": false,
+  "transition_fx": false,
+  "full_decode": "PASS",
+  "old_canonical_assets_modified": false,
+  "public_upload": false,
+  "github_actions_run": false,
+  "limits": "Premise wording/readability and welcome juxtaposition only. No claim of complete combined-film improvement.",
+  "review_pass": [
+    "Task and both original hints understandable on one viewing",
+    "庄园大门 key is not confused with the castle entrance",
+    "Text-to-welcome transition creates curiosity without excessive explanation"
+  ],
+  "review_fail": [
+    "Text requires pausing or is unreadable",
+    "Silent prologue feels stalled or destroys momentum",
+    "Task scope becomes misleading or suspense is weakened"
+  ]
+}

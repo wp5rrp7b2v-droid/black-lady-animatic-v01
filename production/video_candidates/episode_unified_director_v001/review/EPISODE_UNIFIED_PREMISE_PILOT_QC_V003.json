@@ -1,0 +1,32 @@
+{
+  "status": "TECHNICAL_PASS_PO_TYPE_STYLE_REVIEW_PENDING",
+  "frames": 617,
+  "fps": 30,
+  "resolution": [
+    720,
+    1280
+  ],
+  "output_sha256": "0e6ea5536b67b4f6e106da55b8dac2de192185099f05fc0ff61b031da97a3d62",
+  "change": "Restrained eerie handwritten lettering, muted red, no splatter or long blood drips; 血门任务 is now the largest typography; exact task and hint wording retained.",
+  "generation": "Built-in image_gen; task page softened from V002; hints softened from V002 with V003 task as style reference; one PNG per call.",
+  "prompt_summary": "Reduce V002 horror intensity: remove splashes, razor spikes and blood tails; retain slightly irregular legible handwritten strokes; large muted dark-red main title, smaller aged-ivory body; preserve exact Chinese words and wood background.",
+  "assets": [
+    {
+      "path": "production/video_candidates/episode_unified_director_v001/assets/BLOOD_DOOR_TASK_HORROR_TYPE_V003.png",
+      "sha256": "d34f671b2a6545abc3a4ac44345bd8c57940048567c90bbaa7ba794f68e3e337"
+    },
+    {
+      "path": "production/video_candidates/episode_unified_director_v001/assets/BLOOD_DOOR_HINTS_HORROR_TYPE_V003.png",
+      "sha256": "5c75faebe3a032f1ec8a0dd2099eb9d3d768001ddffcc6abb4365ebad300ad0a"
+    }
+  ],
+  "visual_text_check": "Task and both hints compared character by character with V001 and canonical source; no wording change observed.",
+  "audio_payload_sha256": "00b00607814a3642858c0c9e60aef8f43ec5ddef23b3745b3e59e5f80641e81f",
+  "audio_identical_to_V001": true,
+  "welcome_tail_decoded_sha256": "SHA256=b08a3d433c941523f2625b51662fba85106a63e18976f3e7ac529d9e30f3b104",
+  "welcome_frames_identical_to_V001": true,
+  "duration_and_cut_points_unchanged": true,
+  "full_decode": "PASS",
+  "canonical_assets_modified": false,
+  "public_upload": false
+}

@@ -37,3 +37,9 @@ Future handling:
 Current priority:
 
 `CONTINUE S02-B WITH AUDIENCE-RETENTION IMPROVEMENTS FROM N21 ONWARD`
+
+## 2026-10-18 scope update
+
+PO now explicitly authorizes a separate joint Opening + S02-A + S02-B improvement, including these missing premises. The earlier no-patch-in-S02-B decision remains valid for that completed production; it does not prohibit this new separately authorized joint candidate. A 20.57s opening premise pilot V001-V004 was produced. V004 remains NOT APPROVED / HOLD at EOD. Original approved binaries remain unchanged.
+
+Exact original second hint is 不要长时间和它对视; 视线不要在同一处停留太久 is the later character reminder and must not replace the original hint. Premise pilot must pass PO review before expansion. See DAILY_CLOSEOUT_20261018_EVENING_DIRECTOR_AND_PREMISE.md.
