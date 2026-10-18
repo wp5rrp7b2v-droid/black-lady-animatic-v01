@@ -69,6 +69,56 @@ def main():
         "-map","0:v:0","-map","0:a:0","-c:v","libx264","-preset","veryfast",
         "-crf","22","-pix_fmt","yuv420p","-c:a","copy","-movflags","+faststart",
         OUT / "A_V018_ORIGINAL_4_SHOT_CONTEXT_REVIEW.mp4")
+    # Non-destructive editorial alternative B: use only original V018 frames.
+    # Re-order NEW02 and N22 without constructing intermediate human motion.
+    a_path = OUT / "A_V018_ORIGINAL_4_SHOT_CONTEXT_REVIEW.mp4"
+    b_silent = OUT / "B_REORDER_NO_AUDIO_INTERMEDIATE.mp4"
+    b_path = OUT / "B_VISUAL_RELATION_REORDER_CONTEXT_REVIEW.mp4"
+    ab_path = OUT / "AB_A_ORIGINAL_B_REORDER_SIDE_BY_SIDE.mp4"
+    parts = [("N21",1114,1222), ("NEW02",1299,1366),
+             ("N22",1222,1299), ("N23",1366,1448)]
+    filt = "[0:v]split=4[t0][t1][t2][t3];" + ";".join(
+        f"[t{i}]trim=start_frame={a}:end_frame={b},setpts=PTS-STARTPTS[p{i}]"
+        for i, (_name,a,b) in enumerate(parts)
+    ) + ";[p0][p1][p2][p3]concat=n=4:v=1:a=0[outv]"
+    run("ffmpeg","-hide_banner","-loglevel","error","-y","-i",SRC,
+        "-filter_complex",filt,"-map","[outv]","-an",
+        "-c:v","libx264","-preset","veryfast","-crf","22",
+        "-pix_fmt","yuv420p","-movflags","+faststart",b_silent)
+    run("ffmpeg","-hide_banner","-loglevel","error","-y",
+        "-i",b_silent,"-i",a_path,"-map","0:v:0","-map","1:a:0",
+        "-c:v","copy","-c:a","copy","-shortest","-movflags","+faststart",b_path)
+    def decoded_frames(p):
+        info=json.loads(run("ffprobe","-v","error","-count_frames",
+            "-select_streams","v:0","-show_entries","stream=nb_read_frames",
+            "-of","json",p).stdout)
+        return int(info["streams"][0]["nb_read_frames"])
+    frame_total=sum(b-a for _,a,b in parts)
+    a_frames=decoded_frames(a_path)
+    b_frames=decoded_frames(b_path)
+    assert a_frames==frame_total==b_frames, (
+        "Frame mismatch",a_frames,b_frames,frame_total)
+    # Both review movies copy the same AAC packets from the exact A source.
+    def aac_stream_hash(p):
+        aac=run("ffmpeg","-hide_banner","-loglevel","error",
+            "-i",p,"-map","0:a:0","-c:a","copy","-f","adts","-").stdout
+        # Python text capture is inappropriate for raw ADTS: use a file instead.
+    audio_hashes=[]
+    for label,path in [("A",a_path),("B",b_path)]:
+        audio_file=OUT / f"{label}_REVIEW_AUDIO_COPY.aac"
+        run("ffmpeg","-hide_banner","-loglevel","error","-y","-i",path,
+            "-map","0:a:0","-c:a","copy","-f","adts",audio_file)
+        with open(audio_file,"rb") as fp:
+            audio_hashes.append(hashlib.file_digest(fp,"sha256").hexdigest())
+        audio_file.unlink()
+    assert audio_hashes[0]==audio_hashes[1], "A/B encoded AAC packets not identical"
+    run("ffmpeg","-hide_banner","-loglevel","error","-y",
+        "-i",a_path,"-i",b_path,"-filter_complex",
+        "[0:v][1:v]hstack=inputs=2[outv]",
+        "-map","[outv]","-map","0:a:0",
+        "-c:v","libx264","-preset","veryfast","-crf","24",
+        "-pix_fmt","yuv420p","-c:a","copy","-movflags","+faststart",ab_path)
+    b_silent.unlink()
     summary = {
       "source":"V018 exact visual-approved clip","source_sha256":h,
       "status":"CUT_CANDIDATE_PREFLIGHT_ONLY_NOT_VIDEO_APPROVED",
@@ -79,7 +129,8 @@ def main():
       "interpretation":"Numerical edge/luma readings do not prove spatial/eyeline/movement continuity. Judge actual images before any B/C treatment.",
       "next_gate":"Select one cut after image review; design B hard cut timing/visual relationship. Try C only if visible real foreground cover exists; no synthetic wipe.",
       "audio_policy":"Original V018 AAC copied as-is into context excerpt; no time stretching or remixing.",
-      "output_class":"NONCANONICAL_REVIEW_ONLY"
+      "output_class":"NONCANONICAL_REVIEW_ONLY",
+      "ab_test":{"A_sequence":["N21","N22","NEW02","N23"],"B_sequence":["N21","NEW02","N22","N23"],"frames_each":frame_total,"audio_aac_sha256_A_equals_B":audio_hashes[0],"audio_packet_equal":True,"editorial_semantic_status":"PENDING_PO_LISTENING_AND_VISUAL_REVIEW","no_frame_generation":True,"C_occlusion":"NOT_RENDERED_REQUIRES_REAL_MOVING_OCCLUDER_EVIDENCE"}
     }
     (OUT/"CUT_PREFLIGHT_REPORT_V001.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n")
     print("COMPLETE",sheet,flush=True)
