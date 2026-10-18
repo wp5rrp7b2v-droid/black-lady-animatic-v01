@@ -1,0 +1,46 @@
+name: N23 Spatial Audio V002 Footsteps Lowered 15pct
+on:
+  push:
+    branches:
+      - experiment/n23-spatial-audio-proof-01
+    paths:
+      - ".github/workflows/n23-spatial-audio-v002-lower-footsteps.yml"
+      - "scripts/n23_spatial_audio_proof_02_lower_footsteps.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout audio trial branch
+        uses: actions/checkout@v4
+      - name: Install audio dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user numpy
+      - name: Render V002 with exact A B1 source gates
+        run: python3 scripts/n23_spatial_audio_proof_02_lower_footsteps.py
+      - name: Preserve output artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: N23_SPATIAL_AUDIO_V002_REVIEW_ONLY
+          path: |
+            production/video_candidates/review/n23_spatial_audio_proof_01/N23_AUDIO_B_STONE_FOOTSTEPS_SPACE_CANDIDATE_V002.mp4
+            production/video_candidates/review/n23_spatial_audio_proof_01/N23_AUDIO_B_V001_VS_V002_LISTENING_COMPARISON.mp4
+            production/video_candidates/review/n23_spatial_audio_proof_01/N23_SPATIAL_AUDIO_V002_QC.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Archive V002 without modifying older versions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/n23_spatial_audio_proof_01/N23_AUDIO_B_STONE_FOOTSTEPS_SPACE_CANDIDATE_V002.mp4
+          git add production/video_candidates/review/n23_spatial_audio_proof_01/N23_AUDIO_B_V001_VS_V002_LISTENING_COMPARISON.mp4
+          git add production/video_candidates/review/n23_spatial_audio_proof_01/N23_SPATIAL_AUDIO_V002_QC.json
+          git diff --cached --name-status
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive N23 audio V002 - softer steps, no source overwrite"
+            git push origin HEAD:experiment/n23-spatial-audio-proof-01
+          fi
