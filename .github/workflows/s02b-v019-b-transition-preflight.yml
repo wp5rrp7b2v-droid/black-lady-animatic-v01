@@ -19,8 +19,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Install Pillow
-        run: python3 -m pip install --user Pillow
+      - name: Install FFmpeg and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user Pillow
       - name: Verify and extract exact V018 cut evidence
         run: python3 scripts/s02b_v019_b_transition_preflight.py
       - name: Upload noncanonical review evidence
