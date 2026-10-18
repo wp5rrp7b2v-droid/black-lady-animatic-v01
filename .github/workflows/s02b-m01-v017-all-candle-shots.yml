@@ -1,5 +1,5 @@
 name: S02-B Full-Length M01 V017 All Candle-Lit Shots AB
-# Rerun after fixing source-exact AAC remux for the filtered A/B encode.
+# Rebuild with corrected valid 720x1280 real flame bounds, including y489 NING reaction candidate.
 on:
   push:
     branches:
