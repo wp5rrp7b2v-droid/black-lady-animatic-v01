@@ -1,0 +1,45 @@
+name: S02-B V019 B3 Shadow Bridge Review
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-b-transition-proof-20261018
+    paths:
+      - ".github/workflows/s02b-v019-b3-shadow-bridge-review.yml"
+      - "scripts/s02b_v019_b3_shadow_bridge_review.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout isolated experiment branch
+        uses: actions/checkout@v4
+      - name: Install FFmpeg and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user Pillow
+      - name: Render B3 shadow bridges and verify complete AAC identity
+        run: python3 scripts/s02b_v019_b3_shadow_bridge_review.py
+      - name: Upload temporary review
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V019_B3_SHADOW_BRIDGE_PREVIEW
+          path: |
+            production/video_candidates/review/v019_b_transition_preflight_v001/B3_12_FRAME_SHADOW_BRIDGES_NO_OVERLAY_REVIEW.mp4
+            production/video_candidates/review/v019_b_transition_preflight_v001/AB_B_APPROVED_ORDER_VS_B3_SHADOW_BRIDGES.mp4
+            production/video_candidates/review/v019_b_transition_preflight_v001/B3_SHADOW_BRIDGE_CONTACT_SHEET.jpg
+            production/video_candidates/review/v019_b_transition_preflight_v001/B3_SHADOW_BRIDGE_QC.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Archive on experiment branch, never main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/v019_b_transition_preflight_v001/B3*
+          git add production/video_candidates/review/v019_b_transition_preflight_v001/AB_B_APPROVED_ORDER_VS_B3_SHADOW_BRIDGES.mp4
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive noncanonical B3 cut-transition A/B and technical QC"
+            git push origin HEAD:experiment/s02b-v019-b-transition-proof-20261018
+          fi
