@@ -223,9 +223,9 @@
         }
       },
       "next_engine_milestone": {
-        "status": "S02B_V017_FULL_LENGTH_AB_DELIVERED_PO_VISUAL_REVIEW_PENDING",
-        "instruction": "Review 64.25s V017 A/B. Record PO visual decision; do not assume release, main merge or cross-scene portability from technical success.",
-        "review_root": "production/environment_dynamic/review_candidates/S02_B_M01_V017_FULL_LENGTH_ALL_CANDLE_SOURCES_REVIEW"
+        "status": "S02B_V018_FULL_LENGTH_MORE_VISIBLE_C_AND_AB_TECH_PASS_WAITING_PO",
+        "instruction": "Ask PO to review V017-vs-V018 A/B as primary and V018 full video as secondary. Do not auto-register Story Shot or change master/main.",
+        "review_root": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW"
       },
       "engine_v1": {
         "status": "GENERIC_CORE_THREE_PROFILE_TECHNICAL_PASS_PO_VIDEO_REVIEW_PENDING",
@@ -413,6 +413,41 @@
         "no_canonical_publication": true,
         "main_merge_allowed": false,
         "next": "PO watch exact V017 full 64.25s and A/B, review 12 newly added candle segments; fix only identified visual issues before potential batch release authorization"
+      },
+      "s02b_v018": {
+        "status": "V018_C_12_SHOTS_MODERATELY_ENHANCED_FULL_VIDEO_AND_TWO_AB_TECHNICAL_PASS_PO_VISUAL_PENDING",
+        "run_id": 39087681027,
+        "change_scope": "12 unapproved C group shots: core RGB [14,10,4] -> [21,15,6] and local halo RGB [1.6,0.85,0.22] -> [3.2,1.7,0.45], unchanged halo spatial and temporal settings",
+        "atlas": "production/environment_dynamic/m01_engine_v1/M01_S02B_V018_MORE_VISIBLE_C_GROUP_DRAFT_ATLAS.json",
+        "qc": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_INTEGRATION_QC.json",
+        "full_video": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4",
+        "full_video_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+        "v017_vs_v018_ab": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V017_VS_V018_AB_V001.mp4",
+        "v017_vs_v018_ab_sha256": "d8606cf08cef31ef3f561818bc93aa0176b8c8b9167669856d42201b52c710d1",
+        "v006_vs_v018_ab": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V006_VS_V018_AB_V001.mp4",
+        "v006_vs_v018_ab_sha256": "850c76d69b5bd69d5674b50d84d70b03698e972cdf371f048f56b555a998161b",
+        "technical_document": "docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_C_GROUP_BOOST_FULL_AB_TECHNICAL_REVIEW_2026-10-18.md",
+        "candidates_enhanced": 12,
+        "existing_po_visual_approved_shots_unchanged": [
+          "N17",
+          "V006_NEW_02",
+          "N23"
+        ],
+        "non_candle_shots_unchanged": [
+          "N16_PART_2",
+          "N19"
+        ],
+        "source_audio_packet_content_and_timestamps_exact": true,
+        "avg_c_raw_channel_peak_increase": 7.42,
+        "full_video_frames": 1927,
+        "frame_rate": 30,
+        "po_visual_approved": false,
+        "candidate_positions_po_approved": false,
+        "person_full_GT_approved": false,
+        "full_batch_release_authorized": false,
+        "main_merge_authorized": false,
+        "canonical_publication_authorized": false,
+        "next": "Ask PO to visually judge V017 vs V018. Only after PO acceptance consider further release authorization."
       }
     },
     {
