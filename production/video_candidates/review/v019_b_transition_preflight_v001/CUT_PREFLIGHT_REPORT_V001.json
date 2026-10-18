@@ -76,5 +76,25 @@
   "interpretation": "Numerical edge/luma readings do not prove spatial/eyeline/movement continuity. Judge actual images before any B/C treatment.",
   "next_gate": "Select one cut after image review; design B hard cut timing/visual relationship. Try C only if visible real foreground cover exists; no synthetic wipe.",
   "audio_policy": "Original V018 AAC copied as-is into context excerpt; no time stretching or remixing.",
-  "output_class": "NONCANONICAL_REVIEW_ONLY"
+  "output_class": "NONCANONICAL_REVIEW_ONLY",
+  "ab_test": {
+    "A_sequence": [
+      "N21",
+      "N22",
+      "NEW02",
+      "N23"
+    ],
+    "B_sequence": [
+      "N21",
+      "NEW02",
+      "N22",
+      "N23"
+    ],
+    "frames_each": 334,
+    "audio_aac_sha256_A_equals_B": "e7fa76135b4515c9de9e8c9dbe53923f2ce2ac4f0a88fe8acafe284775225a54",
+    "audio_packet_equal": true,
+    "editorial_semantic_status": "PENDING_PO_LISTENING_AND_VISUAL_REVIEW",
+    "no_frame_generation": true,
+    "C_occlusion": "NOT_RENDERED_REQUIRES_REAL_MOVING_OCCLUDER_EVIDENCE"
+  }
 }
