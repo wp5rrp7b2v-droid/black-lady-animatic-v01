@@ -1,0 +1,44 @@
+name: S02-B V019 Full Spatial Audio Review V001
+on:
+  push:
+    branches:
+      - experiment/s02b-v019-spatial-audio-full-v001-20261018
+    paths:
+      - ".github/workflows/s02b-full-spatial-audio-v001.yml"
+      - "scripts/s02b_full_spatial_audio_v001.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  full-sequence-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout isolated review branch
+        uses: actions/checkout@v4
+      - name: Install FFmpeg and NumPy
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --user numpy
+      - name: Render and QC noncanonical complete S02-B Foley candidate
+        run: python3 scripts/s02b_full_spatial_audio_v001.py
+      - name: Publish full review files
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_V019_FULL_SPATIAL_AUDIO_V001_REVIEW_ONLY
+          path: production/video_candidates/review/s02b_full_spatial_audio_v001/
+          retention-days: 14
+          if-no-files-found: error
+      - name: Archive A B AB and QC on experiment branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/video_candidates/review/s02b_full_spatial_audio_v001/
+          git diff --cached --name-status
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive full S02-B Foley review and technical QC (no canonical update)"
+            git push origin HEAD:experiment/s02b-v019-spatial-audio-full-v001-20261018
+          fi
