@@ -6,7 +6,7 @@ temporal signals, image footprint, original AAC and two intentional passthrough 
 Produces a complete 64.23s effect plus source A/B and direct V017-vs-V018 A/B.
 V018 is only a new Product Owner review candidate, not an approved visual master.
 """
-import importlib.util,json,pathlib,subprocess
+import hashlib,importlib.util,json,pathlib,subprocess
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("s02b_v017",ROOT/"scripts/s02b_m01_v017_full_15_shot_candle_review.py")
 render=importlib.util.module_from_spec(spec)
@@ -15,7 +15,7 @@ PREV_ROOT=ROOT/"production/environment_dynamic/review_candidates/S02_B_M01_V017_
 PREV_VIDEO=PREV_ROOT/"S02_B_M01_V017_FULL_LENGTH_REGISTERED_CANDLE_PREVIEW_V001.mp4"
 PREV_QC=PREV_ROOT/"S02_B_M01_V017_INTEGRATION_QC.json"
 PREV_VIDEO_SHA="2f12fd18000f8f515f62b7e1d79bd9456d897e69ce22a20398480039e6446327"
-PREV_QC_SHA="dba82d4dc540f0cfb179d2cdc913c30b8d64d899"
+PREV_QC_GIT_BLOB_SHA="dba82d4dc540f0cfb179d2cdc913c30b8d64d899"
 BASE_ATLAS=ROOT/"production/environment_dynamic/m01_engine_v1/M01_S02B_V017_REAL_SOURCE_DRAFT_ATLAS.json"
 NEW_ATLAS=ROOT/"production/environment_dynamic/m01_engine_v1/M01_S02B_V018_MORE_VISIBLE_C_GROUP_DRAFT_ATLAS.json"
 OUT=ROOT/"_m01_s02b_v018_c_more_visible"
@@ -26,7 +26,9 @@ NO_CANDLE={"N16_PART_2","N19"}
 
 def check_inputs():
  assert render.m01.sha(PREV_VIDEO)==PREV_VIDEO_SHA,"PREVIOUS_REVIEW_VIDEO_CHANGED"
- assert render.m01.sha(PREV_QC)==PREV_QC_SHA,"PREVIOUS_REVIEW_QC_CHANGED"
+ data=PREV_QC.read_bytes()
+ blob_sha=hashlib.sha1(f"blob {len(data)}\0".encode()+data).hexdigest()
+ assert blob_sha==PREV_QC_GIT_BLOB_SHA,"PREVIOUS_REVIEW_QC_CHANGED"
  old=json.loads(BASE_ATLAS.read_text());new=json.loads(NEW_ATLAS.read_text())
  assert new["status"]=="M01_V018_C_GROUP_MORE_VISIBLE_PO_REVIEW_ONLY"
  assert new["sources"]==old["sources"],"CANDLE_LOCATIONS_CHANGED"
@@ -127,7 +129,7 @@ def main():
   "time_signal_unchanged":True,"approved_three_shots_unchanged":True,
   "no_candle_two_shots_unchanged":True}
  j["V017_previous_review_video_sha256"]=PREV_VIDEO_SHA
- j["V017_previous_qc_sha256"]=PREV_QC_SHA
+ j["V017_previous_qc_git_blob_sha1"]=PREV_QC_GIT_BLOB_SHA
  j["C_group_actual_max_change_comparison"]=weak
  j["C_group_max_rgb_mean_increase"]=round(sum(boosted)/len(boosted),2)
  j["previous_v017_to_v018_ab"]={"file":EXTRA_AB.name,"sha256":render.m01.sha(EXTRA_AB),
