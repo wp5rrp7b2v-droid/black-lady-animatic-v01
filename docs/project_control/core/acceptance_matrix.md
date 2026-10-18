@@ -326,3 +326,9 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - SCENE_CASTLE_ENTRANCE / SCENE_FIRST_HALL / SCENE_MANOR_GATE now resolve to V002 CURRENT; their V001 binaries remain preserved as SUPERSEDED historical authorities.
 - No production blocker is active.
 
+## P0.3 Validation Evidence Update｜2026-10-18｜S02-B V018 FULL VISUAL APPROVED
+
+- Product Owner 已明确视觉批准 64.2333s / 1,927-frame 的 V018 S02-B **烛火特效迭代审片候选**，GitHub Actions `39087681027` 技术验收 PASS，AAC packet/hash/PTS 与 V006 源音相同；15/17 个视频片段具烛火动态、另两段有意保留源画面。
+- V018 已按 RC-030 **只增不覆**进入 main 历史迭代档案，V006 基础剪辑候选亦独立保留且未冒称视频 PO 已批准，正式 S02-B V001 canonical 仍保持原记录；PR #23 MERGED / 11 additions / 0 replacements。
+- 这次验证补充了真实代表性视频证据，但**不满足整个 P0.3 Gate 的剩余必需验证，也不构成其 PO Gate PASS 授权**。单镜头 M01 真实来源定位与人物遮挡的全 GT、跨场景可移植产品认证仍未达完整发布门槛。人物微动作 / 对白逐字精对齐亦未因烛火审批自动通过。
+- 状态：`P0.3 IN PROGRESS / S02-B V018 VISUAL PASS / FINAL VIDEO MASTER NOT AUTHORIZED`。权威收尾：`gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md`。
