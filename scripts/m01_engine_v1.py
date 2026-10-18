@@ -164,7 +164,9 @@ def visibility(f,relative,frame_count,mode):
   keys=f["visibility_keyframes"]
   return float(np.interp(relative,[a[0] for a in keys],[a[1] for a in keys]))
  if mode=="sin_soft_edges":
-  return math.sin(math.pi*relative/(frame_count-1))**1.2
+  # Floating roundoff can make sin(pi) slightly negative for some frame counts;
+  # clamp the 0..1 envelope before fractional exponentiation (e.g. 53 frames).
+  return max(0.0,math.sin(math.pi*relative/(frame_count-1)))**1.2
  return 1.0
 
 def frame_center(f,absolute):
