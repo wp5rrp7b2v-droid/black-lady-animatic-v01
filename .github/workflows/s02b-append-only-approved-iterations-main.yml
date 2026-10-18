@@ -1,0 +1,113 @@
+name: S02-B Append-only Main Iteration Package (V006 + V018)
+on:
+  push:
+    branches:
+      - feature/m01-v002-engine-stage-a-20261017
+    paths:
+      - .github/workflows/s02b-append-only-approved-iterations-main.yml
+permissions:
+  contents: write
+concurrency:
+  group: s02b-append-only-main-20261018
+  cancel-in-progress: false
+jobs:
+  preserve_v006_reference_and_v018_approved:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main-based append-only release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/s02b-append-only-v006-baseline-v018-po-approved-20261018
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Checkout historical blobs without re-encoding
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin feature/m01-v002-engine-stage-a-20261017
+          git restore --source=origin/feature/m01-v002-engine-stage-a-20261017 --staged --worktree -- \
+            production/video_candidates/assets/S02_B_V006_CINEMATIC_ROUGH_RECONSTRUCTED_CANDIDATE_V001.mp4 \
+            production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4 \
+            production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V017_VS_V018_AB_V001.mp4 \
+            production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_V006_VS_V018_AB_V001.mp4 \
+            production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_INTEGRATION_QC.json \
+            production/environment_dynamic/m01_engine_v1/M01_S02B_V018_MORE_VISIBLE_C_GROUP_DRAFT_ATLAS.json \
+            docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_FULL_VIDEO_PO_VISUAL_APPROVAL_2026-10-18.md \
+            docs/project_control/gates/P0_3_video_pipeline/M01_S02B_V018_C_GROUP_BOOST_FULL_AB_TECHNICAL_REVIEW_2026-10-18.md \
+            production/editorial_specs/S02_B_V006_CINEMATIC_ROUGH_EDL_V002_RENDERED_RECONSTRUCTED_REVIEW.json
+      - name: Verify exact V006 reference, V018 approved movie and A/B bytes and ledger identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          base=pathlib.Path(".")
+          ledger=json.loads((base/"production/video/iteration_history/S02_B_ITERATIONS_V001.json").read_text())
+          assert [x["iteration"] for x in ledger["versions"]]==["V001","V006","V018"]
+          v1,v6,v18=ledger["versions"]
+          assert v1["visual_approval"]=="PO_APPROVED_2026-10-09"
+          assert v6["visual_approval"]=="PO_REVIEW_PENDING_NOT_ESTABLISHED"
+          assert v6["role"]=="RETAINED_BASE_EDIT_REFERENCE"
+          assert v18["visual_approval"]=="APPROVED_2026-10-18"
+          assert v18["po_visual_approved"] is True
+          assert v18["derived_from"]==v6["video_id"]
+          binaries=[(v6["path"],v6["sha256"]),(v18["path"],v18["sha256"])]
+          binaries +=[(x["path"],x["sha256"]) for x in v18["comparisons"]]
+          for filename,expected in binaries:
+            p=base/filename
+            assert p.is_file() and p.stat().st_size>1000000,filename
+            h=hashlib.sha256()
+            with p.open("rb") as r:
+              for chunk in iter(lambda:r.read(1024*1024),b""):h.update(chunk)
+            assert h.hexdigest()==expected,(filename,h.hexdigest(),expected)
+            assert subprocess.run(["ffmpeg","-hide_banner","-v","error","-xerror","-i",str(p),
+              "-map","0:v:0","-f","null","-"],stdout=subprocess.DEVNULL).returncode==0,filename
+          assert (base/v6["path"]).resolve()!=(base/v18["path"]).resolve()
+          qc=json.loads((base/v18["technical_qc"]).read_text())
+          assert qc["preview"]["sha256"]==v18["sha256"]
+          assert qc["audio_identical_source_AAC_packet_hash_and_timestamps"]
+          assert qc["total_frames"]==1927
+          assert qc["style_parameter_change"]["V018_core_gain_rgb"]==[21,15,6]
+          assert qc["style_parameter_change"]["V018_halo_gain_rgb"]==[3.2,1.7,.45]
+          assert (base/v18["approval_document"]).is_file()
+          assert (base/v18["configuration"]).is_file()
+          print("S02_B_V006_V018_APPEND_ONLY_BINARY_IDENTITY_AND_QC_PASS",len(binaries))
+          PY
+      - name: Prove main retains all previous assets and this PR changes only new paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          python3 - <<'PY'
+          import subprocess
+          changes=subprocess.check_output(["git","diff","--name-status","origin/main"],text=True).splitlines()
+          changes += subprocess.check_output(["git","diff","--cached","--name-status","HEAD"],text=True).splitlines()
+          assert changes, "NO_APPEND_ONLY_CHANGES"
+          assert all(x.startswith("A\t") for x in changes),changes
+          assert len(changes)==11, changes
+          assert sum(x.endswith(".mp4") for x in changes)==4,changes
+          assert all("/V016_" not in x and "/V017_FULL_LENGTH_" not in x for x in changes), changes
+          before=subprocess.check_output(["git","rev-parse","origin/main:production/video/video_index.jsonl"],text=True).strip()
+          after=subprocess.check_output(["git","rev-parse","HEAD:production/video/video_index.jsonl"],text=True).strip()
+          assert before==after,"CANONICAL_VIDEO_INDEX_OVERWRITTEN"
+          print("APPEND_ONLY_NO_REPLACED_FILES_OR_APPROVAL_REWRITE",len(changes))
+          PY
+      - name: Commit exact-version archive on dedicated main-based branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "release/s02b-append-only-v006-baseline-v018-po-approved-20261018"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          test -z "$(git status --porcelain --untracked-files=no | grep '^ M ' || true)"
+          git commit -m "Archive S02-B V006 source baseline and V018 PO-approved movie as separate immutable main iterations"
+          git push origin HEAD:refs/heads/release/s02b-append-only-v006-baseline-v018-po-approved-20261018
+      - name: Save identity report
+        uses: actions/upload-artifact@v4
+        with:
+          name: S02B_APPEND_ONLY_V006_REFERENCE_V018_APPROVED_BINARY_CHECK
+          path: |
+            production/video/iteration_history/S02_B_ITERATIONS_V001.json
+            docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md
+          retention-days: 30
