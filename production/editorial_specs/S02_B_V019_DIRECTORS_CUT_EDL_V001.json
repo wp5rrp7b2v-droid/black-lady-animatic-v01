@@ -1,0 +1,235 @@
+{
+  "schema": "S02_B_V019_DIRECTORS_CUT_EDL_V001",
+  "status": "DIRECTOR_DESIGN_EXECUTION_AUTHORIZED_BUT_NOT_RENDERED_PENDING_WORK_STILLS",
+  "date": "2026-10-18",
+  "source_video_path": "production/environment_dynamic/review_candidates/S02_B_M01_V018_FULL_LENGTH_C_VISIBLE_REVIEW/S02_B_M01_V018_FULL_LENGTH_MORE_VISIBLE_C_GROUP_PREVIEW_V001.mp4",
+  "source_sha256": "6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427",
+  "soundtrack": {
+    "source": "0:a:0 from source V018",
+    "policy": "COPY_EXACT_AAC_PACKET_STREAM_ZERO_RETIME_ZERO_MIX"
+  },
+  "output": {
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "total_frames": 1927,
+    "duration_sec": 64.23333333333333,
+    "format": "MP4 H264+AAC",
+    "stage": "NONCANONICAL_PO_VISUAL_REVIEW"
+  },
+  "rules": {
+    "project": "BLACK-LADY-001",
+    "no_paid_ai_video": true,
+    "work_new_still_generation_limit_per_call": 1,
+    "work_reference_images_limit_per_call": 5,
+    "shot_order_approved": [
+      "N21",
+      "V006_NEW_02",
+      "N22_FIRST",
+      "N23"
+    ],
+    "video_existing_binaries": "IMMUTABLE",
+    "main_merge": false,
+    "canonical_replace": false,
+    "shoot_stage_no_fake_character_motion": true
+  },
+  "new_images": [
+    {
+      "id": "D01_JUN_SISTER_QUESTION_LISTEN",
+      "filename": "D01_JUN_SISTER_QUESTION_LISTEN_CANDIDATE_V001.png",
+      "source_replace_frames": [
+        164,
+        281
+      ],
+      "duration_seconds": 3.9,
+      "narrative": "End of Jun's sister question; vulnerability and attentive eye contact, not publicity-photo two-shot",
+      "visual": "Closer asymmetrical Jun view from slightly off Ning shoulder, Jun blue overshirt and white top as N16, entrance-side interior candle + limited daylight, Ning only soft shoulder profile, relaxed mouth slightly parted as if speaking. No added characters, no camera motion, no fake lip movement."
+    },
+    {
+      "id": "D02_NING_WARNING_SPACE",
+      "filename": "D02_NING_WARNING_SPACE_CANDIDATE_V001.png",
+      "source_replace_frames": [
+        426,
+        519
+      ],
+      "duration_seconds": 3.1,
+      "narrative": "Ning makes the rules personally urgent. Different perspective from long N17 face close-up.",
+      "visual": "Medium 3/4 side view inside threshold showing Ning facing Jun, Ning intent but restrained, not grimacing, hands visible naturally/no pocket, Jun listen at a different depth. Low-key candle + restrained entrance daylight, two bodies physically grounded in architectural depth."
+    },
+    {
+      "id": "D03_JUN_LISTENS_LOOKS_OUTSIDE",
+      "filename": "D03_JUN_LISTENS_LOOKS_OUTSIDE_CANDIDATE_V001.png",
+      "source_replace_frames": [
+        519,
+        658
+      ],
+      "duration_seconds": 4.633333333333334,
+      "narrative": "Jun absorbs warning and starts noticing fair weather, sets up N18 clear sky shot without jumping plot.",
+      "visual": "Interior medium rear-3/4 of Jun facing a strip of bright sky beyond open entrance; Jun face partial profile reflective, Ning out of focus back/midground, door remains wide open and opens outward. Emphasis on inside/outside and eyeline, no rain, no large blue sunlight flooding hall."
+    }
+  ],
+  "segments": [
+    {
+      "id": "N16_OPEN_PAIR",
+      "type": "source_video",
+      "source_frame_start": 0,
+      "source_frame_end_exclusive": 164,
+      "duration_frames": 164,
+      "asset": null
+    },
+    {
+      "id": "D01_JUN_SISTER_QUESTION_LISTEN",
+      "type": "still",
+      "source_frame_start": 164,
+      "source_frame_end_exclusive": 281,
+      "duration_frames": 117,
+      "asset": "production/video_candidates/v019_directors_cut/assets/D01_JUN_SISTER_QUESTION_LISTEN_CANDIDATE_V001.png"
+    },
+    {
+      "id": "N17_WARNING_OPEN",
+      "type": "source_video",
+      "source_frame_start": 281,
+      "source_frame_end_exclusive": 426,
+      "duration_frames": 145,
+      "asset": null
+    },
+    {
+      "id": "D02_NING_WARNING_SPACE",
+      "type": "still",
+      "source_frame_start": 426,
+      "source_frame_end_exclusive": 519,
+      "duration_frames": 93,
+      "asset": "production/video_candidates/v019_directors_cut/assets/D02_NING_WARNING_SPACE_CANDIDATE_V001.png"
+    },
+    {
+      "id": "D03_JUN_LISTENS_LOOKS_OUTSIDE",
+      "type": "still",
+      "source_frame_start": 519,
+      "source_frame_end_exclusive": 658,
+      "duration_frames": 139,
+      "asset": "production/video_candidates/v019_directors_cut/assets/D03_JUN_LISTENS_LOOKS_OUTSIDE_CANDIDATE_V001.png"
+    },
+    {
+      "id": "N18",
+      "type": "source_video",
+      "source_frame_start": 658,
+      "source_frame_end_exclusive": 839,
+      "duration_frames": 181,
+      "asset": null
+    },
+    {
+      "id": "N19",
+      "type": "source_video",
+      "source_frame_start": 839,
+      "source_frame_end_exclusive": 949,
+      "duration_frames": 110,
+      "asset": null
+    },
+    {
+      "id": "N20_FIRST",
+      "type": "source_video",
+      "source_frame_start": 949,
+      "source_frame_end_exclusive": 996,
+      "duration_frames": 47,
+      "asset": null
+    },
+    {
+      "id": "V006_NEW_01",
+      "type": "source_video",
+      "source_frame_start": 996,
+      "source_frame_end_exclusive": 1078,
+      "duration_frames": 82,
+      "asset": null
+    },
+    {
+      "id": "JUN_APPROVED_REACTION",
+      "type": "source_video",
+      "source_frame_start": 1078,
+      "source_frame_end_exclusive": 1114,
+      "duration_frames": 36,
+      "asset": null
+    },
+    {
+      "id": "N21",
+      "type": "source_video",
+      "source_frame_start": 1114,
+      "source_frame_end_exclusive": 1222,
+      "duration_frames": 108,
+      "asset": null
+    },
+    {
+      "id": "V006_NEW_02",
+      "type": "source_video",
+      "source_frame_start": 1299,
+      "source_frame_end_exclusive": 1366,
+      "duration_frames": 67,
+      "asset": null
+    },
+    {
+      "id": "N22_FIRST",
+      "type": "source_video",
+      "source_frame_start": 1222,
+      "source_frame_end_exclusive": 1299,
+      "duration_frames": 77,
+      "asset": null
+    },
+    {
+      "id": "N23",
+      "type": "source_video",
+      "source_frame_start": 1366,
+      "source_frame_end_exclusive": 1448,
+      "duration_frames": 82,
+      "asset": null
+    },
+    {
+      "id": "A06",
+      "type": "source_video",
+      "source_frame_start": 1448,
+      "source_frame_end_exclusive": 1575,
+      "duration_frames": 127,
+      "asset": null
+    },
+    {
+      "id": "N24",
+      "type": "source_video",
+      "source_frame_start": 1575,
+      "source_frame_end_exclusive": 1694,
+      "duration_frames": 119,
+      "asset": null
+    },
+    {
+      "id": "N25",
+      "type": "source_video",
+      "source_frame_start": 1694,
+      "source_frame_end_exclusive": 1810,
+      "duration_frames": 116,
+      "asset": null
+    },
+    {
+      "id": "NING_REACTION_APPROVED",
+      "type": "source_video",
+      "source_frame_start": 1810,
+      "source_frame_end_exclusive": 1863,
+      "duration_frames": 53,
+      "asset": null
+    },
+    {
+      "id": "N26",
+      "type": "source_video",
+      "source_frame_start": 1863,
+      "source_frame_end_exclusive": 1927,
+      "duration_frames": 64,
+      "asset": null
+    }
+  ],
+  "quality_gates": {
+    "source_sha256_and_audio_payload_identity": "PASS required",
+    "count_frames_1927": "PASS required",
+    "source_old_asset_modified_count": "ZERO",
+    "still_image_identity_and_intermediate_continuity": "Must be visually inspected; preserve reference identity/structure",
+    "visual_improvement": "PO visual approval required against exact V018 and approved B order",
+    "scenes": "No bags, no studio lighting, no lineup, no two-person front portrait pose, no extreme edges",
+    "animation": "No invented character action or fast pushpull"
+  },
+  "decision": "Candidate scope only. Locked older video/PNG and exact original AAC untouched. No publication or main merge."
+}

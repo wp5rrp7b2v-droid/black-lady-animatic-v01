@@ -332,3 +332,10 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - V018 已按 RC-030 **只增不覆**进入 main 历史迭代档案，V006 基础剪辑候选亦独立保留且未冒称视频 PO 已批准，正式 S02-B V001 canonical 仍保持原记录；PR #23 MERGED / 11 additions / 0 replacements。
 - 这次验证补充了真实代表性视频证据，但**不满足整个 P0.3 Gate 的剩余必需验证，也不构成其 PO Gate PASS 授权**。单镜头 M01 真实来源定位与人物遮挡的全 GT、跨场景可移植产品认证仍未达完整发布门槛。人物微动作 / 对白逐字精对齐亦未因烛火审批自动通过。
 - 状态：`P0.3 IN PROGRESS / S02-B V018 VISUAL PASS / FINAL VIDEO MASTER NOT AUTHORIZED`。权威收尾：`gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md`。
+
+## P0.3 Validation Evidence Update｜2026-10-20｜S02-B V019 Autonomous Director V001
+
+- 2026-10-18 Product Owner 已视觉认可完整 `S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4` 为「自主导演版 V001」；2026-10-20 再次单独授权以 append-only 有效迭代合入 GitHub `main`，不重复审片、不覆盖 V001/V006/V018。
+- 原 QC：1,927 帧 / 30fps / 720×1280，输出 SHA-256 `b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d`，源 V018 AAC ADTS packets 精确一致；恢复收据记录三张 PNG 与成片匹配原 QC 散列。Git Blob 从原工作分支复用而非重新编码；原 Work 内部图片审核 JSON 未留存，此缺口未冒称恢复。
+- V019 只登记独立有效视频迭代；D01–D03 不单独作为 Story Shot 登记。`production/video/video_index.jsonl` 和 `production/story_shots/story_shot_index.jsonl` 均不改；正式 Video Index 3、正式 Story Shot Index 32。V006 仍 PO_REVIEW_PENDING，不能因追溯基底而虚构独立批准。
+- 本次通过仅为 **V019 PO 视频视觉认可与追加存档授权**；不构成 P0.3 整体验收 PASS、正式母版替换、公开发行、人物全 GT 或 M01 跨场景通用验证。

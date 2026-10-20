@@ -3852,3 +3852,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - **当前生产与 Gate：**远端 GitHub main 正式 Story Shot Index 32 个 APPROVED CURRENT，正式 Video Index 3 个 APPROVED CURRENT；P0.1/P0.2 PASS，P0.3 IN PROGRESS。M01 工程完整源码和 V016/V017 候选存研发分支 `feature/m01-v002-engine-stage-a-20261017`；独立跨场景完整产品与人物全 GT 未获认证。禁止新会话重做已批准 V018；继续设计 V019 或其他电影化动态增量，并按 Story Shot 制图流程分工。
 - **收尾文档：**`docs/project_control/gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md`；Main Project State R360 / Dashboard V280；规则 RC-030、决策 BL-D-178—182 登记，Gate evidence 更新。
 - **本地同步：**Product Owner 要求仅从 GitHub 拉取，不生成 zip。Mac 本地真实终端尚未提供 `git status / HEAD / origin/main`，因此状态严格为 **EOD LOCAL FF SYNC PENDING USER TERMINAL**，不可宣称 PASS。保留本地未跟踪 Console/Private 目录及批准视频不覆写。
+
+## 2026-10-20｜S02-B V019 自主导演版 V001 正式迭代归档
+
+- PO 已明确批准将此前 2026-10-18 视觉认可的 V019 自主导演 V001 加入 `main`，作为独立有效剪辑迭代；不要重复视觉审批或二次重渲染。
+- 源分支：`feature/s02b-v019-directors-cut-20261018`；只以 GitHub 已保存 Blob 原样搬运视频及 3 张静帧、1 页镜头说明、EDL、QC、恢复收据和审批文件。生产脚本、未获独立批准的工作流、原始生成中间图和预检接触表留在源分支，不扩大 main 内容。
+- 完整视频：64.2333 秒，1927 帧 / 30fps / 720×1280，SHA-256 `b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d`。AAC ADTS 输入输出 SHA-256 `d1e12748ce836c6c191148c3abf10b3a5144a932042c6474512303c79b87e5e9` 一致。此前原 QC 和恢复收据记录 D01/D02/D03 + 完整 MP4 exact-match；原 Work 内部单图审核 JSON 未被恢复，明确保留这一证据边界。
+- 独立登记：`production/video/iteration_history/S02_B_ITERATIONS_V001.json` 新增 V019；旧 V001（Google Drive）、V006（尚无独立 PO 视频视觉批准）、V018（已批准）全部保持，不替换、不废止；官方 Video Index 仍三条已批准记录。D01–D03 不自动新增正式 Story Shot，仍 32 CURRENT APPROVED。
+- PO 决议：BL-D-184，参考 `docs/project_control/gates/P0_3_video_pipeline/S02_B_AUTONOMOUS_DIRECTOR_V001_VISUAL_APPROVAL_20261018.md`。Project Control R361 / Dashboard V281；P0.3 仍进行中，M01 跨段通用性待下一段真实复用验证。Mac 仅按 RC-029 在晚上从 GitHub fast-forward 安全同步，未获当日本地终端对照前不标记同步 PASS。
+- 此记录叙述归档工作及预设核验范围；主分支实际合并成功与 Blob readback 必须以 GitHub PR/commit 的最终结果为准。

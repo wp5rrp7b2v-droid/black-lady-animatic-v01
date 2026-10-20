@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R360",
-  "last_updated": "2026-10-18",
-  "session_status": "2026-10-18 OCT17–18 EOD CLOUD CLOSEOUT / S02-B M01 V018 FULL 1927-FRAME PO VISUAL APPROVED / V006 REFERENCE + V018 ITERATION KEPT IN MAIN APPEND-ONLY PR23 / M01 RESEARCH FEATURE BRANCH PRESERVED / P0.3 IN PROGRESS / MAC USER-TERMINAL FF SYNC PENDING",
+  "state_revision": "R361",
+  "last_updated": "2026-10-20",
+  "session_status": "2026-10-20 S02-B V019 AUTONOMOUS DIRECTOR V001 PO VISUAL APPROVED / INDEPENDENT APPEND-ONLY ITERATION MAIN ARCHIVE AUTHORIZED; V001/V006/V018 RETAINED / P0.3 IN PROGRESS / MAC EOD SYNC PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "2026-10-18 EOD CLOUD REGISTRATION COMPLETE / MAC FAST-FORWARD LOCAL MAIN PARITY PENDING USER TERMINAL OUTPUT; NEXT SESSION DISCUSS NEXT S02-B VIDEO ITERATION AFTER V018 VISUAL APPROVAL",
-  "blocker": "No active GitHub cloud archive blocker. Local Mac parity remains unverified until actual user Terminal git pull and exact HEAD comparison. M01 cross-scene portability and full person segmentation GT have not been validated; they do not cancel the PO visual approval of exact V018.",
-  "next_action": "User Mac: run the guarded RC-029 main ff-only pull from canonical GitHub plus fetch M01 development branch (not checkout), return local HEAD / origin-main / status for verification. New Chat: read main Project State R360, Oct17–18 closeout, S02-B append-only iteration ledger; continue next approved S02-B cinematic/video iteration from V018 as visual reference without replacing V001/V006/V018; never repeat already approved V018 candle effects. No formal master replacement/cross-scene product release without separate authority.",
+  "current_task": "S02-B V019 APPROVED INDEPENDENT ITERATION ARCHIVE AND PROJECT CONTROL R361/V281; NEXT TASK: DIRECT NEXT SEGMENT STORY-FIRST DESIGN / NO REPEAT VISUAL APPROVAL",
+  "blocker": "No active V019 visual approval blocker. The source Work internal asset-review JSON was not persisted, and no recovery is claimed; exact recovery receipt and QC preserved. Mac nightly safe-sync requires terminal proof. M01 full person GT/cross-scene portability not yet proven; unrelated to V019 iteration approval.",
+  "next_action": "After exact V019 append-only main readback, proceed to next script/story segment director planning. Preserve all S02-B V001/V006/V018/V019 as independent historical versions, D01-D03 remain non-registered component image inputs. Do not auto-upgrade S02-B master, Story Shot Index, Video Index, P0.3 Gate, or M01 cross-scene engine. Mac sync only at RC-029 evening closeout.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,22 +120,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-18-S02B-M01-V018-APPROVED-APPEND-ONLY-MAIN-CLOSEOUT-R360",
-    "status": "PO VISUAL APPROVED V018 / GITHUB MAIN V001 V006 V018 VERSIONS RETAINED / P0.3 IN PROGRESS / MAC FF SYNC PENDING",
+    "id": "2026-10-20-S02B-V019-AUTONOMOUS-DIRECTOR-V001-MAIN-ARCHIVE-R361",
+    "status": "V019 PO VISUAL APPROVED AND MAIN APPEND-ONLY ARCHIVE AUTHORIZED / S02-B PREVIOUS VERSIONS PRESERVED / P0.3 IN PROGRESS / MAC FF SYNC PENDING",
     "completed": [
-      "N23 five and NEW02 eleven actual candle centers PO approved V014, V015 common flame+halo engine N23/NEW02 AB visually approved; N17 reference retained.",
-      "M01 V016 three-shot full draft 27.3% technical preview; V017 15/17 shot candidate 88.22% technical pass, not PO approved.",
-      "V018 C group 12 shots local real-core and halo gains increased, exact full MP4 1927 frames visual PO APPROVED; 15/17 treated and 2 no-candle unchanged, source AAC payload+PTS exact.",
-      "V018 SHA256 6897b1ac246e4c30d84aca3b80003a58d7bae86eb7631272fe28253b23a01427 retained as immutable visual-approved candidate. V006 source SHA256 7af0982385c877b159f053233378b98c2c035ce19df257a6e65077dfbaa33402 retained separately.",
-      "Append-only governance approved and PR #23 merged main commit 017efbcb54e4ae72a07761262babbd25738dec1f; 11 files added, 0 overwritten or deleted; V001 Drive canonical index unchanged; V006 approval status explicitly pending.",
-      "M01 source code and V016/V017 diagnostic revisions stay on feature/m01-v002-engine-stage-a-20261017; not automatically promoted to main.",
-      "GitHub formal Story Shot index remains 32 CURRENT APPROVED; official video index remains three current approved records; P0.3 not auto-passed.",
-      "EOD Oct17–18 report, decision/execution/rules, Dashboard V280 and new-chat handoff placed in main, local sync requires actual Mac Terminal."
+      "V019 full-length visual approval occurred 2026-10-18, as recorded on its feature branch; renewed PO authorization to append approved iteration to main on 2026-10-20.",
+      "Exact video SHA-256 b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d; 1927 frames, 30fps, 720x1280, original V018 AAC payload unchanged.",
+      "V019 traceability: original QC / recovery receipt, director EDL, three PNG source identities, visual decision and one-page shot-change brief.",
+      "S02-B prior V001 official Google Drive video, V006 reference candidate and V018 approved candle iteration remain valid; no historical version altered.",
+      "D01-D03 are component stills of V019 only; no automatic Story Shot registration.",
+      "Formal Story Shot index stays 32 approved current and official Video Index stays 3; P0.3 remains IN PROGRESS."
     ],
-    "resume_from": "AFTER MAC FAST-FORWARD VERIFICATION: NEW CHAT READ MAIN PROJECT CONTROL R360, OCT17–18 EOD REPORT, ITERATION LEDGER; PLAN NEXT POST-V018 PRODUCTION TASK WITHOUT REPLACING APPROVED VERSIONS",
+    "resume_from": "NEXT S AFTER V019: director story-and-shot requirements first; avoid recreating already-approved V019 or reopening paused SFX/transitions.",
     "blockers": [
-      "No user Mac Git status / HEAD / origin-main evidence yet, local sync cannot be marked PASS.",
-      "Formal video master promotion and final episode publication are not authorized; independent M01 full-person GT/cross-scene product readiness unproven."
+      "No current Mac local HEAD/origin main parity evidence; only nightly user-terminal ff-only sync may establish PASS.",
+      "No final master replacement, public release or M01 cross-scene certified product authorization."
     ]
   },
   "visual_asset_management_system": {
@@ -5386,5 +5384,24 @@
     "append_only_policy": "docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md",
     "closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md",
     "mac_sync": "WAITING_USER_TERMINAL"
+  },
+  "s02_b_v019_2026_10_20": {
+    "approval": "FULL_VIDEO_PO_VISUAL_APPROVED_2026-10-18 / INDEPENDENT_MAIN_APPEND_ONLY_ARCHIVE_AUTHORIZED_2026-10-20",
+    "revision": "V019 / AUTONOMOUS_DIRECTOR_V001",
+    "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+    "path": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
+    "ledger": "production/video/iteration_history/S02_B_ITERATIONS_V001.json",
+    "evidence": "docs/project_control/gates/P0_3_video_pipeline/S02_B_AUTONOMOUS_DIRECTOR_V001_VISUAL_APPROVAL_20261018.md",
+    "approved_story_shots_count_unchanged": 32,
+    "official_video_index_count_unchanged": 3,
+    "independent_story_shots_for_d01_d03": false,
+    "p03_gate": "IN PROGRESS",
+    "preserved_versions": [
+      "V001",
+      "V006",
+      "V018",
+      "V019"
+    ],
+    "mac_sync": "PENDING_EOD_USER_TERMINAL_PROOF"
   }
 }
