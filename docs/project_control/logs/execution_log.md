@@ -3861,3 +3861,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 独立登记：`production/video/iteration_history/S02_B_ITERATIONS_V001.json` 新增 V019；旧 V001（Google Drive）、V006（尚无独立 PO 视频视觉批准）、V018（已批准）全部保持，不替换、不废止；官方 Video Index 仍三条已批准记录。D01–D03 不自动新增正式 Story Shot，仍 32 CURRENT APPROVED。
 - PO 决议：BL-D-184，参考 `docs/project_control/gates/P0_3_video_pipeline/S02_B_AUTONOMOUS_DIRECTOR_V001_VISUAL_APPROVAL_20261018.md`。Project Control R361 / Dashboard V281；P0.3 仍进行中，M01 跨段通用性待下一段真实复用验证。Mac 仅按 RC-029 在晚上从 GitHub fast-forward 安全同步，未获当日本地终端对照前不标记同步 PASS。
 - 此记录叙述归档工作及预设核验范围；主分支实际合并成功与 Blob readback 必须以 GitHub PR/commit 的最终结果为准。
+
+## 2026-10-27｜血门任务状态同步（非新制图执行）
+
+- GitHub main 的 V019 PR #26 已于 10-20 MERGED；此前正式状态 R361 / Dashboard V281。此次仅改 Project Control 文档，不操作视频文件、正式索引或既有资产。
+- 依据 PO 提供的 10-27 阶段总结：K 字体选定、第133章文字已核对；有字 Candidate 01 无可恢复无字母图；两轮反向去字 FAIL，路线停止；旧动画 V001–V005 未获最终通过。
+- PO 10-21 仅授权一张新无字木门 A；Work 摘要报告 10-22 生成候选，但本次未获取 PNG、哈希、源工程或 PO Approval。严格登记为 REPORTED GENERATED / PO_REVIEW_PENDING，**不宣称 binary verified 或 approved**。
+- B 未获授权；同源 A/B 和血字融合未验证；正式动画 HOLD。下一步唯一动作是审核既有 A 并核对可复用原工程。
+- 状态更新为 R362 / Dashboard V282 / BL-D-185，P0.3 仍 IN PROGRESS；Story Shot 32 / Video Index 3 保持，历史视频 V001/V006/V018/V019 保留，Mac 晚间同步仍需终端证据。
+- 详细检查点：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md。

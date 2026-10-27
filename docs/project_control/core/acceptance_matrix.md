@@ -339,3 +339,11 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - 原 QC：1,927 帧 / 30fps / 720×1280，输出 SHA-256 `b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d`，源 V018 AAC ADTS packets 精确一致；恢复收据记录三张 PNG 与成片匹配原 QC 散列。Git Blob 从原工作分支复用而非重新编码；原 Work 内部图片审核 JSON 未留存，此缺口未冒称恢复。
 - V019 只登记独立有效视频迭代；D01–D03 不单独作为 Story Shot 登记。`production/video/video_index.jsonl` 和 `production/story_shots/story_shot_index.jsonl` 均不改；正式 Video Index 3、正式 Story Shot Index 32。V006 仍 PO_REVIEW_PENDING，不能因追溯基底而虚构独立批准。
 - 本次通过仅为 **V019 PO 视频视觉认可与追加存档授权**；不构成 P0.3 整体验收 PASS、正式母版替换、公开发行、人物全 GT 或 M01 跨场景通用验证。
+
+## P0.3 状态检查点｜2026-10-27｜血门任务 A 待审
+
+- Gate：P0.1/P0.2 PASS，P0.3 IN PROGRESS；Opening、S02-A 和 S02-B V001/V006/V018/V019 既有成果保持。V019 PR #26 已合并。Story Shot Index 32、Video Index 3，不新增正式登记。
+- K 字体已选；第133章文字核对已完成（据 PO 摘要）。Candidate 01 为有字视觉参考，反向去字两轮 FAIL 后停止；旧动画 V001–V005 未获最终审批。
+- PO 于 10-21 授权单张无字木门 A；Work 据摘要 10-22 生成候选，但**无 PO 审核通过证据，亦无原 PNG/工程/哈希在本轮核验**，状态为 A PO_REVIEW_PENDING / NOT_APPROVED。
+- B NOT_AUTHORIZED；A/B NO PASS；正式动画 HOLD。先审既有 A，再决定是否授权同源 B。不因阶段总结自动批准图片或 P0.3 Gate。
+- 状态详情：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md

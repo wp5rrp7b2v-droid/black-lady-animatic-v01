@@ -1879,3 +1879,11 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - PO adopted RC-030 version append-only: PR #23 merged exact V006 source/reference + exact V018 approved version and comparative videos into `main`, while preserving approved V001; main canonical video index still unchanged (3 approved video entries); no silent replacement.
 - Gate remains **IN PROGRESS / NOT YET VALIDATED**; no authorization for final episode master replacement, Story Shot registration or P0.3 gate PASS. EOD local Mac sync pending actual terminal proof.
 - Full evidence / next-session handoff: `p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md` and `s02b_2026-10-18_mac_fast_forward_and_new_chat_handoff.md`.
+
+## 2026-10-27｜当前任务：血门任务新无字木门 A 待审
+
+- 先前从 Candidate 01 反向去字两轮 FAIL，原路线停止；旧 V001–V005 动画未获最终批准，K 字体及原文检查只保留为设计依据。
+- PO 于 10-21 只授权 1 × 9:16 PNG 无字木门 A，生成即停止；Work 摘要报告 10-22 已出候选，但目前**PO 未批准 A，原文件/可复用工程及 SHA 尚未独立核验**。
+- 下一步：Product Owner 审核已有 A；A PASS 后才可另行批准同源 B。B 未授权，A/B 未 PASS，正式动画 HOLD；不另行生成新候选。
+- Opening / S02-A / S02-B V001/V006/V018/V019 保持原批准及归档边界，M01 跨段未认证；32 Story Shots / 3 official Videos 与 P0.3 IN PROGRESS 不变。
+- 正式本期状态检查点：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md。
