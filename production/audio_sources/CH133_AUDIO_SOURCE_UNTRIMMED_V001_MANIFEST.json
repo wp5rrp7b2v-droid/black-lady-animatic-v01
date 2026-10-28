@@ -1,0 +1,60 @@
+{
+  "schema": "black_lady_audio_source_ingest_v1",
+  "id": "CH133_AUDIO_SOURCE_UNTRIMMED_V001",
+  "observed_date": "2026-10-28",
+  "purpose": "Opening content enrichment P01–P04 Chapter 133 story candidate",
+  "status": "PRIVATE_DRIVE_ARCHIVE_VERIFIED__SOURCE_AUDIO_EXACT_PACKET_MATCH__SEMANTIC_TIMECODES_PENDING",
+  "source": {
+    "file_name": "ScreenRecording_10-28-2026 13-25-34_1.mp4",
+    "google_drive_id": "1D_kH7mLEM54qFEVpY3tpa-Z29Eo3iZLx",
+    "parent_folder_id": "103RS0GclkpijAhBOKfTso6xcQKHaLr5x",
+    "byte_size": 62331202,
+    "sha256": "4d60d1835a7cc4160c580501e5d4c419d74beaf7121f28fe0357122e583d07e8",
+    "duration_seconds": 290.72,
+    "streams": [
+      {
+        "codec": "hevc",
+        "width": 1284,
+        "height": 2778,
+        "type": "video"
+      },
+      {
+        "codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "type": "audio"
+      }
+    ],
+    "review_note": "Visible recording screens identify episode 096 '契约', with contract/task/hint text; audio narration exact passage timecodes not yet separately validated."
+  },
+  "archive_capture": {
+    "drive_id": "115KUWFR2JaABxUllTGKn7NfQbuhmwRyF",
+    "folder_id": "1yzcpckOoogFznfiQdPDLKxhzIG6PoQx4",
+    "file_name": "CH133_ORIGINAL_CAPTURE_20261028_SOURCE_LOCKED_V001.mp4",
+    "byte_size": 62331202,
+    "sha256": "4d60d1835a7cc4160c580501e5d4c419d74beaf7121f28fe0357122e583d07e8",
+    "verification": "Drive file downloaded after copy; independently SHA-256 matched source."
+  },
+  "archive_audio": {
+    "drive_id": "1hl9XNYZ5s0hk-VEjyKk7eyPrguY8zdEK",
+    "folder_id": "1yzcpckOoogFznfiQdPDLKxhzIG6PoQx4",
+    "file_name": "CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a",
+    "byte_size": 3994021,
+    "sha256": "26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20",
+    "duration_seconds": 290.689002,
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "extraction_command": "ffmpeg -i SOURCE_MP4 -map 0:a:0 -c:a copy OUTPUT_M4A",
+    "source_streamhash_sha256": "c47863e262d308b9a3ec3ef917bea2b6e306648272f14cff12dd7c525ebe20c4",
+    "extracted_streamhash_sha256": "c47863e262d308b9a3ec3ef917bea2b6e306648272f14cff12dd7c525ebe20c4",
+    "verification": "Drive uploaded copy re-downloaded, SHA-256 matched locally extracted original, full audio decoded and packet streamhash matches input. No transcoding."
+  },
+  "privacy": "Raw video and full original audiobook audio remain in private Google Drive; only manifest and hashes are registered in public GitHub, never the media bytes.",
+  "deletion_boundary": "Only source temporary root file is redundant after both distinct Drive archived files are independently byte verified; deleting it is user action, not executed.",
+  "future_stage": "Confirm exact line-level CH133 narration timecodes before scene extraction/animatic. No new scenes/voice generated.",
+  "approved_master_effect": "none",
+  "original_opening_v001_unchanged": true,
+  "official_story_shot_index_unchanged": true,
+  "official_video_index_unchanged": true
+}

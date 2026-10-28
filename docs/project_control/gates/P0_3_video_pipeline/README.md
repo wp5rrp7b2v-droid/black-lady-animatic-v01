@@ -1921,3 +1921,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 角色／场景注册表核对显示宁/君及古堡入口、庄园大门有 CURRENT Approved Ref；白潇潇/孟军、腕黑手印无可直接沿用的 Approved 对应资产。
 - P0.1 inventory 显示上游原音在成为 canonical 时裁掉约 22.8 秒。**优先找回并听审这一短片段**，核实是否含 CH133 任务与警告。Connected Google Drive 06_Audio 文件夹当前为空，因此 audio PASS 尚未成立。
 - 小样未渲染、血门木门仍暂停、正式 Opening V001 以及索引均未修改。检查点：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md。
+
+## 2026-10-28｜CH133 Source Input / Exact Archive Verified
+
+- 新上传录屏完整读取，私有 Drive `06_Audio` 双归档：源 MP4 原样副本和 290.689 秒 AAC M4A stream-copy；两文件均 Drive 下载 SHA256 回读通过、原音压缩数据一致；公共仓库不收录有版权的原媒体二进制。
+- 完整来源/哈希：`production/audio_sources/CH133_AUDIO_SOURCE_UNTRIMMED_V001_MANIFEST.json`；关闭记录：`docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_INGEST_CLOSEOUT_2026-10-28.md`。
+- 可以从 Drive 根目录自行删除临时 MP4（不删除 06_Audio 两份归档）。制作 Gate 仍待精确语句时间码和 PO 后续审核，原 Opening V001 锁定、木门暂停。

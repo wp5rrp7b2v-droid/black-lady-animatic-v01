@@ -3917,3 +3917,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 进一步核查 main 和旧分支树、Google Drive 06_Audio、Project/Library 文件检索：只找到第134章已有 canonical audio，没有检出可实际听审的上游 capture/extract 第133章录音。所谓0–22.8秒只是 inventory 记录，**不能冒称已听审**。
 - 在已批 P01–P04 声画故事方案与避免重复静默文字卡路径的前提下，建议由 PO 补充完整第133章原声；若只能剪辑，需三组：`君鹭远“我不怕”→宁秋水“我带你吧”`、`划掌契约→腕黑印/痛苦消失`、`血门任务出现→提示2结束`，各组5–10秒 handles。
 - 这只是音源获取建议与阻塞明确化，未生成新声画、未变更正式音频或视频、未恢复木门专项。
+
+## 2026-10-28｜第133章上传录屏与音轨正式收录
+
+- Drive 根目录定位并完全读取用户 `ScreenRecording_10-28-2026 13-25-34_1.mp4`（62,331,202 bytes，SHA256 `4d60d1835a7cc4160c580501e5d4c419d74beaf7121f28fe0357122e583d07e8`）；视频/音频流可解析。
+- 复制原样 MP4 至私有 `Black Lady Project/06_Audio`，ID `115KUWFR2JaABxUllTGKn7NfQbuhmwRyF`，重新下载 SHA 与源完全相同。
+- 无重编码提取完整 AAC 44.1k 双声道至 `CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a`（3,994,021 bytes，SHA256 `26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20`），上传至 06_Audio，ID `1hl9XNYZ5s0hk-VEjyKk7eyPrguY8zdEK`，重新下载字节/哈希一致；输入与输出压缩音频流 SHA256 `c47863e262d308b9a3ec3ef917bea2b6e306648272f14cff12dd7c525ebe20c4` 一致，FFmpeg 解码 PASS。
+- GitHub public 仅保存元数据与指向私有 Drive 的链接，不把有声小说和录屏二进制公开。允许用户自行删除**根目录**临时上传，勿删 06_Audio 两个归档；并未代用户删除。
+- 第133章任务文字截图可见，但精确朗读时间码尚待听审，后续做 P01–P04 片段映射。Project State R369 / Dashboard V289；登记 `docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_INGEST_CLOSEOUT_2026-10-28.md`。
