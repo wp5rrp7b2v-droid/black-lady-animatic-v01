@@ -3938,3 +3938,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - V001 已归档的32.5秒源窗口可能未保留源末尾1.19秒；用已归档全长音频可确定性重建本地 V002（257s到290.689s，33.689s，AAC copy，SHA256 98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84，解码PASS）。V002目前没有存入Drive。
 - 已核对正式 Opening V001 SHA，拼接 CH133 P03/P04 尾段和开场原6.55秒成为本地40.260秒纯音频（重新采样/重新编码AAC192k；SHA256 c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c，解码PASS）。音频审听尚待PO；未产生正式新视频/Story Shot。
 - 项目状态R371，Dashboard V291，木门A/B暂停，原Opening锁定。
+
+## 2026-10-28｜CH133 尾部保全 V002 与 Opening 纯声音试验正式归档
+
+- 补齐此前 R371 的 `V002 LOCAL_ONLY` 缺口：从已验证完整 CH133 音轨 257.0秒→EOF 无重编码提取 `CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002.m4a`，33.689002秒、459484字节、SHA256 `98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84`；已上传私有 Drive `06_Audio` ID `1qNHcj1Os6G30g5RDWHxIaexlDc0GfaVt`，独立重新下载校验字节/哈希完全一致，完整解码 PASS。
+- 补齐此前 R371 的 `AUDIO BRIDGE CONVERSATION_LOCAL_ONLY` 缺口：40.260秒 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001.m4a`（P03/P04原声至末尾→原Opening前6.55秒尼尔欢迎），974875字节、SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`；已上传私有 Drive ID `1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS`，重新下载SHA及解码PASS。此试听小样 AAC 曾重新编码/48kHz，**不能声称压缩 packet 与原音一致**。
+- GitHub 仅公开登记元数据与 SHA（`production/audio_sources/CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002_MANIFEST.json`、`production/audio_sources/OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001_MANIFEST.json`），不公开上传原有声小说或其衍生音频二进制。V001较短提取窗口保留追溯，不覆盖、不登记为 Approved。
+- 下一 Gate：PO 实际试听 40.260 秒，对自然度/信息清晰度评估；音频技术通过不等于叙事PASS。P01关键原声缺失、逐词对齐未完成，原 Opening、Story Shot Index、Video Index 与木门暂停均不变。

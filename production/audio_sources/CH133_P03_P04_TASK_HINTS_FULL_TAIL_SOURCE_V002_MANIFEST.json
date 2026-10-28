@@ -1,0 +1,29 @@
+{
+  "schema": "black_lady_ch133_audio_source_window_v2",
+  "asset_id": "CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002",
+  "source": {
+    "file": "CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a",
+    "private_drive_id": "1hl9XNYZ5s0hk-VEjyKk7eyPrguY8zdEK",
+    "sha256": "26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20",
+    "duration_seconds": 290.689002
+  },
+  "extraction": {
+    "source_start_seconds": 257,
+    "source_end": "EOF",
+    "codec": "aac",
+    "mode": "streamcopy_no_reencode"
+  },
+  "output": {
+    "file": "CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002.m4a",
+    "private_drive_id": "1qNHcj1Os6G30g5RDWHxIaexlDc0GfaVt",
+    "folder_id": "1yzcpckOoogFznfiQdPDLKxhzIG6PoQx4",
+    "bytes": 459484,
+    "duration_seconds": 33.689002,
+    "sha256": "98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84",
+    "verified_drive_re_download_sha256": "98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84",
+    "full_decode": "PASS"
+  },
+  "status": "SOURCE_TAIL_ARCHIVE_TECH_PASS__NOT_A_FINAL_EDIT__WORD_LEVEL_TIMECODE_PENDING",
+  "supersession": "Original shorter V001 source handles preserved; V002 is the end-safe candidate; does not replace canonical Opening",
+  "media_storage": "Private Drive only; public GitHub manifest/hashes only"
+}

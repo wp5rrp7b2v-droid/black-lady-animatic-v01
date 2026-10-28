@@ -1,0 +1,33 @@
+{
+  "schema": "black_lady_opening_audio_only_bridge_pilot_v1",
+  "asset_id": "OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001",
+  "inputs": {
+    "ch133_v2_sha256": "98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84",
+    "ch133_v2_source_window": "257s to original EOF",
+    "opening_v001_sha256": "70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a",
+    "opening_segment_seconds": 6.55
+  },
+  "output": {
+    "file": "OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001.m4a",
+    "private_drive_id": "1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS",
+    "folder_id": "1yzcpckOoogFznfiQdPDLKxhzIG6PoQx4",
+    "sha256": "c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c",
+    "bytes": 974875,
+    "duration_seconds": 40.26,
+    "codec": "aac",
+    "sample_rate_hz": 48000,
+    "codec_reencoded": true,
+    "verified_drive_re_download_sha256": "c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c",
+    "full_decode": "PASS"
+  },
+  "status": "AUDIO_BRIDGE_TECH_PASS__PO_LISTENING_PENDING__NOT_CANONICAL",
+  "purpose": "Test task/warning narrative preceding first 6.55s of the approved Neil greeting before visual work",
+  "limits": [
+    "No PO audio or storytelling approval",
+    "Original P01 opening line not captured",
+    "Word-level timecode not yet established",
+    "No new Story Shot or visual approved",
+    "Official Opening V001 unchanged"
+  ],
+  "privacy": "Private Drive audio; public repo metadata only"
+}

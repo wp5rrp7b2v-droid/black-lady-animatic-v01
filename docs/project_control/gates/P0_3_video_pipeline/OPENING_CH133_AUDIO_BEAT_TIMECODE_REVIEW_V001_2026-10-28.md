@@ -57,3 +57,10 @@
 - 本地补做V002：原全长音源257.0秒至EOF，33.689002秒、459484字节、SHA256 98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84。FFmpeg AAC stream copy，解码PASS；**未云端落档，后续需从已保留源文件重新生成。**
 - 本地拼接听审小样：P03/P04 V002 + 正式Opening前6.55秒尼尔欢迎，40.260秒、974875字节、SHA256 c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c，48kHz AAC 192k，音频重新编码且解码PASS。**未作PO声音与叙事审核，不是正式发布、没有新画面。**
 - PASS门槛：PO听完认为任务、提示清晰，且尼尔欢迎衔接自然；FAIL则调整叙事范围/剪辑，不提前大批量制图。P01缺失原声与20–24秒原预算未通过的事实不变。
+
+## 2026-10-28｜V002 云端封存与40.26秒声桥双档归档补录
+
+- R371 中 V002 `local only` 历史描述仅反映当时状态；本轮在 Drive 私有 `06_Audio` 完成其正式归档（ID `1qNHcj1Os6G30g5RDWHxIaexlDc0GfaVt`，SHA256 `98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84`，33.689002秒）并重新下载 exact verification PASS。
+- 40.260秒纯声音审听样片亦归档 Drive（ID `1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS`，SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`，重编码48k AAC且解码PASS）。它用于测试任务/提示与正式尼尔欢迎前6.55s的实际衔接，**不属于已批准 Opening，也未交PO声学审核**。
+- 旧 V001 32.5s 截取仍保留，但存在截尾风险；后续若必须精确选句，继续依据原完整 CH133 M4A 和 V002，不自动扩大为最终母版。
+- 下一步：PO 先试听 `https://drive.google.com/file/d/1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS/view`，再决定是否进入非木门镜头/Bundle 设计；P01缺失对白、字级音轨定点及20–24s预算问题尚未解决。

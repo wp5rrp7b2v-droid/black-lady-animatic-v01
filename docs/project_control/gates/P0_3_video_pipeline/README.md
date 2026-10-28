@@ -1933,3 +1933,8 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 原录屏按同步高亮2秒取样：P01录屏开头的叙述不含“我带你吧”关键语句，P02契约约2:08–3:28，P03五日任务约4:17–4:35，P04两条提示约4:35–4:45；字级语音核验仍待完成。
 - P03+P04 32.502993s 无重编码 AAC 候选已提交私有 Drive `06_Audio`，回读SHA与全解码技术 PASS，ID `1SywSbeZ7oAwL6NRvTAoE98lRsbIybrrg`。具体哈希、起止与未完成事项：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_BEAT_TIMECODE_REVIEW_V001_2026-10-28.md。
 - 20–24s 整体前奏原估算未证实，不能直接据此扩全片。保留PO批准的四节拍内容设计；下一步是小成本声画验证，而不是直接制作正式 Opening。木门暂停。
+
+## 2026-10-28｜Opening P03/P04 V002 & 尼尔衔接音频小样云端归档
+
+- 第133章片尾保全源音 V002（33.689002s、AAC无重编码）及40.260s与尼尔欢迎衔接的纯音频审听小样已提交私有 Google Drive `06_Audio`，两份文件均回读SHA256与完整解码技术 PASS。
+- 元数据Manifest：`production/audio_sources/CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002_MANIFEST.json`、`production/audio_sources/OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001_MANIFEST.json`。后者为审听用音频重编码版本，**PO听感/叙事审核仍待完成**；原Opening V001与正式索引不变、木门暂停。
