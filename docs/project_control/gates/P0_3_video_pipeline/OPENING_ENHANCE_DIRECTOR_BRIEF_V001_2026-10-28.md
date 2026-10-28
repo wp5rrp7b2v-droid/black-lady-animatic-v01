@@ -67,3 +67,10 @@ GitHub Actions：负责可验证的渲染、视频完整解码及输入输出哈
 PO：决定 A/B 视觉 PASS/FAIL，另行授权新母版发布。
 
 **当前交付实证：**完成原始资料/历史实验与 pilot 方案的核对；**尚未证明：**实际增强版优于母版，任何 pilot 已经渲染，或 P0.3 验收已经通过。
+
+## Pilot 01 实际执行结果（2026-10-28）
+
+- 首次 runner 环境缺 ffmpeg，run `40628414308` FAIL（环境工具缺失而非素材/算法测试失败）；补齐安装后 run `40628472180` SUCCESS。
+- 原 Opening V001 historical Git blob SHA 和 18,892,138 bytes 精确核验 PASS；输出 A、B 和并排 AB 均 310 帧，完整解码 PASS；A/B 解码 PCM SHA 完全相同。
+- 三份视频与 manifest 经另一次 `40628685286` 复核并直接保存在独立审核分支：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。
+- **艺术审查仍为 UNKNOWN / PO_REVIEW_PENDING**；本 Chat 无直接逐帧视觉判断证据，不把技术校验冒称为电影感增强 PASS；原正式母版和 Video Index 均未变化。

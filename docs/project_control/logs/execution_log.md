@@ -3878,3 +3878,13 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 基于旧镜头时间线识别 19.70–30.03s 作为 N08/N09/N10/N05 的 **待证实** 10.33 秒增强试验范围；需由 Work 实际观看并核对原 MP4 后开展 A/B，不虚构全片逐帧观看成果。
 - 今日只完成导演设计、成功/失败标准与执行边界；未生成增强 MP4、未获 PO 视觉批准、不替换 Opening V001、不改正式 Story Shot / Video Index、不启动木门。
 - Project Control R363 / Dashboard V283；设计：docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md。
+
+## 2026-10-28｜Opening Enhance Pilot V001 实际渲染 / 发布审核分支
+
+- Chat 按 10-28 Opening Enhance 导演试验设计，在隔离分支 `feature/opening-enhance-pilot-20261028` 建立 GitHub Actions A/B 视频制作脚本与 Workflow。第一次 run `40628414308` 因 runner 缺少 ffmpeg FAIL，仅环境缺口；补入安装步骤后成功重跑。
+- GitHub Actions `40628472180` **SUCCESS**：从历史 exact Git blob `9b4ef42d9eceb5d7f1eb190d508d6749ccf4b70e` 取回原 Opening V001，SHA-256 `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`、18,892,138 bytes、991 frames、1080×1920 与原正式记录吻合。
+- A 为原片 19.70–30.03 秒声画截取；B 使用已批准 N08/N09/N10/N05 四张 PNG（分别 58/84/82/86 帧）的探索性 2D 取景处理，两段均 310 帧、30fps、1080×1920。Side-by-side AB 为 1080×960、310 帧。
+- A/B 解码音频 PCM SHA-256 **一致**：`c9bba12f11a585431b87786aeb4633d4c02a8f9d4f5c1f85be689b4381ca0314`；A/B/并排视频全部解码 PASS，技术结果 `PASS`，**艺术视觉效果尚无 PO 结论**。
+- A MP4 SHA-256 `d83d07e186e8a52e0e4004097e5e49b6cac93167011bd919953691813d627889`；B `75a30535c7320f427ee6dc56d4dcf0d6fd52825699e3e7a1db028c32989fd193`；并排 `4a05df09a3455379c9a7dc9b0e444f9ccf80a1af911e6b25c96eaad32af7bc9c`。
+- Actions artifact `12790167660` / ZIP SHA-256 `5dfdb134d6c799ca877cc7dc98cb0ebc0ac9534971c46aefb163be17728597ec`；为避免 PO 手工解压，第二条 Actions run `40628685286` **SUCCESS**，独立复核 MP4 SHA 后把三份审核视频及 manifest **直接提交到审核分支**：`https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review`。不合并 main、不改正式 Story Shot / Video Index、不重写正式 Opening V001。
+- Project Control 更新 R364 / Dashboard V284；下一步 PO 先看完整约 10.33s A/B，按电影感、叙事与人物一致性判 PASS/FAIL，未通过不扩大制作。

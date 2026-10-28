@@ -347,3 +347,10 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - PO 于 10-21 授权单张无字木门 A；Work 据摘要 10-22 生成候选，但**无 PO 审核通过证据，亦无原 PNG/工程/哈希在本轮核验**，状态为 A PO_REVIEW_PENDING / NOT_APPROVED。
 - B NOT_AUTHORIZED；A/B NO PASS；正式动画 HOLD。先审既有 A，再决定是否授权同源 B。不因阶段总结自动批准图片或 P0.3 Gate。
 - 状态详情：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md
+
+## P0.3 Evidence Update｜2026-10-28｜Opening Enhance Pilot V001
+
+- 已验证实际正式 Opening V001 原 SHA、尺寸、视频帧数；建立仅 19.70–30.0333s `N08→N09→N10→N05` 对照 A / 试验增强 B / Side-by-side AB。A/B 均 310 帧，连续原音 PCM SHA 完全相同，完整视频解码 PASS。
+- GitHub Actions run `40628472180` 技术 PASS，独立审核分支发布 `40628685286` PASS；artifact ID `12790167660`；三段审核 MP4 均保留 SHA-256、尺寸和 manifest，不进入正式 Video Index。
+- **艺术层与 P0.3 Gate 未 PASS：**B 并非已确认提升，仅为 PO_REVIEW_PENDING 候选；不得以技术通过替代视觉审核、擅自推广到完整 33 秒或覆盖原已批准母版。血门专项仍暂停。
+- 审核链接：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。

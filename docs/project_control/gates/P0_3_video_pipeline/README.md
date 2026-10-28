@@ -1895,3 +1895,10 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 第一验证假设：选择原 19.70–30.03s `N08 → N09 → N10 → N05` 作单个约 10.33s 小样 A/B；先以真实原视频音画审查该假设是否成立，失败则停止这条修饰路线，不能仅靠增加动效。
 - Premise Gap 的四项生存规则是独立内容层缺口，目前不擅自改音频或在 S02-B 插入说明。
 - 暂无 pilot 输出、未获新版本 PO 审片，也不推进 P0.3 PASS。方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md。
+
+## 2026-10-28｜Opening Enhance Pilot V001 A/B 已出 / PO 待审
+
+- 原 Opening V001 从正式 Git blob 精确取回；原 SHA、时长/帧数验证 PASS。19.70–30.03s `N08/N09/N10/N05` 共 310 帧片段的原版 A、探索性镜头运动 B 及 Side-by-side AB 已在 GitHub Actions run `40628472180` 制成并完成音视频技术核验。
+- A/B 音频 PCM exact MATCH；全视频解码 PASS。`40628685286` 再核对三段 MP4 SHA 后直接存放审核分支：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。
+- **当前视觉结论：PO_REVIEW_PENDING**。这只是四镜头最小试验，不代表整段 Opening 优化已被证明更好，不改已批准 V001、正式索引或 P0.3 Gate；后续若此方向失败应停止扩大。
+- 血门 A 待审但继续暂停，B 未授权。
