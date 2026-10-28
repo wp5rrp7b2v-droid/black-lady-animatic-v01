@@ -3870,3 +3870,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - B 未获授权；同源 A/B 和血字融合未验证；正式动画 HOLD。下一步唯一动作是审核既有 A 并核对可复用原工程。
 - 状态更新为 R362 / Dashboard V282 / BL-D-185，P0.3 仍 IN PROGRESS；Story Shot 32 / Video Index 3 保持，历史视频 V001/V006/V018/V019 保留，Mac 晚间同步仍需终端证据。
 - 详细检查点：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md。
+
+## 2026-10-28｜Opening Enhance 启动与历史基线复核
+
+- 已在 GitHub 正式 Project State、Opening V001 审批 Closeout 与 Video Index 核对已批准视频的 SHA-256、时长、原有 12 镜头顺序及 Google Drive 文件身份；原片保持锁定。
+- 已核对 9-27 V002/V003/libopenshot 历史视效试验：更强推拉/过渡没有自动获得正式选用。另查阅 9-30 Opening 前提规则交代不足 backlog，保留独立叙事问题，不与视频视觉试验混写为已验证结论。
+- 基于旧镜头时间线识别 19.70–30.03s 作为 N08/N09/N10/N05 的 **待证实** 10.33 秒增强试验范围；需由 Work 实际观看并核对原 MP4 后开展 A/B，不虚构全片逐帧观看成果。
+- 今日只完成导演设计、成功/失败标准与执行边界；未生成增强 MP4、未获 PO 视觉批准、不替换 Opening V001、不改正式 Story Shot / Video Index、不启动木门。
+- Project Control R363 / Dashboard V283；设计：docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md。

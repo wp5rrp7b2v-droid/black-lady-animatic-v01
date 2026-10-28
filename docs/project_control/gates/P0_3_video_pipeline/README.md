@@ -1887,3 +1887,11 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 下一步：Product Owner 审核已有 A；A PASS 后才可另行批准同源 B。B 未授权，A/B 未 PASS，正式动画 HOLD；不另行生成新候选。
 - Opening / S02-A / S02-B V001/V006/V018/V019 保持原批准及归档边界，M01 跨段未认证；32 Story Shots / 3 official Videos 与 P0.3 IN PROGRESS 不变。
 - 正式本期状态检查点：docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md。
+
+## 2026-10-28｜Opening Enhance 当前任务｜正式母版不动
+
+- PO 10-27 暂停血门相关工作，10-28 将 Opening enhance 指定为今日重点。木门 A 仍为 PO 待审且处于 PAUSED，B 与动画未授权。
+- 正式 33.088 秒 Opening V001（SHA-256 `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`）保持 LOCKED，不覆盖、不先制作全片新母版。
+- 第一验证假设：选择原 19.70–30.03s `N08 → N09 → N10 → N05` 作单个约 10.33s 小样 A/B；先以真实原视频音画审查该假设是否成立，失败则停止这条修饰路线，不能仅靠增加动效。
+- Premise Gap 的四项生存规则是独立内容层缺口，目前不擅自改音频或在 S02-B 插入说明。
+- 暂无 pilot 输出、未获新版本 PO 审片，也不推进 P0.3 PASS。方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md。

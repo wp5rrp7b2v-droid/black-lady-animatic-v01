@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R362",
-  "last_updated": "2026-10-27",
-  "session_status": "2026-10-27 P0.3 IN PROGRESS / BLOOD-DOOR UNLETTERED BASE A REPORTED GENERATED 2026-10-22; PO REVIEW PENDING / B NOT AUTHORIZED / HISTORIC S02-B ITERATIONS PRESERVED",
+  "state_revision": "R363",
+  "last_updated": "2026-10-28",
+  "session_status": "2026-10-28 OPENING ENHANCE ACTIVE / APPROVED OPENING V001 MASTER LOCKED / 10.33S PILOT DIRECTOR DESIGN / BLOOD-DOOR A PAUSED PENDING PO REVIEW / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BLOOD-DOOR: PO VISUAL REVIEW OF EXISTING CLEAN WOODEN DOOR BASE A; NO NEW GENERATION",
-  "blocker": "PO review of existing A candidate pending. 2026-10-22 Work production is reported only: no original PNG/source project/SHA available for independent binary verification. B, A/B test and formal animation not authorized.",
-  "next_action": "Review existing unlettered wooden door A with PO; obtain real original image and reusable project evidence. If A PASS, seek separate B authorization and test same-project A/B. No B, animation, canonical publication or Story Shot registration before gate. Keep 32 approved Story Shots, 3 official videos, and S02-B V001/V006/V018/V019. Mac EOD sync per RC-029.",
+  "current_task": "OPENING ENHANCE: ACTUAL MASTER WATCH/DIAGNOSTIC AND 19.70-30.03s PILOT A/B PROOF; ORIGINAL OPENING_V001 NOT MODIFIED",
+  "blocker": "No confirmed direct audiovisual/frame-level diagnostic of the 33.088s Opening master in current Chat run; pilot input and actual effect still unverified. Blood-Door A remains PO_REVIEW_PENDING but is deliberately PAUSED, not today's active blocker.",
+  "next_action": "Obtain/verify exact approved Opening V001 MP4 and inspect actual 12-shot audiovisual sequence. Validate working hypothesis for 19.70–30.03s N08→N09→N10→N05, then render one A/B independent pilot for PO review with GitHub Actions QC. No full master replacement, no Story Shot or Video Index changes; no blood-door A/B work.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,22 +120,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-27-BLOOD-DOOR-BASE-A-REVIEW-R362",
-    "status": "A REPORTED GENERATED / PO_REVIEW_PENDING / B NOT AUTHORIZED / P0.3 IN PROGRESS",
+    "id": "2026-10-28-OPENING-ENHANCE-DIRECTOR-BRIEF-R363",
+    "status": "DIRECTOR DESIGN / ORIGINAL OPENING V001 LOCKED / MINIMUM PROOF NOT RENDERED",
     "completed": [
-      "Opening V001 and S02-A archived; S02-B V001/V006/V018/V019 preserved, V019 PR #26 merged.",
-      "K lettering option selected and Chapter 133 text/story checked (PO Work summary).",
-      "Reverse de-lettering Candidate 01 route failed twice and stopped; Candidate 01 remains visual reference.",
-      "PO authorized only one 9:16 clean base A on 2026-10-21, Work reports generation on 2026-10-22; not independently binary-verified and not approved.",
-      "Story Shot Index remains 32 approved current; official Video Index remains 3; P0.3 IN PROGRESS."
+      "Verified GitHub original 33.088s Opening V001 identity and original 12-shot mapping.",
+      "Reviewed V002/V003/libopenshot historical experiments, original PO approval scope, and separately tracked four-item premise gap.",
+      "Selected limited 19.70-30.03s N08/N09/N10/N05 pilot as unvalidated working hypothesis.",
+      "Product Owner shifted daily priority to Opening Enhance; blood-door A review explicitly paused, no B authorization."
     ],
-    "resume_from": "PO REVIEW OF EXISTING A; VERIFY CANDIDATE AND ORIGINAL PROJECT BEFORE SEPARATE B AUTHORIZATION",
+    "resume_from": "WORK DIRECT VIEW OF ACTUAL OPENING MP4, THEN SINGLE 10.33S AUDIO-CONTINUOUS PILOT A/B",
     "blockers": [
-      "PO A visual approval and candidate binary/source-project provenance pending",
-      "B and new animation not authorized; M01 cross-scene reusability not yet validated",
-      "Mac local fast-forward parity lacks user terminal evidence"
+      "No direct decoded full-video diagnostic in current Chat runtime, pilot not yet rendered or visually approved.",
+      "Blood-door A PO review pending but inactive/paused; no B or new blood-door animation.",
+      "Mac EOD local sync still needs user terminal evidence."
     ],
-    "evidence_path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md"
+    "evidence_path": "docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -530,13 +529,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V282",
+    "version": "V283",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED 2026-10-27 R362 / BLOOD DOOR A PO REVIEW PENDING / B NOT AUTHORIZED",
-    "derived_from_revision": "R362",
-    "last_updated": "2026-10-27",
-    "current_task": "REVIEW EXISTING BLOOD-DOOR A; NO B OR VIDEO AUTHORIZED"
+    "status": "DERIVED 2026-10-28 R363 / OPENING ENHANCE DIRECTOR DESIGN / ORIGINAL V001 LOCKED / BLOOD DOOR PAUSED",
+    "derived_from_revision": "R363",
+    "last_updated": "2026-10-28",
+    "current_task": "OPENING ENHANCE: VERIFY ACTUAL VIDEO; REVIEW 19.70–30.03s PILOT THEN A/B"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5407,7 +5406,7 @@
     "mac_sync": "PENDING_EOD_USER_TERMINAL_PROOF"
   },
   "blood_door_2026_10_27": {
-    "status": "A PO_REVIEW_PENDING / B NOT_AUTHORIZED / ANIMATION HOLD",
+    "status": "PAUSED_BY_PO_2026-10-27 / A PO_REVIEW_PENDING / B NOT_AUTHORIZED / ANIMATION HOLD",
     "source": "S2 Chapter 133",
     "selected_font": "K",
     "text_check": "COMPLETED_AS_REPORTED",
@@ -5430,5 +5429,29 @@
     "final_animation": "NOT_AUTHORIZED",
     "note": "PO-supplied Work summary; no actual candidate file/hash available in this check",
     "record": "docs/project_control/gates/P0_3_video_pipeline/p0_3_blood_door_status_checkpoint_2026-10-27.md"
+  },
+  "opening_enhance_2026_10_28": {
+    "status": "DIRECTOR_DESIGN_V001 / SINGLE_PILOT_NOT_YET_RENDERED",
+    "po_priority": "OPENING_ENHANCE",
+    "base_video_id": "OPENING_V001",
+    "base_sha256": "70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a",
+    "base_drive_url": "https://drive.google.com/file/d/1WZe51k7yQF6rdmcFxVAbeYVuoEjYNVd_/view",
+    "pilot_interval_sec": [
+      19.7,
+      30.03
+    ],
+    "pilot_shots": [
+      "N08",
+      "N09",
+      "N10",
+      "N05"
+    ],
+    "critical_hypothesis": "SELECTIVE_STORY_DRIVEN_MOTION_AND_EDITING_IMPROVES_VISUAL_CINEMATOGRAPHY_WITH_NO_IDENTITY_OR_AUDIO_REGRESSION",
+    "visual_diagnostic": "PENDING_ACTUAL_VIDEO_ACCESS",
+    "pilot_render": "NOT_STARTED",
+    "po_approval": "NOT_REQUESTED",
+    "canonical_replacement_authorized": false,
+    "blood_door": "PAUSED_A_PO_REVIEW_PENDING",
+    "record": "docs/project_control/gates/P0_3_video_pipeline/OPENING_ENHANCE_DIRECTOR_BRIEF_V001_2026-10-28.md"
   }
 }
