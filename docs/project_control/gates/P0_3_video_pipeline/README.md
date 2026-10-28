@@ -1908,3 +1908,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - PO 观看 Motion Pilot A/B 后认为镜头变化对整体帮助不大，停止沿 motion-only 路线扩大；原技术 PASS、候选与哈希仍保留。
 - 新重点是第133章的动机、五日/庄园大门钥匙、勿淋雨、勿长久与「它」对视；第134章原 33 秒欢迎段仍锁定。第133章属原 MVP1 CONTEXT_ONLY，当前仅做内容设计，未授权范围扩展、新音频、新图或视频。
 - 血门木门 A/B 工作继续暂停，不在 S02-B 补叙；P0.3 仍 IN PROGRESS。见：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。
+
+## 2026-10-28｜CH133→CH134 文字分镜最小验证 V001
+
+- 已完成原 Opening 0–33.02 秒五段台词和第133章新增叙事信息逐段对照。第133章七个原著事实锚点全部命中，现有五段开场音频文本均不含；剧情时序、庄园大门钥匙、提示“它”身份未明、晴朗古堡逻辑均核对。
+- 提出约 20–24 秒四节拍故事前奏（人物选择/契约代价/任务/禁忌）+ 现有 33.088 秒 Opening 的候选纸面结构。原音 CH133 仍未认证可用；CH133 正式制作范围未批准。
+- 文字事实/结构核对 PASS，**PO 内容艺术审核、声画小样和发布均 NOT PASS**；不生成媒体、不恢复木门。详见：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_BEAT_SHEET_MINIMUM_PROOF_V001_2026-10-28.md。

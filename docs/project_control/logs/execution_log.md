@@ -3895,3 +3895,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 从 GitHub 正式 S2 第133/134章、S3 0–33.02s 原音转写与 P0.1 inventory 独立核查：第133章明确五日/庄园大门钥匙/勿淋雨/勿长久凝视；第134章欢迎开场并未包含这些任务提示。
 - 发现关键锁定约束：原 MVP1 规定第133章 CONTEXT_ONLY。现只建立内容导演方案，不宣称有新原音、不生成新视频，不恢复暂停的木门任务，不更改 Opening V001 与正式 Index。
 - BL-D-187；R365 / Dashboard V285；方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。
+
+## 2026-10-28｜Opening 内容增强最小验证 V001（文本）
+
+- 已直接读取唯一 canonical S2 第133章及 S3 音频索引；验证“我带你吧”“活着回来”“漆黑的手印”“活过五日”“离开庄园的大门钥匙”“不要淋雨”“不要长时间和它对视”：**7/7 在第133章命中，0/7 在第134章既有前五段已验证原音文本中命中**。
+- 整理旧 33.088 秒 Opening 的五段语义（尼尔迎宾、介绍、教堂/晚餐、古堡/尼尔动作、等待进门），设计 20–24 秒**暂定**的第133章四节拍前奏，衔接原 Opening 而不修改它。任务目标严格定位庄园大门钥匙；“它”身份不揭示；古堡初到时天气晴朗。
+- Google Drive 关键词检索未定位可认证第133章正式音源，不能当作不存在。原 MVP1 的 CH133 CONTEXT_ONLY 范围不自动改变。历史推拉 A/B 不再扩展，木门专项继续暂停。
+- **本次 PASS 仅为文本事实覆盖/剧情时序；PO 艺术、音源、资产和视频可行性均未 PASS。**未生成任何新音频/图/视频，正式 Video Index 3、Story Shot 32、Opening V001 无变动。
+- 方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_BEAT_SHEET_MINIMUM_PROOF_V001_2026-10-28.md。Project State R366 / Dashboard V286。
