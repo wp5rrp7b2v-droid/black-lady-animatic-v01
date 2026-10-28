@@ -3903,3 +3903,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Google Drive 关键词检索未定位可认证第133章正式音源，不能当作不存在。原 MVP1 的 CH133 CONTEXT_ONLY 范围不自动改变。历史推拉 A/B 不再扩展，木门专项继续暂停。
 - **本次 PASS 仅为文本事实覆盖/剧情时序；PO 艺术、音源、资产和视频可行性均未 PASS。**未生成任何新音频/图/视频，正式 Video Index 3、Story Shot 32、Opening V001 无变动。
 - 方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_BEAT_SHEET_MINIMUM_PROOF_V001_2026-10-28.md。Project State R366 / Dashboard V286。
+
+## 2026-10-28｜Opening CH133 四节拍内容设计批准 + 音源/资产就绪核查
+
+- PO 用「可以」批准 P01–P04 候选内容骨架。审批提升的是导演设计，不是旧 P0.1 原音范围、媒体生成、正式母版。
+- GitHub Asset Registry 与 PNG 目录核对：宁秋水、君鹭远 CURRENT Approved 角色资料存在；白潇潇、孟军无已登记 Master；城堡入口 V002 和庄园大门 V002 均 Approved 但不同地点；第133章腕部黑手印无已批准专用镜头/道具，暂停木门候选不可作为正式来源。
+- Google Drive 06_Audio 文件夹当前无文件，按 `MVP1`、`audio`、`第096集`、`第097集`、`诡舍`、`ScreenRecording` 检索未确认 CH133 原音。**重要新增线索**：P0.1 source inventory 的 RAW_AUDIO_EXTRACT 原本比正式音频多约22.8秒，需先试听被裁去的片头而不是重新发起配音生产；本次没有实际获得这段源音，不推断其内容。
+- 独立可行性记录：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md。Project State R367 / Dashboard V287；本次不生成图片、音频或视频、不改正式索引，Opening V001 锁定与血门暂停不变。

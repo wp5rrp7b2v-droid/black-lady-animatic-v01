@@ -1914,3 +1914,10 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 已完成原 Opening 0–33.02 秒五段台词和第133章新增叙事信息逐段对照。第133章七个原著事实锚点全部命中，现有五段开场音频文本均不含；剧情时序、庄园大门钥匙、提示“它”身份未明、晴朗古堡逻辑均核对。
 - 提出约 20–24 秒四节拍故事前奏（人物选择/契约代价/任务/禁忌）+ 现有 33.088 秒 Opening 的候选纸面结构。原音 CH133 仍未认证可用；CH133 正式制作范围未批准。
 - 文字事实/结构核对 PASS，**PO 内容艺术审核、声画小样和发布均 NOT PASS**；不生成媒体、不恢复木门。详见：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_BEAT_SHEET_MINIMUM_PROOF_V001_2026-10-28.md。
+
+## 2026-10-28｜Opening CH133 内容骨架 PO Approved / Source Gate Open
+
+- PO 对 P01–P04 内容分镜 V001 表示「可以」；内容导演设计批准，原 P0.1 CH133 CONTEXT_ONLY 音频边界不自动解除。
+- 角色／场景注册表核对显示宁/君及古堡入口、庄园大门有 CURRENT Approved Ref；白潇潇/孟军、腕黑手印无可直接沿用的 Approved 对应资产。
+- P0.1 inventory 显示上游原音在成为 canonical 时裁掉约 22.8 秒。**优先找回并听审这一短片段**，核实是否含 CH133 任务与警告。Connected Google Drive 06_Audio 文件夹当前为空，因此 audio PASS 尚未成立。
+- 小样未渲染、血门木门仍暂停、正式 Opening V001 以及索引均未修改。检查点：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md。
