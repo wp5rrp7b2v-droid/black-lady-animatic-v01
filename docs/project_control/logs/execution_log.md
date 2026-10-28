@@ -3932,3 +3932,9 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 原 20–24s 四节拍前奏是未验证预算，因 P02 全文与 P03/P04 原音实际长度较长，不能把它作为自动合成硬条件。PO已批准四节拍内容结论保持。
 - 以 `ffmpeg -ss 257.0 -t 32.5 -c:a copy` 提取 P03+P04 源声音候选 `CH133_P03_P04_TASK_HINTS_SOURCE_HANDLES_V001.m4a`；32.502993s，444,368 bytes，SHA256 `3a4922c68edc7e705c4477b45753aef69e8ea12c356c937d5ea3bc7b3ef62c19`；私有Drive ID `1SywSbeZ7oAwL6NRvTAoE98lRsbIybrrg`，上传后重新下载哈希完全一致且完整解码 PASS。
 - 后续先审一段 P03/P04 不依赖暂停木门图的最小声画方案；绝不把粗抽帧高亮当成字级语音定点。未生成正式新镜头/视频，Opening V001/Index保持。详情：`docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_BEAT_TIMECODE_REVIEW_V001_2026-10-28.md`。
+
+## 2026-10-28｜Opening 第133章→尼尔欢迎声音衔接验证
+
+- V001 已归档的32.5秒源窗口可能未保留源末尾1.19秒；用已归档全长音频可确定性重建本地 V002（257s到290.689s，33.689s，AAC copy，SHA256 98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84，解码PASS）。V002目前没有存入Drive。
+- 已核对正式 Opening V001 SHA，拼接 CH133 P03/P04 尾段和开场原6.55秒成为本地40.260秒纯音频（重新采样/重新编码AAC192k；SHA256 c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c，解码PASS）。音频审听尚待PO；未产生正式新视频/Story Shot。
+- 项目状态R371，Dashboard V291，木门A/B暂停，原Opening锁定。

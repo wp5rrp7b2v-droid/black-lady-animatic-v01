@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R370",
+  "state_revision": "R371",
   "last_updated": "2026-10-28",
-  "session_status": "CH133 OPENING AUDIO BEAT MAP COMPLETE AT ~2S READALONG RESOLUTION / P03-P04 SOURCE HANDLES 32.5S EXACT ARCHIVED / P01 VERBAL LINE OUTSIDE CAPTURE / NO PRODUCTION VISUAL APPROVAL",
+  "session_status": "OPENING P03/P04 TO NEIL VOICE BRIDGE LOCAL TECH PASS / PO LISTENING PENDING / MASTER LOCKED / BLOOD DOOR PAUSED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING CONTENT ENHANCE: REVIEW P03+P04 VERIFIED AUDIO SOURCE WINDOW AND DESIGN ONE NON-BLOOD-DOOR ANIMATIC PILOT; P01 FIRST-SPOKEN-LINE AUDIO GAP REGISTERED",
-  "blocker": "P01 Ning '我带你吧' original voiced quote predates captured audio. P02 narration ~80s and P03/P04 ~20s challenge untested 20–24s four-beat prelude budget. Word-accurate narrated cut points and PO visual approval still pending; no new storyboard media authorized.",
-  "next_action": "Use archived P03+P04 32.5s unmodified AAC handles for one minimum story-content/mood pilot; first confirm exact aural phrase transitions and a visual strategy without paused Blood-Door asset, then create validation-only design. Do not promote all P01–P04 to full Opening until content/length proof. If exact quote '我带你吧' is required request only earlier short Chapter 096 audio; do not request chapter 133 again.",
+  "current_task": "LISTEN TO 40.260S P03/P04 CH133 VOICE -> FIRST 6.55S APPROVED NEIL GREETING BEFORE VISUAL PILOT",
+  "blocker": "PO not yet auditioned local audio bridge; P01 exact dialogue missing; no visual scene approved. Existing 32.5s archive excerpt may clip source ending.",
+  "next_action": "PO audio review of local 40.260s proof; only if useful design minimal P03/P04 visual reference and Work Candidate, no paused Blood Door reuse. Canonical Opening V001 and video/shot indices locked.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,21 +120,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-28-CH133-READALONG-MAP-AND-P03-P04-SOURCE-HANDLES-R370",
-    "status": "SOURCE WINDOW EXACT STORAGE PASS / READALONG TIMING APPROXIMATE / P01 ORIGINAL QUOTE NOT CAPTURED / NO NEW IMAGE OR VIDEO",
+    "id": "2026-10-28-OPENING-VOICE-BRIDGE-R371",
+    "status": "LOCAL_AUDIO_ONLY_TECH_PASS_PO_LISTENING_PENDING_NOT_CANONICAL",
     "completed": [
-      "Extracted 5-second screenshot read-along timeline plus 2-second audit around key story beats in original 290.72s recording.",
-      "Registered rough P01 0–11s retrospective narration, P02 ~128–208s contract, P03 ~257–275s mission, P04 ~275–285s two hints; +/- 2s before word-level hearing.",
-      "Confirmed first quoted Ning '我带你吧' is before start of recording, and original 20–24s full-prelude time budget is not validated.",
-      "Generated P03/P04 unmodified AAC handles clip from 257.0–289.5s, 32.502993s, SHA256 3a4922c68edc7e705c4477b45753aef69e8ea12c356c937d5ea3bc7b3ef62c19",
-      "Uploaded clip to private Drive 06_Audio, re-downloaded exact SHA256 match, full FFmpeg decode PASS. No source re-encoding.",
-      "Opening V001, approved shot index, formal video index and Blood Door hold remain unchanged."
+      "Rechecked last warning highlighted at source ~289s, previous V001 extraction ended at 289.5s, before full original audio end 290.689s.",
+      "Made unarchived local V002 source-safe tail t=257s to EOF, 33.689002s AAC streamcopy, 459484 bytes, SHA256 98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84; full decode PASS.",
+      "Independently verified approved Opening V001 input SHA256 70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a.",
+      "Prepared 40.260s audio-only pilot with full CH133 source tail followed by first 6.55s of Neil greeting, AAC reencoded 48kHz, 974875 bytes, SHA256 c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c, full decode PASS.",
+      "Proof is conversation-local and not new canonical asset, no new Story Shot or video, Original Opening and Blood Door policy unchanged."
     ],
-    "resume_from": "P03/P04 MINIMUM VOICED SCENE DESIGN; PO ART DIRECTION BEFORE ANY STORY SHOT OR ANIMATIC",
+    "resume_from": "PO AUDIO BRIDGE LISTENING GATE BEFORE ANY NEW STORY SHOT",
     "blockers": [
-      "Aural word-accurate timecode check and candidate timing not yet locked.",
-      "No approved non-door visuals for P03/P04 scene, and paused Blood-Door A/B cannot be reused.",
-      "Missing earlier P01 exact quoted dialogue if that specific line is mandatory."
+      "No PO audio quality/story rhythm signoff",
+      "P01 exact '我带你吧' not captured",
+      "No non-door scene reference/Bundled visual approved"
     ],
     "evidence_path": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_BEAT_TIMECODE_REVIEW_V001_2026-10-28.md"
   },
@@ -531,13 +530,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V290",
+    "version": "V291",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R370 / CH133 SOURCE BEATS MAPPED / P03-P04 AUDIO HANDLES VERIFIED / P01 QUOTE GAP",
-    "derived_from_revision": "R370",
+    "status": "OPENING AUDIO BRIDGE TECH PASS / PO LISTENING PENDING",
+    "derived_from_revision": "R371",
     "last_updated": "2026-10-28",
-    "current_task": "P03–P04 MINIMUM NON-DOOR PILOT DIRECTOR DESIGN / PO APPROVAL GATE"
+    "current_task": "LISTEN P03/P04 TO NEIL GREETING AUDIO PROOF"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5483,7 +5482,7 @@
     "content_concept": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md"
   },
   "opening_content_enrichment_2026_10_28": {
-    "status": "SOURCE_BEAT_TIMECODES_APPROXIMATE_AND_P03_P04_HANDLES_EXACT_VERIFIED / PO_MEDIA_DESIGN_REVIEW_PENDING",
+    "status": "AUDIO_BRIDGE_LOCAL_TECH_PASS_PO_REVIEW_PENDING",
     "chapter133_mvp1_scope": "CONTEXT_ONLY_UNCHANGED",
     "chapter133_audio": "AVAILABLE_IN_PRIVATE_DRIVE_AS_EXACT_COPY",
     "target_beats": [
@@ -5548,6 +5547,19 @@
     "twenty_to_twentyfour_second_budget": "NOT_VERIFIED_AFTER_REAL_NARRATION_TIMINGS",
     "p01_quoted_line": "MISSING_IN_CAPTURE_START",
     "approved_story_beats_unchanged": true,
-    "new_video_created": false
+    "new_video_created": false,
+    "audio_bridge": {
+      "file": "OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001.m4a",
+      "sha256": "c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c",
+      "seconds": 40.26,
+      "storage": "conversation_local_only",
+      "po_verdict": "PENDING",
+      "note": "AAC decoded from original sources and reencoded for listening; not exact packet matching."
+    },
+    "source_end_safe_v002": {
+      "sha256": "98bd0c8e0346b085a22f48490045c404a8f451daef6bc91ade7731fe6fb6ad84",
+      "seconds": 33.689002,
+      "storage": "local_only_not_drive_uploaded"
+    }
   }
 }
