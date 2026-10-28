@@ -1,0 +1,37 @@
+name: Opening Enhance Pilot V001 (review only)
+on:
+  push:
+    branches:
+      - feature/opening-enhance-pilot-20261028
+    paths:
+      - ".github/workflows/opening-enhance-pilot-v001.yml"
+      - "scripts/opening_enhance_pilot_v001.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  opening-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout exact pilot branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify FFmpeg availability
+        run: ffmpeg -version && ffprobe -version
+      - name: Build source-locked 10.33-second A/B proof
+        run: python3 scripts/opening_enhance_pilot_v001.py
+      - name: Upload A/B review-only outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: OPENING_ENHANCE_PILOT_V001_AB_REVIEW
+          path: |
+            _opening_enhance_pilot_v001/OPENING_ENHANCE_PILOT_V001_A_ORIGINAL_19p70_to_30p03.mp4
+            _opening_enhance_pilot_v001/OPENING_ENHANCE_PILOT_V001_B_REFRAMED_19p70_to_30p03.mp4
+            _opening_enhance_pilot_v001/OPENING_ENHANCE_PILOT_V001_SIDE_BY_SIDE.mp4
+            _opening_enhance_pilot_v001/MANIFEST.json
+            _opening_enhance_pilot_v001/README_ZH.md
+          retention-days: 30
+          if-no-files-found: warn
