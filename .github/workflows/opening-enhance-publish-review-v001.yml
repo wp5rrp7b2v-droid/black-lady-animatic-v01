@@ -1,0 +1,62 @@
+name: Opening Enhance Pilot V001 Publish Review Files
+on:
+  push:
+    branches:
+      - feature/opening-enhance-pilot-20261028
+    paths:
+      - ".github/workflows/opening-enhance-publish-review-v001.yml"
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Download validated artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: OPENING_ENHANCE_PILOT_V001_AB_REVIEW
+          run-id: 40628472180
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _opening_pilot_verified
+      - name: Revalidate artifact bytes
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          root=pathlib.Path("_opening_pilot_verified")
+          expected={
+            "OPENING_ENHANCE_PILOT_V001_A_ORIGINAL_19p70_to_30p03.mp4":"d83d07e186e8a52e0e4004097e5e49b6cac93167011bd919953691813d627889",
+            "OPENING_ENHANCE_PILOT_V001_B_REFRAMED_19p70_to_30p03.mp4":"75a30535c7320f427ee6dc56d4dcf0d6fd52825699e3e7a1db028c32989fd193",
+            "OPENING_ENHANCE_PILOT_V001_SIDE_BY_SIDE.mp4":"4a05df09a3455379c9a7dc9b0e444f9ccf80a1af911e6b25c96eaad32af7bc9c"
+          }
+          for name, sha in expected.items():
+              path=root/name
+              if not path.exists(): raise ValueError("Missing file: "+name)
+              actual=hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual!=sha: raise ValueError("SHA mismatch: "+name)
+              print("PASS exact",name)
+          m=json.loads((root/"MANIFEST.json").read_text())
+          assert m["status"]=="TECHNICAL_PASS_ONLY__PO_VISUAL_REVIEW_PENDING"
+          assert m["original_master_unchanged"] and m["video_index_unchanged"] and m["story_shot_index_unchanged"]
+          assert m["frame_count"]==310
+          print("PASS complete review-only manifest")
+          PY
+      - name: Archive review videos to feature branch only
+        run: |
+          set -euo pipefail
+          TARGET="production/video_candidates/opening_enhance_pilot_v001_review"
+          mkdir -p "$TARGET"
+          cp _opening_pilot_verified/*.mp4 "$TARGET/"
+          cp _opening_pilot_verified/MANIFEST.json "$TARGET/"
+          cp _opening_pilot_verified/README_ZH.md "$TARGET/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TARGET"
+          git diff --cached --check
+          git commit -m "review(opening): preserve exact verified A/B pilot on feature branch"
+          git push origin HEAD:feature/opening-enhance-pilot-20261028
