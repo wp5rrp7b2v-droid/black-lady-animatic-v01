@@ -3910,3 +3910,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - GitHub Asset Registry 与 PNG 目录核对：宁秋水、君鹭远 CURRENT Approved 角色资料存在；白潇潇、孟军无已登记 Master；城堡入口 V002 和庄园大门 V002 均 Approved 但不同地点；第133章腕部黑手印无已批准专用镜头/道具，暂停木门候选不可作为正式来源。
 - Google Drive 06_Audio 文件夹当前无文件，按 `MVP1`、`audio`、`第096集`、`第097集`、`诡舍`、`ScreenRecording` 检索未确认 CH133 原音。**重要新增线索**：P0.1 source inventory 的 RAW_AUDIO_EXTRACT 原本比正式音频多约22.8秒，需先试听被裁去的片头而不是重新发起配音生产；本次没有实际获得这段源音，不推断其内容。
 - 独立可行性记录：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md。Project State R367 / Dashboard V287；本次不生成图片、音频或视频、不改正式索引，Opening V001 锁定与血门暂停不变。
+
+## 2026-10-28｜Opening 第133章原声供给范围决策依据
+
+- 追溯 2026-10-18 独立分支 `feature/episode-unified-premise-pilot-20261018`：曾有 14 秒无旁白任务与两提示文字卡 + 6.57秒原欢迎 V001–V004，PO 最终未批准 V004；不重复此历史视觉未通过设计。
+- 进一步核查 main 和旧分支树、Google Drive 06_Audio、Project/Library 文件检索：只找到第134章已有 canonical audio，没有检出可实际听审的上游 capture/extract 第133章录音。所谓0–22.8秒只是 inventory 记录，**不能冒称已听审**。
+- 在已批 P01–P04 声画故事方案与避免重复静默文字卡路径的前提下，建议由 PO 补充完整第133章原声；若只能剪辑，需三组：`君鹭远“我不怕”→宁秋水“我带你吧”`、`划掌契约→腕黑印/痛苦消失`、`血门任务出现→提示2结束`，各组5–10秒 handles。
+- 这只是音源获取建议与阻塞明确化，未生成新声画、未变更正式音频或视频、未恢复木门专项。
