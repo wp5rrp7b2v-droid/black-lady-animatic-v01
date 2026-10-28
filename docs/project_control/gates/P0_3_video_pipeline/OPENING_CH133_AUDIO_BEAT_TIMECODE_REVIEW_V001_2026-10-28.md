@@ -64,3 +64,9 @@
 - 40.260秒纯声音审听样片亦归档 Drive（ID `1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS`，SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`，重编码48k AAC且解码PASS）。它用于测试任务/提示与正式尼尔欢迎前6.55s的实际衔接，**不属于已批准 Opening，也未交PO声学审核**。
 - 旧 V001 32.5s 截取仍保留，但存在截尾风险；后续若必须精确选句，继续依据原完整 CH133 M4A 和 V002，不自动扩大为最终母版。
 - 下一步：PO 先试听 `https://drive.google.com/file/d/1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS/view`，再决定是否进入非木门镜头/Bundle 设计；P01缺失对白、字级音轨定点及20–24s预算问题尚未解决。
+
+## 2026-10-28｜40.260秒声音衔接小样 PO 审核结果
+
+- PO 明确批准 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001` **完整40.260秒**的 P03/P04 任务/警告→尼尔欢迎听感和衔接效果；正式对应 SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`，私有 Drive `https://drive.google.com/file/d/1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS/view`。
+- 这解除的是此音频小样的听感 Review Gate；此前的音频技术 PASS、内容事实核对持续有效。不因批准而推定 Opening V002 整体通过或 P01/P02 缺口已消失。
+- 视觉方向仅进入设计：用剧情化非木门场景表达五日/庄园大门钥匙和两条禁忌；不要将庄园出口误作古堡入口，不让晴朗外景出现降雨，不揭示「它」身份。不得重启暂停的血门木门 A/B。验证真实 Scene References 后才构建可给 Work 的正式出图 Bundle。

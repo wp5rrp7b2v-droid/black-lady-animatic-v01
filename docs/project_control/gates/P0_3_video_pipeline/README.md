@@ -1938,3 +1938,8 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 
 - 第133章片尾保全源音 V002（33.689002s、AAC无重编码）及40.260s与尼尔欢迎衔接的纯音频审听小样已提交私有 Google Drive `06_Audio`，两份文件均回读SHA256与完整解码技术 PASS。
 - 元数据Manifest：`production/audio_sources/CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002_MANIFEST.json`、`production/audio_sources/OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001_MANIFEST.json`。后者为审听用音频重编码版本，**PO听感/叙事审核仍待完成**；原Opening V001与正式索引不变、木门暂停。
+
+## 2026-10-28｜Opening 40.260s 音频衔接 PO Approved
+
+- PO 已批准 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001`（40.260秒，SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`）的听感、剧情与尼尔欢迎衔接效果。音频原先技术 PASS 不变，私有 Drive 原二进制保留。
+- 下一步转入 P03/P04 非木门视觉导演设计及 Reference / Bundle 验证；正式视频、图片、音轨重制、P0.3 Gate PASS 均未获自动授权，血门专项继续暂停，正式 Opening V001 锁定。

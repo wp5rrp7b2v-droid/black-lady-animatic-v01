@@ -3945,3 +3945,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 补齐此前 R371 的 `AUDIO BRIDGE CONVERSATION_LOCAL_ONLY` 缺口：40.260秒 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001.m4a`（P03/P04原声至末尾→原Opening前6.55秒尼尔欢迎），974875字节、SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`；已上传私有 Drive ID `1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS`，重新下载SHA及解码PASS。此试听小样 AAC 曾重新编码/48kHz，**不能声称压缩 packet 与原音一致**。
 - GitHub 仅公开登记元数据与 SHA（`production/audio_sources/CH133_P03_P04_TASK_HINTS_FULL_TAIL_SOURCE_V002_MANIFEST.json`、`production/audio_sources/OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001_MANIFEST.json`），不公开上传原有声小说或其衍生音频二进制。V001较短提取窗口保留追溯，不覆盖、不登记为 Approved。
 - 下一 Gate：PO 实际试听 40.260 秒，对自然度/信息清晰度评估；音频技术通过不等于叙事PASS。P01关键原声缺失、逐词对齐未完成，原 Opening、Story Shot Index、Video Index 与木门暂停均不变。
+
+## 2026-10-28｜Opening P03/P04→Neil 40.260秒声音小样 PO 审批
+
+- PO 明确授权：「批准40秒音频衔接效果」。批准对象严格绑定 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001`，已归档 Drive ID `1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS`，SHA-256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`，40.260秒，输入第133章 P03/P04 任务与两条提示及第134章尼尔欢迎前6.55秒。
+- 原有下载回读 SHA / 全段解码技术 PASS 继续有效，新增 PO 对整体声音叙事与欢迎衔接的感知 PASS。**未重新生成音轨或扩展审批范围**；它不是正式 Opening V002 或全片视觉 PASS。
+- 当前最小下一步：以这条已批准声音为基准，导演设计 P03/P04 的非木门视觉叙事，核对角色和场景 Reference 后设计最小声画 Proof；未经新的 PO + Bundle 授权，不开始 Work 制图，不恢复血门木门 A/B。
+- 正式 Opening V001（SHA256 `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`）、Story Shots 32、Video Index 3、P0.3 IN PROGRESS 均不变。Project State R373 / Dashboard V293。
