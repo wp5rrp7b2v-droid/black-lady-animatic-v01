@@ -1,0 +1,83 @@
+{
+  "status": "TECHNICAL_PASS_ONLY__PO_VISUAL_REVIEW_PENDING",
+  "pilot": "OPENING_ENHANCE_PILOT_V001",
+  "base_master": {
+    "sha256": "70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a",
+    "byte_size": 18892138,
+    "git_blob": "9b4ef42d9eceb5d7f1eb190d508d6749ccf4b70e"
+  },
+  "range": {
+    "start_frame": 591,
+    "end_frame_exclusive": 901,
+    "fps": 30,
+    "start_seconds": 19.7,
+    "end_seconds_exclusive": 30.033333333333335
+  },
+  "frame_count": 310,
+  "new_shots": 0,
+  "shot_sources": [
+    {
+      "shot": "N08",
+      "frames": 58,
+      "source_path": "production/image_library/approved/story_shots/N08_CASTLE_ENTRANCE_ARCHITECTURE_APPROVED_V001.png",
+      "source_sha256": "6bda5a8cb4d04d15071f95c6b3fdce09b10230ac95100d59aabf5bad4aef1bb4",
+      "treatment": "scale=1160:2062:flags=lanczos,crop=1080:1920:x='40-12*n/58':y='75-26*n/58',setsar=1"
+    },
+    {
+      "shot": "N09",
+      "frames": 84,
+      "source_path": "production/image_library/approved/story_shots/N09_NEIL_FORMAL_BUTLER_DESCRIPTOR_APPROVED_V001.png",
+      "source_sha256": "5e76be2c9815a6caa2d8688d1879bb5ddaad78352b6440ed220dd08332a5e0ac",
+      "treatment": "scale=1140:2027:flags=lanczos,crop=1080:1920:x='30+11*n/84':y='53-8*n/84',setsar=1"
+    },
+    {
+      "shot": "N10",
+      "frames": 82,
+      "source_path": "production/image_library/approved/story_shots/N10_NEIL_SUBTLE_SMILE_APPROVED_V001.png",
+      "source_sha256": "14dbf276dbf9ef6c7de84570d46f40230daa3ba53a304ccdc05645c58e9f6e54",
+      "treatment": "scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1"
+    },
+    {
+      "shot": "N05",
+      "frames": 86,
+      "source_path": "production/image_library/approved/story_shots/N05_NEIL_TURN_THRESHOLD_ACTION_APPROVED_V001.png",
+      "source_sha256": "0b9690739e63d253ac643ae66acb4653818f4c45898c3b5db83e9de0236536ab",
+      "treatment": "scale=1140:2027:flags=lanczos,crop=1080:1920:x='30-12*n/86':y='53+9*n/86',setsar=1"
+    }
+  ],
+  "outputs": {
+    "A": {
+      "file": "OPENING_ENHANCE_PILOT_V001_A_ORIGINAL_19p70_to_30p03.mp4",
+      "sha256": "d83d07e186e8a52e0e4004097e5e49b6cac93167011bd919953691813d627889",
+      "size": 5887895,
+      "width": 1080,
+      "height": 1920,
+      "frames": 310,
+      "audio_pcm_sha256": "c9bba12f11a585431b87786aeb4633d4c02a8f9d4f5c1f85be689b4381ca0314"
+    },
+    "B": {
+      "file": "OPENING_ENHANCE_PILOT_V001_B_REFRAMED_19p70_to_30p03.mp4",
+      "sha256": "75a30535c7320f427ee6dc56d4dcf0d6fd52825699e3e7a1db028c32989fd193",
+      "size": 2212918,
+      "width": 1080,
+      "height": 1920,
+      "frames": 310,
+      "audio_pcm_sha256": "c9bba12f11a585431b87786aeb4633d4c02a8f9d4f5c1f85be689b4381ca0314"
+    },
+    "AB": {
+      "file": "OPENING_ENHANCE_PILOT_V001_SIDE_BY_SIDE.mp4",
+      "sha256": "4a05df09a3455379c9a7dc9b0e444f9ccf80a1af911e6b25c96eaad32af7bc9c",
+      "size": 2770666,
+      "width": 1080,
+      "height": 960,
+      "frames": 310,
+      "audio_pcm_sha256": "c9bba12f11a585431b87786aeb4633d4c02a8f9d4f5c1f85be689b4381ca0314"
+    }
+  },
+  "original_master_unchanged": true,
+  "story_shot_index_unchanged": true,
+  "video_index_unchanged": true,
+  "visual_approval": "PENDING",
+  "full_opening_replacement": "NOT_AUTHORIZED",
+  "notes": "Exploratory static-PNG reframing, not 2.5D and not an approved cinematic improvement. PO judges AB."
+}
