@@ -37,3 +37,7 @@ Future handling:
 Current priority:
 
 `CONTINUE S02-B WITH AUDIENCE-RETENTION IMPROVEMENTS FROM N21 ONWARD`
+
+## 2026-10-28｜Opening 内容设计复核
+
+PO 已实际判断 Motion A/B 整体效果提升不大，当前将任务/规则缺口转为 Opening 内容导演设计候选。原禁止在 S02-B 补叙的决定继续有效；CH133 CONTEXT_ONLY 边界未解除，也不恢复暂停的木门制作。方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。

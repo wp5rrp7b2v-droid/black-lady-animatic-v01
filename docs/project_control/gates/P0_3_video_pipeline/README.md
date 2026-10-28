@@ -1902,3 +1902,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - A/B 音频 PCM exact MATCH；全视频解码 PASS。`40628685286` 再核对三段 MP4 SHA 后直接存放审核分支：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。
 - **当前视觉结论：PO_REVIEW_PENDING**。这只是四镜头最小试验，不代表整段 Opening 优化已被证明更好，不改已批准 V001、正式索引或 P0.3 Gate；后续若此方向失败应停止扩大。
 - 血门 A 待审但继续暂停，B 未授权。
+
+## 2026-10-28｜Opening 内容增强方向决定
+
+- PO 观看 Motion Pilot A/B 后认为镜头变化对整体帮助不大，停止沿 motion-only 路线扩大；原技术 PASS、候选与哈希仍保留。
+- 新重点是第133章的动机、五日/庄园大门钥匙、勿淋雨、勿长久与「它」对视；第134章原 33 秒欢迎段仍锁定。第133章属原 MVP1 CONTEXT_ONLY，当前仅做内容设计，未授权范围扩展、新音频、新图或视频。
+- 血门木门 A/B 工作继续暂停，不在 S02-B 补叙；P0.3 仍 IN PROGRESS。见：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。

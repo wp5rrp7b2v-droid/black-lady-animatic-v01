@@ -3888,3 +3888,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - A MP4 SHA-256 `d83d07e186e8a52e0e4004097e5e49b6cac93167011bd919953691813d627889`；B `75a30535c7320f427ee6dc56d4dcf0d6fd52825699e3e7a1db028c32989fd193`；并排 `4a05df09a3455379c9a7dc9b0e444f9ccf80a1af911e6b25c96eaad32af7bc9c`。
 - Actions artifact `12790167660` / ZIP SHA-256 `5dfdb134d6c799ca877cc7dc98cb0ebc0ac9534971c46aefb163be17728597ec`；为避免 PO 手工解压，第二条 Actions run `40628685286` **SUCCESS**，独立复核 MP4 SHA 后把三份审核视频及 manifest **直接提交到审核分支**：`https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review`。不合并 main、不改正式 Story Shot / Video Index、不重写正式 Opening V001。
 - Project Control 更新 R364 / Dashboard V284；下一步 PO 先看完整约 10.33s A/B，按电影感、叙事与人物一致性判 PASS/FAIL，未通过不扩大制作。
+
+## 2026-10-28｜Opening 增强路线基于 PO 观看反馈调整
+
+- 原 10.33 秒 A/B 技术 PASS，PO 评价整体视觉效果提升有限，因此不扩大。历史候选与全部 SHA 保留。
+- 从 GitHub 正式 S2 第133/134章、S3 0–33.02s 原音转写与 P0.1 inventory 独立核查：第133章明确五日/庄园大门钥匙/勿淋雨/勿长久凝视；第134章欢迎开场并未包含这些任务提示。
+- 发现关键锁定约束：原 MVP1 规定第133章 CONTEXT_ONLY。现只建立内容导演方案，不宣称有新原音、不生成新视频，不恢复暂停的木门任务，不更改 Opening V001 与正式 Index。
+- BL-D-187；R365 / Dashboard V285；方案：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。

@@ -74,3 +74,7 @@ PO：决定 A/B 视觉 PASS/FAIL，另行授权新母版发布。
 - 原 Opening V001 historical Git blob SHA 和 18,892,138 bytes 精确核验 PASS；输出 A、B 和并排 AB 均 310 帧，完整解码 PASS；A/B 解码 PCM SHA 完全相同。
 - 三份视频与 manifest 经另一次 `40628685286` 复核并直接保存在独立审核分支：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。
 - **艺术审查仍为 UNKNOWN / PO_REVIEW_PENDING**；本 Chat 无直接逐帧视觉判断证据，不把技术校验冒称为电影感增强 PASS；原正式母版和 Video Index 均未变化。
+
+## 2026-10-28｜PO 视觉反馈后停止 Motion Scale
+
+PO 认为本次镜头变化对整体影响不大，指向内容充实度。旧试验技术 PASS 继续保留，但不再扩全片。当前转入第133章剧情/任务前奏的纯导演内容设计，未授权媒体生成，参见：docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md。
