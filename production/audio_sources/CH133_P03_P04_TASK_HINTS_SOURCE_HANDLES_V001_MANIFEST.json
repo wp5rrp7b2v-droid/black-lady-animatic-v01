@@ -1,0 +1,44 @@
+{
+  "schema": "black_lady_ch133_audio_window_v1",
+  "asset_id": "CH133_P03_P04_TASK_HINTS_SOURCE_HANDLES_V001",
+  "status": "EXTRACTED_AND_PRIVATE_DRIVE_SHA256_VERIFIED__NARRATIVE_TIMECODES_APPROXIMATE__PO_NOT_REVIEWED",
+  "type": "REVIEW_ONLY_SOURCE_HANDLES",
+  "project": "黑衣夫人 Opening 内容增强",
+  "root_source": {
+    "drive_id": "1hl9XNYZ5s0hk-VEjyKk7eyPrguY8zdEK",
+    "filename": "CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a",
+    "sha256": "26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20",
+    "sample_rate_hz": 44100,
+    "channels": 2
+  },
+  "extraction": {
+    "requested_start_seconds": 257,
+    "requested_duration_seconds": 32.5,
+    "method": "ffmpeg -ss 257.0 -i CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a -t 32.5 -map 0:a:0 -c:a copy -movflags +faststart",
+    "codec": "aac",
+    "reencode": false
+  },
+  "result": {
+    "drive_id": "1SywSbeZ7oAwL6NRvTAoE98lRsbIybrrg",
+    "folder_id": "1yzcpckOoogFznfiQdPDLKxhzIG6PoQx4",
+    "filename": "CH133_P03_P04_TASK_HINTS_SOURCE_HANDLES_V001.m4a",
+    "duration_seconds": 32.502993,
+    "bytes": 444368,
+    "sha256": "3a4922c68edc7e705c4477b45753aef69e8ea12c356c937d5ea3bc7b3ef62c19",
+    "decoding": "PASS",
+    "download_readback_sha256": "PASS"
+  },
+  "intended_use": "P03 task + P04 warnings timecoded candidate source window, includes lead-in/tail; NOT an approved final Opening soundtrack",
+  "content_alignment_method": "on-screen audiobook active-text highlight sampled at 2s; no independently verified word-level audio transcription",
+  "source_to_scene_times": [
+    "~00:04:17–00:04:23 door turns bloody",
+    "~00:04:24–00:04:35 five-day estate key task",
+    "~00:04:35–00:04:45 hint one/two"
+  ],
+  "known_gaps": [
+    "P01 key '我带你吧' dialogue precedes start of recording; first 00:00–00:10 is retrospective consent narration, not the quote",
+    "P02 contract takes substantially longer than seven-second design beat when played in full"
+  ],
+  "authorization": "No new Story Shot, voice generation, final movie render, canonical replacement or source-audio mutation authorized",
+  "media_privacy": "Keep derived M4A in user's private Drive; public GitHub only stores hashes/manifest"
+}

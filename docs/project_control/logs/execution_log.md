@@ -3925,3 +3925,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 无重编码提取完整 AAC 44.1k 双声道至 `CH133_AUDIO_SOURCE_UNTRIMMED_V001.m4a`（3,994,021 bytes，SHA256 `26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20`），上传至 06_Audio，ID `1hl9XNYZ5s0hk-VEjyKk7eyPrguY8zdEK`，重新下载字节/哈希一致；输入与输出压缩音频流 SHA256 `c47863e262d308b9a3ec3ef917bea2b6e306648272f14cff12dd7c525ebe20c4` 一致，FFmpeg 解码 PASS。
 - GitHub public 仅保存元数据与指向私有 Drive 的链接，不把有声小说和录屏二进制公开。允许用户自行删除**根目录**临时上传，勿删 06_Audio 两个归档；并未代用户删除。
 - 第133章任务文字截图可见，但精确朗读时间码尚待听审，后续做 P01–P04 片段映射。Project State R369 / Dashboard V289；登记 `docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_INGEST_CLOSEOUT_2026-10-28.md`。
+
+## 2026-10-28｜CH133 P01–P04 同步高亮音源时间码 / P03+P04 真实音频候选归档
+
+- 从已 SHA 验证的 290.72秒录屏按每5秒全片、关键区间每2秒的文本高亮逐帧对照：P01只在 0–11s 录到“二人愿意带自己”后续叙述，**宁秋水原句“我带你吧”在录屏开始之前**；P02契约约 02:08–03:28；P03任务约04:17–04:35；P04提示约04:35–04:45（估计±2s，未完成语音逐字校准）。
+- 原 20–24s 四节拍前奏是未验证预算，因 P02 全文与 P03/P04 原音实际长度较长，不能把它作为自动合成硬条件。PO已批准四节拍内容结论保持。
+- 以 `ffmpeg -ss 257.0 -t 32.5 -c:a copy` 提取 P03+P04 源声音候选 `CH133_P03_P04_TASK_HINTS_SOURCE_HANDLES_V001.m4a`；32.502993s，444,368 bytes，SHA256 `3a4922c68edc7e705c4477b45753aef69e8ea12c356c937d5ea3bc7b3ef62c19`；私有Drive ID `1SywSbeZ7oAwL6NRvTAoE98lRsbIybrrg`，上传后重新下载哈希完全一致且完整解码 PASS。
+- 后续先审一段 P03/P04 不依赖暂停木门图的最小声画方案；绝不把粗抽帧高亮当成字级语音定点。未生成正式新镜头/视频，Opening V001/Index保持。详情：`docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_BEAT_TIMECODE_REVIEW_V001_2026-10-28.md`。

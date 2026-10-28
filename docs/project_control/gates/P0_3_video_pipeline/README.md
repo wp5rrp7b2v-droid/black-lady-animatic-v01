@@ -1927,3 +1927,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - 新上传录屏完整读取，私有 Drive `06_Audio` 双归档：源 MP4 原样副本和 290.689 秒 AAC M4A stream-copy；两文件均 Drive 下载 SHA256 回读通过、原音压缩数据一致；公共仓库不收录有版权的原媒体二进制。
 - 完整来源/哈希：`production/audio_sources/CH133_AUDIO_SOURCE_UNTRIMMED_V001_MANIFEST.json`；关闭记录：`docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_INGEST_CLOSEOUT_2026-10-28.md`。
 - 可以从 Drive 根目录自行删除临时 MP4（不删除 06_Audio 两份归档）。制作 Gate 仍待精确语句时间码和 PO 后续审核，原 Opening V001 锁定、木门暂停。
+
+## 2026-10-28｜CH133 P01–P04 音源时码与 P03+P04 候选
+
+- 原录屏按同步高亮2秒取样：P01录屏开头的叙述不含“我带你吧”关键语句，P02契约约2:08–3:28，P03五日任务约4:17–4:35，P04两条提示约4:35–4:45；字级语音核验仍待完成。
+- P03+P04 32.502993s 无重编码 AAC 候选已提交私有 Drive `06_Audio`，回读SHA与全解码技术 PASS，ID `1SywSbeZ7oAwL6NRvTAoE98lRsbIybrrg`。具体哈希、起止与未完成事项：docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_AUDIO_BEAT_TIMECODE_REVIEW_V001_2026-10-28.md。
+- 20–24s 整体前奏原估算未证实，不能直接据此扩全片。保留PO批准的四节拍内容设计；下一步是小成本声画验证，而不是直接制作正式 Opening。木门暂停。
