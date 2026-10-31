@@ -22,3 +22,15 @@ Product Owner asked whether the opening "has no sense of an opening". The curren
 
 ## Gate
 Pending PO assessment of V003 timing and separate approval of any new opening content; no formal Master replacement, no Video Index change.
+
+## 2026-10-31 | P01 minimal narrative-entry audio test (not V004 video)
+
+Original CH133 source privately fetched and exact SHA-256 checked: `26d41ab241228f0de10531ceb6e67129f530a25589aa89a4c3417b884b7b9b20` (duration `290.689002s`).
+Source's first ~11 seconds contains partial P01 companion/context narration; original key quote `我带你吧` precedes source start and remains **unavailable**. P02 contract event takes about `02:08–03:28`; it is not demonstrably compressible to 4 seconds.
+
+A **sound-only**, provisional, one-path minimum test was created from original CH133 `[0,11.57)` (cut near measured low-amplitude `11.489–11.667s`) followed by the unchanged-in-content previously PO-approved `40.260s` P03/P04→Neil audio bridge. Encoding necessarily converts CH133 44.1kHz and existing bridge 48kHz to a single new 48kHz AAC stream; it does **not** preserve the approved bridge exact bytes and is **not** canonical audio.
+- Review asset: `OPENING_P01_MINIMUM_AUDIO_INTRO_PROOF_V001.m4a`, SHA256 `d792512aa9eeb84788c8940d28060ca75398c82d7fb10c0e756fc27c2156b593`; 1,257,886 bytes; 51.847s; decode PASS.
+- Private ChatGPT Library folder: `/诡舍-黑衣夫人/Opening音频试验/`; no copyrighted sound uploaded to public GitHub.
+- **Purpose**: falsify/test whether a short P01 context opening actually helps before P03 task without new media/character artwork, and whether the omission of P02 creates an unacceptable jump. This is exploratory **not** a cancellation or modification of PO-approved P01/P02→P03/P04 narrative baseline.
+- **Unknown**: exact word-level boundary at 11.57s; semantic/audio continuity and opening effect require PO listening.
+- Next decision: If the isolated hook fails because P02 is necessary, verify a genuinely cuttable P02 original-audio mini-beat or request missing earlier P01 voice excerpt before building any new Story Shot. If a hook passes, still seek PO design approval before new images/video. No changes to original V001, V003, Story Shot Index, P0.3 Gate or video register.
