@@ -1943,3 +1943,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 
 - PO 已批准 `OPENING_CONTENT_P03P04_TO_NEIL_WELCOME_AUDIO_PROOF_V001`（40.260秒，SHA256 `c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c`）的听感、剧情与尼尔欢迎衔接效果。音频原先技术 PASS 不变，私有 Drive 原二进制保留。
 - 下一步转入 P03/P04 非木门视觉导演设计及 Reference / Bundle 验证；正式视频、图片、音轨重制、P0.3 Gate PASS 均未获自动授权，血门专项继续暂停，正式 Opening V001 锁定。
+
+## 2026-10-31｜P03/P04 血门信息的导演设计纠正 V0.2
+
+- PO 澄清：旧血门 A/B 工作暂停 ≠ P03/P04 分镜不出现木门。原著第133章确认**任务与两条提示在诡舍三楼真实血门上出现**。已更正原 V0.1 画外红光/无门的失实设计。
+- V0.2 设计：木门真实实体、门上原文完整可读；四镜 P03-S01/S02、P04-S01/S02 后原样接入已批准 Opening V001 前6.55s。诡舍血门、莫妮卡庄园外围大门、古堡入口是三个不同地点；门上文本为原著场内信息，不是额外幻灯片。
+- 首轮只验证一张木门与血字真实融合及可读性的 Story Shot 候选，必须先经 PO 设计审核、建立新的诡舍三楼 Scene Reference 与 ≤5 张直接图参的可验证 Bundle；不允许自动 Work 出图、恢复旧木门 A/B 或替换 Opening V001。详见：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_REFERENCE_BUNDLE_DESIGN_V0_2_2026-10-31.md。

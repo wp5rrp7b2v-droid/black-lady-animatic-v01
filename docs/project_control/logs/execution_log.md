@@ -3952,3 +3952,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 原有下载回读 SHA / 全段解码技术 PASS 继续有效，新增 PO 对整体声音叙事与欢迎衔接的感知 PASS。**未重新生成音轨或扩展审批范围**；它不是正式 Opening V002 或全片视觉 PASS。
 - 当前最小下一步：以这条已批准声音为基准，导演设计 P03/P04 的非木门视觉叙事，核对角色和场景 Reference 后设计最小声画 Proof；未经新的 PO + Bundle 授权，不开始 Work 制图，不恢复血门木门 A/B。
 - 正式 Opening V001（SHA256 `70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a`）、Story Shots 32、Video Index 3、P0.3 IN PROGRESS 均不变。Project State R373 / Dashboard V293。
+
+## 2026-10-31｜Opening P03/P04 分镜 V0.2：木门信息必须可见
+
+- PO 指正先前误读：冻结血门木门 A/B 制作不等于禁止血门木门进入 P03/P04 分镜。查第133章原著，诡舍三楼木门作为血门，任务与两条提示实际以血字显示；前一版“完全避门、只看红光/人物反应”的方案逻辑不符合原著载体。
+- 更新到 Director Design V0.2：P03-S01 诡舍木门建立、P03-S02 门上五日与庄园钥匙任务、P04-S01 门上勿淋雨、P04-S02 门上勿久视“它”，T01 原 Opening V001 尼尔晴天迎宾原样接入。时间点只按现有40.260s声音粗配，字级切点尚待验证。
+- 实查 Asset Registry：宁秋水 AST_IMG_000060、君鹭远 AST_IMG_000057 已批准；庄园外围大门 AST_IMG_000107 / 钥匙 AST_IMG_000102 仅辅助说明世界关系，不能冒充诡舍血门；诡舍三楼血门没有 Approved Scene Master。旧血门 Candidate 01 和 A 未获当前正式资产批准。
+- 不先批量做4张图，优先验证单张 P03-S02 血字门的文字可读性/真实感；Scene Reference/Bundle Design V0.2 仅文案准备，`build_authorized=false`。未生成媒体、未调用 Work、未改原音/Opening V001/正式索引，血门 A/B 依然暂停。
+- 设计文件：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_REFERENCE_BUNDLE_DESIGN_V0_2_2026-10-31.md。Project State R374 / Dashboard V294。
