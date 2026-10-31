@@ -1,0 +1,91 @@
+{
+  "schema": "black_lady_opening_assembly_proof_v001_qc",
+  "date": "2026-10-31",
+  "status": "TECHNICAL_PASS_PO_VISUAL_REVIEW_PENDING_NOT_CANONICAL",
+  "proof_file": "OPENING_V002_ASSEMBLY_PROOF_V001_PO_REVIEW.mp4",
+  "proof_sha256": "9bebc737f921c07e94843786a7a4c60fd4fe1d6fa831a7a9e5d962da7719d103",
+  "proof_bytes": 4089451,
+  "video": {
+    "codec": "h264",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "fps": 30,
+    "frames": 1208,
+    "duration_seconds": 40.266667
+  },
+  "audio": {
+    "codec": "aac",
+    "stream_copied": true,
+    "duration_seconds": 40.26,
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "decoded_pcm_exact_source_match": true,
+    "source_private_drive_file_id": "1kbuay1kxY8Tmnhr880GMtL0hTNdV_AXS",
+    "sha256": "c47c11668ff2053d59131f3914bec14b6a223a67e79ad2ebd260212fc5411f6c",
+    "source_binary_publicly_uploaded": false
+  },
+  "source_visuals": [
+    {
+      "shot": "OPENING_P03A",
+      "sha256": "7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884",
+      "size": [
+        941,
+        1672
+      ]
+    },
+    {
+      "shot": "OPENING_P03B",
+      "sha256": "ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e",
+      "size": [
+        941,
+        1670
+      ]
+    },
+    {
+      "shot": "OPENING_P04C",
+      "sha256": "6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be",
+      "size": [
+        941,
+        1672
+      ]
+    }
+  ],
+  "source_export": {
+    "github_actions_run": 41196822472,
+    "artifact_id": 13040319242,
+    "source_binary_sha_verification": "3_OF_3_PASS",
+    "audio_in_actions": false
+  },
+  "original_opening": {
+    "sha256": "70d7922244161dd216a26446fd75531db20eea0ac7fc25f567f6ff14e2746e3a",
+    "modified": false
+  },
+  "editorial_timeline": [
+    {
+      "shot": "OPENING_P03A",
+      "start_s": 0,
+      "end_s": 3
+    },
+    {
+      "shot": "OPENING_P03B",
+      "start_s": 3,
+      "end_s": 18
+    },
+    {
+      "shot": "OPENING_P04C",
+      "start_s": 18,
+      "end_s": 33.7
+    },
+    {
+      "shot": "NEIL_WELCOME_FROM_ORIGINAL_OPENING_V001",
+      "start_s": 33.7,
+      "end_s": 40.266667
+    }
+  ],
+  "editorial_note": "Cut points are provisional from chapter 133 approximate read-along; NO independently verified word-level cue map. PO visual/audio review required.",
+  "conform_note": "P03B 941x1670 exact approved source preserved, only scaled/padded in derived 1080x1920 video",
+  "deliverability": "PRIVATE_SESSION_PROOF_LOCAL_ONLY; do not treat as long-term archival; canonical publication and Video Index expressly NOT authorized",
+  "production_security": "No copyrighted/private audio placed in public GitHub source/export workflow/artifacts. Github records only metadata."
+}
