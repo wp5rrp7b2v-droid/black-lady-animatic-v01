@@ -78,7 +78,7 @@
       "canonical_path": "production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
       "expected_sha256": "be9f1f39ae303a61a79746b25a0f9f8153797b179ef85d07a5c2fdf1ce02d01b",
       "expected_byte_size": 2002451,
-      "expected_git_blob": "821c892ffea59ef0739f86585d07a5c2fdf1ce02d01b",
+      "expected_git_blob": "821c892ffea59ef0739f86585c6c5f8bd1168264",
       "destination_group": "character_face_support",
       "authority_purpose": "JUN_NATURAL_THREE_QUARTER_IDENTITY_SUPPORT"
     }
