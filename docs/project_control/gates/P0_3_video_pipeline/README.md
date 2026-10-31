@@ -1967,3 +1967,8 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - Story Shot Index 33，受控同 blob 血门 Scene Anchor `production/controlled_references/opening_p03a/OPENING_P03A_GHOST_HOUSE_BLOOD_DOOR_SCENE_ANCHOR_V001.manifest.json`，独立 registration verification run `41186921151` PASS，临时候选 staging 已清理。
 - 本次无额外第四张 Scene Reference 图。P03-B/P04-C 按 V0.3 已获制作方向授权，但依赖后续自己的 exact Reference Bundle，不冒充已生产。Opening V001 锁定、旧门 A/B HOLD。
 - 收尾证据：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03A_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md。
+
+## 2026-10-31｜P03B / P04C 共同 Bundle 已通过 GitHub Actions 5/5 exact 核验
+
+- Bundle：`OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001`，Spec `production/bundle_specs/OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001.json`；run `41187875548` SUCCESS；artifact `13037955694`，digest `sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d`；直接引用五图（1×已批准 P03A Scene Anchor + 4×宁/君 Approved 身份参考）。
+- 可正式交 Work 生成剩余两张 `OPENING_P03B_TASK_MAIN_CANDIDATE_01.png` 与 `OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png`。出图后停止交 PO，未有任何后两图 Approved/登记。原 P03A 及 Opening V001 锁定，旧 Blood Door A/B 继续暂停。

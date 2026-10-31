@@ -3985,3 +3985,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 独立 Actions 登记核验 run `41186921151` **PASS**（SOURCE BINARY SHA/BLOB、INDEX 33、SCENE MANIFEST、STAGING CLEANUP），注册闭环成立。
 - 正式 Opening V001 视频及 Story Shot 历史不变。下一步仅以经核验 P03-A 作为 P03-B/P04-C 输入组装并验证新 Bundle，尚未生成后两张图。
 - Project State R377 / Dashboard V297；详情 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03A_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`。
+
+## 2026-10-31｜Opening P03-B / P04-C 共用 Reference Bundle 实测构建并交接
+
+- 已使用正式、已核验的 P03-A 原图作为一个受控 Scene Reference（SHA256 `7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884`）及宁秋水、君鹭远四张 CURRENT/APPROVED 参考，共五张直接输入，不额外生成第四张场景图。
+- 新正式 Bundle Spec `production/bundle_specs/OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001.json`，提交 `d0846a1d945ff6488fd85a8703ff95c54f9258b8`；GitHub Actions run `41187875548` **SUCCESS**、builder `PASS: 5/5 exact canonical reference binaries verified`、`GENERATION_ALLOWED=TRUE`；artifact `13037955694` / 8,764,349 bytes / `sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d`。
+- 本次只解除 P03-B / P04-C 的来源输入阻塞，不代表其图像已生成、中文排版正确或 PO 已批。Work 下一步只按已批准 V0.3 生成两张 941×1672 PNG 候选，停在 PO 审核前，不改原 Opening V001/旧 Blood Door A/B。
+- Project State R378 / Dashboard V298；无需新增治理文档或额外第四张图。
