@@ -51,3 +51,17 @@ fi
 ```
 
 验收：`HEAD == origin/main == GitHub main 当前 HEAD` 且无修改/覆盖。若有非 main 分支、新增 staged changes、非快进、网络问题，必须停止，保留全部本地资料，不尝试强制同步。本日报告仅核验远端，**local sync status=PENDING MAC TERMINAL PROOF**。不得把 GitHub cloud-only 结果写作已在 Mac 同步。
+
+## 2026-10-31｜Mac 实际终端回执到达：同步检查点 PASS（覆盖前文 PENDING）
+
+2026-10-31 用户提交 Mac Terminal 完整日志，由 Chat 核验如下：
+
+- 同步前 `## main...origin/main`，只有 `?? BlackLadyLocalConsole/` 和 `?? BlackLadyLocalConsolePrivate/` 两个未跟踪目录；无 tracked change 的可见证据。
+- `Already on 'main'`；`git-proxy-auto` 成功拉取；远端 `main` 从 `c57854d` 到 `803d562`，过程是 `Fast-forward`，没有 merge、reset、clean、非快进或冲突。
+- `git rev-parse HEAD`、`git rev-parse origin/main` 输出完全相同：`803d562ae058cb5b2b8feba874c19a34ba0f1ac5`。
+- 最终 `git status --short --branch` 再次为 `## main...origin/main`，仅上述两个 Console 目录未跟踪。
+- Chat 独立读取 GitHub `refs/heads/main`，在核对时远端也是 `803d562ae058cb5b2b8feba874c19a34ba0f1ac5`。
+- 结论：**RC-029 2026-10-31 EOD MAC SYNC PASS AT VERIFIED CHECKPOINT 803d562**。不会为了元数据补档再要求用户当天执行第二次同步。
+- **时间性说明：** Chat 将本回执补记入 GitHub Project Control 时，远端主分支会产生新的“元数据记录”提交，因此之后的远端 HEAD 可能高于用户已同步的 `803d562`。这不推翻上述**已发生的检查点级同步成功**，但也不得伪称 Mac 与这些后续提交仍然逐位相等；下一次按 RC-029 常规晚间同步即可。
+
+本补记仅结清本地同步证据，不修改 Opening 内容、音频、Approved 图像或正式 Video Index。
