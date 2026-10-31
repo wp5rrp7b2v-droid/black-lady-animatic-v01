@@ -1,0 +1,56 @@
+name: Opening P04-C Exact Binary Intake Bridge V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - "staging/binary_transport/opening_p04c/*.b64"
+permissions:
+  contents: write
+concurrency:
+  group: opening-p04c-source-upload
+  cancel-in-progress: false
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Reassemble original PNG and exact-identity check
+        id: assemble
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC=staging/binary_transport/opening_p04c
+          DEST=staging/story_shot_candidates/OPENING_P04C/OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png
+          if [ ! -f "$SRC/part01.b64" ]; then
+            echo 'No source parts; nothing to do'
+            echo 'assembled=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          for n in 01 02 03 04 05 06 07 08; do test -f "$SRC/part$n.b64"; done
+          mkdir -p "$(dirname "$DEST")"
+          cat "$SRC"/part{01..08}.b64 | base64 -d > "$DEST"
+          python3 - <<'PY'
+          import hashlib,pathlib,struct,subprocess
+          p=pathlib.Path("staging/story_shot_candidates/OPENING_P04C/OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png")
+          b=p.read_bytes()
+          assert b[:8]==bytes.fromhex('89504e470d0a1a0a'),"PNG signature mismatch"
+          assert struct.unpack('>II',b[16:24])==(941,1672),"dimension mismatch"
+          assert len(b)==3364032,"byte size mismatch"
+          assert hashlib.sha256(b).hexdigest()=="6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be","SHA256 mismatch"
+          assert subprocess.check_output(['git','hash-object',str(p)],text=True).strip()=="926a4a2a4025187fa254ee0cb1a3ac65a0a35e33","Git blob mismatch"
+          print("OPENING_P04C_EXACT_ORIGINAL_REASSEMBLY_PASS")
+          PY
+          echo 'assembled=true' >> "$GITHUB_OUTPUT"
+      - name: Commit exact PNG to review staging
+        if: steps.assemble.outputs.assembled == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add staging/story_shot_candidates/OPENING_P04C/OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png
+          git commit -m "intake(opening): preserve exact PO-approved P04C candidate source"
+          git push origin HEAD:main

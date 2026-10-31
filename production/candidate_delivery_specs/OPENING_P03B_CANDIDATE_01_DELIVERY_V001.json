@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "OPENING_P03B",
+  "sequence_id": "OPENING_ENHANCE_P03_P04",
+  "candidate_id": "OPENING_P03B_TASK_MAIN_CANDIDATE_01",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "image(20261031-092420).png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1670,
+    "byte_size": 3113918,
+    "sha256": "ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e",
+    "git_blob_sha1": "067e60b7ff538700cc71c64d629ec6a80eaccec1"
+  },
+  "bundle": {
+    "bundle_id": "OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 41187875548,
+    "artifact_id": 13037955694,
+    "artifact_digest": "sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d"
+  },
+  "target_staging_path": "staging/story_shot_candidates/OPENING_P03B/OPENING_P03B_TASK_MAIN_CANDIDATE_01.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/OPENING_P03B_TASK_MAIN_APPROVED_V001.png",
+  "dimension_status": {
+    "preferred_target": "941x1672",
+    "approved_exact_binary": "941x1670",
+    "status": "TECHNICAL_VARIANCE_MINUS_2PX_HEIGHT__PRESERVE_EXACT_PO_APPROVED_SOURCE",
+    "resize_forbidden": true,
+    "video_conform": "Do not claim 941x1672 for P03B. Any later noncanonical adjustment for video assembly requires separate exact source preservation."
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": false
+  },
+  "po_visual_approval": {
+    "date": "2026-10-31",
+    "verdict": "APPROVED",
+    "source": "User attached both exact PNGs and wrote 批准P03-B / P04-C，并登记",
+    "scope": "Opening P03B mission text / P04C hints text on P03A consistent real blood door"
+  },
+  "transport": {
+    "method": "Original attachment → private temporary Drive exact bytes → GitHub blob P03B or base64 chunk bridge P04C",
+    "reencoding": false
+  }
+}

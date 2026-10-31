@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "OPENING_P04C",
+  "sequence_id": "OPENING_ENHANCE_P03_P04",
+  "candidate_id": "OPENING_P04C_HINTS_MAIN_CANDIDATE_01",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "image(20261031-092459).png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 3364032,
+    "sha256": "6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be",
+    "git_blob_sha1": "926a4a2a4025187fa254ee0cb1a3ac65a0a35e33"
+  },
+  "bundle": {
+    "bundle_id": "OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001",
+    "workflow_run_id": 41187875548,
+    "artifact_id": 13037955694,
+    "artifact_digest": "sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d"
+  },
+  "target_staging_path": "staging/story_shot_candidates/OPENING_P04C/OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/OPENING_P04C_HINTS_MAIN_APPROVED_V001.png",
+  "dimension_status": {
+    "preferred_target": "941x1672",
+    "approved_exact_binary": "941x1672",
+    "status": "MATCH",
+    "resize_forbidden": true,
+    "video_conform": "Do not claim 941x1672 for P03B. Any later noncanonical adjustment for video assembly requires separate exact source preservation."
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": false
+  },
+  "po_visual_approval": {
+    "date": "2026-10-31",
+    "verdict": "APPROVED",
+    "source": "User attached both exact PNGs and wrote 批准P03-B / P04-C，并登记",
+    "scope": "Opening P03B mission text / P04C hints text on P03A consistent real blood door"
+  },
+  "transport": {
+    "method": "Original attachment → private temporary Drive exact bytes → GitHub blob P03B or base64 chunk bridge P04C",
+    "reencoding": false
+  }
+}
