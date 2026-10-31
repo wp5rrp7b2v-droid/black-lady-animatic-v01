@@ -1,0 +1,51 @@
+name: Opening V002 Approved Visual Sources Export
+on:
+  push:
+    branches:
+      - feature/opening-v002-assembly-proof-20261031
+    paths:
+      - .github/workflows/opening-v002-source-export.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export-approved-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and package public approved PNGs only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,zipfile,struct,json,os
+          specs=[
+            ("OPENING_P03A","production/image_library/approved/story_shots/OPENING_P03A_BLOOD_DOOR_ESTABLISH_APPROVED_V001.png","7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884",941,1672),
+            ("OPENING_P03B","production/image_library/approved/story_shots/OPENING_P03B_TASK_MAIN_APPROVED_V001.png","ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e",941,1670),
+            ("OPENING_P04C","production/image_library/approved/story_shots/OPENING_P04C_HINTS_MAIN_APPROVED_V001.png","6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be",941,1672)
+          ]
+          out=pathlib.Path("opening_v002_approved_png_sources.zip")
+          rows=[]
+          with zipfile.ZipFile(out,"w",compression=zipfile.ZIP_STORED) as z:
+            for sid,p,expected,w,h in specs:
+              b=pathlib.Path(p).read_bytes()
+              got=hashlib.sha256(b).hexdigest()
+              wh=struct.unpack(">II",b[16:24])
+              assert b[:8]==b"\x89PNG\r\n\x1a\n" and got==expected and wh==(w,h),(sid,got,wh)
+              z.write(p,arcname=f"{sid}.png")
+              rows.append(dict(shot_id=sid,sha256=got,dimensions=[w,h],source=p))
+          log=pathlib.Path("docs/project_control/gates/P0_3_video_pipeline/OPENING_V002_SOURCE_EXPORT_RECEIPT.json")
+          log.write_text(json.dumps(dict(run_id=os.environ["GITHUB_RUN_ID"],source_commit=os.environ["GITHUB_SHA"],status="ALL_3_IMAGES_EXACT_PASS",public_png_only=True,private_audio_in_actions=False,images=rows),ensure_ascii=False,indent=2)+"\n")
+          print("ALL_3_IMAGES_EXACT_PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OPENING_V002_APPROVED_VISUAL_SOURCE_ARCHIVE
+          path: opening_v002_approved_png_sources.zip
+          retention-days: 7
+      - name: Publish source-only receipt to work branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/project_control/gates/P0_3_video_pipeline/OPENING_V002_SOURCE_EXPORT_RECEIPT.json
+          git commit -m "verify(opening): three approved stills source export receipt"
+          git push origin HEAD:feature/opening-v002-assembly-proof-20261031
