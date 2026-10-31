@@ -3968,3 +3968,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 新增 production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json，为四张宁/君现有 Approved/CURRENT 角色参考；这一 Bundle 的实际技术验证仅能覆盖上述四个**既有**源图，不能冒称 GH 场景图 Approved。
 - GitHub Actions 通用 Bundle Builder 自动触发（待运行报告）；Work 只有在真实4/4 PASS、有 Artifact ID 后可生成 **P03-A 一张**。P03-B/C 在 P03-A PO 审图/Exact Binary Verification 和下一 Bundle 前不得生成。
 - Director/Scene Seed V0.3：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md。Project State R375 / Dashboard V295；旧血门 A/B 与 Opening V001 均保持现状。
+
+## 2026-10-31｜P03-A Scene Seed Bundle 实测构建及阻塞修复
+
+- GitHub Actions run `41180257277` 首次 FAIL：`AST_IMG_000072 Git blob mismatch`，单个预填指纹错误，Builder 按预期阻断交付。未改人物原始图。
+- 已从 GitHub Git Tree 获取原始 blob `821c892ffea59ef0739f86585c6c5f8bd1168264`，仅修正 `production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json` 内该字段，提交 `ab287f276ff24ab4ab9b0846abfcfd468583e30b`。
+- GitHub Actions run `41180389543` SUCCESS：P03-A 使用四张 CURRENT APPROVED 宁/君人物图参，真正建立并验证完整 Bundle；Artifact `13034756349`，5,822,918 bytes，SHA256 `e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2`。
+- **可交 Work 的仅为第一张 P03-A 场景种子候选**，没有 Approved 诡舍三楼 Scene Master；P03-B/C 仍等待首图 PO 双重审核与 Exact Binary 控制发布。不得把输入的 4/4 PASS 记为血门新场景 PASS，也不得多生第4张图。
+- R376 / Dashboard V296，Opening V001 与旧血门 A/B 保持锁定。

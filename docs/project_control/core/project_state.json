@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R375",
+  "state_revision": "R376",
   "last_updated": "2026-10-31",
-  "session_status": "OPENING P03A SCENE-SEED BUNDLE BUILD AUTHORIZED FROM FOUR APPROVED CHARACTER REFERENCES / GITHUB ACTIONS NOT YET VERIFIED / P03B-C ON SCENE PO GATE / OLD A-B HOLD",
+  "session_status": "OPENING P03A SCENE-SEED BUNDLE ACTUAL GITHUB ACTIONS 4OF4 EXACT PASS / ARTIFACT READY FOR WORK FIRST PNG / P03B-C WAIT PO SCENE SEED APPROVAL",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P03A_FIRST_OF_THREE_SCENE_SEED: EXACT VALIDATE FOUR APPROVED CHARACTER REFS, BUILD BUNDLE, THEN WORK SINGLE P03A CANDIDATE FOR PO BEFORE P03B/C",
-  "blocker": "GHOST_HOUSE_THIRD_FLOOR_BLOOD_DOOR has no approved visual reference yet. P03-A first candidate will establish new scene, requiring PO visual approval and exact binary registration before P03-B/C; no automatic three-shot batch.",
-  "next_action": "Verify new P03-A Scene Seed Reference Delivery Bundle in GitHub Actions: 4/4 existing character refs PASS, then Work produces only P03-A as 1 of authorized 3 PNG. Submit to PO for dual shot/scene approval. If PASS, Chat registers exact door seed and builds P03-B/C bundle. Do not generate B/C before that gate.",
+  "current_task": "WORK P03A ONLY: CONSUME EXACT ARTIFACT 13034756349 FOR SCENE-SEED CANDIDATE 01; PO SHOT+SCENE REVIEW BEFORE P03B/P04C",
+  "blocker": "P03-A source-input Bundle technical PASS, but original GH blood-door Scene Seed image has not been generated/PO approved. P03-B and P04-C cannot proceed until P03-A is visually accepted and published as controlled reference. Existing old Blood Door A/B remains on HOLD.",
+  "next_action": "Work downloads GitHub Actions artifact 13034756349, revalidates its 4 exact approved character reference PNGs against delivery_manifest.json, generates only OPENING_P03A_BLOOD_DOOR_ESTABLISH_CANDIDATE_01.png (941x1672), stops for PO. Chat verifies shot binary and scene seed after PO; only then build remaining P03-B/C shared door Bundle. Don't create fourth picture.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,23 +120,25 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-10-31-OPENING-P03A-SCENE-SEED-BUNDLE-SPEC-R375",
-    "status": "P03A_FIRST_SEED_SPEC_COMMITTED / EXACT ACTIONS CHECK PENDING / P03B-C STILL BLOCKED",
+    "id": "2026-10-31-OPENING-P03A-BUNDLE-EXACT-PASS-R376",
+    "status": "P03A 4/4 EXISTING-CHARACTER-BUNDLE PASS / READY WORK FIRST ONE PNG / NEW SCENE NOT YET APPROVED",
     "completed": [
-      "Reconciled Work no-image report with GitHub R374: GH door scene master absent and planned three-shot bundle not validated.",
-      "Reused PO-approved V0.3 three-image count with staged P03-A first candidate as both shot and scene seed, not an extra fourth image.",
-      "Selected four APPROVED/CURRENT Ning/Jun character PNG references, leaving GH third-floor wooden door as explicit new-scene design hypothesis.",
-      "Committed P03-A isolated reference delivery bundle spec and director work instruction. Generic builder should run on main push.",
-      "No visual images generated or fictitious Scene approval; P03-B and P04-C still gated on PO accepting first real P03-A seed."
+      "Initial Actions run 41180257277 FAILED on incorrectly entered AST_IMG_000072 expected Git blob; fail-closed as designed, no artifact.",
+      "Corrected AST_IMG_000072 expected Git blob from GitHub full repository tree; source itself unchanged.",
+      "GitHub Actions run 41180389543 SUCCESS: four existing CURRENT/APPROVED Ning and Jun reference binaries validated and copied, Bundle artifact published.",
+      "Exact artifact ID 13034756349, digest sha256:e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2, size 5,822,918 bytes.",
+      "Only existing character references were validated; not falsely asserting the not-yet-produced GH third-floor blood-door Scene Reference is Approved.",
+      "No PNG candidates generated in Chat, no Story Shot registered and no original Opening/Blood Door A/B changes."
     ],
-    "resume_from": "WAIT FOR GITHUB ACTIONS 4/4 EXACT VERIFIED ARTIFACT THEN HAND OFF ONLY P03A TO WORK; PO VISUAL REVIEW REQUIRED",
+    "resume_from": "WORK P03A FIRST PNG FROM VERIFIED ARTIFACT; PO VISUAL SCENE SEED REVIEW BEFORE P03B/C",
     "blockers": [
-      "GitHub Actions build actual result and artifact pending.",
-      "P03-A scene image not produced or PO approved; P03-B/C must not start.",
-      "Original paused Blood Door A/B is not reopened."
+      "New blood-door scene seed is still unapproved/unmade",
+      "P03-B/C need this same approved scene for continuity"
     ],
-    "evidence_path": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md",
-    "bundle_spec": "production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json"
+    "bundle_spec": "production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json",
+    "actions_run": 41180389543,
+    "artifact_id": 13034756349,
+    "artifact_digest": "sha256:e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -531,13 +533,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V295",
+    "version": "V296",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R375 / P03A SCENE-SEED REF BUNDLE BUILD STARTED / P03B-C GATED",
-    "derived_from_revision": "R375",
+    "status": "DERIVED R376 / P03A VERIFIED BUNDLE ARTIFACT AVAILABLE / WORK SINGLE PNG NEXT",
+    "derived_from_revision": "R376",
     "last_updated": "2026-10-31",
-    "current_task": "GITHUB ACTIONS VERIFY P03A FOUR APPROVED CHARACTER REFS, THEN WORK FIRST SHOT"
+    "current_task": "WORK P03A IMAGE CANDIDATE / PO SCENE SEED REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5483,7 +5485,7 @@
     "content_concept": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md"
   },
   "opening_content_enrichment_2026_10_28": {
-    "status": "V0p3_3_PNG_PO_APPROVED / P03A_SCENE_SEED_FIRST / BUNDLE_ACTIONS_PENDING",
+    "status": "P03A_SEED_BUNDLE_EXACT_PASS_WORK_FIRST_ONE_PNG_READY",
     "chapter133_mvp1_scope": "CONTEXT_ONLY_UNCHANGED",
     "chapter133_audio": "AVAILABLE_IN_PRIVATE_DRIVE_AS_EXACT_COPY",
     "target_beats": [
@@ -5584,13 +5586,20 @@
     "first_proof": "P03-S02_SINGLE_REAL_WOOD_DOOR_WITH_EXACT_READABLE_TASK_AND_TWO_HINTS",
     "new_scene_reference": "NOT_YET_APPROVED_SEE_P03A_SEED",
     "build_authorized": true,
-    "work_generation_authorized": "ONLY_P03A_AFTER_ACTIONS_EXACT_REF_PASS",
+    "work_generation_authorized": "ONLY_P03A_ONE_IMAGE",
     "director_design_po_approval": "V0p3_THREE_SHOT_STRUCTURE_PO_APPROVED",
     "visual_reference_bundle_design": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_REFERENCE_BUNDLE_DESIGN_V0_2_2026-10-31.md",
     "first_candidate": "OPENING_P03A_BLOOD_DOOR_ESTABLISH_CANDIDATE_01.png",
     "first_candidate_dual_role": "NEW_SCENE_SEED_CANDIDATE_PLUS_FIRST_OF_THREE",
     "bundle_spec": "production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json",
-    "p03b_p04c_generation_authorized": "BLOCKED_UNTIL_P03A_PO_SCENE_APPROVAL_AND_NEW_BUNDLE",
-    "scene_seed_strategy": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md"
+    "p03b_p04c_generation_authorized": "WAIT_P03A_PO_DUAL_APPROVAL",
+    "scene_seed_strategy": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md",
+    "p03a_bundle": {
+      "run_id": 41180389543,
+      "artifact_id": 13034756349,
+      "digest": "sha256:e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2",
+      "refs_verified": 4,
+      "result": "EXACT_INPUT_PASS"
+    }
   }
 }

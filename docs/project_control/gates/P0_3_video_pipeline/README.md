@@ -1955,3 +1955,8 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - Work 报告三图指令停在正确 Gate：诡舍三楼血门 Master 尚不存在，三图通用 Bundle 未构建；无需增加治理矩阵或要求 PO 手工 ZIP。
 - 依据 PO 已批准的三张图结构，**首张 P03-A 同时承担新血门场景 Seed 候选**，先用已批准的两个人物四张 PNG 通过通用 Actions 做 P03-A Bundle 实体核验、Work 生成一图、PO 双重视觉审核；不是另外做第4张。
 - P03-B/C 只有在 P03-A 的门体/空间连续性由 PO 认可并经 exact binary 受控归档后才能构建自身 Bundle。旧木门 A/B 暂停、Opening V001 锁定。参见：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md。
+
+## 2026-10-31｜P03-A Reference Bundle 4/4 PASS
+
+- 首次 Actions 因 AST_IMG_000072 Git blob 预填错误 FAIL，纠正后 run `41180389543` SUCCESS，Artifact `13034756349`，digest sha256:`e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2`。
+- 本次确证是四张既有宁/君 Approved Reference 的 exact delivery，不是新诡舍三楼 Scene Master 已通过。Work 可生成 P03-A **一张**（三张批准总数第一张），随后停下交 PO 双审门体与镜头；P03-B/C 继续 BLOCKED，旧独立木门 A/B 暂停。
