@@ -1,0 +1,57 @@
+name: Opening P03-A Story Shot Registration Verification V001
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/story_shots/story_shot_index.jsonl"
+      - "production/controlled_references/opening_p03a/OPENING_P03A_GHOST_HOUSE_BLOOD_DOOR_SCENE_ANCHOR_V001.manifest.json"
+permissions:
+  contents: read
+jobs:
+  exact-registration-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check canonical binary, Story Shot index, and controlled scene anchor
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,struct,subprocess
+          root=pathlib.Path(".")
+          rel="production/image_library/approved/story_shots/OPENING_P03A_BLOOD_DOOR_ESTABLISH_APPROVED_V001.png"
+          scene="production/controlled_references/opening_p03a/OPENING_P03A_GHOST_HOUSE_BLOOD_DOOR_SCENE_ANCHOR_V001.manifest.json"
+          stage="staging/story_shot_candidates/OPENING_P03A/OPENING_P03A_BLOOD_DOOR_ESTABLISH_CANDIDATE_01.png"
+          expected_sha="7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884"
+          expected_blob="de5c887817e6182bd64c7584578e2b342cff0699"
+          p=root/rel
+          assert p.is_file() and not p.is_symlink(),"canonical file missing"
+          data=p.read_bytes()
+          assert data[:8]==b"\x89PNG\r\n\x1a\n","PNG signature fail"
+          w,h=struct.unpack(">II",data[16:24])
+          sha=hashlib.sha256(data).hexdigest()
+          blob=subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
+          assert (w,h,len(data),sha,blob)==(941,1672,2939156,expected_sha,expected_blob),"canonical identity FAIL"
+          assert not (root/stage).exists(),"staging not removed"
+          idx=[json.loads(line) for line in (root/"production/story_shots/story_shot_index.jsonl").read_text().splitlines() if line.strip()]
+          match=[r for r in idx if r["shot_id"]=="OPENING_P03A"]
+          assert len(idx)==33 and len(match)==1,"index count or cardinality FAIL"
+          row=match[0]
+          assert row["canonical_path"]==rel and row["byte_size"]==len(data) and row["dimensions"]=={"width":w,"height":h}
+          assert row["github_blob_sha"]==blob and row["sha256_locked_identity"]==sha
+          assert row["approval_status"]=="APPROVED" and row["lifecycle"]=="CURRENT" and row["asset_class"]=="STORY_SHOT"
+          assert row["rename_preserved_exact_git_blob"] is True
+          a=json.loads((root/scene).read_text())
+          assert a["canonical_path"]==rel and a["output"]["sha256"]==sha and a["output"]["git_blob"]==blob
+          assert a["output"]["byte_size"]==len(data) and a["output"]["width"]==w and a["output"]["height"]==h
+          assert a["approved_binary"]["sha256"]==sha and a["approval_status"]=="PRODUCT_OWNER_APPROVED"
+          assert row["scene_anchor"]["manifest_path"]==scene
+          assert a["no_extra_image_created"] is True
+          print("OPENING_P03A_REGISTRATION_PASS")
+          print("BINARY_SHA_MATCH=YES")
+          print("GIT_BLOB_MATCH=YES")
+          print("INDEX_MATCH=YES")
+          print("DIMENSIONS_MATCH=YES")
+          print("CONTROLLED_SCENE_ANCHOR_MATCH=YES")
+          print("STAGING_CLEANUP_PASS=YES")
+          print("STORY_SHOT_INDEX_COUNT=33")
+          print("OVERALL_RESULT=PASS")
+          PY
