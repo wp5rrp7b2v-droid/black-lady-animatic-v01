@@ -1,0 +1,36 @@
+{
+  "run_id": "41196822472",
+  "source_commit": "aa7ebd7075b45b626ca882e83f7eb9d57784c568",
+  "status": "ALL_3_IMAGES_EXACT_PASS",
+  "public_png_only": true,
+  "private_audio_in_actions": false,
+  "images": [
+    {
+      "shot_id": "OPENING_P03A",
+      "sha256": "7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "source": "production/image_library/approved/story_shots/OPENING_P03A_BLOOD_DOOR_ESTABLISH_APPROVED_V001.png"
+    },
+    {
+      "shot_id": "OPENING_P03B",
+      "sha256": "ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e",
+      "dimensions": [
+        941,
+        1670
+      ],
+      "source": "production/image_library/approved/story_shots/OPENING_P03B_TASK_MAIN_APPROVED_V001.png"
+    },
+    {
+      "shot_id": "OPENING_P04C",
+      "sha256": "6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "source": "production/image_library/approved/story_shots/OPENING_P04C_HINTS_MAIN_APPROVED_V001.png"
+    }
+  ]
+}
