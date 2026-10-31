@@ -1960,3 +1960,10 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 
 - 首次 Actions 因 AST_IMG_000072 Git blob 预填错误 FAIL，纠正后 run `41180389543` SUCCESS，Artifact `13034756349`，digest sha256:`e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2`。
 - 本次确证是四张既有宁/君 Approved Reference 的 exact delivery，不是新诡舍三楼 Scene Master 已通过。Work 可生成 P03-A **一张**（三张批准总数第一张），随后停下交 PO 双审门体与镜头；P03-B/C 继续 BLOCKED，旧独立木门 A/B 暂停。
+
+## 2026-10-31｜OPENING_P03A 正式登记完成
+
+- P03-A PO Approved 941×1672 PNG exact binary canonical `production/image_library/approved/story_shots/OPENING_P03A_BLOOD_DOOR_ESTABLISH_APPROVED_V001.png`，sha256 `7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884` / Git blob `de5c887817e6182bd64c7584578e2b342cff0699`；candidate intake run 41186393794 PASS、publication commit a7b32bcad5c9210ef3c31656a6cb72ab67d2378b。
+- Story Shot Index 33，受控同 blob 血门 Scene Anchor `production/controlled_references/opening_p03a/OPENING_P03A_GHOST_HOUSE_BLOOD_DOOR_SCENE_ANCHOR_V001.manifest.json`，独立 registration verification run `41186921151` PASS，临时候选 staging 已清理。
+- 本次无额外第四张 Scene Reference 图。P03-B/P04-C 按 V0.3 已获制作方向授权，但依赖后续自己的 exact Reference Bundle，不冒充已生产。Opening V001 锁定、旧门 A/B HOLD。
+- 收尾证据：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03A_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md。

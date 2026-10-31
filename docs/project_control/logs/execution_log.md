@@ -3976,3 +3976,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - GitHub Actions run `41180389543` SUCCESS：P03-A 使用四张 CURRENT APPROVED 宁/君人物图参，真正建立并验证完整 Bundle；Artifact `13034756349`，5,822,918 bytes，SHA256 `e6b45893af67e54e1cbec0436d2906b3d66d74a382e0740f04b7a1c0111a09b2`。
 - **可交 Work 的仅为第一张 P03-A 场景种子候选**，没有 Approved 诡舍三楼 Scene Master；P03-B/C 仍等待首图 PO 双重审核与 Exact Binary 控制发布。不得把输入的 4/4 PASS 记为血门新场景 PASS，也不得多生第4张图。
 - R376 / Dashboard V296，Opening V001 与旧血门 A/B 保持锁定。
+
+## 2026-10-31｜Opening P03-A 正式二进制归档 / Story Shot 登记最终收尾
+
+- PO 确认首张 P03-A 及同门 Scene Seed 双重视觉批准。原文件 `image(20261031-083346).png` 941×1672 RGBA，2,939,156 bytes，SHA-256 `7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884`，Git blob `de5c887817e6182bd64c7584578e2b342cff0699`。
+- 候选 GitHub exact intake commit `39b21d5f6ac9ad6f112d261e190032ee1d27cc85`；Actions run `41186393794` SUCCESS、artifact `13037310263`。canonical commit `a7b32bcad5c9210ef3c31656a6cb72ab67d2378b` 保留 exact Git blob，不裁切/重编码。
+- Story Shot Index 在 `8d0624fea710edc2599cb9a05eb9b34fde8ad626` 新增唯一 OPENING_P03A，正式数量 33；受控场景 manifest `production/controlled_references/opening_p03a/OPENING_P03A_GHOST_HOUSE_BLOOD_DOOR_SCENE_ANCHOR_V001.manifest.json` 指向同一 PNG（二进制不重复）。
+- 独立 Actions 登记核验 run `41186921151` **PASS**（SOURCE BINARY SHA/BLOB、INDEX 33、SCENE MANIFEST、STAGING CLEANUP），注册闭环成立。
+- 正式 Opening V001 视频及 Story Shot 历史不变。下一步仅以经核验 P03-A 作为 P03-B/P04-C 输入组装并验证新 Bundle，尚未生成后两张图。
+- Project State R377 / Dashboard V297；详情 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03A_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`。

@@ -354,3 +354,10 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - GitHub Actions run `40628472180` 技术 PASS，独立审核分支发布 `40628685286` PASS；artifact ID `12790167660`；三段审核 MP4 均保留 SHA-256、尺寸和 manifest，不进入正式 Video Index。
 - **艺术层与 P0.3 Gate 未 PASS：**B 并非已确认提升，仅为 PO_REVIEW_PENDING 候选；不得以技术通过替代视觉审核、擅自推广到完整 33 秒或覆盖原已批准母版。血门专项仍暂停。
 - 审核链接：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/tree/feature/opening-enhance-pilot-20261028/production/video_candidates/opening_enhance_pilot_v001_review。
+
+## 2026-10-31｜Opening P03-A Registration Evidence
+
+- Candidate `OPENING_P03A` PO Approved and exact binary published: SHA256 `7aebf80c713389df929b99071f7d48b9f8ce71195b95ae37d9b6efd6c2635884`, Git blob `de5c887817e6182bd64c7584578e2b342cff0699`, 2,939,156 bytes, PNG 941x1672. Canonical: `production/image_library/approved/story_shots/OPENING_P03A_BLOOD_DOOR_ESTABLISH_APPROVED_V001.png`.
+- Intake verification: GitHub Actions `41186393794` PASS; source artifact 13037310263; canonical publication a7b32bcad5c9210ef3c31656a6cb72ab67d2378b no re-encoding.
+- Registration commit 8d0624fea710edc2599cb9a05eb9b34fde8ad626; Story Shot Index count = 33; controlled GH Blood Door Scene Anchor references same exact binary, no separate scene PNG.
+- Registration Actions `41186921151` PASS for SHA, blob, dimensions, index, manifest, staging cleanup. P03B/P04C remain production candidates, not approved. P0.3 IN PROGRESS.
