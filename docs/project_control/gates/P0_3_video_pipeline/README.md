@@ -1972,3 +1972,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 
 - Bundle：`OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001`，Spec `production/bundle_specs/OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001.json`；run `41187875548` SUCCESS；artifact `13037955694`，digest `sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d`；直接引用五图（1×已批准 P03A Scene Anchor + 4×宁/君 Approved 身份参考）。
 - 可正式交 Work 生成剩余两张 `OPENING_P03B_TASK_MAIN_CANDIDATE_01.png` 与 `OPENING_P04C_HINTS_MAIN_CANDIDATE_01.png`。出图后停止交 PO，未有任何后两图 Approved/登记。原 P03A 及 Opening V001 锁定，旧 Blood Door A/B 继续暂停。
+
+## 2026-10-31｜P03-B / P04-C 已批准、原样发布并完成 Story Shot 登记
+
+- 以原图精确二进制发布 `OPENING_P03B_TASK_MAIN_APPROVED_V001.png` (941×1670) / `OPENING_P04C_HINTS_MAIN_APPROVED_V001.png` (941×1672)，无重编码。PO Approval 已登记，临时 staging 已清理。
+- 候选 intake 41189594063/41189935095 PASS；publication commit 77d430f9a116c0ae4bb182e02e4320ad1dd55d7a；Index =35；独立注册 Actions `41191180952` PASS。两个最终 Story Shot + 原 P03A 共享同一血门美术基准。
+- 原 Opening V001 和正式 Video Index=3 不改；血门旧 A/B 项目 HOLD，新 Opening 合成视频尚未审核。详见 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03B_P04C_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`。

@@ -361,3 +361,10 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - Intake verification: GitHub Actions `41186393794` PASS; source artifact 13037310263; canonical publication a7b32bcad5c9210ef3c31656a6cb72ab67d2378b no re-encoding.
 - Registration commit 8d0624fea710edc2599cb9a05eb9b34fde8ad626; Story Shot Index count = 33; controlled GH Blood Door Scene Anchor references same exact binary, no separate scene PNG.
 - Registration Actions `41186921151` PASS for SHA, blob, dimensions, index, manifest, staging cleanup. P03B/P04C remain production candidates, not approved. P0.3 IN PROGRESS.
+
+## 2026-10-31｜P03B/P04C Formal Story Shot Registration Evidence
+
+- Product Owner Approved original two files; exact source SHA and Git blobs in `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03B_P04C_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`.
+- P03B canonical 941x1670 SHA256 `ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e` Git blob `067e60b7ff538700cc71c64d629ec6a80eaccec1`, no resize despite target 941x1672. P04C canonical 941x1672 SHA256 `6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be` Git blob `926a4a2a4025187fa254ee0cb1a3ac65a0a35e33`.
+- Intake Actions `41189594063`/`41189935095` SUCCESS; canonical publication commit `77d430f9a116c0ae4bb182e02e4320ad1dd55d7a`; Story Shot index commit `1e80a5485e6da3c5c196701d3513befc8c4bcce7`; **35 unique current approved Story Shot rows**; independent verification Actions `41191180952` PASS.
+- Old one-use verifier wrote count33 and fails on new 35; workflow retired and evidence retained. No image reencode; P03A scene anchor intact. Original Opening V001 and 3 formal videos unchanged.

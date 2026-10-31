@@ -3992,3 +3992,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 新正式 Bundle Spec `production/bundle_specs/OPENING_P03B_P04C_SHARED_BLOOD_DOOR_REFERENCE_DELIVERY_BUNDLE_V001.json`，提交 `d0846a1d945ff6488fd85a8703ff95c54f9258b8`；GitHub Actions run `41187875548` **SUCCESS**、builder `PASS: 5/5 exact canonical reference binaries verified`、`GENERATION_ALLOWED=TRUE`；artifact `13037955694` / 8,764,349 bytes / `sha256:1ae706a265702ee23abc94e588958d7e14bf64847bd7b28e5c12a510ca8d816d`。
 - 本次只解除 P03-B / P04-C 的来源输入阻塞，不代表其图像已生成、中文排版正确或 PO 已批。Work 下一步只按已批准 V0.3 生成两张 941×1672 PNG 候选，停在 PO 审核前，不改原 Opening V001/旧 Blood Door A/B。
 - Project State R378 / Dashboard V298；无需新增治理文档或额外第四张图。
+
+## 2026-10-31｜P03-B / P04-C Product Owner 视觉批准、原件入库与完整登记收尾
+
+- PO 明确批准两张源图。P03B `941×1670` / 3,113,918 bytes / sha256 `ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e`; P04C `941×1672` / 3,364,032 bytes / sha256 `6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be`。**保持 P03B 高度少2px的原始二进制，不修图、不重编码**。
+- 源 Bundle run 41187875548 5/5 PASS；候选入库 run 41189594063 / 41189935095 各 SUCCESS。canonical 通过 commit 77d430f9a116c0ae4bb182e02e4320ad1dd55d7a 同 Git blob 发布，staging 清理。
+- Index 注册 commit 1e80a5485e6da3c5c196701d3513befc8c4bcce7，总数 35；独立登记核验 run 41191180952 **SUCCESS**，涵盖两张原图 SHA/Blob/尺寸/尺寸例外/记录/场景 Anchor。
+- 旧 P03A 一次性校验 run 41191180974 因历史写死计数 33 在新增记录后 FAIL，不代表素材失败；本轮已撤下其过时 workflow，并按 SOP 撤下本次一次性 verifier，保留 run 历史。
+- 原 Opening V001 未覆盖，独立血门 A/B 仍暂停；下一阶段是已批准 3 张图和已批 40.260s 声音的最小音画 Proof，**尚未获 PO 视频审批**。收尾报告 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03B_P04C_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`。Project State R379 / Dashboard V299。
