@@ -3960,3 +3960,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 实查 Asset Registry：宁秋水 AST_IMG_000060、君鹭远 AST_IMG_000057 已批准；庄园外围大门 AST_IMG_000107 / 钥匙 AST_IMG_000102 仅辅助说明世界关系，不能冒充诡舍血门；诡舍三楼血门没有 Approved Scene Master。旧血门 Candidate 01 和 A 未获当前正式资产批准。
 - 不先批量做4张图，优先验证单张 P03-S02 血字门的文字可读性/真实感；Scene Reference/Bundle Design V0.2 仅文案准备，`build_authorized=false`。未生成媒体、未调用 Work、未改原音/Opening V001/正式索引，血门 A/B 依然暂停。
 - 设计文件：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_REFERENCE_BUNDLE_DESIGN_V0_2_2026-10-31.md。Project State R374 / Dashboard V294。
+
+## 2026-10-31｜Work 三图停止后的最小缺口处理：P03-A Scene Seed
+
+- Work 报告无图片生成：无 Approved 诡舍三楼血门 Reference，规划的统一 P03/P04 Bundle 仍是草案；与 GitHub main R374 核查一致。直接重复三图 Work 指令不能解决缺口。
+- 基于 PO 已批准 V0.3 三图数量，调整为第一张 P03-A 也是新场景 Seed 候选，避免额外第4张 PNG。PO 第一张审图需同时确认门体空间/材质/身份及后续三图连续性，不自动升 Approved。
+- 新增 production/bundle_specs/OPENING_P03A_BLOOD_DOOR_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json，为四张宁/君现有 Approved/CURRENT 角色参考；这一 Bundle 的实际技术验证仅能覆盖上述四个**既有**源图，不能冒称 GH 场景图 Approved。
+- GitHub Actions 通用 Bundle Builder 自动触发（待运行报告）；Work 只有在真实4/4 PASS、有 Artifact ID 后可生成 **P03-A 一张**。P03-B/C 在 P03-A PO 审图/Exact Binary Verification 和下一 Bundle 前不得生成。
+- Director/Scene Seed V0.3：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md。Project State R375 / Dashboard V295；旧血门 A/B 与 Opening V001 均保持现状。

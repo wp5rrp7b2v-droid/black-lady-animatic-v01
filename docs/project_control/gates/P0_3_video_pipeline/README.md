@@ -1949,3 +1949,9 @@ Product Owner confirmed that routine Mac local synchronization happens **once du
 - PO 澄清：旧血门 A/B 工作暂停 ≠ P03/P04 分镜不出现木门。原著第133章确认**任务与两条提示在诡舍三楼真实血门上出现**。已更正原 V0.1 画外红光/无门的失实设计。
 - V0.2 设计：木门真实实体、门上原文完整可读；四镜 P03-S01/S02、P04-S01/S02 后原样接入已批准 Opening V001 前6.55s。诡舍血门、莫妮卡庄园外围大门、古堡入口是三个不同地点；门上文本为原著场内信息，不是额外幻灯片。
 - 首轮只验证一张木门与血字真实融合及可读性的 Story Shot 候选，必须先经 PO 设计审核、建立新的诡舍三楼 Scene Reference 与 ≤5 张直接图参的可验证 Bundle；不允许自动 Work 出图、恢复旧木门 A/B 或替换 Opening V001。详见：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_REFERENCE_BUNDLE_DESIGN_V0_2_2026-10-31.md。
+
+## 2026-10-31｜Opening P03–P04 Work 停止后的 Scene Seed 最小修复
+
+- Work 报告三图指令停在正确 Gate：诡舍三楼血门 Master 尚不存在，三图通用 Bundle 未构建；无需增加治理矩阵或要求 PO 手工 ZIP。
+- 依据 PO 已批准的三张图结构，**首张 P03-A 同时承担新血门场景 Seed 候选**，先用已批准的两个人物四张 PNG 通过通用 Actions 做 P03-A Bundle 实体核验、Work 生成一图、PO 双重视觉审核；不是另外做第4张。
+- P03-B/C 只有在 P03-A 的门体/空间连续性由 PO 认可并经 exact binary 受控归档后才能构建自身 Bundle。旧木门 A/B 暂停、Opening V001 锁定。参见：docs/project_control/gates/P0_3_video_pipeline/OPENING_P03_P04_VISUAL_STORYBOARD_V0_3_AND_SCENE_SEED_GATE_2026-10-31.md。
