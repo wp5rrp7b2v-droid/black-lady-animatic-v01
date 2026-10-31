@@ -43,6 +43,11 @@
   },
   "transport": {
     "method": "Original attachment → private temporary Drive exact bytes → GitHub blob P03B or base64 chunk bridge P04C",
-    "reencoding": false
+    "reencoding": false,
+    "chunk_assembly_actions_run": 41189594066,
+    "exact_staging_commit": "396545c148fd9245e95eda53ee9e857d62f07038",
+    "verified_source_git_blob": "926a4a2a4025187fa254ee0cb1a3ac65a0a35e33",
+    "source_sha256": "6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be",
+    "status": "REASSEMBLY_SOURCE_EXACT_PASS / RUN_INDEPENDENT_INTAKE_NEXT"
   }
 }
