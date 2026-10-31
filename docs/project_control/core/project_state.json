@@ -534,13 +534,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V299",
+    "version": "V300",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R379 / THREE APPROVED BLOOD-DOOR STORY SHOTS REGISTERED INDEX35 / ASSEMBLY PROOF NEXT",
-    "derived_from_revision": "R379",
+    "status": "DERIVED R380 / INDEX35 / ORIGINAL NARRATIVE ENTRY SOURCE AUDIO PENDING / NEW OPENING VIDEO NOT APPROVED",
+    "derived_from_revision": "R380",
     "last_updated": "2026-10-31",
-    "current_task": "P03A/B/C THREE-SHOT AUDIOVISUAL PROOF WITH APPROVED 40.260S AUDIO"
+    "current_task": "EARLIER ORIGINAL AUDIO INTAKE THEN P01 CHOICE→P02 CONTRACT MINIMUM STORY INTRO PROOF"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -4952,7 +4952,7 @@
     "final_candidate": "N26 Candidate 03｜Controlled Modification",
     "final_disposition": "N26 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED"
   },
-  "local_sync_status": "2026-10-18 PENDING USER MAC TERMINAL EVIDENCE / NO LOCAL MACHINE ACCESS / PRIOR VERIFIED 2026-10-12 SHA 7f54c6a",
+  "local_sync_status": "2026-10-31 CLOUD CLOSEOUT DONE / LOCAL MAC FAST-FORWARD NOT VERIFIED / USER TERMINAL PROOF REQUIRED",
   "daily_closeout_2026_10_06": {
     "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
