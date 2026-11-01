@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V004_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V004",
+  "sequence_id": "PROJECT_ASSET",
+  "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_04.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 2,
+    "rule": "APPROVED_CAST_2POINT5D_ANIME_STYLE_ONLY_FRESH_INDEPENDENT_BAI_IDENTITY_EXCLUDE_SU_FACE",
+    "notes": "2026-11-01 PO approved V004 after C03 style direction improved but resembled Su Xiaoxiao. Single Work candidate only. References are Wen Qingya and Ning Qiushui approved-current FACE_FRONT STYLE/COMPOSITION ONLY. Su Xiaoxiao and rejected Bai C01/C02/C03 must never be positive visual identity inputs."
+  },
+  "references": [
+    {
+      "reference_id": "AST_IMG_000048",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_WEN_QINGYA",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/wen_qingya/CHAR_WEN_QINGYA_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b",
+      "expected_byte_size": 2930534,
+      "expected_git_blob": "0e2f10b62994113cfa1070e077075daafb3156c6",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "APPROVED_2POINT5D_STYLE_AND_NEUTRAL_FACE_FRONT_COMPOSITION_ONLY_NO_FACE_COPY"
+    },
+    {
+      "reference_id": "AST_IMG_000034",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_NING_QIUSHUI",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/ning_qiushui/CHAR_NING_QIUSHUI_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "5d62423ef9f1abcd349a3736079c77f3f56416cade8991a966fd925e5817ec8c",
+      "expected_byte_size": 2613947,
+      "expected_git_blob": "58663e76c353918025736064c7e25741f51e4864",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "SECOND_APPROVED_MALE_CAST_2POINT5D_STYLE_ONLY_ABSTRACTION_NOT_BAI_IDENTITY"
+    }
+  ],
+  "work_handoff": {
+    "title": "白潇潇 V004 FACE_FRONT｜2.5D动漫风格保留、独立成熟面貌、防苏小小撞脸",
+    "requirements": [
+      "Read exact current V004 GitHub Actions Reference Artifact, WORK_HANDOFF.md and delivery_manifest.json. Verify count 2 and PNG bytes/hash/Git Blob/dimensions. STOP if any mismatch, no fallback to older V003 bundle, C01/C02/C03 or local unverified images.",
+      "PO visual review: Candidate03 has acceptable direction of 2.5D anime style but fails distinct identity because it resembles Su Xiaoxiao. Retain the style, DO NOT retain/recreate Candidate03 face. One independent new Bai Xiaoxiao face only.",
+      "Read Section 15 (V004, highest priority) and Section 14 (2.5D style) of canonical Director Execution: docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md. In case of conflict, latest Section 15 overrides photographic realism or C01/C02 face preservation instructions.",
+      "AST_IMG_000048 Wen Qingya FACE_FRONT and AST_IMG_000034 Ning Qiushui FACE_FRONT are strictly STYLE_AND_COMPOSITION_ONLY. Abstract shared 2.5D character shading, semi-stylized proportions, cinematic-anime volume and consistent framing. They are not any part of Bai facial identity, not permitted for swaps, blends, copied eyebrows/eyes/nose/lips/hair or similar face templates.",
+      "Original adult female face, mature and striking beauty unlike innocent/soft Su Xiaoxiao. Deliberate independent proportions: slightly longer and more structurally defined oval face, clearer cheekbone and adult jaw (not overly sharp), narrower attentive eyes with subtly lifted outer corners, relaxed brows and confident observant gaze; full natural vivid crimson/rose-red lips, clear lip contour without exaggerated volume.",
+      "Preserve character direction: composed, languid warmth with a hint of danger, alive and slightly knowing rather than fatigued or blank; deep long hair with relaxed soft wave and distinct part/face framing, simple dark mature top. No teen sweetface, large harmless sparkling girl eyes or overly soft childish jaw, no overdone villainess makeup.",
+      "Visual style must match existing Approved Cast 2.5D ANIME, dimensional painted-style shading and clean simplified skin/hair, not photoreal portrait, plastic CGI doll or flat 2D anime. Head-on 0 degree FACE_FRONT, eye-level neutral background with head/neck/shoulders and upper chest visible, framing same role as references.",
+      "Generate precisely one 941x1672 9:16 PNG, CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_04.png; self-check only for basic image failures and cease production. Product Owner must visually approve style AND face distinctness before any Master publication."
+    ],
+    "exclusions": [
+      "Su Xiaoxiao FACE_FRONT, Bai C01/C02/C03, or old 6-panel cinematic-photoreal style board as positive image inputs",
+      "copying/blending/modifying existing character facial identity, reusing Wen Qingya or Ning Qiushui face, turning C03 into a mature version of Su",
+      "same soft innocent large-eyed sweetface, small chin and gentle girl-next-door expression as Candidate03",
+      "photographic skin pores, small wrinkles, flyaway hair hyperdetail, cosmetic studio photography, flat 2D, chibi, 3D wax/plastic",
+      "more than one image, other Master views, costume variant, expression sheet, plot scene or extra person",
+      "automatic Approved/Current asset publication, Entity Registry edits, Story Shot registration, video/audio/Project Control changes"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "V004-20261101-PO-AUTHORIZED-ONE-NEW-SEED"
+}
