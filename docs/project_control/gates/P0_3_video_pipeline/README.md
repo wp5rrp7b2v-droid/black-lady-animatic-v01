@@ -1,5 +1,14 @@
 # P0.3｜视频制作与剪辑 Pipeline 再验证
 
+## 2026-11-01 EOD R406｜白潇潇三视角与 Opening 原声收尾
+
+- **Reference exact closeout:** 白潇潇 `CHAR_BAI_XIAOXIAO` 三个独立 `APPROVED/CURRENT` Atomic Masters：`AST_IMG_000109` FACE_FRONT、`000110` FACE_3Q_LEFT、`000111` PROFILE_LEFT。独立 Actions 核验 `41302720607` / `41306683087` / `41314634188` 全部 SUCCESS；原图、Canonical/Registry/审计链完整。角色 Tier 尚未指定，Work-side 原始生成日志溯源 PARTIAL，不能据此宣称全九视角完成。
+- **Opening approved audio (audio-only):** P01/P02 212.270s V002 原声编辑试听 PASS；P01→P04→Neil 192.257s compact V001 也获 PO 完整听审 PASS，两个版本分开保留。没有声画全片 PO 批准或视频母版替换。
+- **Authoritative counts:** Entity 35 / Asset 111 / Audit Events 197 / Story Shots 35 / Formal Videos 3。正式 Opening V001 不变。**P0.3 remains IN PROGRESS / NOT YET VALIDATED**。
+- **EOD report:** [2026-11-01 Daily Closeout](p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md)；下次生产先比较获批 192.257s 音频与已有视觉覆盖，任何新镜头/人物视图仍需另行 PO 授权。2026-11-01 Mac 单向同步待用户终端证据，不预报 PASS。
+
+---
+
 Status: `IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED`
 
 Prerequisite:
