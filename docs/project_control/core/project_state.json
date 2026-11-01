@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R390",
+  "state_revision": "R391",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT CANDIDATE01 PO VISUAL FAIL FATIGUED AND OVERLY PHOTOREAL / V002 TARGETED REPAIR DESIGN DRAFT / NO NEW GENERATION AUTHORIZATION / STORY SHOTS 35 VIDEOS 3 LOCKED",
+  "session_status": "2026-11-01 ACTIVE / BAI C01 FAILED / C01 REVIEW IMAGE EXACTLY ARCHIVED AS UNAPPROVED EDIT SOURCE IN DRIVE 04_CANDIDATES / V002 ONE WORK TARGETED IMAGE EDIT AUTHORIZED / V002 NOT YET GENERATED / INDEX 35 VIDEO3 LOCKED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI FACE_FRONT IDENTITY SEED — C01 VISUAL FAIL, V002 TARGETED STYLE AND EXPRESSION REVISION PENDING AUTHORIZATION",
-  "blocker": "C01 941x1672 user-uploaded PNG is too fatigued and hyper-realistic compared with approved character look per PO. No approved facial identity seed. Single image generation authorization for C01 was consumed; no V002 generation authorized.",
-  "next_action": "Preserve C01 user-submitted review SHA as evidence only, do not ingest Approved. If PO explicitly authorizes V002, require Work to use exact C01 input where available and make targeted brow/eye energy, skin microtexture/flyaway hair, light and natural red lip revisions, avoid face drift. Run minimal proof V002 only 1 PNG and stop for PO visual review. Do not start Tier A multi-view.",
+  "current_task": "BAI FACE_FRONT IDENTITY SEED C02 — ONE WORK TARGETED EDIT AUTHORIZED; ORIGINAL C01 EXACT DRIVE SOURCE VERIFIED",
+  "blocker": "V002 corrected candidate not yet generated or PO visually approved; C01 remains NOT APPROVED. Work must preserve same facial identity and source pixels; no new Tier A shots.",
+  "next_action": "Work read Director Execution V002 section and exact C01 in Drive 04_Candidates ID 1GIi82EGihS65OHwkGoD6p8NmkrA5lciU. Verify 941x1672 PNG, 3052447 bytes and SHA256 8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c; also use earlier verified style-only Bundle if accessible. Targeted retouch only: fatigued brow/under-eye, hyper-realistic microtexture/flyaways, soft neutral light, realistic natural red lips. Output only CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_02.png then STOP for PO.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,35 +120,35 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-C01-PO-VISUAL-FAIL-R390",
-    "status": "ONE FACE FRONT CANDIDATE REVIEWED / VISUAL FAIL / TARGETED V002 DESIGN DRAFT / GENERATION HOLD",
+    "id": "2026-11-01-BAI-C02-TARGETED-EDIT-AUTHORIZED-EXACT-C01-DRIVE-R391",
+    "status": "C01 VISUAL FAIL / USER APPROVES ONE TARGETED WORK V002 EDIT / EXACT DRIVE C01 INPUT PASS / PO C02 PENDING",
     "completed": [
-      "Formal one-reference seed Bundle run 41269290547, artifact 13068716361 exact PASS retained as input provenance.",
-      "PO submitted actual Candidate 01 image and stated fatigued appearance and over-photorealistic mismatch with existing project characters.",
-      "Uploaded review PNG 941x1672 RGBA 3,052,447 bytes SHA256 8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c.",
-      "Visually audited candidate: format/reference purity PASS, tired brow/eye shadow and excessive microtexture/style/role accuracy FAIL; identity NOT approved.",
-      "Appended evidence-specific targeted V002 correction guidance to existing Director Execution document; no new candidate rendered, no registry modification."
+      "User explicitly authorized proposed targeted V002 correction of the rejected Bai FACE_FRONT Candidate 01.",
+      "Existing review input original 941x1672 RGBA 3052447 bytes SHA256 8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c verified locally.",
+      "Uploaded same exact C01 binary to Drive 04_Candidates (not Approved anchors) ID 1GIi82EGihS65OHwkGoD6p8NmkrA5lciU.",
+      "Independently fetched and compared Drive download byte-for-byte with original C01: SHA256, bytes, dimensions all PASS.",
+      "Appended V002 Work targeted edit contract to existing Bai Director Execution document; original approved style-only artifact run 41269290547 id 13068716361 remains provenance.",
+      "No new image created by Chat; no C01 approval, no core master or Story Shot registration."
     ],
-    "resume_from": "V002 TARGETED WORK EDIT AUTHORIZATION AFTER PO REVIEW, NOT FULL REGENERATION OR TIER A",
+    "resume_from": "HAND WORK V002 TARGETED IMAGE EDIT INSTRUCTION, ONE FACE FRONT CANDIDATE 02 THEN PO REVIEW",
     "blockers": [
-      "Candidate01 is user-uploaded review binary only, not independently verified canonical Work delivery; no Approved Asset/Entity record.",
-      "V002 generation and/or exact candidate source intake not yet authorized.",
-      "PO approval of sustainable identity and production visual style remains missing."
+      "Work V002 image not yet rendered and PO C02 visual review not completed.",
+      "If Work cannot access/edit exact C01 candidate without identity regeneration, stop; do not substitute new face.",
+      "Do not delete C01 Drive proof until V002 review and need for further edits closed."
     ],
-    "candidate01_review": {
-      "filename": "image(20261101-033355).png",
-      "source": "PO_UPLOADED_REVIEW_BINARY",
-      "width": 941,
-      "height": 1672,
-      "bytes": 3052447,
-      "sha256": "8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c",
-      "po_verdict": "VISUAL_FAIL_FATIGUED_OVERPHOTOREALISTIC",
-      "approved": false,
-      "canonical_published": false
+    "v002_authorization": {
+      "source": "USER_EXPLICIT_APPROVAL",
+      "scope": "WORK_TARGETED_EDIT_SINGLE_CANDIDATE02",
+      "allowed_output": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_02.png",
+      "count_limit": 1,
+      "source_drive_id": "1GIi82EGihS65OHwkGoD6p8NmkrA5lciU",
+      "source_sha256": "8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c",
+      "source_bytes": 3052447,
+      "source_format": "PNG_RGBA_941x1672",
+      "source_exact_match": true,
+      "work_output_created": false
     },
-    "v002_status": "DIRECTOR_TARGETED_REVISION_DESIGNED_NOT_AUTHORIZED",
-    "v002_review_evidence_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
-    "formal_bundle_remains_verified": true,
+    "director_doc": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
@@ -545,13 +545,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V310",
+    "version": "V311",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R390 / BAI FACE FRONT C01 VISUAL FAIL / V002 TARGETED REVISION DRAFT / NO NEW WORK AUTHORIZATION",
-    "derived_from_revision": "R390",
+    "status": "DERIVED R391 / BAI C01 FAIL / V002 EXACT SOURCE DRIVE VERIFIED & ONE WORK TARGETED EDIT AUTHORIZED / NOT YET GENERATED",
+    "derived_from_revision": "R391",
     "last_updated": "2026-11-01",
-    "current_task": "BAI C01 FATIGUE AND STYLE FAIL → V002 TARGETED REPAIR PENDING PO AUTHORIZATION"
+    "current_task": "BAI FACE_FRONT WORK V002 TARGETED EDIT 1 PNG FROM EXACT C01 DRIVE PROOF"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5721,7 +5721,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_CANDIDATE01_VISUAL_FAIL_V002_TARGETED_EDIT_DRAFT",
+    "status": "BAI_V002_SINGLE_TARGETED_WORK_EDIT_AUTHORIZED_C01_SOURCE_EXACT_VERIFIED",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5730,17 +5730,19 @@
         "formal_entity_exists": false,
         "asset_ready": false,
         "priority": "HIGH",
-        "seed_generation_authorized": false,
+        "seed_generation_authorized": true,
         "evidence": "CH14-15 CH18-20 CH33-36 CH52-53 CH105-129 CH131-133",
         "concept_direction_po_accepted": true,
         "seed_execution_document": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
         "validation_bundle_spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json",
         "bundle_build_authorized": true,
-        "seed_work_status": "CANDIDATE01_USER_REVIEWED_VISUAL_FAIL",
+        "seed_work_status": "V002_SINGLE_TARGETED_EDIT_AUTHORIZED",
         "po_face_identity_approved": false,
         "seed_c01_approved": false,
         "seed_c01_review_sha256": "8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c",
-        "v002_generation_authorized": false
+        "v002_generation_authorized": true,
+        "v002_source_drive_id": "1GIi82EGihS65OHwkGoD6p8NmkrA5lciU",
+        "v002_review_status": "NOT_YET_GENERATED"
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5785,7 +5787,9 @@
       "work_render_completed": true,
       "approved_by_po_for_just_one_candidate": true,
       "po_visual_verdict": "CANDIDATE01_FAIL",
-      "no_new_generation_authorized": true
+      "no_new_generation_authorized": true,
+      "scope": "Original formal style-only Bundle valid; V002 actual face-edit input is separately exact verified Drive C01, not Approved asset",
+      "v002_targeted_edit_one_candidate_authorized": true
     }
   }
 }
