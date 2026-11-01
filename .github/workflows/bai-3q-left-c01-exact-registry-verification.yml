@@ -1,0 +1,79 @@
+name: Bai FACE_3Q_LEFT C01 Exact Binary and Registry Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - "staging/character_candidates/bai_xiaoxiao/*.png"
+      - "production/image_library/character_references/bai_xiaoxiao/*.png"
+      - "production/asset_registry/asset_registry.jsonl"
+      - "production/asset_registry/audit_event_log.jsonl"
+      - ".github/workflows/bai-3q-left-c01-exact-registry-verification.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact C01 source, canonical and registry verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, struct, subprocess
+          expected_sha="1ba0d45945db779f689e20a41c27eee8a4fbe8e11acfddd1e5ab3f89eef51a0e"
+          expected_blob="a3a89c981ab8580abb61b0442215f9781c7f56c6"
+          expected_size=2832772
+          name="CHAR_BAI_XIAOXIAO_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png"
+          stage=Path("staging/character_candidates/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_3Q_LEFT_CANDIDATE_01.png")
+          canonical=Path("production/image_library/character_references/bai_xiaoxiao")/name
+          def check(p):
+              b=p.read_bytes()
+              assert b[:8]==b"\x89PNG\r\n\x1a\n",f"invalid PNG: {p}"
+              assert struct.unpack(">II",b[16:24])==(941,1672),f"invalid dimensions: {p}"
+              assert len(b)==expected_size,f"invalid size: {p}"
+              assert hashlib.sha256(b).hexdigest()==expected_sha,f"invalid SHA256: {p}"
+              actual_blob=subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
+              assert actual_blob==expected_blob,f"invalid Git blob: {p}"
+              return {"path":str(p),"bytes":len(b),"sha256":expected_sha,"git_blob":actual_blob,"width":941,"height":1672}
+          assert stage.is_file(),"Missing approved candidate in staging"
+          result={"stage":check(stage),"canonical":None,"registry_verified":False}
+          print("BAI_3Q_LEFT_STAGING_EXACT_PASS",json.dumps(result["stage"]))
+          if canonical.is_file():
+              result["canonical"]=check(canonical)
+              assert stage.read_bytes()==canonical.read_bytes(),"Candidate and canonical are not identical"
+              def jsonl(p):
+                  return [json.loads(s) for s in Path(p).read_text(encoding="utf-8").splitlines() if s.strip()]
+              assets=jsonl("production/asset_registry/asset_registry.jsonl")
+              entities=jsonl("production/asset_registry/entity_registry.jsonl")
+              audits=jsonl("production/asset_registry/audit_event_log.jsonl")
+              assert len([x for x in entities if x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("entity_status")=="ACTIVE"])==1,"Bai entity invalid"
+              rr=[x for x in assets if x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("role")=="FACE_3Q_LEFT" and x.get("variant")=="DEFAULT" and x.get("state")=="DEFAULT"]
+              assert len(rr)==1,"Bai FACE_3Q_LEFT cardinality invalid"
+              row=rr[0]
+              assert row.get("asset_id")=="AST_IMG_000110","unexpected asset id"
+              assert row.get("sha256")==expected_sha and row.get("byte_size")==expected_size,"Registry byte identity mismatch"
+              assert row.get("storage_uri")==str(canonical) and row.get("filename")==name,"Registry canonical path mismatch"
+              assert row.get("approval_status")=="APPROVED" and row.get("lifecycle")=="CURRENT" and row.get("authority_class")=="MASTER" and row.get("asset_class")=="ATOMIC","Asset status mismatch"
+              assert row.get("version_no")==1,"version mismatch"
+              assert sum(x.get("asset_id")=="AST_IMG_000110" for x in assets)==1,"duplicate asset id"
+              assert len([x for x in assets if x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("role")=="FACE_3Q_LEFT" and x.get("lifecycle")=="CURRENT"])==1,"single current invalid"
+              front=[x for x in assets if x.get("asset_id")=="AST_IMG_000109"]
+              assert len(front)==1 and front[0].get("sha256")=="d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb" and front[0].get("lifecycle")=="CURRENT","C06 front master changed"
+              for typ in ("ASSET_APPROVED","ASSET_INGESTED"):
+                  assert any(a.get("event_type")==typ and a.get("asset_id")=="AST_IMG_000110" and a.get("entity_id")=="CHAR_BAI_XIAOXIAO" for a in audits),f"missing audit {typ}"
+              result["registry_verified"]=True
+              result["asset_id"]="AST_IMG_000110"
+              print("BAI_3Q_LEFT_REGISTRY_EXACT_PASS",json.dumps({"asset_id":row["asset_id"],"sha256":expected_sha,"canonical":str(canonical)}))
+          Path("bai_3q_left_c01_exact_verification.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          PY
+      - name: Preserve exact-verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: BAI_3Q_LEFT_C01_EXACT_VERIFICATION
+          path: bai_3q_left_c01_exact_verification.json
+          retention-days: 30
