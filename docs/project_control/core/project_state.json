@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R393",
+  "state_revision": "R394",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / PO LOCKS 2.5D ANIME CHARACTER VISUAL STYLE / BAI C01 C02 PHOTOREAL STYLE FAIL / V003 ONE SEED DESIGN REVISED / NO V003 GENERATION AUTHORIZATION / 35 SHOTS 3 VIDEOS UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI 2.5D V003 FORMAL BUNDLE EXACT 2/2 PASS / ARTIFACT 13069309141 VERIFIED / ONE WORK C03 AUTHORIZED / NO C03 OUTPUT OR IDENTITY APPROVAL / STORY SHOT 35 VIDEO3 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI V003 FACE_FRONT DESIGN ALIGN TO PO-LOCKED 2.5D ANIME STYLE; NO FURTHER PHOTOREALISTIC RETOUCH",
-  "blocker": "C01/C02 incompatible with PO-locked 2.5D anime style. V003 identity and style not yet visually verified; no V003 formal Bundle or Work authorization.",
-  "next_action": "Use Approved/Current existing FACE_FRONT full portrait character masters as STYLE_AND_COMPOSITION_ONLY, not face identity, to propose 1 separate Bai V003 FACE_FRONT 2.5D anime seed; validate exact refs using GitHub Actions and one Work render only when explicitly authorized. No C01/C02 face preservation, photoreal skin or character copying; PO visual comparison required.",
+  "current_task": "BAI XIAOXIAO V003 2.5D FACE_FRONT — VERIFIED GITHUB BUNDLE DELIVERED; WORK ONE C03 PNG NOW READY",
+  "blocker": "Technical source and Bundle delivery gap resolved. Work must still render candidate03 using verified V003 Artifact; PO visual style and identity review remains pending.",
+  "next_action": "Work use verified GitHub Actions run 41273039771 artifact 13069309141 exactly, reverify delivery_manifest and two approved-current STYLE_AND_COMPOSITION_ONLY FACE_FRONT source PNGs, render only CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_03.png 941x1672 2.5D anime, then STOP for PO review. Do not use photorealistic C01/C02 or old V001 Bundle.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,45 +120,46 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-PO-LOCKED-2POINT5D-CHARACTER-STYLE-R393",
-    "status": "PO 2.5D ANIME STYLE CONSTRAINT LOCKED / C01 C02 PHOTOREAL FAIL / V003 DESIGN UPDATED / NO NEW IMAGE AUTHORIZATION",
+    "id": "2026-11-01-BAI-2POINT5D-C03-FORMAL-BUNDLE-ARTIFACT-EXACT-PASS-R394",
+    "status": "V003 FORMAL BUNDLE 2/2 EXACT PASS / ZIP INDEPENDENTLY VERIFIED / WORK C03 ONE PNG AUTHORIZED / NO VISUAL APPROVAL",
     "completed": [
-      "PO submitted Bai FACE_FRONT Candidate02 and said improved energy but still differs in visual channel from other characters.",
-      "C02 941x1672 RGBA PNG 2958047 bytes SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07.",
-      "C02 kept as UNAPPROVED comparison source only in private Drive 04_Candidates ID 1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g and independently re-downloaded EXACT PASS.",
-      "Compared actual Approved/Current Ning Qiushui and Jun Luyuan character reference sheets and FACE_3Q_LEFT PNGs from October31 verified GitHub artifact 13037955694; existing assets use restrained cinematic rendering and more upper-body composition than Bai close-up portraits.",
-      "Original controlled character style board is six crops of face, hair and wardrobe; its exact binary remains valid, but lacks whole-portrait composition guidance. C01/C02 show style-only one-reference plus retouch hypothesis did not succeed.",
-      "Appended explicit previous/new baseline and failure evidence to existing Bai Director Execution document, with only one separate V003 design proposal; no Work or generation invoked.",
-      "PO explicitly corrected project character style to 2.5D anime, not photographic realism; prior Chat label 'restrained cinematic realism' insufficient/wrong for expected style.",
-      "Existing Bai Director Execution doc appended Section 14 as highest priority override; fixes source of two failed candidates rather than performing another portrait retouch.",
-      "V003 1x FACE_FRONT proposed with approved full character FACE_FRONT master(s) as STYLE/COMPOSITION ONLY; no named face copying or automatic seed approval."
+      "Discovered prior assistant had offered a V003 Bundle design and Work text but had not created actual Spec or Artifact; Work correctly reported 404 and stopped.",
+      "Created production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001.json at commit 58f1aee64f51d362b88d91f463f33f93ee30a1ec with build_authorized true, only two approved current FACE_FRONT style/composition-only assets.",
+      "GitHub Actions run 41273039771 SUCCESS job 124749544081: PASS 2/2 exact canonical reference binaries verified and generation_allowed true.",
+      "GitHub Artifact 13069309141 independently downloaded as 5992988 byte ZIP, SHA256 042ea8e898ed0ce7b16b711ad5db2343d01018ab08775cf74d0b54248c8a64e8 identical to service digest; CRC PASS.",
+      "ZIP contains precisely 4 items including manifest, Work handoff, Su Xiao Xiao AST_IMG_000044 FACE_FRONT and Wen Qingya AST_IMG_000048 FACE_FRONT; real PNG bytes / SHA / Git Blob / 941x1672 verified 2/2.",
+      "Evidence and exact Work scope recorded at docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V003_BUNDLE_EXACT_VERIFICATION_AND_WORK_HANDOFF_2026-11-01.md.",
+      "Prior C01/C02 failures and all approved audio, Story Shot and Video Index remain unchanged."
     ],
-    "resume_from": "V003 2.5D ANIME STYLE SEED MINIMUM PROOF, PO AUTHORIZATION BEFORE BUNDLE/WORK",
+    "resume_from": "WORK USE EXACT V003 ARTIFACT 13069309141 TO GENERATE ONLY ONE 2.5D ANIME FACE_FRONT CANDIDATE 03 THEN PO REVIEW",
     "blockers": [
-      "Missing PO-approved Bai visual 2.5D identity seed.",
-      "No V003 bundle/Work production authorization.",
-      "Do not treat old C01/C02 or prior photographic style description as baseline."
+      "Candidate03 not yet rendered or PO visually approved.",
+      "Tier A full nine-view asset set and formal Entity/Asset registrations not authorized."
     ],
-    "candidate02_review": {
-      "name": "image(20261101-034650).png",
-      "source": "PO_UPLOADED_REVIEW_BINARY",
-      "width": 941,
-      "height": 1672,
-      "bytes": 2958047,
-      "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
-      "private_drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g",
-      "review_status": "PO_VISUAL_STYLE_FAIL_EXPRESSION_PARTIAL_PASS",
-      "approved": false,
-      "canonical_published": false
+    "v003_bundle": {
+      "name": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001",
+      "spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001.json",
+      "spec_commit": "58f1aee64f51d362b88d91f463f33f93ee30a1ec",
+      "run_id": 41273039771,
+      "job_id": 124749544081,
+      "artifact_id": 13069309141,
+      "zip_sha256": "042ea8e898ed0ce7b16b711ad5db2343d01018ab08775cf74d0b54248c8a64e8",
+      "zip_bytes": 5992988,
+      "expires_at": "2026-11-08T04:25:42Z",
+      "exact_verified": "2_OF_2",
+      "real_zip_downloaded": true,
+      "reference_asset_ids": [
+        "AST_IMG_000044",
+        "AST_IMG_000048"
+      ],
+      "use": "STYLE_AND_COMPOSITION_ONLY_NOT_CHARACTER_IDENTITY",
+      "work_generation_authorized": "ONLY_ONE_C03",
+      "work_output_created": false,
+      "url": "https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41273039771/artifacts/13069309141"
     },
-    "v003_status": "PROPOSED_FRESH_STYLE_AND_COMPOSITION_ANCHORED_FACE_FRONT_ONE_CANDIDATE_UNAUTHORIZED",
-    "v003_preconditions": "EXPLICIT_PO_APPROVAL_FOR_REVISED_REF_SELECTION_BUNDLE_AND_SINGLE_WORK_RENDER",
-    "technical_prior_bundle": "41269290547 / 13068716361 exact PASS historically, but artistic style outcome C01/C02 FAIL",
+    "record": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V003_BUNDLE_EXACT_VERIFICATION_AND_WORK_HANDOFF_2026-11-01.md",
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
-    "local_sync_last_verified_on": "2026-10-31",
-    "style_directive": "2.5D_ANIME_MATCH_EXISTING_APPROVED_CAST_PO_LOCKED",
-    "design_revision_section": 14,
-    "formal_artifact_unchanged": true
+    "local_sync_last_verified_on": "2026-10-31"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -553,13 +554,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V313",
+    "version": "V314",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R393 / PO 2.5D ANIME VISUAL STYLE LOCKED / BAI V003 DESIGN / NO NEW IMAGE",
-    "derived_from_revision": "R393",
+    "status": "DERIVED R394 / BAI V003 2.5D BUNDLE EXACT 2/2 PASS / ONE WORK C03 AUTHORIZED / VISUAL PENDING / 35 SHOTS 3 VIDEOS",
+    "derived_from_revision": "R394",
     "last_updated": "2026-11-01",
-    "current_task": "BAI V003 2.5D ANIME STYLE MATCH SINGLE SEED DESIGN; PENDING FORMAL WORK AUTHORIZATION"
+    "current_task": "BAI V003 FACE_FRONT WORK ONE C03 USING ARTIFACT 13069309141"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5729,7 +5730,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_V003_DIRECTOR_STYLE_2POINT5D_PO_LOCKED_GENERATION_NOT_AUTHORIZED",
+    "status": "BAI_V003_2POINT5D_FORMAL_VERIFIED_BUNDLE_ONE_WORK_C03_READY",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5751,9 +5752,12 @@
         "v002_generation_authorized": false,
         "v002_source_drive_id": "1GIi82EGihS65OHwkGoD6p8NmkrA5lciU",
         "v002_review_status": "PO_VISUAL_FAIL_STYLE",
-        "v003_generation_authorized": false,
+        "v003_generation_authorized": true,
         "visual_style": "PO_LOCKED_2_5D_ANIME",
-        "face_c01_c02_canonical_identity": false
+        "face_c01_c02_canonical_identity": false,
+        "v003_work_status": "AWAIT_ONE_C03_RENDER",
+        "v003_bundle_artifact_id": 13069309141,
+        "v003_po_identity_approved": false
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5821,7 +5825,28 @@
         "C01",
         "C02"
       ],
-      "v003_work_authorized": false
+      "v003_work_authorized": true
+    },
+    "formal_bundle_v003": {
+      "name": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001",
+      "spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001.json",
+      "spec_commit": "58f1aee64f51d362b88d91f463f33f93ee30a1ec",
+      "run_id": 41273039771,
+      "job_id": 124749544081,
+      "artifact_id": 13069309141,
+      "zip_sha256": "042ea8e898ed0ce7b16b711ad5db2343d01018ab08775cf74d0b54248c8a64e8",
+      "zip_bytes": 5992988,
+      "expires_at": "2026-11-08T04:25:42Z",
+      "exact_verified": "2_OF_2",
+      "real_zip_downloaded": true,
+      "reference_asset_ids": [
+        "AST_IMG_000044",
+        "AST_IMG_000048"
+      ],
+      "use": "STYLE_AND_COMPOSITION_ONLY_NOT_CHARACTER_IDENTITY",
+      "work_generation_authorized": "ONLY_ONE_C03",
+      "work_output_created": false,
+      "url": "https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41273039771/artifacts/13069309141"
     }
   }
 }
