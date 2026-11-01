@@ -1,0 +1,45 @@
+name: Bai PROFILE_LEFT C01 Exact Registration Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/asset_registry/audit_event_log.jsonl"
+      - "production/asset_registry/asset_registry.jsonl"
+      - "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png"
+      - ".github/workflows/bai-profile-left-exact-verification.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact binary and registry
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,struct,subprocess
+          p=Path("production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png")
+          b=p.read_bytes()
+          sha="f2429302143abc088a3faa1fb43d654a328e8018fa50161b15398e88b0a37836"
+          blob="fecd61a97d7fd332bb8177eb670f2a4e14ce521b"
+          assert b[:8]==bytes.fromhex("89504e470d0a1a0a")
+          assert struct.unpack(">II",b[16:24])==(941,1672)
+          assert len(b)==2757424 and hashlib.sha256(b).hexdigest()==sha
+          assert subprocess.check_output(["git","hash-object",str(p)],text=True).strip()==blob
+          def records(path): return [json.loads(x) for x in Path(path).read_text().splitlines() if x.strip()]
+          assets=records("production/asset_registry/asset_registry.jsonl")
+          events=records("production/asset_registry/audit_event_log.jsonl")
+          entities=records("production/asset_registry/entity_registry.jsonl")
+          rows=[x for x in assets if x.get("asset_id")=="AST_IMG_000111"]
+          assert len(rows)==1
+          a=rows[0]
+          for k,v in {"entity_id":"CHAR_BAI_XIAOXIAO","role":"PROFILE_LEFT","approval_status":"APPROVED","lifecycle":"CURRENT","authority_class":"MASTER","asset_class":"ATOMIC","version_no":1,"sha256":sha,"byte_size":len(b),"storage_uri":str(p)}.items(): assert a.get(k)==v,k
+          assert sum(x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("role")=="PROFILE_LEFT" and x.get("lifecycle")=="CURRENT" for x in assets)==1
+          assert sum(x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("entity_status")=="ACTIVE" for x in entities)==1
+          for e in ("ASSET_APPROVED","ASSET_INGESTED"):
+              assert sum(x.get("asset_id")=="AST_IMG_000111" and x.get("event_type")==e for x in events)==1,e
+          print("BAI_PROFILE_LEFT_C01_EXACT_REGISTRY_PASS",sha,blob,len(b),len(assets),len(events))
+          PY
