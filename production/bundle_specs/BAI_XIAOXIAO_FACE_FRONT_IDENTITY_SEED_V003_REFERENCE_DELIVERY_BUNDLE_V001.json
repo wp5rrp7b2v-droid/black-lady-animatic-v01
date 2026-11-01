@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V003",
+  "sequence_id": "PROJECT_ASSET",
+  "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_03.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 2,
+    "rule": "PROJECT_2POINT5D_ANIME_APPROVED_FACE_FRONT_STYLE_AND_COMPOSITION_ONLY_NO_OTHER_FACE_COPY",
+    "notes": "PO requires unified approved cast 2.5D anime style, not photorealism; user requested V003 reference bundle and Work instruction. A single new candidate is authorized; approval is visual gate only. Bundle uses 2 exact Approved/Current female FACE_FRONT references as STYLE/COMPOSITION ONLY, excluding old cropped human-realism style board and rejected Bai C01/C02."
+  },
+  "references": [
+    {
+      "reference_id": "AST_IMG_000044",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_SU_XIAOXIAO",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/su_xiaoxiao/CHAR_SU_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "1ecf8d82a1346b08da5a5530d39a1492e14427439b3630facf436369f1e59403",
+      "expected_byte_size": 3057346,
+      "expected_git_blob": "140bd21af2a25cf016eb7d07f6cf5253dfa02b78",
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "PROJECT_APPROVED_2POINT5D_ANIME_STYLE_AND_FACE_FRONT_FRAMING_ONLY_NOT_BAI_IDENTITY"
+    },
+    {
+      "reference_id": "AST_IMG_000048",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_WEN_QINGYA",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/wen_qingya/CHAR_WEN_QINGYA_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b",
+      "expected_byte_size": 2930534,
+      "expected_git_blob": "0e2f10b62994113cfa1070e077075daafb3156c6",
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "SECOND_APPROVED_2POINT5D_ANIME_STYLE_AND_FACE_FRONT_COMPOSITION_CHECK_NOT_BAI_FACE_TEMPLATE"
+    }
+  ],
+  "work_handoff": {
+    "title": "白潇潇 FACE_FRONT 2.5D动漫风格｜Candidate 03｜一次性正式制图",
+    "requirements": [
+      "Before any generation, download the exact GitHub Actions V003 reference delivery artifact and read delivery_manifest.json and WORK_HANDOFF.md. Verify reference_count=2, all SHA256/bytes/git blobs/dimensions. If unavailable or any mismatch, STOP; do not use previous V001 Bundle or Bai C01/C02.",
+      "Read latest director style override (Section 14) from docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md. It supersedes historical cinematic-photoreal instructions wherever conflicting.",
+      "Two Approved/Current images of CHAR_SU_XIAOXIAO and CHAR_WEN_QINGYA are strictly STYLE_AND_COMPOSITION_ONLY. Extract 2.5D anime character rendering, semi-stylized facial shading, balanced anime proportions, head/shoulder scale, neutral background, soft light, and fabric simplification. Do NOT copy, blend, modify, substitute or transplant their faces/identity.",
+      "Make one original independent adult woman face for CHAR_BAI_XIAOXIAO based on source-grounded character design: mature striking beauty, vivid natural red lips, slight languid yet alert expression, warmth and controlled confidence, deep long hair with natural loose wave or subtle side part, simple dark top.",
+      "Visual style must clearly match the existing Approved Cast 2.5D ANIME look. Semi-stylized intentional eye/nose/mouth/facial planes, smooth painterly/anime shading with dimensional volume. No skin pores, fine wrinkles, individually photoreal flyaway hair, editorial real-human skin photos, camera-portrait realism, or cosmetic advertising imagery.",
+      "Create FACE_FRONT 0 degree eye-level, single character, full head/neck/shoulders/upper chest in frame, in proportion and framing like the two FACE_FRONT style-only masters. 941x1672 PNG in 9:16 portrait, clean simple neutral background and even soft lighting.",
+      "P01 red sleepdress/black flip-flops are scene-only costume variants and must NOT appear in this neutral identity seed. No props, no text, no other people.",
+      "Deliver EXACTLY 1 PNG named CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_03.png and then STOP for Product Owner visual approval. The candidate is NOT Approved, not Current and not a Master yet."
+    ],
+    "exclusions": [
+      "using obsolete or non-existent V003 artifact, old Bai V001 bundle, or C01/C02 as image identity bases",
+      "photorealistic real-world human portraits, studio photos, 3D plastic dolls, 2D flat cartoons or chibi style",
+      "copying/face-blending Su Xiaoxiao or Wen Qingya, or using their character outfits as Bai wardrobe",
+      "copying other named character faces or mixing facial features from reference people",
+      "more than one generated candidate, any extra angles or expression sheets, Tier A rollout",
+      "P01 scene costume, indoor castle lighting, blood/doors, props, typography and collage",
+      "automatic publication or changes to Entity/Asset Registry, Story Shot Index, approved audio, formal videos or project Dashboard"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "V003-FORMAL-BUILD-PO-AUTHORIZED-20261101"
+}
