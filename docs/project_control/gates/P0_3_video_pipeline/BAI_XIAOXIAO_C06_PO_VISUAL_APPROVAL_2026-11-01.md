@@ -31,3 +31,14 @@ PO 决定：**批准这张**（Product Owner 在 Chat 中对所附候选 PNG 明
 **当前状态：PO VISUAL PASS / OUTPUT BINARY MEASURED / CANONICAL INGEST & EXACT VERIFICATION PENDING**。
 
 禁止：重新生成 C06、进行额外候选/九视图、Story Shot 登记、修改视频、冒称已完成 Canonical 入库。
+
+## 2026-11-01｜注册执行授权与前置阻塞
+
+- PO 随后明确指令：**「批准按照流程登记」**。授权仅针对已批准的 C06 同一原始二进制，允许按正式人物 Atomic FACE_FRONT 流程完成 Exact Intake → Canonical Publication → Entity/Asset Registry → Audit → Registration Verification → Project Control。
+- 用户在 Chat 中上传的 C06 图片已在当前执行环境直接读取并进行 SHA-256 检查：PNG、941×1672、2,747,575 bytes、SHA-256 `d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb`、Git Blob SHA-1 `38761350f926c30358cb98e55d6f4d603d8825f1`（本地源字节计算）。
+- GitHub main 当前正式 Entity Registry **无** `CHAR_BAI_XIAOXIAO`；Asset Registry **无**白潇潇角色资产。新建实体/首个 `FACE_FRONT` 版本时必须与真实 PNG 的 canonical publication、Audit 同一已核验事务完成。不得提前虚构 Asset ID 或 CURRENT。
+- 参照既有人物图集命名，预定候选审批后的正式目标：`production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png`（**仅预定目标，文件尚未创建**）。源入库应使用 C06 完整未改动原始字节，不能复用 C02 身份输入做输出，也不能重编码/转格式。
+- 本执行环境可读取 Chat 附件并计算真实 checksum，但 GitHub 连接器的写入接口目前只接受 UTF-8 文本或者调用方直接提供的 Base64 Blob 文本，不支持将本地聊天附件文件路径/指针直接传给 GitHub；云端 GitHub Actions 也不能直接访问聊天附件。已经检查，**尚未**将该原图传入 GH；不可将 SHA/Manifest 文本当成实际图像上传。
+- 因此：**PO 授权有效，但二进制摄入被传输能力阻塞**。后续 Work/有权访问原始图字节的执行端应向 GitHub 候选 Staging 交付同一 PNG；Chat 复核上述 SHA-256、byte_size、dimensions、Git Blob 全部相符后，再执行 GitHub exact canonical promotion、资产登记和登记核验。不能因本记录/PO 批准就标记为 Atomic Master 已完成。
+
+**最新执行状态：PO APPROVED FOR REGISTRATION / SOURCE BYTES LOCALLY VERIFIED / GITHUB BINARY INGEST BLOCKED / NO REGISTRY MUTATION**。
