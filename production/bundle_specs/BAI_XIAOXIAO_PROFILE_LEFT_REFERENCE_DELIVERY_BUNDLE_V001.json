@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "BAI_XIAOXIAO_PROFILE_LEFT_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "BAI_XIAOXIAO_PROFILE_LEFT_CANDIDATE_01",
+  "sequence_id": "PROJECT_ASSET",
+  "target_candidate": "CHAR_BAI_XIAOXIAO_PROFILE_LEFT_CANDIDATE_01.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 2,
+    "rule": "C06_FRONT_PRIMARY_IDENTITY_AND_APPROVED_3Q_LEFT_SECONDARY_GEOMETRY_ONLY",
+    "work_generation_authorized": false,
+    "authorization_scope": "FORMAL_BUNDLE_BUILD_AND_INDEPENDENT_EXACT_VERIFICATION_ONLY",
+    "identity_lock": "FACE_FRONT_V001_C06",
+    "note": "Use only Bai C06 FACE_FRONT and approved Bai FACE_3Q_LEFT as direct positive references; do not use Wen Qingya or other cast as positive generation references."
+  },
+  "references": [
+    {
+      "reference_id": "AST_IMG_000109",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_BAI_XIAOXIAO",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "CONDITIONAL",
+      "canonical_path": "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb",
+      "expected_byte_size": 2747575,
+      "expected_git_blob": "38761350f926c30358cb98e55d6f4d603d8825f1",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "primary_identity_authority"
+    },
+    {
+      "reference_id": "AST_IMG_000110",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_BAI_XIAOXIAO",
+      "role": "FACE_3Q_LEFT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "CONDITIONAL",
+      "canonical_path": "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "1ba0d45945db779f689e20a41c27eee8a4fbe8e11acfddd1e5ab3f89eef51a0e",
+      "expected_byte_size": 2832772,
+      "expected_git_blob": "a3a89c981ab8580abb61b0442215f9781c7f56c6",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "secondary_left_turn_geometry"
+    }
+  ],
+  "work_handoff": {
+    "title": "白潇潇 PROFILE_LEFT V001｜正式参考 Bundle｜Work 生成尚未授权",
+    "requirements": [
+      "The Bundle build and verification are authorized; Work candidate rendering requires separate Product Owner permission. Technical generation_allowed does not imply Work authorization.",
+      "Use C06 front as primary facial identity; use approved Bai FACE_3Q_LEFT C01 only to support consistent turning geometry, hairstyle and clothing.",
+      "Produce (only after separate authorization) exactly one 941x1672 9:16 PNG strict 90 degree left facial profile, side-view head and shoulders, neutral background, soft even illumination.",
+      "Maintain C06 nose bridge and tip, lips, chin, jawline, forehead, hairline, dark hairstyle, complexion, 2.5D semi-realistic animation treatment, muted dark outfit, mature calm and quietly alert experienced-guest presence.",
+      "Only one near eye visible; far eye not visible. No 3/4-angle regression, no mirroring from right profile; preserve semantic LEFT orientation relative to approved 3Q view.",
+      "Stop at identity drift, failed exact verification or distorted side silhouette; submit only one candidate for PO visual approval; no automatic retry."
+    ],
+    "exclusions": [
+      "No Wen Qingya, Su Xiaoxiao, Ning Qiushui or other character portraits as positive generation inputs.",
+      "No illustrative chat concept image used as identity reference.",
+      "No glamour restyling, exaggerated severe glare, weapons, props or P01 red sleepdress.",
+      "No autonomous candidate generation, publication, Registry updates, Story Shot registration, or video changes."
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "PROFILE_LEFT_V001_DIRECTOR_PO_APPROVED_20261101_BUILD_ONLY"
+}
