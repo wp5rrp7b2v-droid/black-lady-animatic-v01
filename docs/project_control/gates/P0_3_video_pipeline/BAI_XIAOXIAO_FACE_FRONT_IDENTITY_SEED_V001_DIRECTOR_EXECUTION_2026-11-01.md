@@ -88,3 +88,16 @@ Bundle proposed ID: `BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BU
 - 等待下一步制图明确授权后，再使用 Chat → GitHub Actions → Work → PO → Chat 落档的既有管线。
 - **白潇潇的视觉概念方向已经由 PO 同意继续，但实际脸及正式 Tier A 的批准仍待实测和 PO 视觉审批。**
 - 孟军 Master 暂缓；P01/P02 Story Shot 分镜仍等待人物 Master 生产就绪，其他已批准基准不变。
+
+## 9. GitHub Actions Validation-only 实际结果｜2026-11-01
+
+- Spec: `production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json`
+- Trigger commit: `fed579452553fe8f3158e86aad74ae655cc4259a`
+- Run: [41269072501](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41269072501)
+- Job: `124737899192` / completed / **SUCCESS**.
+- Verified raw Action log (do not reinterpret): `VALIDATION_PASS: 1/1 exact canonical references verified`.
+- Raw log: `BUILD_AUTHORIZED=FALSE` / `GENERATION_ALLOWED=FALSE` / Bundle ID `BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Build verified reference bundle: **SKIPPED**; Upload verified bundle: **SKIPPED**.
+- Proven: 1 approved/current controlled style-only PNG is present at expected path, its manifest and exact size/hash/Git blob/dimensions satisfy the canonical builder, and the validation-only permission gate works.
+- **Not Proven / not authorized:** actual reference delivery artifact existence, Work reading an Artifact, produced FACE_FRONT candidate, Bai's facial identity, Tier A completeness, any Entity/Asset registration, or full Story Shot video.
+- Next stage requires separate, explicit PO permission for `build_authorized=true` and exactly **one** Work FACE_FRONT Candidate; existing design approval is not that production approval.
