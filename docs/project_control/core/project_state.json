@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R403",
+  "state_revision": "R404",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT V001 AST_IMG_000109 + FACE_3Q_LEFT V001 AST_IMG_000110 BOTH EXACT CANONICAL APPROVED CURRENT / INDEPENDENT ACTIONS 41306683087 PASS / 35 STORY SHOTS AND 3 OFFICIAL VIDEOS UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT AST_IMG_000109 + FACE_3Q_LEFT AST_IMG_000110 + PROFILE_LEFT AST_IMG_000111 APPROVED CURRENT / PROFILE_LEFT EXACT SOURCE HASH AND GIT BLOB MATCH / ACTIONS REGISTRATION VERIFICATION PENDING / 35 STORY SHOTS AND 3 OFFICIAL VIDEOS UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -6006,6 +6006,24 @@
     "closeout_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_3Q_LEFT_C01_REGISTRATION_CLOSEOUT_2026-11-01.md",
     "reference_coverage_partial": true,
     "more_view_generation_authorized": false,
+    "story_shots_unchanged": 35,
+    "official_videos_unchanged": 3
+  },
+  "bai_xiaoxiao_profile_left_c01": {
+    "status": "APPROVED_CURRENT_CANONICAL_BINARY_AND_REGISTRY_PUBLISHED_PENDING_INDEPENDENT_ACTIONS_VERIFICATION",
+    "asset_id": "AST_IMG_000111",
+    "asset_path": "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_PROFILE_LEFT_DEFAULT_DEFAULT_V001.png",
+    "sha256": "f2429302143abc088a3faa1fb43d654a328e8018fa50161b15398e88b0a37836",
+    "git_blob": "fecd61a97d7fd332bb8177eb670f2a4e14ce521b",
+    "byte_size": 2757424,
+    "dimensions": [
+      941,
+      1672
+    ],
+    "drive_id": "1pu8r13MXYgvggd11Z1dgzpwqPqLuS3cf",
+    "po_approval": "2026-11-01",
+    "source_bundle_run": 41307711475,
+    "verification": "Local uploaded source SHA256 and Git blob SHA1 MATCH; GitHub Actions independent verification not yet run",
     "story_shots_unchanged": 35,
     "official_videos_unchanged": 3
   }
