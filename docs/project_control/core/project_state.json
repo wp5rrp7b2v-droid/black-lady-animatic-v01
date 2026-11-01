@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R397",
+  "state_revision": "R398",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI C04 ROLE VISUAL FAIL / V005 FORMAL REFERENCE BUNDLE BUILD AND INDEPENDENT EXACT 2/2 PASS / WORK C05 NOT AUTHORIZED / STORY SHOT35 VIDEO3 UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI C05 VISUAL IDENTITY FAIL SIMILAR TO WEN QINGYA / FULL APPROVED FACE AS POSITIVE STYLE INPUT STRATEGY HALTED / NO V006 AUTHORIZATION / 35 SHOTS 3 VIDEOS UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI V005 FACE_FRONT REFERENCE BUNDLE EXACT VERIFIED — WAIT SEPARATE PO AUTHORIZATION FOR ONE WORK C05",
-  "blocker": "V005 2-reference Bundle technically ready but new Candidate05 has not been generated or PO approved. User authorized bundle creation only, not Work rendering. No approved Bai identity seed or Tier A Master.",
-  "next_action": "When Product Owner explicitly authorizes Work, hand off only V005 artifact 13070891484 from run 41274531077 with exact zip SHA256 63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691, verify 2 approved current style-only refs, generate one 941x1672 FACE_FRONT C05 prioritizing alert composed seasoned ghost-house veteran, practical modest dark outfit and restrained hair, 2.5D anime with independent Bai face; then STOP for PO visual. No new Work generation now.",
+  "current_task": "BAI FACE_FRONT C05 VISUAL FAIL — STOP REUSING APPROVED FEMALE FACE_FRONT AS POSITIVE NEW CHARACTER GENERATION REFS",
+  "blocker": "C05 visually indistinguishable enough from approved Wen Qingya to fail independent Bai identity. Previously C03 resembled Su Xiaoxiao. Positive complete approved cast faces as generative style references are inadequate despite STYLE_ONLY wording. No Approved Bai Master.",
+  "next_action": "Do NOT produce C06 from another approved complete character face reference. First devise smallest de-identified style/composition proof (avoid usable identity/face/hair/wardrobe of existing cast), separately define Bai face and practical seasoned ghost guest appearance; only after PO approves this new input experiment build/verify a fresh reference bundle and run exactly 1 Work seed. Confirm direct side-by-side visual pass before any nine views.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,40 +120,45 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-V005-BUNDLE-EXACT-VERIFIED-R397",
-    "status": "FORMAL V005 BUNDLE TECH PASS 2/2 / ARTIFACT INDEPENDENT EXACT PASS / WORK RENDER NOT AUTHORIZED",
+    "id": "2026-11-01-BAI-C05-IDENTITY-SIMILAR-TO-WEN-FAIL-R398",
+    "status": "C05 PO VISUAL IDENTITY FAIL / FULL CAST FACE STYLE REFERENCE ROUTE HALTED / FUTURE ONE-PROOF DESIGN REQUIRED",
     "completed": [
-      "User explicitly requested a new V005 Bundle after C04 role-character FAIL; did not separately authorize Work generation.",
-      "Reused V004 Approved/Current Wen Qingya AST_IMG_000048 and Ning Qiushui AST_IMG_000034 as 2.5D STYLE_AND_COMPOSITION_ONLY references. Replaced V004 glam character handoff with V005 seasoned capable experienced ghost-house participant design.",
-      "Created V005 spec production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001.json, commit 98f5839a1a09d4fe1e73bde729031fbc9a120f39; build_authorized=true, work_generation_authorized=false.",
-      "GitHub Actions run 41274531077 completed SUCCESS; job 124753909220, exact 2/2 canonical reference binaries PASS, artifact 13070891484 uploaded.",
-      "Independently downloaded and inspected artifact ZIP: 5550019 bytes SHA256 63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691, ZIP CRC PASS, manifest PASS, four expected files and both PNG original SHA256/size/Git Blob/dimensions PASS.",
-      "GitHub verification closeout doc docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md committed. No Work C05 candidate produced and no approved Character Master.",
-      "Original approved compact Opening 192.257s sound, official Story Shot Index35, Video Index3, existing approved cast remain unchanged."
+      "PO uploaded Bai C05 and asked whether it is essentially Wen Qingya.",
+      "Local C05 review binary verified: PNG 941x1672 RGBA 2839544 bytes, SHA256 176271492a2a46233b6b36dc296ab17d955a2bfb1590b5dc0ee768e025d629b1.",
+      "Independently extracted exact Approved/Current Wen Qingya FACE_FRONT from V005 formally verified bundle, SHA256 2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b, and visually compared side-by-side.",
+      "Faces, hair updo, black outer jacket and inner shirt highly similar: visually same-character-like. C05 independent Bai identity FAIL, not approved, source does not prove underlying pixel copying.",
+      "C03 previously resembled Su Xiaoxiao while V003 full-face female inputs included Su; C05 resembles Wen from V005 positive female full-face input: two concrete visual failures disprove sufficient identity separation by prompt-only STYLE_AND_COMPOSITION_ONLY clauses.",
+      "Prior R397 noted Work render not authorized/produced; subsequent assistant issued full Work C05 instructions and actual PO image now exists. Updated actual state to C05 received and rejected; did not retroactively claim any canonical production approval.",
+      "Added Section17 to existing Bai Director Execution doc with failed-input causal diagnosis, preserved valid 2.5D and character requirements, and a minimal de-identified reference hypothesis."
     ],
-    "resume_from": "PO EXPLICIT WORK SINGLE C05 AUTHORIZATION, USE V005 ARTIFACT 13070891484, STOP AFTER ONE PNG FOR VISUAL REVIEW",
+    "resume_from": "DESIGN AND VALIDATE DE-IDENTIFIED 2.5D STYLE AUTHORITY MINIMUM PROOF, NOT ANOTHER POSITIVE APPROVED FACE REFERENCE BUNDLE",
     "blockers": [
-      "No new Work image generation authorized; Bundle builder generation_allowed=true is technical readiness only, not approval to render.",
-      "Candidate05 does not exist; no Bai FACE_FRONT identity PASS or Tier A nine-view production-ready Master."
+      "Candidate05 has not been PO visually accepted; no Bai identity seed, Tier A atomic core, reference sheet or formal Asset Registry item.",
+      "Using approved complete actor FACE_FRONT as positive references must stop for this new-character identity task.",
+      "No new V006 Bundle/Work production authorization; prior V005 technical integrity PASS only."
     ],
-    "v005_bundle": {
-      "status": "FORMAL_BUILD_INDEPENDENT_EXACT_PASS",
-      "id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001",
-      "spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001.json",
-      "spec_commit": "98f5839a1a09d4fe1e73bde729031fbc9a120f39",
-      "run_id": 41274531077,
-      "job_id": 124753909220,
-      "artifact_id": 13070891484,
-      "zip_bytes": 5550019,
-      "sha256": "63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691",
-      "refs_exact": "2/2",
-      "run_conclusion": "success",
-      "independent_zip_verify": "PASS",
-      "expires_at": "2026-11-08T04:49:18Z",
-      "work_generation_authorized": false,
-      "work_c05_rendered": false
+    "c05_review": {
+      "source": "PO_UPLOADED_REVIEW_BINARY",
+      "uploaded_name": "image(20261101-045919).png",
+      "width": 941,
+      "height": 1672,
+      "format": "RGBA_PNG",
+      "size_bytes": 2839544,
+      "sha256": "176271492a2a46233b6b36dc296ab17d955a2bfb1590b5dc0ee768e025d629b1",
+      "compared_against": {
+        "entity": "CHAR_WEN_QINGYA",
+        "asset_id": "AST_IMG_000048",
+        "role": "FACE_FRONT",
+        "source": "V005_VERIFIED_BUNDLE",
+        "sha256": "2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b"
+      },
+      "po_verdict": "VISUAL_IDENTITY_DISTINCTNESS_FAIL_WEN_QINGYA_RESEMBLANCE",
+      "style_verdict": "NOT_REJECTED_BY_PO_THIS_TURN",
+      "canonical_published": false
     },
-    "proof_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md",
+    "reference_method_verdict": "FULL_APPROVED_FACE_FRONT_POSITIVE_STYLE_REFERENCES_FAILED_IDENTITY_SEPARATION_C03_C05",
+    "director_evidence": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
+    "candidate_v006_authorized": false,
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
@@ -550,13 +555,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V317",
+    "version": "V318",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R397 / BAI V005 EXACT FORMAL BUNDLE 2/2 PASS / NO WORK C05 AUTHORIZATION / OFFICIAL SHOTS35 VIDEO3",
-    "derived_from_revision": "R397",
+    "status": "DERIVED R398 / BAI C05 WEN IDENTITY FAIL / STOP FULL FACE POSITIVE STYLE INPUT / NO C06 / STORY SHOTS35 VIDEO3",
+    "derived_from_revision": "R398",
     "last_updated": "2026-11-01",
-    "current_task": "BAI V005 BUNDLE EXACT PASS / AWAIT PO WORK SINGLE C05 AUTHORIZATION"
+    "current_task": "BAI C05 REJECTED: RECONSIDER STYLE-ONLY REFERENCE ARCHITECTURE BEFORE ANY NEW ART"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5726,7 +5731,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_V005_FORMAL_EXACT_BUNDLE_READY_WORK_NOT_AUTHORIZED",
+    "status": "BAI_C05_IDENTITY_FAIL_FULL_POSITIVE_FACE_REFERENCE_METHOD_HALTED",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5759,7 +5764,8 @@
         "v004_bundle_artifact_id": 13069849870,
         "v004_po_identity_approved": false,
         "v005_generation_authorized": false,
-        "v005_status": "BUNDLE_READY_WORK_PENDING_PO_AUTHORIZATION"
+        "v005_status": "C05_PO_IDENTITY_FAIL_WEN_RESEMBLANCE",
+        "v005_review_sha256": "176271492a2a46233b6b36dc296ab17d955a2bfb1590b5dc0ee768e025d629b1"
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5815,7 +5821,7 @@
       "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
       "private_drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g"
     },
-    "next_gate": "Request PO Work single candidate C05 authorization; independent V005 artifact exact 2/2 PASS already, do not auto-render",
+    "next_gate": "ONLY ONE DEIDENTIFIED_STYLE AUTHORITY PROOF after PO approval; no new C06 image authorized",
     "visual_style": {
       "authority": "PRODUCT_OWNER_EXPLICIT_2026_11_01",
       "value": "2.5D_ANIME_SAME_AS_EXISTING_APPROVED_CHARACTERS",
@@ -5896,14 +5902,25 @@
       "zip_bytes": 5550019,
       "expires_at": "2026-11-08T04:49:18Z",
       "work_single_candidate_authorized": false,
-      "work_rendered": false,
+      "work_rendered": true,
       "po_visual_approved": false,
       "reference_ids": [
         "AST_IMG_000048",
         "AST_IMG_000034"
       ],
       "director_focus": "VETERAN_GUEST_CAPABILITY_FIRST_NOT_GLAM_ASSISTANT",
-      "evidence": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md"
+      "evidence": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md",
+      "candidate05_submitted": true,
+      "artistic_verdict": "IDENTITY_FAIL_RESEMBLES_WEN"
+    },
+    "reference_method_assessment": {
+      "method": "EXISTING_CAST_FULL_FACE_FRONT_STYLE_ONLY_POSITIVE_INPUT",
+      "status": "FAIL_FOR_IDENTITY_SEPARATION",
+      "evidence": [
+        "C03_RESEMBLES_SU_XIAOXIAO",
+        "C05_RESEMBLES_WEN_QINGYA"
+      ],
+      "policy": "STOP_REPEAT; VALIDATE_DEIDENTIFIED_STYLE_PROOF_BEFORE_NEW_BUNDLE"
     }
   }
 }
