@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R407",
+  "state_revision": "R408",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 EOD COMPLETE / BAI 3 ATOMIC REFERENCES EXACT VERIFIED / 192.257S OPENING AUDIO PO LISTENING PASS / RC-029 MAC FF-ONLY SYNC PASS AT e0f1b8a / 35 STORY SHOTS AND 3 VIDEOS UNCHANGED",
+  "session_status": "2026-11-01 EOD COMPLETE / 3 BAI APPROVED CURRENT REFERENCES / OPENING 192.257S AUDIO-ONLY PO LISTENING PASS / MAC RC-029 VERIFIED PASS AT e0f1b8a CHECKPOINT / FORMAL STORY SHOTS 35 / VIDEOS 3 / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -49,7 +49,7 @@
     }
   ],
   "current_task": "2026-11-01 EOD CLOSED / NEXT SESSION: REVIEW APPROVED COMPACT OPENING AUDIO AGAINST EXISTING VISUAL COVERAGE",
-  "blocker": "No blocker for the three formally approved Bai reference registrations. P0.3 audiovisual completion is not established: compact 192.257s audio has listening approval but full AV coverage, character Tier and additional Bai views are not independently approved. Mac EOD sync awaits terminal evidence.",
+  "blocker": "No blocker for Bai three approved atomic reference registrations or Nov 1 EOD Mac sync. P0.3 audiovisual completion NOT PROVEN: approved 192.257s original audio is audio-only, visual coverage is unverified, Bai character Tier remains unassigned and further reference views or shots lack PO approval.",
   "next_action": "At next session, first compare 192.257s PO-approved original-audio beat map with existing 35 Story Shots and approved references; define minimum missing visual proof only, then request PO authorization if new images are needed. No automatic new Bundle, Work generation, Master or video publication.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
@@ -120,8 +120,8 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-EOD-MAC-FF-VERIFIED-R407",
-    "status": "EOD_COMPLETE__MAC_SYNC_PASS_AT_VERIFIED_CHECKPOINT",
+    "id": "2026-11-01-EOD-REVIEW-CORRECTED-STATE-R408",
+    "status": "EOD_COMPLETE__STORED_STATUS_CONSISTENCY_CORRECTED__MAC_PASS_AT_VERIFIED_CHECKPOINT",
     "date": "2026-11-01",
     "report": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "completed": [
@@ -132,7 +132,8 @@
       "Index counts verified: 35 approved Story Shots and 3 formal videos unchanged.",
       "P01/P02 original-audio V002 212.270s and compact Opening 192.257s separately PO listening approved; audio-only scope preserved.",
       "Reconciled Gate README, Acceptance Matrix and Dashboard without upgrading P0.3.",
-      "User Mac fast-forward only from 803d562 to e0f1b8a; HEAD=origin/main and independently verified GitHub main at e0f1b8a; untracked console folders preserved."
+      "User Mac fast-forward only from 803d562 to e0f1b8a; HEAD=origin/main and independently verified GitHub main at e0f1b8a; untracked console folders preserved.",
+      "R408 consistency correction to stale blocker, local_sync_status and two Opening derived fields; verified successes retained."
     ],
     "resume_from": "Review existing visual coverage against PO-approved 192.257s compact original-audio proof; do not authorize new image/video generation without PO decision.",
     "blockers": [
@@ -147,7 +148,9 @@
     },
     "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
     "last_verified_local_date": "2026-11-01",
-    "local_sync_status": "PASS_AT_EXACT_CHECKPOINT"
+    "local_sync_status": "PASS_AT_EXACT_CHECKPOINT",
+    "correction_basis": "Independent source-of-truth review found R407 blocker/local_sync_status contradicted recorded November 1 successful Mac sync; Opening historical derivative character_assets/next_proof were stale relative to verified three Bai assets and 192.257s PO-approved audio.",
+    "correction_scope": "metadata only: Project State plus derived dashboard. Does not revise PO decisions, asset registry, story/video indexes or Mac HEAD."
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -542,11 +545,11 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V326",
+    "version": "V327",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R407 EOD COMPLETE / 3 BAI REFERENCES VERIFIED / AUDIO PO LISTENING PASS / MAC SYNC VERIFIED AT e0f1b8a",
-    "derived_from_revision": "R407",
+    "status": "DERIVED R408 / REVIEW-CORRECTED CURRENT STATUS FIELDS / MAC PASS AT EXACT CHECKPOINT / BAI 3 CURRENT / AUDIO-ONLY PASS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R408",
     "last_updated": "2026-11-01",
     "current_task": "EOD CLOSED / NEXT COMPACT OPENING AUDIO VISUAL COVERAGE REVIEW"
   },
@@ -4960,7 +4963,7 @@
     "final_candidate": "N26 Candidate 03｜Controlled Modification",
     "final_disposition": "N26 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED"
   },
-  "local_sync_status": "2026-10-31 EOD MAC SYNC PASS @ CHECKPOINT 803d562ae058cb5b2b8feba874c19a34ba0f1ac5 / SUBSEQUENT CONTROL-ONLY COMMITS NOT YET LOCAL",
+  "local_sync_status": "2026-11-01 EOD MAC RC-029 FAST-FORWARD PASS AT VERIFIED CHECKPOINT e0f1b8a76948b06e1b123c3bb8db56164e4668a2 / LATER METADATA-ONLY REMOTE COMMITS TO BE PULLED AT NEXT ROUTINE SYNC",
   "daily_closeout_2026_10_06": {
     "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
@@ -5579,12 +5582,12 @@
     "visual_production_authorized": "P03A COMPLETE / NEXT TWO GATED",
     "candidate_design_scope_approved": true,
     "original_mvp1_scope_unmodified": true,
-    "character_assets": "NING_JUN_REFERENCES_VERIFIED_REGISTERED / BAI_MENG_NO_MASTERS",
+    "character_assets": "NING_JUN_REFERENCES_VERIFIED / BAI_THREE_ATOMIC_REFERENCES_APPROVED_CURRENT_PARTIAL_COVERAGE / MENG_MASTER_UNAVAILABLE",
     "missing_visuals": [
       "CH133_WRIST_HANDPRINT",
       "CH133_PILOT_CONTEXT"
     ],
-    "next_proof": "P03P04_NON_BLOOD_DOOR_VISUAL_BEAT_DESIGN_AND_REFERENCE_QC_BEFORE_WORK",
+    "next_proof": "APPROVED_192_257S_COMPACT_OPENING_AUDIO_VS_EXISTING_VISUAL_COVERAGE_MINIMUM_REVIEW_BEFORE_NEW_MEDIA",
     "source_asset_audit": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md",
     "audio_request": "FULL_CH133_PREFERRED_OR_THREE_ANCHORED_SEGMENTS_WITH_5_TO_10S_HANDLES",
     "audio_clip_bounds": [
