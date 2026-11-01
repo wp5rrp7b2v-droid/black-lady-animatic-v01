@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R387",
+  "state_revision": "R388",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT DIRECTOR EXECUTION V001 APPROVED DESIGN DIRECTION / 1-REF VALIDATION-ONLY BUNDLE SPEC SUBMITTED / ACTIONS RUN 41269072501 / NO IMAGE GENERATION / STORY SHOT35 VIDEO3 UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT SINGLE SEED DESIGN ACCEPTED / INPUT REFERENCE EXACT 1/1 VALIDATION-ONLY PASS / FORMAL BUNDLE AND WORK NOT AUTHORIZED / STORY SHOTS35 VIDEOS3 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "CHAR_BAI_XIAOXIAO FACE_FRONT IDENTITY SEED — VALIDATION-ONLY REFERENCE BUNDLE INPUT CHECK / FORMAL BUILD & WORK NOT AUTHORIZED",
-  "blocker": "Single reference validation-only work in progress. First visual Identity Seed not yet generated or PO reviewed. Proposed Tier A is not formally approved/production-ready.",
-  "next_action": "Read GitHub Actions run 41269072501 validation result for BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json (build_authorized=false), confirm exact 1/1 reference input; then request specific authorization to set build_authorized=true and use Work for precisely 1 FACE_FRONT candidate. Do not authorize image generation solely from style/design approval.",
+  "current_task": "BAI FACE_FRONT IDENTITY SEED — PRE-PRODUCTION VALIDATION PASS, AWAIT EXPLICIT ONE-CANDIDATE PRODUCTION AUTHORIZATION",
+  "blocker": "No formal build or Work generation authorization yet. Validation-only 1/1 PASS does not establish Bai character identity or PO-approved Seed.",
+  "next_action": "After explicit PO production authorization, switch only the existing BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001 Spec build_authorized true, run exact verification and independent artifact checks, then hand Work a strict one-PNG FACE_FRONT Candidate 01 assignment. Stop for PO visual review. Until then do not generate.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,20 +120,20 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-FACE-FRONT-SEED-DESIGN-AND-VALIDATION-SPEC-R387",
-    "status": "DIRECTOR EXECUTION DESIGN / VALIDATION-ONLY REFERENCE INPUT SUBMITTED / NO CANDIDATE IMAGE",
+    "id": "2026-11-01-BAI-FACE-FRONT-VALIDATION-PASS-R388",
+    "status": "REFERENCE INPUT VALIDATION ONLY 1/1 EXACT PASS / GENERATION NOT AUTHORIZED",
     "completed": [
       "PO accepted Bai mature beautiful character face direction with vivid red lips and deep long lightly waved hair, dark simple outfit; red sleepdress reserved for separate P01 costume variant.",
       "Locked V001 FACE_FRONT single seed Director Execution contract at docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md.",
       "Found approved/current controlled character style board; chose ONE style-only ref to minimize accidental copy of existing Su Xiaoxiao/Wen Qingya identity.",
       "Created validation-only 1-ref Bundle spec with build_authorized=false; GitHub workflow auto-run ID 41269072501 was triggered.",
-      "Tier A full 9-view build, Meng Jun, formal Entity/Asset records, Opening audio, existing Story Shots and formal videos remain unchanged."
+      "Tier A full 9-view build, Meng Jun, formal Entity/Asset records, Opening audio, existing Story Shots and formal videos remain unchanged.",
+      "GitHub Actions run 41269072501 finished SUCCESS (job 124737899192): VALIDATION_PASS 1/1 exact canonical reference verified; BUILD_AUTHORIZED FALSE / GENERATION_ALLOWED FALSE; actual build and artifact upload skipped."
     ],
     "resume_from": "CHECK ACTIONS RUN 41269072501 THEN GATE FOR FORMAL BUNDLE BUILD AND SINGLE WORK IDENTITY SEED",
     "blockers": [
-      "GitHub validation-only result pending at initial state update.",
-      "No separate PO formal Bundle build authorization or Work image generation authorization yet.",
-      "No PO-approved Bai Identity Seed, Tier A Core Set or Reference Sheet."
+      "No formal Reference Bundle Artifact or Work generation authorization.",
+      "No PO-approved White Xiaoxiao facial identity Seed, no Tier A 9-view or Reference Sheet."
     ],
     "director_doc": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
     "validation_spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json",
@@ -143,7 +143,9 @@
     "seed_role": "FACE_FRONT",
     "approved_audio_unchanged": true,
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
-    "local_sync_last_verified_on": "2026-10-31"
+    "local_sync_last_verified_on": "2026-10-31",
+    "run_result": "VALIDATION_ONLY_1_OF_1_PASS_BUILD_SKIPPED",
+    "run_url": "https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41269072501"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -538,13 +540,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V307",
+    "version": "V308",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R387 / BAI FACE_FRONT DIRECTOR EXECUTION AND VALIDATION-ONLY BUNDLE SPEC / NO WORK IMAGE",
-    "derived_from_revision": "R387",
+    "status": "DERIVED R388 / BAI FACE FRONT VALIDATION ONLY 1/1 PASS / FORMAL BUILD AND WORK AWAIT AUTHORIZATION",
+    "derived_from_revision": "R388",
     "last_updated": "2026-11-01",
-    "current_task": "BAI FACE_FRONT SINGLE SEED VALIDATION-ONLY / ACTIONS 41269072501"
+    "current_task": "BAI FACE_FRONT BUNDLE 1/1 VALIDATION PASS / STOP UNTIL FORMAL PRODUCTION AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5746,6 +5748,18 @@
     "registration_authorized": false,
     "work_generation_authorized": false,
     "meng_master_deferred": true,
-    "p01_p02_shots_blocked_until_master_ready": true
+    "p01_p02_shots_blocked_until_master_ready": true,
+    "validation_only": {
+      "status": "PASS",
+      "references_verified": 1,
+      "references_total": 1,
+      "build_authorized": false,
+      "generation_allowed": false,
+      "artifact_created": false,
+      "workflow_run_id": 41269072501,
+      "job_id": 124737899192,
+      "verification_log": "VALIDATION_PASS: 1/1 exact canonical references verified",
+      "spec_path": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json"
+    }
   }
 }
