@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R385",
+  "state_revision": "R386",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / COMPACT 192.257S OPENING AUDIO PO APPROVED / P01-P02 NEW CHARACTERS MASTER DESIGN DRAFT / BAI AND MENG NOT YET PRODUCTION READY / INDEX35 VIDEO3 LOCKED",
+  "session_status": "2026-11-01 ACTIVE / PRE-133 NOVEL CHARACTER RESEARCH COMPLETE / BAI PRIORITIZED AS TIER A CANDIDATE / MENG MASTER DEFERRED / BOTH UNREGISTERED / AUDIO 192.257S PO APPROVED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING NEW CHARACTER MASTER REFERENCES V001 — BAI XIAOXIAO & MENG JUN IDENTITY DESIGN, PO REVIEW BEFORE ANY P01/P02 STORY SHOTS",
-  "blocker": "P01/P02 need Bai Xiaoxiao and Meng Jun visual identities. GitHub formal Entity Registry and Asset Registry contain no approved records for these people. Master design is only DRAFT; no Tier/appearance or generation approval yet.",
-  "next_action": "PO review draft role facts and tentative Tier B/default appearance. After explicit PO direction, run one 9:16 FACE_FRONT identity seed per character via verified Reference Bundle and Work (not Chat direct image generation); get individual PO approval before completing 6-view Tier B sets and registering assets. Stop P01/P02 Story Shot work until new master production readiness verified.",
+  "current_task": "OPENING BAI XIAOXIAO MASTER CONCEPT REVIEW AFTER FULL EARLIER CHAPTER EVIDENCE; MENG JUN MASTER DELAYED",
+  "blocker": "Bai Xiaoxiao visual identity/character tier is not PO approved and her Atomic Master references absent. Meng Jun concept retained but its master production is deferred as a lower priority; both are NOT PRODUCTION_READY.",
+  "next_action": "Use the corrected pre-CH133 source-grounded design memo to obtain PO concept approval for Bai Xiaoxiao first (mature expressive beauty, vivid red lips, emotional range; age/hairstyle unproven). Then validate only one 9:16 FACE_FRONT Identity Seed through verified GitHub Actions Bundle + Work. Expand to Tier A 9-view only after PO Seed PASS. Defer Meng Jun master until P02 production need, without downgrading Tier absent further evidence.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,26 +120,31 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-OPENING-NEW-CHARACTER-MASTER-DESIGN-DRAFT-R385",
-    "status": "NEW CHARACTER SOURCE AND REGISTRY GAP VERIFIED / TWO CHARACTER MASTER CONCEPTS DRAFT / PO DESIGN REVIEW PENDING",
+    "id": "2026-11-01-OPENING-PRE133-CHARACTER-AUDIT-BAI-FIRST-R386",
+    "status": "PREVIOUS-CHAPTER EVIDENCE REVIEW PASS / BAI TIER A CANDIDATE DESIGN DRAFT / MENG MASTER PRIORITY DEFERRED / PO VISUAL APPROVAL PENDING",
     "completed": [
-      "192.257s original sound edit remains PO LISTENING APPROVED; audio and 35 Story Shots / 3 formal videos unaffected.",
-      "Chapter 133 source text confirms Bai Xiaoxiao (female P01 mentor/warning) and Meng Jun (male P02 Ghost House contract facilitator). Character physical details are not explicitly provided by source.",
-      "Entity Registry and Asset Registry show no Bai Xiaoxiao or Meng Jun current approved reference assets or entities.",
-      "Canonical rules checked: Tier B needs six 9:16 atomic views and same-side core references; expression/props are conditional.",
-      "Draft director character design and minimum two identity seeds first-phase gate published for review, without asset registration or media generation."
+      "User clarified Bai Xiaoxiao major recurring role, Meng Jun lower current production priority; earlier shared Tier B assumption no longer used.",
+      "Consulted full original novel earlier chapters 14–57 and 105–132, plus 133 immediate plot; facts about Bai's striking lipstick, beauty, emotional breadth, experience, red sleepdress in chapter 132, private villa confirmed.",
+      "Meng formerly served in military and fought on border, joined earlier Ghost House stories and cares for teammates; not a disposable blood-door official.",
+      "Revised existing V001 character design memo with evidence hierarchy, old/new decision diff, Tier A Bai proposal and Meng deferred priority. No seed or art generated.",
+      "Formal Entity and Asset Registries unchanged, Story Shot Index35 and Video Index3, approved audio 192.257s unchanged."
     ],
-    "resume_from": "PO REVIEW DRAFT CHARACTER IDENTITY/TIER BEFORE REFERENCE BUNDLE GENERATION",
+    "resume_from": "BAI VISUAL CONCEPT APPROVAL THEN SINGLE IDENTITY SEED MINIMUM PROOF; MENG ON HOLD UNTIL P02 NEED",
     "blockers": [
-      "No PO approval of Bai/Meng visual appearance or proposed Tier B and primary side.",
-      "No approved identity seeds, atomic master sets, reference sheets or PRODUCTION_READY status."
+      "Bai appearance and Tier A proposal remain design candidates, not approved by PO.",
+      "Neither character has Approved Atomic Master or Reference Sheet in formal registry.",
+      "No new P01/P02 Story Shot authorization; full AV proof remains unproduced."
     ],
     "design_path": "docs/project_control/gates/P0_3_video_pipeline/OPENING_NEW_CHARACTER_MASTER_REFERENCE_V001_DIRECTOR_DESIGN_DRAFT_2026-11-01.md",
-    "characters": [
+    "priority_order": [
       "CHAR_BAI_XIAOXIAO",
       "CHAR_MENG_JUN"
     ],
-    "design_status": "DRAFT_NO_MEDIA_AUTHORIZATION",
+    "preserved_baseline": {
+      "audio_secs": 192.257,
+      "story_shots": 35,
+      "videos": 3
+    },
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
@@ -536,13 +541,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V305",
+    "version": "V306",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R385 / CHARACTER MASTER DESIGN DRAFT PO REVIEW / OPENING AUDIO APPROVED / STORY SHOT35 VIDEO3",
-    "derived_from_revision": "R385",
+    "status": "DERIVED R386 / BAI TIER A CANDIDATE SOURCE REVIEW / MENG MASTER DEFERRED / 192S AUDIO APPROVED / INDEX35 VIDEO3",
+    "derived_from_revision": "R386",
     "last_updated": "2026-11-01",
-    "current_task": "BAI XIAOXIAO AND MENG JUN CHARACTER MASTER IDENTITY DESIGN BEFORE P01/P02 SHOTS"
+    "current_task": "BAI XIAOXIAO CONCEPT PO REVIEW BEFORE IDENTITY SEED; MENG MASTER DEFERRED"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5712,27 +5717,34 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "DIRECTOR_DESIGN_DRAFT_PO_REVIEW_PENDING",
+    "status": "PRE133_SOURCE_REVIEW_COMPLETE_PO_DESIGN_REVIEW_PENDING",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
         "name": "白潇潇",
-        "tier_candidate": "B",
+        "tier_candidate": "A",
         "formal_entity_exists": false,
-        "asset_ready": false
+        "asset_ready": false,
+        "priority": "HIGH",
+        "seed_generation_authorized": false,
+        "evidence": "CH14-15 CH18-20 CH33-36 CH52-53 CH105-129 CH131-133"
       },
       {
         "entity_id": "CHAR_MENG_JUN",
         "name": "孟军",
         "tier_candidate": "B",
         "formal_entity_exists": false,
-        "asset_ready": false
+        "asset_ready": false,
+        "priority": "DEFERRED",
+        "seed_generation_authorized": false,
+        "evidence": "CH14-15 CH75-78 CH105-129 CH133"
       }
     ],
     "design_record": "docs/project_control/gates/P0_3_video_pipeline/OPENING_NEW_CHARACTER_MASTER_REFERENCE_V001_DIRECTOR_DESIGN_DRAFT_2026-11-01.md",
-    "first_gate": "1 FACE_FRONT IDENTITY SEED PER CHARACTER -> PO APPROVAL -> FULL TIER CORE / REFERENCE SHEET",
+    "first_gate": "Bai character design PO approval; then only one FACE_FRONT Seed through Bundle+Work; later Tier A views if seed PASS",
     "registration_authorized": false,
     "work_generation_authorized": false,
+    "meng_master_deferred": true,
     "p01_p02_shots_blocked_until_master_ready": true
   }
 }
