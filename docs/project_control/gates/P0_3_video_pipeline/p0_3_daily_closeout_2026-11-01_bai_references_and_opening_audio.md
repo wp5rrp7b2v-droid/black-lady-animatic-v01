@@ -82,3 +82,18 @@ fi
 **PASS only if** the terminal `HEAD == origin/main` and it equals GitHub's verified `main` HEAD at the time of comparison, with no tracked local modifications, forced updates, clean, reset or manual binary copying. If the sync later passes, append receipt to this EOD record and update Project Control; historical 2026-10-31 sync PASS remains valid.
 
 **Cloud EOD evidence freeze: R406; Mac local verification: PENDING.**
+
+## VII. 2026-11-01 Mac RC-029 实际终端回执（覆盖前文 PENDING）
+
+**Evidence received from the user, terminal output dated 2026-11-01. Status: MAC EOD FAST-FORWARD PASS AT EXACT CHECKPOINT `e0f1b8a76948b06e1b123c3bb8db56164e4668a2`.**
+
+- Preflight: `## main...origin/main`; only `?? BlackLadyLocalConsole/` and `?? BlackLadyLocalConsolePrivate/`; no tracked or staged changes indicated by preflight output. Both untracked directories remain in the final status.
+- `git switch main` completed. `git-proxy-auto pull --ff-only origin main` moved `803d562..e0f1b8a`.
+- During automated transfer there was a transient `curl 18 / early EOF` and `index-pack failed`, but the recovery fetches completed and Git later printed `Updating files: 100% (45/45)` and `Fast-forward`. **Do not classify the overall command as failed based only on the recovered intermediate error.**
+- Terminal printed full local `HEAD` and `origin/main` SHA values, both **`e0f1b8a76948b06e1b123c3bb8db56164e4668a2`**.
+- Final local status again `## main...origin/main` with only the two unchanged untracked Console directories.
+- Chat independently read remote GitHub `refs/heads/main` at the same exact SHA **before** creating this receipt. This fulfills the RC-029 point-in-time equality gate: local HEAD = local origin/main = remote GitHub main.
+- No `reset`, `clean`, force push, merge conflict or asset substitution. No need for a second local sync today.
+- **Important time boundary:** writing this receipt and the derived R407/V326 control documents creates *new metadata-only commits* on remote main. That does **not** invalidate the already verified point-in-time local sync PASS, and must not be represented as the Mac having those later receipts. Next routine Mac pull is due at the next authorized sync window, not again tonight.
+
+**Final 2026-11-01 closeout:** Cloud Project Control EOD completed at R406; RC-029 Mac source sync **PASS** at verified checkpoint `e0f1b8a76948b06e1b123c3bb8db56164e4668a2`. R407 is the administrative acknowledgement, not another image, audio, video or Gate approval.
