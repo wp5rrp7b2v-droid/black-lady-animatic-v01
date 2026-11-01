@@ -123,3 +123,43 @@ Bundle proposed ID: `BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BU
 4. Work 完成一张候选后立刻停止，由 PO 视觉审核。Chat 后续根据 PO 实际批准进行 Exact Binary Verification、正式发布及资产 Registry，**当前这些步骤未执行，也未授权预登记**。
 
 **Gate verdict:** `BUNDLE_BUILD_PASS / INDEPENDENT_ARTIFACT_EXACT_BINARY_PASS / WORK_SINGLE_CANDIDATE_AUTHORIZED / PO_IDENTITY_VISUAL_REVIEW_PENDING`。
+
+## 11. Candidate 01｜2026-11-01 PO 视觉审核：FAIL / V002 整改范围
+
+**新证据：** Work 本轮 FACE_FRONT 候选完成后由 PO 贴图，评论「这张脸看上去有点疲惫，而且和其他人物似乎不是一种风格，感觉过于写实了」。这是实际视觉测试反馈，足以否定 Candidate 01 的角色身份锁定与视觉风格 PASS，但不影响此前 GitHub Actions Bundle 的 1/1 Exact Binary PASS。
+
+**收到的审核 PNG（用户上传的审片副本，不等于已在 GitHub Canonical 发布）：**
+- PNG `941×1672`，RGBA，`3,052,447 bytes`
+- SHA-256 `8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c`
+- 严格定义：上述 SHA 只代表**本轮用户上传的审片文件**，尚未经 Work→GitHub 二进制 Delivery Exact Verification；不能将其登记为正式 Approved Atomic。
+
+### 七项固定审核结果
+
+1. **Format Compliance：PASS** — 文件为9:16等效941×1672 PNG、正面0°、单人头肩像。
+2. **Identity：NOT APPROVED** — 五官结构具备设计潜力，但 PO 没有认领为正式白潇潇身份；不锁脸、不把本文件设为 Source-of-Truth。
+3. **Role Accuracy：FAIL / 需定向修复** — 眉心微紧、眼周阴影重、眼神偏疲惫严肃；缺少已批准“慵懒且有生命力”的状态。唇色相较目标鲜明红唇偏柔和灰玫。
+4. **Continuity：NOT PROVEN** — 一张候选不能证明与九视图、P01红裙、现有剧中人物风格一致。
+5. **Production Utility：FAIL** — 大量微观毛孔/皮肤纹理及零散发丝，高写实近距人像摄影感过强，可能不便于后续统一项目画面；风格相较其他已批准角色的主观一致性被 PO 否定。
+6. **Reference Type Purity：PASS** — 单人中性灰背景、深色简单上衣、无红色睡裙或剧情道具。
+7. **Problem Check：FAIL** — 疲惫神态、过强皮肤锐化和杂乱飞发使角色观感走偏，虽没有证明具体生理结构错误。
+
+**结论：`CANDIDATE_01_VISUAL_FAIL`，不发布、不登记、不作为下一轮正式 Identity Seed 母图。**
+
+### V002 修正决策（仅方向，不等于制图授权）
+
+**保留**：鹅蛋/窄椭圆脸基本轮廓、深色偏分长发、真实眼鼻结构、深色简洁上装、正面眼平与中性背景；它们是可保留的设计候选，不是已经审批锁定的像素身份。
+
+**定向修复**：
+- 放松眉间、减轻下眼睑疲惫阴影、避免眼周细纹和鼻唇沟因局部对比过高而显老；目光更亮、更清醒，神态轻松而从容，嘴角仅极轻微柔和，不做夸张露齿笑、磨皮瘦脸或改变脸的基本骨相。
+- 高分辨率仍要清晰，但降低过强微观皮肤纹理、毛孔局部锐度和零散杂乱发丝的写实噪声；应接近**统一的电影角色视觉写实语言**，而不是高细节皮肤诊断照/商业照片，更不是二次元漫画或塑胶磨皮。
+- 使用与现有 Approved 角色更接近的暖中性、均匀柔和面部光照，增加肌肤自然生命感；红唇向自然、干净、有质感的正红/偏深玫红微调，仍保留真实唇纹。
+- **本轮不先增加新的人脸参考图。** 首版使用的 `CHARACTER_VISUAL_STYLE_REFERENCE_V001` 是几张近景人像、发肤和服装的控制性局部拼图，它真实通过 Exact 验证，却**不保证单人整脸最终镜头风格一致**。Candidate 01 的失败证据支持先修订 Work 的视觉执行约束，不能仅因“风格不对”就直接重复已有图像或混用其他已批准女性脸作为身份参考。
+- 如果定向编辑无法实现整体风格统一或造成身份漂移，则 STOP，再依据实际结果判断是否增加严格标注 `STYLE ONLY` 的整脸女性参考；不能默认重生一套新人物 Master。
+
+### V002 生成前必需的 Gate
+
+PO **仅批准过 Candidate 01 正式 Bundle 和仅1次 Work 出图**；**未在本条反馈中授权第二次生成或修改**。因此只准备 V002 修订指令，不调用 Work/Chat 生图，不复用旧单图授权，不开 Tier A 九视图，不登记 Master。
+
+V002 可证伪 PASS：与项目其他人物一致的整体视觉语言、没有明显疲惫感、具备成熟美艳和轻微柔和气质、红唇自然、面部结构稳定、保持941×1672 0° FACE_FRONT；PO 视觉认可。
+
+V002 FAIL：仍有疲惫表情或过度高写实锐化；变成塑胶磨皮/动画片；过度改脸；借用苏小小/温倾雅身份；视觉不一致。失败则停止扩大任务，复核具体失败点。
