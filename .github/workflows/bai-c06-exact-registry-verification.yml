@@ -1,0 +1,73 @@
+name: Bai C06 Exact Binary and Atomic Registry Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - "staging/character_candidates/bai_xiaoxiao/*.png"
+      - "production/image_library/character_references/bai_xiaoxiao/*.png"
+      - "production/asset_registry/asset_registry.jsonl"
+      - "production/asset_registry/entity_registry.jsonl"
+      - "production/asset_registry/audit_event_log.jsonl"
+      - ".github/workflows/bai-c06-exact-registry-verification.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact C06 source and canonical verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess,struct
+          expected_sha="d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb"
+          expected_blob="38761350f926c30358cb98e55d6f4d603d8825f1"
+          expected_size=2747575
+          stage=Path("staging/character_candidates/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png")
+          canonical=Path("production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png")
+          def verify_binary(path):
+              assert path.is_file(),f"missing required file: {path}"
+              b=path.read_bytes()
+              assert b[:8]==b"\x89PNG\r\n\x1a\n","PNG signature mismatch"
+              assert struct.unpack(">II",b[16:24])==(941,1672),"dimension mismatch"
+              assert len(b)==expected_size,f"size mismatch: {path}"
+              assert hashlib.sha256(b).hexdigest()==expected_sha,f"SHA mismatch: {path}"
+              blob=subprocess.check_output(["git","hash-object",str(path)],text=True).strip()
+              assert blob==expected_blob,f"Git blob mismatch: {path}"
+              return {"path":str(path),"sha256":expected_sha,"git_blob":blob,"bytes":len(b),"dimensions":"941x1672"}
+          results={"stage":verify_binary(stage),"registry_verified":False}
+          if canonical.is_file():
+              results["canonical"]=verify_binary(canonical)
+              assert stage.read_bytes()==canonical.read_bytes(),"canonical differs from PO-approved input"
+              def read_jsonl(path):
+                  return [json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()]
+              entities=read_jsonl("production/asset_registry/entity_registry.jsonl")
+              assets=read_jsonl("production/asset_registry/asset_registry.jsonl")
+              audits=read_jsonl("production/asset_registry/audit_event_log.jsonl")
+              e=[x for x in entities if x.get("entity_id")=="CHAR_BAI_XIAOXIAO"]
+              assert len(e)==1 and e[0]["entity_type"]=="CHARACTER" and e[0]["entity_status"]=="ACTIVE","entity registry invalid"
+              a=[x for x in assets if x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and x.get("role")=="FACE_FRONT" and x.get("variant")=="DEFAULT" and x.get("state")=="DEFAULT" and x.get("lifecycle")=="CURRENT"]
+              assert len(a)==1,"single-current violation"
+              one=a[0]
+              assert one.get("sha256")==expected_sha and one.get("byte_size")==expected_size and one.get("storage_uri")==str(canonical),"registry hash/path mismatch"
+              assert one.get("approval_status")=="APPROVED" and one.get("asset_class")=="ATOMIC" and one.get("authority_class")=="MASTER","registry approval/class mismatch"
+              assert sum(x.get("asset_id")==one["asset_id"] for x in assets)==1,"duplicate asset_id"
+              for event_type in ("ENTITY_CREATED","ASSET_APPROVED","ASSET_INGESTED"):
+                  assert any(x.get("event_type")==event_type and x.get("entity_id")=="CHAR_BAI_XIAOXIAO" and (event_type=="ENTITY_CREATED" or x.get("asset_id")==one["asset_id"]) for x in audits),f"missing audit event: {event_type}"
+              results["registry_verified"]=True
+              results["asset_id"]=one["asset_id"]
+          Path("bai_c06_exact_verification.json").write_text(json.dumps(results,indent=2,ensure_ascii=False)+"\n")
+          print("BAI_C06_EXACT_BINARY_PASS",json.dumps(results,ensure_ascii=False))
+          PY
+      - name: Preserve validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: BAI_C06_EXACT_VERIFICATION
+          path: bai_c06_exact_verification.json
+          retention-days: 30
