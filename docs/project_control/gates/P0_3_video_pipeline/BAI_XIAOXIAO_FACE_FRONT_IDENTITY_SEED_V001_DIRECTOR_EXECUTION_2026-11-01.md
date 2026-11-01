@@ -163,3 +163,49 @@ PO **仅批准过 Candidate 01 正式 Bundle 和仅1次 Work 出图**；**未在
 V002 可证伪 PASS：与项目其他人物一致的整体视觉语言、没有明显疲惫感、具备成熟美艳和轻微柔和气质、红唇自然、面部结构稳定、保持941×1672 0° FACE_FRONT；PO 视觉认可。
 
 V002 FAIL：仍有疲惫表情或过度高写实锐化；变成塑胶磨皮/动画片；过度改脸；借用苏小小/温倾雅身份；视觉不一致。失败则停止扩大任务，复核具体失败点。
+
+## 12. V002｜PO 正式授权定向编辑与 C01 输入 Exact 验证（2026-11-01）
+
+**用户新授权：**针对前节 PO 已审核判定 FAIL 的 Candidate 01，用户明确回复「批准」，授权开展 V002 **一次**局部风格/表情修复。原 C01 不因修复授权转为 Approved，身份也不锁定。V002 不等于重做一个新人或开始 Tier A 九视图。
+
+### 已验证的 V002 基底（失败候选仅供编辑）
+
+- Drive 分类：`Black Lady Project/04_Candidates`（不放 02_Character_Anchors 或 GitHub Approved Registry）。
+- 名称：`CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_C01_REVIEW_SOURCE_V001.png`
+- URL：`https://drive.google.com/file/d/1GIi82EGihS65OHwkGoD6p8NmkrA5lciU/view`
+- Drive ID：`1GIi82EGihS65OHwkGoD6p8NmkrA5lciU`
+- 本轮对用户审片原图与上传 Drive 后重新下载文件作真实二进制对比：**EXACT PASS**。
+- 文件：`941×1672 RGBA PNG`；`3,052,447 bytes`；SHA-256 `8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c`。已核对源文件、Drive 元数据、下载源三者大小/尺寸/完整 SHA 一致。
+- 来源地位：`REJECTED_OR_UNAPPROVED_CANDIDATE_EDIT_INPUT_ONLY`。它不是 Approved Atomic Character Master，**不得在 Bundle/Resolver 中伪装为 CURRENT/APPROVED Asset**。
+- 此失败候选须保留到 V002 完成审核及后续是否复用的决定明确后；不再需要则按 PO 的 Google Drive 临时文件即时清理规则删除。
+
+### 本轮仍可复用的已核验风格参考
+
+- 既有已批准的 `CHARACTER_VISUAL_STYLE_REFERENCE_V001`；角色风格 Bundle：`BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001`。
+- Run `41269290547`、Artifact `13068716361`、ZIP SHA256 `0055195a547989258c8b5594b6b9124750f82db3eb6b5552bd8621df26aeb501`，单张 style-only PNG exact PASS。
+- 使用说明：这个已经验证通过的 Bundle 控制电影级画面渲染语言；**不替代 C01 失败候选的身份/编辑基底**。若 Work 访问 Artifact 时发现已过期或二进制失败，停止并报告，不能默默使用其他资产。
+
+### Work V002 定向编辑要求
+
+**必要顺序：**读取以上 Drive C01 源图 → 本地核验 941×1672 PNG + 3052447 bytes + SHA256 → 读取本文件和上游 Bundle/style-only 权威 → 局部修复 → 输出恰好一张 PNG → 停止，交 PO 看。
+
+必须保留 C01：
+- 基本鹅蛋脸/窄椭圆脸、面部比例、眼鼻嘴的空间关系、发际线与深色长发结构、肩颈比例、正面眼平构图、深色素净上衣和中性灰背景；**不得重新设计不同的脸**。
+- 同一尺寸/构图 941×1672 与正面 0°；不增加他人、配饰、道具、剧情服装或文字。
+
+**仅修正**：
+1. **精神状态**：减弱眉心紧张、目光疲乏和眼下过重阴影，眼神清亮但不瞪眼，不用大笑；略微松弛、含蓄、从容，保留成熟度。
+2. **统一风格**：抑制不必要的微距摄影式毛孔与斑点过度刻画、局部高反差锐化、毛躁细碎飞发；保持适度真实皮肤纹理与真实发丝，不做塑料磨皮、不变卡通/二次元。
+3. **光色**：面部光线适度柔和、稍微偏暖中性，避免灰暗疲惫与过橙艳光，不形成独立商业棚拍效果。
+4. **红唇**：从偏灰柔粉调为自然饱满的正红/偏深玫红，保留真实唇纹、不描粗唇线、不扩张嘴唇轮廓。
+
+- 优先编辑而非重生成：最大限度保留 C01 已可用的鼻梁、眼距、唇形、颧骨、下颌线与头发的大块形状。无法做到身份连续/本体像素保真时 STOP，说明技术限制，不得悄悄换脸后宣称精修。
+- 如果没有可用的精确修改工具，不能用只靠口头相似描述的全新 Image Generation 作为本轮局部修复的替代。
+- 工作成果文件仅：`CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_02.png`，目标 941×1672 PNG；交付预览与独立位置，说明局部调整项及保留的身份特征；不能声称 PO 已批准。
+
+### V002 Gate
+
+- 技术 PASS = Work 实际取到正确 C01、原图完整校验、仅一个新 PNG 完整输出、目标比例符合；
+- 艺术 PASS = PO 审核认为去除疲惫感，写实程度贴合已有角色，且和 C01 是同一位女性；
+- FAIL = 面孔漂移、整体再生、仍然疲惫、高写实微距皮肤或被过度磨皮变成另一种风格。失败不扩大到其他视图。
+- **本轮只批准 V002 这一张，审批前绝不进入正式 Asset Registry / Tier A 其他八个 Atomic View / P01 镜头。**
