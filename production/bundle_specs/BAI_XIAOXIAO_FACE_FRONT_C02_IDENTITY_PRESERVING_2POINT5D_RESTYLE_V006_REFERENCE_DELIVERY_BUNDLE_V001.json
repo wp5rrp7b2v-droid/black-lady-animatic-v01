@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "BAI_XIAOXIAO_FACE_FRONT_C02_IDENTITY_PRESERVING_2POINT5D_RESTYLE_V006_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_MIN_PROOF_V006",
+  "sequence_id": "PROJECT_ASSET",
+  "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 1,
+    "rule": "ONE_PO_ACCEPTED_BAI_FACE_IDENTITY_SOURCE_ONLY_NO_OTHER_CAST_FACES_STYLE_TEXT_ONLY",
+    "notes": "This technical Bundle holds one PO-accepted C02 facial identity source (not an approved 2.5D atomic master). User authorized start V006 bundle and minimum proof planning. Work generation is NOT independently authorized in this round. The existing Builder's manifest generation_allowed=true refers to technical validity only. Do not call Work or image generation without separate user approval.",
+    "work_generation_authorized": false,
+    "authorization_scope": "BUNDLE_BUILD_AND_INDEPENDENT_EXACT_VERIFICATION_ONLY",
+    "po_accepted_facial_identity": "C02",
+    "risk_under_test": "CAN_2POINT5D_RESTYLE_PRESERVE_C02_FACE_WITHOUT_OTHER_CAST_POSITIVE_VISUAL_REFERENCES"
+  },
+  "references": [
+    {
+      "reference_id": "BAI_XIAOXIAO_FACE_C02_IDENTITY_BASE_V001",
+      "source_type": "CONTROLLED_REFERENCE",
+      "classification": "P0_3_CHARACTER_IDENTITY_SOURCE_NOT_APPROVED_ATOMIC_MASTER",
+      "approval_status": "PRODUCT_OWNER_IDENTITY_ACCEPTED_ONLY",
+      "lifecycle": "CURRENT_IDENTITY_BASE",
+      "authority_scope": "BAI_XIAOXIAO_C02_FACIAL_IDENTITY_ONLY_NO_2POINT5D_STYLE_APPROVAL",
+      "manifest_path": "production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.manifest.json",
+      "canonical_path": "production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.png",
+      "expected_sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
+      "expected_byte_size": 2958047,
+      "expected_git_blob": "7232dcfaa7e787ff1303fc1c5409a58193396b74",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "identity_authority_c02_only",
+      "authority_purpose": "EXACT_BAI_C02_FACIAL_GEOMETRY_ONLY_NOT_APPROVED_FULL_MASTER_AND_NOT_REFERENCE_CAST_STYLE"
+    }
+  ],
+  "work_handoff": {
+    "title": "白潇潇 C02 保脸 2.5D 风格统一最小试验 V006｜尚未授权 Work 出图",
+    "requirements": [
+      "AUTHORIZATION GATE: V006 Builder technical reference validation and Artifact construction ONLY are authorized. Do not generate Candidate06 until the Product Owner separately approves a single Work style-edit test. Bundle manifest generation_allowed=true does NOT equal Work production authorization.",
+      "Read the actual V006 Artifact and re-verify delivery_manifest.json, WORK_HANDOFF.md and exact 1 PNG. SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07, size 2958047, Git blob 7232dcfaa7e787ff1303fc1c5409a58193396b74, width 941 height 1672.",
+      "Identity is LOCKED: this PNG is Bai Xiaoxiao Candidate02 whose FACE was accepted by the Product Owner. Do not reconstruct a new woman, do not use rejected C03 C04 C05 or change the C02 jaw, eye spacing, brow shape, nose, lips, face width, complexion identity, ear geometry or hairline.",
+      "This is a style transfer/edit task. Modify existing C02 pixels preferentially with an identity-preserving edit/mask/strength-controlled method, not an unguided text-to-image redraw. If the available tool cannot preserve original face identity, STOP and report limitation before producing substitute.",
+      "New styling target: the project's existing 2.5D ANIME cast visual language, with soft dimensional shaded anime facial planes, simplified skin microtexture and flyaway hair, painterly restrained material and light. Do NOT reproduce skin pores or photo-real studio portrait lighting. This style instruction is TEXT-ONLY; do not provide entire faces of Su Xiaoxiao, Wen Qingya, Ning Qiushui or any other approved cast as positive references.",
+      "Restore Bai's composed veteran guest presence while avoiding further identity drift: slightly relax fatigued under-eye shading, confident clear-eyed neutral gaze rather than glamour/office secretary/seductive smile, naturally distinctive red lips. Clothing might be modest dark practical top/light jacket, but do not convert a style-only test into a radical whole-character redesign.",
+      "Target geometry: FACE_FRONT 0 degrees, 941x1672 9:16 portrait, neutral background. Preserve C02 face placement and identity; if composition must change to match 2.5D head/shoulders, do so without deforming the facial landmarks.",
+      "Single candidate only once separately authorized: CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png. Stop after one image for PO side-by-side compare C02 facial identity and 2.5D style. Failure of either dimension means STOP, not automatic variations or Master promotion."
+    ],
+    "exclusions": [
+      "work image generation based merely on this bundle build or its technical manifest",
+      "any full-face other-cast positive image references",
+      "replacement of original C02 face or new portrait regeneration",
+      "granting Approved/Current Atomic Master/Entity Registry automatically",
+      "Su Xiaoxiao/Wen Qingya face or clothing transfer, photorealism, film photo realism, cosmetic/fashion glamour",
+      "extra V006 images, nine views, P01 red sleepdress costume, Story Shot, approved-video and audio changes"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "V006-PO-C02-IDENTITY-LOCK-FORMAL-BUNDLE-20261101"
+}
