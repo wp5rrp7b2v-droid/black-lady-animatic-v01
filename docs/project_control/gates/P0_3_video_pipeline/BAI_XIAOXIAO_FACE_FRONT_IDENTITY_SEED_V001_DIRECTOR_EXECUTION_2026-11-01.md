@@ -101,3 +101,25 @@ Bundle proposed ID: `BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BU
 - Proven: 1 approved/current controlled style-only PNG is present at expected path, its manifest and exact size/hash/Git blob/dimensions satisfy the canonical builder, and the validation-only permission gate works.
 - **Not Proven / not authorized:** actual reference delivery artifact existence, Work reading an Artifact, produced FACE_FRONT candidate, Bai's facial identity, Tier A completeness, any Entity/Asset registration, or full Story Shot video.
 - Next stage requires separate, explicit PO permission for `build_authorized=true` and exactly **one** Work FACE_FRONT Candidate; existing design approval is not that production approval.
+
+## 10. PO 正式 Bundle 构建和 Work 单图授权、实际执行｜2026-11-01
+
+- PO 明确授权：「授权 Bundle 构建和work的制图指令」；本次只扩展到 **Formal Reference Bundle + Work 一张 FACE_FRONT 候选**，不扩展到 Master Approval、九视图批量生产或视频。
+- Spec 已将 `build_authorized` 从 `false` 精确改为 `true`，保留唯一 `CHARACTER_VISUAL_STYLE_REFERENCE_V001` 风格引用，其余正式基线未变。授权提交 SHA：`e52018feb71b45f8c77e8573924d038d64c251b3`。
+- GitHub Actions Run [41269290547](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41269290547)：`COMPLETED / SUCCESS`；Job `124738539658`。
+- 原始工作流日志：`BUILD_AUTHORIZED=true`；`PASS: 1/1 exact canonical reference binaries verified`；`GENERATION_ALLOWED=TRUE`；`BUNDLE_ID=BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001`。成功执行 `Build verified reference bundle` 和 `Upload verified bundle`。
+- Artifact：**ID `13068716361`**，名称 `BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001`，GitHub URL `https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41269290547/artifacts/13068716361`，ZIP `1,301,438` bytes。
+- Artifact service SHA256：`0055195a547989258c8b5594b6b9124750f82db3eb6b5552bd8621df26aeb501`。**独立连接器再次下载 ZIP 到检查环境，重算 ZIP SHA256 与 Artifact Metadata 完全一致；ZIP CRC 全部 PASS**。
+- 独立解包检查：**恰好3个文件** `delivery_manifest.json`、`WORK_HANDOFF.md`、`style_authority/CHARACTER_VISUAL_STYLE_REFERENCE_V001__CHARACTER_VISUAL_STYLE_REFERENCE_V001.png`；无错误条目、无额外参考图。
+- 对 ZIP 内的真实 PNG bytes 独立计算：`1,301,730` bytes、`1536×1024`、SHA-256 `8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41`、Git Blob SHA1 `216b1739db17cb3b183d613e4aefa6374d1088e2`，**四项与 Canonical / Manifest / 预期完全一致**。
+- Manifest `reference_count=1` / `all_reference_checks_pass=true` / `generation_allowed=true` / `overall_result=PASS`，独立核对通过。
+- Artifact Expires: `2026-11-08T03:28:21Z`（GitHub Metadata），到期后不能凭历史链接推断 ZIP 可用。
+
+### Work 唯一正式权限
+
+1. Work 从已验证 Artifact 读取 `WORK_HANDOFF.md`、`delivery_manifest.json`、1张风格参考，入场再核对相同 SHA/bytes/dimensions；若读不到或不匹配，立即停止并报告。不能使用旧聊天内的临时 ZIP 作为正式输入。
+2. 只制作 `CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_01.png`，目标 `941×1672`，0°正面，使用本文件第2–4节角色设计规范。
+3. 画面与既有苏小小、温倾雅身份不可混用，风格参考只能管理风格；不生成 P01 红裙状态，不生成其它角度，不修改已批准镜头和音频。
+4. Work 完成一张候选后立刻停止，由 PO 视觉审核。Chat 后续根据 PO 实际批准进行 Exact Binary Verification、正式发布及资产 Registry，**当前这些步骤未执行，也未授权预登记**。
+
+**Gate verdict:** `BUNDLE_BUILD_PASS / INDEPENDENT_ARTIFACT_EXACT_BINARY_PASS / WORK_SINGLE_CANDIDATE_AUTHORIZED / PO_IDENTITY_VISUAL_REVIEW_PENDING`。
