@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R405",
+  "state_revision": "R406",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI PROFILE_LEFT C01 AST_IMG_000111 APPROVED CURRENT / EXACT CANONICAL AND REGISTRY ACTIONS 41314634188 SUCCESS / 35 STORY SHOTS AND 3 VIDEOS UNCHANGED",
+  "session_status": "2026-11-01 EOD CLOUD PROJECT CONTROL CLOSED / BAI THREE REFERENCES 109-111 APPROVED CURRENT VERIFIED / 192.257S OPENING AUDIO-ONLY PO LISTENING PASS / MAC SYNC USER TERMINAL PROOF PENDING / STORY SHOTS 35 VIDEOS 3 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI PROFILE_LEFT C01 ATOMIC REFERENCE REGISTRATION CLOSED / NEXT REFERENCE AWAITING PO AUTHORIZATION",
-  "blocker": "No PROFILE_LEFT registration blocker. Exact canonical binary, single current registry and two audit events independently verified by GitHub Actions 41314634188. Provenance PARTIAL; Tier unassigned; other views not authorized.",
-  "next_action": "PROFILE_LEFT V001 is a formal approved/current reference. Stop generation and seek PO direction before another view. No Story Shot or video change.",
+  "current_task": "2026-11-01 EOD CLOSED / NEXT SESSION: REVIEW APPROVED COMPACT OPENING AUDIO AGAINST EXISTING VISUAL COVERAGE",
+  "blocker": "No blocker for the three formally approved Bai reference registrations. P0.3 audiovisual completion is not established: compact 192.257s audio has listening approval but full AV coverage, character Tier and additional Bai views are not independently approved. Mac EOD sync awaits terminal evidence.",
+  "next_action": "At next session, first compare 192.257s PO-approved original-audio beat map with existing 35 Story Shots and approved references; define minimum missing visual proof only, then request PO authorization if new images are needed. No automatic new Bundle, Work generation, Master or video publication.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-10-31 MAC LOCAL FAST-FORWARD VERIFIED PASS AT 803d562 / NO SAME-NIGHT RE-PULL FOR CONTROL RECEIPT",
+    "status": "2026-11-01 RC-029 MAC EOD SYNC PENDING USER TERMINAL PROOF / LAST VERIFIED 2026-10-31 AT 803d562",
     "rule": "RC-029 overrides RC-012 cadence: one safe local Mac sync at each daily evening closeout, not at morning start or after every GitHub write. Canonical GitHub main is daytime source of truth; if formal local work is unavoidable before evening, do safe preflight+sync first or defer local work.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -84,8 +84,8 @@
     "verified_on": "2026-10-31",
     "verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "verification_evidence": "User Mac Terminal: main before+after; only untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/; git-proxy-auto pull --ff-only origin main FAST-FORWARD c57854d→803d562; local HEAD == origin/main full SHA 803d562ae058cb5b2b8feba874c19a34ba0f1ac5; Chat independently queried GitHub refs/heads/main at that same SHA before control receipt update. RC-029 EOD PASS checkpoint; later GitHub documentation commits do not imply Mac already pulled them.",
-    "note": "2026-10-31 RC-029 nightly GitHub→Mac fast-forward performed and verified at checkpoint 803d562. Subsequent Project Control documentation-only commits advance GitHub main; local remains at this verified EOD checkpoint until next routine sync. Do not require another sync this evening for metadata. Preserve untracked private Console paths.",
-    "latest_handoff": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-31_opening_narrative_and_local_sync.md"
+    "note": "Current GitHub cloud closeout R406 is not a local Mac fast-forward receipt. Last verified local HEAD remains 2026-10-31 at 803d562. Run one safe GitHub→Mac fast-forward at 2026-11-01 EOD; never mark PASS until user terminal proof.",
+    "latest_handoff": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -120,19 +120,34 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-PROFILE-LEFT-C01-REGISTRATION-CLOSEOUT-R405",
-    "status": "BAI PROFILE_LEFT EXACT CANONICAL AND ATOMIC REGISTRY INDEPENDENTLY VERIFIED",
+    "id": "2026-11-01-EOD-CLOUD-CLOSEOUT-R406",
+    "status": "EOD_CLOUD_CONTROL_COMPLETE__MAC_SYNC_PENDING",
+    "date": "2026-11-01",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "completed": [
-      "PO approved exact candidate 01.",
-      "Google Drive source file 1pu8r13MXYgvggd11Z1dgzpwqPqLuS3cf, 2757424 bytes.",
-      "GitHub canonical original PNG published in main commit 4d4711fb9e92fb6d32ade6962801186b8294f790, Git Blob fecd61a97d7fd332bb8177eb670f2a4e14ce521b.",
-      "Single approved current Asset AST_IMG_000111, SHA256 f2429302143abc088a3faa1fb43d654a328e8018fa50161b15398e88b0a37836.",
-      "Required append-only audit events added in commit 1f6089671a12641e05a502f863976dc540df57bd.",
-      "Independent GitHub Actions 41314634188 SUCCESS, verifying canonical PNG and Registry/Audit uniqueness.",
-      "Entities 35 / Assets 111 / Audit Events 197. Story Shots 35 and official Videos 3 unchanged."
+      "Independently checked Bai FACE_FRONT AST_IMG_000109 Actions 41302720607 SUCCESS.",
+      "Independently checked Bai FACE_3Q_LEFT AST_IMG_000110 Actions 41306683087 SUCCESS.",
+      "Independently checked Bai PROFILE_LEFT AST_IMG_000111 Actions 41314634188 SUCCESS.",
+      "Main registries verified: 35 entities, 111 assets, 197 audit events.",
+      "Index counts verified: 35 approved Story Shots and 3 formal videos unchanged.",
+      "P01/P02 original-audio V002 212.270s and compact Opening 192.257s separately PO listening approved; audio-only scope preserved.",
+      "Reconciled Gate README, Acceptance Matrix and Dashboard without upgrading P0.3."
     ],
-    "resume_from": "Await further PO-directed Bai reference design; no further generation authorized",
-    "blockers": []
+    "resume_from": "Review existing visual coverage against PO-approved 192.257s compact original-audio proof; do not authorize new image/video generation without PO decision.",
+    "blockers": [
+      "2026-11-01 Mac GitHub→local sync PENDING user terminal evidence",
+      "A/V coverage for 192.257s track not yet independently proven; character Tier unassigned"
+    ],
+    "registry_counts": {
+      "entities": 35,
+      "assets": 111,
+      "audit_events": 197,
+      "story_shots": 35,
+      "formal_videos": 3
+    },
+    "last_verified_local_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
+    "last_verified_local_date": "2026-10-31",
+    "local_sync_status": "PENDING_USER_TERMINAL_PROOF"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -527,13 +542,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V324",
+    "version": "V325",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R405 / BAI 3 REFERENCE VIEWS APPROVED CURRENT; PROFILE_LEFT EXACT VERIFIED; SHOTS35 VIDEO3",
-    "derived_from_revision": "R405",
+    "status": "DERIVED R406 EOD CLOUD CLOSED / 111 ASSETS, 197 AUDIT EVENTS, BAI 3 CURRENT VIEWS / 35 SHOTS, 3 VIDEOS / LOCAL SYNC PENDING",
+    "derived_from_revision": "R406",
     "last_updated": "2026-11-01",
-    "current_task": "BAI PROFILE_LEFT AST_IMG_000111 REGISTERED AND CLOSED"
+    "current_task": "EOD CLOSED / NEXT COMPACT OPENING AUDIO VISUAL COVERAGE REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -548,11 +563,11 @@
     "daily_closeout_rule": "At end of each workday, cross-check project_state, current Gate README/progress, decision / execution / rules logs, acceptance matrix and Dashboard for consistent Current Task, Blocker, Next Action, Asset ID / version, D-### numbering and completion state.",
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
-    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_s02b_m01_2026-10-17_to_2026-10-18_full_closeout.md",
-    "last_daily_closeout_status": "2026-10-18 OCT17–18 CLOUD FACT CONSISTENCY COMPLETE / MAC SYNC USER TERMINAL PROOF PENDING",
+    "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
+    "last_daily_closeout_status": "2026-11-01 EOD CLOUD CONTROL COMPLETE / 3 BAI REFERENCES EXACT VERIFIED / OPENING 192.257S AUDIO LISTENING PASS / LOCAL MAC SYNC PENDING USER TERMINAL PROOF",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
     "last_formal_closeout_status": "S02-B V001 PRODUCT OWNER APPROVED / EXACT DRIVE VERIFIED / REGISTERED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_PROFILE_LEFT_C01_REGISTRATION_CLOSEOUT_2026-11-01.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -4585,8 +4600,8 @@
   },
   "registry_counts_current": {
     "entities": 35,
-    "assets": 110,
-    "audit_events": 195,
+    "assets": 111,
+    "audit_events": 197,
     "scene_profiles": 14,
     "story_shots": 35
   },
@@ -5703,7 +5718,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_FACE_FRONT_AND_FACE_3Q_LEFT_PO_APPROVED_CANONICAL_CURRENT_EXACT_VERIFIED_20261101",
+    "status": "BAI_FACE_FRONT_FACE_3Q_LEFT_PROFILE_LEFT_3OF9_REFERENCE_ATOMICS_PO_APPROVED_CANONICAL_CURRENT_EXACT_VERIFIED_20261101",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5746,8 +5761,9 @@
         "v006_generation_authorized": false,
         "face_front_asset_id": "AST_IMG_000109",
         "face_3q_left_asset_id": "AST_IMG_000110",
-        "verified_reference_count": 2,
-        "reference_status": "FACE_FRONT_AND_FACE_3Q_LEFT_APPROVED_CURRENT_PARTIAL_COVERAGE"
+        "verified_reference_count": 3,
+        "reference_status": "FACE_FRONT_AND_FACE_3Q_LEFT_AND_PROFILE_LEFT_APPROVED_CURRENT_PARTIAL_COVERAGE",
+        "face_profile_left_asset_id": "AST_IMG_000111"
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5803,7 +5819,7 @@
       "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
       "private_drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g"
     },
-    "next_gate": "Two reference views approved/current; future PROFILE_LEFT requires separate director-design and Work authorization after reference input verification. Do not infer full nine-view Tier A production-ready.",
+    "next_gate": "Three exact approved Bai reference views registered; Character Tier not assigned, further angles and P01 costume/shots require explicit Director/PO authorization; do not infer nine-view completion or video readiness.",
     "visual_style": {
       "authority": "PRODUCT_OWNER_EXPLICIT_2026_11_01",
       "value": "2.5D_ANIME_SAME_AS_EXISTING_APPROVED_CHARACTERS",
