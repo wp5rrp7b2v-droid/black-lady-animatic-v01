@@ -10,7 +10,7 @@
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
 | P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / S02-A FORMALLY CLOSED / S02-B ACTIVE / N16–N23 FORMALLY CLOSED / N24 UNSTARTED / NOT YET VALIDATED** |
+| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 35 FORMAL STORY SHOTS / 3 FORMAL VIDEOS / OPENING AUDIO-ONLY PO LISTENING PASS / NOT YET VALIDATED** |
 
 ## P0.3 Current Validation Note｜2026-09-25
 
@@ -368,3 +368,12 @@ P0.3 is now eligible to start its own validation work, but remains unvalidated u
 - P03B canonical 941x1670 SHA256 `ad7ae095a11fcce8772c1d2694683bc0f15336294a35bd7a3d12480c6d58e98e` Git blob `067e60b7ff538700cc71c64d629ec6a80eaccec1`, no resize despite target 941x1672. P04C canonical 941x1672 SHA256 `6a00e7a76ed8a7e228dc2ab334e93a7f907b586293a144649773f4f9c29628be` Git blob `926a4a2a4025187fa254ee0cb1a3ac65a0a35e33`.
 - Intake Actions `41189594063`/`41189935095` SUCCESS; canonical publication commit `77d430f9a116c0ae4bb182e02e4320ad1dd55d7a`; Story Shot index commit `1e80a5485e6da3c5c196701d3513befc8c4bcce7`; **35 unique current approved Story Shot rows**; independent verification Actions `41191180952` PASS.
 - Old one-use verifier wrote count33 and fails on new 35; workflow retired and evidence retained. No image reencode; P03A scene anchor intact. Original Opening V001 and 3 formal videos unchanged.
+
+## 2026-11-01 EOD R406｜P0.3 Acceptance Evidence Refresh (no Gate approval change)
+
+- GitHub main exact registries checked: `production/asset_registry/entity_registry.jsonl` = **35**, `asset_registry.jsonl` = **111**, `audit_event_log.jsonl` = **197**. Story Shot Index = **35**; formal Video Index = **3**.
+- White Xiaoxiao `AST_IMG_000109` FACE_FRONT, `AST_IMG_000110` FACE_3Q_LEFT, `AST_IMG_000111` PROFILE_LEFT all `APPROVED / CURRENT / MASTER`. Three independent GitHub Actions runs `41302720607`, `41306683087`, `41314634188` **SUCCESS**; full 9-view completeness not demonstrated, Tier not assigned, provenance partial.
+- Opening original-audio `OPENING_P01_P02_ORIGINAL_VOICE_EDITORIAL_PROOF_V002` **212.270s** and compact `OPENING_P01_P04_NEIL_COMPACT_AUDIO_PROOF_V001` **192.257s** have separately recorded PO listening PASS. These do not constitute a completed audiovisual proof or authorize a formal video version.
+- 2026-11-01 EOD report: `docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md`.
+- **Gate conclusion unchanged: P0.3 = IN PROGRESS / NOT YET VALIDATED.** Current dependency before any additional Story Shots is minimum visual coverage proof against the approved compact audio; no new Work or gate status inferred. Local Mac RC-029 nightly sync awaits user terminal proof.
+
