@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R400",
+  "state_revision": "R401",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / C02 FACE IDENTITY PO CONFIRMED & GITHUB CONTROLLED SOURCE EXACT / V006 ONE-C02 REFERENCE BUNDLE BUILT AND INDEPENDENT EXACT 1/1 PASS / WORK NOT AUTHORIZED / 35 SHOTS 3 VIDEOS UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI C06 PO VISUAL PASS AND EXPLICIT REGISTRATION AUTHORIZATION / USER-ATTACHED EXACT PNG SHA LOCKED / GITHUB IMAGE BINARY INGEST BLOCKED / NO ENTITY OR ATOMIC REGISTRY WRITE / ORIGINAL 35 STORY SHOTS 3 VIDEOS UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI V006 C02 IDENTITY-PRESERVING 2.5D RESTYLE MINIMUM PROOF — VERIFIED ONE-REFERENCE BUNDLE READY",
-  "blocker": "V006 input binary exactly correct and only C02. No actual 2.5D identity-preserving Work edit or PO visual approval yet; text-only style match is an unverified hypothesis. Work generation not separately authorized.",
-  "next_action": "After explicit PO authorization, Work read V006 Artifact 13072228815 from GitHub Actions run 41279299878; reverify exact source C02 (941x1672 2958047 bytes SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07), perform exactly one identity-preserving 2.5D restyle of C02, no other cast face refs and no new face. Stop with 941x1672 CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png for PO side-by-side face/style check. No nine views, Approved Atomic registration or Story Shots.",
+  "current_task": "BAI C06 PO APPROVED FACE_FRONT — CANONICAL EXACT BINARY INGEST BEFORE FORMAL REGISTRATION",
+  "blocker": "The exact PO-approved C06 PNG exists only as a chat attachment in this execution context; locally verified SHA256 d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb / 2747575 bytes / 941x1672 / git blob 38761350f926c30358cb98e55d6f4d603d8825f1. Current GitHub write connector cannot ingest mounted PNG bytes directly; GitHub main has no C06 PNG and no CHAR_BAI_XIAOXIAO Entity / Atomic asset. PO authorization is valid, registration pending.",
+  "next_action": "Deliver exact same PO-approved C06 PNG bytes through Work or a supported binary intake endpoint into GitHub staging, with no regeneration/re-encoding. GitHub Actions independently verify SHA256/size/dimensions/Git blob; then publish byte-identical PNG at production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png; create CHAR_BAI_XIAOXIAO Entity + Atomic FACE_FRONT asset and append-only audit, validate Single Current and canonical hash, update dashboard. Do not register until actual GH binary is verified.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,51 +120,41 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-C02-LOCKED-V006-BUNDLE-EXACT-PASS-R400",
-    "status": "PO ACCEPTED C02 FACIAL IDENTITY LOCKED / V006 FORMAL BUNDLE 1/1 EXACT VERIFIED / ONE STYLE-TRANSFER TEST PROPOSED, WORK NOT AUTHORIZED",
+    "id": "2026-11-01-BAI-C06-PO-APPROVED-REGISTRATION-BINARY-INGEST-BLOCKED-R401",
+    "status": "PO VISUAL APPROVED & PO REGISTRATION AUTHORIZED / SOURCE HASH VERIFIED / CANONICAL BINARY ABSENT FROM GITHUB / NO ASSET REGISTRATION",
     "completed": [
-      "User explicitly selected C02 as previously accepted Bai facial identity. Older C01/C02 ambiguity resolved, do not continue face redesign.",
-      "Downloaded and independently hashed original C02 PNG from private Drive ID 1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g: 941x1672, 2958047 bytes SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07, Git Blob 7232dcfaa7e787ff1303fc1c5409a58193396b74.",
-      "Imported C02 exact Git blob to canonical GitHub under production/identity_sources/bai_xiaoxiao with PO_ACCEPTED_IDENTITY_ONLY controlled manifest. Git commit 4038b073e46cae9f21ec01a877fe86a6746d4233; explicitly NOT Approved Atomic Character Master.",
-      "Created V006 Bundle Spec containing exactly one CONTROLLED_REFERENCE to C02 (no other characters faces), build_authorized=true but work_generation_authorized=false. Spec commit c033a5e592f08dcb7878c542a8130e790a064bc7.",
-      "GitHub Actions Run 41279299878 completed SUCCESS, job 124767742174, 1/1 canonical exact verification PASS, artifact ID 13072228815.",
-      "Independently downloaded Artifact 2962234 bytes SHA256 c8cf1874c87cd410f765946c3671cb7e01b031418f9a22c925eec32d899dd6d5, ZIP CRC PASS, 3 expected files, manifest 1/1 PASS.",
-      "Extracted PNG actual exact SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07 / Git blob 7232dcfaa7e787ff1303fc1c5409a58193396b74 / size 2958047 / 941x1672 PASS.",
-      "Director Execution existing doc appended Section19 with identity/style separation, approval scope, exact evidence and future one-image test gate; no Work C06 image produced.",
-      "Preserved 192.257s PO accepted Opening audio, 35 Approved Story Shots and three formal video index entries."
+      "Retained C02 face-only PO identity baseline and verified V006 one-reference Bundle evidence; no other-cast face is a positive input.",
+      "PO explicitly visually approved uploaded C06 2.5D FACE_FRONT PNG and separately authorized registration using existing workflow.",
+      "Locally measured user-uploaded original file: 941x1672 PNG RGBA, 2747575 bytes, SHA256 d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb, Git blob 38761350f926c30358cb98e55d6f4d603d8825f1.",
+      "Confirmed GitHub main currently has no C06 image file and no CHAR_BAI_XIAOXIAO Entity/Asset Registry record; prevented false registration.",
+      "Recorded PO approval, permitted registration and verifiable binary intake blockers in existing Director/Project Control Gate record.",
+      "35 formally registered Story Shots and 3 formal videos unchanged."
     ],
-    "resume_from": "PO AUTHORIZE ONE WORK C02 IDENTITY-PRESERVING 2.5D RESTYLE FROM V006 VERIFIED ARTIFACT",
+    "resume_from": "INGEST EXACT C06 APPROVED SOURCE PNG TO GH THEN EXECUTE EXISTING ATOMIC FACE_FRONT PUBLICATION AND REGISTRY",
     "blockers": [
-      "Work generation not authorized yet; builder's generation_allowed=true is technical validity only.",
-      "Identity-preserving style transfer with text-only 2.5D cast style constraints not tested; no approved 2.5D Bai atomic/master.",
-      "No other cast complete faces may be added as positive style inputs."
+      "Current GitHub connector cannot transfer mounted chat PNG bytes directly; source is not yet in GitHub.",
+      "Exact binary GH-side verification and provenance chain not completed, so formal entity/asset entry and current master unavailable."
     ],
-    "c02_identity_locked": {
-      "status": "PO_ACCEPTED_FACE_IDENTITY_ONLY",
-      "file": "production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.png",
-      "manifest": "production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.manifest.json",
-      "source_sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
-      "source_bytes": 2958047,
-      "git_blob": "7232dcfaa7e787ff1303fc1c5409a58193396b74",
-      "atomic_master_approved": false,
-      "allowed_use": "EXACT_FACE_IDENTITY_BASE_FOR_V006_RESTYLE"
+    "c06_approval": {
+      "po_approved": true,
+      "registration_authorized": true,
+      "source_file": "image(20261101-111634).png",
+      "expected_sha256": "d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb",
+      "expected_git_blob": "38761350f926c30358cb98e55d6f4d603d8825f1",
+      "expected_bytes": 2747575,
+      "width": 941,
+      "height": 1672,
+      "canonical_target": "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "binary_in_github": false,
+      "registry_completed": false,
+      "evidence_doc": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_C06_PO_VISUAL_APPROVAL_2026-11-01.md"
     },
-    "v006_bundle": {
-      "spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_C02_IDENTITY_PRESERVING_2POINT5D_RESTYLE_V006_REFERENCE_DELIVERY_BUNDLE_V001.json",
-      "bundle_id": "BAI_XIAOXIAO_FACE_FRONT_C02_IDENTITY_PRESERVING_2POINT5D_RESTYLE_V006_REFERENCE_DELIVERY_BUNDLE_V001",
-      "run_id": 41279299878,
-      "job_id": 124767742174,
+    "v006_source_bundle": {
+      "actions_run": 41279299878,
       "artifact_id": 13072228815,
-      "artifact_zip_sha256": "c8cf1874c87cd410f765946c3671cb7e01b031418f9a22c925eec32d899dd6d5",
-      "zip_bytes": 2962234,
-      "reference_count": 1,
-      "reference_source": "PO_ACCEPTED_IDENTITY_C02_NOT_APPROVED_ATOMIC_MASTER",
-      "independent_binary_check": "PASS",
-      "expires_at": "2026-11-08T06:04:15Z",
-      "work_generation_authorized": false,
-      "work_render_completed": false
+      "technical_exact_status": "PASS",
+      "not_a_C06_output_binary": true
     },
-    "proof_doc": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md#19",
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
