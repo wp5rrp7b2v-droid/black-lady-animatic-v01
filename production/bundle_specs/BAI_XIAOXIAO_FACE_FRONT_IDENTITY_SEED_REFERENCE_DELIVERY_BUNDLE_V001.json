@@ -6,12 +6,12 @@
   "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 1,
     "rule": "ONE_APPROVED_STYLE_ONLY_SOURCE_NO_EXISTING_FACE_IDENTITY_COPY",
-    "notes": "This is a character identity seed asset, NOT a Story Shot. Validation-only. Do not build or generate until further PO authorization."
+    "notes": "PO explicitly authorized formal reference Bundle build and Work instruction for exactly one Bai FACE_FRONT identity candidate on 2026-11-01. This authorizes one work render only after independent exact Artifact verification. No additional views, asset registration or video."
   },
   "references": [
     {
@@ -33,11 +33,12 @@
     }
   ],
   "work_handoff": {
-    "title": "白潇潇 FACE_FRONT Identity Seed Candidate 01｜尚未授权生成",
+    "title": "白潇潇 FACE_FRONT Identity Seed Candidate 01｜PO授权仅1张",
     "requirements": [
-      "This JSON has build_authorized=false. Its current sole purpose is GitHub Actions validation-only; NO Work generation or candidate image publication is authorized yet.",
+      "First verify Artifact delivery_manifest.json, exact byte size, SHA-256 and PNG dimensions for every reference. STOP if artifact missing or mismatch.",
+      "PO approved formal Bundle build and one Work FACE_FRONT Candidate 01 on 2026-11-01. Render exactly one image only AFTER the independently verified GitHub Actions artifact is read and exact input reverified.",
       "Once independently authorized and a formally verified Artifact exists, read Director Execution source: docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md.",
-      "Character: CHAR_BAI_XIAOXIAO. Output target: one, and only one, 941x1672 9:16 FACE_FRONT identity-seed candidate PNG. Do not generate without new PO authorization.",
+      "Character: CHAR_BAI_XIAOXIAO. Render only one 941x1672 9:16 FACE_FRONT PNG, name CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_01.png. Stop immediately for Product Owner visual review.",
       "Adult woman with mature striking beauty, expressive clear-eyed composure, naturally vivid red lips, deep long hair with middle or subtle side part and gentle wave, natural realistic skin texture, minimal dark charcoal/black top.",
       "Head front 0-degree, eye-level, head/shoulders and upper chest in frame, neutral gray low-distraction backdrop, even soft realistic light, clean readable facial geometry.",
       "Face identity must be novel and distinct from existing Su Xiaoxiao, Wen Qingya, and all currently approved named characters; the sole style board is ONLY a visual-language reference.",
@@ -45,7 +46,6 @@
       "Stop after one candidate. Report to PO for seven-step Fixed Standard Review. Candidate is NOT APPROVED or PRODUCTION_READY."
     ],
     "exclusions": [
-      "any image generation while build_authorized=false",
       "copying faces/outfits/poses shown in the style-only reference",
       "more than one generated PNG, variants, profile/body/back or expression sheets",
       "teenage/innocent sweetface, office executive, aggressive femme fatale styling, heavy beauty filter or artificial plastic skin",
@@ -56,5 +56,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "V001-VALIDATION-ONLY-20261101"
+  "spec_revision": "V001-BUILD-AUTHORIZED-20261101-PO"
 }
