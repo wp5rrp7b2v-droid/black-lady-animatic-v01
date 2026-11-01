@@ -1,66 +1,81 @@
-# 《诡舍·黑衣夫人》｜Opening 新人物 Master Reference V001｜导演设计草案
+# 《诡舍·黑衣夫人》｜Opening 新人物 Master Reference V001｜前史核查后修订草案
 
-Date: 2026-11-01  
-Status: **DRAFT / SOURCE FACTS CHECKED / ROLE-TIER AND APPEARANCE AWAIT PO APPROVAL / NO IMAGE OUTPUT OR FORMAL REGISTRY**
+日期：2026-11-01  
+状态：**SOURCE REVIEW COMPLETE FOR RELEVANT PRE-CH133 CHARACTER MATERIAL / DESIGN DRAFT ONLY / PO VISUAL DESIGN NOT APPROVED / NO NEW IMAGES OR ENTITY/ASSET REGISTRATION**
 
-## 1. 工作目标及冻结边界
+> 修订依据：用户指出白潇潇是重要角色，孟军的 Master 制作可往后放；必须先读取《黑衣夫人》之前的篇章。先前本文件对白潇潇“约30岁、普通成熟职业气质、Tier B”的候选假设在此修订；留存 Git 历史原稿 commit `abff539e3afc8b07905f464746a4aa99e601a4bd`，不静默覆盖旧判断。
 
-围绕 PO 已通过完整原声审听的 Opening P01→P04→Neil `192.257s` 版本，**在 P01/P02 新镜头分镜之前**建立白潇潇与孟军两名未登记角色的可复用人物 Master Reference。目标是让各视角人物身份与服装稳定，而不是提前制作剧情镜头。
+## 1. 权威资料与验证范围
 
-正式声源：私有 Drive `1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV`，SHA-256 `1701f3a8140775550a30ac788b9221486349c058278d1ef0c2c5163664d6c4ac`；既有 PO 审批记录 `OPENING_COMPACT_AUDIO_V001_PO_LISTENING_APPROVAL_2026-11-01.md`。声音基准不作修改。P03-A/B/C 已批准的图像、Opening V001、Story Shot Index35、Video Index3 不变。
+- 原著全文，仓库：`source_material/S1_novel/S1_SOURCE_NOVEL_FULL_V001.txt`（6,480,028 bytes，文件 sha 版本受 Git 追踪）；本次通过既有上传的同名全书内容交叉读取，**重点核查第14–57章、第105–132章和第133章上下文**，而不是只读第133章。
+- 独立第133章到后续范围：`source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt`，用于确认 P01/P02 具体叙事关系。
+- 锁定人物规则：`docs/project_control/gates/P0_2_visual_assets/character_asset_rules_v1.md`；A=9个 Atomic 视图，B=6个，C=3个，均非本草案自动批准的 Tier。
+- GitHub `production/asset_registry/entity_registry.jsonl`、`asset_registry.jsonl` 实查：`CHAR_BAI_XIAOXIAO` 和 `CHAR_MENG_JUN` 均没有正式已登记身份或 Approved / Current Master。维持 `NOT PRODUCTION_READY`。
+- 已通过 PO 审听的紧凑 Opening 原声 `192.257s` Drive `1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV`，SHA-256 `1701f3a8140775550a30ac788b9221486349c058278d1ef0c2c5163664d6c4ac`，不调整。
 
-## 2. 原著事实与 Registry 缺口（FACT）
+## 2. 白潇潇 / CHAR_BAI_XIAOXIAO
 
-- 源文：`source_material/S2_black_lady/S2_SOURCE_BLACK_LADY_TEXT_V001.txt` 第133章。
-- 经独立读取 `production/asset_registry/entity_registry.jsonl` 与 `production/asset_registry/asset_registry.jsonl`，目前 **没有** `CHAR_BAI_XIAOXIAO`、`CHAR_MENG_JUN` 的正式实体或 CURRENT/APPROVED 资产；因此 **NOT PRODUCTION_READY**。不得因为建立草案就在两份正式 Registry 插入角色或占用 Asset ID。
-- 白潇潇（女）：在自己住处向君鹭远交代试炼的残酷性、需要诡舍老人陪同，关心他的安危；喝气泡水；询问宁秋水是否想好；叮嘱「活着回来」。她不是签约人，也不是血门中的怪物。
-- 孟军（男）：在诡舍大厅独自喝酒、看肥皂剧，态度冷淡；带宁秋水和君鹭远到三楼；**让君鹭远**伸手，用刀划开其手掌，再把君鹭远的手按/贴向木门；契约后说明身体恢复规则。不能误画为孟军或宁秋水本人签约。
-- 原著本章没有提供两人的**精确年龄、身高、脸型、发色、发型、具体服装款式/颜色**。因此以下外形皆为导演候选，不冒称原著事实。
+### 原著事实（FACT）
 
-## 3. 工作假设（需 PO 审核）
+| 章节 | 证据内容 | 对长期人物身份的意义 |
+|---|---|---|
+| 14–15 | 称作带有神秘感的美艳女性；精致五官、鲜艳红唇，冷峻表情可变温和。主动愿意带新人过血门；有珍贵鬼器。 | **成熟美艳、强识别红唇、能力与掌控力**。不能简化成普通的朴素办公室女职员 |
+| 18–20 | 通常脸部妆容较少而唇色艳丽；能辨识异常、判断危险，对线索保持敏锐 | 红唇不是一次性浓妆效果；面容须保持清楚而有生命力 |
+| 33–36 | 平时妩媚中有热情；识破谎言时气势凌厉，危急时决断迅速且具行动能力 | 形象同时承载慵懒魅力与令人不敢轻视的威慑力 |
+| 52–53 | 谈论昔日好友栀子，展现思念、恐惧与经历死亡后的创伤；曾被栀子帮助适应血门 | 不能将人物表演基准锁死为“始终冷漠 / 始终强势” |
+| 105–129 | 与宁秋水和孟军再度共同参与危险事件，对血门经验有直接贡献；夜谈有温柔、轻松、爱开玩笑的一面 | 不是在第133章才出现的一次性讲解员，而是连续登场、有情感跨度的队友 |
+| 131–132 | 在现实世界向宁秋水提供迷雾世界情报；住在“迷迭香”私家庄园。第132章会见宁/君时 **红色睡裙、黑色人字拖**，气质妖娆而华贵，身姿纤细、长腿、肤色白皙 | 这是 P01 具体场景的**服装状态**，不是所有章节永久默认服装 |
+| 133 | 告知君鹭远试炼代价，关切其安危，愿为治病承担费用并叮嘱活着回来 | 理性、保护性、尊重他人选择的行为；不可与单纯“魅惑角色”画等号 |
 
-根据 `character_asset_rules_v1.md` 的锁定分级，本轮两名角色暂按 **Tier B 候选**设计：白潇潇在 P01 参与多轮对话，孟军在 P02 同时需要对话与手部操作，存在中近景、多机位、身份一致性要求。Tier B 不是当前 Registry 中已批准的正式分级，待 PO 确认后才可登记。若后续实测显示仅极少机位，允许依锁定规则复核为 Tier C（3-view）减少制作量；不得为追求九视图而擅自升级 Tier A。
+### 未知（UNKNOWN）
 
-Tier B 正式 Mandatory Set 每人6张 Atomic Views：
-`FACE_FRONT` / `FACE_3Q_PRIMARY` / `PROFILE_PRIMARY` / `REAR_3Q_PRIMARY` / `BODY_FRONT` / `BODY_BACK`。 
-`primary_side` 候选设为 `RIGHT`（仅为消除左右角色混乱的工作选择，未经 PO 批准）。完整 Atomic Set 通过后再派生至少1张 Character Reference Sheet，包含 `derived_from` 列表，不把拼图 Sheet 当作原子资产。各张主参考为 **9:16**，中性背景、自然站姿/眼平摄影、稳定中性光线，符合锁定的角色审核顺序。
+- **准确年龄、身高、脸型尺寸、发型、发色**未见可以直接锁定的原著数据；不要将此前“30岁上下”“黑色中长发/束发”作为 FACT。
+- 第15章“多年泛黄照片与现今看上去年龄相近”属剧情悬念，不能据此直接判定真实生理年龄，更不能为造型任意衍生超自然特征。
+- 跨篇章角色地位高是已证据支持的推断，但后续具体镜头复杂度仍应按生产需要验证。
 
-## 4. 可供讨论的人物视觉方向：非原著定论
+### 更新后的导演建议（INFERENCE / 待批准）
 
-### 白潇潇 / CHAR_BAI_XIAOXIAO / P01
-- 叙事职责：理性说明危险、审慎保护君鹭远，同时尊重其个人选择。
-- 建议视觉年龄感：**30岁上下成年女性**（工作假设，非原著指定）。
-- 身份轮廓候选：清爽利落、成熟但不过度严厉；深色中长发或简洁束发；五官自然、有辨识度；不画成青春少女/贵妇/恐怖人物。
-- 日常默认服装候选：现代简约生活装，低饱和灰蓝、暖灰、米灰等，避免欧洲古堡年代戏装扮；对话情绪由剧情镜头表达，不写死为 Character Master 的「担忧」表情。
-- **重要边界：** 气泡水瓶属于该场剧情临时道具，不绑定到 FACE/BODY 主参考；其准确外形若需特写，之后另建小型 Prop reference，不额外制作与当前 blocker 无关的资产。
+- **优先级 HIGH、Tier A 候选（9-view）**：出场跨多个副本，参与线索分析、危险行动和多样社交关系，长期一致性与多角度需求高。只提出候选，不自动修改已锁定的九名角色 Tier 分配。
+- 首张 FACE_FRONT Identity Seed 必须有辨识度，表现自然成熟、明艳但不过度浓艳；低干扰中性光，保留醒目红唇和不僵硬的眼神，而不是普通商务头像，也不做剧情强表情。
+- **服装分离**：长期默认 Costume 具体款式待进一步导演选择；P01 单独维护 `COSTUME_BAI_XIAOXIAO_P01_RED_SLEEPDRESS` 候选（第132章红色睡裙、黑色人字拖），只有实际拍 P01 时才制作相应 Costume Variant/Prop 身份，不把剧情夜裙套进所有角色 Atomic Head Views。
+- 工作中的“美艳 / 妩媚”不能过度演变为刻意性感化、夸张身材或违反剧情状态的摆拍；人物核心是有经验、有判断力并重视同伴的复杂女性。
 
-### 孟军 / CHAR_MENG_JUN / P02
-- 叙事职责：诡舍内熟练处理血门契约的人；冷淡、克制，未呈现夸张凶恶或宗教身份。
-- 建议视觉年龄感：**35–45岁成年男性**（工作假设，非原著指定）。
-- 身份轮廓候选：短发、冷静克制、面容线条较硬朗；体态正常而稳，不设计成执刀杀手、古堡管家或鬼怪。
-- 默认服装候选：深灰/炭黑等低饱和现代常服，避免与已经批准的尼尔管家制服产生角色混淆；无额外武器作为默认人物识别特征。
-- **重要边界：** 划掌的刀与人物手部操作是 **P02 的剧情特定 Prop/Conditional Reference**，不是永久 Character Atomic Master。不得让主参考出现流血、腐烂手臂、阴暗舞台光或反复变化的服装。
+## 3. 孟军 / CHAR_MENG_JUN
 
-## 5. 最低成本验证与扩产 Gate
+### 原著事实（FACT）
 
-**Phase 0 — 身份 Seed（本文件讨论，不等于已授权制图）**
-- 每角色只拟 1 张 `FACE_FRONT` 身份锚定候选，分别由受验证输入的 Bundle 交 Work 出图。
-- 要求：9:16、原著一致、清晰、与现有宁秋水、君鹭远及尼尔有可辨别差异、无额外剧情、可作为长期固定身份。
-- PASS：PO 视觉确认「这就是该角色」，可开始相同身份的完整 Tier B Atomic Set；FAIL：只调整该角色的身份 Seed，不批量制作其他角度。
+| 章节 | 证据内容 | 角色设计指向 |
+|---|---|---|
+| 14–15 | 良言挚友；有军旅经历，在边境上过战场。眼神很有威慑力，少言，表面冷淡 | 纪律感、经验、警惕性；**不是**神秘杀手或怪物的类型 |
+| 75–78 | 身上有战斗留下的伤势，与现实世界的危险事务有联系 | 面对危险有代价、并非全能 |
+| 105–129 | 参与《古宅惊魂》多人试炼，判断环境痕迹、主动守夜；曾救助丰鱼，寻找失踪的白潇潇时坚决选择“找人” | 冷淡外壳之下重视同伴；在剧情中具有独立行为和判断 |
+| 133 | 在诡舍引导宁秋水和君鹭远到血门前，使用刀划开**君鹭远**的手掌并帮助签约，之后解释血门恢复身体的危险性质 | P02 是**引导者**，不是由孟军自己与血门签约 |
 
-**Phase 1 — Tier Core Set**
-- 采用相同 Approved Seed 锁定脸部结构、发型、基础服装和身形，完成余下5张/角色（若 Tier B 获 PO 确认），优先角色需求的同侧3/4与全身，再完成侧面、后3/4、背面。
-- PASS：每张符合锁定的七项 Fixed Standard Review、角色跨角度一致、六个必需角色视角完整、每张 PO 批准。
-- FAIL：任一视角改变脸型/体态/服装、9:16不合规或 identity 漂移，退回受影响的视角，不撤销已通过的 Seed。
+### 未知与暂定安排
 
-**Phase 2 — Formal Ingest**
-- 只有 PO 批准对应原子图后才 Exact Binary Verification、正式 Entity/Asset Registry、Atomic Source 发布及 Dependency Sheet 构建/登记。
-- 再以 Resolver 测试一次 P01/P02 中预期所需的代表性人脸与全身角度，未达 `PRODUCTION_READY` 不进入 Work 正式 Story Shot 制图。
-- 任何后续新增的表现型动作/表情图都必须由真实镜头需要触发，不在本轮盲目生成。
+- 实际年龄、发型/发色、常服颜色、脸部比例和体格尺寸尚无足够原文直接证明；此前“35–45岁、短发、炭灰色服装”只能算造型假设。
+- **孟军不降格为 Tier D 群演**：此前章节证明他是有连续剧情任务的正式人物。但根据当前 PO 的制作优先级，此时**延后 Master 制图**；是否 Tier B（6-view）待下一个需要孟军的真实镜头复杂度和 PO 审批决定。
+- 没有证据需要提前制作其各种表情；“冷”≠面瘫，眼神威慑与保护队友时不同的反应留给 Shot/Conditional Reference。
 
-## 6. 当前审批问题与停止条件
+## 4. 原草案修正说明
 
-- 待 PO 批准：两人身份确认、Tier B 方案与默认外形方向；两人的 `primary_side` 是否采用 `RIGHT`。
-- 当前只授权内容设计和事实核查；没有 Work 制图、Asset Registry 登记、Story Shot、视频或更改音频的授权。
-- 已确认本轮前置最小 blocker：两名人物没有经过 PO 审核的身份 Seed。先按 Phase 0 逐人检验，可最快淘汰错误视觉方向；Seed 未 PASS 不做12张正式角色图，也不新建其他管理文件。
-- 与此前会话提出的「每人多视图+表情」概念相比，本次经 GitHub 锁定规则核对，标准化为 **Tier B 6-view + 可追溯 Sheet**；剧情表情与手部变体不属于强制 Core Set，不提前批量制作。
+| 之前草案 | 新证据 / 约束 | 对当前方案的影响 |
+|---|---|---|
+| 两人都暂按 Tier B、各生成 FACE_FRONT Seed | PO 明确白潇潇重要、孟军可以延后；原著白潇潇跨篇章多面性、较多镜头可能 | **白潇潇先按 Tier A 候选建立 Identity Seed；孟军只保留角色定义，暂不出图** |
+| 白潇潇约30岁 / 中性色普通现代职业装 | 原著未定年龄，反复明确美艳、红唇、妩媚/慵懒；第132章红色睡裙有明确来源 | 撤销年龄与发型的事实化；脸部要锚定红唇、妩媚但不空洞；单独控制 P01 Costume |
+| 孟军只是一名冷酷契约执行者 | 前章明确退伍军人、救援与责任感 | 角色复杂性保留，但当前生产优先级仍低 |
+| 两人同时构建各6张参考 | 缺少身份 Seed 验证，也没有生产必要性证明孟军同步建设 | 不启动批量出图，不新增无关管理机制 |
+
+## 5. 最小证明 / Scale Gate
+
+1. **先就白潇潇身份方向进行 PO 设计审核。** 审核维度：是否呈现有辨识度的成熟美艳、真实红唇、能够支撑温柔/调侃/警觉/冷厉等差异化演出，且绝不与已批准的其他女性角色混淆。
+2. 只有 PO 认可概念和候选 Tier A 方向后，才按已锁定的 Chat → GitHub Actions Reference Bundle → Work 生成**一张**9:16 `FACE_FRONT` Identity Seed，不在 Chat 直接生图。
+3. PASS = 用户认可同一位白潇潇的身份和真实五官；FAIL = 失去成熟妩媚感、脸部没有辨识度、变成高冷职业女性、过度性感化、与既有角色撞脸或不符合9:16。FAIL 时只修改 Seed。
+4. Seed PASS 后才扩至 Tier A 必需 Atomic 9-view（每个视角单独 PO 审核），建立溯源 Reference Sheet，Exact Binary Verification→Approved Asset Registry→Resolver production-readiness 检验。没有被批准的图不写入正式 Registry。
+5. 孟军角色设计保留但 Master 暂时不生产。正式 P01/P02 Story Shot 分镜以新角色足够的 Master 证据为 Gate，不因音频已通过就跳过人物验证。
+
+## 6. 保留现有正式基线
+
+- Audio：Opening P01→P04→Neil `192.257s` PO 听审通过，文件与原始源保留。
+- 三张血门正式 Approved Story Shots、正式 Story Shot Index `35`，Video Index `3`，原 Opening V001 均不修改；P0.3 仍 IN PROGRESS。
+- 此文件是修订草案，不是正式人物形象审批、Tier 决策锁定、图片生成许可或 Canonical Publication。
