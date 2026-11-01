@@ -6,13 +6,13 @@
   "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_3Q_LEFT_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 1,
     "rule": "EXACT_APPROVED_BAI_FACE_FRONT_C06_AS_SOLE_POSITIVE_IDENTITY_AND_STYLE_REFERENCE",
     "work_generation_authorized": false,
-    "authorization_scope": "DIRECTOR_DESIGN_AND_VALIDATION_ONLY",
+    "authorization_scope": "FORMAL_BUNDLE_BUILD_AND_INDEPENDENT_EXACT_VERIFICATION_ONLY",
     "identity_lock": "FACE_FRONT_V001_C06",
     "note": "Do not use Su Xiaoxiao, Wen Qingya, failed Bai candidates or generic example images as positive generation references."
   },
@@ -37,9 +37,9 @@
     }
   ],
   "work_handoff": {
-    "title": "白潇潇 FACE_3Q_LEFT V001｜仅准备，不授权出图",
+    "title": "白潇潇 FACE_3Q_LEFT V001｜正式 Bundle 已授权，Work 出图未授权",
     "requirements": [
-      "This is validation only: do not generate, edit or publish until a separate build and Work instruction is approved.",
+      "Authorization gate: formal Bundle build and independent exact verification only. Work generation, editing and publication are NOT authorized. The builder's generation_allowed=true denotes technical bundle readiness only; do not generate a candidate without separate PO approval.",
       "After separate approval, use ONLY the verified C06 canonical FACE_FRONT png as positive image reference. Face identity, eyes, nose, lips, jaw, hairline, hairstyle, complexion, 2.5D anime style and dark top must remain consistent.",
       "Produce exactly one left three-quarter face portrait (~45 degrees) at 941x1672 PNG with neutral background and soft even lighting, calm alert expression, clear red lips.",
       "Do not mirror a right-facing image as if a left view; ensure semantic LEFT angle against character naming convention during director review.",
@@ -53,5 +53,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "FACE_3Q_LEFT_V001_VALIDATION_ONLY_20261101"
+  "spec_revision": "FACE_3Q_LEFT_V001_FORMAL_BUNDLE_BUILD_PO_AUTHORIZED_20261101"
 }
