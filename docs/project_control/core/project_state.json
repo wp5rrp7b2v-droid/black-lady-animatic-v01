@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R396",
+  "state_revision": "R397",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI C04 2.5D DIRECTION HELD BUT VETERAN CHARACTER ROLE FAIL / V005 TARGETED ROLE CONCEPT DRAFT ONLY / NO V005 BUNDLE OR WORK AUTHORIZATION / INDEX35 VIDEO3 UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI C04 ROLE VISUAL FAIL / V005 FORMAL REFERENCE BUNDLE BUILD AND INDEPENDENT EXACT 2/2 PASS / WORK C05 NOT AUTHORIZED / STORY SHOT35 VIDEO3 UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI FACE_FRONT C04 PO VISUAL FAIL — V005 EXPERIENCED GHOST-HOUSE OPERATOR ROLE DESIGN, NOT SEXY SECRETARY",
-  "blocker": "C04 visually reads as glamorous executive assistant/secretary instead of experienced, composed, capable ghost-house veteran. No PO-approved Bai FACE_FRONT identity yet; V005 design lacks image production authorization.",
-  "next_action": "Use Chapter14–132 Bai character evidence and PO C04 review to prioritize alert composure, practical outfit and controlled hairstyle over glamour while retaining 2.5D anime visual style and distinctive red lips. Reuse V004 exact verified style sources as candidate V005 design inputs if authorized; create fresh V005 Spec/Run/Artifact only upon explicit new authorization. Single Work candidate then PO visual approval; no Tier A expansion.",
+  "current_task": "BAI V005 FACE_FRONT REFERENCE BUNDLE EXACT VERIFIED — WAIT SEPARATE PO AUTHORIZATION FOR ONE WORK C05",
+  "blocker": "V005 2-reference Bundle technically ready but new Candidate05 has not been generated or PO approved. User authorized bundle creation only, not Work rendering. No approved Bai identity seed or Tier A Master.",
+  "next_action": "When Product Owner explicitly authorizes Work, hand off only V005 artifact 13070891484 from run 41274531077 with exact zip SHA256 63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691, verify 2 approved current style-only refs, generate one 941x1672 FACE_FRONT C05 prioritizing alert composed seasoned ghost-house veteran, practical modest dark outfit and restrained hair, 2.5D anime with independent Bai face; then STOP for PO visual. No new Work generation now.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,38 +120,40 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-C04-ROLE-ACCURACY-VISUAL-FAIL-R396",
-    "status": "C04 TECHNICAL REVIEW SOURCE EXACT PASS / ROLE-READING FAIL / V005 DIRECTOR CORRECTION ONLY, NO GENERATION",
+    "id": "2026-11-01-BAI-V005-BUNDLE-EXACT-VERIFIED-R397",
+    "status": "FORMAL V005 BUNDLE TECH PASS 2/2 / ARTIFACT INDEPENDENT EXACT PASS / WORK RENDER NOT AUTHORIZED",
     "completed": [
-      "PO submitted actual Bai C04 FACE_FRONT review PNG and described excessive glamorous/sexualized executive-assistant impression, lacking the experienced capable ghost-house participant's presence.",
-      "C04 941x1672 RGBA PNG 2812194 bytes SHA256 77b5ebbf4fd63fb9c768794320e7d62c96d464ee2a11601878dca9a12cb607df; visual NOT APPROVED.",
-      "Uploaded same C04 binary to private Google Drive 04_Candidates, ID 19iFSVwcY5JXy7nGtEA13K8AMYBbx3fYB, and fetched independently: exact byte-for-byte SHA256, dimensions, size PASS.",
-      "V004 Actions Bundle run 41273671483 artifact 13069849870 remains technically PASS; actual C04 character role visual quality FAIL, no inference of 2.5D style failure.",
-      "Appended Section16 to existing Bai Director Execution with role-specific V005 conditions: composed/vigilant eyes, restrained long hair, functional modest modern dark clothes, naturally vivid red lips, no militarization or photorealism.",
-      "Existing Bai identity not locked and all other Approved Character Masters, 192.257s Opening audio, Story Shot Index35, Video Index3 remain unchanged."
+      "User explicitly requested a new V005 Bundle after C04 role-character FAIL; did not separately authorize Work generation.",
+      "Reused V004 Approved/Current Wen Qingya AST_IMG_000048 and Ning Qiushui AST_IMG_000034 as 2.5D STYLE_AND_COMPOSITION_ONLY references. Replaced V004 glam character handoff with V005 seasoned capable experienced ghost-house participant design.",
+      "Created V005 spec production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001.json, commit 98f5839a1a09d4fe1e73bde729031fbc9a120f39; build_authorized=true, work_generation_authorized=false.",
+      "GitHub Actions run 41274531077 completed SUCCESS; job 124753909220, exact 2/2 canonical reference binaries PASS, artifact 13070891484 uploaded.",
+      "Independently downloaded and inspected artifact ZIP: 5550019 bytes SHA256 63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691, ZIP CRC PASS, manifest PASS, four expected files and both PNG original SHA256/size/Git Blob/dimensions PASS.",
+      "GitHub verification closeout doc docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md committed. No Work C05 candidate produced and no approved Character Master.",
+      "Original approved compact Opening 192.257s sound, official Story Shot Index35, Video Index3, existing approved cast remain unchanged."
     ],
-    "resume_from": "C04 FAIL POSTMORTEM → PO REVIEW V005 EXPERIENCED GHOST-HOUSE OPERATOR DESIGN; NO IMAGE GEN YET",
+    "resume_from": "PO EXPLICIT WORK SINGLE C05 AUTHORIZATION, USE V005 ARTIFACT 13070891484, STOP AFTER ONE PNG FOR VISUAL REVIEW",
     "blockers": [
-      "V005 production not authorized; one-off V004 Work candidate authorization consumed.",
-      "No PO-accepted Bai FACE_FRONT identity, Tier A set, Asset/Entity Registry or formal master.",
-      "V005 requires actual minimal style+role proof before growing any other views."
+      "No new Work image generation authorized; Bundle builder generation_allowed=true is technical readiness only, not approval to render.",
+      "Candidate05 does not exist; no Bai FACE_FRONT identity PASS or Tier A nine-view production-ready Master."
     ],
-    "c04_review": {
-      "source": "USER_UPLOADED_C04_REVIEW",
-      "file": "image(20261101-044236).png",
-      "width": 941,
-      "height": 1672,
-      "bytes": 2812194,
-      "sha256": "77b5ebbf4fd63fb9c768794320e7d62c96d464ee2a11601878dca9a12cb607df",
-      "private_drive_id": "19iFSVwcY5JXy7nGtEA13K8AMYBbx3fYB",
-      "drive_exact_verified": true,
-      "po_verdict": "FAIL_ROLE_ACCURACY_GLAMOROUS_SECRETARY_NOT_VETERAN_GUEST",
-      "style_po_verdict": "NOT_DISPUTED_THIS_REVIEW",
-      "independent_identity_po_verdict": "NOT_FORMALLY_APPROVED",
-      "canonical_published": false
+    "v005_bundle": {
+      "status": "FORMAL_BUILD_INDEPENDENT_EXACT_PASS",
+      "id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001",
+      "spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001.json",
+      "spec_commit": "98f5839a1a09d4fe1e73bde729031fbc9a120f39",
+      "run_id": 41274531077,
+      "job_id": 124753909220,
+      "artifact_id": 13070891484,
+      "zip_bytes": 5550019,
+      "sha256": "63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691",
+      "refs_exact": "2/2",
+      "run_conclusion": "success",
+      "independent_zip_verify": "PASS",
+      "expires_at": "2026-11-08T04:49:18Z",
+      "work_generation_authorized": false,
+      "work_c05_rendered": false
     },
-    "v005_status": "ROLE_CORRECTION_DIRECTOR_DRAFT_NOT_AUTHORIZED",
-    "director_document": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
+    "proof_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md",
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
@@ -548,13 +550,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V316",
+    "version": "V317",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R396 / BAI C04 VETERAN GUEST ROLE FAIL / V005 DESIGN NOT PRODUCTION AUTHORIZED / 35 SHOTS 3 VIDEOS",
-    "derived_from_revision": "R396",
+    "status": "DERIVED R397 / BAI V005 EXACT FORMAL BUNDLE 2/2 PASS / NO WORK C05 AUTHORIZATION / OFFICIAL SHOTS35 VIDEO3",
+    "derived_from_revision": "R397",
     "last_updated": "2026-11-01",
-    "current_task": "BAI C04 ROLE VISUAL FAIL; DESIGN V005 COMPOSED CAPABLE GHOST-HOUSE VETERAN PRIOR TO ANY WORK"
+    "current_task": "BAI V005 BUNDLE EXACT PASS / AWAIT PO WORK SINGLE C05 AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5724,7 +5726,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_C04_ROLE_FAIL_V005_ROLE_DIRECTOR_DESIGN_PENDING_PO_PRODUCTION_AUTHORIZATION",
+    "status": "BAI_V005_FORMAL_EXACT_BUNDLE_READY_WORK_NOT_AUTHORIZED",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5757,7 +5759,7 @@
         "v004_bundle_artifact_id": 13069849870,
         "v004_po_identity_approved": false,
         "v005_generation_authorized": false,
-        "v005_status": "DIRECTOR_ROLE_CORRECTION_ONLY"
+        "v005_status": "BUNDLE_READY_WORK_PENDING_PO_AUTHORIZATION"
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5813,7 +5815,7 @@
       "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
       "private_drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g"
     },
-    "next_gate": "PO approve one V005 character-role corrective seed; must keep approved style and create separate authorized verified V005 bundle before Work",
+    "next_gate": "Request PO Work single candidate C05 authorization; independent V005 artifact exact 2/2 PASS already, do not auto-render",
     "visual_style": {
       "authority": "PRODUCT_OWNER_EXPLICIT_2026_11_01",
       "value": "2.5D_ANIME_SAME_AS_EXISTING_APPROVED_CHARACTERS",
@@ -5884,6 +5886,24 @@
       "tech_exact_review_source": "PASS",
       "style_dir": "PRESERVE_2_5D_WITH_NO_PO_STYLE_FAIL",
       "po_approved": false
+    },
+    "formal_bundle_v005": {
+      "status": "EXACT_2_OF_2_PASS",
+      "run_id": 41274531077,
+      "job_id": 124753909220,
+      "artifact_id": 13070891484,
+      "zip_sha256": "63bc23eef9cb763e104512d4180e96da6f02d9b8799f830a8a55cd8513f5c691",
+      "zip_bytes": 5550019,
+      "expires_at": "2026-11-08T04:49:18Z",
+      "work_single_candidate_authorized": false,
+      "work_rendered": false,
+      "po_visual_approved": false,
+      "reference_ids": [
+        "AST_IMG_000048",
+        "AST_IMG_000034"
+      ],
+      "director_focus": "VETERAN_GUEST_CAPABILITY_FIRST_NOT_GLAM_ASSISTANT",
+      "evidence": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_V005_BUNDLE_EXACT_VERIFICATION_2026-11-01.md"
     }
   }
 }
