@@ -42,3 +42,20 @@ PO 决定：**批准这张**（Product Owner 在 Chat 中对所附候选 PNG 明
 - 因此：**PO 授权有效，但二进制摄入被传输能力阻塞**。后续 Work/有权访问原始图字节的执行端应向 GitHub 候选 Staging 交付同一 PNG；Chat 复核上述 SHA-256、byte_size、dimensions、Git Blob 全部相符后，再执行 GitHub exact canonical promotion、资产登记和登记核验。不能因本记录/PO 批准就标记为 Atomic Master 已完成。
 
 **最新执行状态：PO APPROVED FOR REGISTRATION / SOURCE BYTES LOCALLY VERIFIED / GITHUB BINARY INGEST BLOCKED / NO REGISTRY MUTATION**。
+
+## 2026-11-01｜C06 原图精确发布与登记核验完成（R402）
+
+Product Owner 已批准 C06 图片及按流程正式登记。本轮依据用户要求使用 **Google Drive → GitHub**，不依赖 Work，也不要求人工上传。
+
+- Google Drive `04_Candidates`：`https://drive.google.com/file/d/1YrOLWs_fp_Do_3VUFS1ekf3IB7e48WB6/view`。
+- Staging：`staging/character_candidates/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png`。
+- Canonical：`production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png`。
+- 原图尺寸 `941×1672`，大小 `2,747,575 bytes`，SHA-256 `d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb`，Git Blob `38761350f926c30358cb98e55d6f4d603d8825f1`。GitHub staging 与 Canonical 是**同一 Git Blob**，未生成替代图、未重编码。
+- GitHub staging commit：`ca304fdc654e9f5c695eb443d8b9f23f584d0776`；intake Actions `41302491535` **SUCCESS**。
+- 正式发布与登记 commit：`17934d32f96baaacec64389d4266307d1d9dd7bd`；独立 Actions `41302720607` **SUCCESS**。
+- Entity Registry：`CHAR_BAI_XIAOXIAO` ACTIVE；Tier 尚未分配。
+- Asset Registry：`AST_IMG_000109`，`ATOMIC / FACE_FRONT / DEFAULT / DEFAULT / V001 / APPROVED / CURRENT / MASTER`，`resolver_usage=CONDITIONAL`，`provenance_status=PARTIAL`（Work 原生图日志未独立认证，原图二进制身份已核验）。
+- Audit：`ENTITY_CREATED`、`ASSET_APPROVED`、`ASSET_INGESTED` 三条事件均已登记并完成独立核验。
+- 核验后数量：Assets 109、Entities 35、Audit 193。Story Shots 35 和正式 Videos 3 均未发生变化。
+
+**最终结论：C06 FACE_FRONT V001 Canonical Publication / Registration Verification PASS；本次资产登记阻塞 CLOSED。** 未授权 Tier 分配、额外人物视图、Story Shot 或视频修改。
