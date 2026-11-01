@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R392",
+  "state_revision": "R393",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT C02 MORE ALERT BUT STYLE MATCH FAIL / C01 C02 NOT APPROVED / FRESH SINGLE IDENTITY SEED V003 PROPOSAL PENDING AUTHORIZATION / AUDIO APPROVED INDEX35 VIDEO3 LOCKED",
+  "session_status": "2026-11-01 ACTIVE / PO LOCKS 2.5D ANIME CHARACTER VISUAL STYLE / BAI C01 C02 PHOTOREAL STYLE FAIL / V003 ONE SEED DESIGN REVISED / NO V003 GENERATION AUTHORIZATION / 35 SHOTS 3 VIDEOS UNCHANGED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI FACE_FRONT POST-C02 VISUAL GAP — RE-ANCHOR TO CANONICAL FULL CHARACTER PORTRAIT STYLE, V003 DESIGN NOT YET AUTHORIZED",
-  "blocker": "C02 actual PO feedback confirms persistent visual style mismatch despite improved facial energy. Former one-Style-Board + targeted retouch method failed style PASS; no approved Bai Master. V003 build and Work generation not authorized.",
-  "next_action": "Review source-grounded one-frame V003 redesign using approved complete character portraits as STYLE_AND_COMPOSITION_ONLY visual authority (avoid facial copying), not V002 micro-retouch. After PO authorization, validate new minimal approved reference Bundle and generate only 1 new FACE_FRONT identity candidate. Continue to preserve 192.257s audio, approved story shots and video.",
+  "current_task": "BAI V003 FACE_FRONT DESIGN ALIGN TO PO-LOCKED 2.5D ANIME STYLE; NO FURTHER PHOTOREALISTIC RETOUCH",
+  "blocker": "C01/C02 incompatible with PO-locked 2.5D anime style. V003 identity and style not yet visually verified; no V003 formal Bundle or Work authorization.",
+  "next_action": "Use Approved/Current existing FACE_FRONT full portrait character masters as STYLE_AND_COMPOSITION_ONLY, not face identity, to propose 1 separate Bai V003 FACE_FRONT 2.5D anime seed; validate exact refs using GitHub Actions and one Work render only when explicitly authorized. No C01/C02 face preservation, photoreal skin or character copying; PO visual comparison required.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,21 +120,24 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-C02-STYLE-FAIL-R392",
-    "status": "C01→C02 EXPRESSION IMPROVED / GLOBAL VISUAL STYLE FAIL / NEW STYLE-ANCHOR HYPOTHESIS UNVERIFIED / V003 NOT AUTHORIZED",
+    "id": "2026-11-01-BAI-PO-LOCKED-2POINT5D-CHARACTER-STYLE-R393",
+    "status": "PO 2.5D ANIME STYLE CONSTRAINT LOCKED / C01 C02 PHOTOREAL FAIL / V003 DESIGN UPDATED / NO NEW IMAGE AUTHORIZATION",
     "completed": [
       "PO submitted Bai FACE_FRONT Candidate02 and said improved energy but still differs in visual channel from other characters.",
       "C02 941x1672 RGBA PNG 2958047 bytes SHA256 7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07.",
       "C02 kept as UNAPPROVED comparison source only in private Drive 04_Candidates ID 1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g and independently re-downloaded EXACT PASS.",
       "Compared actual Approved/Current Ning Qiushui and Jun Luyuan character reference sheets and FACE_3Q_LEFT PNGs from October31 verified GitHub artifact 13037955694; existing assets use restrained cinematic rendering and more upper-body composition than Bai close-up portraits.",
       "Original controlled character style board is six crops of face, hair and wardrobe; its exact binary remains valid, but lacks whole-portrait composition guidance. C01/C02 show style-only one-reference plus retouch hypothesis did not succeed.",
-      "Appended explicit previous/new baseline and failure evidence to existing Bai Director Execution document, with only one separate V003 design proposal; no Work or generation invoked."
+      "Appended explicit previous/new baseline and failure evidence to existing Bai Director Execution document, with only one separate V003 design proposal; no Work or generation invoked.",
+      "PO explicitly corrected project character style to 2.5D anime, not photographic realism; prior Chat label 'restrained cinematic realism' insufficient/wrong for expected style.",
+      "Existing Bai Director Execution doc appended Section 14 as highest priority override; fixes source of two failed candidates rather than performing another portrait retouch.",
+      "V003 1x FACE_FRONT proposed with approved full character FACE_FRONT master(s) as STYLE/COMPOSITION ONLY; no named face copying or automatic seed approval."
     ],
-    "resume_from": "PO REVIEW SINGLE V003 STYLE-MATCH CONCEPT; NO NEW GENERATION UNTIL EXPLICIT AUTHORIZATION",
+    "resume_from": "V003 2.5D ANIME STYLE SEED MINIMUM PROOF, PO AUTHORIZATION BEFORE BUNDLE/WORK",
     "blockers": [
-      "No approved facial identity seed, character Master, Tier A Atomic set or Reference Sheet.",
-      "No V003 specific formal Bundle build or Work candidate generation authorization.",
-      "C01 and C02 are rejected review assets, Drive 04_Candidates only, not Asset Registry."
+      "Missing PO-approved Bai visual 2.5D identity seed.",
+      "No V003 bundle/Work production authorization.",
+      "Do not treat old C01/C02 or prior photographic style description as baseline."
     ],
     "candidate02_review": {
       "name": "image(20261101-034650).png",
@@ -152,7 +155,10 @@
     "v003_preconditions": "EXPLICIT_PO_APPROVAL_FOR_REVISED_REF_SELECTION_BUNDLE_AND_SINGLE_WORK_RENDER",
     "technical_prior_bundle": "41269290547 / 13068716361 exact PASS historically, but artistic style outcome C01/C02 FAIL",
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
-    "local_sync_last_verified_on": "2026-10-31"
+    "local_sync_last_verified_on": "2026-10-31",
+    "style_directive": "2.5D_ANIME_MATCH_EXISTING_APPROVED_CAST_PO_LOCKED",
+    "design_revision_section": 14,
+    "formal_artifact_unchanged": true
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -547,13 +553,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V312",
+    "version": "V313",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R392 / BAI C02 STYLE FAIL / V003 NEW REFERENCE DIRECTION PO REVIEW PENDING / NO MASTER",
-    "derived_from_revision": "R392",
+    "status": "DERIVED R393 / PO 2.5D ANIME VISUAL STYLE LOCKED / BAI V003 DESIGN / NO NEW IMAGE",
+    "derived_from_revision": "R393",
     "last_updated": "2026-11-01",
-    "current_task": "BAI NEW VISUAL STYLE ANCHOR PROPOSAL; STOP V002 RETOUCH, NO V003 PRODUCTION AUTHORIZED"
+    "current_task": "BAI V003 2.5D ANIME STYLE MATCH SINGLE SEED DESIGN; PENDING FORMAL WORK AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5723,7 +5729,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_C01_C02_VISUAL_FAIL_V003_NEW_STYLE_ANCHOR_PROPOSED_PO_PENDING",
+    "status": "BAI_V003_DIRECTOR_STYLE_2POINT5D_PO_LOCKED_GENERATION_NOT_AUTHORIZED",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5745,7 +5751,9 @@
         "v002_generation_authorized": false,
         "v002_source_drive_id": "1GIi82EGihS65OHwkGoD6p8NmkrA5lciU",
         "v002_review_status": "PO_VISUAL_FAIL_STYLE",
-        "v003_generation_authorized": false
+        "v003_generation_authorized": false,
+        "visual_style": "PO_LOCKED_2_5D_ANIME",
+        "face_c01_c02_canonical_identity": false
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5801,6 +5809,19 @@
       "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
       "private_drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g"
     },
-    "next_gate": "Design review for fresh single V003 FACE_FRONT with full approved character composition/style reference; source faces NOT identity templates; only 1 candidate after new PO authorization"
+    "next_gate": "Design review for fresh single V003 FACE_FRONT with full approved character composition/style reference; source faces NOT identity templates; only 1 candidate after new PO authorization",
+    "visual_style": {
+      "authority": "PRODUCT_OWNER_EXPLICIT_2026_11_01",
+      "value": "2.5D_ANIME_SAME_AS_EXISTING_APPROVED_CHARACTERS",
+      "negative": "PHOTOREAL_HUMAN_PORTRAIT_OR_COMMERCIAL_STUDIO_HEADSHOT",
+      "priority": "HIGHEST_FOR_V003",
+      "style_refs": "APPROVED_CURRENT_COMPLETE_FACE_FRONT_AS_STYLE_AND_COMPOSITION_ONLY",
+      "identity_refs": "NONE_OF_OTHER_CHARACTERS",
+      "prior_failed_candidates": [
+        "C01",
+        "C02"
+      ],
+      "v003_work_authorized": false
+    }
   }
 }
