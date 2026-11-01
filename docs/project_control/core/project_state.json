@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R389",
+  "state_revision": "R390",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT FORMAL BUNDLE BUILD AND INDEPENDENT ZIP EXACT VERIFICATION PASS / ONE WORK CANDIDATE AUTHORIZED / PO IDENTITY VISUAL APPROVAL PENDING / STORY SHOTS 35 VIDEOS 3 UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / BAI FACE_FRONT CANDIDATE01 PO VISUAL FAIL FATIGUED AND OVERLY PHOTOREAL / V002 TARGETED REPAIR DESIGN DRAFT / NO NEW GENERATION AUTHORIZATION / STORY SHOTS 35 VIDEOS 3 LOCKED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "BAI XIAOXIAO FACE_FRONT IDENTITY SEED Candidate 01 — Verified Bundle ready for one Work render, PO visual review pending",
-  "blocker": "Reference Bundle exact 1/1 and independently re-downloaded Artifact PASS, but Work has not yet generated candidate image. No PO visual approval or Character Master/Registry production-ready status.",
-  "next_action": "Use verified GitHub Actions artifact 13068716361 from run 41269290547 in Work. Work must recheck 1 style-only PNG binary, read WORK_HANDOFF.md and Director Execution doc, generate exactly 1 FACE_FRONT 941x1672 PNG named CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_01.png, then STOP for PO visual review; do not create more angles or register assets.",
+  "current_task": "BAI FACE_FRONT IDENTITY SEED — C01 VISUAL FAIL, V002 TARGETED STYLE AND EXPRESSION REVISION PENDING AUTHORIZATION",
+  "blocker": "C01 941x1672 user-uploaded PNG is too fatigued and hyper-realistic compared with approved character look per PO. No approved facial identity seed. Single image generation authorization for C01 was consumed; no V002 generation authorized.",
+  "next_action": "Preserve C01 user-submitted review SHA as evidence only, do not ingest Approved. If PO explicitly authorizes V002, require Work to use exact C01 input where available and make targeted brow/eye energy, skin microtexture/flyaway hair, light and natural red lip revisions, avoid face drift. Run minimal proof V002 only 1 PNG and stop for PO visual review. Do not start Tier A multi-view.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,36 +120,35 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-BAI-FACE-FRONT-FORMAL-BUNDLE-PASS-R389",
-    "status": "FORMAL REFERENCE BUNDLE / INDEPENDENT EXACT ARTIFACT PASS / WORK 1 CANDIDATE AUTHORIZED / PO VISUAL PENDING",
+    "id": "2026-11-01-BAI-C01-PO-VISUAL-FAIL-R390",
+    "status": "ONE FACE FRONT CANDIDATE REVIEWED / VISUAL FAIL / TARGETED V002 DESIGN DRAFT / GENERATION HOLD",
     "completed": [
-      "PO authorized formal Bundle build and Work generation instructions for Bai Xiaoxiao FACE_FRONT single Candidate 01.",
-      "Updated only existing style-only 1-reference spec build_authorized=true, source commit e52018feb71b45f8c77e8573924d038d64c251b3.",
-      "GitHub Actions run 41269290547 completed SUCCESS, Builder 1/1 exact canonical reference verified, generation_allowed true, artifact 13068716361 uploaded.",
-      "Independently downloaded full artifact ZIP: ZIP SHA256 0055195a547989258c8b5594b6b9124750f82db3eb6b5552bd8621df26aeb501, 1,301,438 bytes; ZIP CRC PASS, exactly three expected files.",
-      "Inside Artifact real PNG bytes SHA256 8d650483b6e082a80d41d93e14c7957595c451097aac63f3c84cbcc1ddc7ce41, 1301730 bytes, Git Blob 216b1739db17cb3b183d613e4aefa6374d1088e2, 1536x1024; manifest matches all.",
-      "Work is authorized for one candidate only, not yet executed; approval of visual identity / Tier A Core Set/production registration remains pending."
+      "Formal one-reference seed Bundle run 41269290547, artifact 13068716361 exact PASS retained as input provenance.",
+      "PO submitted actual Candidate 01 image and stated fatigued appearance and over-photorealistic mismatch with existing project characters.",
+      "Uploaded review PNG 941x1672 RGBA 3,052,447 bytes SHA256 8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c.",
+      "Visually audited candidate: format/reference purity PASS, tired brow/eye shadow and excessive microtexture/style/role accuracy FAIL; identity NOT approved.",
+      "Appended evidence-specific targeted V002 correction guidance to existing Director Execution document; no new candidate rendered, no registry modification."
     ],
-    "resume_from": "WORK ONE 941x1672 FACE_FRONT IDENTITY CANDIDATE 01 VIA VERIFIED BUNDLE; PO VISUAL GATE",
+    "resume_from": "V002 TARGETED WORK EDIT AUTHORIZATION AFTER PO REVIEW, NOT FULL REGENERATION OR TIER A",
     "blockers": [
-      "No Work-generated Candidate PNG yet and no PO visual review.",
-      "No approved Bai Atomic Master, Tier A 9-view, Reference Sheet or Asset Registry record."
+      "Candidate01 is user-uploaded review binary only, not independently verified canonical Work delivery; no Approved Asset/Entity record.",
+      "V002 generation and/or exact candidate source intake not yet authorized.",
+      "PO approval of sustainable identity and production visual style remains missing."
     ],
-    "artifact": {
-      "id": 13068716361,
-      "name": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001",
-      "run_id": 41269290547,
-      "zip_sha256": "0055195a547989258c8b5594b6b9124750f82db3eb6b5552bd8621df26aeb501",
-      "zip_bytes": 1301438,
-      "refs_verified": "1/1",
-      "exact_binary": "PASS",
-      "expires_at": "2026-11-08T03:28:21Z",
-      "url": "https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41269290547/artifacts/13068716361"
+    "candidate01_review": {
+      "filename": "image(20261101-033355).png",
+      "source": "PO_UPLOADED_REVIEW_BINARY",
+      "width": 941,
+      "height": 1672,
+      "bytes": 3052447,
+      "sha256": "8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c",
+      "po_verdict": "VISUAL_FAIL_FATIGUED_OVERPHOTOREALISTIC",
+      "approved": false,
+      "canonical_published": false
     },
-    "instruction_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
-    "po_production_authorization": "YES_SINGLE_WORK_FACE_FRONT_CANDIDATE_ONLY",
-    "work_render_completed": false,
-    "po_identity_approved": false,
+    "v002_status": "DIRECTOR_TARGETED_REVISION_DESIGNED_NOT_AUTHORIZED",
+    "v002_review_evidence_path": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
+    "formal_bundle_remains_verified": true,
     "local_sync_last_verified_head": "803d562ae058cb5b2b8feba874c19a34ba0f1ac5",
     "local_sync_last_verified_on": "2026-10-31"
   },
@@ -546,13 +545,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V309",
+    "version": "V310",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R389 / BAI FACE FRONT FORMAL BUNDLE AND EXACT ARTIFACT PASS / WORK ONE CANDIDATE AUTHORIZED / NO MASTER APPROVAL",
-    "derived_from_revision": "R389",
+    "status": "DERIVED R390 / BAI FACE FRONT C01 VISUAL FAIL / V002 TARGETED REVISION DRAFT / NO NEW WORK AUTHORIZATION",
+    "derived_from_revision": "R390",
     "last_updated": "2026-11-01",
-    "current_task": "BAI WORK FACE_FRONT ONE CANDIDATE FROM VERIFIED ARTIFACT 13068716361"
+    "current_task": "BAI C01 FATIGUE AND STYLE FAIL → V002 TARGETED REPAIR PENDING PO AUTHORIZATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5722,7 +5721,7 @@
     }
   },
   "opening_new_character_master_reference_v001": {
-    "status": "BAI_VERIFIED_FORMAL_BUNDLE_WORK_ONE_SEED_AUTHORIZED_PO_VISUAL_PENDING",
+    "status": "BAI_CANDIDATE01_VISUAL_FAIL_V002_TARGETED_EDIT_DRAFT",
     "characters": [
       {
         "entity_id": "CHAR_BAI_XIAOXIAO",
@@ -5731,14 +5730,17 @@
         "formal_entity_exists": false,
         "asset_ready": false,
         "priority": "HIGH",
-        "seed_generation_authorized": true,
+        "seed_generation_authorized": false,
         "evidence": "CH14-15 CH18-20 CH33-36 CH52-53 CH105-129 CH131-133",
         "concept_direction_po_accepted": true,
         "seed_execution_document": "docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md",
         "validation_bundle_spec": "production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json",
         "bundle_build_authorized": true,
-        "seed_work_status": "AWAIT_WORK_RENDER",
-        "po_face_identity_approved": false
+        "seed_work_status": "CANDIDATE01_USER_REVIEWED_VISUAL_FAIL",
+        "po_face_identity_approved": false,
+        "seed_c01_approved": false,
+        "seed_c01_review_sha256": "8bc8b285e457ba6889cafdd656df4cf7314c1a3f0a451fab0f8b3234bfdbe11c",
+        "v002_generation_authorized": false
       },
       {
         "entity_id": "CHAR_MENG_JUN",
@@ -5780,8 +5782,10 @@
       "reference_binary_exact_verified": true,
       "artifact_independently_downloaded": true,
       "work_single_seed_authorized": true,
-      "work_render_completed": false,
-      "approved_by_po_for_just_one_candidate": true
+      "work_render_completed": true,
+      "approved_by_po_for_just_one_candidate": true,
+      "po_visual_verdict": "CANDIDATE01_FAIL",
+      "no_new_generation_authorized": true
     }
   }
 }
