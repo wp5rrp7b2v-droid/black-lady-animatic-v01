@@ -392,3 +392,56 @@ Product Owner 明确指出：「**之前白潇潇的脸已经被认可，但是�
 - **生产边界**：不得直接用另一个已批角色的完整脸做 Style Transfer；不得提前授权 V006/九视图/Story Shot；现有两张早期本人脸的文件不得作为普通可删临时图片清理，需等待定位确切 Identity Base、后续 PO 认可的风格转化版本可复现并已正式归档后，才复核保留/清理策略。
 
 **修正后下一最小 Gate：明确已认可的原脸二进制 → 验证身份保持的2.5D风格转换一次 → PO对照审片 → 再考虑正式身份 Master；无需继续重新设计人物。**
+
+## 19. V006｜C02 PO 认可面孔正式锁定 + 保脸2.5D最小证明 Bundle（2026-11-01）
+
+### PO 决定及结论一致性
+
+- 继第18节确认早期白潇潇人脸已认可后，PO 进一步明确指定「**C02**」并回复「开始」启动 V006。
+- **本次正式身份基准：Candidate 02 原始人脸。** 它被认可的是`FACIAL_IDENTITY_ONLY`，不是整个 C02 高清照片风格 Approved Master；无需重复设计脸或撤销其他已批角色。
+- V003/V005 的错误是将其他角色全脸作为正向 2.5D 风格输入，从而造成身份漂移；继续保持**不输入苏小小/温倾雅/宁秋水等任何已批角色完整脸图**的已锁定约束。
+- V006 本次实际工作仅完成正式身份源入库、Bundle、Actions Exact Verification 及下个最小测试方案；**不包含 Work 出图或其审批**，不能从 Builder 自动`generation_allowed=true` 推断新的制图授权。
+
+### 唯一 C02 身份输入的准确来源
+
+- Original private Drive File ID: `1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g`。
+- GitHub 原始 PNG（新建身份来源文件而非 Atomic Master）：
+  `production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.png`
+- 附带可机读受控 Manifest：
+  `production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.manifest.json`
+- Source Git commit: `4038b073e46cae9f21ec01a877fe86a6746d4233`; PNG Blob: `7232dcfaa7e787ff1303fc1c5409a58193396b74`。
+- PNG 原始二进制：`941×1672`, `2,958,047 bytes`, SHA-256 `7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07`。
+- Source Manifest status: `PRODUCT_OWNER_IDENTITY_ACCEPTED_ONLY`，lifecycle `CURRENT_IDENTITY_BASE`，authority scope `BAI_XIAOXIAO_C02_FACIAL_IDENTITY_ONLY_NO_2POINT5D_STYLE_APPROVAL`；**明确不是** `APPROVED ATOMIC MASTER`，`production/asset_registry/asset_registry.jsonl` 不增加该图。
+- 正式受控参考 Builder 兼容项 `approved_binary` 只代表**人脸身份来源的 PO 认可**，不是 C02 整体渲染批准，不能被应用程序当成角色 Approved Master。
+
+### V006 最小 Bundle 的精确输入
+
+- Spec: `production/bundle_specs/BAI_XIAOXIAO_FACE_FRONT_C02_IDENTITY_PRESERVING_2POINT5D_RESTYLE_V006_REFERENCE_DELIVERY_BUNDLE_V001.json`。
+- Spec commit: `c033a5e592f08dcb7878c542a8130e790a064bc7`。
+- Bundle ID: `BAI_XIAOXIAO_FACE_FRONT_C02_IDENTITY_PRESERVING_2POINT5D_RESTYLE_V006_REFERENCE_DELIVERY_BUNDLE_V001`。
+- 仅 1 张参考：**白潇潇自己被认可的 C02 原图**，`reference_id=BAI_XIAOXIAO_FACE_C02_IDENTITY_BASE_V001`、`source_type=CONTROLLED_REFERENCE`；不加入其它演员任何视觉参考。2.5D风格先由已锁定的**文字版美术标准**约束，此方法尚未经实际视觉验证。
+- `build_authorized=true`仅表示已经批准正式 Bundle 构建，Spec 明确 `work_generation_authorized=false`；**无需对现有 Builder 脚本扩大输入类型或修改 Approved Asset Registry**。
+
+### 技术实测：Action + 独立解包验证
+
+- GitHub Actions [Run 41279299878](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41279299878): `COMPLETED / SUCCESS`；Job `124767742174`。
+- Log: `BUILD_AUTHORIZED=true`, `PASS: 1/1 exact canonical reference binaries verified`, `GENERATION_ALLOWED=TRUE`（这是 Builder **技术输出**，不是 PO Work 权限）。
+- 正式 [Artifact 13072228815](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41279299878/artifacts/13072228815)，到期：`2026-11-08T06:04:15Z`。
+- 独立再次下载 ZIP `2,962,234 bytes`，SHA-256 `c8cf1874c87cd410f765946c3671cb7e01b031418f9a22c925eec32d899dd6d5`，与 GitHub Artifact Metadata `sha256:c8cf...` 完全一致。
+- ZIP CRC `PASS`、恰好3个文件：`WORK_HANDOFF.md`、`delivery_manifest.json`、`identity_authority_c02_only/BAI_XIAOXIAO_FACE_C02_IDENTITY_BASE_V001__CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.png`。
+- Manifest `reference_count=1`、`overall_result=PASS`、`target_candidate=CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png`。
+- 独立读取 ZIP 内真正 PNG bytes 验证：`2,958,047 bytes`、`941×1672`、SHA-256 `7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07`、Git Blob `7232dcfaa7e787ff1303fc1c5409a58193396b74` **四项与 PO 认可 C02 和 Source Manifest 完全一致**。
+
+### 这次证明与尚待证明
+
+**FACT / 已证明：** 已认可 C02 的唯一身份原图在 GitHub 以独立来源保存（不误登记为 Approved Master）；V006 Bundle 内只有这个正确的 C02 原图，解包后 exact bytes 符合；无其他演员的整脸输入。
+
+**WORKING HYPOTHESIS / 未证明：** Work 仅凭 C02 的真实照片身份底图 + 文字化项目 2.5D 美术标准，能进行**保持脸部身份的艺术化风格转换**，不会转成新的白潇潇脸，也不会失去2.5D风格。若不能，说明该方法 FAIL，不能再通过混入其他已批角色的整脸图绕过。
+
+**下一 Gate（须 PO 另行授权，仅一张图）：**
+- 从真实 Artifact 中使用唯一 C02 PNG，优先 `image edit/style transfer` **而非纯文本重新生成**；在确保五官、脸型、眼鼻唇比例等身份锚点不变的前提下，只改变微观材质、阴影和动画艺术化层次，适度修复疲惫神态。
+- 仅输出 `CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_RESTYLE_CANDIDATE_06.png`，`941×1672`；生成后停止。
+- PASS：PO 与 C02 **并排**确认同一张脸、与其它 Approved Cast 的2.5D风格一致，同时资深诡客的沉稳干练不变。任一项 FAIL 均不得发布、不得继续扩角度。
+- 不自动启动 Work、其他 Bundle、Tier A 九视图、Character/Story Shot/Video/Audio Registry 变动。
+
+本轮保持 Approved Story Shots35、正式 Video Index3、Opening 原声192.257s 已批以及 P0.3 `IN PROGRESS` 不变。
