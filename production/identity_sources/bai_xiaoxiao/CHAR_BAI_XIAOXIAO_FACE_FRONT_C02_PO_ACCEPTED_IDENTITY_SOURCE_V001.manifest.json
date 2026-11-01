@@ -1,0 +1,31 @@
+{
+  "reference_id": "BAI_XIAOXIAO_FACE_C02_IDENTITY_BASE_V001",
+  "classification": "P0_3_CHARACTER_IDENTITY_SOURCE_NOT_APPROVED_ATOMIC_MASTER",
+  "approval_status": "PRODUCT_OWNER_IDENTITY_ACCEPTED_ONLY",
+  "lifecycle": "CURRENT_IDENTITY_BASE",
+  "authority_scope": "BAI_XIAOXIAO_C02_FACIAL_IDENTITY_ONLY_NO_2POINT5D_STYLE_APPROVAL",
+  "canonical_path": "production/identity_sources/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_C02_PO_ACCEPTED_IDENTITY_SOURCE_V001.png",
+  "source_provenance": {
+    "original": "USER_REVIEWED_C02_FACE",
+    "drive_id": "1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g",
+    "original_drive_filename": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_C02_VISUAL_FAIL_REVIEW_SOURCE_V001.png",
+    "po_clarification": "C02",
+    "face_identity_po_accepted": true,
+    "whole_image_2point5d_style_po_approved": false,
+    "asset_registry_approved": false
+  },
+  "output": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 2958047,
+    "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
+    "git_blob": "7232dcfaa7e787ff1303fc1c5409a58193396b74"
+  },
+  "approved_binary": {
+    "approval_scope": "C02_FACIAL_IDENTITY_ONLY_NOT_RENDERING_STYLE_OR_COMPLETE_MASTER",
+    "sha256": "7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07",
+    "byte_size": 2958047
+  },
+  "notes": "PO approved C02 as Bai Xiaoxiao's identity base only; the overall C02 visual style is photoreal and was NOT approved as a 2.5D character master. Preserve exact face proportions for controlled restyle. Do not ingest into approved Atomic Asset Registry."
+}
