@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V005",
+  "sequence_id": "PROJECT_ASSET",
+  "target_candidate": "CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_05.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 2,
+    "rule": "V005_APPROVED_CAST_2POINT5D_STYLE_AND_COMPOSITION_ONLY_VETERAN_GUEST_ROLE_PRIORITY_NOT_SEXY_SECRETARY",
+    "notes": "PO explicitly requested NEW V005 REFERENCE BUNDLE, not V005 Work image generation. Formal GitHub Actions build authorized. Despite Builder manifest technical generation_allowed flag, NO independent Work drawing authorization has been granted for Candidate05. Existing two Approved/Current style-only PNGs retained from V004. C04 style direction generally viable but role-reading FAIL: prioritize seasoned ghost-house guest over glamorous secretary.",
+    "work_generation_authorized": false,
+    "authorization_scope": "FORMAL_BUNDLE_SPEC_AND_GITHUB_ACTIONS_EXACT_BUILD_ONLY"
+  },
+  "references": [
+    {
+      "reference_id": "AST_IMG_000048",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_WEN_QINGYA",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/wen_qingya/CHAR_WEN_QINGYA_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "2e387afeea665b04568dc718f3b4dafa2e5c5ecd7d8385c779cd72ef40381d0b",
+      "expected_byte_size": 2930534,
+      "expected_git_blob": "0e2f10b62994113cfa1070e077075daafb3156c6",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "APPROVED_CAST_2POINT5D_ANIME_STYLE_AND_FACE_FRONT_FRAMING_ONLY_NO_WEN_IDENTITY"
+    },
+    {
+      "reference_id": "AST_IMG_000034",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_NING_QIUSHUI",
+      "role": "FACE_FRONT",
+      "asset_class": "ATOMIC",
+      "authority_class": "MASTER",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/ning_qiushui/CHAR_NING_QIUSHUI_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "5d62423ef9f1abcd349a3736079c77f3f56416cade8991a966fd925e5817ec8c",
+      "expected_byte_size": 2613947,
+      "expected_git_blob": "58663e76c353918025736064c7e25741f51e4864",
+      "expected_width": 941,
+      "expected_height": 1672,
+      "destination_group": "style_and_composition_only",
+      "authority_purpose": "APPROVED_CAST_2POINT5D_ANIME_SHADING_AND_FACE_FRONT_FRAMING_ONLY_NO_NING_IDENTITY"
+    }
+  ],
+  "work_handoff": {
+    "title": "白潇潇 V005 FACE_FRONT｜资深诡客人物气质优先｜本轮仅构建Bundle，Work待授权",
+    "requirements": [
+      "CURRENT AUTHORIZATION BOUNDARY: this spec authorizes only building/verifying the Reference Bundle; DO NOT generate Candidate05 until Product Owner separately authorizes Work single-image rendering. In Builder manifest, generation_allowed=true (if present) means reference inputs are technically valid, NOT PO permission for Work.",
+      "Source of Truth: read existing Director Execution sections 14 (project 2.5D anime), 15 (independent identity) and 16 (C04 role FAIL, V005 correction), at docs/project_control/gates/P0_3_video_pipeline/BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_V001_DIRECTOR_EXECUTION_2026-11-01.md. The latest section takes precedence over any conflicting older glamorous aesthetic directive.",
+      "Before any future approved generation, read actual V005 Artifact delivery_manifest.json and WORK_HANDOFF.md and verify two Approved/Current 941x1672 PNG binary references exact size/SHA256/Git blob/dimensions. Stop if mismatch or missing; do not reuse V004 Artifact as if it were V005.",
+      "Only style and composition are allowed from AST_IMG_000048 Wen Qingya and AST_IMG_000034 Ning Qiushui FACE_FRONT. These are NOT Bai Xiaoxiao face identities: never copy, face-swap, blend, or borrow character face/hairstyle/wardrobe.",
+      "VISUAL GOAL: a seasoned female ghost-house participant who has survived many blood doors; alert but calm eyes, fast judgment, self-possessed bearing, prepared to act and protect colleagues. Experienced operative in a supernatural mystery, not glamorous secretary, assistant, fashion model, assassin, soldier or tactical operator.",
+      "2.5D anime visual language must stay fully aligned to Approved cast: semi-stylized facial shapes, soft dimensional anime shading, low-microtexture skin/hair, coherent head-and-shoulders and upper-chest framing. Not photoreal, waxy CGI or flat illustration.",
+      "Bai is a distinct adult attractive woman, recognized by naturally vivid but controlled red lips, composed confident maturity and dark hair. Hair practical and restrained, partially tucked behind ear or loosely low-tied if useful; avoid highly styled voluminous glamour curls, cascading fashion-hair display, heavy eye makeup, exaggerated seductive smile.",
+      "Outfit: practical modern dark low-saturation light jacket or simple casual outer layer and modest round/high-neck inner shirt, ready for movement. No deep V neckline, glossy tailored secretary suit, body-con highlights, tactical vest/uniform, weapons, scars or visible combat props.",
+      "Expression neutral-at-rest with attentive, incisive, experienced gaze, no deferential smile, fatigue, intimidating killer glare or studio fashion pose. Calm and capable with emotional range; do not mistake professional experience for grim hostility.",
+      "Future output, only if separately authorized: one 941x1672 PNG FACE_FRONT straight 0-degree eye-level titled CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_CANDIDATE_05.png, then stop for Product Owner identity/style/role review. No additional viewpoints or master approval."
+    ],
+    "exclusions": [
+      "WORK RENDER PRIOR TO SEPARATE EXPLICIT PO AUTHORIZATION; no auto-generate merely because this Bundle builds",
+      "old failed Bai C01/C02/C03/C04 portrait images as positive identity/visual prompt references",
+      "copying Su Xiaoxiao, Wen Qingya, Ning Qiushui or any existing cast facial identities, or mixing faces",
+      "glamorous executive-assistant/secretary aesthetic, tailored deep-V blazer outfit, conspicuous cleavage, highly styled curls, seductive posing, heavy makeup",
+      "photoreal human skin photography, 2D flat anime, plastic CGI, fashion poster or cosmetics advertisement",
+      "military combat outfit, tactical vest, assassin scar, knife/gun props, horror blood effects",
+      "any second image, other view, P01 red sleepdress costume, expression montage, Story Shot, asset registry, audio or video edit"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "V005-20261101-PO-AUTHORIZED-FORMAL-BUNDLE-BUILD-ONLY"
+}
