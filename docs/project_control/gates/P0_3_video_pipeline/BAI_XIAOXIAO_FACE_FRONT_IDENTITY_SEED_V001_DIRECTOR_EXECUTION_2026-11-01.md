@@ -209,3 +209,37 @@ V002 FAIL：仍有疲惫表情或过度高写实锐化；变成塑胶磨皮/动�
 - 艺术 PASS = PO 审核认为去除疲惫感，写实程度贴合已有角色，且和 C01 是同一位女性；
 - FAIL = 面孔漂移、整体再生、仍然疲惫、高写实微距皮肤或被过度磨皮变成另一种风格。失败不扩大到其他视图。
 - **本轮只批准 V002 这一张，审批前绝不进入正式 Asset Registry / Tier A 其他八个 Atomic View / P01 镜头。**
+
+## 13. Candidate 02｜2026-11-01 实际视觉复核：继续 FAIL；路线修正依据
+
+### 新增实测证据 / 审批边界
+
+- PO 对本轮 V002 实际图评价：「这次虽然看上去精神一些了，但是感觉还是和其他人物不是一个频道的」。
+- V002 审片源：`image(20261101-034650).png`，`941×1672`、RGBA PNG、`2,958,047 bytes`、SHA-256 `7603d142927e0c90773b225d6e840e000f1f7a6906f136b3bebdb67733560e07`。
+- 已按失败候选短期审计用途保存到私有 Google Drive `04_Candidates`：`CHAR_BAI_XIAOXIAO_FACE_FRONT_IDENTITY_SEED_C02_VISUAL_FAIL_REVIEW_SOURCE_V001.png`，ID `1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g`，`https://drive.google.com/file/d/1qJsJDEWgSSk18qCMoJJjdHEtoVmJgM0g/view`。下载后实际大小与 SHA256 与本轮用户审片源完全一致，**DRIVE SOURCE EXACT PASS**；不等于 Work 正式候选管线 Approved Binary Publication。
+- 比较对象来自现存 2026-10-31 GitHub Actions 受控 Reference Bundle Artifact：Run `41187875548` / Artifact `13037955694` 中的 `CHAR_NING_QIUSHUI_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png`、`CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png`、两人的获批 `FACE_3Q_LEFT` 原子参考。既有正式 Index/Registry 中来源为 Approved / Current，做风格对照用途，**不是白潇潇脸部复制指令**。
+- 已批准角色锚点在画面整体上使用电影化克制的人物渲染、相对多的肩颈与上身信息、有服装层次；相比之下白潇潇两版均更像超近距离高清棚拍/写真，脸在画面中权重明显过大，皮肤/眉眼/细碎头发带有更强的照片感、背景缺少人物镜头一致性。
+- 正式 `CHARACTER_VISUAL_STYLE_REFERENCE_V001` 是**六幅裁切局部**（局部脸、头发、服装）构成的 Style Board，先前其 SHA/批准权限均真实有效。但它没有完整单人正面与半身构图范例，不能由其技术合法性推导出对完整人物的视觉风格已充分约束。实际 C01/C02 的两次不一致结果说明此前「一个风格板+基底局部润饰足以完成 Style Match」的工作假设未通过。
+
+### 基线对照 / 为什么必须变更
+
+| 步骤 | 原判断 | 实验新增证据 | 当前裁定 |
+|---|---|---|---|
+| C01 → V002 | 保留已产生的人脸，局部放松眉眼、降低过写实、改善光线即可 | V002 精神状态 PO 认可改善，但仍明确表示整体视觉频道不同 | **局部编辑路线仅对表情 PASS，对整体人物风格 FAIL**；停止继续磨皮/提亮式 V003 |
+| 风格输入 | 唯一 Style Board 可作为全人物风格主锚点 | 已批准角色真实 Master 与 C01/C02 的整体构图/渲染语言有系统差异，Style Board 仅含裁切片段 | **Style Board 可继续当材质辅助，不能继续当唯一整体画面风格输入** |
+| C01 人脸保护 | 防止未获 PO 认可的人脸漂移 | 两次身份候选均未获 PO 审核批准，强制保留这张人脸会锁定风格失败的基底 | **取消「必须沿用 C01/C02 整脸」的要求**；允许下一轮独立候选重新建立脸部，但**不自动授权生成** |
+
+### V003 最小证明设计（建议稿，尚未经 PO 授权）
+
+- 先选择**现有 Approved/Current 的完整女性人物 FACE_FRONT 或 BODY_FRONT**作为全画面视觉语言与构图范例；结合一张既有 controlled style board 的局部材质信息（如确有必要）形成一组**上限不超过5张、尽量2张的最小样本**，所有源必须通过 exact binary/role/authority 核验。
+- 推荐候选来源：`CHAR_SU_XIAOXIAO`、`CHAR_WEN_QINGYA` 的已批准完整参考，**不是复制脸的身份参考**。新 Work 指令必须明确 `STYLE_AND_COMPOSITION_ONLY`，白潇潇自己的面孔由原著外貌设计独立生成；禁止拿已有女角色 face blending、换衣或换唇色冒充白潇潇。
+- 候选 V003 **仅1张** `FACE_FRONT`，仍是9:16、角色正面0°，但比 C01/C02 减少面部画面占比、呈现更多肩颈和上身；统一阴影过渡、皮肤质感适度电影化、不做妆容宣传式大头肖像。
+- 白潇潇原著已确认的成熟美艳、明艳自然红唇、慵懒与危险并存、深色自然长发（发型为已获同意的导演设定）继续有效。**否定的是照片式呈现路线，不否定该人物设计。**
+- PASS：PO 与已批准角色 Reference Sheet/Face Master 并置审阅，确认同一世界/同一部动画的视觉语言、独立美貌不撞脸、人物五官自然、9:16 FACE_FRONT 正确。
+- FAIL：依旧孤立棚拍写真、将现有苏小小/温倾雅的五官直接移植、过度卡通化、或者角色美艳与性格底色丢失。FAIL 时停止生成，分析被证实的具体原因，不继续连续多版本探索。
+- **本条仅批准对 V002 的审核/记录，并没有授予 V003 正式 Bundle 或 Work 再生成的权限。** 不新建多层审批系统；仍沿用 Director Design → Reference Bundle → Work → PO → Exact Verification → Asset Registry 的既定流水线。
+
+### 保留与清理
+
+- 保留 C01、C02 两个私人 Drive 失败候选作为两次试验比较证据，直到 V003 通过且这些失败候选不再使用；随后按用户已批准的临时文件及时清理规则删除，不把它们写入 Approved Registry。
+- 已有 P01/P02 192.257秒音频审批、原著角色设计、已有35张正式 Story Shots、Video Index 3、P0.3 IN PROGRESS 均不变。
