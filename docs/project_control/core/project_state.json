@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R383",
+  "state_revision": "R384",
   "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 ACTIVE / COMPACT OPENING P01-P04→NEIL AUDIO V001 TECHNICAL PASS / PO LISTENING PENDING / P01P02 V002 APPROVED BASELINE PRESERVED / STORY SHOT INDEX35 VIDEO3 UNCHANGED",
+  "session_status": "2026-11-01 ACTIVE / COMPACT OPENING 192.257S FULL AUDIO PO LISTENING APPROVED / VISUAL COVERAGE REVIEW NEXT / STORY SHOT 35 VIDEO 3 PRESERVED",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01-P04→NEIL COMPACT ORIGINAL AUDIO V001 — PRODUCT OWNER LISTENING GATE",
-  "blocker": "Compact P01-P04→Neil 192.257s source-composition exact/QC PASS but whole audio narrative PO listening is PENDING. No approved whole Opening V002 video, no approval of new cuts. Earlier original P01 audio missing blocker remains RESOLVED.",
-  "next_action": "PO listen to independent 192.257s compact audio proof (Drive 1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV): focus P01→P02 at ~01:03, P02→P03/P04 at ~02:32, and Neil entry at ~03:06. PASS only on explicit PO narrative and pacing approval; on FAIL adjust named seam or sentence range, preserving approved P01/P02 V002 212.270s and P03/P04→Neil 40.260s as originals. No new Story Shot or video version authorized.",
+  "current_task": "OPENING P01-P04→NEIL 192.257S AUDIO PO APPROVED — REVIEW VISUAL COVERAGE AND MINIMUM AV PROOF DESIGN",
+  "blocker": "Audio listening gate resolved. No 192.257s full audiovisual proof yet, and existing approved visual coverage is limited for P01/P02.",
+  "next_action": "Check approved visual references and narrative timing for 192.257s full soundtrack, identify minimum necessary visual gaps, and propose a low-cost staged audiovisual test. No new image generation, whole video approval, or canonical replacement inferred from audio approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,20 +120,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-OPENING-COMPACT-SOUND-PROOF-V001-R383",
-    "status": "AUDIO SOURCE IDENTITY / FULL DECODE / DRIVE RE-DOWNLOAD EXACT PASS — EDITORIAL PO LISTENING PENDING",
+    "id": "2026-11-01-OPENING-COMPACT-FULL-AUDIO-PO-PASS-R384",
+    "status": "COMPACT ORIGINAL AUDIO 192.257S PO LISTENING PASS / P0.3 VISUAL ASSEMBLY GATE PENDING",
     "completed": [
       "P01/P02 authentic narrator V002 editorial 212.270s remains Product Owner-approved baseline (2026-11-01); 40.260s P03/P04→Neil bridge remains approved source.",
       "Independent compact P01→P02→P03/P04→Neil V001 assembled using authorized original audio with no synthetic voice or added images.",
       "192.257s stereo AAC 48kHz 4,647,911 bytes SHA256 1701f3a8140775550a30ac788b9221486349c058278d1ef0c2c5163664d6c4ac.",
       "P01, P02, P03/P04/Neil original-voice segment PCM correlations 0.999828 / 0.999878 / 0.999848; full file decode and independent cloud download exact verified.",
-      "Drive private 06_Audio candidate ID 1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV, GitHub technical evidence added; official Video Index=3, Story Shot Index=35 unchanged."
+      "Drive private 06_Audio candidate ID 1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV, GitHub technical evidence added; official Video Index=3, Story Shot Index=35 unchanged.",
+      "Product Owner stated the entire compact recording is OK. PO listening PASS for the exact existing 192.257s full audio editorial proof; no new video or shot approval.",
+      "Approval record: docs/project_control/gates/P0_3_video_pipeline/OPENING_COMPACT_AUDIO_V001_PO_LISTENING_APPROVAL_2026-11-01.md"
     ],
-    "resume_from": "WAIT PO LISTENING TO COMPACT FULL AUDIO PROOF THEN ADDRESS ONLY VERIFIED SEAM/PACING FAILURES",
+    "resume_from": "VERIFY APPROVED VISUAL COVERAGE FOR 192.257S AND DEFINE MINIMUM AV PROOF BEFORE WORK GENERATION",
     "blockers": [
-      "New compact audio's 2 edit transitions, sentence edges and length need PO subjective listening PASS.",
-      "No new visual Story Shot or revised full Opening video has been approved.",
-      "Original first Neil frame softness remains a separate downstream media issue, not solved by audio."
+      "Existing P03/P04 shots are approved; P01/P02 have character reference assets but no registered dedicated opening story shots.",
+      "No complete 192.257-second audiovisual rendition has received PO visual approval."
     ],
     "proof_path": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_P04_NEIL_COMPACT_AUDIO_PROOF_V001_2026-11-01.md",
     "candidate_drive_id": "1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV",
@@ -537,13 +538,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V303",
+    "version": "V304",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R383 / COMPACT 192.257S AUDIO TECH PASS / PO LISTENING PENDING / 35 SHOTS 3 VIDEOS",
-    "derived_from_revision": "R383",
+    "status": "DERIVED R384 / FULL COMPACT AUDIO PO LISTENING PASS / AV REVIEW PENDING / INDEX 35 VIDEO 3",
+    "derived_from_revision": "R384",
     "last_updated": "2026-11-01",
-    "current_task": "PO AUDITION COMPACT OPENING P01-P04→NEIL 192.257S"
+    "current_task": "REVIEW APPROVED VISUAL COVERAGE FOR COMPACT 192.257S SOUNDTRACK"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -5700,14 +5701,16 @@
       "next_gate": "compact independent original-audio proof plus P03/P04/Neil join; PO listening before scale"
     },
     "compact_full_opening_audio_proof_v001": {
-      "status": "TECHNICAL_PASS_PO_LISTENING_PENDING",
+      "status": "PO_LISTENING_APPROVED",
       "file": "OPENING_P01_P04_NEIL_COMPACT_AUDIO_PROOF_V001.m4a",
       "private_drive_id": "1xFkf3sC20yWVt_a3SJy9OrJ6KpWJ8bTV",
       "sha256": "1701f3a8140775550a30ac788b9221486349c058278d1ef0c2c5163664d6c4ac",
       "duration_sec": 192.257,
       "record": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_P04_NEIL_COMPACT_AUDIO_PROOF_V001_2026-11-01.md",
       "scope": "INDEPENDENT SOUND PROOF, NOT PO APPROVED FULL VIDEO/SHOTS",
-      "po_verdict": "PENDING"
+      "po_verdict": "PASS_2026_11_01",
+      "approval_record": "docs/project_control/gates/P0_3_video_pipeline/OPENING_COMPACT_AUDIO_V001_PO_LISTENING_APPROVAL_2026-11-01.md",
+      "next_gate": "APPROVED_VISUAL_COVERAGE_REVIEW_AND_MINIMUM_AV_TEST"
     }
   }
 }
