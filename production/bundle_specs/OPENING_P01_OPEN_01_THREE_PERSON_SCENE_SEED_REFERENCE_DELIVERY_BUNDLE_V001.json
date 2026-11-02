@@ -6,17 +6,17 @@
   "target_candidate": "OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 5,
     "rule": "EXACT_FIVE_APPROVED_CHARACTER_POSITIVE_REFERENCES_ONLY",
     "work_generation_authorized": false,
-    "authorization_scope": "VALIDATION_ONLY_SPEC_AND_GITHUB_ACTIONS_EXACT_REFERENCE_CHECK",
+    "authorization_scope": "FORMAL_GITHUB_ACTIONS_BUNDLE_BUILD_AND_EXACT_REFERENCE_VERIFICATION_ONLY",
     "scene_seed_status": "NOT_APPROVED_NEW_RECONSTRUCTED_SCENE",
     "bai_p01_costume_status": "PROSE_DIRECTOR_COSTUME_INTERPRETATION_NOT_APPROVED_VARIANT",
     "identity_segregation": "NEVER_REFERENCE_WEN_QINGYA_SU_XIAOXIAO_OTHER_CAST_FACE_FOR_BAI",
-    "note": "Validation-only; the new apartment room is not an approved Scene Reference. No production bundle artifact or Work generation is authorized."
+    "note": "Product Owner approved Director Design and formal Bundle construction on 2026-11-02; this authorizes build/verification of five existing identity refs ONLY. Work candidate rendering, scene seed approval, costume approval, publication and registration remain explicitly NOT AUTHORIZED."
   },
   "references": [
     {
@@ -110,9 +110,9 @@
     }
   ],
   "work_handoff": {
-    "title": "Opening P01-OPEN-01｜FIRST audio 00:00 shot｜Scene Seed｜VALIDATION ONLY",
+    "title": "Opening P01-OPEN-01｜FIRST audio 00:00 shot｜FORMAL VERIFIED REFERENCE BUNDLE｜WORK NOT YET AUTHORIZED",
     "requirements": [
-      "This bundle spec is validation only; DO NOT generate any image until separate PO authorization, formal bundle build, and exact GitHub Actions artifact verification.",
+      "Product Owner approved the director design and the formal GitHub Actions REFERENCE BUNDLE BUILD. Work image generation is NOT YET authorized; do not render before separate explicit PO permission.",
       "Audio 00:00.000; no middle excerpt. First visible frame opens in Bai Xiaoxiao's private Miridiexiang estate living-room interior; she warns of risk, sick but resolute Jun Luyuan listens/responds, Ning Qiushui listens without already having volunteered.",
       "Only five approved images in this spec are direct positive identity references. Preserve Bai C06 FACE_FRONT/3Q_LEFT exactly, not Wen Qingya or Su Xiaoxiao; keep Ning and Jun exact.",
       "Bai clothing here: red sleepdress from chapter 132, black flip-flops only if feet visible. This is a candidate one-shot wardrobe depiction, NOT automatically an approved costume Master.",
@@ -121,7 +121,7 @@
       "Generate exactly one candidate PNG ONLY AFTER independent PO Work authorization; then STOP for separate PO review of visual shot + usable scene seed. DO NOT publish/modify Registry, formal Opening/audio or P03/P04."
     ],
     "exclusions": [
-      "No Work rendering on validation-only spec.",
+      "No Work candidate PNG rendering until separate explicit Product Owner authorization, despite bundle manifest generation_allowed=true.",
       "No unapproved/new person photo or cast identity as direct positive reference.",
       "No claim of approved apartment Scene Master, costume Master or Bai Tier A completeness.",
       "No image/video generation, Registry update, video replacement, P0.3 Gate PASS or Shot approval without PO.",
@@ -129,5 +129,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_OPEN_01_V001_VALIDATION_ONLY_20261102"
+  "spec_revision": "P01_OPEN_01_V001_PO_DIRECTOR_APPROVED_BUILD_AUTHORIZED_WORK_NOT_AUTHORIZED_20261102"
 }
