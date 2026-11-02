@@ -1,0 +1,76 @@
+name: Opening P01 OPEN02-OPEN07 Exact Registry Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/opening-p01-open02-open07-exact-verified-registration.yml"
+      - "production/story_shots/story_shot_index.jsonl"
+      - "production/image_library/approved/story_shots/OPENING_P01_OPEN_*.png"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight_and_registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify all six original PNGs in uploaded staging
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, struct, subprocess
+          expected=[["02","OPENING_P01_OPEN_02_JUN_RESOLVE_CANDIDATE_02.png","73508692f0020e19668f7c6a18a4ddc47fb5d1c0",1858578,1672],["03","OPENING_P01_OPEN_03_BAI_CAUTION_CANDIDATE_01.png","8b6cfc1c99f1a53adac8134fd04c7932bd6ed1a6",1996398,1672],["04","OPENING_P01_OPEN_04_NING_VOLUNTEERS_CANDIDATE_01.png","31d1f560da5f2f7b34469ea2ae7776c8081dc23e",1843383,1672],["05","OPENING_P01_OPEN_05_JUN_GRATEFUL_CANDIDATE_03.png","2bc55d0ffb1e9ac32bed51ae9c7b07442d28e94e",1911603,1671],["06","OPENING_P01_OPEN_06_JUN_BURDEN_CANDIDATE_02.png","b1b4a61518ee1f86ae3bde33643bbb741d3a591c",2028458,1672],["07","OPENING_P01_OPEN_07_DECISION_CLOSE_CANDIDATE_01.png","bf1bb114a32865edadbee49a4a1a685ff8d2ee53",2101419,1672]]
+          root=pathlib.Path("staging/story_shot_candidates/OPENING_P01_02_07")
+          out=[]
+          for n, name, locked_blob, size, height in expected:
+              p=root/name
+              data=p.read_bytes()
+              assert len(data)==size, f"{name} SIZE mismatch"
+              assert data[:8]==bytes.fromhex("89504e470d0a1a0a"), f"{name} PNG signature mismatch"
+              assert struct.unpack(">II",data[16:24])==(941,height), f"{name} dimensions mismatch"
+              digest=hashlib.sha256(data).hexdigest()
+              blob=subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
+              assert blob==locked_blob, f"{name} GIT BLOB mismatch"
+              out.append(dict(shot=n, name=name, bytes=size, width=941, height=height, git_blob=blob, sha256=digest))
+          assert len(out)==6 and len(set(r['sha256'] for r in out))==6
+          print("OPENING_P01_02_07_EXACT_PREFLIGHT_PASS")
+          print("P01_02_07_PREFLIGHT_JSON="+json.dumps(out,separators=(",",":")))
+          PY
+      - name: Check registered canonical exact blobs when index contains all six
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,subprocess,hashlib,struct
+          rows=[json.loads(s) for s in pathlib.Path('production/story_shots/story_shot_index.jsonl').read_text().splitlines() if s.strip()]
+          six=[r for r in rows if r.get('shot_id') in ['OPENING_P01_OPEN_'+str(k).zfill(2) for k in range(2,8)]]
+          if not six:
+              print('OPENING_P01_02_07_REGISTRATION_PENDING__PREFLIGHT_ONLY')
+          else:
+              assert len(rows)==42, f'Expected 42 approved Story Shot index rows, got {len(rows)}'
+              assert len(six)==6 and len(set(x['shot_id'] for x in six))==6
+              original_names={
+                '02':'OPENING_P01_OPEN_02_JUN_RESOLVE_CANDIDATE_02.png',
+                '03':'OPENING_P01_OPEN_03_BAI_CAUTION_CANDIDATE_01.png',
+                '04':'OPENING_P01_OPEN_04_NING_VOLUNTEERS_CANDIDATE_01.png',
+                '05':'OPENING_P01_OPEN_05_JUN_GRATEFUL_CANDIDATE_03.png',
+                '06':'OPENING_P01_OPEN_06_JUN_BURDEN_CANDIDATE_02.png',
+                '07':'OPENING_P01_OPEN_07_DECISION_CLOSE_CANDIDATE_01.png',
+              }
+              root=pathlib.Path('staging/story_shot_candidates/OPENING_P01_02_07')
+              for r in six:
+                  num=r['shot_id'][-2:]
+                  p=pathlib.Path(r['canonical_path'])
+                  d=p.read_bytes()
+                  src=root/original_names[num]
+                  assert d==src.read_bytes(), f'{num} exact original mismatch'
+                  assert p.name==r['filename'] and p.name.endswith('_APPROVED_V001.png')
+                  assert hashlib.sha256(d).hexdigest()==r['sha256_locked_identity']
+                  assert subprocess.check_output(['git','hash-object',str(p)],text=True).strip()==r['github_blob_sha']
+                  assert len(d)==r['byte_size']
+                  assert r['dimensions']=={'width':941,'height':1671 if num=='05' else 1672}
+                  assert r['approval_status']=='APPROVED' and r['lifecycle']=='CURRENT'
+                  print(num+' SHA256='+r['sha256_locked_identity']+' GIT_BLOB='+r['github_blob_sha'])
+              print('OPENING_P01_02_07_REGISTRATION_EXACT_PASS__42_STORY_SHOTS')
+          PY
