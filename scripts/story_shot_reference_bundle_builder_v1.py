@@ -246,7 +246,7 @@ def build(spec_path):
                 "actual_git_blob": actual_blob,
                 "dimensions": {"width": width, "height": height},
                 "format_signature": "PASS",
-            "source_format": ref.get("expected_format", "PNG"),
+                "source_format": ref.get("expected_format", "PNG"),
                 "byte_identical_copy": "PASS",
                 "bundle_path": dst.relative_to(out).as_posix()
             })
