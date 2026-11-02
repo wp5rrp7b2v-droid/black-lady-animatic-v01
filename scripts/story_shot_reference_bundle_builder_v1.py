@@ -16,11 +16,43 @@ def sha256(path):
 def git_blob(path):
     return subprocess.check_output(["git","hash-object",str(path)], cwd=ROOT, text=True).strip()
 
-def png_dimensions(path):
-    data = path.read_bytes()[:24]
-    if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
-        raise ValueError(f"Invalid PNG signature: {path}")
-    return struct.unpack(">II", data[16:24])
+def image_dimensions(path, expected_format="PNG"):
+    # Byte-preserving validation: the approved original JPEG is never converted.
+    with path.open("rb") as fp:
+        data = fp.read()
+    if expected_format == "PNG":
+        if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+            raise ValueError(f"Invalid PNG signature: {path}")
+        return struct.unpack(">II", data[16:24])
+    if expected_format != "JPEG":
+        raise ValueError(f"Unsupported reference format: {expected_format}")
+    if len(data) < 12 or data[:3] != b"\xff\xd8\xff" or data[-2:] != b"\xff\xd9":
+        raise ValueError(f"Invalid JPEG signature: {path}")
+    pos = 2
+    while pos < len(data):
+        if data[pos] != 0xff:
+            raise ValueError(f"Invalid JPEG marker at offset {pos}: {path}")
+        while pos < len(data) and data[pos] == 0xff:
+            pos += 1
+        marker = data[pos]
+        pos += 1
+        if marker in (0xd8, 0xd9):
+            continue
+        if marker == 0xda:
+            break
+        if pos + 2 > len(data):
+            raise ValueError(f"Truncated JPEG marker: {path}")
+        length = int.from_bytes(data[pos:pos + 2], "big")
+        if length < 2 or pos + length > len(data):
+            raise ValueError(f"Invalid JPEG marker length: {path}")
+        if marker in (0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7,
+                      0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf):
+            if length < 7:
+                raise ValueError(f"Invalid JPEG SOF: {path}")
+            return (int.from_bytes(data[pos + 5:pos + 7], "big"),
+                    int.from_bytes(data[pos + 3:pos + 5], "big"))
+        pos += length
+    raise ValueError(f"JPEG SOF marker absent: {path}")
 
 def rows(path):
     return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
@@ -101,7 +133,8 @@ def verify_ref(ref, registry_rows, story_rows):
             if output.get(key) != expected:
                 raise ValueError(f"{ref['reference_id']} manifest output {key} mismatch")
 
-        if output.get("format") != "PNG":
+        expected_format = ref.get("expected_format", "PNG")
+        if expected_format not in ("PNG", "JPEG") or output.get("format") != expected_format:
             raise ValueError(f"{ref['reference_id']} manifest output format mismatch")
         if controlled.get("approved_binary", {}).get("sha256") != ref["expected_sha256"]:
             raise ValueError(f"{ref['reference_id']} approved binary SHA mismatch")
@@ -114,7 +147,13 @@ def verify_ref(ref, registry_rows, story_rows):
     actual_sha = sha256(src)
     actual_size = src.stat().st_size
     actual_blob = git_blob(src)
-    width, height = png_dimensions(src)
+    expected_format = ref.get("expected_format", "PNG")
+    width, height = image_dimensions(src, expected_format)
+    if source_type == "STORY_SHOT":
+        if ref.get("expected_sha256") and row.get("sha256_locked_identity") != ref["expected_sha256"]:
+            raise ValueError(f"{ref['reference_id']} story shot indexed SHA mismatch")
+        if row.get("image_format", "PNG") != expected_format:
+            raise ValueError(f"{ref['reference_id']} story shot image format mismatch")
 
     if actual_size != ref["expected_byte_size"]:
         raise ValueError(f"{ref['reference_id']} byte size mismatch")
@@ -162,7 +201,8 @@ def validate_only(spec_path):
             "actual_byte_size": actual_size,
             "actual_git_blob": actual_blob,
             "dimensions": {"width": width, "height": height},
-            "png_signature": "PASS",
+            "format_signature": "PASS",
+            "source_format": ref.get("expected_format", "PNG"),
         })
     print(f"VALIDATION_PASS: {len(verified)}/{len(spec['references'])} exact canonical references verified")
     print("BUILD_AUTHORIZED=" + ("TRUE" if spec.get("build_authorized", True) else "FALSE"))
@@ -205,7 +245,8 @@ def build(spec_path):
                 "actual_byte_size": actual_size,
                 "actual_git_blob": actual_blob,
                 "dimensions": {"width": width, "height": height},
-                "png_signature": "PASS",
+                "format_signature": "PASS",
+            "source_format": ref.get("expected_format", "PNG"),
                 "byte_identical_copy": "PASS",
                 "bundle_path": dst.relative_to(out).as_posix()
             })
@@ -229,7 +270,7 @@ def build(spec_path):
         lines += [f"- {x}" for x in h.get("requirements",[])]
         lines += ["", "## Exclusions"]
         lines += [f"- {x}" for x in h.get("exclusions",[])]
-        lines += ["", "## Verification", "- Revalidate every delivered PNG against delivery_manifest.json before generation.", "- If any check fails, do not generate."]
+        lines += ["", "## Verification", "- Revalidate every delivered PNG/JPEG exact binary against delivery_manifest.json before generation.", "- If any check fails, do not generate."]
         (out / "WORK_HANDOFF.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
         for ref in manifest_refs:
