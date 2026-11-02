@@ -91,3 +91,29 @@
 - 审计结论：**5/5 IDENTITY INPUT VALIDATION PASS / FORMAL BUNDLE BUILD NOT AUTHORIZED / NO WORK CANDIDATE / PO VISUAL APPROVAL PENDING**。这是验证状态而非已建 Bundle 或场景、服装通过；不能将 `run success` 表述为正式 Bundle 已生成。
 - 核验链接：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41381693667
 - 后续授权门槛不变：PO 先决定是否批准上述导演设计、允许正式 Bundle build；独立 Work 正式候选 PNG 制作授权仍需另外明确给出。未得到这两项许可时，停止在本镜头的验证状态，不擅自出图。
+
+## 8. Product Owner 导演审批、正式 Bundle 构建与独立下载核验｜2026-11-02
+
+**Product Owner 批准：**在 Chat 用户对本轮“P01-OPEN-01 导演设计审核通过并授权正式 Bundle 构建（暂不包含 Work 出图）”回复「批准」。审批范围只包含 `P01-OPEN-01` Director Design V001 与正式5图 Reference Delivery Bundle 构建；**不包括 Work 正式候选图、Scene/Costume Master 审批、资产发布或 Story Shot 登记**。
+
+### Verified GitHub Actions build
+- 正式 Spec：`production/bundle_specs/OPENING_P01_OPEN_01_THREE_PERSON_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json`。
+- Spec commit：`4a9d2cae8a1314545a10167bdff976104a609125`。
+- `build_authorized=true`；`generation_interface_constraints.work_generation_authorized=false`。
+- GitHub Actions Run **41382711097**：`success`，与上述 commit SHA 精确相同；Build Job **125076773111**，`Build verified reference bundle`、`Upload verified bundle` 两个步骤均 `success`。
+- 实际 GitHub Actions 日志：**`PASS: 5/5 exact canonical reference binaries verified`**；`BUILD_AUTHORIZED=true`；`GENERATION_ALLOWED=TRUE`。这里 `GENERATION_ALLOWED=TRUE` 仅指构建器二进制数据技术上完整，**不是 PO Work 生图授权**。
+- 完整 Artifact ID：**13113956992**，名称 `OPENING_P01_OPEN_01_THREE_PERSON_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001`，GitHub 返回大小 **9,655,558 bytes**（GitHub 的 artifact 包体大小），`expired=false`。
+- Run: https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41382711097
+
+### Independent artifact download and exact-file recheck
+- 下载 GitHub Artifact 的 ZIP 并在隔离容器独立检验 ZIP CRC：**PASS**。
+- 本次下载 ZIP SHA256：**`284b21d28cffcc617c9510dc5faa30472512a6fde41d91d02f61a3fbc05f215a`**；与五张源图不同，此哈希是本次 ZIP 包本身身份。
+- ZIP 实际包含 **7个文件**：`delivery_manifest.json`、`WORK_HANDOFF.md` 和 5 张完整 PNG，未多出第六张 positive ref。
+- `delivery_manifest.json` 为 `overall_result=PASS`、`reference_count=5`、`all_reference_checks_pass=true`。
+- 重新解压读取5张PNG的实际字节、逐项独立计算 SHA256 与 `delivery_manifest.json` 预期值及 byte size 全部一致：**5/5 EXACT BINARY RECHECK PASS**。
+- 涉及 Asset IDs：`AST_IMG_000060`（宁）、`AST_IMG_000057`（君）、`AST_IMG_000072`（君辅助）、`AST_IMG_000109`（白正脸）、`AST_IMG_000110`（白3/4左）。
+- **本阶段实际证明：**完整 GitHub Actions Builder + Artifact 提交 + 独立下载 + 五图逐字节 SHA 再核对形成端到端 PASS。未证明：新住所环境、红睡裙 Costume 设计及三人同镜实际视觉审美。
+
+### Stop Gate
+- **READY FOR WORK AUTHORIZATION / NOT YET WORK AUTHORIZED**。不得仅因工具导出的 `generation_allowed=true` 自动下达正式 Work 图像生成；需要 PO 下一项明确授权。
+- 上文“导演设计待PO批准、正式Bundle未构建”的历史段落是提交前状态，本节的已证实 PO 设计批准、正式 Bundle 构建结果取代这些历史状态，其他仍未批准的场景、服装和视频保护边界继续有效。
