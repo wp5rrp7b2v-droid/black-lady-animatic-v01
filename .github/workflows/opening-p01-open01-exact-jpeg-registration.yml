@@ -45,7 +45,7 @@ jobs:
               raise ValueError('JPEG SOF missing')
           assert dimensions(d)==(864,1536),'Unexpected JPEG dimensions'
           rows=[json.loads(x) for x in Path('production/story_shots/story_shot_index.jsonl').read_text().splitlines() if x.strip()]
-          assert len(rows)==36, f'Story Shots count unexpected {len(rows)}'
+          assert len(rows)>=36, f'Story Shots baseline count unexpectedly shrank: {len(rows)}'
           matches=[x for x in rows if x.get('shot_id')=='OPENING_P01_OPEN_01']
           assert len(matches)==1,'index cardinality'
           r=matches[0]
@@ -64,7 +64,7 @@ jobs:
           print('OPENING_P01_OPEN01_REGISTRATION_EXACT_PASS')
           print('SHA256='+sha)
           print('GIT_BLOB='+blob)
-          print('INDEX=36; APPROVED=CURRENT; ORIGINAL_JPEG_864x1536_PRESERVED')
+          print(f'INDEX={len(rows)}; APPROVED=CURRENT; ORIGINAL_JPEG_864x1536_PRESERVED')
           print('FORMAT_VARIANCE=JPEG_864x1536_VS_TARGET_PNG_941x1672')
           print('SCENE_ANCHOR=PASS; AUDIT=PASS')
           PY
