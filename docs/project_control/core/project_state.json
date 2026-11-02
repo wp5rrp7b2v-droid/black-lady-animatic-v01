@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R409",
+  "state_revision": "R410",
   "last_updated": "2026-11-02",
-  "session_status": "2026-11-02 P01 OPEN01 PO APPROVED / EXACT ORIGINAL JPEG 864x1536 PUBLISHED AND REGISTERED / GITHUB ACTIONS 41386602412 PASS / STORY SHOTS 36 / VIDEO INDEX 3 / 192.257S AUDIO LOCKED / P0.3 IN PROGRESS / MAC LAST VERIFIED 2026-11-01",
+  "session_status": "2026-11-02 P01 OPEN02-OPEN07 SIX SHOT DIRECTOR PLAN COMPLETE / APPROVED_JPEG_PNG_COMPAT_SMOKE_3_OF_3 PASS / SIX VERIFIED GH ACTIONS BUNDLES 6_OF_6 PASS / ORIGINAL_SCENE_JPEG EXACT_REUSED / WORK CANDIDATES NOT GENERATED / 36 CURRENT STORY SHOTS / 3 VIDEOS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 CONTINUOUS VISUAL PRODUCTION: P01-OPEN-01 EXACT REGISTRATION CLOSED; NEXT P01-OPEN-02 JUN LUYUAN DECISION REACTION FROM AUDIO ~00:04 (PRECISE CUE UNLOCKED)",
-  "blocker": "No registration blocker for P01-OPEN-01. Next shot requires Director/PO visual design, identity-preserving scene reuse and verified reference bundle. Canonical scene seed is PO-approved JPEG 864x1536; existing builder only checks PNG, compatibility for use as positive reference is not proven. P0.3 full audiovisual assembly not yet validated; existing audio-only PO PASS remains unchanged.",
-  "next_action": "Continue sequentially from Opening absolute 00:00: design the second P01 shot for Jun Luyuan's determination at approximately audio 00:04 and validate the exact onset; reuse same-source approved P01 residence scene anchor only after solving JPEG reference compatibility at minimum cost, then follow formal Bundle→Work→PO→Exact Binary→Registry workflow. No automatic next image authorization or video replacement.",
+  "current_task": "P01-OPEN-02—07 SIX-SHOT WORK BATCH READY: PRODUCE SIX DISTINCT CANDIDATES IN ORDER, THEN PO VISUAL REVIEW; NO PER-SHOT REGISTRATION BEFORE PO",
+  "blocker": "No reference-bundle technical blocker: JPEG+PNG compat validated in GH Actions 41388931182 and six formal artifacts independently exact rechecked. Actual six candidate images still require Work mode execution; current Chat GitHub tools cannot launch Work. Product Owner visual approvals are pending for all six and cannot be pre-granted. Full P0.3 audiovisual assembly remains unapproved.",
+  "next_action": "Hand off docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_WORK_CONTINUOUS_HANDOFF_V001_2026-11-02.md to Work mode to generate exactly six P01 OPEN02-OPEN07 candidate PNG images continuously from six independently verified GitHub Actions artifacts; return six for PO visual review, then Chat exact binary / canonical / Story Shot registration only for approved images.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,21 +120,21 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-02-P01-OPEN01-EXACT-REGISTRATION-R409",
-    "status": "P01_OPEN01_APPROVED_EXACT_REGISTRATION_COMPLETE__P0_3_IN_PROGRESS__LOCAL_NOT_SYNCED_THIS_SESSION",
+    "id": "2026-11-02-P01-OPEN02-OPEN07-BUNDLES-R410",
+    "status": "GITHUB_ACTIONS_6_OF_6_EXACT_PASS__WORK_HANDOFF_READY__PO_OUTPUT_APPROVAL_PENDING__P0_3_UNCHANGED",
     "date": "2026-11-02",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_BUNDLE_EXACT_VERIFICATION_AND_WORK_GATE_2026-11-02.md",
     "completed": [
-      "PO approved the uploaded original JPEG as Opening P01 start image and asked for formal registration.",
-      "Original 864x1536 336546-byte JPEG SHA256 4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452 preserved and canonically published without re-encode.",
-      "Registered unique OPENING_P01_OPEN_01 APPROVED/CURRENT and same JPEG P01-only controlled scene anchor.",
-      "Story Shot Index count 35→36; Audit 197→200; Assets 111; Entities 35; Videos 3.",
-      "Independent GitHub Actions Run 41386602412 success; exact JPEG/hash/blob/dimensions/registry/scene manifest/audit PASS.",
-      "Format deviation from planned 941x1672 PNG recorded explicitly; existing PNG-only reference builder compatibility with JPEG not yet verified."
+      "Previously approved P01-OPEN-01 JPEG 864x1536 canonical preserved as single P01 residential reference.",
+      "JPEG+PNG validation-only mixed smoke test GitHub Actions 41388931182 SUCCESS 3/3.",
+      "Director Plan and batch Work continuous handoff published to GitHub.",
+      "Six independent formal Bundle specs built by GitHub Actions 6/6 SUCCESS, six actual Artifacts returned.",
+      "Six ZIP downloaded and independently verified all 25 original JPG/PNG references against manifest SHA256, Git Blob, size, dimensions and signature.",
+      "No candidate photos rendered or falsely registered; original audio and 36 approved Story Shot records remain unchanged."
     ],
-    "resume_from": "P01 next sequential actor reaction design from ~00:04 of approved 192.257s original audio; no midstream shortcut",
+    "resume_from": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_WORK_CONTINUOUS_HANDOFF_V001_2026-11-02.md",
     "blockers": [
-      "P01 next scene-anchored reference bundle must handle canonical JPEG at minimum verified cost; P0.3 full A/V assembly unapproved"
+      "Work mode has not yet performed six image generations; PO visual approval pending; P0.3 A/V full proof pending"
     ],
     "registry_counts": {
       "entities": 35,
@@ -145,7 +145,7 @@
     },
     "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
     "last_verified_local_date": "2026-11-01",
-    "local_sync_status": "PREVIOUS_VERIFIED_CHECKPOINT_ONLY / NO_NOV_02_LOCAL_PULL_PROOF"
+    "local_sync_status": "LAST_VERIFIED_2026_11_01_CHECKPOINT_ONLY_NO_NEW_LOCAL_PULL"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -540,13 +540,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V328",
+    "version": "V329",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R409 / P01_OPEN01 EXACT JPEG REGISTERED 36 SHOTS / GITHUB ACTIONS PASS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R409",
+    "status": "DERIVED R410 / P01 SIX BUNDLES ALL EXACT PASS WORK PENDING / 36 STORY SHOTS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R410",
     "last_updated": "2026-11-02",
-    "current_task": "P01_OPEN01 CLOSED / NEXT P01_OPEN02 CHRONOLOGICAL CONTINUATION"
+    "current_task": "P01 SIX SHOT WORK BATCH REQUIRES WORK MODE EXECUTION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -565,7 +565,7 @@
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md",
     "last_formal_closeout_status": "P01-OPEN-01 PO APPROVED JPEG PRESERVED / STORY SHOT 36 / SCENE ANCHOR / ACTIONS 41386602412 EXACT PASS",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_BUNDLE_EXACT_VERIFICATION_AND_WORK_GATE_2026-11-02.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -6015,5 +6015,47 @@
   "registry_counts": {
     "assets": 111,
     "audit_events": 200
+  },
+  "opening_p01_remaining_six_batch_2026_11_02": {
+    "status": "6_OF_6_FORMAL_BUNDLES_BUILT_AND_INDEPENDENTLY_EXACT_VERIFIED__READY_FOR_WORK__CANDIDATES_0_OF_6_RENDERED",
+    "po_authorization": "2026-11-02 user: 直接一次性P01后续的全部制图流程",
+    "approved_scene_anchor": "OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001",
+    "approved_scene_jpeg_sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+    "compat_smoke_run": 41388931182,
+    "compat_smoke_result": "PASS_3_OF_3_NO_REENCODE",
+    "shot_ids": [
+      "OPENING_P01_OPEN_02_JUN_RESOLVE",
+      "OPENING_P01_OPEN_03_BAI_CAUTION",
+      "OPENING_P01_OPEN_04_NING_VOLUNTEERS",
+      "OPENING_P01_OPEN_05_JUN_GRATEFUL",
+      "OPENING_P01_OPEN_06_JUN_BURDEN",
+      "OPENING_P01_OPEN_07_DECISION_CLOSE"
+    ],
+    "bundle_runs": [
+      41389184689,
+      41389189620,
+      41389193290,
+      41389232188,
+      41389235686,
+      41389239263
+    ],
+    "artifact_ids": [
+      13116697397,
+      13115898648,
+      13116895544,
+      13116244660,
+      13115684617,
+      13116900086
+    ],
+    "artifacts_exact_result": "PASS_6_OF_6_25_REFERENCE_FILES_SIX_ARTIFACTS",
+    "director_plan": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_BATCH_DIRECTOR_AND_WORK_PLAN_V001_2026-11-02.md",
+    "work_handoff": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_WORK_CONTINUOUS_HANDOFF_V001_2026-11-02.md",
+    "verification_report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_BUNDLE_EXACT_VERIFICATION_AND_WORK_GATE_2026-11-02.md",
+    "work_execution_status": "NOT_YET_STARTED_BY_WORK_THIS_CHAT",
+    "candidate_count": 0,
+    "po_visual_approval": "PENDING",
+    "registered_count_increment": 0,
+    "video_changed": false,
+    "audio_changed": false
   }
 }
