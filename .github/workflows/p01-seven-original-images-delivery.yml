@@ -1,0 +1,49 @@
+name: P01 Seven Approved Original Images Delivery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/p01-seven-original-images-delivery.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify_and_package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original images and build zero-transcode image delivery
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess,hashlib,struct,json,zipfile
+          expected=[["OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg","4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452","9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",336546,864,1536],["OPENING_P01_OPEN_02_JUN_RESOLVE_APPROVED_V001.png","46cf528130b8517640ed5a1e8a4cc5353a3c52bebf454ce7342ee6b73308213b","73508692f0020e19668f7c6a18a4ddc47fb5d1c0",1858578,941,1672],["OPENING_P01_OPEN_03_BAI_CAUTION_APPROVED_V001.png","887269a8901cf2c31eefb66fc85948c6c418f38db958e56b2b86c19206839e82","8b6cfc1c99f1a53adac8134fd04c7932bd6ed1a6",1996398,941,1672],["OPENING_P01_OPEN_04_NING_VOLUNTEERS_APPROVED_V001.png","3ca90105eac44518bdb2fda53f5d4d807909b32184e6408fd560d3cd613971ed","31d1f560da5f2f7b34469ea2ae7776c8081dc23e",1843383,941,1672],["OPENING_P01_OPEN_05_JUN_GRATEFUL_APPROVED_V001.png","e8f240159c4c8fce8bc5131db1ed1c79c401a93eaf744926efe674d7f90596aa","2bc55d0ffb1e9ac32bed51ae9c7b07442d28e94e",1911603,941,1671],["OPENING_P01_OPEN_06_JUN_BURDEN_APPROVED_V001.png","81fc76ad24933ae6045867a3b2f4300ed2061a123e5fff59bf7505e3b2aba38c","b1b4a61518ee1f86ae3bde33643bbb741d3a591c",2028458,941,1672],["OPENING_P01_OPEN_07_DECISION_CLOSE_APPROVED_V001.png","f63487a767d93dbb8bb10ef9eca36c45e6ffff39ca43f309150d805472645140","bf1bb114a32865edadbee49a4a1a685ff8d2ee53",2101419,941,1672]]
+          root=Path("production/image_library/approved/story_shots")
+          out=Path("_p01_seven_source_delivery")
+          out.mkdir(exist_ok=True)
+          records=[]
+          for name,sha,blob,size,w,h in expected:
+              path=root/name
+              data=path.read_bytes()
+              assert len(data)==size, f"SIZE_FAIL:{name}"
+              assert hashlib.sha256(data).hexdigest()==sha, f"SHA256_FAIL:{name}"
+              assert subprocess.check_output(["git","hash-object",str(path)],text=True).strip()==blob,f"BLOB_FAIL:{name}"
+              if name.lower().endswith(".png"):
+                  assert data[:8]==bytes.fromhex("89504e470d0a1a0a"),f"PNG_SIG_FAIL:{name}"
+                  assert struct.unpack(">II",data[16:24])==(w,h),f"PNG_DIM_FAIL:{name}"
+              else:
+                  assert data[:3]==bytes.fromhex("ffd8ff") and data[-2:]==bytes.fromhex("ffd9"),f"JPEG_SIG_FAIL:{name}"
+              records.append({"filename":name,"sha256":sha,"git_blob":blob,"bytes":size,"width":w,"height":h})
+          (out/"manifest.json").write_text(json.dumps(records,ensure_ascii=False,indent=2)+"\n")
+          with zipfile.ZipFile(out/"P01_SEVEN_EXACT_SOURCES.zip","w",zipfile.ZIP_STORED) as archive:
+              for rec in records:
+                  archive.write(root/rec["filename"],"images/"+rec["filename"])
+              archive.write(out/"manifest.json","manifest.json")
+          print("P01_SEVEN_EXACT_SOURCE_DELIVERY_PASS",len(records))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: P01_SEVEN_EXACT_ORIGINAL_IMAGES
+          path: _p01_seven_source_delivery/
+          if-no-files-found: error
+          retention-days: 14
