@@ -81,3 +81,13 @@
 ## 6. Protect baseline
 
 35 approved Story Shots / 3 formal Videos；Opening V001 和三张P03/P04血门获批图不动；192.257s approved audio exact bytes不变；P0.3仍IN PROGRESS；白潇潇 Tier未分配。当前工作仅是 Director Design + Validation-only Reference Spec，PO并未因此批准Candidate 01或任何正式发布。
+
+## 7. 2026-11-02 GitHub Actions｜Validation-only Exact PASS（实测回执）
+
+- 已正式提交唯一 Bundle validation spec：`production/bundle_specs/OPENING_P01_OPEN_01_THREE_PERSON_SCENE_SEED_REFERENCE_DELIVERY_BUNDLE_V001.json`；`build_authorized=false`，`work_generation_authorized=false`；规范提交 commit `9e90949c8113d43d13a0f17906ff93d8eb71d3f2`。
+- GitHub Actions **Run 41381693667**，`Story Shot Reference Bundle Builder`，触发版本精确为上述 commit；2026-11-02 03:11 UTC 完成，conclusion `success`；Job **125073680013**。
+- 已独立读取执行日志，核心结果：**`VALIDATION_PASS: 5/5 exact canonical references verified`**、`BUILD_AUTHORIZED=FALSE`、`GENERATION_ALLOWED=FALSE`。5 个已批准人物身份 reference 通过 canonical registry、大小、SHA256、Git blob 与 PNG 图片维度校验。
+- 独立查询同一 Run 的 steps：`Validate references without building: success`，`Build verified reference bundle: skipped`，`Upload verified bundle: skipped`；Run Artifact 列表**为空**。
+- 审计结论：**5/5 IDENTITY INPUT VALIDATION PASS / FORMAL BUNDLE BUILD NOT AUTHORIZED / NO WORK CANDIDATE / PO VISUAL APPROVAL PENDING**。这是验证状态而非已建 Bundle 或场景、服装通过；不能将 `run success` 表述为正式 Bundle 已生成。
+- 核验链接：https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41381693667
+- 后续授权门槛不变：PO 先决定是否批准上述导演设计、允许正式 Bundle build；独立 Work 正式候选 PNG 制作授权仍需另外明确给出。未得到这两项许可时，停止在本镜头的验证状态，不擅自出图。
