@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R410",
+  "state_revision": "R411",
   "last_updated": "2026-11-02",
-  "session_status": "2026-11-02 P01 OPEN02-OPEN07 SIX SHOT DIRECTOR PLAN COMPLETE / APPROVED_JPEG_PNG_COMPAT_SMOKE_3_OF_3 PASS / SIX VERIFIED GH ACTIONS BUNDLES 6_OF_6 PASS / ORIGINAL_SCENE_JPEG EXACT_REUSED / WORK CANDIDATES NOT GENERATED / 36 CURRENT STORY SHOTS / 3 VIDEOS / P0.3 IN PROGRESS",
+  "session_status": "2026-11-02 P01 OPEN02-OPEN07 SIX PO APPROVED ORIGINAL PNGS EXACT CANONICAL PUBLISHED / 6 UNIQUE APPROVED CURRENT STORY SHOTS / GITHUB ACTIONS INDEPENDENT REGISTRATION PASS 41455337719 / 42 TOTAL STORY SHOTS / 218 AUDIT EVENTS / 3 FORMAL VIDEOS UNCHANGED / OPENING AUDIOVISUAL ASSEMBLY NOT YET APPROVED / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P01-OPEN-02—07 SIX-SHOT WORK BATCH READY: PRODUCE SIX DISTINCT CANDIDATES IN ORDER, THEN PO VISUAL REVIEW; NO PER-SHOT REGISTRATION BEFORE PO",
-  "blocker": "No reference-bundle technical blocker: JPEG+PNG compat validated in GH Actions 41388931182 and six formal artifacts independently exact rechecked. Actual six candidate images still require Work mode execution; current Chat GitHub tools cannot launch Work. Product Owner visual approvals are pending for all six and cannot be pre-granted. Full P0.3 audiovisual assembly remains unapproved.",
-  "next_action": "Hand off docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_WORK_CONTINUOUS_HANDOFF_V001_2026-11-02.md to Work mode to generate exactly six P01 OPEN02-OPEN07 candidate PNG images continuously from six independently verified GitHub Actions artifacts; return six for PO visual review, then Chat exact binary / canonical / Story Shot registration only for approved images.",
+  "current_task": "OPENING P01 OPEN01–07 ALL SEVEN STORY SHOTS APPROVED/CURRENT; NEXT MINIMUM TEST IS SOUND-PICTURE ASSEMBLY AGAINST ALREADY APPROVED ORIGINAL AUDIO",
+  "blocker": "No remaining P01 OPEN02-07 image intake or registration blocker. Six approved originals were manually uploaded, exact published and independently verified. Unverified: final dialogue-level shot timing and assembled audiovisual cinematic proof; P0.3 Gate remains IN PROGRESS. Local Mac sync for 2026-11-02 not yet verified.",
+  "next_action": "Prepare minimum Opening P01 original-audio / seven-canonical-frame assembly and verify actual sound-to-image dialogue cuts, without modifying approved original audio, source Story Shots, or old Opening V001 master; present proof for Product Owner audiovisual review. At tonight's local sync, verify GitHub main against Mac and report actual terminal evidence.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,27 +120,30 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-02-P01-OPEN02-OPEN07-BUNDLES-R410",
-    "status": "GITHUB_ACTIONS_6_OF_6_EXACT_PASS__WORK_HANDOFF_READY__PO_OUTPUT_APPROVAL_PENDING__P0_3_UNCHANGED",
+    "id": "2026-11-02-P01-OPEN02-OPEN07-EXACT-REGISTERED-R411",
+    "status": "6_OF_6_PO_APPROVED__EXACT_GIT_BLOB_CANONICAL_PUBLISHED__42_STORY_SHOTS__REGISTRATION_INDEPENDENT_PASS__P0_3_STILL_IN_PROGRESS",
     "date": "2026-11-02",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_BUNDLE_EXACT_VERIFICATION_AND_WORK_GATE_2026-11-02.md",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN02_OPEN07_EXACT_REGISTRATION_CLOSEOUT_2026-11-02.md",
     "completed": [
-      "Previously approved P01-OPEN-01 JPEG 864x1536 canonical preserved as single P01 residential reference.",
-      "JPEG+PNG validation-only mixed smoke test GitHub Actions 41388931182 SUCCESS 3/3.",
-      "Director Plan and batch Work continuous handoff published to GitHub.",
-      "Six independent formal Bundle specs built by GitHub Actions 6/6 SUCCESS, six actual Artifacts returned.",
-      "Six ZIP downloaded and independently verified all 25 original JPG/PNG references against manifest SHA256, Git Blob, size, dimensions and signature.",
-      "No candidate photos rendered or falsely registered; original audio and 36 approved Story Shot records remain unchanged."
+      "Six PO-approved P01 OPEN02–OPEN07 final originals manually uploaded to GitHub staging, no Drive transfer.",
+      "Preflight GitHub Actions 41454472126 SUCCESS: six original PNG byte sizes, SHA-256, Git Blob and dimensions validated.",
+      "Exact original blobs promoted to six canonical Approved V001 filenames via commit 5c7f1aacadb6f2257d22cd3b847dc97ac2669c66.",
+      "Story Shot Index increased 36 to 42, each P01 OPEN02–OPEN07 unique APPROVED/CURRENT.",
+      "Audit Events increased 200 to 218 with 18 traceable approval/publication/registration events.",
+      "Post-publication independent GitHub Actions 41455337719 SUCCESS: original vs canonical exact byte equality, hashes, blob identities, dimensions, six unique index records and 42 total PASS.",
+      "Preexisting P01 OPEN01 JPEG and Bai C06/3Q/PROFILE_LEFT verification jobs all SUCCESS after publication.",
+      "OPEN05 exact original 941x1671 retained per PO waiver, no modification."
     ],
-    "resume_from": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_SHOTS_WORK_CONTINUOUS_HANDOFF_V001_2026-11-02.md",
+    "resume_from": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN02_OPEN07_EXACT_REGISTRATION_CLOSEOUT_2026-11-02.md",
     "blockers": [
-      "Work mode has not yet performed six image generations; PO visual approval pending; P0.3 A/V full proof pending"
+      "Opening P01 audiovisual assembly proof/word-level shot timing not yet independently validated or PO approved.",
+      "2026-11-02 Mac local GitHub-to-local sync not evidenced; last verified Mac head remains 2026-11-01."
     ],
     "registry_counts": {
       "entities": 35,
       "assets": 111,
-      "audit_events": 200,
-      "story_shots": 36,
+      "audit_events": 218,
+      "story_shots": 42,
       "formal_videos": 3
     },
     "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
