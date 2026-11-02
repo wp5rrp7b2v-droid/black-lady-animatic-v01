@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R408",
-  "last_updated": "2026-11-01",
-  "session_status": "2026-11-01 EOD COMPLETE / 3 BAI APPROVED CURRENT REFERENCES / OPENING 192.257S AUDIO-ONLY PO LISTENING PASS / MAC RC-029 VERIFIED PASS AT e0f1b8a CHECKPOINT / FORMAL STORY SHOTS 35 / VIDEOS 3 / P0.3 IN PROGRESS",
+  "state_revision": "R409",
+  "last_updated": "2026-11-02",
+  "session_status": "2026-11-02 P01 OPEN01 PO APPROVED / EXACT ORIGINAL JPEG 864x1536 PUBLISHED AND REGISTERED / GITHUB ACTIONS 41386602412 PASS / STORY SHOTS 36 / VIDEO INDEX 3 / 192.257S AUDIO LOCKED / P0.3 IN PROGRESS / MAC LAST VERIFIED 2026-11-01",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "2026-11-01 EOD CLOSED / NEXT SESSION: REVIEW APPROVED COMPACT OPENING AUDIO AGAINST EXISTING VISUAL COVERAGE",
-  "blocker": "No blocker for Bai three approved atomic reference registrations or Nov 1 EOD Mac sync. P0.3 audiovisual completion NOT PROVEN: approved 192.257s original audio is audio-only, visual coverage is unverified, Bai character Tier remains unassigned and further reference views or shots lack PO approval.",
-  "next_action": "At next session, first compare 192.257s PO-approved original-audio beat map with existing 35 Story Shots and approved references; define minimum missing visual proof only, then request PO authorization if new images are needed. No automatic new Bundle, Work generation, Master or video publication.",
+  "current_task": "OPENING P01 CONTINUOUS VISUAL PRODUCTION: P01-OPEN-01 EXACT REGISTRATION CLOSED; NEXT P01-OPEN-02 JUN LUYUAN DECISION REACTION FROM AUDIO ~00:04 (PRECISE CUE UNLOCKED)",
+  "blocker": "No registration blocker for P01-OPEN-01. Next shot requires Director/PO visual design, identity-preserving scene reuse and verified reference bundle. Canonical scene seed is PO-approved JPEG 864x1536; existing builder only checks PNG, compatibility for use as positive reference is not proven. P0.3 full audiovisual assembly not yet validated; existing audio-only PO PASS remains unchanged.",
+  "next_action": "Continue sequentially from Opening absolute 00:00: design the second P01 shot for Jun Luyuan's determination at approximately audio 00:04 and validate the exact onset; reuse same-source approved P01 residence scene anchor only after solving JPEG reference compatibility at minimum cost, then follow formal Bundle→Work→PO→Exact Binary→Registry workflow. No automatic next image authorization or video replacement.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,37 +120,32 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-01-EOD-REVIEW-CORRECTED-STATE-R408",
-    "status": "EOD_COMPLETE__STORED_STATUS_CONSISTENCY_CORRECTED__MAC_PASS_AT_VERIFIED_CHECKPOINT",
-    "date": "2026-11-01",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
+    "id": "2026-11-02-P01-OPEN01-EXACT-REGISTRATION-R409",
+    "status": "P01_OPEN01_APPROVED_EXACT_REGISTRATION_COMPLETE__P0_3_IN_PROGRESS__LOCAL_NOT_SYNCED_THIS_SESSION",
+    "date": "2026-11-02",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md",
     "completed": [
-      "Independently checked Bai FACE_FRONT AST_IMG_000109 Actions 41302720607 SUCCESS.",
-      "Independently checked Bai FACE_3Q_LEFT AST_IMG_000110 Actions 41306683087 SUCCESS.",
-      "Independently checked Bai PROFILE_LEFT AST_IMG_000111 Actions 41314634188 SUCCESS.",
-      "Main registries verified: 35 entities, 111 assets, 197 audit events.",
-      "Index counts verified: 35 approved Story Shots and 3 formal videos unchanged.",
-      "P01/P02 original-audio V002 212.270s and compact Opening 192.257s separately PO listening approved; audio-only scope preserved.",
-      "Reconciled Gate README, Acceptance Matrix and Dashboard without upgrading P0.3.",
-      "User Mac fast-forward only from 803d562 to e0f1b8a; HEAD=origin/main and independently verified GitHub main at e0f1b8a; untracked console folders preserved.",
-      "R408 consistency correction to stale blocker, local_sync_status and two Opening derived fields; verified successes retained."
+      "PO approved the uploaded original JPEG as Opening P01 start image and asked for formal registration.",
+      "Original 864x1536 336546-byte JPEG SHA256 4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452 preserved and canonically published without re-encode.",
+      "Registered unique OPENING_P01_OPEN_01 APPROVED/CURRENT and same JPEG P01-only controlled scene anchor.",
+      "Story Shot Index count 35→36; Audit 197→200; Assets 111; Entities 35; Videos 3.",
+      "Independent GitHub Actions Run 41386602412 success; exact JPEG/hash/blob/dimensions/registry/scene manifest/audit PASS.",
+      "Format deviation from planned 941x1672 PNG recorded explicitly; existing PNG-only reference builder compatibility with JPEG not yet verified."
     ],
-    "resume_from": "Review existing visual coverage against PO-approved 192.257s compact original-audio proof; do not authorize new image/video generation without PO decision.",
+    "resume_from": "P01 next sequential actor reaction design from ~00:04 of approved 192.257s original audio; no midstream shortcut",
     "blockers": [
-      "A/V coverage for 192.257s compact audio not independently proven; character Tier unassigned"
+      "P01 next scene-anchored reference bundle must handle canonical JPEG at minimum verified cost; P0.3 full A/V assembly unapproved"
     ],
     "registry_counts": {
       "entities": 35,
       "assets": 111,
-      "audit_events": 197,
-      "story_shots": 35,
+      "audit_events": 200,
+      "story_shots": 36,
       "formal_videos": 3
     },
     "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
     "last_verified_local_date": "2026-11-01",
-    "local_sync_status": "PASS_AT_EXACT_CHECKPOINT",
-    "correction_basis": "Independent source-of-truth review found R407 blocker/local_sync_status contradicted recorded November 1 successful Mac sync; Opening historical derivative character_assets/next_proof were stale relative to verified three Bai assets and 192.257s PO-approved audio.",
-    "correction_scope": "metadata only: Project State plus derived dashboard. Does not revise PO decisions, asset registry, story/video indexes or Mac HEAD."
+    "local_sync_status": "PREVIOUS_VERIFIED_CHECKPOINT_ONLY / NO_NOV_02_LOCAL_PULL_PROOF"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -545,13 +540,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V327",
+    "version": "V328",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R408 / REVIEW-CORRECTED CURRENT STATUS FIELDS / MAC PASS AT EXACT CHECKPOINT / BAI 3 CURRENT / AUDIO-ONLY PASS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R408",
-    "last_updated": "2026-11-01",
-    "current_task": "EOD CLOSED / NEXT COMPACT OPENING AUDIO VISUAL COVERAGE REVIEW"
+    "status": "DERIVED R409 / P01_OPEN01 EXACT JPEG REGISTERED 36 SHOTS / GITHUB ACTIONS PASS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R409",
+    "last_updated": "2026-11-02",
+    "current_task": "P01_OPEN01 CLOSED / NEXT P01_OPEN02 CHRONOLOGICAL CONTINUATION"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -568,9 +563,9 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
-    "last_formal_closeout_status": "S02-B V001 PRODUCT OWNER APPROVED / EXACT DRIVE VERIFIED / REGISTERED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md"
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md",
+    "last_formal_closeout_status": "P01-OPEN-01 PO APPROVED JPEG PRESERVED / STORY SHOT 36 / SCENE ANCHOR / ACTIONS 41386602412 EXACT PASS",
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -617,7 +612,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "IMPLEMENTED / ACTIVE / 35 FORMALLY REGISTERED STORY SHOTS",
+    "status": "IMPLEMENTED / ACTIVE / 36 FORMALLY REGISTERED STORY SHOTS",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -646,7 +641,7 @@
       ]
     },
     "index_path": "production/story_shots/story_shot_index.jsonl",
-    "registered_story_shot_count": 35,
+    "registered_story_shot_count": 36,
     "opening_sequence": [
       "A01",
       "A02",
@@ -875,6 +870,21 @@
       "exact_registration_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P03B_P04C_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md",
       "new_image_count_this_approval": 2,
       "final_opening_video_approved": false
+    },
+    "opening_p01_open01": {
+      "status": "PRODUCT_OWNER_APPROVED / ORIGINAL_JPEG_EXACT_CANONICAL_PUBLISHED / APPROVED_CURRENT / REGISTRATION_VERIFIED_PASS",
+      "shot_id": "OPENING_P01_OPEN_01",
+      "canonical_path": "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg",
+      "original_format": "JPEG",
+      "dimensions": "864x1536",
+      "byte_size": 336546,
+      "sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+      "git_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",
+      "registration_run": 41386602412,
+      "publication_commit": "80668e58fbef7f29ef20f76e81907c2894013796",
+      "scene_anchor_manifest": "production/controlled_references/opening_p01_open01/OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001.manifest.json",
+      "audio_start": "00:00.000",
+      "note": "Original image differs from intended 941x1672 PNG. Exact approved JPEG preserved, no re-encode, no new P0.2 Scene Master."
     }
   },
   "rule_consistency_audit": {
@@ -4604,9 +4614,9 @@
   "registry_counts_current": {
     "entities": 35,
     "assets": 111,
-    "audit_events": 197,
+    "audit_events": 200,
     "scene_profiles": 14,
-    "story_shots": 35
+    "story_shots": 36
   },
   "n24_scene_reference_design_v0_4": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -5553,7 +5563,7 @@
     "content_concept": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CONTENT_ENRICHMENT_DIRECTOR_CONCEPT_V001_2026-10-28.md"
   },
   "opening_content_enrichment_2026_10_28": {
-    "status": "P03A_B_C_ALL_PO_APPROVED_AND_EXACT_REGISTERED / 35_SHOTS / AUDIOVISUAL_ASSEMBLY_PROOF_NEXT",
+    "status": "P03A_B_C_AND_P01_OPEN01_PO_APPROVED_EXACT_REGISTERED / 36_SHOTS / FULL_192_257S_AV_NOT_YET_PROVEN",
     "chapter133_mvp1_scope": "CONTEXT_ONLY_UNCHANGED",
     "chapter133_audio": "AVAILABLE_IN_PRIVATE_DRIVE_AS_EXACT_COPY",
     "target_beats": [
@@ -5587,7 +5597,7 @@
       "CH133_WRIST_HANDPRINT",
       "CH133_PILOT_CONTEXT"
     ],
-    "next_proof": "APPROVED_192_257S_COMPACT_OPENING_AUDIO_VS_EXISTING_VISUAL_COVERAGE_MINIMUM_REVIEW_BEFORE_NEW_MEDIA",
+    "next_proof": "P01_OPEN02_CONTINUOUS_NEXT_BEAT_JUN_DECISION_FROM_APPROVED_AUDIO_ABSOLUTE_00_00 / P01_OPEN01_REGISTERED_EXACT_JPEG",
     "source_asset_audit": "docs/project_control/gates/P0_3_video_pipeline/OPENING_CH133_SOURCE_ASSET_READINESS_V001_2026-10-28.md",
     "audio_request": "FULL_CH133_PREFERRED_OR_THREE_ANCHORED_SEGMENTS_WITH_5_TO_10S_HANDLES",
     "audio_clip_bounds": [
@@ -6004,6 +6014,6 @@
   },
   "registry_counts": {
     "assets": 111,
-    "audit_events": 197
+    "audit_events": 200
   }
 }
