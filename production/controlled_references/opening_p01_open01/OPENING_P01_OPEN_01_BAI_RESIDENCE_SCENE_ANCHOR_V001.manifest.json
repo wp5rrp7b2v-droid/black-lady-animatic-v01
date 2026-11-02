@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001",
+  "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+  "approval_status": "PRODUCT_OWNER_APPROVED",
+  "lifecycle": "CURRENT",
+  "asset_role": "OPENING_P01_BAI_RESIDENCE_SHARED_SCENE_ANCHOR",
+  "authority_scope": "OPENING_P01_BAI_RESIDENCE_SPACE_GEOMETRY_LIGHTING_CHARACTER_POSITION_ONLY",
+  "canonical_path": "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg",
+  "output": {
+    "width": 864,
+    "height": 1536,
+    "mode": "RGB",
+    "format": "JPEG",
+    "byte_size": 336546,
+    "sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+    "git_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a"
+  },
+  "approved_binary": {
+    "approved_by": "PRODUCT_OWNER",
+    "approved_on": "2026-11-02",
+    "decision": "APPROVED_ORIGINAL_JPEG_AS_STORY_SHOT_AND_P01_CONTINUITY_SCENE_SEED",
+    "byte_size": 336546,
+    "sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+    "git_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",
+    "dimensions": "864x1536",
+    "mode": "RGB",
+    "format": "JPEG"
+  },
+  "source_lineage": {
+    "source_shot_id": "OPENING_P01_OPEN_01",
+    "source_binary_is_canonical_story_shot": true,
+    "source_path": "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg",
+    "source_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",
+    "original_bundle_run": 41382711097,
+    "original_bundle_artifact": 13113956992,
+    "approved_upload_filename": "客厅中的危险抉择.jpeg",
+    "private_source_drive_id": "16jYjBMtqJ8Dcgb5Fbqjwk2MX3aIFoMTO"
+  },
+  "usage_boundary": {
+    "may_control": [
+      "Bai private residence furnishing and architectural spatial continuity",
+      "window, lighting and three-character side-to-side positions",
+      "Scene-specific Bai red nightdress appearance, while character face remains governed by approved identity"
+    ],
+    "must_not_control": [
+      "Other environments or universal Scene Master approval",
+      "Default costume variant approval",
+      "Overwriting any independent character Identity Reference",
+      "Claiming JPEG 864x1536 equals target PNG 941x1672",
+      "Unverified usage as a PNG builder source",
+      "Automatic P01 future-shot approvals"
+    ]
+  },
+  "original_jpeg_bytes_reused": true,
+  "no_extra_scene_image_created": true,
+  "story_shot_registered": true,
+  "builder_compatibility_status": "PNG-only current builder cannot accept original JPEG directly without follow-up compatibility validation"
+}

@@ -1,0 +1,70 @@
+name: Opening P01 Open01 Exact JPEG Registration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/story_shots/story_shot_index.jsonl"
+      - "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg"
+      - "production/controlled_references/opening_p01_open01/*.json"
+      - ".github/workflows/opening-p01-open01-exact-jpeg-registration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original JPEG bytes and controlled registration
+        run: |
+          python3 - <<'PY'
+          import json,hashlib,subprocess,struct
+          from pathlib import Path
+          p=Path('production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg')
+          sha='4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452'
+          blob='9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a'
+          d=p.read_bytes()
+          assert len(d)==336546 and d[:3]==bytes.fromhex('ffd8ff') and d[-2:]==bytes.fromhex('ffd9'), 'JPEG binary mismatch'
+          assert hashlib.sha256(d).hexdigest()==sha, 'JPEG SHA256 mismatch'
+          assert subprocess.check_output(['git','hash-object',str(p)], text=True).strip()==blob,'Git blob mismatch'
+          def dimensions(data):
+              k=2
+              while k<len(data):
+                  if data[k]!=255: raise ValueError('bad JPEG marker')
+                  while data[k]==255:k+=1
+                  marker=data[k];k+=1
+                  if marker in (216,217):continue
+                  if marker==218:break
+                  length=int.from_bytes(data[k:k+2],'big')
+                  if marker in (192,193,194,195,197,198,199,201,202,203,205,206,207):
+                      return int.from_bytes(data[k+5:k+7],'big'),int.from_bytes(data[k+3:k+5],'big')
+                  k+=length
+              raise ValueError('JPEG SOF missing')
+          assert dimensions(d)==(864,1536),'Unexpected JPEG dimensions'
+          rows=[json.loads(x) for x in Path('production/story_shots/story_shot_index.jsonl').read_text().splitlines() if x.strip()]
+          assert len(rows)==36, f'Story Shots count unexpected {len(rows)}'
+          matches=[x for x in rows if x.get('shot_id')=='OPENING_P01_OPEN_01']
+          assert len(matches)==1,'index cardinality'
+          r=matches[0]
+          for key,value in [('canonical_path',str(p)),('byte_size',336546),('github_blob_sha',blob),('sha256_locked_identity',sha),('approval_status','APPROVED'),('lifecycle','CURRENT'),('image_format','JPEG')]:
+              assert r.get(key)==value,f'index mismatch {key}'
+          assert r['dimensions']=={'width':864,'height':1536},'index dimensions'
+          mpath=Path('production/controlled_references/opening_p01_open01/OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001.manifest.json')
+          m=json.loads(mpath.read_text())
+          assert m['reference_id']=='OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001'
+          assert m['canonical_path']==str(p) and m['approval_status']=='PRODUCT_OWNER_APPROVED'
+          for key,value in [('sha256',sha),('git_blob',blob),('byte_size',336546),('width',864),('height',1536),('format','JPEG')]:
+              assert m['output'][key]==value,f'manifest mismatch {key}'
+          assert r['scene_anchor']['manifest_path']==str(mpath)
+          events=[json.loads(x) for x in Path('production/asset_registry/audit_event_log.jsonl').read_text().splitlines() if x.strip()]
+          assert all(sum(e.get('event_id')=='EVT_20261102_OPENING_P01_OPEN01_'+part for e in events)==1 for part in ['A','I','R'])
+          print('OPENING_P01_OPEN01_REGISTRATION_EXACT_PASS')
+          print('SHA256='+sha)
+          print('GIT_BLOB='+blob)
+          print('INDEX=36; APPROVED=CURRENT; ORIGINAL_JPEG_864x1536_PRESERVED')
+          print('FORMAT_VARIANCE=JPEG_864x1536_VS_TARGET_PNG_941x1672')
+          print('SCENE_ANCHOR=PASS; AUDIT=PASS')
+          PY
