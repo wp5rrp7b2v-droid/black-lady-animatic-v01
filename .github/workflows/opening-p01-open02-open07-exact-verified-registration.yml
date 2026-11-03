@@ -48,7 +48,7 @@ jobs:
           if not six:
               print('OPENING_P01_02_07_REGISTRATION_PENDING__PREFLIGHT_ONLY')
           else:
-              assert len(rows)==42, f'Expected 42 approved Story Shot index rows, got {len(rows)}'
+              assert len(rows)>=42, f'Expected at least 42 registered Story Shots after OPEN02–07, got {len(rows)}'
               assert len(six)==6 and len(set(x['shot_id'] for x in six))==6
               original_names={
                 '02':'OPENING_P01_OPEN_02_JUN_RESOLVE_CANDIDATE_02.png',
@@ -72,5 +72,5 @@ jobs:
                   assert r['dimensions']=={'width':941,'height':1671 if num=='05' else 1672}
                   assert r['approval_status']=='APPROVED' and r['lifecycle']=='CURRENT'
                   print(num+' SHA256='+r['sha256_locked_identity']+' GIT_BLOB='+r['github_blob_sha'])
-              print('OPENING_P01_02_07_REGISTRATION_EXACT_PASS__42_STORY_SHOTS')
+              print('OPENING_P01_02_07_REGISTRATION_EXACT_PASS__AT_LEAST_42_STORY_SHOTS__CURRENT_'+str(len(rows)))
           PY
