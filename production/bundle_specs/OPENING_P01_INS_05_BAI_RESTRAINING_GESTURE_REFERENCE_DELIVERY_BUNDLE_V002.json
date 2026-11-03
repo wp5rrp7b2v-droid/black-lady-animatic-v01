@@ -80,7 +80,7 @@
       "reference_id": "AST_IMG_000060",
       "source_type": "ASSET",
       "entity_id": "CHAR_NING_QIUSHUI",
-      "role": "NING_REAR_SOFA_VISIBLE_IDENTITY_ANCHOR",
+      "role": "CHARACTER_REFERENCE_SHEET",
       "asset_class": "DERIVED_REFERENCE",
       "authority_class": "DERIVED",
       "approval_status": "APPROVED",
