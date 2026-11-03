@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH",
+  "sequence_id": "OPENING_ENHANCE_P01",
+  "target_candidate": "OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_CANDIDATE_01.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 1,
+    "rule": "EXACT_PO_APPROVED_P01_JPEG_INTERIOR_SCENE_ANCHOR_ONLY_NO_EXTERNAL_SCENE_MASTER",
+    "work_generation_authorized": true,
+    "authorization_scope": "PO_2026_11_03_SINGLE_EXTERIOR_WINDOW_MINIMUM_AB_TEST_AFFIRMATIVE_GO",
+    "po_candidate_visual_approval": "NOT_GRANTED",
+    "output_count": 1,
+    "note": "Product Owner said 好 to a single experimental establishing view. Authorization is limited to ONE candidate and does not constitute approval of its final image, public asset registry, new exterior master, video or P0.3 PASS. Avoid unsupported architecture. If reference cannot ground a shot, fail closed."
+  },
+  "references": [
+    {
+      "reference_id": "OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001",
+      "source_type": "CONTROLLED_REFERENCE",
+      "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+      "approval_status": "PRODUCT_OWNER_APPROVED",
+      "lifecycle": "CURRENT",
+      "authority_scope": "OPENING_P01_BAI_RESIDENCE_SPACE_GEOMETRY_LIGHTING_CHARACTER_POSITION_ONLY",
+      "role": "P01_APPROVED_SHARED_SCENE_ANCHOR",
+      "expected_format": "JPEG",
+      "manifest_path": "production/controlled_references/opening_p01_open01/OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001.manifest.json",
+      "canonical_path": "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg",
+      "expected_sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+      "expected_git_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",
+      "expected_byte_size": 336546,
+      "expected_width": 864,
+      "expected_height": 1536,
+      "destination_group": "p01_authorized_spatial_scene",
+      "authority_purpose": "EXACT_JPEG_SCENE_IDENTITY_NOT_CHARACTER_FACE_MASTER"
+    }
+  ],
+  "work_handoff": {
+    "title": "P01 V003 / INS00 — Single Minimal Exterior-Window Establishing Candidate",
+    "requirements": [
+      "Read the exact GitHub Actions validated delivery manifest and compare the reference image's SHA256, Git blob, byte size and JPEG format before rendering. Stop on any discrepancy.",
+      "Generate exactly ONE 941x1672 9:16 PNG named OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_CANDIDATE_01.png; no additional candidates, variants, or video.",
+      "Narrative purpose: first roughly 0-2.5 seconds of P01; Bai Xiaoxiao's already-approved first dialogue may sound as off-screen speech while camera shows a very close exterior-side view through a window toward the real private residence. Exact edit timing unverified.",
+      "Reference controls ONLY the existing approved apartment interior, living room window geometry, furniture proportions and warm interior light. Frame a close oblique window/threshold view immediately adjacent to that room; show limited wall/window edge and interior depth, not an invented building exterior.",
+      "If three occupants are visible through glass, keep them tiny, nonidentifiable silhouettes and spatially continuous with existing P01 OPEN01. Do NOT generate new recognizable faces; use no other character/wardrobe input.",
+      "Avoid defining the unknown exterior building type, number of floors, facade, street, skyline, time of day, season or weather. Cropping to near-window architectural detail is preferable to ungrounded streetscape.",
+      "2.5D cinematic semi-realistic animated film style and restrained atmospheric composition; no image text or camera/UI overlay. Visual interest comes from the new spatial perspective rather than supernatural imagery.",
+      "Candidate is for Product Owner image approval and then a small A/B audiovisual test. Work must stop and return exact generated PNG with original dimensions, file size, and any observed reference/continuity limitations. Do not publish to canonical, Story Shot index or Video index."
+    ],
+    "exclusions": [
+      "No new facade or location establishing a factual exterior of Bai Xiaoxiao's property; existing controlled anchor is INTERIOR ONLY.",
+      "No rain, supernatural door, blood lettering, castle, manor, ghost, fantasy, ominous weather, skyline, address or unverified new character.",
+      "No reuse of Wen Qingya or Su Xiaoxiao face references, and no front-facing identities generated from the interior JPEG.",
+      "Do not render multiple outputs, retry automatically, crop an approved interior still and present it as a genuinely newly generated shot, or use an unverified bundle.",
+      "Do not replace P01 OPEN01–OPEN07, accepted source audio, prior assembly V002, formal video registry, or current Project Control status."
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "P01_V003_EXTERIOR_WINDOW_SINGLE_SHOT_PO_TEST_AUTH_20261103"
+}
