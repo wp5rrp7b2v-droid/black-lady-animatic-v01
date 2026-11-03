@@ -1,3 +1,5 @@
+> **SUPERSEDED / PO VISUAL FAIL on 2026-11-03:** Product Owner rejected the through-window view with visible people as voyeuristic. This earlier window director is historical only and not valid for future generation. Active replacement director: `OPENING_P01_V004_RESIDENCE_GATE_NO_PEOPLE_DECISION_AUDIO_DIRECTOR_V001_2026-11-03.md`. Active Work handoff: `OPENING_P01_V004_RESIDENCE_GATE_WORK_SINGLE_CANDIDATE_HANDOFF_2026-11-03.md`. Old window Bundle spec has both authorizations set FALSE. No change to any existing approved seven P01 images.
+
 # 《诡舍·黑衣夫人》｜Opening P01 V003｜住所窗外建立镜｜Minimum Proof Director V001
 
 Date: 2026-11-03
