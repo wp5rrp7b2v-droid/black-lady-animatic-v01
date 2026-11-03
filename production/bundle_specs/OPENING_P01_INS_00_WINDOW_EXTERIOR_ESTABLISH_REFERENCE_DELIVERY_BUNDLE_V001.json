@@ -6,16 +6,16 @@
   "target_candidate": "OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": true,
+  "build_authorized": false,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 1,
     "rule": "EXACT_PO_APPROVED_P01_JPEG_INTERIOR_SCENE_ANCHOR_ONLY_NO_EXTERNAL_SCENE_MASTER",
-    "work_generation_authorized": true,
-    "authorization_scope": "PO_2026_11_03_SINGLE_EXTERIOR_WINDOW_MINIMUM_AB_TEST_AFFIRMATIVE_GO",
-    "po_candidate_visual_approval": "NOT_GRANTED",
+    "work_generation_authorized": false,
+    "authorization_scope": "SUPERSEDED_BY_PO_VISUAL_FEEDBACK_2026_11_03__NO_NEW_GENERATION",
+    "po_candidate_visual_approval": "REJECTED_COMPOSITION",
     "output_count": 1,
-    "note": "Product Owner said 好 to a single experimental establishing view. Authorization is limited to ONE candidate and does not constitute approval of its final image, public asset registry, new exterior master, video or P0.3 PASS. Avoid unsupported architecture. If reference cannot ground a shot, fail closed."
+    "note": "PO rejected window-through-glass view as voyeuristic. Replaced by no-people residence entrance/gate establish in new V002 spec. Historic Actions run and old verified ZIP remain valid evidence of old reference verification, not authorization to generate this discarded composition."
   },
   "references": [
     {
@@ -41,6 +41,7 @@
   "work_handoff": {
     "title": "P01 V003 / INS00 — Single Minimal Exterior-Window Establishing Candidate",
     "requirements": [
+      "STOP: this WINDOW exterior candidate is superseded after PO visual feedback. Do not generate from this spec; use V002 residence entrance gate director/spec instead.",
       "Read the exact GitHub Actions validated delivery manifest and compare the reference image's SHA256, Git blob, byte size and JPEG format before rendering. Stop on any discrepancy.",
       "Generate exactly ONE 941x1672 9:16 PNG named OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_CANDIDATE_01.png; no additional candidates, variants, or video.",
       "Narrative purpose: first roughly 0-2.5 seconds of P01; Bai Xiaoxiao's already-approved first dialogue may sound as off-screen speech while camera shows a very close exterior-side view through a window toward the real private residence. Exact edit timing unverified.",
@@ -59,5 +60,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_V003_EXTERIOR_WINDOW_SINGLE_SHOT_PO_TEST_AUTH_20261103"
+  "spec_revision": "P01_V003_WINDOW_INS00_SUPERSEDED_BY_RESIDENCE_GATE_20261103"
 }
