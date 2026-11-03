@@ -6,15 +6,15 @@
   "target_candidate": "OPENING_P01_INS_02_NING_JUN_RESPONSE_TWO_SHOT_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
-    "actual_direct_reference_count": 5,
+    "actual_direct_reference_count": 4,
     "rule": "APPROVED_P01_SCENE_AND_CHARACTER_IDENTITY_ONLY",
-    "work_generation_authorized": false,
-    "authorization_scope": "REFERENCE_VALIDATION_ONLY__PO_DIRECTOR_APPROVAL_PENDING",
+    "work_generation_authorized": true,
+    "authorization_scope": "PO_2026_11_03_GATE_SHOT_APPROVED_DEFER_REGISTER__CONTINUE_ADD_COVERAGE__TWO_SHOT_MINIMUM_PROOF",
     "po_candidate_visual_approval": "NOT_GRANTED",
-    "note": "Source compatibility preflight only. No output generation, no ARTIFACT creation or canonically approved new Story Shot authorized by this draft."
+    "note": "User directed: approved entrance image, do not register now, continue making other necessary images and register together later. Two distinct P01 interior coverage candidates authorized for Work one per shot; no independent visual approval or Canonical publication inferred. Preview images previously displayed in Chat are unverified and not identity/reference sources."
   },
   "references": [
     {
@@ -86,44 +86,28 @@
       "expected_git_blob": "d11db79f4ceab2bb52139bfb8805f7c8f09b0cfc",
       "destination_group": "character_authority",
       "authority_purpose": "JUN_IDENTITY_WARDROBE_WHOLE_BODY_REAR_THREE_QUARTER"
-    },
-    {
-      "reference_id": "AST_IMG_000109",
-      "source_type": "ASSET",
-      "entity_id": "CHAR_BAI_XIAOXIAO",
-      "role": "FACE_FRONT",
-      "asset_class": "ATOMIC",
-      "authority_class": "MASTER",
-      "approval_status": "APPROVED",
-      "lifecycle": "CURRENT",
-      "resolver_usage": "CONDITIONAL",
-      "canonical_path": "production/image_library/character_references/bai_xiaoxiao/CHAR_BAI_XIAOXIAO_FACE_FRONT_DEFAULT_DEFAULT_V001.png",
-      "expected_sha256": "d9d62dd4c3168ec587b50e2cf30782a5c816de3ad081c1c434e659156807f5eb",
-      "expected_byte_size": 2747575,
-      "expected_git_blob": "38761350f926c30358cb98e55d6f4d603d8825f1",
-      "expected_width": 941,
-      "expected_height": 1672,
-      "destination_group": "bai_primary_identity",
-      "authority_purpose": "BAI_C06_FACE_FRONT_PRIMARY_IDENTITY"
     }
   ],
   "work_handoff": {
     "title": "新增镜头02｜宁秋水与君鹭远的双人回应",
     "requirements": [
-      "Target OPENING_P01_INS_02_NING_JUN_RESPONSE_TWO_SHOT_CANDIDATE_01.png; only one original 941x1672 9:16 PNG candidate after separate PO authorization and an actual verified build",
+      "Target OPENING_P01_INS_02_NING_JUN_RESPONSE_TWO_SHOT_CANDIDATE_01.png; only one original 941x1672 9:16 PNG candidate after current approved two-shot batch authorization and an actual GitHub Actions verified build",
       "Use P01 approved original scene JPEG only for space, orientation, furniture, light and clothing. Character identity references outrank scene face appearance.",
       "Shot over Bai Xiaoxiao's left-seated perspective across real living room, Ning Qiushui black jacket slightly forward speaks to weak Jun Luyuan in blue-gray coat; both faces credible and physically separated in spatial depth, Bai's red garment only soft foreground edge; no heroic gesture, no posed lineup, preserve window and light direction. New genuine reverse angle distinct from OPEN04 Ning solo and OPEN07 3-person wide.",
       "Approximate source audio cue: 约34–40秒，须在正式剪辑时按真实原音调整; not a word-aligned EDL.",
-      "Reference source must pass SHA-256, Git Blob, PNG/JPEG exact binary checks in GitHub Actions; output only via Work once authorized."
+      "Reference source must pass SHA-256, Git Blob, PNG/JPEG exact binary checks in GitHub Actions; output only via Work once authorized.",
+      "PO instructed defer all new inserts' Story Shot registration until a later batch. Return this one candidate and continue the other INS shot without requesting per-shot process confirmation; wait for PO visual review before labeling Approved.",
+      "Bai Xiaoxiao red garment may be a blurred corner foreground only. Do not require or manufacture a recognizable Bai face; use only approved room JPEG plus Ning+Jun identity refs."
     ],
     "exclusions": [
-      "Do not generate images from this build_authorized=false validation-only spec.",
       "Do not use Wen Qingya or Su Xiaoxiao positive face references for Bai Xiaoxiao.",
       "No blood door, castle exterior, rain, ghost, fantasy, new props, bags, hands-in-pocket or theatrical posing.",
       "Never replace already approved seven P01 Canonical images, original soundtrack, video master or Story Shot index.",
-      "No automatic Story Shot registration/publication without Product Owner approval of exact candidate."
+      "No automatic Story Shot registration/publication without Product Owner approval of exact candidate.",
+      "Do not use prior Chat-only preview renders as a source or substitute for approved independent character references.",
+      "Do not claim Project Owner has visually approved this new formal Work candidate."
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_V003_COVERAGE_DIRECTOR_DRAFT_VALIDATE_ONLY_20261103"
+  "spec_revision": "P01_V003_INSERT_2_PO_CONTINUE_PRODUCTION_TWO_SHOT_MIN_PROOF_20261103"
 }
