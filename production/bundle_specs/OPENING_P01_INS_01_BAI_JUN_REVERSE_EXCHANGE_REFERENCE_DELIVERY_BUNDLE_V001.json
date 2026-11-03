@@ -6,15 +6,15 @@
   "target_candidate": "OPENING_P01_INS_01_BAI_JUN_REVERSE_EXCHANGE_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": false,
+  "build_authorized": true,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 4,
     "rule": "APPROVED_P01_SCENE_AND_CHARACTER_IDENTITY_ONLY",
-    "work_generation_authorized": false,
-    "authorization_scope": "REFERENCE_VALIDATION_ONLY__PO_DIRECTOR_APPROVAL_PENDING",
+    "work_generation_authorized": true,
+    "authorization_scope": "PO_2026_11_03_GATE_SHOT_APPROVED_DEFER_REGISTER__CONTINUE_ADD_COVERAGE__TWO_SHOT_MINIMUM_PROOF",
     "po_candidate_visual_approval": "NOT_GRANTED",
-    "note": "Source compatibility preflight only. No output generation, no ARTIFACT creation or canonically approved new Story Shot authorized by this draft."
+    "note": "User directed: approved entrance image, do not register now, continue making other necessary images and register together later. Two distinct P01 interior coverage candidates authorized for Work one per shot; no independent visual approval or Canonical publication inferred. Preview images previously displayed in Chat are unverified and not identity/reference sources."
   },
   "references": [
     {
@@ -95,20 +95,22 @@
   "work_handoff": {
     "title": "新增镜头01｜白潇潇解释危险的双人反打",
     "requirements": [
-      "Target OPENING_P01_INS_01_BAI_JUN_REVERSE_EXCHANGE_CANDIDATE_01.png; only one original 941x1672 9:16 PNG candidate after separate PO authorization and an actual verified build",
+      "Target OPENING_P01_INS_01_BAI_JUN_REVERSE_EXCHANGE_CANDIDATE_01.png; only one original 941x1672 9:16 PNG candidate after current approved two-shot batch authorization and an actual GitHub Actions verified build",
       "Use P01 approved original scene JPEG only for space, orientation, furniture, light and clothing. Character identity references outrank scene face appearance.",
       "Same established Bai residence, Bai Xiaoxiao in red nightdress on left sofa explains serious trial conditions to sick Jun Luyuan; shot from Jun's right-shoulder reverse angle with blurred gray-blue coat in foreground, Bai clear center-left, natural eye line and room geometry. Different from approved OPEN03 solo portrait. 2.5D cinematic animation, no glamour portrait, no new room, no extra people.",
       "Approximate source audio cue: 约23–30秒，须在正式剪辑时按真实原音调整; not a word-aligned EDL.",
-      "Reference source must pass SHA-256, Git Blob, PNG/JPEG exact binary checks in GitHub Actions; output only via Work once authorized."
+      "Reference source must pass SHA-256, Git Blob, PNG/JPEG exact binary checks in GitHub Actions; output only via Work once authorized.",
+      "PO instructed defer all new inserts' Story Shot registration until a later batch. Return this one candidate and continue the other INS shot without requesting per-shot process confirmation; wait for PO visual review before labeling Approved."
     ],
     "exclusions": [
-      "Do not generate images from this build_authorized=false validation-only spec.",
       "Do not use Wen Qingya or Su Xiaoxiao positive face references for Bai Xiaoxiao.",
       "No blood door, castle exterior, rain, ghost, fantasy, new props, bags, hands-in-pocket or theatrical posing.",
       "Never replace already approved seven P01 Canonical images, original soundtrack, video master or Story Shot index.",
-      "No automatic Story Shot registration/publication without Product Owner approval of exact candidate."
+      "No automatic Story Shot registration/publication without Product Owner approval of exact candidate.",
+      "Do not use prior Chat-only preview renders as a source or substitute for approved independent character references.",
+      "Do not claim Project Owner has visually approved this new formal Work candidate."
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_V003_COVERAGE_DIRECTOR_DRAFT_VALIDATE_ONLY_20261103"
+  "spec_revision": "P01_V003_INSERT_1_PO_CONTINUE_PRODUCTION_TWO_SHOT_MIN_PROOF_20261103"
 }
