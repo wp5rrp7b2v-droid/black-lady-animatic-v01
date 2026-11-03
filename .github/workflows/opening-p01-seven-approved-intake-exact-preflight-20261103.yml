@@ -1,0 +1,65 @@
+name: Opening P01 Seven Approved Inserts Exact Intake Preflight
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/opening-p01-seven-approved-intake-exact-preflight-20261103.yml"
+      - "staging/story_shot_candidates/OPENING_P01_20261103_SEVEN_APPROVED/**"
+permissions:
+  contents: read
+jobs:
+  exact_intake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
+      - name: Verify seven PO-approved original binaries, including corrected INS05 PNG
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,struct,subprocess
+          from pathlib import Path
+          root=Path("staging/story_shot_candidates/OPENING_P01_20261103_SEVEN_APPROVED")
+          # SOURCE OF APPROVAL: PO explicit approval of all 7 and subsequent correction
+          # that INS05 is the uploaded PNG, NOT the earlier JPEG.
+          rows=[
+            ("00","OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_CANDIDATE_01.png",2152581,"2dc1a02c7b2adf75cd8a219f113de4b5914594d9","9f5b55574e417c002aab20472277f6b413b50be06106c23e95bb520bb70b21e7"),
+            ("04","暖光下轻搭肩膀.png",1803413,"38c20bfaf0c7d71e035c4721ea100af20d770029","a9ca228f99f70b0ebf38852002b408808a2d43aceb184fdc918732d3e4abd96d"),
+            ("05","红裙女子旁的沙发修复.png",1969960,"e51c3b9fae09e89cd2a0387d257cef4ff2add25b",None),
+            ("06","沙发后的中央黑衣男子.png",2034228,"76c3a4dd3c58457608dbbdfe7874b228f8382e6b","1a93f9167781155c5706b26b5bc12ea2a29775a67ba1323eb3a99a4d24cdf1c0"),
+            ("07","窗边沙发上的轻声交谈.png",2003846,"4d039789cf6e2338b0ea84d85a35464bec353dbb","51abced890798ab233782c6ffb8535b79127ffd4e0cb1c49698e121750cc9995"),
+            ("08","暖光书架前的温柔凝视.png",2000337,"78e78b2e8e9848977c4f4a36eb3f8585cb68c0ce","585c9a051fc2ccb88e5a66fc666c48e71bd2a1f5f4df78aac057f2ca064b8683"),
+            ("09","低头男子的淡白唇色.png",2073345,"36c2a8c7f4fa2bf5fdb81cbeb0bcef210038f8e3","1bd7a3b87e4980bd25eff9609b2754df12c7f739bfac4aa6c141d6a668178ffa"),
+          ]
+          result=[]; blobs=set()
+          for shot,name,size,blob,sha in rows:
+              src=root/name
+              assert src.is_file(),f"MISSING_SOURCE_{shot}:{src}"
+              b=src.read_bytes()
+              assert len(b)==size,f"BYTE_SIZE_MISMATCH_{shot}"
+              got_blob=subprocess.check_output(["git","hash-object",str(src)],text=True).strip()
+              assert got_blob==blob,f"GIT_BLOB_MISMATCH_{shot}"
+              assert blob not in blobs,f"DUPLICATE_BLOB_{shot}"
+              blobs.add(blob)
+              got_sha=hashlib.sha256(b).hexdigest()
+              assert sha is None or got_sha==sha,f"SHA256_MISMATCH_{shot}"
+              assert b[:8]==bytes.fromhex("89504e470d0a1a0a"),f"PNG_SIGNATURE_FAIL_{shot}"
+              w,h=struct.unpack(">II",b[16:24])
+              assert 900<=w<=1200 and 1500<=h<=1800,f"PNG_DIMENSIONS_IMPLAUSIBLE_{shot}"
+              item={"shot":"OPENING_P01_INS_"+shot,"staging_path":src.as_posix(),"filename":name,"byte_size":size,"github_blob_sha":got_blob,"sha256":got_sha,"image_format":"PNG","dimensions":{"width":w,"height":h},"approval_source":"PO_APPROVED_AND_INS05_PNG_CORRECTION_20261103"}
+              result.append(item)
+              print("SOURCE_EXACT_PASS",shot,name,size,str(w)+"x"+str(h),got_sha,got_blob)
+          assert len(result)==7
+          out=Path("_p01_20261103_preflight");out.mkdir(exist_ok=True)
+          (out/"seven_approved_originals_manifest.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
+          print("P01_SEVEN_PO_APPROVED_INTAKE_EXACT_PASS__7_OF_7")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: P01_20261103_SEVEN_PO_APPROVED_EXACT_INTAKE_MANIFEST
+          path: _p01_20261103_preflight/
+          retention-days: 30
+          if-no-files-found: error
