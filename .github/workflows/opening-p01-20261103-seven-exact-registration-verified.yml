@@ -1,0 +1,70 @@
+name: Opening P01 Seven Added Shots Registration Exact Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - "production/story_shots/story_shot_index.jsonl"
+      - "production/image_library/approved/story_shots/OPENING_P01_INS_*.png"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact_independent_registration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
+      - name: Independently verify all seven source-vs-canonical bytes and 49 registrations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,struct,subprocess
+          from pathlib import Path
+          root=Path("staging/story_shot_candidates/OPENING_P01_20261103_SEVEN_APPROVED")
+          approved=Path("production/image_library/approved/story_shots")
+          records=[
+           ("00","OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_CANDIDATE_01.png","OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_APPROVED_V001.png",2152581,(941,1672),"9f5b55574e417c002aab20472277f6b413b50be06106c23e95bb520bb70b21e7","2dc1a02c7b2adf75cd8a219f113de4b5914594d9"),
+           ("04","暖光下轻搭肩膀.png","OPENING_P01_INS_04_NING_SHOULDER_TOUCH_APPROVED_V001.png",1803413,(941,1672),"a9ca228f99f70b0ebf38852002b408808a2d43aceb184fdc918732d3e4abd96d","38c20bfaf0c7d71e035c4721ea100af20d770029"),
+           ("05","红裙女子旁的沙发修复.png","OPENING_P01_INS_05_BAI_RESTRAINING_GESTURE_APPROVED_V001.png",1969960,(980,1605),"1788b61943ed6b531fec0a7677e9f592713093671b1e134a10f822d428f8c219","e51c3b9fae09e89cd2a0387d257cef4ff2add25b"),
+           ("06","沙发后的中央黑衣男子.png","OPENING_P01_INS_06_BAI_FORWARD_WARNING_EXPLAIN_APPROVED_V001.png",2034228,(980,1605),"1a93f9167781155c5706b26b5bc12ea2a29775a67ba1323eb3a99a4d24cdf1c0","76c3a4dd3c58457608dbbdfe7874b228f8382e6b"),
+           ("07","窗边沙发上的轻声交谈.png","OPENING_P01_INS_07_JUN_DECIDED_SPEAKING_APPROVED_V001.png",2003846,(981,1602),"51abced890798ab233782c6ffb8535b79127ffd4e0cb1c49698e121750cc9995","4d039789cf6e2338b0ea84d85a35464bec353dbb"),
+           ("08","暖光书架前的温柔凝视.png","OPENING_P01_INS_08_JUN_WORRIED_TO_NING_APPROVED_V001.png",2000337,(981,1602),"585c9a051fc2ccb88e5a66fc666c48e71bd2a1f5f4df78aac057f2ca064b8683","78e78b2e8e9848977c4f4a36eb3f8585cb68c0ce"),
+           ("09","低头男子的淡白唇色.png","OPENING_P01_INS_09_JUN_CONFLICTED_SILENT_APPROVED_V001.png",2073345,(981,1602),"1bd7a3b87e4980bd25eff9609b2754df12c7f739bfac4aa6c141d6a668178ffa","36c2a8c7f4fa2bf5fdb81cbeb0bcef210038f8e3")
+          ]
+          shotrows=[json.loads(x) for x in Path("production/story_shots/story_shot_index.jsonl").read_text(encoding="utf8").splitlines() if x.strip()]
+          audits=[json.loads(x) for x in Path("production/asset_registry/audit_event_log.jsonl").read_text(encoding="utf8").splitlines() if x.strip()]
+          assert len(shotrows)==49,f"STORY_SHOT_COUNT_MISMATCH:{len(shotrows)}"
+          assert len(audits)==239,f"AUDIT_COUNT_MISMATCH:{len(audits)}"
+          ids=[x["shot_id"] for x in shotrows]
+          assert len(ids)==len(set(ids)), "DUPLICATE_SHOT_ID"
+          audit_ids=[x["event_id"] for x in audits]
+          assert len(audit_ids)==len(set(audit_ids)), "DUPLICATE_AUDIT_EVENT_ID"
+          for n,source_name,dest_name,size,dims,expected_sha,expected_blob in records:
+              shot="OPENING_P01_INS_"+n
+              src=root/source_name; dst=approved/dest_name
+              assert src.is_file() and dst.is_file(),f"SOURCE_OR_CANONICAL_ABSENT:{shot}"
+              a=src.read_bytes();b=dst.read_bytes()
+              assert a==b,f"EXACT_BINARY_MISMATCH:{shot}"
+              assert len(a)==size,f"SIZE_MISMATCH:{shot}"
+              assert a[:8]==bytes.fromhex("89504e470d0a1a0a"),f"PNG_SIGNATURE_FAIL:{shot}"
+              assert struct.unpack(">II",a[16:24])==dims,f"DIM_FAIL:{shot}"
+              assert hashlib.sha256(a).hexdigest()==expected_sha,f"SHA256_FAIL:{shot}"
+              for file in (src,dst):
+                  git_blob=subprocess.check_output(["git","hash-object",str(file)],text=True).strip()
+                  assert git_blob==expected_blob,f"GIT_BLOB_MISMATCH:{shot}"
+              matches=[x for x in shotrows if x["shot_id"]==shot]
+              assert len(matches)==1,f"REGISTRATION_CARDINALITY_FAIL:{shot}"
+              row=matches[0]
+              assert row["approval_status"]=="APPROVED" and row["lifecycle"]=="CURRENT",f"APPROVAL_FAIL:{shot}"
+              assert row["canonical_path"]==dst.as_posix() and row["source_staging_path"]==src.as_posix(),f"PATH_MISMATCH:{shot}"
+              assert row["github_blob_sha"]==expected_blob and row["sha256_locked_identity"]==expected_sha,f"INDEX_HASH_FAIL:{shot}"
+              assert row["byte_size"]==size and row["dimensions"]==dict(width=dims[0],height=dims[1]) and row["image_format"]=="PNG",f"INDEX_METADATA_FAIL:{shot}"
+              events=[x for x in audits if x.get("shot_id")==shot and x.get("event_id","").startswith("EVT_20261103_P01_INS"+n+"_")]
+              assert len(events)==3,f"AUDIT_EVENT_COUNT_FAIL:{shot}"
+              assert sorted(x["event_type"] for x in events)==["STORY_SHOT_APPROVED","STORY_SHOT_CANONICAL_PUBLISHED","STORY_SHOT_REGISTERED"],f"AUDIT_TYPES_FAIL:{shot}"
+              print("P01_INSERT_REGISTRATION_EXACT_PASS",shot,expected_sha,expected_blob,str(dims[0])+"x"+str(dims[1]))
+          print("P01_20261103_SEVEN_EXACT_REGISTRATION_PASS__49_STORY_SHOTS__239_AUDITS")
+          PY
