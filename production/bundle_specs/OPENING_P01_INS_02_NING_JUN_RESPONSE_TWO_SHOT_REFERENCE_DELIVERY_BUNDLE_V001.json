@@ -6,15 +6,15 @@
   "target_candidate": "OPENING_P01_INS_02_NING_JUN_RESPONSE_TWO_SHOT_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": true,
+  "build_authorized": false,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 4,
     "rule": "APPROVED_P01_SCENE_AND_CHARACTER_IDENTITY_ONLY",
-    "work_generation_authorized": true,
-    "authorization_scope": "PO_2026_11_03_GATE_SHOT_APPROVED_DEFER_REGISTER__CONTINUE_ADD_COVERAGE__TWO_SHOT_MINIMUM_PROOF",
-    "po_candidate_visual_approval": "NOT_GRANTED",
-    "note": "User directed: approved entrance image, do not register now, continue making other necessary images and register together later. Two distinct P01 interior coverage candidates authorized for Work one per shot; no independent visual approval or Canonical publication inferred. Preview images previously displayed in Chat are unverified and not identity/reference sources."
+    "work_generation_authorized": false,
+    "authorization_scope": "SUPERSEDED_BY_PO_2026_11_03_ACTION_SHOT_NEW_MINIMUM_TEST",
+    "po_candidate_visual_approval": "FAILED_PO_VISUAL_REVIEW",
+    "note": "PO saw INS-01 and INS-02 and found both visual results unsatisfactory. Prior prospective generation authorization closed; outputs are NOT approved and must not be indexed or used as positive reference. New candidate is Ning Qiushui standing and resting one hand on seated Jun Luyuan's shoulder."
   },
   "references": [
     {
@@ -109,5 +109,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_V003_INSERT_2_PO_CONTINUE_PRODUCTION_TWO_SHOT_MIN_PROOF_20261103"
+  "spec_revision": "P01_INS01_INS02_PO_VISUAL_FAIL_WORK_STOP_20261103"
 }
