@@ -1,3 +1,5 @@
+> **SUPERSEDED / PO VISUAL CONTINUITY FAIL on 2026-11-03.** This V001 instruction led to a rejected wrong-side sofa placement. Do not generate with it. Active corrected director: `OPENING_P01_INS04_REAR_SOFA_SHOULDER_TOUCH_DIRECTOR_V002_2026-11-03.md`; active validated Work handoff: `OPENING_P01_INS04_V002_REAR_SOFA_SHOULDER_TOUCH_WORK_HANDOFF_2026-11-03.md`; verified Actions Run `41579300322`, Artifact `13204063800`. Previous V001 Bundle authorization is disabled. PO approved no new replacement image yet.
+
 # 《诡舍·黑衣夫人》｜Opening P01 INS-04｜宁秋水站起拍肩｜Work 单张正式制图指令 V001
 
 Date: 2026-11-03
