@@ -1,3 +1,5 @@
+> **SUPERSEDED / PO INS05–INS06 VISUAL FAIL on 2026-11-03:** Ning Qiushui disappeared from rear sofa background in V001. The old direct-image Bundles have been revoked. Use corrected director `OPENING_P01_V005_INS05_INS06_NING_REAR_VISIBILITY_DIRECTOR_V002_2026-11-03.md` and *active Work handoff* `OPENING_P01_V005_INS05_INS06_NING_REAR_VISIBILITY_V002_WORK_HANDOFF_2026-11-03.md` (Actions 41589534914 / 41589540027, Artifacts 13209272925 / 13209297938). This file is retained as historical record only.
+
 # 《诡舍·黑衣夫人》｜Opening P01 V005｜白潇潇两张动作补镜与短入口｜Director V001
 Date: 2026-11-03
 Status: PO REQUESTED / DIRECTOR DESIGN LOCKED FOR TWO CANDIDATES / NEEDS EXACT VERIFIED BUNDLES / NO CANONICAL PUBLICATION
