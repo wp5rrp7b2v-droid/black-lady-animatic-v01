@@ -6,17 +6,17 @@
   "target_candidate": "OPENING_P01_INS_06_BAI_FORWARD_WARNING_EXPLAIN_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": true,
+  "build_authorized": false,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 5,
     "rule": "EXACT_APPROVED_P01_JPEG_INTERIOR_PLUS_BAI_C06_FRONT_3Q_JUN_SHEET_PLUS_ONE_APPROVED_P01_SPATIAL_IMAGE",
-    "work_generation_authorized": true,
-    "authorization_scope": "PO_2026_11_03_REQUEST_PREPARE_TWO_BAI_ACTION_INSERTS_BEFORE_FURTHER_ASSEMBLY",
-    "po_candidate_visual_approval": "NOT_GRANTED",
+    "work_generation_authorized": false,
+    "authorization_scope": "CLOSED_AFTER_PO_REPORT_NING_MISSING_FROM_REAR_20261103",
+    "po_candidate_visual_approval": "PO_REJECTED_NING_MISSING",
     "batch_order": 2,
     "output_count": 1,
-    "note": "User explicitly requested preparing both new Bai Xiaoxiao action images. One Work candidate per verified bundle. No automatic visual approval, canonical publication, Story Shot registration, audio changes, or V002 rhythm replacement."
+    "note": "PO reported Ning Qiushui missing from background. V001 input had NO Ning identity ref and image handoff allowed Ning to be absent; V002 new Bundle requires Ning visible and includes Ning character sheet + approved OPEN07 spatial anchor. Stop using this V001 spec and candidate as positive input."
   },
   "references": [
     {
@@ -114,6 +114,7 @@
   "work_handoff": {
     "title": "P01 new Bai Xiaoxiao action coverage / 白潇潇前倾解释试炼风险",
     "requirements": [
+      "STOP: this V001 Bundle is superseded. Do not generate again. Use corresponding verified V002 with Ning rear-sofa visible.",
       "FIRST read latest director doc: docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V005_BAI_ACTION_TWO_SHOTS_AND_SHORT_GATE_DIRECTOR_V001_2026-11-03.md.",
       "Download THIS exact GitHub Actions Reference Delivery Bundle and independently validate delivery_manifest.json against all five canonical reference JPEG/PNGs, including SHA256, Git Blob, byte counts and dimensions. Do not claim verified without doing checks.",
       "Make exactly ONE independently generated 941x1672 9:16 PNG named OPENING_P01_INS_06_BAI_FORWARD_WARNING_EXPLAIN_CANDIDATE_01.png. 2.5D cinematic semi-realistic animated drama style, no text or video.",
@@ -136,5 +137,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_V005_INS_06_BAI_FORWARD_WARNING_EXPLAIN_ACTION_TWO_SHOT_PREP_20261103"
+  "spec_revision": "P01_BAI_INS05_INS06_V001_PO_SPATIAL_VISIBILITY_FAIL_20261103"
 }
