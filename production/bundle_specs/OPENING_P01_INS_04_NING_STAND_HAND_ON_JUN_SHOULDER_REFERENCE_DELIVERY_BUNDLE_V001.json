@@ -6,16 +6,16 @@
   "target_candidate": "OPENING_P01_INS_04_NING_STAND_HAND_ON_JUN_SHOULDER_CANDIDATE_01.png",
   "retention_days": 7,
   "manual_product_owner_reference_upload": 0,
-  "build_authorized": true,
+  "build_authorized": false,
   "generation_interface_constraints": {
     "max_direct_referenced_images": 5,
     "actual_direct_reference_count": 4,
     "rule": "P01_APPROVED_JPEG_SCENE_ANCHOR_PLUS_NING_JUN_IDENTITY_REFS_NO_FAILED_INS01_INS02",
-    "work_generation_authorized": true,
-    "authorization_scope": "PO_2026_11_03_REJECT_INS01_INS02_AND_REQUEST_SINGLE_NING_STANDING_SHOULDER_TOUCH_SHOT",
-    "po_candidate_visual_approval": "NOT_GRANTED",
+    "work_generation_authorized": false,
+    "authorization_scope": "CLOSED_V001_AFTER_PO_REVIEW_REAR_SOFA_BASELINE_20261103",
+    "po_candidate_visual_approval": "FAILED_PO_SPATIAL_CONTINUITY",
     "output_count": 1,
-    "note": "User explicitly requested Ning Qiushui stands and touches seated Jun Luyuan shoulder while saying I will take him. Single still-image candidate, no animation, no automatic new shots, no registration."
+    "note": "V001 rendered Ning at wrong side/front of sofa; PO rejected as inconsistent with already-approved original arrangement. V001 bundle and original candidate are not authorized sources for further generations. Use only revised V002 director + rebuilt five-reference V002 bundle."
   },
   "references": [
     {
@@ -92,6 +92,7 @@
   "work_handoff": {
     "title": "P01 INS04 | Ning stands, one hand naturally on Jun Luyuan shoulder, volunteers",
     "requirements": [
+      "STOP: this V001 bundle is superseded by PO continuity FAIL. Do not generate or regenerate from it.",
       "FIRST read latest Director design: docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS04_NING_STANDS_SHOULDER_TOUCH_DIRECTOR_V001_2026-11-03.md. PO rejected INS01/INS02, do NOT use those prior candidate renders as positive references.",
       "Verify exact GitHub Actions Reference Delivery Bundle: original interior scene JPEG, Ning character sheet, Ning FACE_3Q_LEFT, Jun character sheet; match delivery_manifest.json SHA256, Git blob and bytes for each source. Original JPEG remains JPEG.",
       "Generate exactly ONE 941x1672 9:16 PNG named OPENING_P01_INS_04_NING_STAND_HAND_ON_JUN_SHOULDER_CANDIDATE_01.png, cinematic 2.5D semi-realistic film style.",
@@ -111,5 +112,5 @@
     ]
   },
   "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
-  "spec_revision": "P01_INS04_NING_STAND_SHOULDER_TOUCH_PO_SINGLE_CANDIDATE_AUTH_20261103"
+  "spec_revision": "P01_INS04_V001_SUPERSEDED_AFTER_PO_VISUAL_CONTINUITY_FAIL_20261103"
 }
