@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH",
+  "sequence_id": "OPENING_ENHANCE_P01",
+  "target_candidate": "OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_CANDIDATE_01.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 1,
+    "rule": "EXACT_APPROVED_INTERIOR_JPEG_FOR_CINEMATIC_PALETTE_ONLY__GATE_PROVISIONAL",
+    "work_generation_authorized": true,
+    "authorization_scope": "PO_2026_11_03_ONE_REPLACEMENT_RESIDENCE_GATE_NO_PEOPLE_AFTER_WINDOW_REJECTION",
+    "po_candidate_visual_approval": "NOT_GRANTED",
+    "output_count": 1,
+    "note": "Only one new candidate. PO rejected spying/window interior and asked for no-people villa-like entrance with Jun's offscreen decisive line followed by a cut inside. Exterior is a creative hypothesis, not a previously approved actual villa facade."
+  },
+  "references": [
+    {
+      "reference_id": "OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001",
+      "source_type": "CONTROLLED_REFERENCE",
+      "classification": "P0.3_CONTROLLED_PRODUCTION_REFERENCE",
+      "approval_status": "PRODUCT_OWNER_APPROVED",
+      "lifecycle": "CURRENT",
+      "authority_scope": "OPENING_P01_BAI_RESIDENCE_SPACE_GEOMETRY_LIGHTING_CHARACTER_POSITION_ONLY",
+      "role": "P01_INTERIOR_PALETTE_STYLE_ANCHOR_ONLY",
+      "expected_format": "JPEG",
+      "manifest_path": "production/controlled_references/opening_p01_open01/OPENING_P01_OPEN_01_BAI_RESIDENCE_SCENE_ANCHOR_V001.manifest.json",
+      "canonical_path": "production/image_library/approved/story_shots/OPENING_P01_OPEN_01_THREE_PERSON_DECISION_ESTABLISH_APPROVED_V001.jpeg",
+      "expected_sha256": "4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452",
+      "expected_git_blob": "9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a",
+      "expected_byte_size": 336546,
+      "expected_width": 864,
+      "expected_height": 1536,
+      "destination_group": "p01_interior_style_only",
+      "authority_purpose": "STYLE_PALETTE_LIGHT_2_5D_APPROVED_INTERIOR_NO_PROVEN_EXTERIOR_ARCHITECTURE"
+    }
+  ],
+  "work_handoff": {
+    "title": "P01 V004 single entry shot - No people at the residence gate, decision heard offscreen",
+    "requirements": [
+      "Read formal latest director instruction: docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V004_RESIDENCE_GATE_NO_PEOPLE_DECISION_AUDIO_DIRECTOR_V001_2026-11-03.md. Old V003 through-window person view was rejected.",
+      "Download actual GitHub Actions verified Bundle and verify the original single JPEG matches delivery_manifest.json SHA256, Git blob, size and 864x1536 JPEG format. Do not fabricate missing reference.",
+      "Generate exactly 1 PNG: OPENING_P01_INS_00_RESIDENCE_GATE_ESTABLISH_CANDIDATE_01.png at 941x1672 portrait 9:16. Stop after one image for PO review. Do not render video or publish any image.",
+      "Camera: level or slightly oblique medium-wide establishing view of a modern quiet villa-like PRIVATE RESIDENCE MAIN ENTRANCE DOOR plus limited porch/wall, human-scale architecture. Door is visual focus; understated 2.5D semi-realistic cinematic animated film atmosphere.",
+      "NO people or human silhouettes anywhere. No visible interior people through glass, no voyeuristic through-window angle, no surveillance or peeking camera, no visible identifiable faces or reflections.",
+      "Approved P01 indoor scene original JPEG constrains only art style, room warmth, color palette and low-contrast naturalism. It is not an approved exterior facade or a provenance for actual villa/entry geometry. Treat villa-like gate as provisional visual proposal, not location fact.",
+      "Subsequent approved-audio editorial intent only, not visible text: start original approved voice from 00:00, allow Jun Luyuan's true decisive phrase (approximately 00:04–00:08 cue but not word-locked) over this unoccupied entrance, then cut into approved P01 OPEN01 room and OPEN02 close shot.",
+      "Do not invent complete villa facade, identifiable street/address or house number, city, exact time of day or weather. No supernatural castle, manor, blood door, raining or dramatic new action.",
+      "Keep unchanged all seven P01 APPROVED stills, 192.257s original audio, video registry and Project Control. Report candidate dimensions/file identity and any ambiguity."
+    ],
+    "exclusions": [
+      "Old through-window composition showing the three people or any silhouettes is forbidden.",
+      "No gate opening, no character entering/exiting, no camera/security/surveillance point of view.",
+      "No alternative outputs, no auto regeneration, no Video or Story Shot registration, no Canonical publication.",
+      "If an exterior architectural claim would have to be presented as verified when it is unsupported, note that as a limitation and return for PO review."
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "P01_V004_GATE_NO_PEOPLE_AUDIO_DECISION_PO_CHANGE_20261103"
+}
