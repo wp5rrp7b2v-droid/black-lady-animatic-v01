@@ -43,3 +43,17 @@ After actual Work candidate generation (and PO inspection of new image), compare
 Director design (this file) → exact existing reference spec → GitHub Actions validated Bundle → Work 1 PNG Candidate → PO visual review → local minimal audiovisual A/B → PO audiovisual review → on approval, Chat exact binary publication and Story Shot registration.
 
 Work must **not** use screenshot mockups, fake reference images, cropped old P01 screenshot or other female cast faces to bypass the verified Bundle. Codex is not involved; no video or canonical source is changed at this phase.
+
+## 5. Verified production bundle and one-shot Work handoff (2026-11-03)
+
+**FACT: Builder PASS / Exact binary reference PASS; output picture not yet produced.**
+
+- Approved single-shot Bundle Spec: `production/bundle_specs/OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_REFERENCE_DELIVERY_BUNDLE_V001.json`.
+- GitHub Actions Run: [41555252819](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41555252819), `completed / success`.
+- Artifact ID: `13193826977`, artifact name `OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_REFERENCE_DELIVERY_BUNDLE_V001`.
+- Independent downloaded ZIP SHA-256: `a4773fddf4b92bfa4f5a8a6c5d3af847df6ed01f8f3bf4b2b0f37f521e2fb99c`; ZIP contains exactly three expected entries: `delivery_manifest.json`, `WORK_HANDOFF.md`, and the single P01 approved scene JPEG reference.
+- Manifest `overall_result=PASS`, `generation_allowed=true`, one original reference. Independently recalculated source SHA-256 `4ccebb6a903b9cbeac1dfdc2e8b05c7f5dafa05e31cff53e775dfa2f37945452`, Git Blob `9c5fc2d1d5bcc711a0be129fcc3e3229f039bf3a`, 336546 bytes, 864×1536 JPEG; all match GitHub approved original.
+
+**Work execution permission:** Product Owner's affirmative decision authorizes **one** exploratory candidate only, named `OPENING_P01_INS_00_WINDOW_EXTERIOR_ESTABLISH_CANDIDATE_01.png`. Work must download and independently verify this exact validated Artifact and follow embedded `WORK_HANDOFF.md`. If the approved interior JPEG cannot establish a convincing but noninvented near-window exterior-side composition, Work must report `SCENE_EXTERIOR_UNGROUNDED` rather than hallucinating a building facade, weather or time of day. Work returns candidate to PO for visual approval; no automatic second image or asset registration.
+
+**Pending Gate:** No actual new image, no 0–8s A/B video, no PO review. Project State R411 / Story Shot Index 42 / Video Index 3 / P0.3 IN PROGRESS remain authoritative.
