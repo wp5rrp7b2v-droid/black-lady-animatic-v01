@@ -49,3 +49,14 @@ WORKING HYPOTHESIS：先补两张，再视效果补第三张是较低成本的�
 UNKNOWN：白潇潇确切开口帧、三张新图能否由Work稳定生成人物/房间一致性，以及新素材能否取得PO艺术PASS。
 
 下一步：编制前2镜验证型Bundle，不进行Work正式制图，待PO确认具体导演方向后启动Work首批最小真实候选。
+
+## 2026-11-03 参考输入独立验证结果（本次会话追加）
+
+前两张待定补图的 Reference Bundle **规格文件**已创建并通过 GitHub Actions 原始素材验证。当前均为 `build_authorized=false`，验证的是源图而不是实际Work可用的Bundle ZIP：
+
+| 镜头 | Reference Spec | Actions | 实测结果 | 制图授权 |
+|---|---|---|---|---|
+| INS-01 白潇潇/君鹭远反打 | `production/bundle_specs/OPENING_P01_INS_01_BAI_JUN_REVERSE_EXCHANGE_REFERENCE_DELIVERY_BUNDLE_V001.json` | [41553525087](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41553525087) | 4/4 exact source verification PASS | FALSE |
+| INS-02 宁秋水/君鹭远双人回应 | `production/bundle_specs/OPENING_P01_INS_02_NING_JUN_RESPONSE_TWO_SHOT_REFERENCE_DELIVERY_BUNDLE_V001.json` | [41553528142](https://github.com/wp5rrp7b2v-droid/black-lady-animatic-v01/actions/runs/41553528142) | 5/5 exact source verification PASS | FALSE |
+
+两项测试日志均明确 `GENERATION_ALLOWED=FALSE`。该结果不表示已生成图片、Artifact、已通过视觉审核或正式登记。待 PO 批准镜头方向后，才按既定流水线把两个规格升级为正式 build，取得并验证Bundle，再转交 Work 生成各一张候选图片。第三张手部细节镜的扩展取决于前两张A/B声画测试。
