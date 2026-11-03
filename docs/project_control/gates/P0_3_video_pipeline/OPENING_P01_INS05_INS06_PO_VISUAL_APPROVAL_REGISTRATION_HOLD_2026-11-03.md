@@ -1,3 +1,5 @@
+> **CURRENT FORMAT AND REGISTRATION CORRECTION — 2026-11-03 (R412):** Product Owner explicitly corrected INS-05: the approved original is the manually uploaded **PNG** `红裙女子旁的沙发修复.png`, **980×1605**, **1,969,960 bytes**, SHA256 `1788b61943ed6b531fec0a7677e9f592713093671b1e134a10f822d428f8c219`, Git Blob `e51c3b9fae09e89cd2a0387d257cef4ff2add25b` — **NOT** the historical JPEG listed below. That JPEG technical claim is SUPERSEDED; INS-05 was exact-published and uniquely registered, with independent GitHub Actions 41672117062 SUCCESS. INS-06 and all 7 P01 insert images have also been registered. See current closeout: `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md`. The historical approval narrative below remains for traceability only and no longer describes the active registry HOLD status.
+
 # 《诡舍·黑衣夫人》｜Opening P01 INS-05 / INS-06｜Product Owner 视觉审批与登记暂缓记录
 
 日期：2026-11-03

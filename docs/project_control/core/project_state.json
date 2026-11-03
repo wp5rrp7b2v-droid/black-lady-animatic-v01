@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R411",
-  "last_updated": "2026-11-02",
-  "session_status": "2026-11-02 P01 OPEN02-OPEN07 SIX PO APPROVED ORIGINAL PNGS EXACT CANONICAL PUBLISHED / 6 UNIQUE APPROVED CURRENT STORY SHOTS / GITHUB ACTIONS INDEPENDENT REGISTRATION PASS 41455337719 / 42 TOTAL STORY SHOTS / 218 AUDIT EVENTS / 3 FORMAL VIDEOS UNCHANGED / OPENING AUDIOVISUAL ASSEMBLY NOT YET APPROVED / P0.3 IN PROGRESS",
+  "state_revision": "R412",
+  "last_updated": "2026-11-03",
+  "session_status": "2026-11-03 P01 INS00/04/05/06/07/08/09 SEVEN PO-APPROVED ORIGINAL PNGs EXACT CANONICAL PUBLISHED AND UNIQUE APPROVED/CURRENT REGISTERED / INPUT ACTIONS 41671115422 7/7 PASS / INDEPENDENT POST-REGISTRATION ACTIONS 41672117062 7/7 PASS / PRIOR OPEN02-07 REGRESSION ACTIONS 41672778647 PASS / 49 STORY SHOTS / 239 AUDIT EVENTS / 3 FORMAL VIDEOS / P0.3 IN PROGRESS / P01 VIDEO PO REVIEW PENDING",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 OPEN01–07 ALL SEVEN STORY SHOTS APPROVED/CURRENT; NEXT MINIMUM TEST IS SOUND-PICTURE ASSEMBLY AGAINST ALREADY APPROVED ORIGINAL AUDIO",
-  "blocker": "No remaining P01 OPEN02-07 image intake or registration blocker. Six approved originals were manually uploaded, exact published and independently verified. Unverified: final dialogue-level shot timing and assembled audiovisual cinematic proof; P0.3 Gate remains IN PROGRESS. Local Mac sync for 2026-11-02 not yet verified.",
-  "next_action": "Prepare minimum Opening P01 original-audio / seven-canonical-frame assembly and verify actual sound-to-image dialogue cuts, without modifying approved original audio, source Story Shots, or old Opening V001 master; present proof for Product Owner audiovisual review. At tonight's local sync, verify GitHub main against Mac and report actual terminal evidence.",
+  "current_task": "OPENING P01 SEVEN NEW INSERT STORY SHOTS INS00/04/05/06/07/08/09 APPROVED/CURRENT EXACT VERIFIED AND REGISTERED; NEXT MINIMUM TEST: NARRATIVE-LED AUDIOVISUAL A/B WITH JUN EXPRESSION SHOTS AGAINST APPROVED ORIGINAL SOUND",
+  "blocker": "No remaining image receipt/Canonical publication/Story Shot registration blocker for seven 2026-11-03 P01 inserts. Unknown: precise dialogue-to-shot timestamps and PO audiovisual approval for V007; P0.3 remains IN PROGRESS. Mac local HEAD after 2026-11-01 is unverified.",
+  "next_action": "Make and review only two minimal P01 audiovisual A/B excerpts, ~00:04–00:19 for Jun decided speaking and ~00:40–00:58 for Jun worried/conflicted, retaining V006 coherent story sequence, original 192.257s source audio and seven exact Approved added image originals. Do not treat V006/V007 as formal Video without PO audiovisual signoff. Mac git fast-forward sync requires actual local terminal evidence.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,30 +120,31 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-02-P01-OPEN02-OPEN07-EXACT-REGISTERED-R411",
-    "status": "6_OF_6_PO_APPROVED__EXACT_GIT_BLOB_CANONICAL_PUBLISHED__42_STORY_SHOTS__REGISTRATION_INDEPENDENT_PASS__P0_3_STILL_IN_PROGRESS",
-    "date": "2026-11-02",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN02_OPEN07_EXACT_REGISTRATION_CLOSEOUT_2026-11-02.md",
+    "id": "2026-11-03-P01-SEVEN-EXACT-REGISTERED-R412",
+    "date": "2026-11-03",
+    "status": "SEVEN_OF_SEVEN_PO_APPROVED_ORIGINAL_PNG_EXACT_CANONICAL_PUBLISHED__49_STORY_SHOTS__239_AUDITS__INDEPENDENT_ACTIONS_PASS__FORMAL_VIDEOS_3__P0_3_IN_PROGRESS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "completed": [
-      "Six PO-approved P01 OPEN02–OPEN07 final originals manually uploaded to GitHub staging, no Drive transfer.",
-      "Preflight GitHub Actions 41454472126 SUCCESS: six original PNG byte sizes, SHA-256, Git Blob and dimensions validated.",
-      "Exact original blobs promoted to six canonical Approved V001 filenames via commit 5c7f1aacadb6f2257d22cd3b847dc97ac2669c66.",
-      "Story Shot Index increased 36 to 42, each P01 OPEN02–OPEN07 unique APPROVED/CURRENT.",
-      "Audit Events increased 200 to 218 with 18 traceable approval/publication/registration events.",
-      "Post-publication independent GitHub Actions 41455337719 SUCCESS: original vs canonical exact byte equality, hashes, blob identities, dimensions, six unique index records and 42 total PASS.",
-      "Preexisting P01 OPEN01 JPEG and Bai C06/3Q/PROFILE_LEFT verification jobs all SUCCESS after publication.",
-      "OPEN05 exact original 941x1671 retained per PO waiver, no modification."
+      "Seven PO-approved P01 INS00/04/05/06/07/08/09 original PNGs manually uploaded to GitHub staging, without Drive transfer.",
+      "Product Owner corrected INS05 to uploaded PNG 980x1605; older approval report's JPEG claim superseded by actual uploaded binary and independent verification.",
+      "GitHub Actions 41671115422 SUCCESS: seven original Git blobs, bytes, SHA256, signatures and dimensions exact PASS.",
+      "Seven unchanged original blobs promoted as canonical Approved V001 filenames and 7 unique APPROVED/CURRENT rows atomically committed 85eb2ca6c8718d4ce854240f969fa097fdc53ce7.",
+      "Index increased from 42 to 49; audit event log increased from 218 to 239, precisely 21 new traceable approval/publication/registration events.",
+      "Independent GitHub Actions 41672117062 SUCCESS: seven original-vs-canonical byte equality, SHA256, Git Blob, dimensions, metadata, index unique registrations and audit events verified.",
+      "Prior P01 OPEN02–07 workflow count-growth regression corrected without weakening image verification, Actions 41672778647 SUCCESS.",
+      "Existing OPEN01 JPEG and Bai C06/3Q/PROFILE_LEFT verification jobs all SUCCESS on the 49-shot commit.",
+      "Existing image originals, audio and official video index 3 not changed; audiovisual signoff still pending."
     ],
-    "resume_from": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN02_OPEN07_EXACT_REGISTRATION_CLOSEOUT_2026-11-02.md",
+    "resume_from": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "blockers": [
-      "Opening P01 audiovisual assembly proof/word-level shot timing not yet independently validated or PO approved.",
-      "2026-11-02 Mac local GitHub-to-local sync not evidenced; last verified Mac head remains 2026-11-01."
+      "P01 V007 sound-to-picture timing and Product Owner audiovisual approval have not passed; P0.3 still IN PROGRESS.",
+      "2026-11-03 Mac local sync not independently evidenced; last verified local remains 2026-11-01."
     ],
     "registry_counts": {
       "entities": 35,
       "assets": 111,
-      "audit_events": 218,
-      "story_shots": 42,
+      "audit_events": 239,
+      "story_shots": 49,
       "formal_videos": 3
     },
     "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
@@ -543,13 +544,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V329",
+    "version": "V331",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R410 / P01 SIX BUNDLES ALL EXACT PASS WORK PENDING / 36 STORY SHOTS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R410",
-    "last_updated": "2026-11-02",
-    "current_task": "P01 SIX SHOT WORK BATCH REQUIRES WORK MODE EXECUTION"
+    "status": "DERIVED R412 / P01 SEVEN NEW INSERTS EXACT REGISTERED 49 SHOTS / V007 SOUND-PICTURE PO REVIEW PENDING / P0.3 IN PROGRESS",
+    "derived_from_revision": "R412",
+    "last_updated": "2026-11-03",
+    "current_task": "P01 JUN V007 SHORT AUDIOVISUAL A/B REVIEW"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -566,9 +567,9 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_OPEN01_APPROVED_EXACT_JPEG_REGISTRATION_CLOSEOUT_2026-11-02.md",
-    "last_formal_closeout_status": "P01-OPEN-01 PO APPROVED JPEG PRESERVED / STORY SHOT 36 / SCENE ANCHOR / ACTIONS 41386602412 EXACT PASS",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_REMAINING_SIX_BUNDLE_EXACT_VERIFICATION_AND_WORK_GATE_2026-11-02.md"
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
+    "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -615,7 +616,7 @@
     "next_optimization": "NONE ON CURRENT MAINLINE. Preserve technical evidence; environment-only parallax may be reconsidered selectively if useful."
   },
   "story_shot_system": {
-    "status": "IMPLEMENTED / ACTIVE / 36 FORMALLY REGISTERED STORY SHOTS",
+    "status": "IMPLEMENTED / ACTIVE / 49 FORMALLY REGISTERED STORY SHOTS",
     "asset_class": "STORY_SHOT",
     "rule": "A/N prefixes are historical IDs only; all Product Owner-approved narrative composition images belong to one logical Story Shot class.",
     "admission": "PRODUCT_OWNER_APPROVED_ONLY",
@@ -644,7 +645,7 @@
       ]
     },
     "index_path": "production/story_shots/story_shot_index.jsonl",
-    "registered_story_shot_count": 36,
+    "registered_story_shot_count": 49,
     "opening_sequence": [
       "A01",
       "A02",
@@ -4617,9 +4618,9 @@
   "registry_counts_current": {
     "entities": 35,
     "assets": 111,
-    "audit_events": 200,
+    "audit_events": 239,
     "scene_profiles": 14,
-    "story_shots": 36
+    "story_shots": 49
   },
   "n24_scene_reference_design_v0_4": {
     "status": "PRODUCT OWNER APPROVED / LOCKED",
@@ -6017,7 +6018,7 @@
   },
   "registry_counts": {
     "assets": 111,
-    "audit_events": 200
+    "audit_events": 239
   },
   "opening_p01_remaining_six_batch_2026_11_02": {
     "status": "6_OF_6_FORMAL_BUNDLES_BUILT_AND_INDEPENDENTLY_EXACT_VERIFIED__READY_FOR_WORK__CANDIDATES_0_OF_6_RENDERED",
@@ -6060,5 +6061,27 @@
     "registered_count_increment": 0,
     "video_changed": false,
     "audio_changed": false
+  },
+  "opening_p01_2026_11_03_seven_insert_exact_registration": {
+    "status": "COMPLETE__GITHUB_EXACT_VERIFIED__PO_VISUAL_APPROVAL__AV_GATE_PENDING",
+    "shot_ids": [
+      "OPENING_P01_INS_00",
+      "OPENING_P01_INS_04",
+      "OPENING_P01_INS_05",
+      "OPENING_P01_INS_06",
+      "OPENING_P01_INS_07",
+      "OPENING_P01_INS_08",
+      "OPENING_P01_INS_09"
+    ],
+    "canonical_commit": "85eb2ca6c8718d4ce854240f969fa097fdc53ce7",
+    "source_preflight_run": 41671115422,
+    "independent_registration_run": 41672117062,
+    "prior_six_regression_recheck_run": 41672778647,
+    "approved_originals_format": "ALL_SEVEN_PNG_WITH_NATIVE_PO_APPROVED_SIZES",
+    "ins05_source_correction": "PNG_980x1605_REPLACES_HISTORICAL_ERRONEOUS_JPEG_RECORD",
+    "formal_videos_unchanged": 3,
+    "story_shots": 49,
+    "audit_events": 239,
+    "closeout_report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md"
   }
 }
