@@ -1,0 +1,57 @@
+name: Opening P01 V007 Minimal AB Source Export 20261104
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/opening-p01-v007-minimum-ab-source-export-20261104.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export-approved-review-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          sparse-checkout: |
+            production/story_shots/story_shot_index.jsonl
+            production/image_library/approved/story_shots
+      - name: Verify 14 canonical stills and stage exact source bytes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, shutil
+          from pathlib import Path
+          ids = [
+              "OPENING_P01_OPEN_01","OPENING_P01_OPEN_02","OPENING_P01_OPEN_03",
+              "OPENING_P01_OPEN_04","OPENING_P01_OPEN_05","OPENING_P01_OPEN_06",
+              "OPENING_P01_OPEN_07","OPENING_P01_INS_00","OPENING_P01_INS_04",
+              "OPENING_P01_INS_05","OPENING_P01_INS_06","OPENING_P01_INS_07",
+              "OPENING_P01_INS_08","OPENING_P01_INS_09",
+          ]
+          rows = [json.loads(line) for line in Path("production/story_shots/story_shot_index.jsonl").read_text().splitlines() if line.strip()]
+          by_id = {r["shot_id"]:r for r in rows}
+          dest = Path("_review_exact_originals")
+          dest.mkdir(exist_ok=True)
+          manifest = []
+          for ident in ids:
+              r = by_id[ident]
+              assert r["approval_status"] == "APPROVED" and r["lifecycle"] == "CURRENT", ident
+              p = Path(r["canonical_path"])
+              data = p.read_bytes()
+              actual = hashlib.sha256(data).hexdigest()
+              assert actual == r["sha256_locked_identity"], f"{ident} sha mismatch"
+              assert len(data) == r["byte_size"], f"{ident} size mismatch"
+              filename = f"{ident}{p.suffix}"
+              (dest / filename).write_bytes(data)
+              manifest.append({"shot_id":ident,"filename":filename,"sha256":actual,"bytes":len(data),"source":str(p)})
+          (dest/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
+          print("EXACT_ORIGINAL_SOURCE_VERIFICATION_PASS 14/14; NO AUDIO EXPORTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OPENING_P01_V007_MIN_AB_14_CANONICAL_STILLS
+          path: _review_exact_originals/
+          if-no-files-found: error
+          retention-days: 3
