@@ -4023,3 +4023,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 提取00–26s审片视频，SHA256 `cd90c87aec28117c1e2ab5aa973396bb0a034df20edc9ed1b756de8fef5ebeac`；结尾采用40–63.375s含3秒已批准上下文，SHA256 `55cba07935addcd84aeded81eda0efc400d6d5e5c714b614b30cf6ae0d819043`。
 - 视频解码PASS；PCM相关性0.99958771 / 0.99971932；审片AAC已经重新编码，不宣称音频 bit exact；原V008与正式音频文件未改动。没有足够证据提出V009实际变更；保留V008，PO剩余两段审核待决。
 - Review MP4仅本Chat会话，不公开发布版权原音。证据 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_REMAINING_RANGES_REVIEW_PREP_2026-11-06.md`，Project State R415 / Dashboard V334，formal videos3、shots49、audits239、P0.3 IN PROGRESS。
+
+
+## 2026-11-06｜P01 V009 首镜纠正与结尾修剪候选（R416）
+
+- PO审片：开头第一镜应使用旧第二镜；结尾感觉不对。仅明确前者是客观剪辑更改，后者原因尚不确定。提出结尾重叠的君独镜掩盖宁/君关系作为工作假设。
+- V009实际：旧INS05自0.000s完整展示至3.750s，旧INS00不再进入；44.500–55.000s使用OPEN06关系镜，55.000–63.375s OPEN07群像收束。11段10切→9段8切。
+- 已批准V008 26–43秒继续锁定；全408帧采用V008原解码帧重新编码，均值差2.1459/255，音轨与Approved原声AAC ADTS bit-exact，最终942×1672/24fps/1521帧/8,108,239 bytes/sha256 461dcae9bf5032802d9958779602ee353dfe22feab74ea8cb6d99dc4752e58d5，视频解码0错误。
+- 审片视频未正式发布或进入Video Index；PO全片V009审核待决。新正式统计依旧49 Story Shots、239 Audit Events、3 Formal Videos。详见 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V009_OPENING_ENDING_PO_REVIEW_CANDIDATE_2026-11-06.md`；Project State R416 / Dashboard V335。
