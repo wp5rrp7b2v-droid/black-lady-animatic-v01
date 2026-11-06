@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R414",
+  "state_revision": "R415",
   "last_updated": "2026-11-06",
-  "session_status": "2026-11-06 P01 V008 PO AUDIOVISUAL SEGMENT 00:26-00:43 ACCEPTED; GESTURE/SHOT PACING SCOPED PASS; 63.375s FULL P01 VIDEO NOT YET PO APPROVED; V008 TECH PASS 11 SEGMENTS / 10 CUTS; 49 SHOTS / 239 AUDITS / 3 FORMAL VIDEOS; P0.3 IN PROGRESS",
+  "session_status": "2026-11-06 P01 V008 SCOPED 26-43s PO PASS PROTECTED / TWO REMAINING REVIEW EXCERPTS (00-26, 40-63.375 CONTEXT 40-43) RENDERED TECH PASS / NO V009 OR EDIT CHANGES / FULL P01 PO AUDIOVISUAL APPROVAL PENDING / 49 SHOTS 239 AUDITS 3 VIDEOS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 V008: 00:26-00:43 PO SEGMENT PASS LOCKED; REVIEW UNAPPROVED OPENING AND CLOSING RANGES WITHOUT ALTERING ACCEPTED MIDDLE SEGMENT",
-  "blocker": "V008 00:26–00:43 segment PO subjective audiovisual PASS, but full 63.375s P01 has not been approved; other regions need visual/audio review. No independent word-level dialogue timestamp proof; scoped PO result is not sample-accurate audio sync verification. Local Mac sync after 2026-11-01 remains unverified.",
-  "next_action": "Retain approved V008 00:26–00:43 audio, image order, gesture visibility and edits as baseline. Next review opening 00:00–00:26 and closing 00:43–00:63.375, fix only proven issues outside locked range, then submit full P01 for PO audiovisual decision. No formal Video publication/index change without full PO authorization.",
+  "current_task": "OPENING P01 V008 FIRST 00-26s AND FINAL 43-63.375s PO REVIEW; KEEP PO-APPROVED 26-43s EXACT EDIT UNCHANGED",
+  "blocker": "Two unapproved audiovisual ranges 0-26s and 43-63.375s still need PO review; no independent word-level timing. 26-43s scoped PASS retained. Local Mac sync remains unverified beyond 2026-11-01.",
+  "next_action": "PO review the delivered 0-26s and 40-63.375s excerpt (40-43 is locked context); if there is concrete AV mismatch, revise only failed unapproved ranges. Otherwise retain V008 without speculative re-edit, then request explicit PO judgment of complete 63.375s. No formal video publication without approval.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,21 +120,22 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-06-P01-V008-26-43-SEGMENT-APPROVED-R414",
+    "id": "2026-11-06-P01-V008-TWO-REMAINING-REVIEW-R415",
     "date": "2026-11-06",
-    "status": "V008_26_TO_43_PO_SCOPED_AUDIOVISUAL_PASS__FULL_P01_PO_AV_APPROVAL_PENDING__49_STORY_SHOTS__3_FORMAL_VIDEOS__P0_3_IN_PROGRESS",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md",
+    "status": "V008_MIDDLE_26_TO_43_PO_APPROVED__REMAINING_0_TO_26_AND_43_TO_63_375_REVIEW_EXCERPTS_READY__FULL_P01_PO_APPROVAL_PENDING__49_SHOTS__3_FORMAL_VIDEOS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_REMAINING_RANGES_REVIEW_PREP_2026-11-06.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
       "INS04 visible frame 780=32.500s through frame 929=38.708s and original approved P01 AAC ADTS bit exact PASS.",
       "Approved still identities validated by source artifact 14/14, with 11 selected and no canonical mutations.",
       "V008 942x1672 24fps 1521 video frames fully decoded, SHA256 recorded.",
-      "PO explicitly accepted V008 00:26–00:43 segment ('这段可以'); retain 32.500–38.750s shoulder edit; only local segment approval, not 63.375s master."
+      "PO explicitly accepted V008 00:26–00:43 segment ('这段可以'); retain 32.500–38.750s shoulder edit; only local segment approval, not 63.375s master.",
+      "Produced 00–26s and 40–63.375s context-preserving review excerpts from identical V008 source without changing approved 26–43s; both decode PASS and audio high-correlation checked."
     ],
     "blockers": [
-      "Full P01 V008 63.375s video has not been approved; opening and remaining ending range must be reviewed.",
-      "Mac local sync still unverified since 2026-11-01."
+      "PO audiovisual review of 0–26s and 43–63.375s pending; full 63.375s not approved.",
+      "Mac local sync not evidenced after 2026-11-01."
     ],
     "registry_counts": {
       "entities": 35,
@@ -540,13 +541,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V333",
+    "version": "V334",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R414 / V008 26-43s PO SCOPED SEGMENT APPROVED / REST FULL V008 AWAITING REVIEW / 49 SHOTS / 3 VIDEOS",
-    "derived_from_revision": "R414",
+    "status": "DERIVED R415 / 26–43 PO PASS LOCKED / REMAINING TWO REVIEW EXCERPTS TECH PASS / 49 SHOTS / 3 VIDEOS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R415",
     "last_updated": "2026-11-06",
-    "current_task": "P01 V008 REVIEW UNAPPROVED 00–26s AND 43–63.375s"
+    "current_task": "Review V008 unapproved 0–26 and 43–63.375; 26–43 PO segment locked"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -565,7 +566,7 @@
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_REMAINING_RANGES_REVIEW_PREP_2026-11-06.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -6106,5 +6107,40 @@
     "preserve": "Keep narrative order, shoulder-gesture timing and audio for this segment while continuing full-video review.",
     "not_approved": "Whole V008 63.375s, Canonical Video, Video Index registration, P0.3 Gate.",
     "evidence_report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md"
+  },
+  "opening_p01_v008_remaining_2026_11_06_review_prepared": {
+    "status": "TWO_EXCERPTS_TECH_PASS_PO_REVIEW_PENDING",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_REMAINING_RANGES_REVIEW_PREP_2026-11-06.md",
+    "protected_approved_range_s": [
+      26,
+      43
+    ],
+    "opening": {
+      "range_s": [
+        0,
+        26
+      ],
+      "file": "OPENING_P01_V008_OPEN_00_26_PO_REVIEW.mp4",
+      "sha256": "cd90c87aec28117c1e2ab5aa973396bb0a034df20edc9ed1b756de8fef5ebeac",
+      "duration_s": 26,
+      "pcm_correlation_vs_v008": 0.99958771
+    },
+    "closing": {
+      "unapproved_range_s": [
+        43,
+        63.375
+      ],
+      "review_range_s": [
+        40,
+        63.375
+      ],
+      "file": "OPENING_P01_V008_END_40_63_375_PO_REVIEW.mp4",
+      "sha256": "55cba07935addcd84aeded81eda0efc400d6d5e5c714b614b30cf6ae0d819043",
+      "duration_s": 23.375,
+      "pcm_correlation_vs_v008": 0.99971932
+    },
+    "new_edit_made": false,
+    "po_audio_visual_decision": "PENDING",
+    "canonical_video_registered": false
   }
 }

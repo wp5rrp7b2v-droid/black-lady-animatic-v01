@@ -4015,3 +4015,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Product Owner 在观看 `OPENING_P01_V008_SHOULDER_DIALOGUE_26_43S_REVIEW.mp4` 后回复：“这段可以”。明确录为 **00:26–00:43 片段局部视听观感PASS**，不是完整63.375秒视频的正式审批。
 - 此片段保持INS04搭肩32.500–38.750秒入出点和现有声画连续性；后续仅核查00–26及43–63.375两个未验收部分。逐字发声时间仍未独立技术锁定，不与PO局部艺术验收混淆。
 - 原声、源图二进制、49 Story Shots、239 Audit Events、3 Formal Videos保持原样，P0.3仍 IN PROGRESS。Decision BL-D-196，Project State R414，Dashboard V333；依据 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md`。
+
+
+## 2026-11-06｜P01 V008 首尾剩余未审段独立试看片段已交付（R415）
+
+- 以Project Control R414 / BL-D-196为原baseline：26–43秒PO局部PASS不动，32.500–38.750秒INS04搭肩不动。母片SHA256 `0d29bfeae202ba1b143bda9cfd8d3efa6f6a67df5d19ad60dbdca4ed0f320296`。
+- 提取00–26s审片视频，SHA256 `cd90c87aec28117c1e2ab5aa973396bb0a034df20edc9ed1b756de8fef5ebeac`；结尾采用40–63.375s含3秒已批准上下文，SHA256 `55cba07935addcd84aeded81eda0efc400d6d5e5c714b614b30cf6ae0d819043`。
+- 视频解码PASS；PCM相关性0.99958771 / 0.99971932；审片AAC已经重新编码，不宣称音频 bit exact；原V008与正式音频文件未改动。没有足够证据提出V009实际变更；保留V008，PO剩余两段审核待决。
+- Review MP4仅本Chat会话，不公开发布版权原音。证据 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_REMAINING_RANGES_REVIEW_PREP_2026-11-06.md`，Project State R415 / Dashboard V334，formal videos3、shots49、audits239、P0.3 IN PROGRESS。
