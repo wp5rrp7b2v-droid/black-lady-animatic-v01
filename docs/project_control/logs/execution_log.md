@@ -4031,3 +4031,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - V009实际：旧INS05自0.000s完整展示至3.750s，旧INS00不再进入；44.500–55.000s使用OPEN06关系镜，55.000–63.375s OPEN07群像收束。11段10切→9段8切。
 - 已批准V008 26–43秒继续锁定；全408帧采用V008原解码帧重新编码，均值差2.1459/255，音轨与Approved原声AAC ADTS bit-exact，最终942×1672/24fps/1521帧/8,108,239 bytes/sha256 461dcae9bf5032802d9958779602ee353dfe22feab74ea8cb6d99dc4752e58d5，视频解码0错误。
 - 审片视频未正式发布或进入Video Index；PO全片V009审核待决。新正式统计依旧49 Story Shots、239 Audit Events、3 Formal Videos。详见 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V009_OPENING_ENDING_PO_REVIEW_CANDIDATE_2026-11-06.md`；Project State R416 / Dashboard V335。
+
+
+## 2026-11-06｜Opening P01 V011 住宅门首镜纠偏技术验证（R417）
+
+- PO确认首镜必须为白潇潇住所入口门，纠正此前V010门仅3.750–5.417秒的设计。V011自第0帧至129帧均住宅门INS00，第130帧(5.416667秒)进入君鹭远INS07单人；只替换前90帧，后续V010镜头顺序保持。26–43秒既有PO局部PASS未动。
+- 首次视频编码处理造成已复制音轨末尾丢失1AAC包，未冒称技术PASS；以完整V010 AAC重新无损封装后，ADTS SHA256 `427f5993d7da774fc42cfda4d7fa97755ccbf0a12ec3f1a4f90d1ff0e1a48056` 与源音逐字节匹配。942×1672/24fps/1521帧、FFmpeg全片解码PASS。
+- 审片MP4 `OPENING_P01_V011_RESIDENCE_DOOR_FIRST_FULL_63S_REVIEW.mp4` 7,187,796 bytes SHA256 `529f53de9198791a8539b010ff0d81b6b25fc91da5d289301f9a7a7d27d699f7`；14秒片段另供PO评估。不上传版权原音到公开GitHub。未取得字级声音切点证据，V011完整视频及尾部均待PO视听审批。
+- 项目正式数量：49 Story Shots，239 Audit Events，3 Formal Videos；P0.3 IN PROGRESS。Report `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md`；Project State R417 / Dashboard V336。

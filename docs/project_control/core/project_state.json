@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R416",
+  "state_revision": "R417",
   "last_updated": "2026-11-06",
-  "session_status": "2026-11-06 P01 V009 EDITORIAL CANDIDATE FROM PO FEEDBACK: BEGIN WITH FORMER 2ND SHOT INS05 AND REPLACE REPETITIVE END WITH OPEN06→OPEN07; 9 SEGMENTS / 8 CUTS; 26–43s V008 PO SCOPED PASS PRESERVED (408 FRAMES EDITORIAL SAME, REENCODED); AUDIO BITEXACT TECH PASS; V009 PO VISUAL/AUDIO REVIEW PENDING; 49 STORY SHOTS /239 AUDITS /3 FORMAL VIDEOS; P0.3 IN PROGRESS",
+  "session_status": "2026-11-06 P01 V011 RESIDENCE DOOR FIRST FRAME PO CLARIFICATION IMPLEMENTED / V010 0-3.75s REPLACED INS00 / JUN SOLO FROM 5.416667s / LOCKED 26-43s V008 EDITORIAL UNCHANGED / AAC BIT-EXACT RESTORED AFTER ONE-PACKET REMUX FIX / 942x1672 1521 FRAMES TECH PASS / V011 PO AV PENDING / 49 SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 V009 63.375s FULL CANDIDATE PREPARED; PO REVIEW OPEN 00–03.75 AND ENDING 44.5–63.375; 26–43 V008 PO SCOPED PASS PRESERVED",
-  "blocker": "V009 response to PO opening correction implemented; ending is evidence-based editorial hypothesis not yet PO validated. Full 63.375s AV approval absent, no word-level sync proof. 26–43s existing approval retained. Mac local sync still unverified since 2026-11-01.",
-  "next_action": "PO review V009 full 63.375s or targeted 0–26s / 40–63.375s. If ending still fails, isolate actual moment and reason; correct only unapproved tail 44.5–63.375 while retaining 26–43s V008 scoped PASS. Do not publish video or change approved image/audio originals without explicit full PO signoff.",
+  "current_task": "OPENING P01 V011 FIRST-SHOT RESIDENCE DOOR REVIEW; VERIFY DOOR→JUN SPOKEN CUE, RETAIN 26-43s PO-PASS SEGMENT",
+  "blocker": "V011 first-frame residence door and source-AAC integrity technically verified; actual phrase-level spoken onset remains approximate, full P01 V011 PO audiovisual approval pending, V009-derived ending still needs review. Mac local sync after 2026-11-01 unverified.",
+  "next_action": "PO check V011 first 14s: residence entrance at absolute start, Jun solo at 5.416667s. If spoken '我不怕' starts earlier/later, adjust ONLY that cut point using real hearing; keep 26-43s segment locked. Review full P01 and unapproved ending before any formal Video publication. No additional image work or Story Shot registration.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-06-P01-V009-PO-EDIT-CANDIDATE-R416",
+    "id": "2026-11-06-P01-V011-RESIDENCE-DOOR-FIRST-R417",
     "date": "2026-11-06",
-    "status": "P01_V009_CANDIDATE_9_SHOTS_8_CUTS_TECH_PASS__26_TO_43_V008_PO_SCOPED_APPROVAL_RETAINED__V009_FULL_PO_AV_PENDING__49_SHOTS_3_VIDEOS",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V009_OPENING_ENDING_PO_REVIEW_CANDIDATE_2026-11-06.md",
+    "status": "V011_FIRST_FRAME_INS00_RESIDENCE_DOOR__JUN_SOLO_AFTER_5P417S__ORIGINAL_AUDIO_BITEXACT_PASS__V008_26_TO_43_SCOPED_PO_PASS_RETAINED__V011_FULL_PO_REVIEW_PENDING__49_STORY_SHOTS_3_VIDEOS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -134,11 +134,14 @@
       "Produced 00–26s and 40–63.375s context-preserving review excerpts from identical V008 source without changing approved 26–43s; both decode PASS and audio high-correlation checked.",
       "PO instructed original second opening shot should be first; V009 starts with INS05 at0.000s and excludes INS00 exterior beginning.",
       "Editorial hypothesis for wrong-feeling ending tested using OPEN06 Ning–Jun relational view instead of two consecutive Jun solo close-ups; cuts reduced 10→8.",
-      "Audio bit-exact ADTS from V009 and approved audio PASS; full decode0 errors/1521 frames; 408 approved middle frames preserve source edit with recompression error <2.23/255 MAE."
+      "Audio bit-exact ADTS from V009 and approved audio PASS; full decode0 errors/1521 frames; 408 approved middle frames preserve source edit with recompression error <2.23/255 MAE.",
+      "PO clarified residential entrance door should be first shot; V011 frame0–129 now INS00, frame130 begins Jun solo, without changing approved 26–43s.",
+      "V011 video technically verified, plus recovered missing last AAC packet by remux; source vs output AAC ADTS exact equality PASS, 1521 frames decoded."
     ],
     "blockers": [
-      "V009 full audiovisual Product Owner review pending; emotional fit of new ending not proven.",
-      "Mac local sync not independently evidenced since 2026-11-01."
+      "V011 opening word-level sync and full 63.375s cinematic approval pending.",
+      "V009-derived ending still not formally approved.",
+      "Mac last independently verified sync date remains 2026-11-01."
     ],
     "registry_counts": {
       "entities": 35,
@@ -544,13 +547,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V335",
+    "version": "V336",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R416 / P01 V009 9-SEGMENT EDITORIAL CANDIDATE TECH PASS, PO REVIEW PENDING / MIDDLE 26-43 PO SCOPED PASS RETAINED / 49 SHOTS / 3 VIDEOS",
-    "derived_from_revision": "R416",
+    "status": "DERIVED R417 / V011 RESIDENCE DOOR FIRST SHOT TECH PASS / V008 26-43 PO SCOPED PASS KEPT / V011 FULL AUDIOVISUAL PO REVIEW PENDING / 49 SHOTS / 3 VIDEOS",
+    "derived_from_revision": "R417",
     "last_updated": "2026-11-06",
-    "current_task": "Review V009 opening INS05 first and narrative ending; 26–43s locked"
+    "current_task": "P01 V011 door-first opening dialogue check, pending PO audiovisual approval"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -569,7 +572,7 @@
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V009_OPENING_ENDING_PO_REVIEW_CANDIDATE_2026-11-06.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -6162,5 +6165,24 @@
     ],
     "locked_408_frames_mean_decode_mae": 2.1459,
     "final_po_approved": false
+  },
+  "opening_p01_v011_2026_11_06_correction": {
+    "status": "REVIEW_ONLY_TECH_PASS_PO_AV_PENDING",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md",
+    "first_shot_id": "OPENING_P01_INS_00",
+    "first_shot_time_s": [
+      0,
+      5.4166667
+    ],
+    "jun_solo_shot": "OPENING_P01_INS_07",
+    "jun_solo_entry_s": 5.4166667,
+    "source_video_sha256": "e4bbaf3535dc5e0f9ba97d76fc9a79176840a5b2aecd3e854bb5b4fa290303d1",
+    "review_video_sha256": "529f53de9198791a8539b010ff0d81b6b25fc91da5d289301f9a7a7d27d699f7",
+    "review_video_bytes": 7187796,
+    "exact_audio_adts_sha256": "427f5993d7da774fc42cfda4d7fa97755ccbf0a12ec3f1a4f90d1ff0e1a48056",
+    "audio_full_exact_pass": true,
+    "lock_26_to_43_unchanged_editorial": true,
+    "word_level_alignment_pass": false,
+    "full_po_approval": false
   }
 }
