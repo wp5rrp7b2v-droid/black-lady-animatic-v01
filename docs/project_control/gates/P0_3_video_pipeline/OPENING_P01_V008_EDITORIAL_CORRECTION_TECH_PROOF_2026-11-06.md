@@ -26,3 +26,11 @@
 
 ## 下一步与权限边界
 PO审看本次V008完整63.375s。若仍有实际提前/滞后，按照PO指出的具体秒点调整 INS04 单段，不新增图片；若节奏仍异常，只调整必要编辑点，不恢复无意义反复反打。Formal Videos仍3，Story Shots仍49，Audit Events仍239，P0.3仍IN PROGRESS。Mac最新本地同步没有新增独立验证证据。
+
+## 2026-11-06 追加：PO 对26–43秒专项审片结果（BL-D-196）
+
+**Product Owner 原话：**“这段可以”。直接承接 `OPENING_P01_V008_SHOULDER_DIALOGUE_26_43S_REVIEW.mp4`（26–43秒）专项审片交付。
+
+**结果：PO AUDIOVISUAL SCOPED SEGMENT PASS（26.000–43.000秒）**。INS04 搭肩32.500–38.750秒与该段现有剪辑节奏获得PO观感接受。此局部段落作为后续剪辑固定基线；未经新失败证据不主动推翻或重复修改。
+
+**不扩大授权：**完整P01 V008 63.375秒**尚未批准**；开头00–26秒及43–63.375秒仍需审核，不能宣称词级同步、正式母版发布或索引登记完成。49 Story Shots、239 Audit Events、3 Formal Videos、P0.3 IN PROGRESS不变。

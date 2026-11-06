@@ -4008,3 +4008,10 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - V008 将18段/17次切镜缩为11段/10切，INS04 从35.500s提前至32.500s显示到38.750s。24fps/1521帧/63.375s，SHA256 `0d29bfeae202ba1b143bda9cfd8d3efa6f6a67df5d19ad60dbdca4ed0f320296`；14/14来源图验证、全片解码、源音AAC比特流逐字节相等均PASS。
 - 由于音轨没有独立逐字发声边界证据，真正声画同步PO验收待定；仅审片文件在Chat交付，未上传版权音频或正式发布视频。
 - Project State R413 / Dashboard V332；49 Story Shots / 239 audits / 3 Formal Videos不变。详见 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md`。
+
+
+## 2026-11-06｜P01 V008 26–43秒 Product Owner 局部声画验收
+
+- Product Owner 在观看 `OPENING_P01_V008_SHOULDER_DIALOGUE_26_43S_REVIEW.mp4` 后回复：“这段可以”。明确录为 **00:26–00:43 片段局部视听观感PASS**，不是完整63.375秒视频的正式审批。
+- 此片段保持INS04搭肩32.500–38.750秒入出点和现有声画连续性；后续仅核查00–26及43–63.375两个未验收部分。逐字发声时间仍未独立技术锁定，不与PO局部艺术验收混淆。
+- 原声、源图二进制、49 Story Shots、239 Audit Events、3 Formal Videos保持原样，P0.3仍 IN PROGRESS。Decision BL-D-196，Project State R414，Dashboard V333；依据 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md`。
