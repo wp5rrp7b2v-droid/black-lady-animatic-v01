@@ -1,5 +1,13 @@
 # P0.3｜视频制作与剪辑 Pipeline 再验证
 
+## 2026-11-06｜Opening P01 V008 PO反馈整改
+
+- V007 PO审片 FAIL：搭肩镜头晚于“我带他去吧”声画节拍，重复切镜过碎。
+- V008 已重剪为11段10切；INS04 搭肩自32.500秒持续至38.750秒；全部原音AAC bit-exact、14张来源exact、视频完整解码技术PASS；未进行逐字时间对齐，仍需PO听审。
+- 当前 Index：49 Story Shots / 239 audits / 3 formal videos；P0.3 IN PROGRESS。证据 [V008 Report](OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md)。
+
+---
+
 ## 2026-11-01 EOD R406｜白潇潇三视角与 Opening 原声收尾
 
 - **Reference exact closeout:** 白潇潇 `CHAR_BAI_XIAOXIAO` 三个独立 `APPROVED/CURRENT` Atomic Masters：`AST_IMG_000109` FACE_FRONT、`000110` FACE_3Q_LEFT、`000111` PROFILE_LEFT。独立 Actions 核验 `41302720607` / `41306683087` / `41314634188` 全部 SUCCESS；原图、Canonical/Registry/审计链完整。角色 Tier 尚未指定，Work-side 原始生成日志溯源 PARTIAL，不能据此宣称全九视角完成。

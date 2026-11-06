@@ -4000,3 +4000,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - Index 注册 commit 1e80a5485e6da3c5c196701d3513befc8c4bcce7，总数 35；独立登记核验 run 41191180952 **SUCCESS**，涵盖两张原图 SHA/Blob/尺寸/尺寸例外/记录/场景 Anchor。
 - 旧 P03A 一次性校验 run 41191180974 因历史写死计数 33 在新增记录后 FAIL，不代表素材失败；本轮已撤下其过时 workflow，并按 SOP 撤下本次一次性 verifier，保留 run 历史。
 - 原 Opening V001 未覆盖，独立血门 A/B 仍暂停；下一阶段是已批准 3 张图和已批 40.260s 声音的最小音画 Proof，**尚未获 PO 视频审批**。收尾报告 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P03B_P04C_STORY_SHOT_REGISTRATION_CLOSEOUT_2026-10-31.md`。Project State R379 / Dashboard V299。
+
+
+## 2026-11-06｜P01 V007 用户审片 FAIL → V008 精简重剪
+
+- V007 PO反馈：搭肩镜头与“我带他去吧”语音不同步，镜头过碎。V007原技术通过结论仍有效，导演审核FAIL。
+- V008 将18段/17次切镜缩为11段/10切，INS04 从35.500s提前至32.500s显示到38.750s。24fps/1521帧/63.375s，SHA256 `0d29bfeae202ba1b143bda9cfd8d3efa6f6a67df5d19ad60dbdca4ed0f320296`；14/14来源图验证、全片解码、源音AAC比特流逐字节相等均PASS。
+- 由于音轨没有独立逐字发声边界证据，真正声画同步PO验收待定；仅审片文件在Chat交付，未上传版权音频或正式发布视频。
+- Project State R413 / Dashboard V332；49 Story Shots / 239 audits / 3 Formal Videos不变。详见 `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V008_EDITORIAL_CORRECTION_TECH_PROOF_2026-11-06.md`。
