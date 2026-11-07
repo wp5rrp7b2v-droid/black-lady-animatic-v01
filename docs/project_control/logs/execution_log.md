@@ -4039,3 +4039,9 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 首次视频编码处理造成已复制音轨末尾丢失1AAC包，未冒称技术PASS；以完整V010 AAC重新无损封装后，ADTS SHA256 `427f5993d7da774fc42cfda4d7fa97755ccbf0a12ec3f1a4f90d1ff0e1a48056` 与源音逐字节匹配。942×1672/24fps/1521帧、FFmpeg全片解码PASS。
 - 审片MP4 `OPENING_P01_V011_RESIDENCE_DOOR_FIRST_FULL_63S_REVIEW.mp4` 7,187,796 bytes SHA256 `529f53de9198791a8539b010ff0d81b6b25fc91da5d289301f9a7a7d27d699f7`；14秒片段另供PO评估。不上传版权原音到公开GitHub。未取得字级声音切点证据，V011完整视频及尾部均待PO视听审批。
 - 项目正式数量：49 Story Shots，239 Audit Events，3 Formal Videos；P0.3 IN PROGRESS。Report `docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md`；Project State R417 / Dashboard V336。
+
+
+## 2026-11-07｜V011 PO拒绝归档与同步请求
+- PO明确回复“不批准”，对应V011完整63.375秒视频审片，记录**PO艺术FAIL**。既有视频解码、AAC完整性技术PASS不被抹除；V008 26–43秒局部PO PASS保持。拒绝原因尚无明确细项，停止猜测新V012。
+- Github Project Control R418和Dashboard V337记录此事实；Video Index仍3、Story Shots49、Audit Events239。
+- PO要求同步本地；目前尚无Mac终端git status/pull结果。上次独立验证仍为2026-11-01本地HEAD e0f1b8a76948b06e1b123c3bb8db56164e4668a2；**不得标记2026-11-07本地同步PASS**。仅允许Mac main安全fast-forward，保留未追踪文件。

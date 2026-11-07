@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R417",
-  "last_updated": "2026-11-06",
-  "session_status": "2026-11-06 P01 V011 RESIDENCE DOOR FIRST FRAME PO CLARIFICATION IMPLEMENTED / V010 0-3.75s REPLACED INS00 / JUN SOLO FROM 5.416667s / LOCKED 26-43s V008 EDITORIAL UNCHANGED / AAC BIT-EXACT RESTORED AFTER ONE-PACKET REMUX FIX / 942x1672 1521 FRAMES TECH PASS / V011 PO AV PENDING / 49 SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS",
+  "state_revision": "R418",
+  "last_updated": "2026-11-07",
+  "session_status": "2026-11-07 PO V011 FULL P01 AUDIOVISUAL REJECTED / REVIEW REPORT RECORDED / V008 26-43s SCOPED PO PASS PRESERVED / NO V012 / 49 STORY SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS / MAC LOCAL FAST-FORWARD SYNC PENDING USER TERMINAL EVIDENCE",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 V011 FIRST-SHOT RESIDENCE DOOR REVIEW; VERIFY DOOR→JUN SPOKEN CUE, RETAIN 26-43s PO-PASS SEGMENT",
-  "blocker": "V011 first-frame residence door and source-AAC integrity technically verified; actual phrase-level spoken onset remains approximate, full P01 V011 PO audiovisual approval pending, V009-derived ending still needs review. Mac local sync after 2026-11-01 unverified.",
-  "next_action": "PO check V011 first 14s: residence entrance at absolute start, Jun solo at 5.416667s. If spoken '我不怕' starts earlier/later, adjust ONLY that cut point using real hearing; keep 26-43s segment locked. Review full P01 and unapproved ending before any formal Video publication. No additional image work or Story Shot registration.",
+  "current_task": "PO V011 REJECTED: preserve V008 26-43s approval; identify failure before re-edit. LOCAL MAC FAST-FORWARD SYNC REQUESTED / NOT YET VERIFIED.",
+  "blocker": "V011 PO rejected ('不批准'), specific failing cue unknown; prior door-first 0-5.417 seconds was unverified interpretation. No new candidate authorized. Mac local HEAD not inspected since 2026-11-01 verified checkpoint.",
+  "next_action": "First perform safe Mac local git status and ff-only pull with remote HEAD verification; do not mark local sync PASS without terminal output. Then identify V011 actual failed sound-picture cue before any V012 work. V008 26–43s stays locked. No Video Index publication.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-11-01 RC-029 MAC FAST-FORWARD VERIFIED PASS AT CHECKPOINT e0f1b8a76948b06e1b123c3bb8db56164e4668a2 / RECEIPT-ONLY GITHUB COMMITS AFTER CHECKPOINT NOT ON LOCAL",
+    "status": "2026-11-07 REQUESTED / NOT VERIFIED / LAST KNOWN PASS 2026-11-01",
     "rule": "RC-029 overrides RC-012 cadence: one safe local Mac sync at each daily evening closeout, not at morning start or after every GitHub write. Canonical GitHub main is daytime source of truth; if formal local work is unavoidable before evening, do safe preflight+sync first or defer local work.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-06-P01-V011-RESIDENCE-DOOR-FIRST-R417",
-    "date": "2026-11-06",
-    "status": "V011_FIRST_FRAME_INS00_RESIDENCE_DOOR__JUN_SOLO_AFTER_5P417S__ORIGINAL_AUDIO_BITEXACT_PASS__V008_26_TO_43_SCOPED_PO_PASS_RETAINED__V011_FULL_PO_REVIEW_PENDING__49_STORY_SHOTS_3_VIDEOS",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md",
+    "id": "2026-11-07-V011-PO-REJECTION-R418",
+    "date": "2026-11-07",
+    "status": "V011_PO_REJECTED__V008_26_43_PO_SEGMENT_PASS_RETAINED__GITHUB_REMOTE_UPDATED__MAC_LOCAL_SYNC_NOT_VERIFIED__49_SHOTS_239_AUDITS_3_FORMAL_VIDEOS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -136,12 +136,13 @@
       "Editorial hypothesis for wrong-feeling ending tested using OPEN06 Ning–Jun relational view instead of two consecutive Jun solo close-ups; cuts reduced 10→8.",
       "Audio bit-exact ADTS from V009 and approved audio PASS; full decode0 errors/1521 frames; 408 approved middle frames preserve source edit with recompression error <2.23/255 MAE.",
       "PO clarified residential entrance door should be first shot; V011 frame0–129 now INS00, frame130 begins Jun solo, without changing approved 26–43s.",
-      "V011 video technically verified, plus recovered missing last AAC packet by remux; source vs output AAC ADTS exact equality PASS, 1521 frames decoded."
+      "V011 video technically verified, plus recovered missing last AAC packet by remux; source vs output AAC ADTS exact equality PASS, 1521 frames decoded.",
+      "PO explicitly rejected V011; review technical success does not imply artistic approval.",
+      "Recorded V011 rejection while preserving V008 26–43s scoped approval and registered assets."
     ],
     "blockers": [
-      "V011 opening word-level sync and full 63.375s cinematic approval pending.",
-      "V009-derived ending still not formally approved.",
-      "Mac last independently verified sync date remains 2026-11-01."
+      "Mac local fast-forward sync requested but no terminal evidence yet.",
+      "V011 rejected; specific cue failure remains unknown."
     ],
     "registry_counts": {
       "entities": 35,
@@ -547,13 +548,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V336",
+    "version": "V337",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R417 / V011 RESIDENCE DOOR FIRST SHOT TECH PASS / V008 26-43 PO SCOPED PASS KEPT / V011 FULL AUDIOVISUAL PO REVIEW PENDING / 49 SHOTS / 3 VIDEOS",
-    "derived_from_revision": "R417",
-    "last_updated": "2026-11-06",
-    "current_task": "P01 V011 door-first opening dialogue check, pending PO audiovisual approval"
+    "status": "DERIVED R418 / V011 PO REJECTED / V008 26-43 PO SCOPED PASS / LOCAL MAC SYNC PENDING / 49 SHOTS / 3 VIDEOS",
+    "derived_from_revision": "R418",
+    "last_updated": "2026-11-07",
+    "current_task": "Mac local safe ff-only sync requested; V011 rejected"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -572,7 +573,7 @@
     "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -6167,8 +6168,8 @@
     "final_po_approved": false
   },
   "opening_p01_v011_2026_11_06_correction": {
-    "status": "REVIEW_ONLY_TECH_PASS_PO_AV_PENDING",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_RESIDENCE_DOOR_FIRST_REVIEW_CANDIDATE_2026-11-06.md",
+    "status": "PO_REJECTED__TECH_PASS_ONLY",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md",
     "first_shot_id": "OPENING_P01_INS_00",
     "first_shot_time_s": [
       0,
@@ -6183,6 +6184,17 @@
     "audio_full_exact_pass": true,
     "lock_26_to_43_unchanged_editorial": true,
     "word_level_alignment_pass": false,
-    "full_po_approval": false
+    "full_po_approval": false,
+    "po_rejection_reason": "UNKNOWN"
+  },
+  "opening_p01_v011_po_rejection_2026_11_07": {
+    "status": "PRODUCT_OWNER_REJECTED",
+    "po_wording": "不批准",
+    "scope": "P01 V011 63.375s review video",
+    "specific_reason": "UNKNOWN",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md",
+    "decision": "BL-D-197",
+    "tech_pass_retained": true,
+    "previous_v008_26_43_po_pass_retained": true
   }
 }
