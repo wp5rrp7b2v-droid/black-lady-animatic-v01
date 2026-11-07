@@ -1,5 +1,13 @@
 # P0.3｜视频制作与剪辑 Pipeline 再验证
 
+## 2026-11-07｜Mac 本地 RC-029 同步完成（明确SHA）
+- 用户终端实际显示首次 curl18/early EOF 后恢复，`Updating files: 100% (99/99)`、`Fast-forward` 成功。
+- `LOCAL HEAD` = `ORIGIN MAIN` = 独立读取的 GitHub `main`，三者为 `8c7befafe96947510689095f41d67a04c184ae5c`，**LOCAL SYNC PASS**。两套未追踪Console目录仍在。
+- 本回执 R419/V338 在同步完成之后追加于 GitHub，仅元数据提交，未要求 Mac 再同步；下次 RC-029 正常同步时获取。
+- V011 PO REJECTED / V008 26–43秒局部PASS不变；49 Story Shots、239 Audit Events、3 Formal Videos，P0.3 IN PROGRESS。详见 [本地同步回执](LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md)。
+
+---
+
 ## 2026-11-07｜V011 拒绝归档与本地同步待核验
 - PO明确不批准V011完整63.375秒候选；技术声画文件核验PASS不等于正式PO声画批准。
 - V008 26–43秒已批准中段保留（BL-D-196）；不启动V012，不发布、不登记Video。

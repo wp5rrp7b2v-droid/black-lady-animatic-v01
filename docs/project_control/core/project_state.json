@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R418",
+  "state_revision": "R419",
   "last_updated": "2026-11-07",
-  "session_status": "2026-11-07 PO V011 FULL P01 AUDIOVISUAL REJECTED / REVIEW REPORT RECORDED / V008 26-43s SCOPED PO PASS PRESERVED / NO V012 / 49 STORY SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS / MAC LOCAL FAST-FORWARD SYNC PENDING USER TERMINAL EVIDENCE",
+  "session_status": "2026-11-07 MAC RC-029 FAST-FORWARD LOCAL SYNC PASS AT 8c7befafe96947510689095f41d67a04c184ae5c / TWO UNTRACKED LOCAL CONSOLE FOLDERS PRESERVED / LATER METADATA-ONLY RECEIPT COMMIT CLOUD-ONLY UNTIL NEXT ROUTINE SYNC / V011 PO REJECTED / V008 26–43s SCOPED PASS PRESERVED / 49 STORY SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "PO V011 REJECTED: preserve V008 26-43s approval; identify failure before re-edit. LOCAL MAC FAST-FORWARD SYNC REQUESTED / NOT YET VERIFIED.",
-  "blocker": "V011 PO rejected ('不批准'), specific failing cue unknown; prior door-first 0-5.417 seconds was unverified interpretation. No new candidate authorized. Mac local HEAD not inspected since 2026-11-01 verified checkpoint.",
-  "next_action": "First perform safe Mac local git status and ff-only pull with remote HEAD verification; do not mark local sync PASS without terminal output. Then identify V011 actual failed sound-picture cue before any V012 work. V008 26–43s stays locked. No Video Index publication.",
+  "current_task": "LOCAL SYNC CHECKPOINT VERIFIED PASS 2026-11-07; NEXT P01 WORK: DIAGNOSE V011 AUDIOVISUAL REJECTION WITHOUT REVISING APPROVED V008 26–43s",
+  "blocker": "No Mac local sync blocker at verified SHA 8c7befa. V011 PO rejected; specific audiovisual reason remains UNKNOWN. Follow-on R419 metadata commit is cloud-only and will be pulled at next routine sync.",
+  "next_action": "Do not repeat local pull for this 2026-11-07 receipt. Resume from V011 PO REJECTED and V008 26–43s approved baseline; clarify concrete failing audio-to-shot alignment before any V012. Keep canonical assets and formal video index unchanged. At next RC-029 routine sync, pull accumulated metadata.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -61,7 +61,7 @@
     "p0_2_approval": "EXPLICITLY APPROVED BY PRODUCT OWNER ON 2026-09-22"
   },
   "local_sync_reminder": {
-    "status": "2026-11-07 REQUESTED / NOT VERIFIED / LAST KNOWN PASS 2026-11-01",
+    "status": "2026-11-07 PASS / VERIFIED AT 8c7befafe96947510689095f41d67a04c184ae5c",
     "rule": "RC-029 overrides RC-012 cadence: one safe local Mac sync at each daily evening closeout, not at morning start or after every GitHub write. Canonical GitHub main is daytime source of truth; if formal local work is unavoidable before evening, do safe preflight+sync first or defer local work.",
     "default_command": "cd \"/Users/caroline/诡舍/黑衣夫人/black_lady_short_01\" || exit 1\n git status --short --branch\n if ! git diff --quiet || ! git diff --cached --quiet; then echo \"STOP: tracked local changes\"; else git switch main && git-proxy-auto pull --ff-only origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short --branch; fi",
     "conflict_rule": "If tracked changes, binary assets, parallel work, merge conflict risk, or non-fast-forward state exists, stop after git status and reconcile before pull.",
@@ -81,11 +81,11 @@
     ],
     "target": "AT EOD: LOCAL_HEAD == ORIGIN_MAIN == CURRENT_GITHUB_MAIN_HEAD",
     "verification_requirement": "At daily evening closeout: check tracked/branch status, fast-forward-only pull without destructive operations, then verify exact local HEAD, origin/main and GitHub main SHA; do not mark today's sync PASS without user's terminal evidence.",
-    "verified_on": "2026-11-01",
-    "verified_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
-    "verification_evidence": "2026-11-01 user Mac terminal: main clean tracked; two pre-existing untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ preserved; first transfer curl 18 early EOF was recovered; output Updating files 100% (45/45), Fast-forward 803d562..e0f1b8a; HEAD and origin/main exact e0f1b8a76948b06e1b123c3bb8db56164e4668a2; Chat verified remote GitHub refs/heads/main same exact SHA before receipt commit. RC-029 EOD checkpoint PASS. Subsequent remote metadata-only receipt commits are not locally synced.",
-    "note": "Nov 1 local sync PASS at e0f1b8a. No second pull required on Nov 1 for subsequent GitHub documentation receipts; these remote-only control updates can be picked up at the next normal sync.",
-    "latest_handoff": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md"
+    "verified_on": "2026-11-07",
+    "verified_head": "8c7befafe96947510689095f41d67a04c184ae5c",
+    "verification_evidence": "User Mac terminal 2026-11-07: first curl18 early EOF recovered; Updating files 100% (99/99), Fast-forward e0f1b8a..8c7befa, LOCAL HEAD and ORIGIN MAIN both 8c7befafe96947510689095f41d67a04c184ae5c; remaining untracked BlackLadyLocalConsole/ and BlackLadyLocalConsolePrivate/ retained. Chat separately verified GitHub main same SHA before this receipt.",
+    "note": "PASS applies to pre-receipt checkpoint 8c7befa. R419/V338 receipt metadata published after Mac sync is not yet on Mac; no second pull needed until next RC-029 sync.",
+    "latest_handoff": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md"
   },
   "temporary_execution_mode": {
     "id": "TEMP_CLOUD_ONLY_MODE_V1",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-07-V011-PO-REJECTION-R418",
+    "id": "2026-11-07-MAC-FAST-FORWARD-PASS-R419",
     "date": "2026-11-07",
-    "status": "V011_PO_REJECTED__V008_26_43_PO_SEGMENT_PASS_RETAINED__GITHUB_REMOTE_UPDATED__MAC_LOCAL_SYNC_NOT_VERIFIED__49_SHOTS_239_AUDITS_3_FORMAL_VIDEOS",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md",
+    "status": "MAC_FAST_FORWARD_PASS_AT_8c7befa__LOCAL_HEAD_EQ_ORIGIN_MAIN_EQ_GITHUB_MAIN_BEFORE_RECEIPT__V011_PO_REJECTED__V008_MIDDLE_PASS__49_SHOTS_3_FORMAL_VIDEOS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -138,11 +138,11 @@
       "PO clarified residential entrance door should be first shot; V011 frame0–129 now INS00, frame130 begins Jun solo, without changing approved 26–43s.",
       "V011 video technically verified, plus recovered missing last AAC packet by remux; source vs output AAC ADTS exact equality PASS, 1521 frames decoded.",
       "PO explicitly rejected V011; review technical success does not imply artistic approval.",
-      "Recorded V011 rejection while preserving V008 26–43s scoped approval and registered assets."
+      "Recorded V011 rejection while preserving V008 26–43s scoped approval and registered assets.",
+      "2026-11-07 user Mac terminal proved successful ff-only pull after transient curl18; HEAD=origin/main=GitHub main exact 8c7befafe96947510689095f41d67a04c184ae5c; untracked console folders preserved."
     ],
     "blockers": [
-      "Mac local fast-forward sync requested but no terminal evidence yet.",
-      "V011 rejected; specific cue failure remains unknown."
+      "V011 PO audiovisual rejection reason remains unidentified; V008 26–43s approval remains in force."
     ],
     "registry_counts": {
       "entities": 35,
@@ -151,9 +151,9 @@
       "story_shots": 49,
       "formal_videos": 3
     },
-    "last_verified_local_head": "e0f1b8a76948b06e1b123c3bb8db56164e4668a2",
-    "last_verified_local_date": "2026-11-01",
-    "local_sync_status": "LAST_VERIFIED_2026_11_01_ONLY"
+    "last_verified_local_head": "8c7befafe96947510689095f41d67a04c184ae5c",
+    "last_verified_local_date": "2026-11-07",
+    "local_sync_status": "PASS_AT_CHECKPOINT_8c7befa__POST_RECEIPT_GITHUB_METADATA_UNPULLED"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -548,13 +548,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V337",
+    "version": "V338",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R418 / V011 PO REJECTED / V008 26-43 PO SCOPED PASS / LOCAL MAC SYNC PENDING / 49 SHOTS / 3 VIDEOS",
-    "derived_from_revision": "R418",
+    "status": "DERIVED R419 / 2026-11-07 MAC SYNC PASS TO 8c7befa / V011 REJECTED / V008 26-43s PO PASS / 49 SHOTS 3 VIDEOS / P0.3 ACTIVE",
+    "derived_from_revision": "R419",
     "last_updated": "2026-11-07",
-    "current_task": "Mac local safe ff-only sync requested; V011 rejected"
+    "current_task": "Local RC-029 checkpoint PASS; resume V011 failure diagnosis"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -570,10 +570,10 @@
     "approval_boundary": "Consistency closeout does not change Product Owner-only Gate / Phase approval authority.",
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
-    "last_daily_closeout_status": "2026-11-01 EOD CLOUD R406 + MAC RC-029 VERIFIED PASS AT e0f1b8a / RECEIPT APPENDED R407 / NO SECOND LOCAL PULL",
+    "last_daily_closeout_status": "2026-11-07 MAC RC-029 SYNC RECEIPT PASS AT 8c7befa; not a full new daily artistic closeout; cloud receipt metadata will await next local pull",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
     "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V011_PO_REJECTION_2026-11-06.md"
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -4981,7 +4981,7 @@
     "final_candidate": "N26 Candidate 03｜Controlled Modification",
     "final_disposition": "N26 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED"
   },
-  "local_sync_status": "2026-11-01 EOD MAC RC-029 FAST-FORWARD PASS AT VERIFIED CHECKPOINT e0f1b8a76948b06e1b123c3bb8db56164e4668a2 / LATER METADATA-ONLY REMOTE COMMITS TO BE PULLED AT NEXT ROUTINE SYNC",
+  "local_sync_status": "2026-11-07 MAC RC-029 FAST-FORWARD PASS AT VERIFIED CHECKPOINT 8c7befafe96947510689095f41d67a04c184ae5c; SUBSEQUENT GITHUB RECEIPT-ONLY COMMIT NOT YET ON MAC, PICK UP AT NEXT ROUTINE SYNC",
   "daily_closeout_2026_10_06": {
     "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
@@ -6196,5 +6196,21 @@
     "decision": "BL-D-197",
     "tech_pass_retained": true,
     "previous_v008_26_43_po_pass_retained": true
+  },
+  "local_sync_receipt_2026_11_07": {
+    "date": "2026-11-07",
+    "status": "PASS",
+    "verified_checkpoint_sha": "8c7befafe96947510689095f41d67a04c184ae5c",
+    "local_head_matches_origin_main": true,
+    "github_remote_verified_same": true,
+    "method": "git-proxy-auto pull --ff-only origin main",
+    "intermediate_rpc_failure_recovered": true,
+    "final_fast_forward": true,
+    "untracked_preserved": [
+      "BlackLadyLocalConsole/",
+      "BlackLadyLocalConsolePrivate/"
+    ],
+    "receipt_path": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md",
+    "following_receipt_commit_unpulled": "EXPECTED_UNTIL_NEXT_ROUTINE_SYNC"
   }
 }

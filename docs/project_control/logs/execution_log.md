@@ -4045,3 +4045,11 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - PO明确回复“不批准”，对应V011完整63.375秒视频审片，记录**PO艺术FAIL**。既有视频解码、AAC完整性技术PASS不被抹除；V008 26–43秒局部PO PASS保持。拒绝原因尚无明确细项，停止猜测新V012。
 - Github Project Control R418和Dashboard V337记录此事实；Video Index仍3、Story Shots49、Audit Events239。
 - PO要求同步本地；目前尚无Mac终端git status/pull结果。上次独立验证仍为2026-11-01本地HEAD e0f1b8a76948b06e1b123c3bb8db56164e4668a2；**不得标记2026-11-07本地同步PASS**。仅允许Mac main安全fast-forward，保留未追踪文件。
+
+
+## 2026-11-07｜RC-029 Mac 本地同步三方 SHA 验证 PASS（R419）
+
+- 用户Mac终端 `git-proxy-auto pull --ff-only origin main` 实际经历curl18短暂中断及early EOF，但后续完整恢复对象接收，完成 `Updating files 100% (99/99)` 与 `Fast-forward`。
+- 输出 `LOCAL HEAD` 与 `ORIGIN MAIN` 均为 `8c7befafe96947510689095f41d67a04c184ae5c`；Chat独立读取GitHub main同SHA，构成独立三方一致 PASS。两套未追踪本地console目录仍保留。
+- 同步完成后只在GitHub追加本次收据和R419/V338，属于**后续云端元数据提交**，不宣称Mac已经包含新增收据；按RC-029不需要二次pull。
+- 当前正式49 Story Shots、239审计、3视频不变；V011仍PO拒绝、V008 26–43秒局部批准保留。收据 `docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md`。
