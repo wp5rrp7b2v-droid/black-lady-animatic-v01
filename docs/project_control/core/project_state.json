@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R420",
+  "state_revision": "R421",
   "last_updated": "2026-11-13",
-  "session_status": "2026-11-13 OPENING P01 V018 PO APPROVED / DRIVE EXACT-BINARY VERIFIED / VIDEO INDEX REGISTERED 4/4 READBACK PASS / 49 STORY SHOTS / 239 AUDITS / 4 FORMAL VIDEOS / P0.3 IN PROGRESS; Mac last verified local sync remains 2026-11-07",
+  "session_status": "2026-11-13 S02-B V019 PRODUCT OWNER FINAL MASTER APPROVED / EXACT V019 25,595,015-BYTE BINARY VERIFIED / DRIVE TOP-LEVEL FINAL / V001 HISTORICAL SUPERSEDED / VIDEO INDEX 5 HISTORICAL APPROVED 4 CURRENT / 49 STORY SHOTS 239 AUDITS / P0.3 IN PROGRESS / LOCAL MAC LAST SYNC 2026-11-07",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "OPENING P01 V018 APPROVED MASTER REGISTERED AND CLOSED; NEXT: P01→P02 AUDIO/VISUAL CONTINUITY MINIMUM PROOF",
+  "current_task": "S02-B V019 final master registered; P01 V018 and S02-A V001 current approved masters preserved; next P01→P02 audiovisual continuity minimum proof",
   "blocker": "No Mac local sync blocker at verified SHA 8c7befa. V011 PO rejected; specific audiovisual reason remains UNKNOWN. Follow-on R419 metadata commit is cloud-only and will be pulled at next routine sync.",
-  "next_action": "Use the exact PO-approved V018 video master as locked P01 baseline; prepare the minimum P01→P02 transition proof with approved audio boundary and scene continuity. No V018 re-encode or overwrite; no P0.3 Gate closure without separate PO approval. Next Mac RC-029 routine local pull remains outstanding for later cloud commits.",
+  "next_action": "Use S02-B V019 as the unique CURRENT final S02-B master; never use V001 as current production cut. Keep V001 exact original and its past approval as SUPERSEDED history. When resuming story work, P01→P02 transition is the next minimum-proof task. Local Mac RC-029 routine sync has not occurred after 2026-11-07.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-13-P01-V018-PO-APPROVED-EXACT-REGISTERED-R420",
+    "id": "2026-11-13-S02B-V019-PO-FINAL-EXACT-CURRENT-R421",
     "date": "2026-11-13",
-    "status": "P01_V018_PO_APPROVED_DRIVE_EXACT_VERIFIED_INDEX_REGISTERED_4_VIDEOS_P0_3_ACTIVE",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md",
+    "status": "S02B_V019_FINAL_MASTER_CURRENT__V001_HISTORICALLY_APPROVED_SUPERSEDED__5_TOTAL_APPROVED_4_CURRENT__P0_3_ACTIVE",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -142,14 +142,16 @@
       "2026-11-07 user Mac terminal proved successful ff-only pull after transient curl18; HEAD=origin/main=GitHub main exact 8c7befafe96947510689095f41d67a04c184ae5c; untracked console folders preserved."
     ],
     "blockers": [
-      "P01 V018 sequence approved and registered; P01→P02 contiguous audiovisual transition not yet verified; P0.3 Gate remains active."
+      "S02-B V019 final current master registration and exact binary delivery verified; P0.3 remains in progress; P01→P02 transition proof not yet conducted."
     ],
     "registry_counts": {
       "entities": 35,
       "assets": 111,
       "audit_events": 239,
       "story_shots": 49,
-      "formal_videos": 4
+      "formal_videos": 5,
+      "current_formal_videos": 4,
+      "superseded_formal_videos": 1
     },
     "last_verified_local_head": "8c7befafe96947510689095f41d67a04c184ae5c",
     "last_verified_local_date": "2026-11-07",
@@ -548,13 +550,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V339",
+    "version": "V340",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R420 / 2026-11-13 OPENING P01 V018 APPROVED / VIDEO INDEX 4 / 49 SHOTS 239 AUDITS / P0.3 ACTIVE",
-    "derived_from_revision": "R420",
+    "status": "DERIVED R421 / 2026-11-13 S02-B V019 FINAL MASTER / V001 SUPERSEDED / 5 APPROVED HISTORY 4 CURRENT / 49 SHOTS 239 AUDITS / P0.3 ACTIVE",
+    "derived_from_revision": "R421",
     "last_updated": "2026-11-13",
-    "current_task": "P01 V018 registered; next P01→P02 transition proof"
+    "current_task": "S02-B V019 final master current; next P01→P02 transition proof"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -571,9 +573,9 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-07 MAC RC-029 SYNC RECEIPT PASS AT 8c7befa; not a full new daily artistic closeout; cloud receipt metadata will await next local pull",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md",
-    "last_formal_closeout_status": "2026-11-13 OPENING P01 V018 PO APPROVED / DRIVE EXACT BINARY PASS / VIDEO INDEX RECORD 4/4 API READBACK PASS / P0.3 IN PROGRESS",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md"
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md",
+    "last_formal_closeout_status": "2026-11-13 S02-B V019 PO FINAL APPROVED / V001 HISTORICALLY APPROVED SUPERSEDED / DRIVE AND INDEX VERIFIED / 5 APPROVED HISTORY 4 CURRENT",
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -5068,7 +5070,7 @@
     "closeout_record": "docs/project_control/gates/P0_3_video_pipeline/s02_b_n26_story_shot_registration_closeout_2026-10-07.md"
   },
   "s02_b_assembly_v001": {
-    "status": "PRODUCT_OWNER_APPROVED / EXACT_CANONICAL_DRIVE_BINARY_VERIFIED / VIDEO_INDEX_REGISTERED",
+    "status": "HISTORICALLY_PRODUCT_OWNER_APPROVED / LIFECYCLE_SUPERSEDED_BY_V019_2026-11-13 / EXACT_BINARY_PRESERVED",
     "video_id": "S02_B_ASSEMBLY_V001",
     "approved_on": "2026-10-09",
     "approved_by": "PRODUCT_OWNER",
@@ -5093,7 +5095,7 @@
     ],
     "canonical_storage": "GOOGLE_DRIVE",
     "drive_file_id": "16No99iizefd_dEzIsZcVLeoXNxiuvit4",
-    "drive_folder_id": "1cPNXBeQHl_-9OAd-p6mqngbxsQWh36pJ",
+    "drive_folder_id": "1QDf43BS1dq0Q50EETGpnO5JXKR-p2nqf",
     "drive_url": "https://drive.google.com/file/d/16No99iizefd_dEzIsZcVLeoXNxiuvit4/view?usp=drivesdk",
     "file_name": "S02_B_ASSEMBLY_APPROVED_V001.mp4",
     "sha256": "8ec47720b5641412b2ebd1e082bf058244d6b07fbe97500b56a8ef830bf2042a",
@@ -5107,7 +5109,11 @@
     "registry_path": "production/video/video_index.jsonl",
     "dedicated_closeout": "docs/project_control/gates/P0_3_video_pipeline/s02_b_assembly_v001_approval_publication_closeout_2026-10-09.md",
     "version_boundary": "V001 EDIT LOCKED / FUTURE RE-EDIT V002 WITH PO REVIEW",
-    "gate_boundary": "P0.3 IN PROGRESS / NOT GATE APPROVED"
+    "gate_boundary": "P0.3 IN PROGRESS / NOT GATE APPROVED",
+    "lifecycle": "SUPERSEDED",
+    "superseded_by": "S02_B_ASSEMBLY_V019",
+    "drive_path": "Black Lady Project/07_Video/80_历史正式母版_已被取代/S02_B_ASSEMBLY_APPROVED_V001.mp4",
+    "current_master": false
   },
   "next_idea_discussion": {
     "status": "DISCUSSED / N18 GIF EXPERIMENT PAUSED BY PRODUCT OWNER",
@@ -6226,5 +6232,27 @@
     "story_shots": 49,
     "p0_3_gate": "IN_PROGRESS",
     "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md"
+  },
+  "s02_b_v019_final_2026_11_13": {
+    "status": "PO_FINAL_APPROVED_CURRENT / EXACT_BINARY_VERIFIED / VIDEO_INDEX_REGISTERED / DRIVE_TOP_LEVEL",
+    "video_id": "S02_B_ASSEMBLY_V019",
+    "replaces_current_video_id": "S02_B_ASSEMBLY_V001",
+    "po_final_approval_date": "2026-11-13",
+    "earlier_visual_approval_date": "2026-10-18",
+    "drive_file_id": "1wS5SwuuhPebne2OkY9n0HKI3cjqMRcoT",
+    "drive_file_name": "S02_B_V019_APPROVED_FINAL_MASTER.mp4",
+    "drive_folder_id": "1cPNXBeQHl_-9OAd-p6mqngbxsQWh36pJ",
+    "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+    "byte_size": 25595015,
+    "source_repo_path": "production/video_candidates/v019_directors_cut/review/S02_B_V019_DIRECTORS_CUT_FULL_REVIEW_V001.mp4",
+    "verification": "GITHUB_ARCHIVED_SOURCE_MATCHES_INDEPENDENT_DRIVE_FETCH_SHA256_AND_BYTEWISE_CMP / DRIVE_MOVE_METADATA_ONLY / REGISTRY_READBACK_PASS",
+    "approval_scope": "S02B_FINAL_CURRENT_MASTER_ONLY / V001_HISTORIC_APPROVAL_PRESERVED / NO_P0_3_GATE_CLOSURE / NO_D01_D03_INDEPENDENT_STORY_SHOT_APPROVAL",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md"
+  },
+  "video_registry_counts": {
+    "all_approved_historical_records": 5,
+    "current_formal_masters": 4,
+    "superseded_historical": 1,
+    "s02b_current_video_id": "S02_B_ASSEMBLY_V019"
   }
 }
