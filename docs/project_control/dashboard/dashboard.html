@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>诡舍·黑衣夫人｜Project Dashboard V340</title>
+<title>诡舍·黑衣夫人｜Project Dashboard V341</title>
 <style>
 :root{--bg:#0f1115;--panel:#171b21;--panel2:#12161b;--border:#2a3038;--text:#f1f3f5;--muted:#98a2ad;--soft:#c9d0d7}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -20,8 +20,9 @@ main{max-width:1080px;margin:0 auto;padding:28px}h1{font-size:28px;margin:0 0 6p
 </head>
 <body><main>
 <h1>诡舍·黑衣夫人</h1>
-<p class="muted">Project Dashboard V340 · Derived from Project State R421 · Updated 2026-11-13</p>
+<p class="muted">Project Dashboard V341 · Derived from Project State R422 · Updated 2026-11-13</p>
 
+<section class="card span-12"><div class="kicker">2026-11-13 · Video Masters / Local Sync Checkpoint R422</div><h2>S02-A V001、S02-B V019 为当前母版；Mac 本地同步仍待实测</h2><p>最新 GitHub Video Index 核查：S02-A <strong>V001 APPROVED/CURRENT</strong>，无后续正式 PO 视觉批准并替代其母版的登记；S02-B <strong>V019 APPROVED/CURRENT / PO FINAL</strong>，原 V001 <strong>APPROVED/SUPERSEDED</strong> 按历史保留。视频登记总计 <strong>5 条历史批准、4 个 CURRENT</strong>；49 Story Shots，239 Audit Events，P0.3 IN PROGRESS。<strong>Mac 本地同步未由当前会话执行</strong>，最后具终端三方 SHA 证据的日期仍为 2026-11-07；本轮更新后需在 Mac 工作副本运行安全 <code>git-proxy-auto pull --ff-only origin main</code> 并核对 HEAD、origin/main 与 GitHub main 后才能标记 PASS。</p><p><a href="../gates/P0_3_video_pipeline/P0_3_VIDEO_MASTER_STATUS_AND_LOCAL_SYNC_HANDOFF_2026-11-13.md">正式检查点与本地同步交接</a></p></section>
 <section class="card span-12"><div class="kicker">2026-11-13 · S02-B V019 PO FINAL MASTER APPROVAL</div><h2>S02-B 当前正式定稿 = V019；V001 已批准历史保留但不再 CURRENT</h2><p>Product Owner 明确指令“将S02-B V019作为S02-B的最终定稿版本，不再是V001”。2026-10-18 视觉批准的 V019 原始二进制经独立 Drive 回读 SHA-256/逐字节 cmp 验证 PASS（25,595,015 bytes；<code>b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d</code>）。不重渲染、不覆盖任何历史版本。新正式 <code>S02_B_ASSEMBLY_V019</code>：<strong>APPROVED/CURRENT</strong>；旧 <code>S02_B_ASSEMBLY_V001</code>：历史 <strong>APPROVED/SUPERSEDED</strong>，存于 80_历史正式母版_已被取代。正式 Video Index 累计 5 条 APPROVED 历史记录、4 个 CURRENT 母版，Story Shots 49 / audits 239，<strong>P0.3 IN PROGRESS</strong> 不变。</p><p><a href="https://drive.google.com/file/d/1wS5SwuuhPebne2OkY9n0HKI3cjqMRcoT/view">打开 S02-B V019 最终定稿视频</a> · <a href="../gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md">查看 V019 晋升及核验记录</a></p></section>
 <section class="card span-12"><div class="kicker">2026-11-13 · Opening P01 V018 Approved Master</div><h2>V018 正式 PO 批准、私有 Drive 精确归档、Video Index 第4条登记 PASS</h2><p>PO 明确回复“批准V018”。固定画面、四处柔和转场及63.375秒原声音轨获完整序列批准。<strong>已批准 MP4 6,908,903 bytes，SHA-256 8ae976d15c78dceed9b139ed389c0c46bfe78b89a448cb3e2fe3b6b0850cb445</strong>；私有 Google Drive 文件重新下载 size/SHA及逐字节对比 PASS。GitHub 正式 Video Index 新增独立 <code>OPENING_P01_ASSEMBLY_V001</code>，4/4条 JSONL 可解析、唯一ID与来源核验 PASS。49 Story Shots、239 Audit Events、4 Formal Videos；P0.3 仍 IN PROGRESS。下阶段仅做 P01→P02 连续衔接最小验证，不修改 V018 已批准母版。</p><p><a href="https://drive.google.com/file/d/1af5UBDegm-X6Jjq5jq8aJH8JkpOjY7hZ/view">查看 V018 正式母版</a> · <a href="../gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md">审批及登记核验记录</a></p></section>
 
