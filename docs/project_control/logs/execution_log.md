@@ -4072,3 +4072,12 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 正式视频登记 5 条历史批准/4 条 CURRENT，Story Shots 49、Audit Events 239，P0.3 IN PROGRESS；没有新增视频，不更改任何现行已批准剪辑。
 - GitHub Project Control R422、Dashboard V341 状态刷新；收据：`docs/project_control/gates/P0_3_video_pipeline/P0_3_VIDEO_MASTER_STATUS_AND_LOCAL_SYNC_HANDOFF_2026-11-13.md`。
 - PO 同时要求“做一下本地同步”，但本会话不能直接控制用户 Mac 本地工作副本；最后有 Mac 终端及远端 SHA 三方一致的证据仍为 2026-11-07。已提供安全 ff-only 同步交接，**未取得此次 Mac 终端实际结果，禁止记作 PASS**。
+
+
+## 2026-11-13｜RC-029 Mac 本地快进同步三方 SHA PASS（R423）
+
+- Product Owner Mac 终端输出：`git-proxy-auto pull --ff-only origin main`，`Fast-forward`，`Updating files: 100% (12/12)`，成功从旧 SHA `8c7befafe96947510689095f41d67a04c184ae5c` 快进到 `f6bc1cf26a7aec291aca247643113f2001b6757c`。
+- 终端同步后 `LOCAL HEAD` / `ORIGIN MAIN` 均为 `f6bc1cf26a7aec291aca247643113f2001b6757c`；Chat 独立重新读取远端 GitHub main 完整 SHA 亦一致，三方核验 **PASS**。
+- `git status --short` 只有 `?? BlackLadyLocalConsole/` 和 `?? BlackLadyLocalConsolePrivate/`，这些未跟踪目录仍保留，不涉及文件覆盖；没有已跟踪文件冲突的终端证据。
+- 本次 Mac 同步检查点 **PASS**，并非仅网络诊断成功。同期正式母版 S02-A V001、S02-B V019，Video Index 5 historical approved / 4 current，Story Shots 49，Audits 239，P0.3 IN PROGRESS。
+- 本次事实收据：`docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-13.md`。收据及 R423 / Dashboard V342 等均为同步检查点后的 GitHub **云端元数据新提交**，不能因此宣称 Mac 已取得这些后续提交，也不要求本次夜间进行第二次 pull。
