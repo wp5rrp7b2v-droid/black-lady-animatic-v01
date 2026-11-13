@@ -1,9 +1,9 @@
 {
   "schema": "S02_B_APPEND_ONLY_VIDEO_ITERATION_LEDGER_V001",
-  "updated_at": "2026-10-20",
+  "updated_at": "2026-11-13",
   "governance": "docs/project_control/core/S02_B_VIDEO_ITERATION_APPEND_ONLY_POLICY_V001.md",
   "rule": "Every approved visual iteration is independently retained in main by exact SHA256; no later version replaces any prior version. Reference candidates are retained without invented approvals.",
-  "official_canonical_video_index_unchanged": true,
+  "official_canonical_video_index_unchanged": false,
   "versions": [
     {
       "iteration": "V001",
@@ -128,5 +128,30 @@
     "V016",
     "V017"
   ],
-  "future_updates": "Append new per-version records without deleting/rewriting approved historical data; separate latest pointer from immutable iteration identities."
+  "future_updates": "Keep existing iteration items append-only; final-master selections go through immutable master_selection_events and current_formal_master_pointer. Do not rewrite any archived version's original approval or bytes.",
+  "current_formal_master_pointer": {
+    "video_id": "S02_B_ASSEMBLY_V019",
+    "iteration": "V019",
+    "approval_status": "APPROVED",
+    "lifecycle": "CURRENT",
+    "sha256": "b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d",
+    "drive_file_id": "1wS5SwuuhPebne2OkY9n0HKI3cjqMRcoT",
+    "selected_on": "2026-11-13",
+    "selected_by": "PRODUCT_OWNER"
+  },
+  "master_selection_events": [
+    {
+      "event_id": "S02B_V019_FINAL_PROMOTION_2026_11_13",
+      "date": "2026-11-13",
+      "decision": "V019_PROMOTED_TO_FINAL_CURRENT_S02B_MASTER",
+      "previous_current_video_id": "S02_B_ASSEMBLY_V001",
+      "new_current_video_id": "S02_B_ASSEMBLY_V019",
+      "previous_lifecycle": "SUPERSEDED",
+      "new_lifecycle": "CURRENT",
+      "binary_policy": "PRESERVE_BOTH_EXACT_BINARIES_NO_REENCODE",
+      "previous_drive_folder_id": "1QDf43BS1dq0Q50EETGpnO5JXKR-p2nqf",
+      "new_drive_folder_id": "1cPNXBeQHl_-9OAd-p6mqngbxsQWh36pJ",
+      "note": "2026-10-18 PO append-only/no-current-master-replacement baseline superseded ONLY for current master pointer by explicit new 2026-11-13 PO instruction. Historical version identities and approvals remain immutable; no archived file deleted."
+    }
+  ]
 }
