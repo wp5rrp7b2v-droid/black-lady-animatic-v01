@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R421",
+  "state_revision": "R422",
   "last_updated": "2026-11-13",
-  "session_status": "2026-11-13 S02-B V019 PRODUCT OWNER FINAL MASTER APPROVED / EXACT V019 25,595,015-BYTE BINARY VERIFIED / DRIVE TOP-LEVEL FINAL / V001 HISTORICAL SUPERSEDED / VIDEO INDEX 5 HISTORICAL APPROVED 4 CURRENT / 49 STORY SHOTS 239 AUDITS / P0.3 IN PROGRESS / LOCAL MAC LAST SYNC 2026-11-07",
+  "session_status": "2026-11-13 EOD VIDEO MASTER RECONCILIATION PASS / S02-A V001 APPROVED CURRENT NO LATER FORMAL PO-APPROVED REPLACEMENT IDENTIFIED / S02-B V019 PO FINAL CURRENT / S02-B V001 HISTORIC APPROVED SUPERSEDED / VIDEO INDEX 5 HISTORIC APPROVED 4 CURRENT / 49 STORY SHOTS 239 AUDITS / P0.3 IN PROGRESS / MAC LOCAL SYNC PENDING RECEIPT LAST PROVEN 2026-11-07",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "S02-B V019 final master registered; P01 V018 and S02-A V001 current approved masters preserved; next P01→P02 audiovisual continuity minimum proof",
+  "current_task": "VIDEO MASTER STATUS CHECKPOINT VERIFIED ON GITHUB MAIN; MAC LOCAL FAST-FORWARD SYNC REQUESTED AND AWAITING ACTUAL TERMINAL EVIDENCE",
   "blocker": "No Mac local sync blocker at verified SHA 8c7befa. V011 PO rejected; specific audiovisual reason remains UNKNOWN. Follow-on R419 metadata commit is cloud-only and will be pulled at next routine sync.",
-  "next_action": "Use S02-B V019 as the unique CURRENT final S02-B master; never use V001 as current production cut. Keep V001 exact original and its past approval as SUPERSEDED history. When resuming story work, P01→P02 transition is the next minimum-proof task. Local Mac RC-029 routine sync has not occurred after 2026-11-07.",
+  "next_action": "Mac: preflight clean tracked worktree and main branch, git-proxy-auto pull --ff-only origin main, verify local HEAD == origin/main == remote GitHub main SHA; preserve untracked local Console dirs. Once sync PASS independently confirmed, resume approved P01→P02 audiovisual continuity minimum proof. Keep S02-A V001 and S02-B V019 locked as current.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-13-S02B-V019-PO-FINAL-EXACT-CURRENT-R421",
+    "id": "2026-11-13-S02A-S02B-MASTER-RECONCILIATION-LOCAL-SYNC-HANDOFF-R422",
     "date": "2026-11-13",
-    "status": "S02B_V019_FINAL_MASTER_CURRENT__V001_HISTORICALLY_APPROVED_SUPERSEDED__5_TOTAL_APPROVED_4_CURRENT__P0_3_ACTIVE",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md",
+    "status": "GITHUB_MASTER_REGISTRY_CHECK_PASS__S02A_V001_CURRENT__S02B_V019_FINAL_CURRENT__5_HISTORY_4_CURRENT__MAC_SYNC_PENDING_RECEIPT",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/P0_3_VIDEO_MASTER_STATUS_AND_LOCAL_SYNC_HANDOFF_2026-11-13.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -142,7 +142,8 @@
       "2026-11-07 user Mac terminal proved successful ff-only pull after transient curl18; HEAD=origin/main=GitHub main exact 8c7befafe96947510689095f41d67a04c184ae5c; untracked console folders preserved."
     ],
     "blockers": [
-      "S02-B V019 final current master registration and exact binary delivery verified; P0.3 remains in progress; P01→P02 transition proof not yet conducted."
+      "Mac local sync unverified after 2026-11-07; needs user Mac terminal fast-forward and SHA evidence.",
+      "P01→P02 transition minimum proof remains unexecuted; P0.3 Gate still IN PROGRESS"
     ],
     "registry_counts": {
       "entities": 35,
@@ -155,7 +156,7 @@
     },
     "last_verified_local_head": "8c7befafe96947510689095f41d67a04c184ae5c",
     "last_verified_local_date": "2026-11-07",
-    "local_sync_status": "PASS_AT_CHECKPOINT_8c7befa__POST_RECEIPT_GITHUB_METADATA_UNPULLED"
+    "local_sync_status": "WAITING_MAC_TERMINAL_RECEIPT__LAST_PROVED_2026_11_07"
   },
   "visual_asset_management_system": {
     "status": "P0.2 COMPLETE / VERIFIED / PRODUCT OWNER APPROVED",
@@ -550,13 +551,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V340",
+    "version": "V341",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R421 / 2026-11-13 S02-B V019 FINAL MASTER / V001 SUPERSEDED / 5 APPROVED HISTORY 4 CURRENT / 49 SHOTS 239 AUDITS / P0.3 ACTIVE",
-    "derived_from_revision": "R421",
+    "status": "DERIVED R422 / 2026-11-13 S02A V001 & S02B V019 CURRENT / 5 HISTORIC APPROVED 4 CURRENT / MAC SYNC WAITING RECEIPT / P0.3 ACTIVE",
+    "derived_from_revision": "R422",
     "last_updated": "2026-11-13",
-    "current_task": "S02-B V019 final master current; next P01→P02 transition proof"
+    "current_task": "GitHub master reconciliation complete; Mac local sync awaiting terminal evidence"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -574,8 +575,8 @@
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-07 MAC RC-029 SYNC RECEIPT PASS AT 8c7befa; not a full new daily artistic closeout; cloud receipt metadata will await next local pull",
     "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md",
-    "last_formal_closeout_status": "2026-11-13 S02-B V019 PO FINAL APPROVED / V001 HISTORICALLY APPROVED SUPERSEDED / DRIVE AND INDEX VERIFIED / 5 APPROVED HISTORY 4 CURRENT",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md"
+    "last_formal_closeout_status": "S02-B V019 already approved/registered at R421; R422 rechecks CURRENT masters and records Mac sync handoff only",
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/P0_3_VIDEO_MASTER_STATUS_AND_LOCAL_SYNC_HANDOFF_2026-11-13.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -4983,7 +4984,7 @@
     "final_candidate": "N26 Candidate 03｜Controlled Modification",
     "final_disposition": "N26 FORMALLY CLOSED / CANONICAL / REGISTERED / VERIFIED"
   },
-  "local_sync_status": "2026-11-07 MAC RC-029 FAST-FORWARD PASS AT VERIFIED CHECKPOINT 8c7befafe96947510689095f41d67a04c184ae5c; SUBSEQUENT GITHUB RECEIPT-ONLY COMMIT NOT YET ON MAC, PICK UP AT NEXT ROUTINE SYNC",
+  "local_sync_status": "REQUESTED_2026-11-13__WAITING_MAC_TERMINAL_RECEIPT__LAST_VERIFIED_MAC_HEAD_2026-11-07_AT_8c7befafe96947510689095f41d67a04c184ae5c__DO_NOT_MARK_SYNC_PASS_WITHOUT_TERMINAL_AND_REMOTE_SHA_CHECK",
   "daily_closeout_2026_10_06": {
     "status": "COMPLETE / PROJECT CONTROL SYNCHRONIZED / N26 NOT CLOSED",
     "path": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-10-06.md",
@@ -6254,5 +6255,15 @@
     "current_formal_masters": 4,
     "superseded_historical": 1,
     "s02b_current_video_id": "S02_B_ASSEMBLY_V019"
+  },
+  "s02_a_latest_po_approval_review_2026_11_13": {
+    "status": "NO_LATER_FORMAL_PO_VISUAL_APPROVED_REPLACEMENT_FOUND_IN_INDEX_OR_RELEVANT_PROJECT_CONTROL",
+    "current_video_id": "S02_A_ASSEMBLY_V001",
+    "approval_status": "APPROVED",
+    "lifecycle": "CURRENT",
+    "approved_on": "2026-09-28",
+    "distinction": "S02_A_ASSEMBLY_PROOF_V002_COMPAT_IS_SOURCE_PROOF_NOT_NEW_FORMAL_MASTER_V002",
+    "limits": "Negative search of formal records only; do not claim all branches or all historical chats exhaustively prove no later exploratory candidate",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/P0_3_VIDEO_MASTER_STATUS_AND_LOCAL_SYNC_HANDOFF_2026-11-13.md"
   }
 }
