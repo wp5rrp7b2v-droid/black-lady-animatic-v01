@@ -47,3 +47,18 @@
 4. B 通过静帧延长末镜，只是验证剪辑节奏的权宜方法；**没有重制或延长正式已批准 V018 母版**。
 
 **Gate**：A/B 技术可比性 PASS；B 是否比 A 自然、应不应该直接采用、第一句实际口播语义与最终P02正式门镜是否匹配，均 **PO VISUAL/LISTENING REVIEW PENDING**。在 PO 观感反馈前不宣布 B 为正式优选，也不制作大量后续镜头或修改 Video Index。两份临时 MP4 仅当前会话交付，不宣称已上传 Google Drive。
+
+
+## 2026-11-13 追加｜C 版「空间建立式」最小视频验证
+Product Owner 试听 A/B 后反馈「其实差别感觉不是很大」，属于已获得的 PO 主观观感反证：只提前 1 秒旁白的 B 路线未展现明显收益，因此转向有实质画面信息差异的 C 路线。A/B 的技术可比性 PASS 不被推翻。
+
+**本轮 C 版已完成的可复现验证（FACT）**
+- C 文件：`P01_P02_AB_C_Space_Establish.mp4`，20.000s / 720×1280 / 24fps / 480 frames / 704088 bytes，SHA-256 `b05606a3bdbbb586ddba09e605a44ecd62142d68fa0252acc83f681aa207281e`；FFmpeg 全视频解码 PASS。
+- 对照 A：`P01_P02_AB_A_Direct_Cut.mp4`，20.000s / 480 frames / 690350 bytes，SHA-256 `c60c3c3ad32375cf2e11e438cbbc341aaee35d40673003455b088d9b94b43ccd`。
+- 时间轴：0–8.000s 继续 P01 末镜；8.000–10.750s **插入临时诡舍三楼走廊远端闭门建立镜**；10.750–20.000s 恢复 A 版同一 P02 临时闭门近景。P02原声仍于原先约8秒位置进入。仅 8.000–10.750s 的画面语义与 A 不同；预览重编码导致的画面字节差异不被当作故事变化。
+- C 直接复用 A 的已编码音频流，无任何重配音、音频位移或声桥；A/C 独立解码 48 kHz 双声道 PCM 的 SHA-256 **完全一致**：`09527b1faee0df413d845dab33aa896128e3ee2f4b9865dc973303bc2e3c4b26`，各3842048 bytes。
+- 临时走廊图：`P02_TEMP_CORRIDOR_ESTABLISH_C.png`，标注 `NON-CANONICAL · NOT APPROVED`；不得将其误认为正式诡舍走廊 Scene Master、正式无字门或P02 Story Shot；同样适用于旧版闭门占位图。C 测试视频只在会话内交付，不声称已传 Drive 或 GitHub 二进制。
+
+**PASS（技术可比性）**：源音一致、时间轴一致、三个画面区间可复核、原 P01 V018 母版未经修改。**UNKNOWN / PO REVIEW PENDING**：2.75s 空间交代是否对叙事突兀感有实质改善，真实正式 P02 镜头的地点/门体是否成立。未经 PO 观感复核不得认定 C 优于 A，也不得以图形占位的视觉效果代替最终画面验收。
+
+**最小下一步**：对照观看 A 与 C 的第8–11秒。若 C 改善地点识别，优先准备仅 P02 诡舍走廊/封闭木门的 Scene Reference 最小设计，并与获批 P03A 空间连续性核验；若 C 仍突兀，返回叙事交代与原声边界检查，而非继续增加镜头数量。其他正式资产 / Story Shot Registry / Video Index / P0.3 Gate 均保持原状。
