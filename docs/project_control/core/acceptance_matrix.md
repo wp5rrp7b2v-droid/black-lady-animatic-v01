@@ -10,7 +10,14 @@
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
 | P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 35 FORMAL STORY SHOTS / 3 FORMAL VIDEOS / OPENING AUDIO-ONLY PO LISTENING PASS / NOT YET VALIDATED** |
+| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 49 FORMAL STORY SHOTS / 5 HISTORIC APPROVED VIDEOS (4 CURRENT) / S02-B V019 FINAL MASTER PO APPROVED / NOT YET GATE VALIDATED** |
+
+
+## P0.3 当前增量验证｜2026-11-13：S02-B V019 定稿晋升
+
+- Product Owner 明确决定：S02-B 现行最终母版由 V001 改为 `S02_B_ASSEMBLY_V019`；原 V001 已历史批准的事实不变，但生命周期更新为 `SUPERSEDED`。
+- V019 GitHub 原件与 Drive 回读精确 SHA / bytewise cmp PASS；Drive 仅移动并重命名元数据，无重编码。正式索引 5 条历史 Approved、4 条 CURRENT；其他 3 条 CURRENT 母版及 49 Story Shots、239 audits 不变。
+- 这项独立视频批准仍不满足 P0.3 整体 Gate 的独立完整验收。原有历史验证记录不改变。正式收尾：`docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md`。
 
 ## P0.3 Current Validation Note｜2026-09-25
 
