@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R419",
-  "last_updated": "2026-11-07",
-  "session_status": "2026-11-07 MAC RC-029 FAST-FORWARD LOCAL SYNC PASS AT 8c7befafe96947510689095f41d67a04c184ae5c / TWO UNTRACKED LOCAL CONSOLE FOLDERS PRESERVED / LATER METADATA-ONLY RECEIPT COMMIT CLOUD-ONLY UNTIL NEXT ROUTINE SYNC / V011 PO REJECTED / V008 26–43s SCOPED PASS PRESERVED / 49 STORY SHOTS 239 AUDITS 3 FORMAL VIDEOS / P0.3 IN PROGRESS",
+  "state_revision": "R420",
+  "last_updated": "2026-11-13",
+  "session_status": "2026-11-13 OPENING P01 V018 PO APPROVED / DRIVE EXACT-BINARY VERIFIED / VIDEO INDEX REGISTERED 4/4 READBACK PASS / 49 STORY SHOTS / 239 AUDITS / 4 FORMAL VIDEOS / P0.3 IN PROGRESS; Mac last verified local sync remains 2026-11-07",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "LOCAL SYNC CHECKPOINT VERIFIED PASS 2026-11-07; NEXT P01 WORK: DIAGNOSE V011 AUDIOVISUAL REJECTION WITHOUT REVISING APPROVED V008 26–43s",
+  "current_task": "OPENING P01 V018 APPROVED MASTER REGISTERED AND CLOSED; NEXT: P01→P02 AUDIO/VISUAL CONTINUITY MINIMUM PROOF",
   "blocker": "No Mac local sync blocker at verified SHA 8c7befa. V011 PO rejected; specific audiovisual reason remains UNKNOWN. Follow-on R419 metadata commit is cloud-only and will be pulled at next routine sync.",
-  "next_action": "Do not repeat local pull for this 2026-11-07 receipt. Resume from V011 PO REJECTED and V008 26–43s approved baseline; clarify concrete failing audio-to-shot alignment before any V012. Keep canonical assets and formal video index unchanged. At next RC-029 routine sync, pull accumulated metadata.",
+  "next_action": "Use the exact PO-approved V018 video master as locked P01 baseline; prepare the minimum P01→P02 transition proof with approved audio boundary and scene continuity. No V018 re-encode or overwrite; no P0.3 Gate closure without separate PO approval. Next Mac RC-029 routine local pull remains outstanding for later cloud commits.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -120,10 +120,10 @@
     "rule": "Codex Cloud native PR publication is the verified remote publication path; shell-level git push credentials are not a baseline requirement. GitHub remote truth must be independently checked before merge."
   },
   "latest_checkpoint": {
-    "id": "2026-11-07-MAC-FAST-FORWARD-PASS-R419",
-    "date": "2026-11-07",
-    "status": "MAC_FAST_FORWARD_PASS_AT_8c7befa__LOCAL_HEAD_EQ_ORIGIN_MAIN_EQ_GITHUB_MAIN_BEFORE_RECEIPT__V011_PO_REJECTED__V008_MIDDLE_PASS__49_SHOTS_3_FORMAL_VIDEOS",
-    "report": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md",
+    "id": "2026-11-13-P01-V018-PO-APPROVED-EXACT-REGISTERED-R420",
+    "date": "2026-11-13",
+    "status": "P01_V018_PO_APPROVED_DRIVE_EXACT_VERIFIED_INDEX_REGISTERED_4_VIDEOS_P0_3_ACTIVE",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md",
     "completed": [
       "V007 PO audio-visual fail documented: shoulder arrives late and cuts are too fragmented.",
       "V008 11 editorial segments with 10 cuts instead of V007 18 segments/17 cuts.",
@@ -142,14 +142,14 @@
       "2026-11-07 user Mac terminal proved successful ff-only pull after transient curl18; HEAD=origin/main=GitHub main exact 8c7befafe96947510689095f41d67a04c184ae5c; untracked console folders preserved."
     ],
     "blockers": [
-      "V011 PO audiovisual rejection reason remains unidentified; V008 26–43s approval remains in force."
+      "P01 V018 sequence approved and registered; P01→P02 contiguous audiovisual transition not yet verified; P0.3 Gate remains active."
     ],
     "registry_counts": {
       "entities": 35,
       "assets": 111,
       "audit_events": 239,
       "story_shots": 49,
-      "formal_videos": 3
+      "formal_videos": 4
     },
     "last_verified_local_head": "8c7befafe96947510689095f41d67a04c184ae5c",
     "last_verified_local_date": "2026-11-07",
@@ -548,13 +548,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V338",
+    "version": "V339",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R419 / 2026-11-07 MAC SYNC PASS TO 8c7befa / V011 REJECTED / V008 26-43s PO PASS / 49 SHOTS 3 VIDEOS / P0.3 ACTIVE",
-    "derived_from_revision": "R419",
-    "last_updated": "2026-11-07",
-    "current_task": "Local RC-029 checkpoint PASS; resume V011 failure diagnosis"
+    "status": "DERIVED R420 / 2026-11-13 OPENING P01 V018 APPROVED / VIDEO INDEX 4 / 49 SHOTS 239 AUDITS / P0.3 ACTIVE",
+    "derived_from_revision": "R420",
+    "last_updated": "2026-11-13",
+    "current_task": "P01 V018 registered; next P01→P02 transition proof"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -571,9 +571,9 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-07 MAC RC-029 SYNC RECEIPT PASS AT 8c7befa; not a full new daily artistic closeout; cloud receipt metadata will await next local pull",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_INS00_INS04_INS05_INS06_INS07_INS08_INS09_EXACT_REGISTRATION_CLOSEOUT_2026-11-03.md",
-    "last_formal_closeout_status": "2026-11-03 P01 7/7 PO APPROVED INS ORIGINAL PNG EXACT REGISTERED / 49 SHOTS / ACTIONS 41672117062 PASS / INS05 PNG CORRECTION LOCKED",
-    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md"
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md",
+    "last_formal_closeout_status": "2026-11-13 OPENING P01 V018 PO APPROVED / DRIVE EXACT BINARY PASS / VIDEO INDEX RECORD 4/4 API READBACK PASS / P0.3 IN PROGRESS",
+    "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md"
   },
   "p0_3_motion_validation": {
     "as_of": "2026-09-25",
@@ -6212,5 +6212,19 @@
     ],
     "receipt_path": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md",
     "following_receipt_commit_unpulled": "EXPECTED_UNTIL_NEXT_ROUTINE_SYNC"
+  },
+  "opening_p01_v018_2026_11_13": {
+    "status": "PO_APPROVED__DRIVE_EXACT_BINARY_PASS__VIDEO_INDEX_REGISTERED__REGISTRATION_READBACK_PASS",
+    "video_id": "OPENING_P01_ASSEMBLY_V001",
+    "approved_candidate": "V018",
+    "approved_date": "2026-11-13",
+    "sha256": "8ae976d15c78dceed9b139ed389c0c46bfe78b89a448cb3e2fe3b6b0850cb445",
+    "byte_size": 6908903,
+    "drive_file_id": "1af5UBDegm-X6Jjq5jq8aJH8JkpOjY7hZ",
+    "verified": "DRIVE_DOWNLOAD_SHA_AND_BYTEWISE_CMP_PASS__GITHUB_INDEX_4_OF_4_READBACK_PASS",
+    "video_registry_count": 4,
+    "story_shots": 49,
+    "p0_3_gate": "IN_PROGRESS",
+    "report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_V018_PO_APPROVED_EXACT_VIDEO_CLOSEOUT_2026-11-13.md"
   }
 }
