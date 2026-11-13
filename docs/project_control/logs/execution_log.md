@@ -4053,3 +4053,14 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - 输出 `LOCAL HEAD` 与 `ORIGIN MAIN` 均为 `8c7befafe96947510689095f41d67a04c184ae5c`；Chat独立读取GitHub main同SHA，构成独立三方一致 PASS。两套未追踪本地console目录仍保留。
 - 同步完成后只在GitHub追加本次收据和R419/V338，属于**后续云端元数据提交**，不宣称Mac已经包含新增收据；按RC-029不需要二次pull。
 - 当前正式49 Story Shots、239审计、3视频不变；V011仍PO拒绝、V008 26–43秒局部批准保留。收据 `docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-07.md`。
+
+
+## 2026-11-13｜S02-B V019 最终母版晋升与原 V001 历史归档（R421）
+
+- PO 将已视觉通过的 V019 明确批准为 S02-B 唯一最终定稿母版（新授权改变历史 CURRENT 指针，不追溯改写 10 月 V019 原审批范围）。
+- 原 GitHub V019 MP4 25,595,015 bytes / SHA-256 `b52476fc7201b31d7882475b755c6a41c1e2276690045bb1590e4e351c0bf28d`；与私有 Google Drive 独立重新获取文件的 SHA-256 与 cmp：PASS，720×1280/30fps/1927 帧。
+- Drive V019 ID `1wS5SwuuhPebne2OkY9n0HKI3cjqMRcoT`（顶层最终母版，仅元数据移动改名）。V001 ID `16No99iizefd_dEzIsZcVLeoXNxiuvit4`（80_历史正式母版_已被取代，未重命名或重编码）。
+- GitHub `production/video/video_index.jsonl`：新增 V019 `APPROVED/CURRENT`；V001 原批准事实保留 `APPROVED/SUPERSEDED`。5 条独立历史 Approved 记录，4 个 CURRENT 母版；注册核验回读 PASS。
+- `S02_B_ITERATIONS_V001.json` 追加新母版选择事件，不改旧版二进制或历史批准事实。
+- Project Control R421 / Dashboard V340；Story Shots49、Audit239，不更动 P0.3 IN PROGRESS；Mac 本地同步未执行。
+- 完整收尾报告：`docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md`。
