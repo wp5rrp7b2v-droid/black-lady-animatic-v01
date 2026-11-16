@@ -1,0 +1,97 @@
+{
+  "source_baseline": "4417fc03af1c19827fa8211d94a5837d8f46e4df",
+  "composition_id": "P03-Opening-Audio-Comic-Proof-V001",
+  "shots": [
+    {
+      "shot_id": "A01",
+      "canonical_path": "production/image_library/approved/A_Series/A01_REBOOT_approved_v001.png",
+      "locked_sha256": null,
+      "start_frame": 0,
+      "duration_frames": 98,
+      "scale": [
+        1,
+        1.035
+      ],
+      "anchor": "50% 50%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "A02",
+      "canonical_path": "production/image_library/approved/A_Series/A02_REBOOT_approved_v001.png",
+      "locked_sha256": null,
+      "start_frame": 98,
+      "duration_frames": 99,
+      "scale": [
+        1,
+        1.04
+      ],
+      "anchor": "50% 50%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "N02",
+      "canonical_path": "production/image_library/approved/story_shots/N02_NEIL_CONTINUED_EXPLANATION_APPROVED_V001.png",
+      "locked_sha256": "56ff80f51b38c05c0305c40b6a97947d992a544f2454e4a339684b80783c8e50",
+      "start_frame": 197,
+      "duration_frames": 127,
+      "scale": [
+        1,
+        1.03
+      ],
+      "anchor": "50% 50%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "N03",
+      "canonical_path": "production/image_library/approved/story_shots/N03_VISITOR_REACTION_APPROVED_V001.png",
+      "locked_sha256": "0e5022a59d7e33e30e0fdea74c966ff8e84a3084ca869fcbc4d76052e8ec6c22",
+      "start_frame": 324,
+      "duration_frames": 120,
+      "scale": [
+        1,
+        1.04
+      ],
+      "anchor": "50% 50%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "N04",
+      "canonical_path": "production/image_library/approved/story_shots/N04_NEIL_WELCOME_CLOSING_APPROVED_V001.png",
+      "locked_sha256": "183a409864b2c58186cfa34896e459cd6491e67098c0810614205eca9b534e02",
+      "start_frame": 444,
+      "duration_frames": 147,
+      "scale": [
+        1,
+        1.025
+      ],
+      "anchor": "50% 50%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "N05",
+      "canonical_path": "production/image_library/approved/story_shots/N05_NEIL_TURN_THRESHOLD_ACTION_APPROVED_V001.png",
+      "locked_sha256": "0b9690739e63d253ac643ae66acb4653818f4c45898c3b5db83e9de0236536ab",
+      "start_frame": 591,
+      "duration_frames": 168,
+      "scale": [
+        1,
+        1.035
+      ],
+      "anchor": "50% 100%",
+      "motion_rule": "linear restrained push"
+    },
+    {
+      "shot_id": "N01",
+      "canonical_path": "production/image_library/approved/story_shots/N01_CASTLE_PAUSE_APPROVED_V001.png",
+      "locked_sha256": "a96d52410c1645711545c80b7fe4e3eaa3e8f00b088ebaaea210bbdbec84557b",
+      "start_frame": 759,
+      "duration_frames": 142,
+      "scale": [
+        1.03,
+        1
+      ],
+      "anchor": "50% 75%",
+      "motion_rule": "linear pull-back"
+    }
+  ]
+}
