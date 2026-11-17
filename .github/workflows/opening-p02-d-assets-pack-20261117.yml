@@ -1,0 +1,53 @@
+name: Opening P02 D01-D03 Canonical Exact Asset Delivery
+on:
+  push:
+    branches:
+      - validation/opening-p01-p02-d-assets-v001-20261117
+    paths:
+      - '.github/workflows/opening-p02-d-assets-pack-20261117.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          persist-credentials: false
+      - name: Verify three canonical PNG exact bytes and make delivery
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, shutil, struct
+          root=Path('production/image_library/approved/story_shots')
+          targets={
+            'OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_APPROVED_V001.png':('7732555dde7f3395f08854b9f56ea3e857a4e58248dec3c2ce108b76b6f44dde',(940,1672)),
+            'OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_APPROVED_V001.png':('4098fc1fe5af158b459b2d2575ccbd4db648a4fee6ce8b05f6eb69f3d58b51dc',(941,1672)),
+            'OPENING_P02_D03_CLOSED_BLOOD_WOODEN_DOOR_APPROVED_V001.png':('f1c706e7ed60accf169e75a8b1d131974489c438bf179b093847ec3860fd43c3',(941,1672)),
+          }
+          out=Path('delivery'); out.mkdir()
+          result={'source_commit':'28765128f72b01be30e6de69d6256e77b6a374af','source':'canonical GitHub approved story shots','images':[]}
+          for name,(want,wh) in targets.items():
+            p=root/name
+            data=p.read_bytes()
+            sha=hashlib.sha256(data).hexdigest()
+            assert sha==want,(name,sha,want)
+            assert data[:8]==b'\x89PNG\r\n\x1a\n',name
+            size=struct.unpack('>II',data[16:24])
+            assert size==wh,(name,size,wh)
+            shutil.copyfile(p,out/name)
+            result['images'].append(dict(name=name,sha256=sha,width=size[0],height=size[1],bytes=len(data)))
+            print('PASS',name,sha,size)
+          (out/'canonical_manifest.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+          print('EXACT_CANONICAL_TRIPLE_PASS')
+          PY
+      - name: Upload non-audio reference images
+        uses: actions/upload-artifact@v4
+        with:
+          name: opening-p02-d01-d03-exact-png-delivery-v001
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 7
