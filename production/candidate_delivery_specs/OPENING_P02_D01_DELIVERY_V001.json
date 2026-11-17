@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "OPENING_P02_D01",
+  "sequence_id": "OPENING_P01_TO_P02_D",
+  "candidate_id": "OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_PO_APPROVED",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_CONVERTED_PNG_REVIEW.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 940,
+    "height": 1672,
+    "byte_size": 2339571,
+    "sha256": "7732555dde7f3395f08854b9f56ea3e857a4e58248dec3c2ce108b76b6f44dde",
+    "git_blob_sha1": "66e561b3a23f0356db55239a8d2c6de22d62afc2"
+  },
+  "target_staging_path": "staging/story_shot_candidates/OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_CONVERTED_PNG_REVIEW.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_APPROVED_V001.png",
+  "dimension_status": {
+    "preferred_target": "941x1672",
+    "approved_exact_binary": "940x1672",
+    "status": "PO_ACCEPTED_SINGLE_PIXEL_WIDTH_EXCEPTION",
+    "resize_forbidden": true
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  },
+  "po_visual_approval": {
+    "date": "2026-11-17",
+    "verdict": "APPROVED",
+    "scope": "Opening P01→P02 D three-stage exterior→third-floor→closed blood door transition; independent still-image acceptance, not video QC",
+    "source": "Explicit PO visual approval and instruction to register selected three images; PO subsequently uploaded these exact three files to GitHub main"
+  },
+  "production_provenance": {
+    "generation_interface": "CHAT_IMAGEGEN",
+    "reference_bundle_and_work_execution": "NOT_EVIDENCED_FOR_THIS_2026_11_13_CONCEPT_BATCH",
+    "note": "Real provenance recorded without claiming verified Reference Delivery Bundle/Work. Technical intake checks do not validate this workflow-compliance issue."
+  },
+  "transport": {
+    "method": "Product Owner manual exact-image GitHub upload on main; exact bytes retained",
+    "source_git_blob": "66e561b3a23f0356db55239a8d2c6de22d62afc2",
+    "reencoding_after_upload": false
+  },
+  "upstream_format_correction": {
+    "original_po_visual_webp_sha256": "4b36a7579fcf108885e225e5c092d91992a160338f59145475f032fbe02800e9",
+    "source_actual_format": "WEBP_MISNAMED_PNG",
+    "converted_png_sha256": "7732555dde7f3395f08854b9f56ea3e857a4e58248dec3c2ce108b76b6f44dde",
+    "conversion": "Decoded RGB identical pixel-by-pixel; not original binary",
+    "po_action": "PO explicitly uploaded the provided pixel-identical PNG conversion file after being told the format difference"
+  }
+}
