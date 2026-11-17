@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R425",
+  "state_revision": "R426",
   "last_updated": "2026-11-17",
-  "session_status": "2026-11-17 OPENING P01→P02 D01-D03 3/3 PO APPROVED / GITHUB PRE-INTAKE CI 3/3 PASS / EXACT CANONICAL 3/3 PUBLISHED / 3 UNIQUE STORY SHOTS REGISTERED / GITHUB INDEPENDENT REGISTRATION ACTION 44044933964 SUCCESS / INDEX 52 AUDITS 248 / P0.3 IN PROGRESS / NO NEW VIDEO",
+  "session_status": "2026-11-17 OPENING P01→P02 D V005 14.250s PO AUDIOVISUAL APPROVED / PRIVATE DRIVE EXACT-BINARY ROUNDTRIP PASS / NEW VIDEO INDEX ID REGISTERED + API READBACK PASS / 6 APPROVED HISTORICAL VIDEOS 5 CURRENT 1 SUPERSEDED / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "P01→P02 D three-shot exact registration complete; prepare minimum D-version audio-visual transition Proof from approved D01/D02/D03 with approved P01 V018 and original audio",
-  "blocker": "No P02 D01-D03 static image registration blocker. Current unresolved proof is D-version audiovisual continuity/PO editorial listening. This batch's images originated from Chat ImageGen rather than the normally required Reference Bundle→Work route; truthful lineage recorded, not retrospectively fabricated.",
-  "next_action": "Assemble minimum P01→P02 20-second D transition proof using three registered static images in far→middle→close sequence and one unchanged continuous approved audio segment; compare A/C, submit to PO for actual timing and story continuity approval. Keep P01 V018 locked; do not overproduce blood-door actions or mark P0.3 Gate PASS.",
+  "current_task": "Opening P01→P02 D V005 transition formally PO approved, archived and video-registered; next minimal proof is post-D03 P02 contract dialogue and door-action continuity",
+  "blocker": "No D V005 registration blocker. Full P02 contract action and the continuation after the D03 wooden door have not been visually or aurally approved; P0.3 remains IN PROGRESS. At V005 audio source 67.5s there is an intentional editorial silence leadout, not uninterrupted source audio.",
+  "next_action": "Review approved V005 D03 11.50–14.25s door endpoint against exact next P02 original narration cue; prepare smallest dialogue/action follow-on proof without re-editing locked P01 V018, D01–D03 PNG, or V005. Do not register unapproved additional video or set P0.3 PASS.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -550,13 +550,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V344",
+    "version": "V345",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R425 / P02 D01-D03 EXACT REGISTRATION PASS / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R425",
+    "status": "DERIVED R426 / P01→P02 D V005 14.25s PO APPROVED & EXACT REGISTERED / 6 HISTORICAL VIDEOS 5 CURRENT / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R426",
     "last_updated": "2026-11-17",
-    "current_task": "P01→P02 D transition 20s audiovisual minimum proof; P01 V018 preserved"
+    "current_task": "Continue P02 contract dialogue after approved D V005 D03 ending; no change to P01 V018 or V005"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -573,8 +573,8 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-13 RC-029 MAC FAST-FORWARD SYNCHRONIZED AND SHA-VERIFIED AT f6bc1cf; later GH metadata receipt cloud-only until next routine sync",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_D01_D03_EXACT_REGISTRATION_CLOSEOUT_2026-11-17.md",
-    "last_formal_closeout_status": "2026-11-17 3/3 P02 D Story Shots exact published/index registered; independent GitHub Actions 44044933964 SUCCESS / Story Shots 52 Audit 248 / P0.3 still IN PROGRESS / Mac local sync not evidenced for current HEAD",
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_P02_D_V005_PO_APPROVAL_EXACT_PUBLICATION_CLOSEOUT_2026-11-17.md",
+    "last_formal_closeout_status": "2026-11-17 PO APPROVED 14.25s D V005; DRIVE EXACT-BINARY and GitHub 6/6 Video Index READBACK PASS; 52 SHOTS 248 AUDITS; P0.3 IN PROGRESS; Mac local sync not evidenced",
     "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-13.md"
   },
   "p0_3_motion_validation": {
@@ -6250,10 +6250,11 @@
     "report": "docs/project_control/gates/P0_3_video_pipeline/S02_B_V019_FINAL_MASTER_PO_PROMOTION_CLOSEOUT_2026-11-13.md"
   },
   "video_registry_counts": {
-    "all_approved_historical_records": 5,
-    "current_formal_masters": 4,
+    "all_approved_historical_records": 6,
+    "current_formal_masters": 5,
     "superseded_historical": 1,
-    "s02b_current_video_id": "S02_B_ASSEMBLY_V019"
+    "s02b_current_video_id": "S02_B_ASSEMBLY_V019",
+    "opening_p01_p02_d_transition_video_id": "OPENING_P01_P02_D_TRANSITION_V001"
   },
   "s02_a_latest_po_approval_review_2026_11_13": {
     "status": "NO_LATER_FORMAL_PO_VISUAL_APPROVED_REPLACEMENT_FOUND_IN_INDEX_OR_RELEVANT_PROJECT_CONTROL",
@@ -6338,5 +6339,29 @@
       "OPENING_P02_D03"
     ],
     "next_technical_gate": "P01_TO_P02_D_A_V_TRANSITION_PO_REVIEW"
+  },
+  "opening_p01_p02_d_v005_2026_11_17": {
+    "status": "PO_APPROVED__DRIVE_EXACT_BINARY_PASS__VIDEO_INDEX_REGISTERED__INDEPENDENT_READBACK_PASS",
+    "video_id": "OPENING_P01_P02_D_TRANSITION_V001",
+    "approved_candidate": "V005",
+    "date": "2026-11-17",
+    "duration_sec": 14.25,
+    "frames": 342,
+    "sha256": "2f5220c7afb9519ecbc5e5dc6f1464b49dfe423c1ff31dee538300ec0421d641",
+    "byte_size": 2319943,
+    "drive_file_id": "1v4WP7-czwbNi1Sxx36fk3jvphE4M7vct",
+    "drive_url": "https://drive.google.com/file/d/1v4WP7-czwbNi1Sxx36fk3jvphE4M7vct/view",
+    "source_p01_v018_locked": true,
+    "approved_shot_motion": "D01 STATIC, D02 zoom 1.24x, D03 zoom 1.20x",
+    "source_audio": "OPENING_P01_P04_NEIL_COMPACT_AUDIO_PROOF_V001",
+    "audio_scope": "P01 approved tail, P02 想要参与试炼 lead-in at D01; 2.35s intentional ending silence; next 孟军让君鹭远伸出手 excluded",
+    "technical_verification": "FFMPEG_FULL_DECODE_PASS__DRIVE_SHA256_SIZE_AND_BYTEWISE_CMP_PASS",
+    "video_registration": "6 UNIQUE VIDEO IDS__5 CURRENT__1 SUPERSEDED__GITHUB_API_READBACK_PASS",
+    "prior_registration_commit": "1b1831631eab4848d0fa455cbb4aa3191993acf0",
+    "closeout_report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_P02_D_V005_PO_APPROVAL_EXACT_PUBLICATION_CLOSEOUT_2026-11-17.md",
+    "story_shots": 52,
+    "audit_events": 248,
+    "p0_3_gate": "IN_PROGRESS",
+    "local_mac_sync": "NOT_CHECKED_IN_THIS_SESSION"
   }
 }
