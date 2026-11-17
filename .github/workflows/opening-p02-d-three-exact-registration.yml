@@ -1,0 +1,69 @@
+name: Opening P02 D Three Approved Shots Exact Registration
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/opening-p02-d-three-exact-registration.yml"
+      - "production/story_shots/story_shot_index.jsonl"
+      - "production/image_library/approved/story_shots/OPENING_P02_D*.png"
+      - "production/asset_registry/audit_event_log.jsonl"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent_registration_verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
+      - name: Verify three original-versus-canonical exact binaries and formal registrations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,struct,subprocess
+          from pathlib import Path
+          sources=Path("staging/story_shot_candidates")
+          target=Path("production/image_library/approved/story_shots")
+          data=[
+            ("01","OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_CONVERTED_PNG_REVIEW.png","OPENING_P02_D01_GHOST_HOUSE_EXTERIOR_APPROVED_V001.png",2339571,940,1672,"7732555dde7f3395f08854b9f56ea3e857a4e58248dec3c2ce108b76b6f44dde","66e561b3a23f0356db55239a8d2c6de22d62afc2"),
+            ("02","OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_PO_APPROVED_ORIGINAL.png","OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_APPROVED_V001.png",1645509,941,1672,"4098fc1fe5af158b459b2d2575ccbd4db648a4fee6ce8b05f6eb69f3d58b51dc","837a62335fccdcef5c076ddd2313a42127846310"),
+            ("03","OPENING_P02_D03_CLOSED_BLOOD_WOODEN_DOOR_PO_APPROVED_ORIGINAL.png","OPENING_P02_D03_CLOSED_BLOOD_WOODEN_DOOR_APPROVED_V001.png",1805752,941,1672,"f1c706e7ed60accf169e75a8b1d131974489c438bf179b093847ec3860fd43c3","75dd1c13fdf31a4794c9a8f5dd10aff101ee3811")
+          ]
+          rows=[json.loads(x) for x in Path("production/story_shots/story_shot_index.jsonl").read_text(encoding="utf8").splitlines() if x.strip()]
+          audits=[json.loads(x) for x in Path("production/asset_registry/audit_event_log.jsonl").read_text(encoding="utf8").splitlines() if x.strip()]
+          assert len(rows)>=52, f"SHOTS_BELOW_D_BATCH:{len(rows)}"
+          assert len(audits)>=248, f"AUDITS_BELOW_D_BATCH:{len(audits)}"
+          ids=[x["shot_id"] for x in rows]
+          audit_ids=[x["event_id"] for x in audits]
+          assert len(ids)==len(set(ids)), "DUPLICATE_SHOT_ID"
+          assert len(audit_ids)==len(set(audit_ids)), "DUPLICATE_AUDIT_EVENT_ID"
+          for d,src_name,dst_name,size,w,h,sha,blob in data:
+              shot="OPENING_P02_D"+d
+              src=sources/src_name
+              dst=target/dst_name
+              assert src.is_file() and dst.is_file(), f"{shot}:FILE_MISSING"
+              a,b=src.read_bytes(),dst.read_bytes()
+              assert a==b, f"{shot}:BINARY_DIFF"
+              assert len(a)==size, f"{shot}:BYTE_SIZE"
+              assert a[:8]==bytes.fromhex("89504e470d0a1a0a"), f"{shot}:NOT_PNG"
+              assert struct.unpack(">II",a[16:24])==(w,h), f"{shot}:DIMENSION"
+              assert hashlib.sha256(a).hexdigest()==sha, f"{shot}:SHA256"
+              for p in (src,dst):
+                  assert subprocess.check_output(["git","hash-object",str(p)],text=True).strip()==blob, f"{shot}:GIT_BLOB"
+              matches=[x for x in rows if x["shot_id"]==shot]
+              assert len(matches)==1, f"{shot}:INDEX_CARDINALITY"
+              row=matches[0]
+              assert row["asset_class"]=="STORY_SHOT"
+              assert row["approval_status"]=="APPROVED" and row["lifecycle"]=="CURRENT", f"{shot}:APPROVAL"
+              assert row["canonical_path"]==dst.as_posix() and row["source_staging_path"]==src.as_posix(), f"{shot}:PATH"
+              assert row["sha256_locked_identity"]==sha and row["github_blob_sha"]==blob and row["rename_preserved_exact_git_blob"] is True, f"{shot}:BINARY_IDENTITY"
+              assert row["byte_size"]==size and row["dimensions"]=={"width":w,"height":h} and row["image_format"]=="PNG", f"{shot}:INDEX_METADATA"
+              events=[x for x in audits if x.get("shot_id")==shot and x.get("event_id","").startswith("EVT_20261117_P02_D"+d+"_")]
+              assert len(events)==3, f"{shot}:EVENT_CARDINALITY"
+              assert sorted(x["event_type"] for x in events)==["STORY_SHOT_APPROVED","STORY_SHOT_CANONICAL_PUBLISHED","STORY_SHOT_REGISTERED"], f"{shot}:EVENT_TYPES"
+              print("P02_D_EXACT_REGISTRATION_PASS",shot,sha,blob,f"{w}x{h}")
+          print("OPENING_P02_D_THREE_EXACT_REGISTRATION_PASS__AT_LEAST_52_SHOTS_248_AUDITS")
+          PY
