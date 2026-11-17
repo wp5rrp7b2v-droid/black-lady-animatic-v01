@@ -10,8 +10,15 @@
 |---|---|---|---|
 | P0.1｜故事与文本数据基线 | 以后依据哪套文字与声音事实工作？ | S1 / S2 / canonical audio 固定版本；S3 职责与验证等级锁定；完整 MVP1 建立 machine-searchable source-audio index；抽查可从剧情/台词内容定位到正确候选原音区域；不要求全量毫秒级精切 | **PASS / PRODUCT OWNER APPROVED** |
 | P0.2｜人物锚定与 Scene Master 资产治理 | 视觉资产如何标准化、自动选择、自动登记并可追溯地进入生产？ | 完成现有资产 authority audit；建立统一 Entity / Asset Registry；主要人物采用统一 Character Core Set；建立 Scene / Costume / Prop / State / Variant 规范；Approval 与 Lifecycle 分离；定义 Atomic Master / Reference Sheet / dependency；建立 Naming / Version / Storage / Automatic Ingest / Audit Trail；定义并验证 `Shot / Task Spec → Reference Resolver → Reference Package`；使用现有《黑衣夫人》资产做一次真实迁移与自动选图验证 | **PASS / PRODUCT OWNER APPROVED** |
-| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 49 FORMAL STORY SHOTS / 5 HISTORIC APPROVED VIDEOS (4 CURRENT) / S02-B V019 FINAL MASTER PO APPROVED / NOT YET GATE VALIDATED** |
+| P0.3｜视频制作与剪辑 Pipeline 再验证 | 从静态视觉和原音到真正可接受成片，什么方法实际可行？ | 复盘已有失败；验证 shot-driven Audio Alignment / Resolver、原音自动检索与提取、Animatic、动态化、剪辑、Remotion 职责；最终以代表性实际视频结果作为可行性证据 | **IN PROGRESS / 52 FORMAL STORY SHOTS / 248 AUDIT EVENTS / 5 HISTORIC APPROVED VIDEOS (4 CURRENT) / S02-B V019 FINAL MASTER PO APPROVED / NOT YET GATE VALIDATED** |
 
+
+## P0.3 当前增量验证｜2026-11-17：Opening P02 D01–D03 静图正式登记
+
+- PO 已批准诡舍外观→三楼→旧血色木门三张静图并按指定文件上传 GitHub；D01 按真实 940×1672 的逐像素一致 PNG 原样登记，D02/D03 均 941×1672。
+- 入库 Actions `44044324515 / 44044329337 / 44044335597` 3/3 SUCCESS；Git Blob 原样 Canonical 发布，Index `49→52`、Audit `239→248`；独立后验 `44044933964` SUCCESS。
+- 来源局限：Chat ImageGen 候选，无已核验 Bundle→Work 原始生成链；不倒填历史。**视频声画转场尚未制作及 PO 审批**，P0.3 整体仍 IN PROGRESS。
+- 证据：`docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_D01_D03_EXACT_REGISTRATION_CLOSEOUT_2026-11-17.md`。
 
 ## P0.3 当前增量验证｜2026-11-13：S02-B V019 定稿晋升
 
