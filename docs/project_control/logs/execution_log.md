@@ -4081,3 +4081,13 @@ Status: PREPARED / PRODUCT OWNER REVIEW NEXT
 - `git status --short` 只有 `?? BlackLadyLocalConsole/` 和 `?? BlackLadyLocalConsolePrivate/`，这些未跟踪目录仍保留，不涉及文件覆盖；没有已跟踪文件冲突的终端证据。
 - 本次 Mac 同步检查点 **PASS**，并非仅网络诊断成功。同期正式母版 S02-A V001、S02-B V019，Video Index 5 historical approved / 4 current，Story Shots 49，Audits 239，P0.3 IN PROGRESS。
 - 本次事实收据：`docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-13.md`。收据及 R423 / Dashboard V342 等均为同步检查点后的 GitHub **云端元数据新提交**，不能因此宣称 Mac 已取得这些后续提交，也不要求本次夜间进行第二次 pull。
+
+
+## 2026-11-17｜Opening P02 D01–D03 完整登记
+
+- PO 明确视觉批准外景、三楼、闭门三张，选择/上传具体原件：D01 来自原 WebP 的逐像素相同 PNG（940×1672），D02/D03 为原始 PNG（941×1672）。原始选择、尺寸、哈希见正式 Closeout。
+- GitHub staging 上传 Commit `d183a0e`；3 个 Candidate Delivery Specs 发布；GitHub Actions `44044324515`、`44044329337`、`44044335597` 独立原件入库全部 SUCCESS。
+- Canonical 3 个相同 Git Blob 与 Story Shot Index 49→52 / Audit 239→248 原子发布 Commit `4ae3d799cb9eb01ba58300793fb2705144678d09`，无需重编码；初次后验发现 D1/D2/D3 审计事件 ID 命名疏漏，仅修正事件 ID Commit `1af4d774a446f1089c599613ad2c366a62c2450b`，图片及索引不变。
+- 后验 GitHub Actions `44044933964` SUCCESS：3/3 staging/canonical byte-equal、SHA-256、尺寸、Git Blob、唯一 APPROVED/CURRENT Index、9 条 Audit event 皆 PASS。P01旧镜与白潇潇参考回归 SUCCESS。
+- 三镜实为 Chat ImageGen 生产、没有经验证的 Work/Reference Bundle；不倒填生产来源。图像登记四门已 PASS，但对 D版完整声音视频未有 PO 审批；P01 V018、原声音源与旧正式 Scene Master 不变；P0.3 IN PROGRESS。Mac 本地 HEAD 未取得今天的新同步证据。
+- Project State R425 / Dashboard V344；正式报告：`docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_D01_D03_EXACT_REGISTRATION_CLOSEOUT_2026-11-17.md`。
