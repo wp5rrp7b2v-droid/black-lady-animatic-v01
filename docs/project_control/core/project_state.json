@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R423",
-  "last_updated": "2026-11-13",
-  "session_status": "2026-11-13 MAC RC-029 FAST-FORWARD LOCAL SYNC PASS AT f6bc1cf26a7aec291aca247643113f2001b6757c / THREE-WAY SHA MATCH CONFIRMED / TWO UNTRACKED CONSOLE FOLDERS PRESERVED / CLOUD-ONLY METADATA RECEIPT SUBMITTED AFTER CHECKPOINT / S02-A V001 CURRENT / S02-B V019 FINAL CURRENT / 5 HISTORIC APPROVED VIDEOS 4 CURRENT / 49 STORY SHOTS 239 AUDITS / P0.3 IN PROGRESS",
+  "state_revision": "R424",
+  "last_updated": "2026-11-17",
+  "session_status": "2026-11-17 P01→P02 D three-shot PO VISUAL APPROVAL 3/3 / local original source exact identity established / D01 WEBP format mismatch / D02 D03 PNG local PASS / GitHub canonical + formal registration BLOCKED / 49 STORY SHOTS 239 AUDITS / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "MAC RC-029 VERIFIED FAST-FORWARD PASS AT f6bc1cf ON 2026-11-13; NEXT PRODUCTION UNIT P01→P02 AUDIOVISUAL TRANSITION MINIMUM PROOF",
-  "blocker": "No Mac local sync blocker at verified SHA 8c7befa. V011 PO rejected; specific audiovisual reason remains UNKNOWN. Follow-on R419 metadata commit is cloud-only and will be pulled at next routine sync.",
-  "next_action": "Local Mac sync already passed at verified checkpoint f6bc1cf26a7aec291aca247643113f2001b6757c; do NOT request another local pull merely to include this subsequent cloud sync receipt. When resuming project production, verify P01→P02 transition against approved P01 V018 and applicable audio, retaining S02-A V001 and final S02-B V019 as current baselines.",
+  "current_task": "P01→P02 D01-D03 VISUAL PO APPROVED; exact-binary GitHub intake / Bundle-Work provenance / D01 native PNG resolution PENDING",
+  "blocker": "Formal STORY_SHOT registration FAIL-CLOSED: D01 PO-approved source is actually WEBP with a .png filename (940×1672); new lossless PNG is pixel-equal but a new binary requiring explicit adoption; no GitHub binary staging/canonical; no verified Reference Delivery Bundle→Work production provenance for these Chat-rendered concepts. Registry still 49 / audits 239.",
+  "next_action": "Preserve all three approved visual decisions. Resolve D01 source format via explicit adoption of the pixel-identical PNG candidate (or formal Work PNG); satisfy locked Bundle→Work evidence; transfer source PNGs to GitHub staging using the existing authorized final-output publication bridge; then run exact intake CI, canonical exact-blob publication, index/audit registration, independent verification and Project Control closeout. Do not re-approve unchanged D02/D03 visuals or modify P01 V018.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -550,13 +550,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V342",
+    "version": "V343",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R423 / 2026-11-13 RC-029 MAC SYNC PASS at f6bc1cf / 4 CURRENT VIDEOS / S02-B V019 FINAL / 49 SHOTS 239 AUDITS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R423",
-    "last_updated": "2026-11-13",
-    "current_task": "Local sync PASS at verified f6bc1cf checkpoint; next P01→P02 transition proof"
+    "status": "DERIVED R424 / D01-D03 VISUAL APPROVED BUT FORMAL REGISTRATION PENDING / 49 SHOTS 239 AUDITS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R424",
+    "last_updated": "2026-11-17",
+    "current_task": "D01 WEBP→PNG identity and bundle/work provenance; staging upload required before formal registration"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -6280,5 +6280,48 @@
     ],
     "post_checkpoint_cloud_metadata_not_local": true,
     "report": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-13.md"
+  },
+  "opening_p02_d_three_shots_2026_11_17": {
+    "sequence": "OPENING_P01_TO_P02_D",
+    "po_visual_approval": "3_OF_3_CONFIRMED",
+    "formal_story_shot_status": "NOT_REGISTERED__FAIL_CLOSED_AT_SOURCE_AND_PROVENANCE_GATE",
+    "external_gate_report": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_D01_D03_PO_APPROVAL_AND_BINARY_INTAKE_GATE_2026-11-17.md",
+    "selected_originals": {
+      "D01": {
+        "original_format": "WEBP_MISNAMED_PNG",
+        "dimensions": {
+          "width": 940,
+          "height": 1672
+        },
+        "byte_size": 1787658,
+        "sha256": "4b36a7579fcf108885e225e5c092d91992a160338f59145475f032fbe02800e9",
+        "pixel_identical_png_review_candidate_sha256": "7732555dde7f3395f08854b9f56ea3e857a4e58248dec3c2ce108b76b6f44dde",
+        "png_candidate_approval": "PENDING_BINARY_ADOPTION"
+      },
+      "D02": {
+        "original_format": "PNG",
+        "dimensions": {
+          "width": 941,
+          "height": 1672
+        },
+        "byte_size": 1645509,
+        "sha256": "4098fc1fe5af158b459b2d2575ccbd4db648a4fee6ce8b05f6eb69f3d58b51dc"
+      },
+      "D03": {
+        "original_format": "PNG",
+        "dimensions": {
+          "width": 941,
+          "height": 1672
+        },
+        "byte_size": 1805752,
+        "sha256": "f1c706e7ed60accf169e75a8b1d131974489c438bf179b093847ec3860fd43c3"
+      }
+    },
+    "registry_story_shots_count": 49,
+    "registry_audit_events_count": 239,
+    "work_generation_provenance": "NOT_VERIFIED",
+    "github_canonical_png_count_new": 0,
+    "independent_registration_verification": "NOT_RUN",
+    "p0_3_gate": "IN_PROGRESS"
   }
 }
