@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "shot_id": "OPENING_P02_D02",
+  "sequence_id": "OPENING_P01_TO_P02_D",
+  "candidate_id": "OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_PO_APPROVED",
+  "product_owner_status": "APPROVED",
+  "source_upload_filename": "OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_PO_APPROVED_ORIGINAL.png",
+  "expected_identity": {
+    "format": "PNG",
+    "width": 941,
+    "height": 1672,
+    "byte_size": 1645509,
+    "sha256": "4098fc1fe5af158b459b2d2575ccbd4db648a4fee6ce8b05f6eb69f3d58b51dc",
+    "git_blob_sha1": "837a62335fccdcef5c076ddd2313a42127846310"
+  },
+  "target_staging_path": "staging/story_shot_candidates/OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_PO_APPROVED_ORIGINAL.png",
+  "downstream_canonical_target": "production/image_library/approved/story_shots/OPENING_P02_D02_THIRD_FLOOR_ENVIRONMENT_APPROVED_V001.png",
+  "dimension_status": {
+    "preferred_target": "941x1672",
+    "approved_exact_binary": "941x1672",
+    "status": "MATCHES_PREFERRED_TARGET",
+    "resize_forbidden": true
+  },
+  "constraints": {
+    "exact_product_owner_approved_png_only": true,
+    "reencode_allowed": false,
+    "resize_allowed": false,
+    "screenshot_allowed": false,
+    "manual_product_owner_github_upload_required": true
+  },
+  "po_visual_approval": {
+    "date": "2026-11-17",
+    "verdict": "APPROVED",
+    "scope": "Opening P01→P02 D three-stage exterior→third-floor→closed blood door transition; independent still-image acceptance, not video QC",
+    "source": "Explicit PO visual approval and instruction to register selected three images; PO subsequently uploaded these exact three files to GitHub main"
+  },
+  "production_provenance": {
+    "generation_interface": "CHAT_IMAGEGEN",
+    "reference_bundle_and_work_execution": "NOT_EVIDENCED_FOR_THIS_2026_11_13_CONCEPT_BATCH",
+    "note": "Real provenance recorded without claiming verified Reference Delivery Bundle/Work. Technical intake checks do not validate this workflow-compliance issue."
+  },
+  "transport": {
+    "method": "Product Owner manual exact-image GitHub upload on main; exact bytes retained",
+    "source_git_blob": "837a62335fccdcef5c076ddd2313a42127846310",
+    "reencoding_after_upload": false
+  }
+}
