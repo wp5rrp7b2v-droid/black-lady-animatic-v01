@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "OPENING_P02_C05_CONTRACT_CONTINUITY_REFERENCE_DELIVERY_BUNDLE_V001",
+  "target_shot_id": "OPENING_P02_C05",
+  "sequence_id": "OPENING_ENHANCE_P02_POST_D03_CONTRACT",
+  "target_candidate": "OPENING_P02_C05_DOOR_GAP_WRIST_GRIP_CANDIDATE_01.png",
+  "retention_days": 7,
+  "manual_product_owner_reference_upload": 0,
+  "build_authorized": true,
+  "generation_interface_constraints": {
+    "max_direct_referenced_images": 5,
+    "actual_direct_reference_count": 3,
+    "rule": "EXACT_APPROVED_D03_STORY_SHOT_PLUS_JUN_LUYUAN_IDENTITY_SHEET_AND_3Q_FACE",
+    "work_generation_authorized": true,
+    "authorization_scope": "PO_2026_11_18_START_C03_C05_TWO_STATE_MINIMUM_PROOF_ONLY",
+    "po_candidate_visual_approval": "NOT_GRANTED",
+    "output_count": 1,
+    "note": "PO said 开始 after proposed C03/C05 minimal proof; building and Work candidates authorized, no approval for outputs. D03 used as exact approved Story Shot spatial reference for continuity by current PO execution scope, not newly published Scene Master. P03A controlled anchor authority remains restricted to P03B/P04C; not included."
+  },
+  "references": [
+    {
+      "reference_id": "OPENING_P02_D03",
+      "source_type": "STORY_SHOT",
+      "shot_id": "OPENING_P02_D03",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "canonical_path": "production/image_library/approved/story_shots/OPENING_P02_D03_CLOSED_BLOOD_WOODEN_DOOR_APPROVED_V001.png",
+      "expected_sha256": "f1c706e7ed60accf169e75a8b1d131974489c438bf179b093847ec3860fd43c3",
+      "expected_git_blob": "75dd1c13fdf31a4794c9a8f5dd10aff101ee3811",
+      "expected_byte_size": 1805752,
+      "expected_width": 941,
+      "expected_height": 1672,
+      "expected_format": "PNG",
+      "destination_group": "approved_d03_door_spatial_continuity",
+      "authority_purpose": "SAME_APPROVED_D03_GHOST_HOUSE_THIRD_FLOOR_DOOR_BEFORE_CONTRACT_NO_TRIAL_TEXT"
+    },
+    {
+      "reference_id": "AST_IMG_000057",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "CHARACTER_REFERENCE_SHEET",
+      "asset_class": "DERIVED_REFERENCE",
+      "authority_class": "DERIVED",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/derived_reference_sheets/jun_luyuan/CHAR_JUN_LUYUAN_CHARACTER_REFERENCE_SHEET_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "e8a0410cfc176ec9d6446b84f89b2c12d0683ec32b927c90353e850c416d909e",
+      "expected_byte_size": 969995,
+      "expected_git_blob": "d11db79f4ceab2bb52139bfb8805f7c8f09b0cfc",
+      "destination_group": "jun_luyuan_character_identity",
+      "authority_purpose": "CURRENT_JUN_LUYUAN_IDENTITY_WARDROBE_HAND_AND_BODY"
+    },
+    {
+      "reference_id": "AST_IMG_000072",
+      "source_type": "ASSET",
+      "entity_id": "CHAR_JUN_LUYUAN",
+      "role": "FACE_3Q_LEFT",
+      "asset_class": "ATOMIC",
+      "authority_class": "AUXILIARY",
+      "approval_status": "APPROVED",
+      "lifecycle": "CURRENT",
+      "resolver_usage": "DEFAULT",
+      "canonical_path": "production/image_library/character_references/jun_luyuan/CHAR_JUN_LUYUAN_FACE_3Q_LEFT_DEFAULT_DEFAULT_V001.png",
+      "expected_sha256": "be9f1f39ae303a61a79746b25a0f9f8153797b179ef85d07a5c2fdf1ce02d01b",
+      "expected_byte_size": 2002451,
+      "expected_git_blob": "821c892ffea59ef0739f86585c6c5f8bd1168264",
+      "destination_group": "jun_luyuan_face_support",
+      "authority_purpose": "JUN_LUYUAN_FACE_3Q_IF_PARTIALLY_VISIBLE"
+    }
+  ],
+  "work_handoff": {
+    "title": "P02 C05 | Contract Minimum Proof | Same D03 Door and Jun Right Wrist",
+    "requirements": [
+      "Use only three exact verified supplied references: approved D03 wooden door for door geometry, plank texture, frame, camera axis and blood-stained but UNWRITTEN state; Jun Luyuan identity sheet and 3Q face support. No other face positive references.",
+      "Scene: third floor of the Ghost House 诡舍, the SAME D03 door; not Monica Manor / Allen Castle. Keep D03 proportions, texture, frame and low-key restrained lighting; do not use P03A blood-lettered scene as positive reference.",
+      "Output exactly ONE portrait PNG 941x1672 at 9:16, cinematic 2.5D semi-realistic coherent with D03 and approved Jun appearance. Face, hair, clothes, anatomy, lip pallor must match reference. Only candidate, stop for PO visual review.",
+      "Hand identity invariant for the sequential two-state proof: the same Jun hand, same wrist/forearm sleeve, identical point on the wood door, same door-front side and interior/exterior topology. Assign Jun RIGHT hand as a working convention for these two candidate scenes (not stated in novel); both must use RIGHT hand and cannot reverse it.",
+      "All trial text is ABSENT at this stage. No floating fonts or narrative overlays. Before C03 and C05 the trial rules have not appeared.",
+      "Do not depict Meng Jun's unapproved frontal identity. Meng may remain outside frame, only anonymous guiding hand if required, never a separate credited identity.",
+      "This is minimum two-state visual proof only, NOT a permit to produce C01–C09 or animated sequence, and not proof that physical hand motion is feasible.",
+      "Work should actually inspect verified reference binaries and delivery_manifest.json; if missing, corrupted or identities disagree, STOP and report rather than invent an approved asset.",
+      "Show SAME D03 wooden door, same close side/three-quarter axis as C03; door opens a NARROW crack only, not a full opening.",
+      "Jun's RIGHT palm remains stuck to the OUTER door wood surface with small blood trace at SAME contact point as C03; SAME sleeve/forearm/hand proportions.",
+      "Exactly ONE decayed hand/forearm emerges from the dark INSIDE through the narrow door gap and firmly GRIPS Jun's RIGHT WRIST. Ensure hand/finger anatomy, no fused limbs.",
+      "Do not reveal ghost face, full body, extra people, or unsupported details inside the door. Horror comes from grip and Jun's alarm; restrain gore.",
+      "PO compares C03 and C05 for same-door/same-hand causal continuity; this is one still state, NOT an animation.",
+      "Deliver ONLY OPENING_P02_C05_DOOR_GAP_WRIST_GRIP_CANDIDATE_01.png, stop and return to Product Owner. No video, registration or canonical publication."
+    ],
+    "exclusions": [
+      "No reuse of P03A controlled reference outside its prior P03B/P04C scope",
+      "No alteration of approved D03 or V005/V018 video",
+      "No emerging trial rule text",
+      "No Meng Jun frontal face, false character approval or identity substitution",
+      "No extra fingers/arms or impossible door geometry",
+      "No action animation or batch generation of C01-C09",
+      "No official Story Shot registration before Product Owner visual approval"
+    ]
+  },
+  "builder_version": "STORY_SHOT_REFERENCE_BUNDLE_BUILDER_V1",
+  "spec_revision": "2026-11-18_C03_C05_MINIMUM_PROOF_C05_V001"
+}
