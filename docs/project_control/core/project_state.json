@@ -3,9 +3,9 @@
   "project_control_baseline": "1.1-draft",
   "project_id": "BLACK-LADY-001",
   "project_name": "诡舍·黑衣夫人",
-  "state_revision": "R426",
-  "last_updated": "2026-11-17",
-  "session_status": "2026-11-17 OPENING P01→P02 D V005 14.250s PO AUDIOVISUAL APPROVED / PRIVATE DRIVE EXACT-BINARY ROUNDTRIP PASS / NEW VIDEO INDEX ID REGISTERED + API READBACK PASS / 6 APPROVED HISTORICAL VIDEOS 5 CURRENT 1 SUPERSEDED / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
+  "state_revision": "R427",
+  "last_updated": "2026-11-18",
+  "session_status": "2026-11-18 P02 POST-D03 CONTRACT C03/C05 CANDIDATE_01 PO VISUAL FAIL / PO-DIRECTED V002 CORRECTION (DOOR-FACING GAZE / DYNAMIC RECOIL / D02 LIGHTING) / V002 BUNDLES ACTIONS 44236746325 + 44236779206 SUCCESS / 4/4 EXACT REFERENCES EACH / ARTIFACTS 14397458368 + 14397347522 / WORK CANDIDATE_02 NOT YET CONFIRMED / 52 STORY SHOTS 248 AUDITS / V018 AND D V005 LOCKED / P0.3 IN PROGRESS",
   "north_star": "在保留原有声小说原音的前提下，建立可重复、可追溯、可审核的AI动画生产流程，并完成《黑衣夫人》稳定可交付的影视化成片。",
   "definition_of_done": "完成《黑衣夫人》目标范围内的正式成片；故事改编、原音频、人物与场景资产、镜头、动画、剪辑和最终QC均具有可追溯版本与明确验收状态。",
   "canonical_repo": "wp5rrp7b2v-droid/black-lady-animatic-v01",
@@ -48,9 +48,9 @@
       "status": "IN PROGRESS / CINEMATIC AUDIO-COMIC ROUTE ACTIVE / NOT YET VALIDATED"
     }
   ],
-  "current_task": "Opening P01→P02 D V005 transition formally PO approved, archived and video-registered; next minimal proof is post-D03 P02 contract dialogue and door-action continuity",
-  "blocker": "No D V005 registration blocker. Full P02 contract action and the continuation after the D03 wooden door have not been visually or aurally approved; P0.3 remains IN PROGRESS. At V005 audio source 67.5s there is an intentional editorial silence leadout, not uninterrupted source audio.",
-  "next_action": "Review approved V005 D03 11.50–14.25s door endpoint against exact next P02 original narration cue; prepare smallest dialogue/action follow-on proof without re-editing locked P01 V018, D01–D03 PNG, or V005. Do not register unapproved additional video or set P0.3 PASS.",
+  "current_task": "P02 post-D03 contract C03/C05 V002: Work to produce exactly two corrected Candidate_02 PNG from verified D02+D03+Jun 4-reference Bundles, then submit both together for PO visual review",
+  "blocker": "C03/C05 Candidate_01 both explicitly PO REJECTED for gaze away from door, near-duplicate unchanged posture/expression when rotten hand grabs wrist, and invented overhead lamp inconsistent with D02; V002 Bundle technical reference 4/4 PASS each but no verified V002 Work visual output or PO approval yet. P0.3 remains IN PROGRESS.",
+  "next_action": "Work execute formal V002 handoff docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_C03_C05_V002_WORK_CORRECTIVE_HANDOFF_2026-11-18.md using GH Actions Run 44236746325 / Artifact 14397458368 and Run 44236779206 / Artifact 14397347522. Independently verify downloaded manifests and originals; generate 941x1672 C03/C05 Candidate_02 only, PO review both, no canonical publication, registration, video assembly or Gate PASS until approved.",
   "approval_governance": {
     "authority": "PRODUCT_OWNER_ONLY",
     "scope": "ALL_GATES_AND_PHASES",
@@ -550,13 +550,13 @@
   },
   "dashboard": {
     "path": "docs/project_control/dashboard/dashboard.html",
-    "version": "V345",
+    "version": "V346",
     "role": "DERIVED_VISUALIZATION",
     "authoritative": false,
-    "status": "DERIVED R426 / P01→P02 D V005 14.25s PO APPROVED & EXACT REGISTERED / 6 HISTORICAL VIDEOS 5 CURRENT / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
-    "derived_from_revision": "R426",
-    "last_updated": "2026-11-17",
-    "current_task": "Continue P02 contract dialogue after approved D V005 D03 ending; no change to P01 V018 or V005"
+    "status": "DERIVED R427 / P02 C03+C05 C01 PO REJECTED / V002 2 OF 2 BUNDLES 4/4 EXACT EACH PASS / WORK AND PO V002 REVIEW PENDING / 52 SHOTS 248 AUDITS / P0.3 IN PROGRESS",
+    "derived_from_revision": "R427",
+    "last_updated": "2026-11-18",
+    "current_task": "Work produce V002 C03/C05 two corrected keyframes from verified GH Actions Bundles and submit both to PO; no new registration"
   },
   "gate_paths": {
     "P0.1": "docs/project_control/gates/P0_1_story_text/",
@@ -573,8 +573,8 @@
     "effective_from": "2026-09-13",
     "last_daily_closeout": "docs/project_control/gates/P0_3_video_pipeline/p0_3_daily_closeout_2026-11-01_bai_references_and_opening_audio.md",
     "last_daily_closeout_status": "2026-11-13 RC-029 MAC FAST-FORWARD SYNCHRONIZED AND SHA-VERIFIED AT f6bc1cf; later GH metadata receipt cloud-only until next routine sync",
-    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P01_P02_D_V005_PO_APPROVAL_EXACT_PUBLICATION_CLOSEOUT_2026-11-17.md",
-    "last_formal_closeout_status": "2026-11-17 PO APPROVED 14.25s D V005; DRIVE EXACT-BINARY and GitHub 6/6 Video Index READBACK PASS; 52 SHOTS 248 AUDITS; P0.3 IN PROGRESS; Mac local sync not evidenced",
+    "last_formal_closeout": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_C03_C05_V002_WORK_CORRECTIVE_HANDOFF_2026-11-18.md",
+    "last_formal_closeout_status": "2026-11-18 R427: C03/C05 candidate 01 PO visual FAIL documented; V002 corrected bundle Actions 2/2 SUCCESS 4/4 refs each, Work Candidate 02 and PO visual review PENDING; no Story Shot/video changes.",
     "last_status_checkpoint": "docs/project_control/gates/P0_3_video_pipeline/LOCAL_SYNC_RECEIPT_RC029_2026-11-13.md"
   },
   "p0_3_motion_validation": {
@@ -6363,5 +6363,68 @@
     "audit_events": 248,
     "p0_3_gate": "IN_PROGRESS",
     "local_mac_sync": "NOT_CHECKED_IN_THIS_SESSION"
+  },
+  "opening_p02_post_d03_contract_v002_2026_11_18": {
+    "work_unit": "OPENING_P02_POST_D03_CONTRACT_V002",
+    "status": "PO_REJECTED_CANDIDATE_01__REDESIGN_V002_BUNDLE_2_OF_2_SUCCESS__WORK_CANDIDATE_02_PENDING__PO_APPROVAL_NOT_GRANTED",
+    "date": "2026-11-18",
+    "prior_candidate_decision": {
+      "C03": "PO_REJECTED",
+      "C05": "PO_REJECTED",
+      "failed_for": [
+        "Jun gaze did not face the door",
+        "C05 repeated C03 posture and expression without recoil despite rotten hand grip",
+        "new ceiling light violated approved D02 third-floor spatial lighting"
+      ]
+    },
+    "corrective_baseline": {
+      "C03": "Jun turns toward door and bloody right palm; side/rear 3Q, no camera gaze",
+      "C05": "Body recoils, arm/wrist tension, left hand defensive, fearful facial reaction, narrow gap interior hand grips same right wrist",
+      "environment": "Use approved D02 third-floor room and light and approved D03 same wooden door, no invented warm overhead lamp",
+      "right_hand": "WORKING_HYPOTHESIS_FOR_TWO_STATE_CONTINUITY"
+    },
+    "reference_bundle_results": [
+      {
+        "shot": "C03",
+        "run_id": 44236746325,
+        "job_id": 134574604265,
+        "artifact_id": 14397458368,
+        "artifact_bytes": 6866228,
+        "reference_verified": "4_OF_4_EXACT_PASS",
+        "conclusion": "SUCCESS",
+        "zip_upload_sha256": "96f4194ade2bfc707e90c496c0f80cbe7296e94787e1e0b32886d15ade1eee86",
+        "target": "OPENING_P02_C03_BLOOD_PALM_CONTACT_CANDIDATE_02.png"
+      },
+      {
+        "shot": "C05",
+        "run_id": 44236779206,
+        "job_id": 134574710824,
+        "artifact_id": 14397347522,
+        "artifact_bytes": 6866522,
+        "reference_verified": "4_OF_4_EXACT_PASS",
+        "conclusion": "SUCCESS",
+        "zip_upload_sha256": "0547585fc0dc94db2e31c215447ce8b7165a436fd533dbc84e3e210a3cf1a56b",
+        "target": "OPENING_P02_C05_DOOR_GAP_WRIST_GRIP_CANDIDATE_02.png"
+      }
+    ],
+    "approved_reference_ids": [
+      "OPENING_P02_D02",
+      "OPENING_P02_D03",
+      "AST_IMG_000057",
+      "AST_IMG_000019"
+    ],
+    "po_visual_approval": "NOT_GRANTED",
+    "work_generation_status": "NOT_CONFIRMED_IN_GITHUB",
+    "story_shots_before_after": 52,
+    "audit_events_before_after": 248,
+    "review_record": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_C03_C05_PO_REJECTION_AND_V002_REDESIGN_2026-11-18.md",
+    "work_handoff": "docs/project_control/gates/P0_3_video_pipeline/OPENING_P02_C03_C05_V002_WORK_CORRECTIVE_HANDOFF_2026-11-18.md",
+    "locked_baselines": [
+      "OPENING_P01_V018",
+      "OPENING_P01_P02_D_V005",
+      "OPENING_P02_D01_D03",
+      "OPENING_P03A_P03B_P04C"
+    ],
+    "gate": "P0.3_IN_PROGRESS"
   }
 }
